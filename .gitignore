@@ -39,3 +39,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Heavy source video (served as .mp4)
+public/image/sitewebvideo.mov
+*.mov
+
