@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
@@ -7,8 +9,17 @@ interface ButtonProps {
   variant?: "primary" | "secondary" | "outline" | "dark";
   size?: "sm" | "md" | "lg";
   className?: string;
-  onClick?: () => void;
+  onClick?: (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void;
   type?: "button" | "submit";
+}
+
+function scrollToHash(hash: string) {
+  const id = hash.replace(/^#/, "");
+  const el = document.getElementById(id);
+  if (!el) return false;
+  el.scrollIntoView({ behavior: "smooth", block: "start" });
+  window.history.pushState(null, "", hash);
+  return true;
 }
 
 export function Button({
@@ -21,7 +32,7 @@ export function Button({
   type = "button",
 }: ButtonProps) {
   const base =
-    "inline-flex items-center justify-center gap-2 font-bold rounded-full transition-all duration-300 hover:scale-[1.03] active:scale-[0.97]";
+    "inline-flex items-center justify-center gap-2 font-bold rounded-full transition-all duration-300 hover:scale-[1.03] active:scale-[0.97] min-h-11 touch-manipulation text-center leading-snug";
 
   const variants = {
     primary: "bg-lime text-ink hover:bg-lime-soft shadow-[0_4px_0_0_#a8c400] hover:shadow-[0_2px_0_0_#a8c400] hover:translate-y-0.5",
@@ -31,15 +42,17 @@ export function Button({
   };
 
   const sizes = {
-    sm: "px-5 py-2 text-sm",
-    md: "px-7 py-3 text-sm",
-    lg: "px-9 py-4 text-base",
+    sm: "px-5 py-2.5 text-sm min-h-11",
+    md: "px-7 py-3 text-sm min-h-11",
+    lg: "px-7 sm:px-9 py-3.5 sm:py-4 text-[0.95rem] sm:text-base min-h-12",
   };
 
   const classes = cn(base, variants[variant], sizes[size], className);
 
   if (href) {
     const external = /^https?:\/\//.test(href);
+    const hashOnly = href.startsWith("#");
+
     if (external) {
       return (
         <a
@@ -53,12 +66,31 @@ export function Button({
         </a>
       );
     }
+
+    if (hashOnly) {
+      return (
+        <a
+          href={href}
+          className={classes}
+          onClick={(e) => {
+            onClick?.(e);
+            if (e.defaultPrevented) return;
+            e.preventDefault();
+            scrollToHash(href);
+          }}
+        >
+          {children}
+        </a>
+      );
+    }
+
     return (
       <Link href={href} className={classes} onClick={onClick}>
         {children}
       </Link>
     );
   }
+
   return (
     <button type={type} onClick={onClick} className={classes}>
       {children}

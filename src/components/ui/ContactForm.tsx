@@ -3,26 +3,23 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/Button";
 import { CTA } from "@/data/copy";
-import {
-  CONTACT_EMAIL,
-  HAS_WHATSAPP,
-  WHATSAPP_MESSAGE,
-  WHATSAPP_NUMBER,
-} from "@/data/site";
+import { CONTACT_EMAIL } from "@/data/site";
 
 interface ContactFormProps {
   className?: string;
   idPrefix?: string;
+  /** Afficher le délai sous le formulaire */
+  showMeta?: boolean;
 }
 
-const whatsappHref = HAS_WHATSAPP
-  ? `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`
-  : "";
-
 const fieldClass =
-  "w-full px-4 py-3 rounded-2xl border-2 border-ink bg-bg text-sm font-medium focus:outline-none focus:ring-2 focus:ring-pink";
+  "w-full px-4 py-3.5 rounded-2xl border-2 border-ink bg-bg text-base font-medium focus:outline-none focus:ring-2 focus:ring-pink";
 
-export function ContactForm({ className, idPrefix = "" }: ContactFormProps) {
+export function ContactForm({
+  className,
+  idPrefix = "",
+  showMeta = true,
+}: ContactFormProps) {
   const [submitted, setSubmitted] = useState(false);
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -34,7 +31,7 @@ export function ContactForm({ className, idPrefix = "" }: ContactFormProps) {
     const metier = String(data.get("metier") ?? "").trim();
     const needs = String(data.get("needs") ?? "").trim();
 
-    const subject = encodeURIComponent(`${CTA.primary} — ${name}`);
+    const subject = encodeURIComponent(`${CTA.primary} : ${name}`);
     const body = encodeURIComponent(
       `Prénom : ${name}\nContact : ${contact}\nMétier / ville : ${metier}\n\nBesoin :\n${needs}`
     );
@@ -50,18 +47,8 @@ export function ContactForm({ className, idPrefix = "" }: ContactFormProps) {
       >
         <p className="text-2xl font-extrabold mb-2">Merci</p>
         <p className="font-medium opacity-80 leading-relaxed">
-          Envoie le message depuis ton appli mail — je te réponds sous 24h.
+          Envoie le message depuis ton appli mail. Je te réponds sous 24h.
         </p>
-        {HAS_WHATSAPP && (
-          <a
-            href={whatsappHref}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block mt-5 text-sm font-extrabold underline underline-offset-4"
-          >
-            Ou m&apos;écrire sur WhatsApp →
-          </a>
-        )}
       </div>
     );
   }
@@ -137,21 +124,17 @@ export function ContactForm({ className, idPrefix = "" }: ContactFormProps) {
           />
         </div>
 
-        <Button type="submit" size="lg" className="w-full sm:w-auto sm:min-w-[220px]" variant="secondary">
+        <Button
+          type="submit"
+          size="lg"
+          className="w-full sm:w-auto sm:min-w-[220px]"
+          variant="secondary"
+        >
           {CTA.primary}
         </Button>
-        {HAS_WHATSAPP && (
+        {showMeta && (
           <p className="text-xs text-muted font-medium">
-            <a
-              href={whatsappHref}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-bold text-ink hover:text-pink transition-colors"
-            >
-              WhatsApp
-            </a>
-            {" · "}
-            Réponse sous 24h
+            Réponse sous 24h · Sans engagement
           </p>
         )}
       </div>

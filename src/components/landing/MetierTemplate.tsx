@@ -30,7 +30,7 @@ export function MetierTemplate({ data }: { data: MetierPage }) {
 
           <div className="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
             <div>
-              <h1 className="text-3xl md:text-4xl lg:text-[2.75rem] font-extrabold leading-[1.05] tracking-tight">
+              <h1 className="text-[1.65rem] sm:text-3xl md:text-4xl lg:text-[2.5rem] font-extrabold leading-[1.12] tracking-tight">
                 {data.h1Before}{" "}
                 <span className="mark mark-pink">{data.h1Highlight}</span>
               </h1>
@@ -89,7 +89,7 @@ export function MetierTemplate({ data }: { data: MetierPage }) {
         </div>
       </section>
 
-      <section className="py-16 md:py-20 px-6 bg-bg" id="forfaits">
+      <section className="scroll-mt-28 py-16 md:py-20 px-6 bg-bg" id="forfaits">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-10">
             <p className="text-sm font-bold text-pink mb-3 tracking-wide">
@@ -168,7 +168,7 @@ export function MetierTemplate({ data }: { data: MetierPage }) {
         <section className="py-16 md:py-20 px-6 bg-chunk-lime">
           <div className="max-w-5xl mx-auto">
             <SectionHead align="left" stroke="pink" highlight="concret" className="mb-8">
-              {`Exemple concret — ${study.title}`}
+              {`Exemple concret : ${study.title}`}
             </SectionHead>
             <article className="card overflow-hidden bg-surface grid grid-cols-1 lg:grid-cols-5">
               <div className="lg:col-span-2 relative aspect-[16/10] lg:aspect-auto lg:min-h-[260px] photo-frame">

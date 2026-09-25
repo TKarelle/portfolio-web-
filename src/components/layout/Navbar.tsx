@@ -63,8 +63,8 @@ export function Navbar() {
       />
 
       <header
-        className="fixed top-0 left-0 z-50 px-4 pt-4"
-        style={{ right: scrollbarW }}
+        className="fixed top-0 left-0 z-50 px-4 pt-[max(1rem,env(safe-area-inset-top))]"
+        style={scrollbarW ? { right: scrollbarW } : undefined}
       >
         <nav
           aria-label="Navigation principale"
@@ -107,7 +107,7 @@ export function Navbar() {
 
             <button
               type="button"
-              className="md:hidden relative w-10 h-10 shrink-0 rounded-full bg-white/80 flex items-center justify-center border border-ink/10"
+              className="md:hidden relative w-11 h-11 shrink-0 rounded-full bg-white/80 flex items-center justify-center border border-ink/10 touch-manipulation"
               onClick={() => setOpen((v) => !v)}
               aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}
               aria-expanded={open}
@@ -143,6 +143,8 @@ export function Navbar() {
               open ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
             )}
             style={{ transitionDuration: "350ms" }}
+            inert={open ? undefined : true}
+            aria-hidden={!open}
           >
             <div className="min-h-0 overflow-hidden">
               <div className="border-t border-ink/10 px-3 pb-3 pt-2">
@@ -151,8 +153,9 @@ export function Navbar() {
                     <li key={l.href}>
                       <Link
                         href={l.href}
+                        tabIndex={open ? undefined : -1}
                         onClick={() => setOpen(false)}
-                        className="block px-4 py-3 text-sm font-semibold text-muted hover:text-ink rounded-xl hover:bg-white/70 transition-colors"
+                        className="block px-4 py-3.5 min-h-11 text-base font-semibold text-muted hover:text-ink rounded-xl hover:bg-white/70 transition-colors touch-manipulation"
                       >
                         {l.label}
                       </Link>

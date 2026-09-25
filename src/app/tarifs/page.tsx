@@ -7,7 +7,7 @@ import { ValueBanner } from "@/components/ui/ValueBanner";
 import { buildPageMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Tarifs sites vitrines — dès 500€",
+  title: "Tarifs sites vitrines : dès 500€",
   description:
     "Forfaits clairs pour ton site vitrine : 500 € pour démarrer, 800 € pour un site complet, devis sur mesure. Livraison en 7 à 14 jours.",
   path: "/tarifs",
@@ -25,7 +25,7 @@ export default function TarifsPage() {
         highlight="prêt à convertir"
         description="Design pensé pour Google et le mobile. Tu valides tout avant la mise en ligne."
         image="/image/independant.jpg"
-        imageAlt="Indépendant au travail — site vitrine dès 500 €"
+        imageAlt="Indépendant au travail : site vitrine dès 500 €"
         badge="Dès 500 €"
         secondaryHref="#forfaits"
         secondaryLabel="Voir les forfaits"

@@ -21,7 +21,7 @@ export const landings: LandingPageData[] = [
     heroTitle: "Site vitrine pour",
     heroHighlight: "artisan",
     intro:
-      "Tu es artisan et tes clients te cherchent sur Google avant de t'appeler. Un site vitrine pro, c'est ta carte de visite 24h/24 — sans passer par une agence.",
+      "Tu es artisan et tes clients te cherchent sur Google avant de t'appeler. Un site vitrine pro, c'est ta carte de visite 24h/24 : sans passer par une agence.",
     problems: [
       "Invisible sur Google pendant que tes concurrents sont en ligne",
       "Dépendance au bouche-à-oreille seul",
@@ -34,11 +34,11 @@ export const landings: LandingPageData[] = [
     ],
     benefits: [
       { title: "Dès 500 €", text: "Forfait Pour démarrer : page claire + contact" },
-      { title: "Livré vite", text: "Objectif 14 jours* — pas 3 mois d'attente" },
+      { title: "Livré vite", text: "Objectif 14 jours* : pas 3 mois d'attente" },
       { title: "1 interlocutrice", text: "Karelle, directement. Pas de chef de projet." },
     ],
     image: "/image/artisan.jpg",
-    imageAlt: "Artisan plombier devant son camion — exemple client site vitrine",
+    imageAlt: "Artisan plombier devant son camion : exemple client site vitrine",
   },
   {
     slug: "site-vitrine-commercant",
@@ -48,7 +48,7 @@ export const landings: LandingPageData[] = [
     heroTitle: "Site vitrine pour",
     heroHighlight: "commerçant",
     intro:
-      "Boutique, restaurant, salon de coiffure — tes clients veulent voir tes horaires, ton menu ou tes prestations avant de passer. Un bon site, ça attire des clients.",
+      "Boutique, restaurant, salon de coiffure : tes clients veulent voir tes horaires, ton menu ou tes prestations avant de passer. Un bon site, ça attire des clients.",
     problems: [
       "Page Facebook pas assez pro pour rassurer",
       "Horaires et infos introuvables en ligne",
@@ -56,7 +56,7 @@ export const landings: LandingPageData[] = [
     ],
     solutions: [
       "Site lisible sur téléphone avec photos de ton établissement",
-      "Horaires, carte, galerie — tout au même endroit",
+      "Horaires, carte, galerie : tout au même endroit",
       "Être trouvé sur Google dans ta ville",
     ],
     benefits: [
@@ -65,7 +65,7 @@ export const landings: LandingPageData[] = [
       { title: "Sans stress", text: "Je m'occupe de tout le technique" },
     ],
     image: "/image/commerce.jpg",
-    imageAlt: "Commerçant dans sa boutique — site vitrine professionnel",
+    imageAlt: "Commerçant dans sa boutique : site vitrine professionnel",
   },
   {
     slug: "site-vitrine-independant",
@@ -75,7 +75,7 @@ export const landings: LandingPageData[] = [
     heroTitle: "Site vitrine pour",
     heroHighlight: "indépendant",
     intro:
-      "Coach, photographe, consultant, thérapeute — tu as besoin d'un site qui présente ton activité clairement et donne envie de te contacter.",
+      "Coach, photographe, consultant, thérapeute : tu as besoin d'un site qui présente ton activité clairement et donne envie de te contacter.",
     problems: [
       "Pas de site = moins crédible face aux concurrents",
       "LinkedIn ou Instagram ne suffisent pas pour convertir",

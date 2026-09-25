@@ -1,11 +1,10 @@
 import { faqItems } from "@/data/faq";
 import { pricingPlans } from "@/data/pricing";
 import {
+  BRAND_NAME,
   CONTACT_EMAIL,
-  CONTACT_PHONE,
   FOUNDER_NAME,
   FOUNDER_PHOTO,
-  WHATSAPP_NUMBER,
 } from "@/data/site";
 import { getBaseUrl } from "@/lib/seo";
 
@@ -20,7 +19,6 @@ function JsonLd({ data }: { data: Record<string, unknown> }) {
 
 export function OrganizationJsonLd() {
   const base = getBaseUrl();
-  const hasWhatsApp = Boolean(WHATSAPP_NUMBER && WHATSAPP_NUMBER.length > 8);
 
   return (
     <JsonLd
@@ -30,17 +28,15 @@ export function OrganizationJsonLd() {
           {
             "@type": "ProfessionalService",
             "@id": `${base}/#business`,
-            name: "Karelle — Création de sites web",
+            name: `${BRAND_NAME} : Création de sites web`,
             url: base,
             image: `${base}${FOUNDER_PHOTO}`,
             email: CONTACT_EMAIL,
-            ...(CONTACT_PHONE ? { telephone: CONTACT_PHONE } : {}),
             priceRange: "500€-800€+",
             description:
               "Développeuse web indépendante spécialisée dans la création de sites vitrines abordables pour artisans et indépendants (plombiers, boulangers, coiffeurs…). Dès 500 €.",
             areaServed: { "@type": "Country", name: "France" },
             founder: { "@id": `${base}/#person` },
-            sameAs: hasWhatsApp ? [`https://wa.me/${WHATSAPP_NUMBER}`] : [],
           },
           {
             "@type": "Person",
@@ -91,10 +87,10 @@ export function WebSiteJsonLd() {
       data={{
         "@context": "https://schema.org",
         "@type": "WebSite",
-        name: "Karelle",
+        name: BRAND_NAME,
         url: base,
         description:
-          "Ton premier site web, sans compétences techniques. Sites vitrines dès 500 €.",
+          "Ton site web, sans compétences techniques. Sites vitrines dès 500 €.",
         inLanguage: "fr-FR",
       }}
     />
@@ -131,10 +127,10 @@ export function ArticleJsonLd({
         },
         publisher: {
           "@type": "Organization",
-          name: "Karelle",
+          name: BRAND_NAME,
           url: base,
         },
-        image,
+        image: image.startsWith("http") ? image : `${base}${image}`,
         mainEntityOfPage: `${base}/blog/${slug}`,
       }}
     />
@@ -149,23 +145,27 @@ export function OffersJsonLd() {
       data={{
         "@context": "https://schema.org",
         "@type": "ItemList",
-        itemListElement: pricingPlans.map((plan, i) => ({
-          "@type": "ListItem",
-          position: i + 1,
-          item: {
-            "@type": "Service",
-            name: `Forfait ${plan.name}`,
-            description: plan.description,
-            provider: { "@type": "Person", name: "Karelle" },
-            offers: {
-              "@type": "Offer",
-              price: plan.price === "Devis" ? "0" : plan.price,
-              priceCurrency: "EUR",
-              url: `${base}/tarifs`,
-              availability: "https://schema.org/InStock",
+        itemListElement: pricingPlans.map((plan, i) => {
+          const isQuote = plan.price === "Devis";
+          return {
+            "@type": "ListItem",
+            position: i + 1,
+            item: {
+              "@type": "Service",
+              name: `Forfait ${plan.name}`,
+              description: plan.description,
+              provider: { "@type": "Person", name: FOUNDER_NAME },
+              offers: {
+                "@type": "Offer",
+                ...(isQuote
+                  ? { priceSpecification: { "@type": "PriceSpecification", priceCurrency: "EUR" } }
+                  : { price: plan.price, priceCurrency: "EUR" }),
+                url: `${base}/tarifs`,
+                availability: "https://schema.org/InStock",
+              },
             },
-          },
-        })),
+          };
+        }),
       }}
     />
   );

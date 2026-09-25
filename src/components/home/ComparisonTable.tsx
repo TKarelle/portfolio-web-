@@ -47,7 +47,7 @@ export function ComparisonTable() {
             ))}
           </div>
 
-          {/* Karelle */}
+          {/* Kopio */}
           <div className="w-[24%] sm:w-[28%] md:w-[30%] shrink-0 relative z-10 -my-2 sm:-my-4 md:-my-5 flex flex-col rounded-xl sm:rounded-[1.5rem] overflow-hidden border-2 sm:border-[3px] border-ink shadow-[3px_3px_0_#ff1f71] sm:shadow-[6px_6px_0_#ff1f71] md:shadow-[8px_8px_0_#ff1f71]">
             <div className="bg-pink h-12 sm:h-14 md:h-16 flex items-center justify-center px-1">
               <p className="text-sm sm:text-base md:text-lg font-extrabold text-white leading-none">
@@ -62,7 +62,7 @@ export function ComparisonTable() {
                 >
                   <CheckIcon />
                   <span className="text-xs sm:text-sm md:text-base font-bold text-white leading-tight">
-                    {row.karelle}
+                    {row.brand}
                   </span>
                 </li>
               ))}

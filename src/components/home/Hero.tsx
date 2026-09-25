@@ -57,7 +57,7 @@ export function Hero() {
   const { headline, highlight, body } = active.persona;
 
   return (
-    <section className="relative min-h-screen overflow-hidden flex flex-col pt-24 pb-8 md:pb-10 px-6 bg-bg">
+    <section className="relative min-h-screen min-h-dvh overflow-hidden flex flex-col pt-24 pb-[max(2rem,env(safe-area-inset-bottom))] md:pb-10 px-5 sm:px-6 bg-bg">
       <div
         className="absolute inset-0 z-0 pointer-events-none"
         aria-hidden="true"

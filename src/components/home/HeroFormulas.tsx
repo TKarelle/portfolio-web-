@@ -34,15 +34,15 @@ export function HeroFormulas({ plans, activeId, onChange }: HeroFormulasProps) {
 
   return (
     <nav aria-label="Choisir selon ton besoin" className="w-full">
-      {/* Contenu texte caché pour le SEO — crawlable, hors UI */}
+      {/* Contenu texte caché pour le SEO : crawlable, hors UI */}
       <div className="sr-only">
         {plans.map((plan) => (
           <article key={plan.id} id={`formule-${plan.id}`}>
             <h2>{plan.persona.headline}</h2>
             <p>{plan.persona.body}</p>
             <p>
-              {plan.name} — {plan.period === "€" ? `${plan.price} €` : plan.price}{" "}
-              — {plan.delivery}
+              {plan.name} : {plan.period === "€" ? `${plan.price} €` : plan.price},{" "}
+              {plan.delivery}
             </p>
             <ul>
               {plan.features.map((f) => (
@@ -82,14 +82,15 @@ export function HeroFormulas({ plans, activeId, onChange }: HeroFormulasProps) {
                 select(next.id);
                 document.getElementById(`${baseId}-tab-${next.id}`)?.focus();
               }}
-              className={`text-center lg:text-left px-1.5 py-3 sm:px-3 sm:py-4 md:px-5 border-r-2 last:border-r-0 border-ink/10 transition-opacity ${
+              className={`text-center lg:text-left px-1.5 py-3.5 sm:px-3 sm:py-4 md:px-5 min-h-12 border-r-2 last:border-r-0 border-ink/10 transition-opacity touch-manipulation ${
                 isActive
                   ? "opacity-100 border-b-2 border-b-pink lg:border-b-transparent"
                   : "opacity-40 hover:opacity-70 border-b-2 border-b-transparent"
               }`}
             >
-              <span className="block text-[10px] sm:text-xs md:text-sm font-extrabold uppercase tracking-[0.08em] sm:tracking-[0.12em] text-ink leading-snug min-h-[2.6em] sm:min-h-[2.8em] md:min-h-[3em]">
-                {plan.persona.label}
+              <span className="block text-[11px] sm:text-xs md:text-sm font-extrabold uppercase tracking-[0.06em] sm:tracking-[0.12em] text-ink leading-snug min-h-[2.4em] sm:min-h-[2.8em] md:min-h-[3em] px-0.5">
+                <span className="sm:hidden">{plan.persona.labelShort}</span>
+                <span className="hidden sm:inline">{plan.persona.label}</span>
               </span>
             </button>
           );

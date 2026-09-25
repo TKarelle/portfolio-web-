@@ -44,7 +44,7 @@ export function Pricing() {
   }, []);
 
   return (
-    <section className="py-14 md:py-20 px-6 bg-bg" id="forfaits">
+    <section className="scroll-mt-28 py-14 md:py-20 px-6 bg-bg" id="forfaits">
       <div className="max-w-5xl mx-auto">
         <div className="reveal text-center mb-10 md:mb-12">
           <SectionHead stroke="pink" highlight="forfait">
@@ -147,7 +147,7 @@ export function Pricing() {
                   </ul>
 
                   <Button
-                    href="#contact"
+                    href="/contact"
                     variant={plan.highlight ? "primary" : "outline"}
                     className={`w-full ${plan.highlight ? "!text-ink" : ""}`}
                   >

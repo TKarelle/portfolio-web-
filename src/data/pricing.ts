@@ -15,13 +15,14 @@ export const pricingPlans = [
       "Être trouvé sur Google près de chez toi",
       "Mise en ligne incluse",
     ],
-    /** Persona hero (filtre type Labo) — orienté besoin client */
+    /** Persona hero (filtre type Labo) : orienté besoin client */
     persona: {
       label: "Ceux qui démarrent",
+      labelShort: "Démarrer",
       teaser: "Pas encore de site. Envie d’exister en ligne sans te perdre dans la technique.",
       headline: "Ton premier site, sans compétences techniques.",
       highlight: "sans compétences",
-      body: "Artisans et indépendants — un site clair pour ton activité. On s’occupe du reste.",
+      body: "Artisans et indépendants : un site clair pour ton activité. Je m’occupe du reste.",
       cta: "Voir ce forfait",
     },
   },
@@ -42,7 +43,8 @@ export const pricingPlans = [
     ],
     persona: {
       label: "Ceux qui modernisent",
-      teaser: "Ce que les gens voient en ligne ne montre plus ce que tu vaux — il est temps de moderniser.",
+      labelShort: "Moderniser",
+      teaser: "Ce que les gens voient en ligne ne montre plus ce que tu vaux. Il est temps de moderniser.",
       headline: "Un site à la hauteur de ton activité.",
       highlight: "à la hauteur",
       body: "Tu as évolué. Une refonte claire et actuelle pour que ton image en ligne inspire enfin confiance.",
@@ -55,7 +57,7 @@ export const pricingPlans = [
     price: "Devis",
     period: "",
     highlight: false,
-    description: "Boutique, réservation, outil sur mesure — on construit ce qu’il te faut.",
+    description: "Boutique, réservation, outil sur mesure : je construis ce qu’il te faut.",
     delivery: "Selon le projet",
     features: [
       "Boutique en ligne",
@@ -67,6 +69,7 @@ export const pricingPlans = [
     ],
     persona: {
       label: "Ceux qui veulent du précis",
+      labelShort: "Sur mesure",
       teaser: "Une vitrine ne suffit plus : boutique, réservation, outil qui travaille pour toi.",
       headline: "Un site pensé pour ton besoin précis.",
       highlight: "besoin précis",
@@ -79,53 +82,53 @@ export const pricingPlans = [
 export type PricingPlan = (typeof pricingPlans)[number];
 
 
-/** Comparatif Karelle vs Wix/WordPress vs agence — textes courts pour mobile */
+/** Comparatif Kopio vs Wix/WordPress vs agence : textes courts pour mobile */
 export const offerComparison = [
   {
     label: "Prix",
-    karelle: "Dès 500 €",
+    brand: "Dès 500 €",
     diy: "Abonnement",
     agency: "2 000 €+",
   },
   {
     label: "Délai",
-    karelle: "7–14 jours",
+    brand: "7–14 jours",
     diy: "Toi-même",
     agency: "1–3 mois",
   },
   {
     label: "Technique",
-    karelle: "Aucune",
+    brand: "Aucune",
     diy: "À apprendre",
     agency: "Aucune",
   },
   {
     label: "Design & mobile",
-    karelle: "Inclus",
+    brand: "Inclus",
     diy: "Templates",
     agency: "Inclus",
   },
   {
     label: "Google",
-    karelle: "Inclus*",
+    brand: "Inclus*",
     diy: "À faire",
     agency: "En option",
   },
   {
     label: "Contact",
-    karelle: "1 personne",
+    brand: "1 personne",
     diy: "Chat / forum",
     agency: "Équipe",
   },
   {
     label: "Propriété",
-    karelle: "À toi",
+    brand: "À toi",
     diy: "Plateforme",
     agency: "À toi",
   },
   {
     label: "Engagement",
-    karelle: "Aucun",
+    brand: "Aucun",
     diy: "Mensuel",
     agency: "Contrat",
   },

@@ -73,7 +73,7 @@ function TestimonialBody({
 
 export function Testimonials() {
   const [active, setActive] = useState(0);
-  const displayed = testimonials.slice(0, 4);
+  const displayed = testimonials;
   const len = displayed.length;
   const current = displayed[active];
 
@@ -157,7 +157,7 @@ export function Testimonials() {
                       : "bg-surface w-2.5 hover:bg-pink/30"
                   }`}
                   style={{ transition }}
-                  aria-label={`Témoignage ${i + 1} — ${t.fullName}`}
+                  aria-label={`Témoignage ${i + 1} : ${t.fullName}`}
                   aria-current={i === active ? "true" : undefined}
                 />
               ))}

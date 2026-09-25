@@ -1,8 +1,7 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
 import { OrganizationJsonLd, WebSiteJsonLd } from "@/components/seo/JsonLd";
 import { GoogleAnalytics } from "@/components/seo/GoogleAnalytics";
 import { SITE_URL, BRAND_NAME } from "@/data/site";
@@ -16,6 +15,12 @@ const jakarta = Plus_Jakarta_Sans({
   display: "swap",
 });
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+  themeColor: "#f4f2ff",
+};
 const defaultMeta = buildPageMetadata({
   title: "Sites web pour artisans et indépendants dès 500€",
   description:
@@ -27,8 +32,8 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
     default:
-      "Sites web pour artisans et indépendants dès 500€ | Karelle",
-    template: "%s | Karelle — Sites web pour indépendants",
+      "Sites web pour artisans et indépendants dès 500€ | Kopio",
+    template: "%s | Kopio : Sites web pour indépendants",
   },
   description: defaultMeta.description,
   openGraph: {
@@ -54,10 +59,14 @@ export default function RootLayout({
         <OrganizationJsonLd />
         <WebSiteJsonLd />
         <GoogleAnalytics />
+        <a href="#contenu" className="skip-link">
+          Aller au contenu
+        </a>
         <Navbar />
-        <main className="flex-1">{children}</main>
+        <main id="contenu" className="flex-1">
+          {children}
+        </main>
         <Footer />
-        <WhatsAppButton />
       </body>
     </html>
   );

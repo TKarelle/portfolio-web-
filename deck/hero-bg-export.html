@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <title>Hero BG</title>
+  <style>
+    :root {
+      --pink: #ff1f71;
+      --violet: #7c3aed;
+      --lime: #d4ff00;
+      --ink: #111111;
+      --surface: #ffffff;
+      --bg: #f4f2ff;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body {
+      width: 1920px;
+      height: 1080px;
+      overflow: hidden;
+      background: var(--bg);
+    }
+    .bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 55% at 5% 30%, rgba(255, 31, 113, 0.18) 0%, transparent 55%),
+        radial-gradient(ellipse 55% 45% at 95% 15%, rgba(124, 58, 237, 0.14) 0%, transparent 50%),
+        radial-gradient(ellipse 45% 35% at 60% 90%, rgba(212, 255, 0, 0.12) 0%, transparent 45%),
+        var(--bg);
+    }
+
+    .hero-orbit {
+      position: absolute;
+      right: 14%;
+      top: 50%;
+      width: 480px;
+      height: 480px;
+      transform: translateY(-50%);
+      pointer-events: none;
+    }
+    .hero-orbit__core {
+      position: absolute;
+      inset: 22%;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 35% 30%, rgba(255, 255, 255, 0.55) 0%, transparent 45%),
+        radial-gradient(circle at 50% 50%, rgba(212, 255, 0, 0.35) 0%, rgba(255, 31, 113, 0.2) 45%, rgba(124, 58, 237, 0.15) 70%, transparent 75%);
+    }
+    .hero-orbit__ring {
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      border: 2px solid rgba(17, 17, 17, 0.08);
+    }
+    .hero-orbit__ring--a {
+      inset: 4%;
+      border-color: transparent;
+      background:
+        conic-gradient(
+          from 0deg,
+          transparent 0deg,
+          rgba(255, 31, 113, 0.55) 40deg,
+          transparent 90deg,
+          rgba(212, 255, 0, 0.5) 140deg,
+          transparent 200deg,
+          rgba(124, 58, 237, 0.45) 260deg,
+          transparent 320deg
+        );
+      -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 2px));
+      mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 2px));
+      transform: rotate(42deg);
+    }
+    .hero-orbit__ring--b {
+      inset: 14%;
+      border: 2.5px solid var(--ink);
+      box-shadow: 5px 5px 0 rgba(255, 31, 113, 0.35);
+      transform: rotate(-18deg);
+    }
+    .hero-orbit__ring--c {
+      inset: 28%;
+      border: 2px dashed rgba(17, 17, 17, 0.18);
+      transform: rotate(12deg);
+    }
+    .hero-orbit__track { position: absolute; inset: 0; }
+    .hero-orbit__chip {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 2.75rem;
+      height: 2.75rem;
+      margin: -1.375rem;
+      border: 2.5px solid var(--ink);
+      border-radius: 0.85rem;
+      background: var(--surface);
+      box-shadow: 4px 4px 0 var(--lime);
+    }
+    .hero-orbit__chip--2 {
+      box-shadow: 4px 4px 0 var(--pink);
+      width: 2.25rem;
+      height: 2.25rem;
+      margin: -1.125rem;
+      border-radius: 999px;
+    }
+    .hero-orbit__chip--3 {
+      box-shadow: 4px 4px 0 var(--violet);
+      width: 2rem;
+      height: 2rem;
+      margin: -1rem;
+    }
+
+    body.plain .hero-orbit { display: none; }
+  </style>
+</head>
+<body>
+  <div class="bg"></div>
+  <div class="hero-orbit" aria-hidden="true">
+    <div class="hero-orbit__core"></div>
+    <div class="hero-orbit__ring hero-orbit__ring--a"></div>
+    <div class="hero-orbit__ring hero-orbit__ring--b"></div>
+    <div class="hero-orbit__ring hero-orbit__ring--c"></div>
+    <div class="hero-orbit__track">
+      <div class="hero-orbit__chip" style="transform: rotate(0deg) translate(8rem) rotate(0deg)"></div>
+      <div class="hero-orbit__chip hero-orbit__chip--2" style="transform: rotate(120deg) translate(8rem) rotate(-120deg)"></div>
+      <div class="hero-orbit__chip hero-orbit__chip--3" style="transform: rotate(240deg) translate(8rem) rotate(-240deg)"></div>
+    </div>
+    <div class="hero-orbit__track">
+      <div class="hero-orbit__chip hero-orbit__chip--2" style="transform: rotate(60deg) translate(5.75rem) rotate(-60deg); opacity:0.85"></div>
+      <div class="hero-orbit__chip" style="transform: rotate(200deg) translate(5.75rem) rotate(-200deg); opacity:0.85; box-shadow: 4px 4px 0 var(--violet)"></div>
+    </div>
+  </div>
+</body>
+</html>

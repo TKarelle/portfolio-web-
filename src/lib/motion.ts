@@ -1,6 +1,6 @@
 import type { CSSProperties } from "react";
 
-/** Rythme d’animation unique — cards « De l’idée… » */
+/** Rythme d’animation unique : cards « De l’idée… » */
 export const MOTION = {
   duration: 1.4, // seconds
   stagger: 0.38, // seconds between items

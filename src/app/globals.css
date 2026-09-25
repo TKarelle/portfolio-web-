@@ -60,6 +60,50 @@
 html {
   scroll-behavior: smooth;
   scrollbar-gutter: stable;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+@media (max-width: 767px) {
+  html {
+    /* Évite un décalage bizarre sur Safari iOS */
+    scrollbar-gutter: auto;
+  }
+}
+
+/* Focus clavier visible (souris : pas d’anneau parasite) */
+:focus {
+  outline: none;
+}
+:focus-visible {
+  outline: 3px solid var(--pink);
+  outline-offset: 3px;
+}
+a:focus-visible,
+button:focus-visible,
+[role="button"]:focus-visible,
+summary:focus-visible {
+  border-radius: 9999px;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: 0;
+  z-index: 100;
+  transform: translateY(-120%);
+  padding: 0.75rem 1.25rem;
+  border-radius: 9999px;
+  background: var(--ink);
+  color: var(--surface);
+  font-weight: 800;
+  font-size: 0.875rem;
+  transition: transform 0.2s ease;
+}
+.skip-link:focus,
+.skip-link:focus-visible {
+  transform: translateY(1rem);
+  outline-offset: 4px;
 }
 
 body {
@@ -67,6 +111,24 @@ body {
   color: var(--ink);
   font-family: var(--font-jakarta), system-ui, sans-serif;
   overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent;
+  overscroll-behavior-x: none;
+}
+
+/* Cibles tactiles + pas de délai au tap (Safari / Chrome mobile) */
+a,
+button,
+[role="button"],
+[role="tab"],
+summary {
+  touch-action: manipulation;
+}
+
+/* iOS Safari zoome si font < 16px dans les champs */
+input,
+textarea,
+select {
+  font-size: 16px;
 }
 
 ::selection {
@@ -277,24 +339,32 @@ body {
 /* ── Hero copy: fixed 3-line slots (no layout shift on filter change) ── */
 .hero-title {
   --hero-title-lh: 1.08;
-  font-size: clamp(2.2rem, 5.5vw, 3.75rem);
+  font-size: clamp(1.85rem, 7.2vw, 3.75rem);
   font-weight: 800;
   line-height: var(--hero-title-lh);
   letter-spacing: -0.025em;
   color: var(--ink);
   max-width: 11.5em;
   min-height: calc(var(--hero-title-lh) * 3em);
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .hero-lede {
   --hero-lede-lh: 1.625;
-  font-size: 1.125rem;
+  font-size: 1.0625rem;
   font-weight: 500;
   line-height: var(--hero-lede-lh);
   letter-spacing: -0.025em;
   color: var(--muted);
   max-width: 28rem;
   min-height: calc(var(--hero-lede-lh) * 3em);
+}
+
+@media (min-width: 640px) {
+  .hero-lede {
+    font-size: 1.125rem;
+  }
 }
 
 @media (min-width: 768px) {

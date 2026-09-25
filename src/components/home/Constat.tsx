@@ -11,7 +11,7 @@ const gains = [
   {
     n: "01",
     t: "Tes clients arrivent au bon endroit",
-    d: "Que tu partes de zéro, que tu changes de site, ou que tu ajoutes une fonctionnalité précise — le résultat doit être le même : les bonnes personnes tombent sur toi, pas sur un concurrent.",
+    d: "Que tu partes de zéro, que tu changes de site, ou que tu ajoutes une fonctionnalité précise : le résultat doit être le même : les bonnes personnes tombent sur toi, pas sur un concurrent.",
   },
   {
     n: "02",
@@ -21,7 +21,7 @@ const gains = [
   {
     n: "03",
     t: "La confiance s’installe avant même le premier échange",
-    d: "Personne n’aime contacter un inconnu. Avec de vraies preuves de ton travail sous les yeux, tes clients arrivent déjà convaincus — que ce soit pour un devis, une réservation ou un achat.",
+    d: "Personne n’aime contacter un inconnu. Avec de vraies preuves de ton travail sous les yeux, tes clients arrivent déjà convaincus : que ce soit pour un devis, une réservation ou un achat.",
   },
   {
     n: "04",
@@ -29,6 +29,57 @@ const gains = [
     d: "Appeler, réserver, commander : chaque étape doit être simple, sinon le client hésite et part ailleurs. Peu importe ce que ton site doit faire, cette étape ne doit jamais être un obstacle.",
   },
 ];
+
+const demos = [
+  {
+    id: "sophie",
+    src: "/image/sitewebvideo.mp4",
+    poster: "/image/sitewebvideo-poster.jpg",
+    label: "Sophie Bluel : architecte d’intérieur",
+    title: "Sophie Bluel",
+    category: "Architecte d’intérieur",
+  },
+  {
+    id: "pulse",
+    src: "/image/videopulse.mp4",
+    poster: "/image/videopulse-poster.jpg",
+    label: "PULSE : consultante en bien-être",
+    title: "PULSE",
+    category: "Consultante en bien-être",
+  },
+] as const;
+
+function DemoVideos() {
+  return (
+    <div className="mb-6 grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+      {demos.map((demo) => (
+        <figure
+          key={demo.id}
+          className="overflow-hidden rounded-[1.1rem] border-2 border-ink bg-surface shadow-[4px_4px_0_0_#ffffff]"
+        >
+          <div className="relative aspect-[16/10] w-full overflow-hidden bg-ink/5">
+            <AutoPlayVideo
+              src={demo.src}
+              poster={demo.poster}
+              aria-label={demo.label}
+              className="h-full w-full object-cover object-top"
+            />
+          </div>
+          <figcaption className="px-3.5 py-3 border-t-2 border-ink flex items-center justify-between gap-2">
+            <div className="min-w-0">
+              <p className="text-[10px] font-bold uppercase tracking-[0.12em] text-muted mb-0.5">
+                {demo.category}
+              </p>
+              <p className="text-sm font-extrabold text-ink leading-snug truncate">
+                {demo.title}
+              </p>
+            </div>
+          </figcaption>
+        </figure>
+      ))}
+    </div>
+  );
+}
 
 function GainCards() {
   const listRef = useRef<HTMLOListElement>(null);
@@ -109,17 +160,7 @@ export function Constat() {
         </div>
 
         <div className="reveal">
-          <div className="mb-6 overflow-hidden rounded-[1.1rem] border-2 border-ink bg-surface shadow-[4px_4px_0_0_#ffffff]">
-            <div className="relative aspect-video w-full overflow-hidden bg-ink/5">
-              <AutoPlayVideo
-                src="/image/sitewebvideo.mp4"
-                poster="/image/sitewebvideo-poster.jpg"
-                aria-label="Aperçu d’un site web livré"
-                className="h-full w-full object-cover object-top"
-              />
-            </div>
-          </div>
-
+          <DemoVideos />
           <GainCards />
 
           <div className="flex flex-col sm:flex-row gap-3 mt-2">

@@ -12,14 +12,25 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    id: "pulse",
+    title: "PULSE",
+    category: "Consultante en bien-être",
+    description:
+      "Site vitrine moderne pour une consultante en bien-être : identité forte, claire, pensée pour être trouvée et contactée facilement.",
+    image: "/image/pulse.jpg",
+    color: "bg-green-light",
+    tags: ["Site vitrine", "Bien-être", "Mobile-first"],
+    result: "Identité forte, réservations en un clic",
+  },
+  {
     id: "sophie-bluel",
     title: "Sophie Bluel",
-    category: "Architecture d'intérieur",
+    category: "Architecte d’intérieur",
     description:
-      "Portfolio d'architecte d'intérieur : galerie filtrable, espace admin et design éditorial pensé pour mettre en valeur chaque projet.",
+      "Site pour une architecte d’intérieur : galerie filtrable, espace admin et design éditorial pensé pour mettre en valeur chaque projet.",
     image: "/image/sophie.png",
     color: "bg-green-light",
-    tags: ["Portfolio", "Galerie", "Contact"],
+    tags: ["Galerie", "Contact", "Éditorial"],
     result: "Galerie + contact : 2× plus de demandes projet",
   },
   {
@@ -39,7 +50,7 @@ export const projects: Project[] = [
     title: "Boulangerie Martin",
     category: "Artisanat",
     description:
-      "Site vitrine chaleureux pour une boulangerie familiale. Réservation en ligne, carte des produits et horaires — le tout en 10 jours.",
+      "Site vitrine chaleureux pour une boulangerie familiale. Réservation en ligne, carte des produits et horaires : le tout en 10 jours.",
     image: "/image/boulangerie.jpg",
     color: "bg-rose-light",
     tags: ["Site vitrine", "Artisan", "Téléphone"],

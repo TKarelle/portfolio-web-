@@ -9,9 +9,9 @@ import { FOUNDER_NAME, FOUNDER_PHOTO } from "@/data/site";
 import { buildPageMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "À propos — Développeuse web indépendante",
+  title: "À propos : Développeuse web indépendante",
   description:
-    "Karelle, développeuse web indépendante. Sites vitrines dès 500 € pour artisans et indépendants — livrés en 7 à 14 jours, simplement.",
+    "Karelle, développeuse web indépendante. Sites vitrines dès 500 € pour artisans et indépendants : livrés en 7 à 14 jours, simplement.",
   path: "/a-propos",
 });
 
@@ -42,10 +42,10 @@ export default function AboutPage() {
           { label: "Accueil", href: "/" },
           { label: "À propos", href: "/a-propos" },
         ]}
-        title={`Je suis ${FOUNDER_NAME}. Ton alliée pour ton premier site.`}
+        title={`Je suis ${FOUNDER_NAME}. Ton alliée pour ton site.`}
         highlight="Ton alliée"
         stroke="violet"
-        description="Développeuse web indépendante. J'aide les artisans et indépendants à avoir un site clair — sans prise de tête, sans attendre 3 mois."
+        description="Développeuse web indépendante. J'aide les artisans et indépendants à avoir un site clair : sans prise de tête, sans attendre 3 mois."
         image={FOUNDER_PHOTO}
         imageAlt={`${FOUNDER_NAME}, développeuse web indépendante`}
         badge="Dès 500 € · sans engagement"

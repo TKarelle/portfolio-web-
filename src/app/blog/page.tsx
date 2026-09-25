@@ -7,7 +7,7 @@ import { ContactSection } from "@/components/home/ContactSection";
 import { buildPageMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Blog — Conseils web pour artisans & indépendants",
+  title: "Blog : Conseils web pour artisans & indépendants",
   description:
     "Guides et conseils pour créer ton site vitrine, comprendre les prix, éviter les pièges IA et convertir plus de visiteurs en clients.",
   path: "/blog",
@@ -27,7 +27,7 @@ export default function BlogPage() {
         highlight="premier site"
         description="Prix, délais, Google, pièges à éviter… Des articles utiles pour artisans et indépendants qui veulent avancer sans se perdre."
         image="/image/photographe.jpg"
-        imageAlt="Indépendant au travail — conseils blog pour créer son site"
+        imageAlt="Indépendant au travail : conseils blog pour créer son site"
         badge="Guides pratiques"
         frame="lime"
         secondaryHref="/tarifs"

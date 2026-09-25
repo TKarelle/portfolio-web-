@@ -1,9 +1,9 @@
 import { projects } from "./projects";
 
 const featuredIds = [
+  "pulse",
   "sophie-bluel",
   "madeleine-fragrance",
-  "boulangerie-martin",
 ] as const;
 
 export const caseStudies = projects.map((p) => ({
@@ -25,6 +25,8 @@ export const featuredCaseStudies = featuredIds
 
 function getProblem(id: string): string {
   const problems: Record<string, string> = {
+    pulse:
+      "Son activité manquait d’une présence en ligne à sa hauteur : trop générique, trop « spa classique », pas assez claire pour ses clientes.",
     "sophie-bluel":
       "Un portfolio trop générique : les projets ne ressortaient pas, et les clients hésitaient à écrire.",
     "madeleine-fragrance":
@@ -44,6 +46,8 @@ function getProblem(id: string): string {
 
 function getSolution(id: string): string {
   const solutions: Record<string, string> = {
+    pulse:
+      "Un one-page moderne et audacieux : typo bold, accents vifs, parcours de réservation clair : loin du pastel bien-être classique.",
     "sophie-bluel":
       "Un site éditorial clair : galerie filtrable, projets mis en avant, formulaire simple pour demander un devis.",
     "madeleine-fragrance":

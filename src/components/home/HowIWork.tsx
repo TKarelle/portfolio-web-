@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import {
   BRAND_SIGNATURE,
   FOUNDER_DIPLOMA,
+  FOUNDER_EXPERIENCE,
   FOUNDER_NAME,
   FOUNDER_PHOTO,
 } from "@/data/site";
@@ -57,7 +58,9 @@ export function HowIWork() {
         </div>
 
         <div className="reveal">
-          <p className="text-sm font-bold text-violet mb-3">{FOUNDER_DIPLOMA}</p>
+          <p className="text-sm font-bold text-violet mb-3">
+            {FOUNDER_DIPLOMA} · {FOUNDER_EXPERIENCE}
+          </p>
 
           <SectionHead
             align="left"
@@ -71,12 +74,13 @@ export function HowIWork() {
           <div className="space-y-4 text-muted text-base md:text-lg font-medium leading-relaxed mb-7">
             <p>
               Je m&apos;appelle <strong className="text-ink">{FOUNDER_NAME}</strong>.
-              Développeuse web indépendante — pas d&apos;agence, pas
+              Développeuse web indépendante, pas d&apos;agence, pas
               d&apos;intermédiaire. Juste toi et moi.
             </p>
             <p>
-              J&apos;aide les artisans, commerçants et indépendants à avoir un
-              site clair et professionnel, sans avoir à gérer la technique.
+              Avec {FOUNDER_EXPERIENCE}, j&apos;aide les artisans, commerçants et
+              indépendants à avoir un site clair et professionnel, sans avoir à
+              gérer la technique.
             </p>
           </div>
 

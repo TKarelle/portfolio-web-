@@ -1,13 +1,9 @@
 import { StatsBand } from "@/components/ui/StatsBand";
 
 const clients = [
+  "PULSE",
+  "Sophie Bluel",
   "Madeleine Fragrance",
-  "Boulangerie Martin",
-  "Salon Luna",
-  "Plomberie Durand",
-  "Yoga Zen",
-  "Iris Photo",
-  "Le Coin",
 ];
 
 const stats = [

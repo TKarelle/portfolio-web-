@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import { FOUNDER_DIPLOMA, FOUNDER_NAME, FOUNDER_PHOTO } from "@/data/site";
 
 export function QuoteBand() {
@@ -49,13 +48,13 @@ export function QuoteBand() {
             <p className="text-sm font-medium text-muted mt-0.5">
               {FOUNDER_DIPLOMA}
             </p>
-            <Link
+            <a
               href="#contact"
               className="inline-flex items-center gap-1.5 mt-2 text-sm font-extrabold text-pink hover:text-pink-hot transition-colors"
             >
               Parlons de ton projet
               <span aria-hidden="true">→</span>
-            </Link>
+            </a>
           </div>
         </div>
       </div>

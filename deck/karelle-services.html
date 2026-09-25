@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kopio — Deck services</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --pink: #ff1f71;
+      --violet: #7c3aed;
+      --lime: #d4ff00;
+      --ink: #111111;
+      --muted: #5c5c6b;
+      --surface: #ffffff;
+      --bg: #f4f2ff;
+      --pink-bg: #ffe0ec;
+      --violet-bg: #ede5ff;
+      --lime-bg: #f0ffb8;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+      color: var(--ink);
+      background: #ddd;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .slide {
+      width: 297mm;
+      height: 210mm;
+      margin: 12px auto;
+      background: var(--bg);
+      position: relative;
+      overflow: hidden;
+      page-break-after: always;
+      break-after: page;
+      display: flex;
+      flex-direction: column;
+      padding: 14mm 16mm;
+    }
+
+    .slide:last-child { page-break-after: auto; }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--ink);
+      color: var(--lime);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 7px 14px;
+      border-radius: 999px;
+      width: fit-content;
+    }
+
+    .directive {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--violet);
+      letter-spacing: 0.02em;
+      margin-top: 10px;
+    }
+
+    h1 {
+      font-size: 42px;
+      font-weight: 800;
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      margin-top: 14px;
+    }
+
+    h2 {
+      font-size: 34px;
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+    }
+
+    .mark-lime {
+      background: linear-gradient(transparent 62%, var(--lime) 62%);
+      padding: 0 2px;
+    }
+    .mark-pink {
+      background: linear-gradient(transparent 62%, var(--pink) 62%);
+      color: inherit;
+      padding: 0 2px;
+    }
+    .mark-violet {
+      background: linear-gradient(transparent 62%, #c4b5fd 62%);
+      padding: 0 2px;
+    }
+
+    .lede {
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--muted);
+      line-height: 1.55;
+      max-width: 52ch;
+      margin-top: 14px;
+    }
+
+    .footer-bar {
+      margin-top: auto;
+      padding-top: 12px;
+      border-top: 2px solid rgba(17,17,17,0.08);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--muted);
+    }
+
+    .footer-bar strong { color: var(--ink); }
+
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
+    .grid-4 { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 12px; }
+
+    .card {
+      background: var(--surface);
+      border: 2.5px solid var(--ink);
+      border-radius: 18px;
+      padding: 16px 18px;
+      box-shadow: 4px 4px 0 var(--ink);
+    }
+
+    .card h3 {
+      font-size: 15px;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .card p {
+      font-size: 12.5px;
+      font-weight: 500;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+
+    .num {
+      display: inline-flex;
+      width: 28px;
+      height: 28px;
+      border-radius: 999px;
+      background: var(--ink);
+      color: var(--lime);
+      font-size: 11px;
+      font-weight: 800;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 8px;
+    }
+
+    /* Cover */
+    .cover {
+      background:
+        radial-gradient(ellipse 55% 50% at 8% 20%, rgba(255,31,113,0.18), transparent 55%),
+        radial-gradient(ellipse 45% 40% at 92% 10%, rgba(124,58,237,0.16), transparent 50%),
+        radial-gradient(ellipse 40% 35% at 70% 90%, rgba(212,255,0,0.14), transparent 45%),
+        var(--bg);
+    }
+
+    .cover-layout {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 28px;
+      flex: 1;
+      align-items: center;
+    }
+
+    .photo-frame {
+      border: 3px solid var(--ink);
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 8px 8px 0 var(--lime);
+      aspect-ratio: 1;
+      max-width: 280px;
+      margin-left: auto;
+      background: var(--violet-bg);
+    }
+
+    .photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .brand {
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--pink);
+    }
+
+    /* Problem */
+    .problem .pain {
+      margin-top: 22px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .pain-item {
+      background: var(--surface);
+      border: 2px solid rgba(17,17,17,0.12);
+      border-radius: 16px;
+      padding: 16px 18px;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .pain-item .x {
+      flex-shrink: 0;
+      width: 26px;
+      height: 26px;
+      border-radius: 8px;
+      background: var(--pink-bg);
+      color: var(--pink);
+      font-weight: 800;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .pain-item p {
+      font-size: 13.5px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    /* Promise */
+    .promise-box {
+      margin-top: 20px;
+      background: var(--ink);
+      color: white;
+      border-radius: 22px;
+      padding: 22px 26px;
+      box-shadow: 6px 6px 0 var(--pink);
+    }
+
+    .promise-box p {
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 1.35;
+      letter-spacing: -0.02em;
+    }
+
+    .promise-box span { color: var(--lime); }
+
+    .audience {
+      margin-top: 16px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .chip {
+      background: var(--surface);
+      border: 2px solid var(--ink);
+      border-radius: 999px;
+      padding: 7px 14px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    /* Offers */
+    .offer {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+    }
+
+    .offer.featured {
+      background: var(--ink);
+      color: white;
+      box-shadow: 4px 4px 0 var(--lime);
+    }
+
+    .offer.featured p,
+    .offer.featured li { color: rgba(255,255,255,0.78); }
+
+    .offer .price {
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin: 8px 0 4px;
+    }
+
+    .offer .price small {
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .offer .desc {
+      font-size: 12.5px;
+      font-weight: 500;
+      margin-bottom: 12px;
+      min-height: 2.8em;
+    }
+
+    .offer ul {
+      list-style: none;
+      margin-top: auto;
+    }
+
+    .offer li {
+      font-size: 12px;
+      font-weight: 600;
+      padding: 5px 0;
+      border-top: 1px solid rgba(17,17,17,0.08);
+      color: var(--muted);
+    }
+
+    .offer.featured li {
+      border-top-color: rgba(255,255,255,0.12);
+    }
+
+    .badge {
+      position: absolute;
+      top: -10px;
+      right: 14px;
+      background: var(--lime);
+      color: var(--ink);
+      font-size: 10px;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 2px solid var(--ink);
+    }
+
+    /* Process */
+    .step-card .title {
+      font-size: 14px;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    /* Proof */
+    .result-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .stat {
+      background: var(--surface);
+      border: 2.5px solid var(--ink);
+      border-radius: 16px;
+      padding: 14px;
+      text-align: center;
+      box-shadow: 3px 3px 0 var(--violet);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 4px;
+    }
+
+    .stat span {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--muted);
+      line-height: 1.3;
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .project {
+      border: 2px solid var(--ink);
+      border-radius: 14px;
+      overflow: hidden;
+      background: var(--surface);
+    }
+
+    .project img {
+      width: 100%;
+      height: 78px;
+      object-fit: cover;
+      display: block;
+      border-bottom: 2px solid var(--ink);
+    }
+
+    .project .meta {
+      padding: 8px 10px;
+    }
+
+    .project .meta strong {
+      display: block;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .project .meta span {
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--muted);
+    }
+
+    .quote {
+      margin-top: 14px;
+      background: var(--violet-bg);
+      border: 2px solid var(--ink);
+      border-radius: 16px;
+      padding: 14px 18px;
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.45;
+    }
+
+    .quote cite {
+      display: block;
+      margin-top: 8px;
+      font-style: normal;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--violet);
+    }
+
+    /* Trust */
+    .trust-layout {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 20px;
+      margin-top: 18px;
+      flex: 1;
+    }
+
+    .values .card {
+      margin-bottom: 10px;
+    }
+
+    .values .card:last-child { margin-bottom: 0; }
+
+    .me-card {
+      background: var(--surface);
+      border: 3px solid var(--ink);
+      border-radius: 22px;
+      padding: 20px;
+      box-shadow: 6px 6px 0 var(--pink);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      height: 100%;
+    }
+
+    .me-top {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .me-top img {
+      width: 72px;
+      height: 72px;
+      border-radius: 18px;
+      object-fit: cover;
+      border: 2.5px solid var(--ink);
+    }
+
+    .me-top h3 { font-size: 18px; font-weight: 800; }
+    .me-top p { font-size: 12px; font-weight: 600; color: var(--muted); margin-top: 2px; }
+
+    .me-card .bio {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .checklist {
+      list-style: none;
+      margin-top: auto;
+    }
+
+    .checklist li {
+      font-size: 12.5px;
+      font-weight: 700;
+      padding: 6px 0;
+      border-top: 1px solid rgba(17,17,17,0.08);
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .checklist li::before {
+      content: "✓";
+      color: var(--pink);
+      font-weight: 800;
+    }
+
+    /* CTA */
+    .cta {
+      background:
+        radial-gradient(ellipse 50% 55% at 15% 80%, rgba(212,255,0,0.2), transparent 55%),
+        radial-gradient(ellipse 45% 45% at 90% 20%, rgba(255,31,113,0.18), transparent 50%),
+        var(--ink);
+      color: white;
+    }
+
+    .cta h1 { color: white; }
+    .cta .lede { color: rgba(255,255,255,0.72); }
+    .cta .directive { color: var(--lime); }
+
+    .cta-box {
+      margin-top: 28px;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .cta-main {
+      background: white;
+      color: var(--ink);
+      border-radius: 22px;
+      padding: 22px 24px;
+      border: 3px solid var(--lime);
+    }
+
+    .cta-main h3 {
+      font-size: 18px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .cta-main p {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--muted);
+      line-height: 1.45;
+      margin-bottom: 16px;
+    }
+
+    .contact-lines {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .contact-lines a,
+    .contact-lines span {
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .cta-side {
+      background: rgba(255,255,255,0.06);
+      border: 2px solid rgba(255,255,255,0.18);
+      border-radius: 22px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 14px;
+    }
+
+    .cta-side .row {
+      font-size: 13px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.35;
+    }
+
+    .cta-side .row strong {
+      display: block;
+      color: var(--lime);
+      font-size: 14px;
+      margin-bottom: 2px;
+    }
+
+    .cta .footer-bar {
+      border-top-color: rgba(255,255,255,0.15);
+      color: rgba(255,255,255,0.55);
+    }
+
+    .cta .footer-bar strong { color: white; }
+
+    .header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .slide-body { flex: 1; display: flex; flex-direction: column; }
+
+    @media print {
+      body { background: white; }
+      .slide {
+        margin: 0;
+        box-shadow: none;
+        width: 297mm;
+        height: 210mm;
+      }
+    }
+
+    @page {
+      size: A4 landscape;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 1. COVER -->
+  <section class="slide cover">
+    <div class="slide-body">
+      <div class="header-row">
+        <p class="brand">kopio</p>
+        <span class="eyebrow">Deck services · 2026</span>
+      </div>
+
+      <div class="cover-layout">
+        <div>
+          <p class="directive">Un site clair qui inspire confiance.</p>
+          <h1>
+            Ton alliée pour un site qui
+            <span class="mark-lime">travaille pour toi</span>.
+          </h1>
+          <p class="lede">
+            Je suis Karelle, développeuse web indépendante. J’aide artisans et indépendants à avoir une présence en ligne simple, soignée et convaincante — sans gérer la technique.
+          </p>
+          <div class="audience" style="margin-top:22px">
+            <span class="chip">Dès 500&nbsp;€</span>
+            <span class="chip">Livré en 7–14 jours</span>
+            <span class="chip">Sans engagement</span>
+            <span class="chip">1 seule interlocutrice</span>
+          </div>
+        </div>
+        <div class="photo-frame">
+          <img src="assets/pp.jpg" alt="Karelle, développeuse web indépendante" />
+        </div>
+      </div>
+    </div>
+    <div class="footer-bar">
+      <span><strong>Karelle</strong> · Développeuse web indépendante</span>
+      <span>1 / 8</span>
+    </div>
+  </section>
+
+  <!-- 2. PROBLÈME -->
+  <section class="slide problem">
+    <div class="slide-body">
+      <span class="eyebrow">Le constat</span>
+      <p class="directive">Beaucoup d’excellents métiers restent invisibles en ligne.</p>
+      <h2>Tu fais du bon travail.<br />Ton site ne le montre pas.</h2>
+      <p class="lede">
+        Pas de site, un site trop générique, ou une vitrine qui n’inspire pas assez confiance : le client hésite… et part ailleurs.
+      </p>
+
+      <div class="pain">
+        <div class="pain-item">
+          <span class="x">×</span>
+          <p>Les clients ne te trouvent pas assez vite près de chez eux.</p>
+        </div>
+        <div class="pain-item">
+          <span class="x">×</span>
+          <p>En 5 secondes, on ne comprend pas clairement ce que tu proposes.</p>
+        </div>
+        <div class="pain-item">
+          <span class="x">×</span>
+          <p>Rien de rassurant à montrer avant le premier échange.</p>
+        </div>
+        <div class="pain-item">
+          <span class="x">×</span>
+          <p>Appeler, réserver ou écrire reste trop compliqué.</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bar">
+      <span>Objectif : que ton site te fasse gagner de la confiance, pas du temps perdu.</span>
+      <span>2 / 8</span>
+    </div>
+  </section>
+
+  <!-- 3. PROMESSE -->
+  <section class="slide">
+    <div class="slide-body">
+      <span class="eyebrow">Ma promesse</span>
+      <p class="directive">Je suis la personne qui simplifie, clarifie et livre.</p>
+      <h2>Un site <span class="mark-pink">clair</span>, livré vite,<br />pensé pour convertir.</h2>
+
+      <div class="promise-box">
+        <p>
+          Tu gardes ton métier. <span>Je gère le web.</span><br />
+          Tu repars avec une vitrine qui inspire confiance — et un parcours simple pour te contacter.
+        </p>
+      </div>
+
+      <div style="margin-top:18px" class="grid-4">
+        <div class="card">
+          <div class="num">01</div>
+          <h3>Être trouvé</h3>
+          <p>Les bonnes personnes tombent sur toi, pas sur un concurrent.</p>
+        </div>
+        <div class="card">
+          <div class="num">02</div>
+          <h3>Être compris</h3>
+          <p>Ton offre devient limpide dès le premier coup d’œil.</p>
+        </div>
+        <div class="card">
+          <div class="num">03</div>
+          <h3>Inspirer confiance</h3>
+          <p>Preuves, clarté, design soigné : on ose te contacter.</p>
+        </div>
+        <div class="card">
+          <div class="num">04</div>
+          <h3>Passer à l’action</h3>
+          <p>Appel, devis, réservation : l’étape suivante est évidente.</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bar">
+      <span>Pour artisans, indépendants, créatifs et commerces de proximité.</span>
+      <span>3 / 8</span>
+    </div>
+  </section>
+
+  <!-- 4. OFFRES -->
+  <section class="slide">
+    <div class="slide-body">
+      <span class="eyebrow">Les formules</span>
+      <p class="directive">Trois chemins clairs. Un seul interlocuteur. Zéro jargon.</p>
+      <h2 style="margin-bottom:16px">Choisis ce dont tu as besoin.</h2>
+
+      <div class="grid-3" style="flex:1; align-items:stretch">
+        <div class="card offer">
+          <h3>Pour démarrer</h3>
+          <div class="price">500&nbsp;€</div>
+          <p class="desc">Pour se lancer vite, sans prise de tête.</p>
+          <ul>
+            <li>1 page d’accueil claire</li>
+            <li>Design pensé pour toi</li>
+            <li>Lisible sur téléphone</li>
+            <li>Formulaire de contact</li>
+            <li>Visibilité Google locale</li>
+            <li>Mise en ligne · 7–10 jours</li>
+          </ul>
+        </div>
+
+        <div class="card offer featured">
+          <span class="badge">LE PLUS CHOISI</span>
+          <h3>Complet</h3>
+          <div class="price">800&nbsp;€</div>
+          <p class="desc">Plus de pages, plus fort sur Google, plus pro.</p>
+          <ul>
+            <li>Tout le forfait Pour démarrer</li>
+            <li>Jusqu’à 5 pages dédiées</li>
+            <li>SEO local renforcé</li>
+            <li>Site rapide, prêt à être indexé</li>
+            <li>Animations soignées</li>
+            <li>Livré en 10–14 jours</li>
+          </ul>
+        </div>
+
+        <div class="card offer">
+          <h3>Besoin précis</h3>
+          <div class="price">Devis</div>
+          <p class="desc">Quand une vitrine ne suffit plus.</p>
+          <ul>
+            <li>Boutique / paiement en ligne</li>
+            <li>Réservation / rendez-vous</li>
+            <li>Comptes &amp; espace admin</li>
+            <li>Parcours sur mesure</li>
+            <li>Fonctions métier dédiées</li>
+            <li>Planning selon le projet</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bar">
+      <span>Pas d’abonnement forcé. Le site t’appartient.</span>
+      <span>4 / 8</span>
+    </div>
+  </section>
+
+  <!-- 5. PROCESSUS -->
+  <section class="slide">
+    <div class="slide-body">
+      <span class="eyebrow">Comment on avance</span>
+      <p class="directive">Simple, transparent, cadré — du premier échange à la mise en ligne.</p>
+      <h2 style="margin-bottom:18px">4 étapes. Aucune surprise.</h2>
+
+      <div class="grid-4" style="flex:1">
+        <div class="card step-card">
+          <div class="num">01</div>
+          <p class="title">On échange 15 minutes</p>
+          <p>Besoins, budget, possibilités. Tu sais où tu mets les pieds — sans engagement.</p>
+        </div>
+        <div class="card step-card">
+          <div class="num">02</div>
+          <p class="title">Tu valides l’offre</p>
+          <p>Cahier des charges clair : livrables, planning, ce qui est inclus.</p>
+        </div>
+        <div class="card step-card">
+          <div class="num">03</div>
+          <p class="title">Je crée avec un suivi</p>
+          <p>Tu vois l’avancement. Tu valides. J’ajuste. Tu n’es jamais dans le flou.</p>
+        </div>
+        <div class="card step-card">
+          <div class="num">04</div>
+          <p class="title">C’est en ligne</p>
+          <p>Mise en ligne + petit tour pour modifier l’essentiel. Tu reprends ton métier.</p>
+        </div>
+      </div>
+
+      <div class="quote" style="background:var(--lime-bg)">
+        « Je t’explique les choses clairement. Pas de frais cachés. Tu sais toujours où on en est. »
+        <cite>— Ma façon de travailler</cite>
+      </div>
+    </div>
+    <div class="footer-bar">
+      <span>Transparence · Simplicité · Qualité · Proximité</span>
+      <span>5 / 8</span>
+    </div>
+  </section>
+
+  <!-- 6. CONFIANCE -->
+  <section class="slide">
+    <div class="slide-body">
+      <span class="eyebrow">Pourquoi moi</span>
+      <p class="directive">Tu ne cherches pas une agence. Tu cherches quelqu’un de fiable.</p>
+      <h2>Je suis <span class="mark-violet">la personne</span> qui t’accompagne.</h2>
+
+      <div class="trust-layout">
+        <div class="me-card">
+          <div class="me-top">
+            <img src="assets/pp.jpg" alt="Karelle" />
+            <div>
+              <h3>Karelle</h3>
+              <p>Développeuse web indépendante<br />Diplômée en développement web</p>
+            </div>
+          </div>
+          <p class="bio">
+            Je parle simplement, je livre ce qui est promis, et je reste disponible.
+            Pas de jargon pour impressionner — juste un site clair, soigné, qui te ressemble.
+          </p>
+          <ul class="checklist">
+            <li>Une seule interlocutrice du début à la fin</li>
+            <li>Tarifs et délais annoncés dès le départ</li>
+            <li>Le site t’appartient — sans abonnement forcé</li>
+            <li>Pensé pour le téléphone et pour Google</li>
+          </ul>
+        </div>
+        <div class="values">
+          <div class="card">
+            <h3>Transparence</h3>
+            <p>Tu sais ce que ça coûte, ce qui est inclus, et où on en est. Pas de frais cachés.</p>
+          </div>
+          <div class="card">
+            <h3>Simplicité</h3>
+            <p>Je rends le web accessible à ceux qui n’y connaissent rien — tu restes concentrée sur ton métier.</p>
+          </div>
+          <div class="card">
+            <h3>Qualité</h3>
+            <p>Chaque site est soigné, rapide, et pensé pour inspirer confiance puis convertir.</p>
+          </div>
+          <div class="card">
+            <h3>Proximité</h3>
+            <p>Pas une agence impersonnelle. Une vraie relation, humaine et claire.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bar">
+      <span>Ton alliée — pas un prestataire interchangeable.</span>
+      <span>6 / 8</span>
+    </div>
+  </section>
+
+  <!-- 7. PREUVES -->
+  <section class="slide">
+    <div class="slide-body">
+      <span class="eyebrow">Preuves</span>
+      <p class="directive">La confiance se construit avec des résultats concrets.</p>
+      <h2>Des sites qui ramènent des clients.</h2>
+
+      <div class="result-strip">
+        <div class="stat">
+          <strong>+40%</strong>
+          <span>demandes via formulaire · Boulangerie Martin</span>
+        </div>
+        <div class="stat">
+          <strong>1ʳᵉ page</strong>
+          <span>Google en 2 mois · Salon Luna</span>
+        </div>
+        <div class="stat">
+          <strong>3×</strong>
+          <span>plus d’appels · Plomberie Durand</span>
+        </div>
+        <div class="stat">
+          <strong>+60%</strong>
+          <span>réservations en ligne · Restaurant Le Coin</span>
+        </div>
+      </div>
+
+      <div class="projects">
+        <div class="project">
+          <img src="assets/pulse.jpg" alt="PULSE" />
+          <div class="meta">
+            <strong>PULSE</strong>
+            <span>Bien-être · identité forte</span>
+          </div>
+        </div>
+        <div class="project">
+          <img src="assets/sophie.jpg" alt="Sophie Bluel" />
+          <div class="meta">
+            <strong>Sophie Bluel</strong>
+            <span>Architecte d’intérieur</span>
+          </div>
+        </div>
+        <div class="project">
+          <img src="assets/madeleine.jpg" alt="Madeleine Fragrance" />
+          <div class="meta">
+            <strong>Madeleine Fragrance</strong>
+            <span>Parfum · e-commerce</span>
+          </div>
+        </div>
+        <div class="project">
+          <img src="assets/boulangerie.jpg" alt="Boulangerie Martin" />
+          <div class="meta">
+            <strong>Boulangerie Martin</strong>
+            <span>Artisan · 10 jours</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="quote">
+        « Je ne connaissais rien au web. Karelle a tout expliqué simplement, le site était en ligne en 10 jours. Mes clients me disent qu’il est magnifique. »
+        <cite>Sophie Martin · Boulangère, Lyon</cite>
+      </div>
+    </div>
+    <div class="footer-bar">
+      <span>Plus de projets sur <strong>kopio.eu/projets</strong></span>
+      <span>7 / 8</span>
+    </div>
+  </section>
+
+  <!-- 8. CTA -->
+  <section class="slide cta">
+    <div class="slide-body">
+      <span class="eyebrow" style="background:var(--lime);color:var(--ink)">Prochaine étape</span>
+      <p class="directive">15 minutes suffisent pour savoir si on avance ensemble.</p>
+      <h1>Faisons de ton site<br />un vrai <span style="color:var(--lime)">allié commercial</span>.</h1>
+      <p class="lede">
+        Pas de pression. Un échange clair sur ton besoin, le tarif, et ce que je peux livrer pour toi.
+      </p>
+
+      <div class="cta-box">
+        <div class="cta-main">
+          <h3>Discutons ensemble</h3>
+          <p>Écris-moi ou réserve un créneau. Je te réponds rapidement, avec une proposition adaptée, pas un devis générique.</p>
+          <div class="contact-lines">
+            <a href="mailto:karelle.dev@gmail.com">Écrire un mail</a>
+            <a href="https://calendly.com/karelle-dev/30min">Réserver un créneau</a>
+            <a href="https://kopio.eu">kopio.eu</a>
+          </div>
+        </div>
+        <div class="cta-side">
+          <div class="row">
+            <strong>Pourquoi moi</strong>
+            Une seule personne, diplômée en développement web, qui t’explique tout simplement.
+          </div>
+          <div class="row">
+            <strong>Ce que tu risques</strong>
+            Rien à ce stade : l’échange est sans engagement.
+          </div>
+          <div class="row">
+            <strong>Ce que tu gagnes</strong>
+            De la clarté — et, si on part, un site qui inspire confiance.
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bar">
+      <span><strong>Kopio</strong> · Ton alliée pour ton premier site web</span>
+      <span>8 / 8</span>
+    </div>
+  </section>
+
+</body>
+</html>

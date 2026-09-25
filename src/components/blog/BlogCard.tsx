@@ -16,7 +16,8 @@ const categoryColors: Record<string, string> = {
   "Bien-être": "bg-violet text-white",
   Créatif: "bg-pink text-white",
   Restauration: "bg-lime text-ink",
-  "Architecture d'intérieur": "bg-violet text-white",
+  "Architecte d’intérieur": "bg-violet text-white",
+  "Consultante en bien-être": "bg-lime text-ink",
 };
 
 type BlogCardProps = {
@@ -31,7 +32,7 @@ type BlogCardProps = {
   featured?: boolean;
 };
 
-/** Carte blog / projet — même DA : contour noir, ombre rose au hover. */
+/** Carte blog / projet : même DA : contour noir, ombre rose au hover. */
 export function BlogCard({
   href,
   external = false,
