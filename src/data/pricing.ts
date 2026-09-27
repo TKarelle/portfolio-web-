@@ -151,7 +151,7 @@ export const pricingPlans = [
         "Une vitrine ne suffit plus : boutique, outil ou parcours qui travaille pour toi.",
       headline: "Un site pensé pour ton besoin précis.",
       highlight: "besoin précis",
-      body: "Boutique, espace client ou outil métier : je construis ce qui dépasse une vitrine classique, avec un devis clair avant de démarrer.",
+      body: "Boutique, espace client ou outil métier : je construis ce qui dépasse une vitrine classique.",
       cta: "En parler",
     },
   },
