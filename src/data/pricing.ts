@@ -88,7 +88,7 @@ export const pricingPlans = [
       labelShort: "Démarrer",
       teaser:
         "Pas encore de site. Envie d’exister en ligne sans te perdre dans la technique.",
-      headline: "Ton premier site, sans compétences techniques.",
+      headline: "Ton premier site,\nsans compétences\ntechniques.",
       highlight: "sans compétences",
       body: "Un site clair, pensé pour les femmes entrepreneuses, pour poser tes bases et inspirer confiance dès le premier jour.",
       cta: "Voir ce forfait",
@@ -118,7 +118,7 @@ export const pricingPlans = [
       labelShort: "Moderniser",
       teaser:
         "Ce que les gens voient en ligne ne montre plus ce que tu vaux. Il est temps de moderniser.",
-      headline: "Un site à la hauteur de ton expertise",
+      headline: "Un site à la hauteur\nde ton expertise",
       highlight: "à la hauteur",
       body: "Ton activité a évolué, ton image doit suivre. Je transforme ton site actuel en un outil élégant qui attire et convertit tes clientes idéales.",
       cta: "Voir ce forfait",
@@ -149,7 +149,7 @@ export const pricingPlans = [
       labelShort: "Sur mesure",
       teaser:
         "Une vitrine ne suffit plus : boutique, outil ou parcours qui travaille pour toi.",
-      headline: "Un site pensé pour ton besoin précis.",
+      headline: "Un site pensé pour\nton besoin précis.",
       highlight: "besoin précis",
       body: "Boutique, espace client ou outil métier : je construis ce qui dépasse une vitrine classique.",
       cta: "En parler",

@@ -417,26 +417,57 @@ select {
   }
 }
 
-/* ── Hero copy: 3 lignes H1, largeur lisible, pas de saut entre onglets ── */
-.hero-title {
+/* ── Hero copy: rythme H1 → lede stable, hauteur réservée → CTA fixes ── */
+.hero-copy {
+  --hero-title-size: clamp(1.55rem, 6.2vw, 3.75rem);
   --hero-title-lh: 1.08;
+  --hero-lede-size: 1.0625rem;
+  --hero-lede-lh: 1.5;
+  --hero-copy-gap: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--hero-copy-gap);
+  width: 100%;
+  height: calc(
+    3 * var(--hero-title-size) * var(--hero-title-lh) + var(--hero-copy-gap) +
+      3 * var(--hero-lede-size) * var(--hero-lede-lh)
+  );
+}
+
+@media (min-width: 640px) {
+  .hero-copy {
+    --hero-lede-size: 1.125rem;
+    --hero-copy-gap: 1.375rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .hero-copy {
+    --hero-lede-size: 1.25rem;
+    --hero-copy-gap: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-copy {
+    align-items: flex-start;
+  }
+}
+
+.hero-title {
   margin: 0;
-  font-size: clamp(1.85rem, 7.2vw, 3.75rem);
+  font-size: var(--hero-title-size);
   font-weight: 800;
   line-height: var(--hero-title-lh);
   letter-spacing: -0.025em;
   color: var(--ink);
-  max-width: 15em;
-  height: 3lh;
-  min-height: 3lh;
-  overflow: hidden;
-  overflow-wrap: break-word;
-  word-break: break-word;
+  max-width: 18em;
 }
 
-/* Le nowrap global du .mark trop étroit ici : on laisse le titre respirer */
-.hero-title .mark {
-  white-space: normal;
+/* Chaque ligne reste d’un bloc : le mark ne se coupe jamais au milieu */
+.hero-title-line {
+  white-space: nowrap;
 }
 
 .hero-title .mark::after {
@@ -445,27 +476,13 @@ select {
 }
 
 .hero-lede {
-  --hero-lede-lh: 1.55;
   margin: 0;
-  font-size: 1.0625rem;
+  font-size: var(--hero-lede-size);
   font-weight: 500;
   line-height: var(--hero-lede-lh);
   letter-spacing: -0.025em;
   color: var(--muted);
-  max-width: 34rem;
-  min-height: 2.5lh;
-}
-
-@media (min-width: 640px) {
-  .hero-lede {
-    font-size: 1.125rem;
-  }
-}
-
-@media (min-width: 768px) {
-  .hero-lede {
-    font-size: 1.25rem;
-  }
+  max-width: 32rem;
 }
 
 .hero-enter {

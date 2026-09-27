@@ -80,24 +80,21 @@ export function Hero() {
         </div>
 
         <div className="order-2 lg:order-1 grid grid-cols-1 lg:grid-cols-[minmax(0,1.25fr)_minmax(0,0.75fr)] gap-8 lg:gap-10 items-center flex-1 pt-2 md:pt-8 mb-6 lg:mb-14">
-          <div className="text-center lg:text-left min-w-0">
-            <div className="hero-enter mb-4 lg:mb-6">
+          <div className="text-center lg:text-left min-w-0 flex flex-col items-center lg:items-start">
+            <div className="hero-enter mb-5 sm:mb-6">
               <span className="inline-block bg-ink text-lime text-[11px] sm:text-sm font-bold px-4 sm:px-5 py-1.5 sm:py-2 rounded-full border-2 border-ink">
                 {PRICE_FROM.replace(/^dès/i, "Dès").replace(/ /g, "\u00a0")}
               </span>
             </div>
 
-            <div className="flex justify-center lg:justify-start">
+            <div className="hero-copy">
               <h1 className="hero-title">
                 {highlightPhrase(headline, highlight)}
               </h1>
+              <p className="hero-lede">{body}</p>
             </div>
 
-            <div className="mt-1.5 sm:mt-2 flex justify-center lg:justify-start">
-              <p className="hero-lede mx-auto lg:mx-0">{body}</p>
-            </div>
-
-            <div className="mt-7 lg:mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4 items-center lg:items-start justify-center lg:justify-start">
+            <div className="mt-6 sm:mt-7 lg:mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4 items-center lg:items-start justify-center lg:justify-start w-full sm:w-auto">
               <Button href="#contact" size="lg">
                 {CTA.primary}
               </Button>

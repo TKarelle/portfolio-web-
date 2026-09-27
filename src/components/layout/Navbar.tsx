@@ -79,8 +79,16 @@ export function Navbar() {
           <div className="flex items-center justify-between gap-3 px-5 h-14">
             <Link
               href="/"
-              className="text-xl font-extrabold tracking-tight shrink-0"
-              onClick={() => setOpen(false)}
+              className="text-xl font-extrabold tracking-tight shrink-0 touch-manipulation"
+              onClick={(e) => {
+                setOpen(false);
+                if (pathname !== "/") return;
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: "smooth" });
+                if (window.location.hash) {
+                  window.history.replaceState(null, "", "/");
+                }
+              }}
             >
               {BRAND_LOGO}
               <span className="text-pink">.</span>
