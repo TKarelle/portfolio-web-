@@ -7,9 +7,9 @@ const clients = [
 ];
 
 const stats = [
-  { n: "30+", l: "sites livrés pour des indépendants" },
+  { n: "30+", l: "sites livrés pour des entrepreneuses" },
   { n: "5★", l: "retours clients sur les projets livrés" },
-  { n: "7–14 j", l: "délai habituel selon le forfait" },
+  { n: "14–21 j", l: "délai habituel selon le forfait" },
 ] as const;
 
 function ClientMarquee() {

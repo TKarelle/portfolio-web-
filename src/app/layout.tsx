@@ -22,9 +22,9 @@ export const viewport: Viewport = {
   themeColor: "#f4f2ff",
 };
 const defaultMeta = buildPageMetadata({
-  title: "Sites web pour artisans et indépendants dès 500€",
+  title: "Site web pour femmes entrepreneuses dès 89€/mois",
   description:
-    "Création de sites vitrines clairs pour artisans et indépendants. Dès 500 €, livré en 7 à 14 jours, sans prise de tête. Discutons ensemble.",
+    "Kopio, création de sites web pour femmes entrepreneuses : site clé en main, hébergement inclus, mises à jour par email. Dès 89 €/mois.",
   path: "/",
 });
 
@@ -32,8 +32,8 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
     default:
-      "Sites web pour artisans et indépendants dès 500€ | Kopio",
-    template: "%s | Kopio : Sites web pour indépendants",
+      "Site web pour femmes entrepreneuses dès 89€/mois | Kopio",
+    template: "%s | Kopio : sites pour femmes entrepreneuses",
   },
   description: defaultMeta.description,
   openGraph: {

@@ -7,9 +7,9 @@ import { ValueBanner } from "@/components/ui/ValueBanner";
 import { buildPageMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "FAQ : Sites web pour artisans",
+  title: "FAQ : site web pour femmes entrepreneuses",
   description:
-    "Prix, délais, Facebook vs site, modifications… Les réponses claires aux questions des artisans et indépendants.",
+    "Kopio : prix 2026, délais, Instagram vs site, mises à jour par email, propriété du domaine. Réponses claires.",
   path: "/faq",
 });
 
@@ -25,9 +25,9 @@ export default function FaqPage() {
         title="Les réponses claires avant de te lancer."
         highlight="réponses claires"
         stroke="violet"
-        description="Prix, délais, Facebook ou site, modifications… Tout ce que les artisans me demandent : simplement."
-        image="/image/artisan.jpg"
-        imageAlt="Artisan indépendant : questions fréquentes sur la création de site"
+        description="Abonnement site web, prix, délais, Instagram ou site, mises à jour : les questions que se posent les entrepreneuses."
+        image="/image/independant.jpg"
+        imageAlt="Femme entrepreneuse : FAQ abonnement site web Kopio"
         badge="FAQ"
         frame="violet"
         secondaryHref="/tarifs"

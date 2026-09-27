@@ -8,7 +8,7 @@ import { buildPageMetadata } from "@/lib/metadata";
 export const metadata: Metadata = buildPageMetadata({
   title: "Projets et réalisations",
   description:
-    "Sites livrés pour artisans et indépendants : boulangerie, coiffure, plomberie… Avant / après et résultats concrets.",
+    "Sites livrés pour femmes entrepreneuses : coach, consultante, créatrice… Avant / après et résultats concrets.",
   path: "/projets",
 });
 
@@ -22,7 +22,7 @@ export default function ProjetsPage() {
         ]}
         title="Des sites livrés. Des résultats concrets."
         highlight="résultats concrets"
-        description="Madeleine Fragrance, boulangerie, coiffure… Voici ce que ça donne quand le site est clair, joignable, et à la hauteur de l'activité."
+        description="PULSE, Sophie Bluel, Madeleine Fragrance… Voici ce que ça donne quand le site est clair, joignable, et à la hauteur de ton activité."
         video="/image/sitewebvideo.mp4"
         videoLabel="Aperçu d’un site livré : Sophie Bluel"
         badge="Preuves concrètes"

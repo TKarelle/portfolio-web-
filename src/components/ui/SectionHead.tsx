@@ -1,5 +1,8 @@
 import { cn } from "@/lib/utils";
 
+/** Longueur max du surlignage (comme sur la landing : 2–5 mots courts). */
+const MAX_HIGHLIGHT_LEN = 28;
+
 export function SectionHead({
   children,
   highlight,
@@ -9,7 +12,7 @@ export function SectionHead({
 }: {
   /** Titre complet (string recommandée pour le surlignage) */
   children: string;
-  /** Phrase surlignée avec le trait (comme « sans gérer la technique ») */
+  /** Phrase courte surlignée (ex. « sans gérer la technique ») */
   highlight: string;
   stroke?: "lime" | "pink" | "violet";
   className?: string;
@@ -22,17 +25,20 @@ export function SectionHead({
         ? "mark mark-violet"
         : "mark mark-lime";
 
-  const idx = children.indexOf(highlight);
+  const safe =
+    highlight.length > 0 && highlight.length <= MAX_HIGHLIGHT_LEN
+      ? highlight
+      : "";
+  const idx = safe ? children.indexOf(safe) : -1;
+
   const content =
     idx === -1 ? (
-      <>
-        {children} <span className={markClass}>{highlight}</span>
-      </>
+      <>{children}</>
     ) : (
       <>
         {children.slice(0, idx)}
-        <span className={markClass}>{highlight}</span>
-        {children.slice(idx + highlight.length)}
+        <span className={markClass}>{safe}</span>
+        {children.slice(idx + safe.length)}
       </>
     );
 

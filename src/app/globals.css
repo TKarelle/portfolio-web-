@@ -154,9 +154,16 @@ select {
   border-radius: 3px;
   transform: rotate(-1.5deg);
 }
-.mark-pink::after { background: var(--pink); opacity: 0.9; }
-.mark-lime::after { background: var(--lime); }
-.mark-violet::after { background: var(--violet-soft); }
+.mark-pink::after {
+  background: var(--pink);
+  opacity: 0.9;
+}
+.mark-lime::after {
+  background: var(--lime);
+}
+.mark-violet::after {
+  background: var(--violet-soft);
+}
 
 .title-stroke {
   position: relative;
@@ -173,8 +180,12 @@ select {
   border-radius: 999px;
   transform: rotate(-0.5deg);
 }
-.title-stroke-pink::after { background: var(--pink); }
-.title-stroke-violet::after { background: var(--violet-soft); }
+.title-stroke-pink::after {
+  background: var(--pink);
+}
+.title-stroke-violet::after {
+  background: var(--violet-soft);
+}
 
 /* ── Photo frames (ombre décalée = identité) ── */
 .photo-frame {
@@ -193,31 +204,66 @@ select {
   z-index: -1;
   transform: translate(6px, 6px);
 }
-.photo-frame-lime::before { box-shadow: 6px 6px 0 var(--lime); }
-.photo-frame-violet::before { box-shadow: 6px 6px 0 var(--violet); }
+.photo-frame-lime::before {
+  box-shadow: 6px 6px 0 var(--lime);
+}
+.photo-frame-violet::before {
+  box-shadow: 6px 6px 0 var(--violet);
+}
 
 /* ── Section backgrounds ── */
-.bg-chunk-pink { background: var(--pink-bg); }
-.bg-chunk-lime { background: var(--lime-bg); }
-.bg-chunk-violet { background: var(--violet-bg); }
+.bg-chunk-pink {
+  background: var(--pink-bg);
+}
+.bg-chunk-lime {
+  background: var(--lime-bg);
+}
+.bg-chunk-violet {
+  background: var(--violet-bg);
+}
 
 /* Animations */
 @keyframes float {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  33% { transform: translate(12px, -18px) scale(1.04); }
-  66% { transform: translate(-8px, 10px) scale(0.98); }
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(12px, -18px) scale(1.04);
+  }
+  66% {
+    transform: translate(-8px, 10px) scale(0.98);
+  }
 }
 @keyframes float-slow {
-  0%, 100% { transform: translate(0, 0) rotate(0deg); }
-  50% { transform: translate(-20px, 15px) rotate(3deg); }
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate(-20px, 15px) rotate(3deg);
+  }
 }
 @keyframes pulse-glow {
-  0%, 100% { opacity: 0.5; transform: scale(1); }
-  50% { opacity: 0.85; transform: scale(1.08); }
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.08);
+  }
 }
 @keyframes slide-up {
-  from { opacity: 0; transform: translateY(32px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(32px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 @keyframes bubble-in {
   0% {
@@ -234,16 +280,30 @@ select {
   }
 }
 @keyframes float-wave {
-  0%, 100% { transform: translate3d(0, 0, 0); }
-  50% { transform: translate3d(0, -12px, 0); }
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -12px, 0);
+  }
 }
 @keyframes float-wave-alt {
-  0%, 100% { transform: translate3d(0, 0, 0); }
-  50% { transform: translate3d(0, -8px, 0); }
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -8px, 0);
+  }
 }
 @keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 .mirror-stage {
   perspective: 1400px;
@@ -275,10 +335,18 @@ select {
   }
 }
 
-.animate-float { animation: float 8s ease-in-out infinite; }
-.animate-float-slow { animation: float-slow 12s ease-in-out infinite; }
-.animate-pulse-glow { animation: pulse-glow 5s ease-in-out infinite; }
-.animate-marquee { animation: marquee 22s linear infinite; }
+.animate-float {
+  animation: float 8s ease-in-out infinite;
+}
+.animate-float-slow {
+  animation: float-slow 12s ease-in-out infinite;
+}
+.animate-pulse-glow {
+  animation: pulse-glow 5s ease-in-out infinite;
+}
+.animate-marquee {
+  animation: marquee 22s linear infinite;
+}
 
 .float-wave {
   animation: float-wave 5.5s ease-in-out infinite;
@@ -300,12 +368,22 @@ select {
     animation-duration: 6.5s;
   }
   @keyframes float-wave {
-    0%, 100% { transform: translate3d(0, 0, 0); }
-    50% { transform: translate3d(0, -7px, 0); }
+    0%,
+    100% {
+      transform: translate3d(0, 0, 0);
+    }
+    50% {
+      transform: translate3d(0, -7px, 0);
+    }
   }
   @keyframes float-wave-alt {
-    0%, 100% { transform: translate3d(0, 0, 0); }
-    50% { transform: translate3d(0, -5px, 0); }
+    0%,
+    100% {
+      transform: translate3d(0, 0, 0);
+    }
+    50% {
+      transform: translate3d(0, -5px, 0);
+    }
   }
 }
 
@@ -325,7 +403,10 @@ select {
   animation-range: entry 0% cover 30%;
 }
 @supports not (animation-timeline: view()) {
-  .reveal { opacity: 1; animation: none; }
+  .reveal {
+    opacity: 1;
+    animation: none;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -336,29 +417,43 @@ select {
   }
 }
 
-/* ── Hero copy: fixed 3-line slots (no layout shift on filter change) ── */
+/* ── Hero copy: 3 lignes H1, largeur lisible, pas de saut entre onglets ── */
 .hero-title {
   --hero-title-lh: 1.08;
+  margin: 0;
   font-size: clamp(1.85rem, 7.2vw, 3.75rem);
   font-weight: 800;
   line-height: var(--hero-title-lh);
   letter-spacing: -0.025em;
   color: var(--ink);
-  max-width: 11.5em;
-  min-height: calc(var(--hero-title-lh) * 3em);
+  max-width: 15em;
+  height: 3lh;
+  min-height: 3lh;
+  overflow: hidden;
   overflow-wrap: break-word;
   word-break: break-word;
 }
 
+/* Le nowrap global du .mark trop étroit ici : on laisse le titre respirer */
+.hero-title .mark {
+  white-space: normal;
+}
+
+.hero-title .mark::after {
+  bottom: 0.05em;
+  height: 0.28em;
+}
+
 .hero-lede {
-  --hero-lede-lh: 1.625;
+  --hero-lede-lh: 1.55;
+  margin: 0;
   font-size: 1.0625rem;
   font-weight: 500;
   line-height: var(--hero-lede-lh);
   letter-spacing: -0.025em;
   color: var(--muted);
-  max-width: 28rem;
-  min-height: calc(var(--hero-lede-lh) * 3em);
+  max-width: 34rem;
+  min-height: 2.5lh;
 }
 
 @media (min-width: 640px) {
@@ -377,28 +472,42 @@ select {
   animation: slide-up var(--motion-duration) var(--motion-ease) forwards;
 }
 .hero-enter-d1 {
-  animation: slide-up var(--motion-duration) var(--motion-stagger) var(--motion-ease) forwards;
+  animation: slide-up var(--motion-duration) var(--motion-stagger)
+    var(--motion-ease) forwards;
   opacity: 0;
 }
 .hero-enter-d2 {
-  animation: slide-up var(--motion-duration) calc(var(--motion-stagger) * 2) var(--motion-ease) forwards;
+  animation: slide-up var(--motion-duration) calc(var(--motion-stagger) * 2)
+    var(--motion-ease) forwards;
   opacity: 0;
 }
 .hero-enter-d3 {
-  animation: slide-up var(--motion-duration) calc(var(--motion-stagger) * 3) var(--motion-ease) forwards;
+  animation: slide-up var(--motion-duration) calc(var(--motion-stagger) * 3)
+    var(--motion-ease) forwards;
   opacity: 0;
 }
 
 /* ── Hero orbit (animation premium) ── */
 @keyframes hero-spin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 @keyframes hero-spin-rev {
-  to { transform: rotate(-360deg); }
+  to {
+    transform: rotate(-360deg);
+  }
 }
 @keyframes hero-breathe {
-  0%, 100% { transform: scale(1); opacity: 0.9; }
-  50% { transform: scale(1.04); opacity: 1; }
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scale(1.04);
+    opacity: 1;
+  }
 }
 
 .hero-orbit {
@@ -425,8 +534,18 @@ select {
   inset: 22%;
   border-radius: 50%;
   background:
-    radial-gradient(circle at 35% 30%, rgba(255, 255, 255, 0.55) 0%, transparent 45%),
-    radial-gradient(circle at 50% 50%, rgba(212, 255, 0, 0.35) 0%, rgba(255, 31, 113, 0.2) 45%, rgba(124, 58, 237, 0.15) 70%, transparent 75%);
+    radial-gradient(
+      circle at 35% 30%,
+      rgba(255, 255, 255, 0.55) 0%,
+      transparent 45%
+    ),
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(212, 255, 0, 0.35) 0%,
+      rgba(255, 31, 113, 0.2) 45%,
+      rgba(124, 58, 237, 0.15) 70%,
+      transparent 75%
+    );
   animation: hero-breathe 8s ease-in-out infinite;
 }
 
@@ -440,19 +559,26 @@ select {
 .hero-orbit__ring--a {
   inset: 4%;
   border-color: transparent;
-  background:
-    conic-gradient(
-      from 0deg,
-      transparent 0deg,
-      rgba(255, 31, 113, 0.55) 40deg,
-      transparent 90deg,
-      rgba(212, 255, 0, 0.5) 140deg,
-      transparent 200deg,
-      rgba(124, 58, 237, 0.45) 260deg,
-      transparent 320deg
-    );
-  mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 2px));
-  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 2px));
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    rgba(255, 31, 113, 0.55) 40deg,
+    transparent 90deg,
+    rgba(212, 255, 0, 0.5) 140deg,
+    transparent 200deg,
+    rgba(124, 58, 237, 0.45) 260deg,
+    transparent 320deg
+  );
+  mask: radial-gradient(
+    farthest-side,
+    transparent calc(100% - 3px),
+    #000 calc(100% - 2px)
+  );
+  -webkit-mask: radial-gradient(
+    farthest-side,
+    transparent calc(100% - 3px),
+    #000 calc(100% - 2px)
+  );
   animation: hero-spin 28s linear infinite;
 }
 
@@ -520,9 +646,21 @@ select {
 
 .mesh-hero {
   background:
-    radial-gradient(ellipse 70% 55% at 5% 30%, rgba(255, 31, 113, 0.45) 0%, transparent 55%),
-    radial-gradient(ellipse 55% 45% at 95% 15%, rgba(124, 58, 237, 0.35) 0%, transparent 50%),
-    radial-gradient(ellipse 45% 35% at 60% 90%, rgba(212, 255, 0, 0.35) 0%, transparent 45%),
+    radial-gradient(
+      ellipse 70% 55% at 5% 30%,
+      rgba(255, 31, 113, 0.45) 0%,
+      transparent 55%
+    ),
+    radial-gradient(
+      ellipse 55% 45% at 95% 15%,
+      rgba(124, 58, 237, 0.35) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse 45% 35% at 60% 90%,
+      rgba(212, 255, 0, 0.35) 0%,
+      transparent 45%
+    ),
     var(--bg);
 }
 
@@ -533,9 +671,13 @@ select {
   border: 1px solid rgba(255, 255, 255, 0.6);
 }
 
-.rounded-blob { border-radius: 2rem; }
+.rounded-blob {
+  border-radius: 2rem;
+}
 @media (min-width: 768px) {
-  .rounded-blob { border-radius: 2.5rem; }
+  .rounded-blob {
+    border-radius: 2.5rem;
+  }
 }
 
 .card {
@@ -546,7 +688,9 @@ select {
 }
 
 .card-hover {
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+  transition:
+    transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.35s ease;
 }
 .card-hover:hover {
   transform: translate(-2px, -2px);
@@ -564,4 +708,6 @@ select {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
-.scrollbar-hide::-webkit-scrollbar { display: none; }
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}

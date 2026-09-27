@@ -7,6 +7,7 @@ import { BlogContent } from "@/components/blog/BlogContent";
 import { BlogAuthor } from "@/components/blog/BlogAuthor";
 import { BlogCard, blogPostToCard } from "@/components/blog/BlogCard";
 import { ContactSection } from "@/components/home/ContactSection";
+import { SectionHead } from "@/components/ui/SectionHead";
 import { ArticleJsonLd } from "@/components/seo/JsonLd";
 import { buildPageMetadata } from "@/lib/metadata";
 
@@ -116,11 +117,9 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       {related.length > 0 && (
         <section className="py-16 px-6 bg-chunk-pink border-t-[3px] border-ink">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-2xl md:text-3xl font-extrabold mb-8 text-center">
-              <span className="title-stroke title-stroke-violet">
-                À lire aussi
-              </span>
-            </h2>
+            <SectionHead stroke="violet" highlight="aussi" className="mb-8">
+              {"À lire aussi"}
+            </SectionHead>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               {related.map((p) => (
                 <BlogCard key={p.slug} {...blogPostToCard(p)} />

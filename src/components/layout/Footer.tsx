@@ -9,29 +9,74 @@ import {
   CALENDLY_URL,
 } from "@/data/site";
 import { CTA } from "@/data/copy";
-import { metiers } from "@/data/metiers";
+import { metiers, metierPath } from "@/data/metiers";
+import { besoins, besoinPath } from "@/data/besoins";
+import { comparatifs, comparatifPath } from "@/data/comparatifs";
 
-const footerLinks = [
+const navLinks = [
   { href: "/tarifs", label: "Tarifs" },
   { href: "/projets", label: "Projets" },
-  { href: "/faq", label: "FAQ" },
-  { href: "/a-propos", label: "À propos" },
+  { href: "/faq", label: "Questions" },
   { href: "/blog", label: "Blog" },
+  { href: "/a-propos", label: "À propos" },
   { href: "/contact", label: "Contact" },
   { href: "/mentions-legales", label: "Mentions légales" },
 ];
 
-export function Footer() {
+function FooterNav({
+  title,
+  links,
+}: {
+  title: string;
+  links: { href: string; label: string }[];
+}) {
   return (
-    <footer className="bg-bg-dark text-white overflow-x-hidden rounded-t-[2rem] md:rounded-t-[2.75rem] border-t-[3px] border-x-[3px] border-ink shadow-[0_-6px_0_#ff1f71] pb-[env(safe-area-inset-bottom)]">
+    <nav aria-label={title}>
+      <p className="text-[11px] font-extrabold uppercase tracking-wider text-white/35 mb-2 px-2">
+        {title}
+      </p>
+      <ul className="flex flex-col gap-0.5">
+        {links.map((l) => (
+          <li key={l.href}>
+            <Link
+              href={l.href}
+              className="inline-block px-2 py-1 text-sm font-semibold text-white/55 hover:text-ink hover:bg-lime rounded-full transition-colors"
+            >
+              {l.label}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  );
+}
+
+export function Footer() {
+  const metierLinks = metiers.map((m) => ({
+    href: metierPath(m.slug),
+    label: m.label,
+  }));
+
+  const besoinLinks = besoins.map((b) => ({
+    href: besoinPath(b.slug),
+    label: b.label,
+  }));
+
+  const comparatifLinks = comparatifs.map((c) => ({
+    href: comparatifPath(c.slug),
+    label: c.keyword,
+  }));
+
+  return (
+    <footer className="bg-bg-dark text-white overflow-hidden rounded-t-[2rem] md:rounded-t-[2.75rem] border-t-[3px] border-x-[3px] border-ink shadow-[0_-6px_0_#ff1f71] pb-[env(safe-area-inset-bottom)]">
       <div className="mx-auto max-w-6xl px-5 pt-8 pb-5 md:px-10 md:pt-10 md:pb-6">
-        <div className="flex flex-col gap-7 md:flex-row md:items-start md:justify-between md:gap-10">
-          <div className="max-w-xs">
+        <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-between lg:gap-12">
+          <div className="max-w-xs shrink-0">
             <p className="text-sm font-semibold text-white/50 leading-snug">
               {BRAND_SIGNATURE}
             </p>
             <p className="mt-1.5 text-xs font-medium text-white/35">
-              Dès 500&nbsp;€ · Devis clair avant de démarrer
+              Dès 89&nbsp;€/mois · hébergement inclus
             </p>
             <div className="mt-3 flex flex-col gap-1">
               <a
@@ -56,42 +101,11 @@ export function Footer() {
             </Button>
           </div>
 
-          <div className="grid grid-cols-2 gap-x-4 gap-y-1 w-full max-w-md">
-            <nav aria-label="Pied de page">
-              <p className="text-[11px] font-extrabold uppercase tracking-wider text-white/35 mb-2 px-2">
-                Navigation
-              </p>
-              <ul className="flex flex-col gap-0.5">
-                {footerLinks.map((l) => (
-                  <li key={l.href}>
-                    <Link
-                      href={l.href}
-                      className="inline-block px-2 py-1 text-sm font-semibold text-white/55 hover:text-ink hover:bg-lime rounded-full transition-colors"
-                    >
-                      {l.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </nav>
-
-            <nav aria-label="Secteurs">
-              <p className="text-[11px] font-extrabold uppercase tracking-wider text-white/35 mb-2 px-2">
-                Secteurs
-              </p>
-              <ul className="flex flex-col gap-0.5">
-                {metiers.map((m) => (
-                  <li key={m.slug}>
-                    <Link
-                      href={`/${m.slug}`}
-                      className="inline-block px-2 py-1 text-sm font-semibold text-white/55 hover:text-ink hover:bg-lime rounded-full transition-colors"
-                    >
-                      {m.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </nav>
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-8 w-full">
+            <FooterNav title="Le site" links={navLinks} />
+            <FooterNav title="Par métier" links={metierLinks} />
+            <FooterNav title="Par besoin" links={besoinLinks} />
+            <FooterNav title="Comparer" links={comparatifLinks} />
           </div>
         </div>
 
@@ -104,12 +118,12 @@ export function Footer() {
       </div>
 
       <div
-        className="relative px-3 sm:px-4 md:px-6 pt-2 pb-0 overflow-visible select-none pointer-events-none"
+        className="relative px-3 sm:px-4 md:px-6 pt-2 pb-0 overflow-hidden select-none pointer-events-none"
         aria-hidden
       >
         <p
-          className="font-extrabold tracking-tighter leading-[0.78] text-center text-white translate-y-[0.08em]"
-          style={{ fontSize: "clamp(4.5rem, 22vw, 10rem)" }}
+          className="font-extrabold tracking-tighter leading-[0.78] text-center text-white translate-y-[0.08em] whitespace-nowrap"
+          style={{ fontSize: "clamp(3.5rem, 18vw, 8rem)" }}
         >
           {BRAND_LOGO}
           <span className="text-pink">.</span>

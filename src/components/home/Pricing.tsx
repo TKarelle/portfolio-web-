@@ -5,12 +5,22 @@ import { pricingPlans } from "@/data/pricing";
 import { Button } from "@/components/ui/Button";
 import { SectionHead } from "@/components/ui/SectionHead";
 import { DeliveryDisclaimer } from "@/components/ui/DeliveryNote";
+import {
+  PricingGuarantees,
+  PricingIncluded,
+} from "@/components/home/PricingPromises";
 import { bubbleInStyle, waveDelay } from "@/lib/motion";
 import { CTA } from "@/data/copy";
 
 const waveClass = ["float-wave", "float-wave-slow", "float-wave-alt"] as const;
 
-export function Pricing() {
+export function Pricing({
+  title = "Choisis ton forfait",
+  highlight = "forfait",
+}: {
+  title?: string;
+  highlight?: string;
+} = {}) {
   const gridRef = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
   const [reduceMotion, setReduceMotion] = useState(false);
@@ -46,9 +56,13 @@ export function Pricing() {
   return (
     <section className="scroll-mt-28 py-14 md:py-20 px-6 bg-bg" id="forfaits">
       <div className="max-w-5xl mx-auto">
+        <div className="reveal">
+          <PricingIncluded />
+        </div>
+
         <div className="reveal text-center mb-10 md:mb-12">
-          <SectionHead stroke="pink" highlight="forfait">
-            {"Choisis ton forfait"}
+          <SectionHead stroke="pink" highlight={highlight}>
+            {title}
           </SectionHead>
         </div>
 
@@ -59,15 +73,15 @@ export function Pricing() {
           {pricingPlans.map((plan, i) => (
             <div
               key={plan.id}
-              className={plan.highlight ? "md:-translate-y-3" : undefined}
+              className={`h-full ${plan.highlight ? "md:-translate-y-3" : ""}`}
               style={bubbleInStyle(i, visible)}
             >
               <div
-                className={
+                className={`h-full ${
                   reduceMotion || !visible
                     ? undefined
                     : waveClass[i % waveClass.length]
-                }
+                }`}
                 style={
                   reduceMotion || !visible
                     ? undefined
@@ -95,22 +109,63 @@ export function Pricing() {
                     {plan.name}
                   </p>
 
-                  <div className="mt-4 mb-2 flex items-baseline gap-1">
-                    <span
-                      className={`text-5xl font-extrabold tracking-tight ${
-                        plan.highlight ? "text-white" : ""
-                      }`}
-                    >
-                      {plan.price}
-                    </span>
-                    {plan.period && (
-                      <span
-                        className={`text-lg font-semibold ${
-                          plan.highlight ? "text-white/60" : "text-muted"
-                        }`}
-                      >
-                        {plan.period}
-                      </span>
+                  <div className="mt-4 mb-3">
+                    {plan.price === "Devis" ? (
+                      <>
+                        <p
+                          className={`text-5xl font-extrabold tracking-tight ${
+                            plan.highlight ? "text-white" : ""
+                          }`}
+                        >
+                          Sur devis
+                        </p>
+                        <p
+                          className={`mt-1 text-xs font-medium ${
+                            plan.highlight ? "text-white/45" : "text-muted"
+                          }`}
+                        >
+                          sans frais de dossier
+                        </p>
+                      </>
+                    ) : (
+                      <>
+                        <p className="flex items-baseline gap-1.5 flex-wrap">
+                          <span
+                            className={`text-5xl font-extrabold tracking-tight ${
+                              plan.highlight ? "text-white" : ""
+                            }`}
+                          >
+                            {plan.price}
+                          </span>
+                          {plan.period ? (
+                            <span
+                              className={`text-lg font-semibold ${
+                                plan.highlight ? "text-white/60" : "text-muted"
+                              }`}
+                            >
+                              {plan.period}
+                            </span>
+                          ) : null}
+                        </p>
+                        {plan.setup ? (
+                          <p
+                            className={`mt-1.5 text-sm font-bold ${
+                              plan.highlight ? "text-lime" : "text-violet"
+                            }`}
+                          >
+                            {plan.setup}
+                          </p>
+                        ) : null}
+                        {plan.altPayment ? (
+                          <p
+                            className={`mt-0.5 text-xs font-medium ${
+                              plan.highlight ? "text-white/55" : "text-muted"
+                            }`}
+                          >
+                            {plan.altPayment}
+                          </p>
+                        ) : null}
+                      </>
                     )}
                   </div>
 
@@ -149,7 +204,7 @@ export function Pricing() {
                   <Button
                     href="/contact"
                     variant={plan.highlight ? "primary" : "outline"}
-                    className={`w-full ${plan.highlight ? "!text-ink" : ""}`}
+                    className={`w-full mt-auto ${plan.highlight ? "!text-ink" : ""}`}
                   >
                     {CTA.plan}
                   </Button>
@@ -160,6 +215,10 @@ export function Pricing() {
         </div>
 
         <DeliveryDisclaimer className="reveal mt-8 text-center max-w-lg mx-auto" />
+
+        <div className="reveal">
+          <PricingGuarantees />
+        </div>
       </div>
     </section>
   );

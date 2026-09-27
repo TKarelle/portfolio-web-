@@ -32,9 +32,9 @@ export function OrganizationJsonLd() {
             url: base,
             image: `${base}${FOUNDER_PHOTO}`,
             email: CONTACT_EMAIL,
-            priceRange: "500€-800€+",
+            priceRange: "89€/mois+",
             description:
-              "Développeuse web indépendante spécialisée dans la création de sites vitrines abordables pour artisans et indépendants (plombiers, boulangers, coiffeurs…). Dès 500 €.",
+              "Kopio est le premier abonnement WaaS (Website as a Service) pour femmes entrepreneuses : site clé en main, hébergement inclus, updates par email. Dès 89 €/mois.",
             areaServed: { "@type": "Country", name: "France" },
             founder: { "@id": `${base}/#person` },
           },
@@ -90,7 +90,7 @@ export function WebSiteJsonLd() {
         name: BRAND_NAME,
         url: base,
         description:
-          "Ton site web, sans compétences techniques. Sites vitrines dès 500 €.",
+          "Kopio : premier abonnement WaaS pour femmes entrepreneuses. Site clé en main dès 89 €/mois.",
         inLanguage: "fr-FR",
       }}
     />
@@ -166,6 +166,58 @@ export function OffersJsonLd() {
             },
           };
         }),
+      }}
+    />
+  );
+}
+
+/** Service + Organization pour pages métier / besoin / service */
+export function ServiceJsonLd({
+  name,
+  description,
+  url,
+  price,
+}: {
+  name: string;
+  description: string;
+  url: string;
+  price?: string;
+}) {
+  const base = getBaseUrl();
+  const path = url.startsWith("http") ? url : `${base}${url}`;
+
+  return (
+    <JsonLd
+      data={{
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Service",
+            name,
+            description,
+            url: path,
+            provider: { "@id": `${base}/#business` },
+            areaServed: { "@type": "Country", name: "France" },
+            ...(price
+              ? {
+                  offers: {
+                    "@type": "Offer",
+                    price,
+                    priceCurrency: "EUR",
+                    url: `${base}/tarifs`,
+                    availability: "https://schema.org/InStock",
+                  },
+                }
+              : {}),
+          },
+          {
+            "@type": "Organization",
+            "@id": `${base}/#business`,
+            name: BRAND_NAME,
+            url: base,
+            email: CONTACT_EMAIL,
+          },
+        ],
       }}
     />
   );

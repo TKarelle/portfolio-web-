@@ -11,7 +11,7 @@ import { buildPageMetadata } from "@/lib/metadata";
 export const metadata: Metadata = buildPageMetadata({
   title: "À propos : Développeuse web indépendante",
   description:
-    "Karelle, développeuse web indépendante. Sites vitrines dès 500 € pour artisans et indépendants : livrés en 7 à 14 jours, simplement.",
+    "Karelle, développeuse web indépendante. Sites web pour femmes entrepreneuses dès 89 €/mois, hébergement inclus.",
   path: "/a-propos",
 });
 
@@ -22,7 +22,7 @@ const values = [
   },
   {
     title: "Simplicité",
-    text: "Je rends le web accessible à ceux qui n'y connaissent rien.",
+    text: "Je rends le web accessible à celles qui n'y connaissent rien.",
   },
   {
     title: "Qualité",
@@ -45,10 +45,10 @@ export default function AboutPage() {
         title={`Je suis ${FOUNDER_NAME}. Ton alliée pour ton site.`}
         highlight="Ton alliée"
         stroke="violet"
-        description="Développeuse web indépendante. J'aide les artisans et indépendants à avoir un site clair : sans prise de tête, sans attendre 3 mois."
+        description="Développeuse web indépendante. J'aide les femmes entrepreneuses à avoir un site clair : sans prise de tête, sans attendre 3 mois."
         image={FOUNDER_PHOTO}
         imageAlt={`${FOUNDER_NAME}, développeuse web indépendante`}
-        badge="Dès 500 € · sans engagement"
+        badge="Dès 89 €/mois"
         frame="lime"
         secondaryHref="/tarifs"
       />

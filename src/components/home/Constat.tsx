@@ -1,11 +1,10 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/Button";
 import { SectionHead } from "@/components/ui/SectionHead";
 import { AutoPlayVideo } from "@/components/ui/AutoPlayVideo";
+import { NumberedGainCards } from "@/components/ui/NumberedGainCards";
 import { CTA } from "@/data/copy";
-import { bubbleInStyle } from "@/lib/motion";
 
 const gains = [
   {
@@ -81,65 +80,6 @@ function DemoVideos() {
   );
 }
 
-function GainCards() {
-  const listRef = useRef<HTMLOListElement>(null);
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    const el = listRef.current;
-    if (!el) return;
-
-    const reduceMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
-    if (reduceMotion) {
-      setVisible(true);
-      return;
-    }
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.2, rootMargin: "0px 0px -8% 0px" }
-    );
-
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
-
-  return (
-    <ol
-      ref={listRef}
-      className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6"
-      aria-label="Ce que tu gagnes avec ton site"
-    >
-      {gains.map((g, i) => (
-        <li
-          key={g.n}
-          className="bg-surface/80 rounded-2xl px-4 py-4 border border-ink/8 will-change-transform"
-          style={bubbleInStyle(i, visible)}
-        >
-          <div className="flex items-center gap-3 mb-2">
-            <span className="w-8 h-8 rounded-full bg-ink text-lime text-xs font-extrabold flex items-center justify-center shrink-0">
-              {g.n}
-            </span>
-            <span className="text-sm font-extrabold text-ink leading-snug">
-              {g.t}
-            </span>
-          </div>
-          <p className="text-sm text-muted font-medium leading-relaxed pl-11">
-            {g.d}
-          </p>
-        </li>
-      ))}
-    </ol>
-  );
-}
-
 export function Constat() {
   return (
     <section className="py-16 md:py-20 px-6 bg-chunk-pink" id="premier-site">
@@ -161,7 +101,10 @@ export function Constat() {
 
         <div className="reveal">
           <DemoVideos />
-          <GainCards />
+          <NumberedGainCards
+            items={gains}
+            ariaLabel="Ce que tu gagnes avec ton site"
+          />
 
           <div className="flex flex-col sm:flex-row gap-3 mt-2">
             <Button href="#contact" size="lg">

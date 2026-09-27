@@ -13,12 +13,14 @@ import { FAQ } from "@/components/home/FAQ";
 import { ContactSection } from "@/components/home/ContactSection";
 import { FaqJsonLd, OffersJsonLd } from "@/components/seo/JsonLd";
 import { buildPageMetadata } from "@/lib/metadata";
-import { metiers } from "@/data/metiers";
+import { metiers, metierPath } from "@/data/metiers";
+import { besoins, besoinPath } from "@/data/besoins";
+import { comparatifs, comparatifPath } from "@/data/comparatifs";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Sites web pour artisans et indépendants dès 500€",
+  title: "Site web pour femmes entrepreneuses dès 89€/mois",
   description:
-    "Création de sites vitrines clairs pour artisans et indépendants. Dès 500 €, livré en 7 à 14 jours, sans prise de tête. Discutons ensemble.",
+    "Kopio : création de sites web pour femmes entrepreneuses, site clé en main, hébergement inclus, mises à jour par email. Dès 89 €/mois.",
   path: "/",
 });
 
@@ -38,11 +40,25 @@ export default function HomePage() {
       <Testimonials />
       <FAQ />
       <ContactSection />
-      {/* Liens SEO internes (crawl) */}
-      <nav className="sr-only" aria-label="Pages métiers">
+      {/* Maillage pilier → toutes les pages cluster (crawl + GEO) */}
+      <nav className="sr-only" id="metiers" aria-label="Pages métiers">
         {metiers.map((m) => (
-          <Link key={m.slug} href={`/${m.slug}`}>
-            {m.label}
+          <Link key={m.slug} href={metierPath(m.slug)}>
+            {m.keyword}
+          </Link>
+        ))}
+      </nav>
+      <nav className="sr-only" aria-label="Pages besoins">
+        {besoins.map((b) => (
+          <Link key={b.slug} href={besoinPath(b.slug)}>
+            {b.keyword}
+          </Link>
+        ))}
+      </nav>
+      <nav className="sr-only" aria-label="Pages comparatifs">
+        {comparatifs.map((c) => (
+          <Link key={c.slug} href={comparatifPath(c.slug)}>
+            {c.keyword}
           </Link>
         ))}
       </nav>

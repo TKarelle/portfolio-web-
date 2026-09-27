@@ -54,7 +54,7 @@ export function CaseStudies() {
                     </div>
                     <div className="rounded-2xl p-4 border border-ink/12 bg-bg/60">
                       <p className="font-bold text-muted text-xs uppercase tracking-wide mb-1">
-                        Ce qu&apos;on a fait
+                        Ce que j&apos;ai fait
                       </p>
                       <p className="text-ink/80 font-medium">{study.solution}</p>
                     </div>

@@ -80,14 +80,13 @@ export function BlogContent({ blocks }: { blocks: string[] }) {
     <div className="space-y-5">
       {blocks.map((block, i) => {
         if (block.startsWith("## ")) {
+          const title = block.replace("## ", "");
           return (
             <h2
               key={`h-${i}`}
-              className="text-2xl md:text-3xl font-extrabold mt-10 mb-4"
+              className="text-2xl md:text-3xl font-extrabold tracking-tight leading-tight mt-10 mb-4"
             >
-              <span className="title-stroke title-stroke-pink">
-                {block.replace("## ", "")}
-              </span>
+              {title}
             </h2>
           );
         }

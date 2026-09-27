@@ -4,11 +4,11 @@ export const FOUNDER_DIPLOMA = "Diplômée en développement web";
 export const FOUNDER_EXPERIENCE = "2 ans d’expérience";
 export const BRAND_NAME = "Kopio";
 export const BRAND_LOGO = "kopio";
-export const BRAND_SIGNATURE = "Ton alliée pour ton site web.";
+export const BRAND_SIGNATURE = "Sites web pour femmes entrepreneuses.";
 export const CONTACT_EMAIL = "karelle.dev@gmail.com";
 
 export const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://kopio.eu";
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.kopio.eu";
 
 /** Lien Calendly (couleurs natives Calendly) */
 export const CALENDLY_URL =

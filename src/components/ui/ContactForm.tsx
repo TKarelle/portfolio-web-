@@ -102,7 +102,7 @@ export function ContactForm({
             id={`${idPrefix}metier`}
             name="metier"
             required
-            placeholder="Ex. plombier à Lyon"
+            placeholder="Ex. coach à Lyon"
             className={fieldClass}
           />
         </div>

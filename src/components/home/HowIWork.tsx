@@ -78,9 +78,9 @@ export function HowIWork() {
               d&apos;intermédiaire. Juste toi et moi.
             </p>
             <p>
-              Avec {FOUNDER_EXPERIENCE}, j&apos;aide les artisans, commerçants et
-              indépendants à avoir un site clair et professionnel, sans avoir à
-              gérer la technique.
+              Avec {FOUNDER_EXPERIENCE}, j&apos;aide les femmes entrepreneuses
+              (coachs, consultantes, thérapeutes, créatrices, freelances) à avoir
+              un site clair et professionnel, sans avoir à gérer la technique.
             </p>
           </div>
 

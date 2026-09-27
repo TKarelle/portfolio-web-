@@ -1,50 +1,76 @@
 import Image from "next/image";
+import Link from "next/link";
 import type { MetierPage } from "@/data/metiers";
+import { metiers, metierPath } from "@/data/metiers";
+import { besoinPath } from "@/data/besoins";
 import { caseStudies } from "@/data/caseStudies";
-import { pricingPlans } from "@/data/pricing";
+import { Pricing } from "@/components/home/Pricing";
+import { FAQ } from "@/components/home/FAQ";
 import { Button } from "@/components/ui/Button";
 import { SectionHead } from "@/components/ui/SectionHead";
-import { DeliveryDisclaimer } from "@/components/ui/DeliveryNote";
+import { NumberedGainCards } from "@/components/ui/NumberedGainCards";
 import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
-import { FaqJsonLd } from "@/components/seo/JsonLd";
-import { ContactSection } from "@/components/home/ContactSection";
-import { CTA } from "@/data/copy";
+import { FaqJsonLd, ServiceJsonLd } from "@/components/seo/JsonLd";
+import { SeoProseSections } from "@/components/seo/SeoProseSections";
+import { HeroFacts } from "@/components/ui/HeroFacts";
+import { pricingPlans } from "@/data/pricing";
 
 export function MetierTemplate({ data }: { data: MetierPage }) {
   const study = data.caseStudyId
     ? caseStudies.find((c) => c.id === data.caseStudyId)
     : undefined;
+  const recommended =
+    pricingPlans.find((p) => p.id === data.recommendedPlanId) ??
+    pricingPlans[0];
+  const siblings = metiers.filter((m) => m.slug !== data.slug).slice(0, 6);
+
+  const gainItems = data.whyPoints.map((p, i) => ({
+    n: String(i + 1).padStart(2, "0"),
+    t: p.t,
+    d: p.d,
+  }));
+
+  const caseHeading =
+    data.caseStudyHeading ??
+    (study ? `Exemple concret : ${study.title}` : "Exemple concret");
 
   return (
     <>
       <FaqJsonLd items={data.faqs} />
+      <ServiceJsonLd
+        name={`Site web pour ${data.metier}`}
+        description={data.metaDescription}
+        url={metierPath(data.slug)}
+        price={recommended.price === "Devis" ? undefined : recommended.price}
+      />
 
       <section className="pt-28 md:pt-36 pb-12 px-6 mesh-hero">
         <div className="max-w-5xl mx-auto">
           <Breadcrumbs
             items={[
               { label: "Accueil", href: "/" },
-              { label: data.label, href: `/${data.slug}` },
+              { label: "Site web pour", href: "/#metiers" },
+              { label: data.label, href: metierPath(data.slug) },
             ]}
           />
 
           <div className="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
             <div>
               <h1 className="text-[1.65rem] sm:text-3xl md:text-4xl lg:text-[2.5rem] font-extrabold leading-[1.12] tracking-tight">
-                {data.h1Before}{" "}
-                <span className="mark mark-pink">{data.h1Highlight}</span>
+                {data.h1}
               </h1>
               <p className="mt-6 text-base md:text-lg text-muted font-medium leading-relaxed">
                 {data.intro}
               </p>
-              <div className="mt-8 flex flex-col sm:flex-row gap-3">
-                <Button href="/contact" size="lg">
-                  {CTA.primary}
-                </Button>
-                <Button href="/tarifs" variant="outline" size="lg">
-                  {CTA.secondary}
-                </Button>
-              </div>
+              <HeroFacts
+                geoSummary={data.tldr}
+                proof={study?.title}
+                delivery={
+                  data.recommendedPlanId === "launch"
+                    ? "Sous 14 jours"
+                    : "Sous 21 jours"
+                }
+              />
             </div>
 
             <div className="photo-frame photo-frame-lime relative aspect-[4/3] max-w-lg mx-auto lg:ml-auto w-full">
@@ -61,181 +87,153 @@ export function MetierTemplate({ data }: { data: MetierPage }) {
         </div>
       </section>
 
+      <SeoProseSections sections={data.sections} />
+
       <section className="py-16 md:py-20 px-6 bg-chunk-pink">
         <div className="max-w-5xl mx-auto">
-          <SectionHead align="left" stroke="pink" highlight="besoin" className="mb-8">
-            {data.whyTitle}
-          </SectionHead>
-          <ol className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            {data.whyPoints.map((p, i) => (
-              <li
-                key={p.t}
-                className="bg-surface/80 rounded-2xl px-4 py-4 border border-ink/8"
-              >
-                <div className="flex items-center gap-3 mb-2">
-                  <span className="w-8 h-8 rounded-full bg-ink text-lime text-xs font-extrabold flex items-center justify-center shrink-0">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <span className="text-sm font-extrabold text-ink leading-snug">
-                    {p.t}
-                  </span>
-                </div>
-                <p className="text-sm text-muted font-medium leading-relaxed pl-11">
-                  {p.d}
-                </p>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
-
-      <section className="scroll-mt-28 py-16 md:py-20 px-6 bg-bg" id="forfaits">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-10">
+          <div className="reveal max-w-3xl">
             <p className="text-sm font-bold text-pink mb-3 tracking-wide">
-              Tarifs clairs
+              Pour {data.metierPlural}
             </p>
-            <SectionHead stroke="pink" highlight="inclus">
-              {`Ce qui est inclus pour votre site de ${data.metier}`}
+            <SectionHead
+              align="left"
+              stroke="lime"
+              highlight="en pratique"
+              className="mb-8"
+            >
+              {data.whyTitle}
             </SectionHead>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {pricingPlans.map((plan) => (
-              <div
-                key={plan.id}
-                className={`card p-6 md:p-7 flex flex-col ${
-                  plan.highlight
-                    ? "!bg-violet !text-white !border-lime !shadow-[6px_6px_0_#d4ff00]"
-                    : "bg-surface"
-                }`}
-              >
-                <p
-                  className={`text-sm font-bold uppercase tracking-wider ${
-                    plan.highlight ? "text-lime" : "text-pink"
-                  }`}
-                >
-                  {plan.name}
-                </p>
-                <p className="mt-3 text-4xl font-extrabold">
-                  {plan.price}
-                  {plan.period && (
-                    <span className="text-lg font-semibold ml-1">
-                      {plan.period}
-                    </span>
-                  )}
-                </p>
-                <p
-                  className={`text-sm mt-2 mb-4 font-medium ${
-                    plan.highlight ? "text-white/70" : "text-muted"
-                  }`}
-                >
-                  {plan.description}
-                </p>
-                <p
-                  className={`text-xs font-bold mb-4 ${
-                    plan.highlight ? "text-lime" : "text-violet"
-                  }`}
-                >
-                  Livraison : {plan.delivery}
-                </p>
-                <ul
-                  className={`space-y-2 text-sm font-medium flex-1 mb-6 ${
-                    plan.highlight ? "text-white/85" : "text-ink/80"
-                  }`}
-                >
-                  {plan.features.map((f) => (
-                    <li key={f} className="flex gap-2">
-                      <span>✦</span> {f}
-                    </li>
-                  ))}
-                </ul>
-                <Button
-                  href="/contact"
-                  variant={plan.highlight ? "primary" : "outline"}
-                  className={`w-full ${plan.highlight ? "!text-ink" : ""}`}
-                >
-                  {CTA.plan}
-                </Button>
-              </div>
-            ))}
+          <div className="reveal">
+            <NumberedGainCards items={gainItems} ariaLabel={data.whyTitle} />
           </div>
-          <DeliveryDisclaimer className="mt-8 text-center max-w-lg mx-auto" />
         </div>
       </section>
+
+      <Pricing title={data.includedTitle} highlight="inclus" />
 
       {study && (
-        <section className="py-16 md:py-20 px-6 bg-chunk-lime">
+        <section className="pt-6 md:pt-8 pb-14 md:pb-20 px-6 bg-bg">
           <div className="max-w-5xl mx-auto">
-            <SectionHead align="left" stroke="pink" highlight="concret" className="mb-8">
-              {`Exemple concret : ${study.title}`}
-            </SectionHead>
-            <article className="card overflow-hidden bg-surface grid grid-cols-1 lg:grid-cols-5">
-              <div className="lg:col-span-2 relative aspect-[16/10] lg:aspect-auto lg:min-h-[260px] photo-frame">
-                <Image
-                  src={study.image}
-                  alt={study.title}
-                  fill
-                  className="object-cover"
-                  sizes="40vw"
-                />
-              </div>
-              <div className="lg:col-span-3 p-7 md:p-9">
-                <div className="grid sm:grid-cols-2 gap-4 text-sm mb-5">
-                  <div className="bg-pink-bg rounded-2xl p-4 border-2 border-ink">
-                    <p className="font-bold text-pink text-xs uppercase mb-1">
-                      Avant
-                    </p>
-                    <p className="font-medium text-ink/80">{study.problem}</p>
+            <div className="reveal mb-10 md:mb-12 text-center">
+              <SectionHead stroke="pink" highlight="concret">
+                {caseHeading}
+              </SectionHead>
+            </div>
+
+            <article className="reveal card card-hover overflow-hidden bg-surface">
+              <div className="grid grid-cols-1 lg:grid-cols-5">
+                <div className="lg:col-span-2 relative aspect-[16/10] lg:aspect-auto lg:min-h-[280px] photo-frame overflow-hidden">
+                  <Image
+                    src={study.image}
+                    alt={study.title}
+                    fill
+                    loading="lazy"
+                    className="object-cover object-top"
+                    sizes="40vw"
+                    quality={75}
+                  />
+                  <span className="absolute top-4 left-4 bg-ink text-surface text-xs font-bold px-3 py-1 rounded-full z-10">
+                    {study.category}
+                  </span>
+                </div>
+
+                <div className="lg:col-span-3 p-7 md:p-9">
+                  <h3 className="text-2xl md:text-3xl font-extrabold mb-5 tracking-tight leading-tight">
+                    {study.title}
+                  </h3>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm mb-5">
+                    <div className="rounded-2xl p-4 border border-ink/12 bg-bg/60">
+                      <p className="font-bold text-muted text-xs uppercase tracking-wide mb-1">
+                        Avant
+                      </p>
+                      <p className="text-ink/80 font-medium">{study.problem}</p>
+                    </div>
+                    <div className="rounded-2xl p-4 border border-ink/12 bg-bg/60">
+                      <p className="font-bold text-muted text-xs uppercase tracking-wide mb-1">
+                        Ce que j&apos;ai fait
+                      </p>
+                      <p className="text-ink/80 font-medium">{study.solution}</p>
+                    </div>
                   </div>
-                  <div className="bg-violet-bg rounded-2xl p-4 border-2 border-ink">
-                    <p className="font-bold text-violet text-xs uppercase mb-1">
-                      Ce qu&apos;on a fait
+
+                  <div className="flex flex-wrap items-center gap-3">
+                    <p className="font-extrabold text-lg bg-ink text-lime inline-block px-4 py-2 rounded-full">
+                      → {study.result}
                     </p>
-                    <p className="font-medium text-ink/80">{study.solution}</p>
+                    {study.url && (
+                      <Button href={study.url} variant="outline" size="sm">
+                        Voir le site →
+                      </Button>
+                    )}
                   </div>
                 </div>
-                <p className="font-extrabold text-lg bg-ink text-lime inline-block px-4 py-2 rounded-full">
-                  → {study.result}
-                </p>
               </div>
             </article>
           </div>
         </section>
       )}
 
-      <section className="py-16 md:py-20 px-6 bg-bg">
-        <div className="max-w-3xl mx-auto">
-          <div className="text-center mb-10">
-            <p className="text-sm font-bold text-violet mb-3 tracking-wide">
-              FAQ
-            </p>
-            <SectionHead stroke="violet" highlight={data.metierPlural}>
-              {`Questions fréquentes des ${data.metierPlural}`}
-            </SectionHead>
-          </div>
-          <div className="space-y-3">
-            {data.faqs.map((item) => (
-              <details
-                key={item.question}
-                className="card bg-surface p-5 md:p-6 group"
-              >
-                <summary className="font-extrabold cursor-pointer list-none flex justify-between gap-4">
-                  {item.question}
-                  <span className="text-pink shrink-0 group-open:rotate-45 transition-transform">
-                    +
-                  </span>
-                </summary>
-                <p className="mt-3 text-sm text-muted font-medium leading-relaxed">
-                  {item.answer}
-                </p>
-              </details>
-            ))}
-          </div>
+      <FAQ
+        items={data.faqs}
+        title={`Questions fréquentes des ${data.metierPlural}`}
+        highlight={data.metierPlural}
+      />
+
+      <section className="py-16 px-6 bg-chunk-violet">
+        <div className="max-w-3xl mx-auto text-center">
+          <p className="text-lg md:text-xl font-medium text-ink leading-relaxed mb-8">
+            {data.closing}
+          </p>
+          <Button href="/contact" size="lg">
+            {data.ctaLabel}
+          </Button>
+          <p className="mt-6 text-sm text-muted font-medium">
+            Voir l&apos;{" "}
+            <Link href="/" className="text-violet font-bold hover:underline">
+              offre Kopio
+            </Link>
+            , les{" "}
+            <Link href="/tarifs" className="text-violet font-bold hover:underline">
+              tarifs
+            </Link>
+            {data.relatedBesoinSlug && (
+              <>
+                {" "}
+                ou{" "}
+                <Link
+                  href={besoinPath(data.relatedBesoinSlug)}
+                  className="text-violet font-bold hover:underline"
+                >
+                  {data.relatedBesoinLabel ?? "un besoin proche"}
+                </Link>
+              </>
+            )}
+            .
+          </p>
         </div>
       </section>
 
-      <ContactSection />
+      <section className="py-12 px-6 bg-chunk-pink border-t border-ink/5">
+        <div className="max-w-5xl mx-auto">
+          <p className="text-sm font-extrabold uppercase tracking-wider text-pink mb-4">
+            Autres métiers
+          </p>
+          <ul className="flex flex-wrap gap-2">
+            {siblings.map((m) => (
+              <li key={m.slug}>
+                <Link
+                  href={metierPath(m.slug)}
+                  className="inline-block px-3 py-1.5 text-sm font-semibold rounded-full border border-ink/15 bg-surface hover:bg-lime transition-colors"
+                >
+                  Site web pour {m.metier}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
     </>
   );
 }

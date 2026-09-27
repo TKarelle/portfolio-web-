@@ -1,21 +1,23 @@
-import { landings, getLanding, type LandingPageData } from "@/data/landings";
+import { besoins, getBesoin, type BesoinPageData } from "@/data/besoins";
+import {
+  comparatifs,
+  getComparatif,
+  type ComparatifPageData,
+} from "@/data/comparatifs";
 import { metiers, getMetier, type MetierPage } from "@/data/metiers";
 
-export type ResolvedPage =
-  | { kind: "metier"; data: MetierPage }
-  | { kind: "landing"; data: LandingPageData };
+export type { MetierPage, BesoinPageData, ComparatifPageData };
 
-/** Slugs top-level du brief : métiers SEO + landings. */
-export function getAllTopLevelSlugs(): string[] {
-  return [...metiers.map((m) => m.slug), ...landings.map((l) => l.slug)];
+export function getAllMetierSlugs(): string[] {
+  return metiers.map((m) => m.slug);
 }
 
-export function resolveTopLevelPage(slug: string): ResolvedPage | undefined {
-  const metier = getMetier(slug);
-  if (metier) return { kind: "metier", data: metier };
-
-  const landing = getLanding(slug);
-  if (landing) return { kind: "landing", data: landing };
-
-  return undefined;
+export function getAllBesoinSlugs(): string[] {
+  return besoins.map((b) => b.slug);
 }
+
+export function getAllComparatifSlugs(): string[] {
+  return comparatifs.map((c) => c.slug);
+}
+
+export { getMetier, getBesoin, getComparatif, metiers, besoins, comparatifs };

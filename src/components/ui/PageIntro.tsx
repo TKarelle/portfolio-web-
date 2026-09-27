@@ -44,7 +44,7 @@ export function PageIntro({
   video,
   videoPoster = "/image/sitewebvideo-poster.jpg",
   videoLabel = "Aperçu du projet",
-  badge = "Dès 500 € · sans engagement",
+  badge = "Dès 89 €/mois",
   frame = "pink",
   primaryHref = "/contact",
   primaryLabel = CTA.primary,

@@ -17,6 +17,6 @@ export const process = [
   {
     step: "04",
     title: "C’est en ligne",
-    text: "Mise en ligne, petit tour pour modifier l’essentiel. Tu reprends ton métier, le site est là.",
+    text: "Mise en ligne, et ensuite : tu m’envoies un mail, c’est en ligne sous 24 à 72 h. Sans bricolage technique. Tu reprends ton métier, je gère le site.",
   },
 ] as const;
