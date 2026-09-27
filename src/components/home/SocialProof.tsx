@@ -48,7 +48,7 @@ export function SocialProof() {
   return (
     <StatsBand
       items={stats}
-      eyebrow="Ils m'ont fait confiance"
+      eyebrow="Elles m'ont fait confiance"
       footer={
         <>
           <ClientMarquee />
