@@ -333,6 +333,105 @@ export const metiers: MetierPage[] = [
     imageAlt: "Consultante indépendante : site web professionnel Kopio",
   },
   {
+    slug: "assistante-virtuelle",
+    label: "Assistante virtuelle",
+    keyword: "site internet assistante virtuelle",
+    metier: "assistante virtuelle",
+    metierPlural: "assistantes virtuelles",
+    title:
+      "Site internet assistante virtuelle | Abonnement dès 89€/mois | Kopio",
+    metaDescription:
+      "Site internet assistante virtuelle : packages clairs, preuves, contact pro. Créer un site pour assistante indépendante dès 89 €/mois avec Kopio.",
+    h1: "Le site qui donne à ton activité d'assistante virtuelle la crédibilité qu'elle mérite",
+    tldr:
+      "Je crée ton site internet assistante virtuelle en abonnement mensuel : packages lisibles, preuves, prise de contact professionnelle. Dès 89 €/mois avec Pour démarrer, en ligne en 14 jours. Pensé pour les entrepreneuses assistantes indépendantes en France qui veulent convertir hors LinkedIn et Facebook.",
+    intro:
+      "Tes clientes TPE et B2B te jugent en quelques secondes. Un site pour assistante indépendante clarifie tes forfaits, ton cadre de travail et le prochain pas, sans que tu gères la technique.",
+    douleur:
+      "Packages de services flous, crédibilité fragile face aux clientes B2B ou TPE, et une acquisition qui dépend uniquement de LinkedIn ou Facebook.",
+    whyTitle:
+      "Pourquoi une assistante virtuelle a besoin d'un site différent d'un site générique ?",
+    whyPoints: [
+      {
+        t: "Packages scannables",
+        d: "Forfaits, livrables, modalités : structure nette, pas liste de tâches floue.",
+      },
+      {
+        t: "Crédibilité B2B / TPE",
+        d: "Preuves et cadre de collaboration placés là où la décision se joue.",
+      },
+      {
+        t: "Contact professionnel",
+        d: "Formulaire, calendrier ou email selon ton process commercial.",
+      },
+      {
+        t: "Ton temps se facture",
+        d: "Je gère le site ; tu gardes ton énergie pour les missions clientes.",
+      },
+    ],
+    sections: [
+      {
+        h2: "Mes clientes me trouvent déjà sur LinkedIn ou Facebook : à quoi sert un site ?",
+        body: "LinkedIn et Facebook génèrent des conversations. Ils ne te donnent pas une page d'offre contrôlée, hors fil d'actualité, que tu envoies après un premier call. Le mécanisme est simple : la décideuse veut un lien à transmettre en interne, pas un screenshot de post. En 2025, une assistante virtuelle à Lyon m'a dit qu'elle perdait des suites faute de page « comment travailler ensemble ». Son site a centralisé packages, modalités et contact. LinkedIn reste le filet ; le site porte la conversion et le référentiel de ton expertise. Tu gardes tes canaux d'acquisition ; tu leur donnes une adresse stable que tu contrôles hors algorithme.",
+      },
+      {
+        h2: "Comment présenter tes packages d'assistante sans noyer la lectrice ?",
+        body: "Une assistante virtuelle vend un cadre de collaboration, pas une liste de tâches. Je structure la page autour du public, des packages, du déroulé d'onboarding et des preuves. Le lecteur scanne ; il doit comprendre en moins d'une minute s'il est au bon endroit. En 2024, une AV spécialisée e-commerce a remplacé trois tarifs flous par deux forfaits nommés avec livrables visibles. Pour toi, cela veut dire une offre lisible, des cas ou retours clients placés au bon endroit, et un seul appel à l'action. Tu évites le site « à propos de moi » qui ne dit pas ce que tu livres.\n\nLe détail compte pour la lectrice pressée : titres scannables, preuves placées au bon endroit, un seul prochain pas visible sur mobile. Tu gagnes des conversations déjà cadrées. Le site ne remplace pas ton expertise ; il la rend lisible avant le premier échange et réduit les allers-retours inutiles.",
+      },
+      {
+        h2: "Combien coûte un site internet pour assistante virtuelle ?",
+        body: "Pour démarrer à 89 €/mois couvre une vitrine one-page efficace : positionnement, packages, contact. Complet à 129 €/mois convient si tu présentes plusieurs offres, des pages cas clients ou un calendrier de prise de rendez-vous. Besoin précis traite les parcours atypiques (espace client, tunnel long) sur devis. La plupart des assistantes démarrent sur Pour démarrer puis passent à Complet quand le catalogue de forfaits s'étoffe. Tu investis dans une présence stable, pas dans un outil que tu dois administrer chaque semaine.\n\nLe devis précise le périmètre avant ton engagement. Tu sais ce qui est inclus (design, hébergement, mises à jour) et ce qui reste hors scope. Si ton offre grossit plus tard, je te propose le passage de formule sans tout reconstruire. Tu paies pour une présence maintenue, pas pour un fichier livré puis abandonné.",
+      },
+      {
+        h2: "Et si mes forfaits évoluent encore dans six mois ?",
+        body: "Les assistantes affinent souvent leurs packages après six à douze mois. Ce n'est pas une raison de rester sans site. Je construis une structure éditoriale souple : blocs d'offre que je reformule par email sans tout reconstruire. En pratique, tu changes un titre, un public cible ou un livrable ; je mets à jour sous 24 à 72 h. Une AV admin a ainsi recentré son message deux fois en 2025 sans refonte. Le site suit ton positionnement. Tu n'attends pas la « version définitive » de ton catalogue pour être joignable.\n\nConcrètement, tu avances avec ce que tu as déjà sous la main. Je priorise la clarté de l'offre et le prochain pas pour la visiteuse. Les enrichissements (galerie, preuves, pages secondaires) arrivent ensuite par email, au rythme de ton activité. Tu n'as pas besoin d'un dossier parfait pour être joignable et crédible.",
+      },
+      {
+        h2: "Comment relier ton site à LinkedIn, Facebook et ta signature mail ?",
+        body: "Le maillage rend ton expertise cohérente partout. Signature mail, featured LinkedIn, bio Facebook et PDF de proposition pointent vers la même URL. Une prospecte qui te découvre sur un post retrouve les preuves sur le site le soir même. Tu évites les versions contradictoires de ton offre. Concrètement, chaque canal amène du trafic ; le site porte le détail et le formulaire. Quand LinkedIn change son algorithme, ton adresse reste la référence que tu contrôles. Créer un site pour assistante indépendante, c'est aussi donner une maison commune à tous tes points de contact.",
+      },
+      {
+        h2: "Que gagnes-tu concrètement avec une page d'offre claire ?",
+        body: "Une page claire réduit les appels de qualification floue. La cliente arrive déjà alignée sur le forfait et le format de collaboration. J'observe plus de demandes écrites structurées (contexte, volume, délai) quand le formulaire et l'offre sont explicites. Tu prépares mieux le premier entretien. Le site ne remplace pas ton expertise commerciale ; il filtre et accélère. Tu factures ton temps d'assistance, pas celui passé à réexpliquer les bases de tes packages.\n\nLe détail compte pour la lectrice pressée : titres scannables, preuves placées au bon endroit, un seul prochain pas visible sur mobile. Tu gagnes des conversations déjà cadrées. Le site ne remplace pas ton expertise ; il la rend lisible avant le premier échange et réduit les allers-retours inutiles.",
+      },
+    ],
+    includedTitle:
+      "Ce qui est inclus dans un site Kopio pour assistante virtuelle",
+    priceTitle: "Combien coûte un site pour une assistante virtuelle ?",
+    recommendedPlanId: "launch",
+    relatedBesoinSlug: "site-vitrine-independante",
+    relatedBesoinLabel: "site vitrine d'indépendante",
+    closing:
+      "Si tu veux une page d'offre digne de tes missions d'assistante, écris-moi : je clarifie avec toi tes packages et le parcours de contact.",
+    ctaLabel: "Parler de mon site assistante virtuelle",
+    faqs: [
+      {
+        question:
+          "Un site est-il utile si mes clientes me trouvent déjà sur LinkedIn ou Facebook ?",
+        answer:
+          "LinkedIn et Facebook génèrent de la visibilité. Le site convertit : packages détaillés, preuves et contact hors algorithme. Tu l'envoies après un premier échange comme référence stable. En pratique, tu gardes tes canaux d'acquisition et tu pointes vers une URL stable. C'est ce lien que tu envoies après un premier échange sérieux.",
+      },
+      {
+        question: "Combien coûte un site internet pour assistante virtuelle ?",
+        answer:
+          "Pour démarrer commence à 89 €/mois. Complet à 129 €/mois convient si tu as plusieurs pages, des cas clients ou un parcours de prise de rendez-vous. Le devis écrit le périmètre (pages, réservation, délais). Tu compares ensuite avec ton budget mensuel réel, sans surprise de maintenance cachée.",
+      },
+      {
+        question: "Puis-je présenter plusieurs packages de services ?",
+        answer:
+          "Oui. One-page structurée en Pour démarrer, ou jusqu'à cinq pages en Complet. Je priorise la clarté : mieux vaut trois forfaits nets que dix flous. Tu restes concentrée sur ton métier pendant que je gère la technique et les mises à jour. Si ton besoin dépasse le forfait, je te le dis clairement avant le devis.",
+      },
+      {
+        question: "Quel est le délai de livraison ?",
+        answer:
+          "14 jours pour Pour démarrer, 21 jours pour Complet après validation du devis. Les textes et preuves clientes restent le facteur le plus déterminant. Un kickoff court cadre les contenus attendus. Plus tes textes et visuels arrivent tôt, plus la date de mise en ligne reste réaliste.",
+      },
+    ],
+    image: "/image/independant.jpg",
+    imageAlt:
+      "Assistante virtuelle indépendante : site web professionnel Kopio",
+  },
+  {
     slug: "therapeute",
     label: "Thérapeute",
     keyword: "site web pour thérapeute",
@@ -340,10 +439,10 @@ export const metiers: MetierPage[] = [
     metierPlural: "thérapeutes",
     title: "Site web pour thérapeute | dès 89€/mois | Kopio",
     metaDescription:
-      "Site web pour thérapeute, sophrologue, naturopathe, hypnothérapeute. Abonnement mensuel Kopio dès 89 €/mois, cadre clair et éthique.",
+      "Site web pour thérapeute et hypnothérapeute : cadre clair, éthique, prise de contact. Abonnement mensuel Kopio dès 89 €/mois.",
     h1: "Le site qui donne à ton activité de thérapeute la crédibilité qu'elle mérite",
     tldr:
-      "Je propose un site web pour thérapeute en abonnement : ton cadre, tes approches, la prise de rendez-vous, sans marketing agressif. Dès 89 €/mois avec Pour démarrer. Pour sophrologues, naturopathes, hypnothérapeutes et praticiennes en France qui veulent rassurer avant le premier contact.",
+      "Je propose un site web pour thérapeute en abonnement : ton cadre, tes approches, la prise de rendez-vous, sans marketing agressif. Dès 89 €/mois avec Pour démarrer. Pour hypnothérapeutes et praticiennes en accompagnement thérapeutique en France qui veulent rassurer avant le premier contact.",
     intro:
       "Tes patientes cherchent quelqu'un de sérieux et rassurant. Ton site doit poser le cadre, expliquer ta pratique et faciliter le premier contact.",
     douleur:
@@ -371,11 +470,11 @@ export const metiers: MetierPage[] = [
     sections: [
       {
         h2: "Doctolib remplace-t-il vraiment un site pour thérapeute ?",
-        body: "Doctolib aide à la prise de rendez-vous et à la visibilité locale. Il ne raconte pas ta pratique, tes limites ni le déroulé d'une première séance. Une patiente hésitante lit souvent plusieurs profils avant d'écrire ; un site pose le cadre avec ton ton. En 2025, une sophrologue à Bordeaux m'a dit que les demandes via son site arrivaient déjà « cadrées » : public, motif, disponibilité. Doctolib reste un canal. Le site est ta vitrine éthique, que tu contrôles hors de la logique d'annuaire.",
+        body: "Doctolib aide à la prise de rendez-vous et à la visibilité locale. Il ne raconte pas ta pratique, tes limites ni le déroulé d'une première séance. Une patiente hésitante lit souvent plusieurs profils avant d'écrire ; un site pose le cadre avec ton ton. En 2025, une hypnothérapeute à Bordeaux m'a dit que les demandes via son site arrivaient déjà « cadrées » : public, motif, disponibilité. Doctolib reste un canal. Le site est ta vitrine éthique, que tu contrôles hors de la logique d'annuaire.",
       },
       {
         h2: "Comment parler de ta pratique sans promettre de résultats ?",
-        body: "Le marketing agressif casse la confiance dans les métiers d'accompagnement. J'écris et je structure autour du cadre : pour qui tu reçois, comment se déroule une séance, quelles approches tu utilises, sans garantie de guérison. Le mécanisme rassure parce qu'il est précis. Une hypnothérapeute a ainsi clarifié ce qu'elle traitait et ce qu'elle orientait ailleurs ; les premiers messages sont devenus plus adaptés. Tu restes alignée avec ton éthique. Le site filtre autant qu'il attire.\n\nLe détail compte pour la lectrice pressée : titres scannables, preuves placées au bon endroit, un seul prochain pas visible sur mobile. Tu gagnes des conversations déjà cadrées. Le site ne remplace pas ton expertise ; il la rend lisible avant le premier échange et réduit les allers-retours inutiles.",
+        body: "Le marketing agressif casse la confiance dans les métiers d'accompagnement thérapeutique. J'écris et je structure autour du cadre : pour qui tu reçois, comment se déroule une séance, quelles approches tu utilises, sans garantie de guérison. Le mécanisme rassure parce qu'il est précis. Une hypnothérapeute a ainsi clarifié ce qu'elle traitait et ce qu'elle orientait ailleurs ; les premiers messages sont devenus plus adaptés. Tu restes alignée avec ton éthique. Le site filtre autant qu'il attire.\n\nSi tu es sophrologue ou naturopathe, j'ai des pages dédiées à ces pratiques : le raisonnement reste proche (cadre, sérieux, prochain pas), avec des formulations propres à chaque métier. Pour une thérapeute, je reste sur ton langage d'accompagnement et tes limites professionnelles.",
       },
       {
         h2: "Combien coûte un site pour une thérapeute ?",
@@ -383,7 +482,7 @@ export const metiers: MetierPage[] = [
       },
       {
         h2: "Un site peut-il rester discret et conforme à mon éthique ?",
-        body: "Oui, et c'est souvent la condition pour que tu te sentes à l'aise de le partager. Je pars de ton brief professionnel : ton, limites, mentions légales, absence de promesses. Pas de pop-ups agressifs ni de formulations vendeuses. En pratique, le design reste sobre, le formulaire est simple, les informations utiles sont accessibles. Une naturopathe a validé chaque phrase sensible avant mise en ligne. Tu gardes la main sur le message. Le site reflète ton cabinet, pas une landing de conversion forcée.\n\nConcrètement, tu avances avec ce que tu as déjà sous la main. Je priorise la clarté de l'offre et le prochain pas pour la visiteuse. Les enrichissements (galerie, preuves, pages secondaires) arrivent ensuite par email, au rythme de ton activité. Tu n'as pas besoin d'un dossier parfait pour être joignable et crédible.",
+        body: "Oui, et c'est souvent la condition pour que tu te sentes à l'aise de le partager. Je pars de ton brief professionnel : ton, limites, mentions légales, absence de promesses. Pas de pop-ups agressifs ni de formulations vendeuses. En pratique, le design reste sobre, le formulaire est simple, les informations utiles sont accessibles. Une thérapeute a validé chaque phrase sensible avant mise en ligne en 2024. Tu gardes la main sur le message. Le site reflète ton cabinet, pas une landing de conversion forcée.\n\nConcrètement, tu avances avec ce que tu as déjà sous la main. Je priorise la clarté du cadre et le prochain pas pour la visiteuse. Les enrichissements (pages approches, FAQ, preuves) arrivent ensuite par email, au rythme de ton activité. Tu n'as pas besoin d'un dossier parfait pour être joignable et crédible.",
       },
       {
         h2: "Comment articuler site, Doctolib et Instagram ?",
@@ -416,7 +515,7 @@ export const metiers: MetierPage[] = [
       {
         question: "Le site peut-il rester discret et éthique ?",
         answer:
-          "Oui. J'évite le marketing agressif. Le brief part de ton cadre professionnel, de tes limites et du ton que tu assumeras devant tes patientes. En pratique, tu gardes tes canaux d'acquisition et tu pointes vers une URL stable. C'est ce lien que tu envoies après un premier échange sérieux.",
+          "Oui. J'évite le marketing agressif. Le brief part de ton cadre professionnel, de tes limites et du ton que tu assumeras devant tes patientes. Si tu es sophrologue ou naturopathe, j'ai des pages dédiées à ces pratiques ; pour une thérapeute, je reste sur ton langage d'accompagnement. Tu valides chaque formulation sensible avant mise en ligne.",
       },
       {
         question: "Quel est le délai de livraison ?",
@@ -426,6 +525,199 @@ export const metiers: MetierPage[] = [
     ],
     image: "/image/yoga.jpg",
     imageAlt: "Thérapeute indépendante : site web rassurant et professionnel",
+  },
+  {
+    slug: "sophrologue",
+    label: "Sophrologue",
+    keyword: "site web pour sophrologue",
+    metier: "sophrologue",
+    metierPlural: "sophrologues",
+    title:
+      "Création site internet sophrologue | Abonnement dès 89€/mois | Kopio",
+    metaDescription:
+      "Création site internet sophrologue : cadre de séance clair, sérieux, réservation. Prix site web sophrologie transparent dès 89 €/mois avec Kopio.",
+    h1: "Le site qui donne à ton activité de sophrologue la crédibilité qu'elle mérite",
+    tldr:
+      "Je crée ton site web pour sophrologue en abonnement mensuel : cadre de séance lisible, distinction claire avec le coaching, prise de rendez-vous sans marketing agressif. Dès 89 €/mois avec Pour démarrer ; Complet à 129 €/mois si la réservation et plusieurs pages comptent. Pour entrepreneuses sophrologues en France qui veulent rassurer avant le premier contact.",
+    intro:
+      "Les personnes qui te consultent cherchent un cadre sérieux, pas un discours vendeur. Ton site explique la sophrologie, le déroulé d'une séance et le prochain pas, avec ton ton.",
+    douleur:
+      "Cadre de séance peu clair en ligne, confusion fréquente avec le coaching, besoin de sérieux sans marketing agressif.",
+    whyTitle:
+      "Pourquoi une sophrologue a besoin d'un site différent d'un site générique ?",
+    whyPoints: [
+      {
+        t: "Cadre avant slogans",
+        d: "Public, déroulé, modalités : la clarté crée la confiance.",
+      },
+      {
+        t: "Distinction nette",
+        d: "Sophrologie ≠ coaching : le site pose les limites sans jargon inutile.",
+      },
+      {
+        t: "Réservation sobre",
+        d: "Un prochain pas simple, sans pop-ups ni pression commerciale.",
+      },
+      {
+        t: "Tu es déjà saturée",
+        d: "Pas de bricolage technique : tu valides, je livre et je maintiens.",
+      },
+    ],
+    sections: [
+      {
+        h2: "Doctolib suffit-il vraiment pour une sophrologue ?",
+        body: "Doctolib aide à la prise de rendez-vous et à la visibilité locale. Il ne raconte pas ta méthode, tes limites ni le déroulé d'une première séance de sophrologie. Une consultante hésitante lit souvent plusieurs profils avant d'écrire ; un site pose le cadre avec ton ton. En 2025, une sophrologue à Nantes m'a dit que les demandes via son site arrivaient déjà « cadrées » : motif, format, disponibilité. Doctolib reste un canal. Le site est ta vitrine éthique, proche des thérapeutes dans l'esprit, que tu contrôles hors de la logique d'annuaire.",
+      },
+      {
+        h2: "Comment expliquer la sophrologie sans la confondre avec le coaching ?",
+        body: "La confusion avec le coaching affaiblit la crédibilité perçue. J'écris et je structure autour du cadre : pour qui tu reçois, comment se déroule une séance, ce que la sophrologie est et n'est pas, sans promesse de résultat. Le mécanisme rassure parce qu'il est précis. En 2024, une sophrologue a clarifié sur son one-page la distinction avec un accompagnement de performance ; les premiers messages sont devenus plus adaptés. Tu restes alignée avec ton éthique. Le site filtre autant qu'il attire.\n\nLe détail compte pour la lectrice pressée : titres scannables, informations de cadre placées au bon endroit, un seul prochain pas visible sur mobile. Tu gagnes des conversations déjà cadrées. Le site ne remplace pas ton expertise ; il la rend lisible avant le premier échange.",
+      },
+      {
+        h2: "Quel est le prix d'un site web sophrologie chez Kopio ?",
+        body: "Pour démarrer à 89 €/mois pose un one-page clair : pratique, cadre, contact ou orientation vers la réservation. Complet à 129 €/mois ajoute des pages (approches, FAQ, à propos), un SEO local plus poussé et une réservation avancée : souvent pertinent quand les créneaux comptent dans ton activité. Besoin précis intervient sur devis pour des besoins très spécifiques. Le prix d'un site web sophrologie suit cette grille transparente ; tu choisis selon la complexité réelle, pas selon une grille marketing.\n\nLe devis précise le périmètre avant ton engagement. Tu sais ce qui est inclus (design, hébergement, mises à jour) et ce qui reste hors scope. Si ton offre grossit plus tard, je te propose le passage de formule sans tout reconstruire. Tu paies pour une présence maintenue, pas pour un fichier livré puis abandonné.",
+      },
+      {
+        h2: "Un site peut-il rester discret et sérieux, sans marketing agressif ?",
+        body: "Oui, et c'est souvent la condition pour que tu te sentes à l'aise de le partager. Je pars de ton brief professionnel : ton, limites, mentions légales, absence de promesses. Pas de pop-ups agressifs ni de formulations vendeuses. En pratique, le design reste sobre, le formulaire est simple, les informations utiles sont accessibles. Une sophrologue a validé chaque phrase sensible avant mise en ligne en 2025. Tu gardes la main sur le message. Le site reflète ton cabinet, pas une landing de conversion forcée.\n\nConcrètement, tu avances avec ce que tu as déjà sous la main. Je priorise la clarté du cadre et le prochain pas pour la visiteuse. Les enrichissements (pages approches, FAQ) arrivent ensuite par email, au rythme de ton activité. Tu n'as pas besoin d'un dossier parfait pour être joignable et crédible.",
+      },
+      {
+        h2: "Comment articuler site, Doctolib et Instagram pour une sophrologue ?",
+        body: "Chaque canal a un rôle. Instagram humanise ; Doctolib facilite le créneau ; le site explique la pratique en profondeur. Le maillage consiste à renvoyer bio, fiche et signature vers la même URL de cadre. Une consultante qui te découvre sur Instagram lit le déroulé de séance sur le site avant de réserver. Tu réduis les questions répétitives en message. Concrètement, tu n'abandonnes aucun outil : tu leur donnes une maison commune. Quand une plateforme change ses règles, ton site reste ta référence.",
+      },
+      {
+        h2: "Que se passe-t-il quand tu modifies tarifs, formats ou horaires ?",
+        body: "Les cabinets ajustent horaires, tarifs et formats (présentiel, visio) plusieurs fois par an. Tu m'envoies la modification par email ; je mets à jour sous 24 à 72 h. Tu n'ouvres pas un back-office entre deux séances. En 2024, plusieurs sophrologues ont basculé une partie de leur activité en visio : le site a suivi en quelques échanges. Tu restes concentrée sur les séances. La maintenance fait partie de l'abonnement, ce n'est pas une option oubliée après la livraison.\n\nCe rythme de maintenance colle au quotidien d'une indépendante : peu de temps, besoin de réactivité, zéro formation outil. Tu restes dans ton métier pendant que le site reste à jour. Si un chantier plus large apparaît (nouvelle offre, refonte de parcours), je le traite dans un échange dédié avant de toucher à la structure.",
+      },
+    ],
+    includedTitle: "Ce qui est inclus dans un site Kopio pour sophrologue",
+    priceTitle: "Combien coûte un site pour une sophrologue ?",
+    recommendedPlanId: "pro",
+    relatedBesoinSlug: "site-avec-reservation-en-ligne",
+    relatedBesoinLabel: "site avec réservation en ligne",
+    closing:
+      "Si tu veux un site aligné avec ton cadre de sophrologie, écris-moi : je pars de ta pratique et de ton parcours de réservation.",
+    ctaLabel: "Parler de mon site sophrologue",
+    faqs: [
+      {
+        question: "Doctolib remplace-t-il un site pour sophrologue ?",
+        answer:
+          "Doctolib aide à la prise de rendez-vous. Un site explique ta pratique et te différencie : c'est ta vitrine, pas un annuaire. Les deux se complètent quand le lien du site apparaît sur ta fiche. En pratique, tu gardes tes canaux d'acquisition et tu pointes vers une URL stable.",
+      },
+      {
+        question: "Quel est le prix d'un site web sophrologie ?",
+        answer:
+          "Pour démarrer commence à 89 €/mois. Complet à 129 €/mois convient si tu veux réservation avancée, plusieurs pages et un SEO local plus développé. Le devis écrit le périmètre (pages, réservation, délais). Tu compares ensuite avec ton budget mensuel réel, sans surprise de maintenance cachée.",
+      },
+      {
+        question:
+          "Le site peut-il rester discret et éviter la confusion avec le coaching ?",
+        answer:
+          "Oui. J'évite le marketing agressif. Le brief part de ton cadre professionnel, de tes limites et du ton que tu assumeras. La distinction sophrologie / coaching se pose en formulations précises, validées avec toi avant mise en ligne. Tu gardes la main sur chaque phrase sensible.",
+      },
+      {
+        question: "Quel est le délai de livraison ?",
+        answer:
+          "14 jours pour Pour démarrer, 21 jours pour Complet après validation du devis. Les textes sensibles se valident ensemble avant la mise en ligne. Un kickoff court cadre les contenus attendus. Plus tes textes et visuels arrivent tôt, plus la date de mise en ligne reste réaliste.",
+      },
+    ],
+    image: "/image/pulse.jpg",
+    imageAlt: "Sophrologue indépendante : site web sobre et professionnel",
+  },
+  {
+    slug: "naturopathe",
+    label: "Naturopathe",
+    keyword: "site web naturopathe",
+    metier: "naturopathe",
+    metierPlural: "naturopathes",
+    title: "Site web naturopathe | Abonnement dès 89€/mois | Kopio",
+    metaDescription:
+      "Site web naturopathe : cadre éthique, bilans et suivi clairs, sans promesse de guérison. Tarif création site naturopathie dès 89 €/mois avec Kopio.",
+    h1: "Le site qui donne à ton activité de naturopathe la crédibilité qu'elle mérite",
+    tldr:
+      "Je crée ton site web naturopathe en abonnement mensuel : cadre éthique, explication des bilans et du suivi, distinction claire avec la médecine conventionnelle, sans promesse de guérison. Dès 89 €/mois avec Pour démarrer ; Complet à 129 €/mois pour plusieurs pages, SEO local et réservation. Pour entrepreneuses naturopathes en France qui veulent communiquer avec sérieux.",
+    intro:
+      "Les personnes qui te consultent cherchent un cadre clair et éthique. Ton site explique ta pratique, le déroulé d'un bilan et le prochain pas, sans marketing agressif ni formulation à risque.",
+    douleur:
+      "Cadre éthique difficile à poser en ligne, peur de trop communiquer, besoin d'expliquer bilans et suivi sans promettre de guérison.",
+    whyTitle:
+      "Pourquoi une naturopathe a besoin d'un site différent d'un site générique ?",
+    whyPoints: [
+      {
+        t: "Éthique d'abord",
+        d: "Formulations précises, pas de promesse de guérison, limites explicites.",
+      },
+      {
+        t: "Bilans et suivi lisibles",
+        d: "Déroulé, modalités, public : la clarté crée la confiance.",
+      },
+      {
+        t: "Complémentaire, pas substitut",
+        d: "Le site distingue ta pratique des médecines conventionnelles sans confusion.",
+      },
+      {
+        t: "Tu es déjà saturée",
+        d: "Pas de bricolage technique : tu valides, je livre et je maintiens.",
+      },
+    ],
+    sections: [
+      {
+        h2: "Puis-je communiquer en ligne sans me mettre en risque juridique ?",
+        body: "La peur de trop communiquer est fréquente chez les naturopathes. Un site bien cadré réduit ce risque au lieu de l'augmenter : formulations validées, absence de promesses thérapeutiques, mentions claires sur le rôle complémentaire de ta pratique. Le mécanisme est simple : chaque phrase sensible passe par ton brief et ta validation avant mise en ligne. En 2025, une naturopathe à Lyon a relancé sa vitrine après avoir figé six mois sur la peur du juridique ; les demandes sont revenues cadrées. Tu communiques avec prudence. Le site porte un message que tu assumeras devant une consultante comme devant un regard critique.",
+      },
+      {
+        h2: "Comment expliquer bilans et suivi sans promettre de guérison ?",
+        body: "Le marketing agressif casse la confiance et expose. J'écris et je structure autour du cadre : pour qui tu reçois, comment se déroule un bilan, ce qu'est le suivi, ce que tu n'es pas. Le mécanisme rassure parce qu'il est précis. En 2024, une naturopathe a clarifié sur son site la distinction avec un discours médical ; les premiers messages sont devenus plus adaptés. Tu restes alignée avec ton éthique. Le site filtre autant qu'il attire.\n\nLe détail compte pour la lectrice pressée : titres scannables, informations de cadre placées au bon endroit, un seul prochain pas visible sur mobile. Tu gagnes des conversations déjà cadrées. Le site ne remplace pas ton expertise ; il la rend lisible avant le premier échange.",
+      },
+      {
+        h2: "Quel est le tarif de création d'un site naturopathie chez Kopio ?",
+        body: "Pour démarrer à 89 €/mois pose un one-page clair : pratique, cadre, contact ou orientation vers la réservation. Complet à 129 €/mois ajoute des pages (approches, FAQ, à propos), un SEO local plus poussé et une réservation avancée : souvent utile si tu as plusieurs formats (bilan, suivi, atelier) et une zone géographique à travailler. Besoin précis intervient sur devis pour des besoins très spécifiques. Le tarif création site naturopathie suit cette grille transparente ; tu choisis selon la complexité réelle.\n\nLe devis précise le périmètre avant ton engagement. Tu sais ce qui est inclus (design, hébergement, mises à jour) et ce qui reste hors scope. Si ton offre grossit plus tard, je te propose le passage de formule sans tout reconstruire. Tu paies pour une présence maintenue, pas pour un fichier livré puis abandonné.",
+      },
+      {
+        h2: "Comment distinguer naturopathie et médecines conventionnelles sur le site ?",
+        body: "La confusion affaiblit la crédibilité et expose. Je pose la distinction en langage clair : rôle complémentaire, limites, orientation vers un professionnel de santé quand c'est pertinent. Pas de formulation ambiguë qui laisserait croire à un substitut médical. En pratique, une naturopathe a validé chaque phrase de cadrage avant mise en ligne en 2025. Tu gardes la main sur le message. Le site reflète ton cabinet et ton éthique, pas une landing de conversion forcée.\n\nConcrètement, tu avances avec ce que tu as déjà sous la main. Je priorise la clarté du cadre et le prochain pas pour la visiteuse. Les enrichissements (pages approches, FAQ, preuves) arrivent ensuite par email, au rythme de ton activité. Tu n'as pas besoin d'un dossier parfait pour être joignable et crédible.",
+      },
+      {
+        h2: "Comment articuler site, annuaires et réseaux pour une naturopathe ?",
+        body: "Chaque canal a un rôle. Les annuaires et Instagram génèrent de la découverte ; le site explique la pratique en profondeur. Le maillage consiste à renvoyer bio, fiche et signature vers la même URL de cadre. Une consultante qui te découvre sur un annuaire lit le déroulé du bilan sur le site avant d'écrire. Tu réduis les questions répétitives en message. Concrètement, tu n'abandonnes aucun outil : tu leur donnes une maison commune. Quand une plateforme change ses règles, ton site reste ta référence.",
+      },
+      {
+        h2: "Que se passe-t-il quand tu modifies tarifs, formats ou zone d'exercice ?",
+        body: "Les cabinets ajustent horaires, tarifs et formats (présentiel, visio, ateliers) plusieurs fois par an. Tu m'envoies la modification par email ; je mets à jour sous 24 à 72 h. Tu n'ouvres pas un back-office entre deux consultantes. En 2024, plusieurs naturopathes ont ajouté un format suivi en visio : le site a suivi en quelques échanges. Tu restes concentrée sur les bilans. La maintenance fait partie de l'abonnement, ce n'est pas une option oubliée après la livraison.\n\nCe rythme de maintenance colle au quotidien d'une indépendante : peu de temps, besoin de réactivité, zéro formation outil. Tu restes dans ton métier pendant que le site reste à jour. Si un chantier plus large apparaît (nouvelle offre, refonte de parcours), je le traite dans un échange dédié avant de toucher à la structure.",
+      },
+    ],
+    includedTitle: "Ce qui est inclus dans un site Kopio pour naturopathe",
+    priceTitle: "Combien coûte un site pour une naturopathe ?",
+    recommendedPlanId: "pro",
+    relatedBesoinSlug: "site-avec-reservation-en-ligne",
+    relatedBesoinLabel: "site avec réservation en ligne",
+    closing:
+      "Si tu veux un site aligné avec ton cadre de naturopathie, écris-moi : je pars de ta pratique, de tes limites et de ton parcours de contact.",
+    ctaLabel: "Parler de mon site naturopathe",
+    faqs: [
+      {
+        question:
+          "Puis-je communiquer sans me mettre en risque juridique ?",
+        answer:
+          "Oui, avec un brief précis et des formulations validées. J'évite les promesses de guérison et les ambiguïtés sur le rôle de ta pratique. Chaque phrase sensible passe par toi avant mise en ligne. Tu gardes la main sur le message.",
+      },
+      {
+        question: "Quel est le tarif de création d'un site naturopathie ?",
+        answer:
+          "Pour démarrer commence à 89 €/mois. Complet à 129 €/mois convient si tu veux réservation avancée, plusieurs pages et un SEO local plus développé. Le devis écrit le périmètre (pages, réservation, délais). Tu compares ensuite avec ton budget mensuel réel, sans surprise de maintenance cachée.",
+      },
+      {
+        question: "Le site peut-il rester éthique et discret ?",
+        answer:
+          "Oui. J'évite le marketing agressif. Le brief part de ton cadre professionnel, de tes limites et du ton que tu assumeras devant tes consultantes. Tu valides chaque formulation sensible avant mise en ligne. Le site reflète ton cabinet, pas une landing vendeuse.",
+      },
+      {
+        question: "Quel est le délai de livraison ?",
+        answer:
+          "14 jours pour Pour démarrer, 21 jours pour Complet après validation du devis. Les textes sensibles se valident ensemble avant la mise en ligne. Un kickoff court cadre les contenus attendus. Plus tes textes et visuels arrivent tôt, plus la date de mise en ligne reste réaliste.",
+      },
+    ],
+    image: "/image/pulse.jpg",
+    imageAlt: "Naturopathe indépendante : site web éthique et professionnel",
   },
   {
     slug: "formatrice",
@@ -582,6 +874,10 @@ export const metiers: MetierPage[] = [
       {
         h2: "Que se passe-t-il quand tu lances une nouvelle collection ?",
         body: "Les créatrices vivent au rythme des drops et des séries limitées. Tu m'envoies textes et visuels ; je mets à jour la vitrine sous 24 à 72 h. Tu ne reconstruis pas une boutique entière à chaque lancement. En pratique, Madeleine Fragrance et d'autres marques font évoluer pages et précommandes au fil des saisons. Tu restes en atelier. Le site suit la collection, l'abonnement absorbe ces itérations.\n\nCe rythme de maintenance colle au quotidien d'une indépendante : peu de temps, besoin de réactivité, zéro formation outil. Tu restes dans ton métier pendant que le site reste à jour. Si un chantier plus large apparaît (nouvelle offre, refonte de parcours), je le traite dans un échange dédié avant de toucher à la structure.",
+      },
+      {
+        h2: "Comment accompagner le site d'une femme qui crée son entreprise ?",
+        body: "Créer une marque, c'est déjà un métier. Ajouter la technique web en parallèle freine souvent le lancement. L'accompagnement Kopio pose une vitrine claire pendant que tu construis l'offre, le stock ou les premiers collabs. En 2025, plusieurs créatrices que j'ai suivies ont mis en ligne une page marque avant d'ouvrir une boutique complète ; elles ont validé la demande sans empiler les outils. Tu restes sur la création. Je porte design, structure, hébergement et mises à jour. Le site devient le point stable de ton entreprise naissante, pas un second chantier.",
       },
     ],
     includedTitle: "Ce qui est inclus dans un site Kopio pour créatrice",

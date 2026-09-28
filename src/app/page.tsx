@@ -18,9 +18,9 @@ import { besoins, besoinPath } from "@/data/besoins";
 import { comparatifs, comparatifPath } from "@/data/comparatifs";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Site web pour femmes entrepreneuses dès 89€/mois",
+  title: "Site internet pour entrepreneuse | Studio web dès 89€/mois",
   description:
-    "Kopio : création de sites web pour femmes entrepreneuses, site clé en main, hébergement inclus, mises à jour par email. Dès 89 €/mois.",
+    "Kopio : site internet pour entrepreneuse et femmes qui entreprennent. Studio web en abonnement, alternative claire à l'agence. Dès 89 €/mois, hébergement et mises à jour inclus.",
   path: "/",
 });
 

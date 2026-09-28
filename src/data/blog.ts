@@ -11,6 +11,41 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "creer-son-site-maman-entrepreneuse",
+    title:
+      "Créer son site quand on est maman entrepreneuse : guide réaliste",
+    excerpt:
+      "Temps limité, charge mentale, besoin d'une URL crédible : comment poser un site pro sans y passer tes soirées, avec des repères concrets 2026.",
+    date: "2026-09-28",
+    readTime: "9 min",
+    category: "Guide",
+    image: "/image/independant.jpg",
+    content: [
+      "Créer son site quand on est maman entrepreneuse n'est pas un problème de motivation. C'est un problème de capacité. Entre les clients, l'admin et la famille, le builder ouvert à 22 h finit souvent fermé sans mise en ligne. Voici un cadre réaliste pour décider quoi faire, dans quel ordre, et avec quel niveau d'accompagnement.",
+      "## Pourquoi le temps manque vraiment (et ce que ça change) ?",
+      "Le frein n'est pas « je ne sais pas coder ». C'est la fragmentation du temps. Une heure libre le soir ne suffit pas à apprendre un éditeur, écrire l'offre et régler le mobile. Le mécanisme est connu : plus le chantier s'étale, plus tu abandonnes. En 2025, plusieurs indépendantes mères que j'ai accompagnées avaient un compte Wix à moitié rempli depuis six mois. L'implication est nette. Tu as besoin d'un process court avec validations asynchrones, pas d'un weekend « web » fantôme.",
+      "Concrètement, si tu ne peux pas bloquer deux soirées d'affilée sans interruption, l'autonomie totale sur un builder est un mauvais pari. Déléguer la technique n'est pas un luxe esthétique. C'est un choix de capacité.",
+      "## Faut-il un site avant d'avoir « assez » de clients ?",
+      "Oui, si tu factures déjà ou si tu prospectes activement. Le site n'attend pas le volume ; il structure le discours pour obtenir ce volume. Une page claire explique pour qui tu travailles, ce que tu proposes, et comment te joindre. Sans ça, tu envoies un Instagram ou un long message. Les prospectes sérieuses demandent une URL.",
+      "Une coach freelance maman a accéléré ses appels découverte dès qu'elle a pu coller un lien après un networking scolaire ou LinkedIn. Le site n'a pas créé la demande magiquement. Il a retiré la friction. Pour un premier cadre, vois [site web pour femme qui se lance](/besoin/site-web-femme-qui-se-lance) ou [webdesigner pour maman freelance](/besoin/site-web-maman-freelance) selon ton stade.",
+      "## Site vitrine, Linktree ou page LinkedIn : que choisir ?",
+      "Linktree concentre des liens. LinkedIn dépend de l'algorithme. Une [vitrine d'indépendante](/besoin/site-vitrine-independante) porte l'offre, les preuves et le contact sur une adresse que tu contrôles. Le terme « mompreneure » apparaît parfois dans les recherches ; le besoin réel reste le même : une maison digitale stable pendant que tu jongles avec le reste.",
+      "Dans les faits, Instagram + Linktree sans page d'offre laisse les questions en DM. Tu réponds dix fois à la même chose. Un site réduit ces allers-retours. Tu gardes les réseaux pour la découverte. Le site convertit.",
+      "## Combien de temps et d'argent prévoir en 2026 ?",
+      "Trois ordres de grandeur. Autonomie (Wix et équivalents) : **10 à 40 €/mois** plus ton temps, souvent sous-estimé. Agence : **2 000 à 8 000 €**, délais plus longs. Abonnement accompagné type Kopio : **89 €/mois** (Pour démarrer) ou **129 €/mois** (Complet), livraison **14 à 21 jours**, mises à jour par email. Le détail est sur [tarifs](/tarifs) et le [comparatif des prix 2026](/comparatif/combien-coute-site-internet-entrepreneure-2026).",
+      "Calcule une heure de ton métier. Multiplie par le nombre d'heures que tu passerais sur un éditeur. Beaucoup de mamans entrepreneuses découvrent que vingt heures d'apprentissage dépassent plusieurs mois d'abonnement. Ce calcul décide mieux qu'un slogan.",
+      "## Comment avancer sans y passer tes soirées ?",
+      "Découpe en trois lots. 1) Trois phrases : pour qui, quel problème, quel format. 2) Cinq photos honnêtes (smartphone, lumière naturelle). 3) Une décision de formule, puis des validations sur maquette, pas de construction nocturne. Chez moi, le kickoff est court ; le reste est asynchrone. Tu n'enchaînes pas six ateliers.",
+      "Si tu te lances, [création de site pour femmes qui se lancent](/besoin/site-web-femme-qui-se-lance) décrit le scénario Pour démarrer. Si tu es déjà freelance avec un agenda saturé, [webdesigner pour maman freelance](/besoin/site-web-maman-freelance) détaille le mécanisme des mises à jour par email. L'accueil [Kopio](/) résume le positionnement studio pour entrepreneuses.",
+      "## Quelles erreurs ralentissent les mamans entrepreneuses ?",
+      "Attendre d'être « prête » pour être visible. Copier le site d'une concurrente sans clarifier ton angle. Commencer sur un builder puis abandonner. Négliger le prochain pas (contact ou réservation). Refaire le design avant d'avoir une offre lisible.",
+      "Ces erreurs coûtent du temps, pas seulement de l'esthétique. Corrige l'offre et le parcours avant la déco. Un audit rapide sur téléphone (cinq secondes pour comprendre pour qui et quoi faire) évite des semaines de cosmétique inutile. Si ton site existe déjà mais ne suit plus ton activité, vois la [refonte pour entrepreneuse](/besoin/refonte-site-internet-entrepreneure).",
+      "## Que retenir pour créer ton site maintenant ?",
+      "Le vrai sujet n'est pas la motivation. C'est la capacité. Une URL claire, une offre lisible, un prochain pas visible, et quelqu'un pour tenir le site dans la durée : voilà le socle. Dès **89 €/mois** en Pour démarrer chez Kopio, ou ton temps en autonomie, ou 2 000 €+ en agence. Choisis selon ton agenda réel, pas selon un idéal de « je vais le faire ce week-end ».",
+      "Tu racontes ton activité. Je m'occupe du reste, si tu délègues. Sinon, garde ce guide comme checklist avant d'ouvrir un éditeur.",
+    ],
+  },
+  {
     slug: "reconversion-professionnelle-site-web-2026",
     title:
       "Reconversion professionnelle 2026 : pourquoi ton site web est le premier levier",

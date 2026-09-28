@@ -22,11 +22,15 @@ function HeroOrbit() {
         />
         <div
           className="hero-orbit__chip hero-orbit__chip--2"
-          style={{ transform: "rotate(120deg) translate(8rem) rotate(-120deg)" }}
+          style={{
+            transform: "rotate(120deg) translate(8rem) rotate(-120deg)",
+          }}
         />
         <div
           className="hero-orbit__chip hero-orbit__chip--3"
-          style={{ transform: "rotate(240deg) translate(8rem) rotate(-240deg)" }}
+          style={{
+            transform: "rotate(240deg) translate(8rem) rotate(-240deg)",
+          }}
         />
       </div>
 

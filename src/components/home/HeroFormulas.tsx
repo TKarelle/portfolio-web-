@@ -19,7 +19,7 @@ export function HeroFormulas({ plans, activeId, onChange }: HeroFormulasProps) {
         window.history.replaceState(null, "", `#formule-${id}`);
       }
     },
-    [onChange]
+    [onChange],
   );
 
   useEffect(() => {

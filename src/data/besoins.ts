@@ -86,7 +86,7 @@ export const besoins: BesoinPageData[] = [
     label: "Site vitrine indépendante",
     title: "Site vitrine pour indépendante | En ligne en 14 jours | Kopio",
     metaDescription:
-      "Site vitrine pour indépendante : offre claire, contact, crédibilité. Formule Pour démarrer Kopio dès 89 €/mois, livré en 14 jours.",
+      "Site vitrine pour indépendante et mompreneure : offre claire, contact, crédibilité. Formule Pour démarrer Kopio dès 89 €/mois, livré en 14 jours.",
     keyword: "site vitrine indépendante",
     h1: "Ton site vitrine,",
     h1Highlight: "en ligne en 14 jours",
@@ -230,10 +230,10 @@ export const besoins: BesoinPageData[] = [
     slug: "refonte-site-internet-entrepreneure",
     label: "Refonte de site",
     title:
-      "Refonte site internet entrepreneuse | Moderniser dès 129€/mois | Kopio",
+      "Refonte site internet femme entrepreneuse | Dès 129€/mois | Kopio",
     metaDescription:
-      "Refonte de site internet pour entrepreneuse : offre clarifiée, parcours à jour, SEO de base. Formule Complet Kopio dès 129 €/mois.",
-    keyword: "refonte site internet entrepreneuse",
+      "Refonte site internet femme entrepreneuse : offre clarifiée, parcours à jour, SEO de base. Formule Complet Kopio dès 129 €/mois, livraison 21 jours.",
+    keyword: "refonte site internet femme entrepreneuse",
     h1: "Un site à la hauteur",
     h1Highlight: "de ton expertise",
     tldr:
@@ -242,19 +242,23 @@ export const besoins: BesoinPageData[] = [
       "Tu as déjà un site. L'offre a changé, les photos vieillissent, le parcours mobile freine. Une refonte aligne l'outil sur ce que tu vends aujourd'hui, sans jeter ce qui fonctionne encore.",
     sections: [
       {
+        h2: "Quand une entrepreneuse a besoin d'une refonte de site ?",
+        body: "Une refonte devient pertinente quand ton activité a changé plus vite que ta présence en ligne. Nouvelle offre, nouveau public, nouvelles preuves : le site d'origine ne porte plus la décision. En 2025, une consultante dont le site datait de 2018 m'a contactée parce qu'elle n'envoyait plus son URL après un networking : elle préférait expliquer l'offre à l'oral. Le mécanisme est simple. La refonte réécrit structure, textes et parcours pour coller à ce que tu vends aujourd'hui. Tu ne « jolis » pas l'ancien cadre ; tu réaligne l'outil sur ton expertise actuelle.",
+      },
+      {
         h2: "Quand une refonte vaut mieux qu'un coup de peinture ?",
-        body: "Changer une couleur ou une bannière ne règle pas une offre confuse ou un bouton contact invisible sur téléphone. La refonte reprend structure, textes et parcours. En pratique, une coach dont le site datait de 2019 a vu ses demandes d'appel mieux qualifiées après refonte Complet : l'offre et le prochain pas étaient enfin lisibles dès la première page. Le signal pour toi : tu expliques encore ton métier à l'oral parce que le site ne le fait pas, ou tu évites d'envoyer ton URL. Ce n'est pas « un vieux site moche » ; c'est un écart entre ton expertise actuelle et ce que la page montre.",
+        body: "Changer une couleur ou une bannière ne règle pas une offre confuse ou un bouton contact invisible sur téléphone. La refonte reprend structure, textes et parcours. En pratique, une coach dont le site datait de 2019 a vu ses demandes d'appel mieux qualifiées après refonte Complet : l'offre et le prochain pas étaient enfin lisibles dès la première page. Le signal pour toi : tu expliques encore ton métier à l'oral parce que le site ne le fait pas, ou tu évites d'envoyer ton URL. Ce n'est pas un jugement sur le travail passé ; c'est un écart mesurable entre ton niveau actuel et ce que la page montre.",
       },
       {
         h2: "Pourquoi ne pas tout reconstruire seule sur un nouveau builder ?",
-        body: "Migrer vers Wix ou Webflow « pour moderniser » te replace dans une courbe d'apprentissage et un risque d'abandon. Tu as déjà investi du temps sur l'existant. Avec Kopio, je repars de ton positionnement actuel, je récupère ce qui reste utile (preuves, textes, domaine), et je livre un site tenu ensuite par email. Une esthéticienne a gardé son nom de domaine et ses avis ; le reste a été reconstruit en 21 jours. Tu changes d'outil sans devenir cheffe de projet web. La distinction avec le DIY : tu ne recommences pas le chantier technique seule pour « enfin avoir quelque chose de propre ».",
+        body: "Migrer vers Wix ou Webflow pour moderniser te replace dans une courbe d'apprentissage et un risque d'abandon. Tu as déjà investi du temps sur l'existant. Avec Kopio, je repars de ton positionnement actuel, je récupère ce qui reste utile (preuves, textes, domaine), et je livre un site tenu ensuite par email. Une esthéticienne a gardé son nom de domaine et ses avis ; le reste a été reconstruit en 21 jours. Tu changes d'outil sans devenir cheffe de projet web. La distinction avec l'autonomie totale : tu ne recommences pas le chantier technique seule pour obtenir un résultat stable.",
       },
       {
         h2: "Que change concrètement une refonte Complet ?",
         body: "Design à jour, hiérarchie de l'offre, parcours contact ou réservation, bases SEO, mobile fluide, conformité. Complet à 129 €/mois a du sens quand tu veux aussi un agenda intégré ou un tunnel plus travaillé. Pour démarrer à 89 €/mois peut suffire si tu as surtout besoin d'une vitrine rafraîchie sans réservation avancée. L'implication : tu acceptes de retravailler les contenus avec moi, pas seulement de coller un template neuf sur d'anciens textes. Une refonte utile touche le fond autant que la forme. Les mises à jour après livraison restent par email sous 24 à 72 h.",
       },
       {
-        h2: "Que devient ton ancien site pendant la transition ?",
+        h2: "Que devient ton site actuel pendant la transition ?",
         body: "Je planifie la bascule : le site actuel reste en ligne jusqu'à la mise en service du nouveau. Domaine à ton nom, redirections si les URLs changent, pour limiter la perte de trafic indexé. Tu valides la maquette avant de payer la suite de la mise en service. Après livraison, les ajustements passent par email sous 24 à 72 h. La refonte n'est pas un saut dans le vide : c'est un remplacement contrôlé. Si tu veux un aperçu des formules, la page tarifs détaille Pour démarrer, Complet et Besoin précis selon le périmètre.",
       },
     ],
@@ -274,6 +278,104 @@ export const besoins: BesoinPageData[] = [
     ctaLabel: "Parler de ma refonte",
     image: "/image/sophie.png",
     imageAlt: "Refonte de site internet pour femme entrepreneuse",
+  },
+  {
+    slug: "site-web-femme-qui-se-lance",
+    label: "Femme qui se lance",
+    title:
+      "Création site web pour femmes qui se lancent | Kopio dès 89€/mois",
+    metaDescription:
+      "Création de site web pour femmes qui se lancent : vitrine claire, sans compétences techniques. Abonnement Kopio dès 89 €/mois, en ligne en 14 jours.",
+    keyword: "création site web femmes qui se lancent",
+    h1: "Ton premier site,",
+    h1Highlight: "quand tu te lances",
+    tldr:
+      "Kopio crée le site web des femmes qui se lancent : design personnalisé, hébergement inclus, mises à jour par email. Dès 89 €/mois en formule Pour démarrer, livraison en 14 jours. Tu poses ton activité ; je porte la technique.",
+    intro:
+      "Tu quittes le salariat, tu ouvres une activité, tu as une offre à rendre visible. Un site clair dit qui tu aides et comment te contacter, sans que tu apprennes un builder en parallèle du lancement.",
+    sections: [
+      {
+        h2: "Pourquoi un site compte dès le lancement ?",
+        body: "Au démarrage, tu n'as pas encore dix ans de bouche-à-oreille. Les premières clientes te jugent sur ce qu'elles trouvent en ligne : clarté de l'offre, sérieux du positionnement, facilité à écrire. Instagram montre que tu existes ; une URL stable explique le cadre. En 2025, plusieurs coachs et consultantes en reconversion que j'ai accompagnées ont accéléré leurs premiers appels dès qu'elles avaient une page à envoyer après un networking. Concrètement, tu remplaces le PDF long ou le long message vocal par un lien. Le site devient la preuve minimale de sérieux pendant que tu construis le reste.",
+      },
+      {
+        h2: "Que change le fait de se lancer sans compétences techniques ?",
+        body: "Le temps du lancement part déjà dans l'offre, la compta, le réseau et parfois la famille. Ajouter Wix ou WordPress en soirée produit souvent un chantier abandonné à mi-parcours. Chez Kopio, tu valides un brief et une maquette ; je livre et je maintiens. La distinction avec « créer son site seule » : tu ne portes pas la courbe d'apprentissage en plus du lancement. Une formatrice en 2025 a mis en ligne Pour démarrer en 14 jours pendant qu'elle finalisait son premier programme. Tu restes sur ton métier. Le site suit.",
+      },
+      {
+        h2: "Quelle formule pour une femme qui se lance ?",
+        body: "Pour démarrer à 89 €/mois (+ 390 € de mise en service, ou 1 890 € en paiement unique) porte une one-page claire : présentation, offre, preuves, contact. Complet à 129 €/mois convient si tu as déjà besoin de plusieurs pages ou d'une réservation avancée. Dans les faits, la majorité des femmes qui se lancent commencent en Pour démarrer puis évoluent. Tu lisses la trésorerie pendant les premiers mois. Le détail des inclusions est sur la page tarifs. Tu choisis un cadre proportionné à ton stade, pas une usine à gaz d'agence.",
+      },
+      {
+        h2: "En quoi est-ce différent d'un Linktree ou d'une page LinkedIn ?",
+        body: "Linktree concentre des liens ; LinkedIn dépend d'un fil d'actualité. Ni l'un ni l'autre ne pose une offre structurée, des preuves et un parcours mobile que tu contrôles. Une page Kopio centralise le discours et te donne une adresse à coller partout. Une consultante en lancement m'a dit qu'elle envoyait encore son profil LinkedIn : les décideuses demandaient « un vrai site ». Après mise en ligne, les suites d'échange se sont cadrées plus vite. Tu gardes les réseaux pour la découverte. Le site porte la conversion.",
+      },
+    ],
+    problems: [
+      "Offre prête, aucune URL claire à envoyer",
+      "Temps déjà pris par le lancement, pas par un builder",
+      "Besoin d'apparaître crédible sans budget agence",
+    ],
+    solutions: [
+      "One-page Pour démarrer en 14 jours",
+      "Tu valides ; je livre et je maintiens par email",
+      "Hébergement, domaine, bases SEO et RGPD inclus",
+    ],
+    recommendedPlanId: "launch",
+    closing:
+      "Si tu te lances et que tu veux une vitrine tenue sans apprendre la technique, Pour démarrer pose la base. Écris-moi où tu en es ; je te réponds sur le périmètre.",
+    ctaLabel: "Parler de mon premier site",
+    image: "/image/independant.jpg",
+    imageAlt: "Femme qui se lance : création de site web professionnel",
+  },
+  {
+    slug: "site-web-maman-freelance",
+    label: "Maman freelance",
+    title:
+      "Webdesigner pour maman freelance | Site web dès 89€/mois | Kopio",
+    metaDescription:
+      "Webdesigner pour maman freelance : site clair, mises à jour par email, sans soirées sur un builder. Abonnement Kopio dès 89 €/mois.",
+    keyword: "webdesigner pour maman freelance",
+    h1: "Un site tenu pour toi,",
+    h1Highlight: "entre clients et famille",
+    tldr:
+      "Kopio est la webdesigner / studio en abonnement pour mamans freelances : site personnalisé, hébergement inclus, modifications par email sous 24 à 72 h. Dès 89 €/mois. Tu factures ton métier ; je gère le site.",
+    intro:
+      "Tu cumules prestations, admin et charge familiale. Un site utile doit travailler sans te demander des soirées d'éditeur. Je livre et je maintiens ; tu valides.",
+    sections: [
+      {
+        h2: "Pourquoi une maman freelance a besoin d'une webdesigner dédiée ?",
+        body: "Le freelancing exige déjà de produire, facturer et trouver des clients. La charge parentale réduit les plages pour apprendre un CMS. Une webdesigner en abonnement retire le chantier technique du soir. En pratique, les indépendantes que j'accompagne envoient un email pour une mise à jour de tarif ou de bio ; c'est en ligne sous 24 à 72 h. Tu ne cherches pas une relation affective. Tu cherches une exécution fiable dans un temps contraint. Le site reste à jour pendant que tu es en production ou avec tes enfants.",
+      },
+      {
+        h2: "En quoi est-ce différent d'un freelance « à la mission » ?",
+        body: "Un freelance ponctuel livre puis disparaît souvent derrière un devis de correctifs. Tu te retrouves seule pour les petits changements. Chez Kopio, l'abonnement inclut les mises à jour par email et un interlocuteur unique : moi. Une photographe freelance et mère de deux enfants a basculé d'un site livré sans suivi vers Complet : les séries s'ajoutent sans nouveau devis à chaque fois. Tu paies la continuité, pas seulement le fichier initial. La distinction est le mécanisme de maintenance, pas un slogan.",
+      },
+      {
+        h2: "Quelle formule si ton temps est déjà saturé ?",
+        body: "Pour démarrer à 89 €/mois convient si tu as besoin d'une vitrine claire et d'un contact. Complet à 129 €/mois couvre plusieurs pages, SEO local et réservation avancée si tu vends des créneaux. Le kickoff reste court : un appel de lancement, puis des validations asynchrones. Dans les faits, tu n'enchaînes pas six workshops. Tu reçois des propositions, tu valides, je produis. L'implication : préparer textes et photos en amont (même smartphone) accélère la livraison de 14 ou 21 jours sans monopoliser tes semaines.",
+      },
+      {
+        h2: "Comment concilier site pro et emploi du temps parental ?",
+        body: "Le site ne doit pas dépendre de tes créneaux libres le soir. Les modifications passent par email ; tu n'ouvres pas d'éditeur. Les bases SEO et le mobile sont posés dès la livraison pour que ton URL travaille aussi quand tu es offline. Une coach freelance maman a vu ses demandes d'appel arriver via le formulaire pendant ses congés scolaires, sans toucher au site. Concrètement, tu investis dans un outil qui tourne sans toi. Les réseaux restent optionnels pour la découverte ; le site porte l'offre stable.",
+      },
+    ],
+    problems: [
+      "Pas de plage pour apprendre un builder",
+      "Site livré autrefois, plus personne pour les updates",
+      "Besoin d'une URL pro malgré un agenda saturé",
+    ],
+    solutions: [
+      "Abonnement avec mises à jour par email 24-72 h",
+      "Une seule interlocutrice, pas de tickets d'agence",
+      "Pour démarrer ou Complet selon ton stade",
+    ],
+    recommendedPlanId: "launch",
+    closing:
+      "Si tu es maman freelance et que tu veux un site tenu sans absorber la technique, écris-moi. Je te dirai si Pour démarrer ou Complet colle à ton rythme.",
+    ctaLabel: "Parler de mon site freelance",
+    image: "/image/independant.jpg",
+    imageAlt: "Maman freelance : site web professionnel tenu en abonnement",
   },
 ];
 
