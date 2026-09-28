@@ -34,7 +34,7 @@ export function OrganizationJsonLd() {
             email: CONTACT_EMAIL,
             priceRange: "89€/mois+",
             description:
-              "Kopio est le premier abonnement WaaS (Website as a Service) pour femmes entrepreneuses : site clé en main, hébergement inclus, updates par email. Dès 89 €/mois.",
+              "Création de site web pour femme entrepreneuse dès 89 €/mois. Design sur-mesure, hébergement inclus, livré en 14 jours.",
             areaServed: { "@type": "Country", name: "France" },
             founder: { "@id": `${base}/#person` },
           },
@@ -90,7 +90,7 @@ export function WebSiteJsonLd() {
         name: BRAND_NAME,
         url: base,
         description:
-          "Kopio : premier abonnement WaaS pour femmes entrepreneuses. Site clé en main dès 89 €/mois.",
+          "Création de site web pour femme entrepreneuse dès 89 €/mois. Design sur-mesure, hébergement inclus, livré en 14 jours.",
         inLanguage: "fr-FR",
       }}
     />

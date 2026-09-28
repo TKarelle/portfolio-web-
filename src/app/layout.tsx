@@ -23,9 +23,9 @@ export const viewport: Viewport = {
   themeColor: "#f4f2ff",
 };
 const defaultMeta = buildPageMetadata({
-  title: "Site web pour femmes entrepreneuses dès 89€/mois",
+  title: "Création de site web pour femme entrepreneuse dès 89€/mois",
   description:
-    "Kopio, création de sites web pour femmes entrepreneuses : site clé en main, hébergement inclus, mises à jour par email. Dès 89 €/mois.",
+    "Création de site web pour femme entrepreneuse dès 89 €/mois. Design sur-mesure, hébergement inclus, livré en 14 jours. Tu valides, je gère tout.",
   path: "/",
 });
 
@@ -33,8 +33,8 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
     default:
-      "Site web pour femmes entrepreneuses dès 89€/mois | Kopio",
-    template: "%s | Kopio : sites pour femmes entrepreneuses",
+      "Création de site web pour femme entrepreneuse dès 89€/mois | Kopio",
+    template: "%s | Kopio",
   },
   description: defaultMeta.description,
   openGraph: {

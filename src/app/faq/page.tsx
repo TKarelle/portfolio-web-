@@ -7,9 +7,9 @@ import { ValueBanner } from "@/components/ui/ValueBanner";
 import { buildPageMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "FAQ : site web pour femmes entrepreneuses",
+  title: "FAQ site web entrepreneuse | Prix dès 89€/mois",
   description:
-    "Kopio : prix 2026, délais, Instagram vs site, mises à jour par email, propriété du domaine. Réponses claires.",
+    "Dès 89 €/mois : prix, délais 14 jours, Instagram vs site, mises à jour par email, propriété du domaine. Réponses claires pour entrepreneuses.",
   path: "/faq",
 });
 
