@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { faqItems as defaultFaqItems } from "@/data/faq";
+import { ROI_DISCLAIMER } from "@/data/pricing";
 import { SectionHead } from "@/components/ui/SectionHead";
 
 type FaqEntry = { question: string; answer: string };
@@ -10,10 +11,13 @@ export function FAQ({
   items,
   title = "Des questions ?",
   highlight = "questions",
+  showRoiDisclaimer = false,
 }: {
   items?: readonly FaqEntry[];
   title?: string;
   highlight?: string;
+  /** Afficher la mention * une seule fois (ex. page /faq, hors homepage) */
+  showRoiDisclaimer?: boolean;
 } = {}) {
   const source = items ?? defaultFaqItems;
   const [open, setOpen] = useState<number | null>(0);
@@ -60,6 +64,25 @@ export function FAQ({
             </div>
           ))}
         </div>
+
+        <div className="reveal mt-8 text-center">
+          <a
+            href="#contact"
+            className="inline-flex items-center gap-1.5 text-sm font-extrabold text-pink hover:text-pink-hot transition-colors"
+          >
+            Poser ma dernière question
+            <span aria-hidden="true">→</span>
+          </a>
+        </div>
+
+        {showRoiDisclaimer ? (
+          <p
+            id="estimation-rentabilite"
+            className="reveal mt-8 mx-auto max-w-2xl text-center text-[10px] sm:text-[11px] font-medium text-muted/80 leading-relaxed"
+          >
+            {ROI_DISCLAIMER}
+          </p>
+        ) : null}
       </div>
     </section>
   );

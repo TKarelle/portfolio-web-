@@ -8,9 +8,9 @@ import { ServiceJsonLd } from "@/components/seo/JsonLd";
 import { buildPageMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Tarifs site web entrepreneuse : dès 89€/mois | Kopio",
+  title: "Tarifs site web : 89, 139 ou 179 €/mois selon engagement",
   description:
-    "Sites web pour femmes entrepreneuses : dès 89 €/mois + mise en service (ou paiement unique). Complet à 129 €/mois. Livraison en 14 à 21 jours.",
+    "Présence en ligne déléguée pour professionnelles de l'accompagnement. 89 €/mois (24 mois), 139 €/mois (12 mois) ou 179 €/mois (6 mois). Livraison en 21 jours.",
   path: "/tarifs",
 });
 
@@ -19,7 +19,7 @@ export default function TarifsPage() {
     <>
       <ServiceJsonLd
         name="Création de site web en abonnement"
-        description="Création de sites web en abonnement pour femmes entrepreneuses. Dès 89 €/mois, hébergement inclus."
+        description="Création et maintenance de sites web pour professionnelles de l'accompagnement. Dès 89 €/mois, hébergement inclus."
         url="/tarifs"
         price="89"
       />
@@ -28,14 +28,14 @@ export default function TarifsPage() {
           { label: "Accueil", href: "/" },
           { label: "Tarifs", href: "/tarifs" },
         ]}
-        title="Ton site, clair et prêt à convertir."
-        highlight="prêt à convertir"
-        description="Sites web pour femmes entrepreneuses. Hébergement et domaine inclus. Tu valides tout avant la mise en ligne."
+        title="Votre site, clair et maintenu dans le temps."
+        highlight="maintenu dans le temps"
+        description="Professionnelles de l'accompagnement : conception, hébergement et évolutions inclus. Vous validez tout avant la mise en ligne."
         image="/image/independant.jpg"
-        imageAlt="Entrepreneure au travail : site web dès 89 €/mois"
+        imageAlt="Professionnelle de l'accompagnement : site web dès 89 €/mois"
         badge="Dès 89 €/mois"
-        secondaryHref="#forfaits"
-        secondaryLabel="Voir les forfaits"
+        secondaryHref="#modeles"
+        secondaryLabel="Voir les modèles"
       />
       <ValueBanner />
       <Pricing />

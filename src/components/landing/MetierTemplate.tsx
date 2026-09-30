@@ -41,7 +41,7 @@ export function MetierTemplate({ data }: { data: MetierPage }) {
         name={`Site web pour ${data.metier}`}
         description={data.metaDescription}
         url={metierPath(data.slug)}
-        price={recommended.price === "Devis" ? undefined : recommended.price}
+        price={recommended.price}
       />
 
       <section className="pt-28 md:pt-36 pb-12 px-6 mesh-hero">
@@ -65,11 +65,7 @@ export function MetierTemplate({ data }: { data: MetierPage }) {
               <HeroFacts
                 geoSummary={data.tldr}
                 proof={study?.title}
-                delivery={
-                  data.recommendedPlanId === "launch"
-                    ? "Sous 14 jours"
-                    : "Sous 21 jours"
-                }
+                delivery="Sous 21 jours"
               />
             </div>
 

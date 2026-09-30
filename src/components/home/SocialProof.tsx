@@ -2,14 +2,14 @@ import { StatsBand } from "@/components/ui/StatsBand";
 
 const clients = [
   "PULSE",
-  "Sophie Bluel",
+  "Marion D.",
   "Madeleine Fragrance",
 ];
 
 const stats = [
   { n: "30+", l: "sites livrés pour des entrepreneuses" },
   { n: "5★", l: "retours clients sur les projets livrés" },
-  { n: "14–21 j", l: "délai habituel selon le forfait" },
+  { n: "21 j", l: "délai habituel de livraison" },
 ] as const;
 
 function ClientMarquee() {

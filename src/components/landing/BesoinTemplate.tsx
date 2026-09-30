@@ -24,7 +24,7 @@ export function BesoinTemplate({ data }: { data: BesoinPageData }) {
         name={data.title}
         description={data.metaDescription}
         url={besoinPath(data.slug)}
-        price={recommended.price === "Devis" ? undefined : recommended.price}
+        price={recommended.price}
       />
 
       <section className="pt-28 md:pt-36 pb-16 px-6 mesh-hero">
@@ -49,11 +49,11 @@ export function BesoinTemplate({ data }: { data: BesoinPageData }) {
               <HeroFacts
                 geoSummary={data.tldr}
                 delivery={
+                  data.recommendedPlanId === "sur-mesure" ||
+                  data.recommendedPlanId === "pro" ||
                   data.recommendedPlanId === "launch"
-                    ? "Sous 14 jours"
-                    : data.recommendedPlanId === "pro"
-                      ? "Sous 21 jours"
-                      : "Sur devis"
+                    ? "Sous 21 jours"
+                    : "Sur devis"
                 }
               />
               <DeliveryDisclaimer className="mt-4" />

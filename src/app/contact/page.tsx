@@ -12,7 +12,7 @@ export const metadata: Metadata = buildPageMetadata({
 export default function ContactPage() {
   return (
     <div className="pt-24 sm:pt-28 md:pt-24 min-h-screen min-h-dvh bg-chunk-pink">
-      <ContactSection />
+      <ContactSection headingAs="h1" />
     </div>
   );
 }

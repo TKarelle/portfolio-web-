@@ -7,6 +7,21 @@ const nextConfig: NextConfig = {
     imageSizes: [128, 256, 384],
     qualities: [70, 75, 80],
   },
+  async headers() {
+    return [
+      {
+        source: "/image/:path*.mp4",
+        headers: [
+          { key: "Content-Type", value: "video/mp4" },
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+          { key: "Accept-Ranges", value: "bytes" },
+        ],
+      },
+    ];
+  },
   async redirects() {
     return [
       {

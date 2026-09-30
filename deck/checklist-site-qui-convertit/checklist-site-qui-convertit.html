@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>La Checklist du Site Qui Convertit — Kopio · A5</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="fonts-latin.css">
+<style>
+:root{
+  --bg:#f4f2ff;
+  --ink:#111111;
+  --mute:#5b5870;
+  --violet:#6d3ce8;
+  --pink:#f0457a;
+  --lime:#e2ff4a;
+  --display:"Inter Tight","Helvetica Neue",Arial,sans-serif;
+  --body:"Inter","Helvetica Neue",Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{
+  background:#cfc8e8;
+  font-family:var(--body);
+  color:var(--ink);
+  font-size:9pt;
+  line-height:1.45;
+  padding:8mm 0;
+}
+
+@page{size:A5 portrait;margin:0}
+
+/* A5 = 148 × 210 mm — flex column so footer sticks to bottom */
+.page{
+  position:relative;
+  width:148mm;
+  height:210mm;
+  margin:0 auto 10mm;
+  padding:10mm 10mm 0;
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
+  background:
+    radial-gradient(70% 45% at 0% 12%,rgba(240,69,122,.15),transparent 70%),
+    radial-gradient(55% 40% at 100% 0%,rgba(109,60,232,.14),transparent 70%),
+    radial-gradient(50% 35% at 70% 100%,rgba(226,255,74,.24),transparent 72%),
+    var(--bg);
+  box-shadow:0 8px 28px rgba(40,20,80,.18);
+  page-break-after:always;
+  break-after:page;
+}
+.page:last-child{page-break-after:auto;break-after:auto}
+
+.page-main{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  min-height:0;
+  padding-bottom:2mm;
+}
+.page-main.spread{
+  justify-content:space-between;
+}
+.page-main.spread > .block{flex-shrink:0}
+
+.top{
+  display:flex;justify-content:space-between;align-items:center;
+  margin-bottom:4.5mm;flex-shrink:0;
+}
+.logo{font-family:var(--display);font-weight:800;font-size:11.5pt;line-height:1;letter-spacing:-.04em}
+.logo i{color:var(--pink);font-style:normal}
+
+.pill{
+  display:inline-block;
+  border:1.3px solid var(--ink);
+  border-radius:99px;
+  padding:.9mm 2.6mm;
+  font-family:var(--display);font-weight:600;font-size:6.5pt;
+  background:#fff;
+}
+.pill.dark{background:var(--ink);color:var(--lime);border-color:var(--ink)}
+
+.foot{
+  flex-shrink:0;
+  display:flex;justify-content:space-between;align-items:center;
+  border-top:1px solid rgba(17,17,17,.15);
+  margin:0 -10mm;
+  padding:2mm 10mm 6mm;
+  font-size:6.5pt;color:var(--mute);
+  background:transparent;
+}
+
+.kicker{color:var(--violet);font-family:var(--display);font-weight:600;font-size:8.5pt;margin-bottom:1.2mm}
+h1{font-family:var(--display);font-weight:800;font-size:26pt;line-height:.95;letter-spacing:-.045em}
+h2{font-family:var(--display);font-weight:800;font-size:15pt;line-height:1.05;letter-spacing:-.035em;margin-bottom:2.5mm}
+h3{font-family:var(--display);font-weight:700;font-size:10pt;line-height:1.2;letter-spacing:-.02em;margin:0 0 1.5mm}
+p{margin-bottom:2mm}
+
+.mk{
+  background:linear-gradient(var(--pink),var(--pink)) no-repeat 0 82%/100% 34%;
+  padding:0 .7mm;margin:0 -.7mm;
+}
+.hl{background:var(--lime);padding:0 .9mm;border-radius:.7mm;font-weight:600}
+.chnum{
+  display:inline-block;
+  background:var(--ink);color:var(--lime);
+  font-family:var(--display);font-weight:700;font-size:6.5pt;
+  padding:.7mm 2.4mm;border-radius:99px;margin-bottom:2mm;
+}
+.lead{font-size:10pt;color:var(--mute)}
+.cont{
+  font-family:var(--display);font-weight:600;font-size:6.5pt;
+  color:var(--violet);letter-spacing:.05em;text-transform:uppercase;
+  margin-bottom:2mm;
+}
+
+.tag{
+  display:inline-block;
+  font-family:var(--display);font-weight:700;font-size:6pt;
+  letter-spacing:.05em;text-transform:uppercase;
+  padding:.45mm 1.7mm;border-radius:99px;
+  border:1.1px solid var(--ink);
+  vertical-align:middle;margin-right:1.4mm;background:#fff;
+}
+.tag.ess{background:var(--pink);color:#fff;border-color:var(--pink)}
+.tag.ex{background:var(--lime)}
+.tag.err{background:var(--ink);color:#fff}
+
+.card{
+  background:#fff;
+  border:1.3px solid var(--ink);
+  border-radius:3.2mm;
+  padding:3mm 3.5mm;
+  margin:0;
+}
+.card.shadow{box-shadow:2.2mm 2.2mm 0 var(--lime)}
+.card + .card{margin-top:2.2mm}
+.card b.ttl{font-family:var(--display);font-weight:700;font-size:9pt;display:block;margin:.8mm 0}
+
+.grid{display:grid;gap:2.2mm}
+.grid.cols2{grid-template-columns:1fr 1fr}
+.grid.cols3{grid-template-columns:1fr 1fr 1fr}
+.grid .card b{font-family:var(--display);font-weight:700;font-size:8.5pt;display:block;margin-bottom:.5mm}
+.grid .card p{font-size:7.5pt;margin:0;color:var(--mute)}
+
+.stack{display:flex;flex-direction:column;gap:2.4mm}
+.stack-sm{display:flex;flex-direction:column;gap:2mm}
+
+.callout{
+  background:#fff;
+  border:1.3px solid var(--ink);
+  border-radius:3.2mm;
+  padding:3mm 3.5mm;
+  margin-right:2mm;
+  box-shadow:2.2mm 2.2mm 0 var(--lime);
+}
+.callout>.tag{background:var(--ink);color:var(--lime);margin-bottom:1.5mm}
+
+.expert{
+  background:rgba(109,60,232,.09);
+  border-left:1.2mm solid var(--violet);
+  border-radius:0 2.8mm 2.8mm 0;
+  padding:2.6mm 3.2mm;
+  font-size:8pt;
+}
+.expert em{
+  display:block;margin-top:1.4mm;
+  font-family:var(--display);font-weight:600;font-size:6.5pt;
+  color:var(--violet);font-style:normal;
+}
+
+.alert{
+  background:#fff7d6;
+  border:1.3px dashed var(--ink);
+  border-radius:2.8mm;
+  padding:2.4mm 3.2mm;
+  font-size:8pt;
+}
+
+ul{list-style:none;margin:1.2mm 0 0}
+li{position:relative;padding-left:5.2mm;margin-bottom:1.3mm}
+li:last-child{margin-bottom:0}
+ul.dot li::before{
+  content:"";position:absolute;left:1.1mm;top:1.7mm;
+  width:1.7mm;height:1.7mm;border-radius:50%;
+  background:var(--pink);border:1px solid var(--ink);
+}
+ul.chk li::before{
+  content:"✓";position:absolute;left:0;top:.15mm;
+  width:3.6mm;height:3.6mm;
+  border:1.2px solid var(--ink);border-radius:1mm;
+  background:#fff;
+  font-family:var(--display);font-weight:800;font-size:6.2pt;line-height:3mm;
+  text-align:center;color:var(--ink);
+  box-shadow:.65mm .65mm 0 var(--lime);
+}
+
+.quote{
+  font-family:var(--display);font-weight:600;font-size:9.5pt;line-height:1.35;
+  letter-spacing:-.02em;
+  border-left:1.2mm solid var(--pink);
+  padding-left:2.8mm;
+}
+.formula{
+  background:var(--ink);color:#fff;
+  border-radius:3.2mm;padding:2.8mm 3.5mm;
+  font-family:var(--display);font-weight:600;font-size:8.5pt;line-height:1.45;
+}
+.formula b{color:var(--lime)}
+
+.steps{display:grid;grid-template-columns:1fr 1fr;gap:2mm}
+.steps div{
+  background:#fff;border:1.3px solid var(--ink);
+  border-radius:2.8mm;padding:2.4mm 2.8mm;
+  font-size:7.5pt;line-height:1.35;
+}
+.steps b{font-family:var(--display);font-weight:700;font-size:8pt;margin-right:1mm}
+.steps span{
+  display:inline-block;
+  background:var(--ink);color:var(--lime);
+  font-family:var(--display);font-weight:700;font-size:6pt;
+  border-radius:99px;padding:.2mm 1.5mm;margin-right:1.2mm;margin-bottom:.4mm;
+}
+
+.week{display:grid;grid-template-columns:17mm 1fr;gap:2.2mm;align-items:start}
+.week .w{
+  background:var(--ink);color:var(--lime);
+  border-radius:2.4mm;padding:2mm 1.2mm;text-align:center;
+  font-family:var(--display);font-weight:800;font-size:7.5pt;line-height:1.1;
+}
+.week .w small{display:block;font-family:var(--body);font-weight:500;font-size:5.5pt;color:#fff;margin-top:.7mm}
+.week ul{margin:0}
+.week li{font-size:7.8pt;margin-bottom:.9mm}
+
+.cover-body{display:flex;flex-direction:column;justify-content:center;flex:1;padding-bottom:8mm}
+.cover-pills{display:flex;gap:2mm;flex-wrap:wrap;margin-top:5mm}
+
+/* Preview chrome — hidden in print */
+.preview-label{
+  width:148mm;margin:0 auto 2mm;
+  font-family:var(--display);font-weight:700;font-size:8pt;
+  color:#4a3f6b;letter-spacing:.04em;text-transform:uppercase;
+}
+
+@media print{
+  body{background:none;padding:0}
+  .page{margin:0;box-shadow:none}
+  .preview-label{display:none}
+}
+</style>
+</head>
+<body>
+
+<div class="preview-label">01 · Couverture</div>
+<section class="page">
+  <div class="top"><div class="logo">kopio<i>.</i></div><span class="pill dark">GUIDE PRATIQUE · 2026</span></div>
+  <div class="cover-body">
+    <div class="kicker">Pour coachs, praticiennes et formatrices</div>
+    <h1>La Checklist du <span class="mk">Site Qui Convertit</span></h1>
+    <p class="lead" style="margin-top:5mm">Fait de ton site ton meilleur commercial.</p>
+    <div class="cover-pills">
+      <span class="pill">7 chapitres</span>
+      <span class="pill">5 pages qui vendent</span>
+      <span class="pill">30 min / jour</span>
+    </div>
+  </div>
+</section>
+
+<div class="preview-label">02 · Introduction</div>
+<section class="page">
+  <div class="top"><div class="logo">kopio<i>.</i></div><span class="pill">Introduction</span></div>
+  <div class="page-main spread">
+    <div class="block stack">
+      <div>
+        <div class="kicker">Ce que tu tiens entre les mains</div>
+        <h2>Ce n'est pas une question de <span class="mk">talent</span></h2>
+      </div>
+      <p>Tu es experte dans ton domaine. Certifiée, formée, expérimentée. Tes clientes repartent de tes séances transformées, et pourtant ton agenda a des trous, ton téléphone ne sonne pas tout seul.</p>
+      <p>Les entrepreneures qui remplissent leur agenda ne sont ni plus compétentes ni plus chanceuses que toi. Elles ont simplement une chose que tu n'as pas encore : <span class="hl">un message clair, adressé à la bonne personne, sur un site qui travaille à leur place.</span></p>
+      <p>Ce guide t'aide à construire ces fondations étape par étape, avec des exercices concrets, des exemples tirés de vrais métiers de l'accompagnement (coaching, bilan EQ-i, formations Qualiopi, sophrologie, diététique…) et un plan jour par jour pour attirer tes 100 premiers clients en 30 jours.</p>
+    </div>
+    <div class="block card shadow">
+      <span class="tag ess">Avant de commencer</span>
+      <ul class="chk" style="margin-top:2mm">
+        <li>Tu n'as pas besoin d'être technique : le site, sa mise en ligne, son bon fonctionnement, c'est notre travail.</li>
+        <li>Rien ne demande de vendre « agressivement » : tu attires celles qui ont déjà besoin de toi.</li>
+        <li>Prends un cahier. On commence.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot"><span><b>Kopio</b> · Checklist du Site Qui Convertit</span><span>2</span></div>
+</section>
+
+<!-- CH1 · 1/2 — contenu dense jusqu'en bas -->
+<div class="preview-label">03 · Chapitre 1 · 1/2</div>
+<section class="page">
+  <div class="top"><div class="logo">kopio<i>.</i></div><span class="pill">Chapitre 1 · 1/2</span></div>
+  <div class="page-main spread">
+    <div class="block">
+      <span class="chnum">CHAPITRE 1</span>
+      <h2>Pourquoi ton site n'attire personne</h2>
+      <div class="card"><span class="tag ex">Exemple concret</span><span class="ttl" style="font-family:var(--display);font-weight:700;font-size:9pt;display:inline">Claire, sophrologue.</span> Site joli, diplômes en avant. En 3 mois : 4 messages, dont 2 erreurs et 1 vendeur. Son site parlait de la praticienne, jamais de la cliente. C'est le cas de 9 sites sur 10.</div>
+    </div>
+    <div class="block quote">Ton site n'est pas ta carte de visite. C'est ton meilleur commercial.</div>
+    <div class="block stack-sm">
+      <p style="margin:0">Avant de payer une séance à 80 € ou une formation à 1 200 €, ta visiteuse veut une réponse à 3 questions, en 10 secondes :</p>
+      <div class="grid cols3">
+        <div class="card"><b>C'est pour moi ?</b><p>Comprend-elle mon problème ?</p></div>
+        <div class="card"><b>Ça marche ?</b><p>Puis-je lui faire confiance ?</p></div>
+        <div class="card"><b>Par où je commence ?</b><p>Quel est le prochain pas exact ?</p></div>
+      </div>
+    </div>
+    <div class="block">
+      <h3>Les 3 erreurs qui vident un agenda</h3>
+      <ul class="dot">
+        <li><span class="tag err">Erreur 1</span><b>Cibler « tout le monde ».</b> Quand tu parles à tout le monde, tu ne touches personne.</li>
+        <li><span class="tag err">Erreur 2</span><b>Raconter son parcours avant le problème.</b> Les diplômes répondent à la question 2, pas à la 1.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot"><span><b>Kopio</b> · Checklist du Site Qui Convertit</span><span>3</span></div>
+</section>
+
+<!-- CH1 · 2/2 -->
+<div class="preview-label">04 · Chapitre 1 · 2/2</div>
+<section class="page">
+  <div class="top"><div class="logo">kopio<i>.</i></div><span class="pill">Chapitre 1 · 2/2</span></div>
+  <div class="page-main spread">
+    <div class="block stack">
+      <div class="cont">Suite du chapitre 1</div>
+      <ul class="dot">
+        <li><span class="tag err">Erreur 3</span><b>Ne jamais demander la suite.</b> Pas de bouton clair, pas de raison d'agir maintenant. Sans appel à l'action, même le meilleur message reste lettre morte.</li>
+      </ul>
+      <div class="alert"><span class="tag ess">À retenir</span>Un site qui convertit répond d'abord au problème de la cliente, ensuite à ta crédibilité, enfin à l'action. Dans cet ordre — toujours.</div>
+    </div>
+    <div class="block expert">« Une cliente pressée, sur son téléphone, comprend-elle en 5 secondes ce qu'on lui propose et ce qu'elle doit faire ? Sinon, peu importe que le site soit beau. La clarté rapporte toujours plus que l'esthétique. »<em>Directrice de projet web · 12 ans d'audits de conversion</em></div>
+  </div>
+  <div class="foot"><span><b>Kopio</b> · Checklist du Site Qui Convertit</span><span>4</span></div>
+</section>
+
+<!-- CH2 · 1/2 -->
+<div class="preview-label">05 · Chapitre 2 · 1/2</div>
+<section class="page">
+  <div class="top"><div class="logo">kopio<i>.</i></div><span class="pill">Chapitre 2 · 1/2</span></div>
+  <div class="page-main spread">
+    <div class="block">
+      <span class="chnum">CHAPITRE 2</span>
+      <h2>Ta niche : à qui tu parles <span class="mk">exactement</span> ?</h2>
+      <div class="card"><span class="tag ex">Exemple concret</span><b style="font-family:var(--display)">Delphine, coach certifiée EQ-i.</b> Avant : « J'accompagne les professionnels dans leur développement personnel » → 2 demandes/mois, mal qualifiées. Après : « J'accompagne les managers de la tech épuisés par le rythme des produits » → demandes <span class="hl">×3 en 60 jours</span>. Mêmes diplômes, même méthode.</div>
+    </div>
+    <div class="block">
+      <p style="margin:0">Personne ne paie pour « du développement personnel ». On paie pour sortir d'une situation précise.</p>
+    </div>
+    <div class="block callout">
+      <span class="tag">Mise en pratique · 2 h max</span>
+      <p><b>Dessine ta cliente idéale en 4 questions, par écrit.</b></p>
+      <ul class="chk">
+        <li><b>Quelle transformation concrète</b> obtient-on avec toi ? <i style="color:var(--mute)">« Elle dort enfin sans réveil à 3 h. »</i></li>
+        <li><b>Qui l'obtient le plus facilement ?</b> Métier, situation, déclencheur (burn-out, reconversion…).</li>
+        <li><b>Quelle phrase dirait-elle un dimanche soir ?</b> C'est la phrase à mettre sur ton site.</li>
+        <li><b>Qui ne peux-tu PAS aider ?</b> Dire non à gauche, c'est dire oui avec force à droite.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot"><span><b>Kopio</b> · Checklist du Site Qui Convertit</span><span>5</span></div>
+</section>
+
+<!-- CH2 · 2/2 -->
+<div class="preview-label">06 · Chapitre 2 · 2/2</div>
+<section class="page">
+  <div class="top"><div class="logo">kopio<i>.</i></div><span class="pill">Chapitre 2 · 2/2</span></div>
+  <div class="page-main spread">
+    <div class="block stack">
+      <div class="cont">Suite · La formule de ta niche</div>
+      <h3>La formule de ta niche</h3>
+      <div class="formula"><b>J'aide</b> [qui précis] <b>à</b> [résultat concret] <b>grâce à</b> [ce qui fait ta différence].</div>
+      <div class="card"><span class="tag ex">Exemple rempli</span>J'aide les formatrices indépendantes à obtenir leur certification Qualiopi du premier coup, sans passer trois mois dans les normes.</div>
+      <div class="alert"><span class="tag ess">Essentiel</span>Ne passe pas une semaine dessus. Une niche se teste dans la réalité et s'ajuste avec tes premières clientes.</div>
+    </div>
+    <div class="block expert">« "Les femmes de 25 à 55 ans", c'est une tranche d'âge publicitaire, pas une niche. Une niche, c'est une situation de vie : "cadre qui reprend après un burn-out". »<em>Coach business, spécialiste des entrepreneures du soin</em></div>
+  </div>
+  <div class="foot"><span><b>Kopio</b> · Checklist du Site Qui Convertit</span><span>6</span></div>
+</section>
+
+<!-- CH3 · 1/2 -->
+<div class="preview-label">07 · Chapitre 3 · 1/2</div>
+<section class="page">
+  <div class="top"><div class="logo">kopio<i>.</i></div><span class="pill">Chapitre 3 · 1/2</span></div>
+  <div class="page-main spread">
+    <div class="block">
+      <span class="chnum">CHAPITRE 3</span>
+      <h2>Pourquoi toi et <span class="mk">pas une autre</span> ?</h2>
+      <p>Ta cliente compare : toi, une consœur, une plateforme à 30 € la séance. Ni les diplômes, ni l'expérience, ni le tarif ne te différencient. Trois choses le font :</p>
+    </div>
+    <div class="block stack-sm">
+      <div class="card"><span class="tag ess">1</span><b class="ttl">Ta méthode</b><p style="margin:0;color:var(--mute);font-size:8pt">« Coaching de vie » est interchangeable. Une méthode en 4 temps, nommée (« méthode SEREIN »), n'appartient qu'à toi.</p></div>
+      <div class="card"><span class="tag ess">2</span><b class="ttl">Ta preuve</b><p style="margin:0;color:var(--mute);font-size:8pt">« 83 % de mes clientes signent un 2ᵉ contrat » vaut tous les superlatifs. Tu débutes ? Cas concret, avec accord.</p></div>
+      <div class="card"><span class="tag ess">3</span><b class="ttl">Ton style</b><p style="margin:0;color:var(--mute);font-size:8pt">« Séances structurées, compte rendu écrit » ou « un espace bienveillant à ton rythme » : deux expériences, deux clientes.</p></div>
+    </div>
+    <div class="block alert">Ne promets pas d'être ce que tu n'es pas. Le bon client ne vient pas malgré ton style, il vient <b>à cause</b> de lui.</div>
+  </div>
+  <div class="foot"><span><b>Kopio</b> · Checklist du Site Qui Convertit</span><span>7</span></div>
+</section>
+
+<!-- CH3 · 2/2 -->
+<div class="preview-label">08 · Chapitre 3 · 2/2</div>
+<section class="page">
+  <div class="top"><div class="logo">kopio<i>.</i></div><span class="pill">Chapitre 3 · 2/2</span></div>
+  <div class="page-main spread">
+    <div class="block stack">
+      <div class="cont">Suite · Mise en pratique</div>
+      <div class="callout">
+        <span class="tag">Mise en pratique</span>
+        <p><b>Complète ces 3 phrases, puis assemble.</b></p>
+        <ul class="chk">
+          <li>Avec moi, tu obtiens <b>[résultat concret et daté]</b> — pas un thème.</li>
+          <li>Contrairement aux autres, je <b>[méthode / cadre / angle]</b>.</li>
+          <li>Avec moi, on travaille <b>[cadre, ton, accompagnement]</b>.</li>
+        </ul>
+        <div class="formula" style="margin-top:2mm;font-size:8pt"><b>« Je t'aide à</b> [1], <b>avec</b> [2], <b>dans un cadre où</b> [3]. <b>»</b></div>
+      </div>
+      <div class="card"><span class="tag ex">Exemple abouti</span>« Je t'aide à certifier ta formation Qualiopi en une seule session d'audit, avec une méthode éprouvée sur 40 dossiers, dans un cadre où tu sais où tu en es à chaque étape. »</div>
+      <p style="margin:0"><span class="hl">Le test :</span> si une consœur peut la recopier mot pour mot, elle n'est pas aboutie.</p>
+    </div>
+    <div class="block expert">« Le prix n'est jamais le vrai frein. Le vrai frein, c'est le doute : "est-ce que ça va marcher pour MOI ?" »<em>Consultante en stratégie de marque personnelle</em></div>
+  </div>
+  <div class="foot"><span><b>Kopio</b> · Checklist du Site Qui Convertit</span><span>8</span></div>
+</section>
+
+<!-- CH4 · 1/2 -->
+<div class="preview-label">09 · Chapitre 4 · 1/2</div>
+<section class="page">
+  <div class="top"><div class="logo">kopio<i>.</i></div><span class="pill">Chapitre 4 · 1/2</span></div>
+  <div class="page-main spread">
+    <div class="block">
+      <span class="chnum">CHAPITRE 4</span>
+      <h2>Le parcours client : de l'inconnue à <span class="mk">l'ambassadrice</span></h2>
+      <p>Une cliente n'achète pas en un clic. Si une seule main manque à une étape, elle s'arrête.</p>
+    </div>
+    <div class="block steps">
+      <div><span>ÉTAPE 1</span><b>Découverte</b>Elle cherche une réponse à son problème. Parle-lui de lui, pas de toi.</div>
+      <div><span>ÉTAPE 2</span><b>Visite</b>En 5 s, elle lit ta phrase et se reconnaît. Puis offre, preuves, bouton.</div>
+      <div><span>ÉTAPE 3</span><b>Décision</b>Elle hésite : réduis le risque perçu.</div>
+      <div><span>ÉTAPE 4</span><b>Prestation</b>Tu transformes la promesse en résultat mesurable.</div>
+      <div style="grid-column:1/-1"><span>ÉTAPE 5</span><b>Fidélisation</b>Témoignage, suite logique, quelque chose à transmettre.</div>
+    </div>
+    <div class="block">
+      <h3>Étape 3 : réduire le risque</h3>
+      <ul class="chk">
+        <li><b>Une première étape à petit prix :</b> appel découverte 20 min, atelier à 25 €, mini-bilan.</li>
+        <li><b>Une garantie claire :</b> « Si la première séance ne t'apporte rien, elle est offerte. »</li>
+        <li><b>Un déroulé précis :</b> elle sait quoi, dans quel ordre, avec quel résultat.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot"><span><b>Kopio</b> · Checklist du Site Qui Convertit</span><span>9</span></div>
+</section>
+
+<!-- CH4 · 2/2 -->
+<div class="preview-label">10 · Chapitre 4 · 2/2</div>
+<section class="page">
+  <div class="top"><div class="logo">kopio<i>.</i></div><span class="pill">Chapitre 4 · 2/2</span></div>
+  <div class="page-main spread">
+    <div class="block stack">
+      <div class="cont">Suite · Fidélisation &amp; cartographie</div>
+      <div class="alert"><span class="tag ess">Essentiel</span>Un seul chemin clair : « Réserve ton appel découverte ». Point.</div>
+      <div>
+        <h3>Étapes 4 et 5 : deux réflexes</h3>
+        <ul class="dot">
+          <li>Fixe un <b>objectif mesurable</b> dès la première séance : « dans 6 semaines, tu dors 7 h par nuit ».</li>
+          <li>Demande un <b>retour écrit à mi-parcours</b> : « Qu'est-ce qui a changé concrètement ? »</li>
+          <li>En fin de cycle : témoignage de 2 lignes, puis proposition de la suite logique.</li>
+        </ul>
+      </div>
+      <div class="card"><span class="tag ex">Analogie</span>Une visite de maison : l'annonce attire (découverte), la maison est accueillante (ton site), une 2ᵉ visite lève l'hésitation (appel découverte), et le nouveau propriétaire la fait visiter à tout le monde (recommandation).</div>
+    </div>
+    <div class="block callout"><span class="tag">Mise en pratique</span>Dessine 5 cases. Pour chaque étape, écris <b>où elle en est</b>, <b>ce qu'elle craint</b>, <b>ce que tu lui donnes</b>. Tu viens de cartographier ton site entier.</div>
+  </div>
+  <div class="foot"><span><b>Kopio</b> · Checklist du Site Qui Convertit</span><span>10</span></div>
+</section>
+
+<!-- CH5 · 1/2 -->
+<div class="preview-label">11 · Chapitre 5 · 1/2</div>
+<section class="page">
+  <div class="top"><div class="logo">kopio<i>.</i></div><span class="pill">Chapitre 5 · 1/2</span></div>
+  <div class="page-main spread">
+    <div class="block">
+      <span class="chnum">CHAPITRE 5</span>
+      <h2>Les 5 pages qui <span class="mk">vendent</span></h2>
+      <p>Pas besoin de 15 pages : 5 pages, chacune avec un travail précis.</p>
+    </div>
+    <div class="block grid cols2">
+      <div class="card"><span class="tag ess">Accueil</span><b>Les 5 secondes qui décident</b><p>Phrase de positionnement · chiffre-preuve · <b>un seul bouton</b> · 3 cartes « Pour qui » · 3 témoignages.</p></div>
+      <div class="card"><span class="tag ess">À propos</span><b>Confiance, pas CV</b><p>Son problème d'abord, ton histoire en lien, certifications en contexte, photo naturelle.</p></div>
+      <div class="card"><span class="tag ess">Offre</span><b>Un choix, pas un catalogue</b><p>Offre signature : séances, inclus, résultat, <b>prix visible</b>. Le prix caché = « je repasserai ».</p></div>
+      <div class="card"><span class="tag ess">Preuves</span><b>Vend à ta place</b><p>3 à 6 témoignages : avant → action → résultat. Un vrai message imparfait convainc mieux.</p></div>
+    </div>
+    <div class="block card"><span class="tag ess">Contact</span><b class="ttl" style="display:inline;font-size:9pt">Zéro friction.</b> Une seule action, un délai annoncé (« Je réponds sous 24 h ouvrées ») et tenu, une ligne qui rassure : « Cet appel est sans engagement. »</div>
+  </div>
+  <div class="foot"><span><b>Kopio</b> · Checklist du Site Qui Convertit</span><span>11</span></div>
+</section>
+
+<!-- CH5 · 2/2 -->
+<div class="preview-label">12 · Chapitre 5 · 2/2</div>
+<section class="page">
+  <div class="top"><div class="logo">kopio<i>.</i></div><span class="pill">Chapitre 5 · 2/2</span></div>
+  <div class="page-main spread">
+    <div class="block stack">
+      <div class="cont">Suite · Checklist avant lancement</div>
+      <div class="card shadow">
+        <span class="tag" style="background:var(--ink);color:var(--lime)">La checklist avant lancement</span>
+        <ul class="chk" style="margin-top:2mm">
+          <li>La phrase d'accueil parle de la cliente, pas de moi</li>
+          <li>Un seul bouton principal, répété sur chaque page</li>
+          <li>Le prix de l'offre principale est visible</li>
+          <li>Au moins 3 témoignages orientés résultats</li>
+          <li>À propos : son problème d'abord, mon histoire ensuite</li>
+          <li>Contact : une action, un délai de réponse annoncé</li>
+          <li>Chaque page répond à : « et ensuite, je fais quoi ? »</li>
+        </ul>
+      </div>
+    </div>
+    <div class="block expert">« Relis chaque page à voix haute. Si un paragraphe parle de toi sans parler d'elle, supprime-le ou descends-le en bas de page. Écris une conversation, pas une autobiographie. »<em>Rédactrice web, métiers de l'accompagnement</em></div>
+  </div>
+  <div class="foot"><span><b>Kopio</b> · Checklist du Site Qui Convertit</span><span>12</span></div>
+</section>
+
+<!-- CH6 · 1/2 -->
+<div class="preview-label">13 · Chapitre 6 · 1/2</div>
+<section class="page">
+  <div class="top"><div class="logo">kopio<i>.</i></div><span class="pill">Chapitre 6 · 1/2</span></div>
+  <div class="page-main spread">
+    <div class="block">
+      <span class="chnum">CHAPITRE 6</span>
+      <h2>Le plan 30 jours : tes <span class="mk">100 premiers clients</span></h2>
+      <p>Un rythme : 20 à 30 contacts qualifiés par semaine, pendant 4 semaines, avec un site qui convertit derrière.</p>
+      <div class="alert" style="margin-top:2mm"><span class="tag ess">Règle absolue</span>30 à 45 minutes par jour, maximum. C'est du travail de fondation, pas un deuxième emploi.</div>
+    </div>
+    <div class="block stack-sm">
+      <div class="week"><div class="w">SEM. 1<small>Réseau chaud</small></div><ul class="chk">
+        <li><b>J1-2 :</b> finalise ta phrase de positionnement.</li>
+        <li><b>J3-4 :</b> message à 30-50 proches : « J'accompagne [niche] à [résultat]. Tu connais quelqu'un ? »</li>
+        <li><b>J5 :</b> annonce LinkedIn / Instagram. <b>J6-7 :</b> relance douce.</li></ul></div>
+      <div class="week"><div class="w">SEM. 2<small>Contenu</small></div><ul class="chk">
+        <li><b>J8 :</b> 1ᵉʳ article « Les 3 signes que [ta niche] doit entendre ».</li>
+        <li><b>J9-11 :</b> un post/jour : croyance erronée, conseil, anecdote.</li>
+        <li><b>J12-14 :</b> 2-3 communautés : tu réponds avec valeur, tu ne vends rien.</li></ul></div>
+    </div>
+  </div>
+  <div class="foot"><span><b>Kopio</b> · Checklist du Site Qui Convertit</span><span>13</span></div>
+</section>
+
+<!-- CH6 · 2/2 -->
+<div class="preview-label">14 · Chapitre 6 · 2/2</div>
+<section class="page">
+  <div class="top"><div class="logo">kopio<i>.</i></div><span class="pill">Chapitre 6 · 2/2</span></div>
+  <div class="page-main spread">
+    <div class="block stack">
+      <div class="cont">Suite · Semaines 3 &amp; 4</div>
+      <div class="week"><div class="w">SEM. 3<small>Partenariats</small></div><ul class="chk">
+        <li><b>J15-16 :</b> liste 10 partenaires complémentaires (coach sportif ↔ diététicienne).</li>
+        <li><b>J17-19 :</b> propose 3 collaborations avec format et date précis.</li>
+        <li><b>J20-21 :</b> offre de lancement : −20 % pour les 10 premières, 7 jours.</li></ul></div>
+      <div class="week"><div class="w">SEM. 4<small>Conversion</small></div><ul class="chk">
+        <li><b>J22-24 :</b> relance tous les échanges : <span class="hl">80 % des ventes se font en relance</span>.</li>
+        <li><b>J25-26 :</b> demande tes premiers témoignages.</li>
+        <li><b>J27-28 :</b> mets-les en avant sur ton site.</li>
+        <li><b>J29-30 :</b> bilan : contacts, appels, réservations, ce qui a marché.</li></ul></div>
+    </div>
+    <div class="block expert">« La régularité bat l'intensité : 30 minutes par jour valent infiniment plus qu'un dimanche de 6 heures. Mets le rendez-vous dans ton agenda comme un rendez-vous client. »<em>Accompagnante de lanceuses d'activité</em></div>
+  </div>
+  <div class="foot"><span><b>Kopio</b> · Checklist du Site Qui Convertit</span><span>14</span></div>
+</section>
+
+<!-- CH7 -->
+<div class="preview-label">15 · Chapitre 7</div>
+<section class="page">
+  <div class="top"><div class="logo">kopio<i>.</i></div><span class="pill">Chapitre 7</span></div>
+  <div class="page-main spread">
+    <div class="block">
+      <span class="chnum">CHAPITRE 7</span>
+      <h2>7 sources de clients <span class="mk">gratuites</span></h2>
+      <p>Classées par efficacité pour les métiers de l'accompagnement.</p>
+    </div>
+    <div class="block grid cols2" style="gap:2mm">
+      <div class="card" style="padding:2.4mm 3mm"><b>1. Réseau chaud</b><p>Le plus rentable. Donne-leur des mots simples à transmettre.</p></div>
+      <div class="card" style="padding:2.4mm 3mm"><b>2. Groupes en ligne</b><p>10 messages de valeur pour 1 mention de ton offre.</p></div>
+      <div class="card" style="padding:2.4mm 3mm"><b>3. Google Business Profile</b><p>Gratuit, 20 min, idéal pour le local.</p></div>
+      <div class="card" style="padding:2.4mm 3mm"><b>4. Contenu court régulier</b><p>1 post/jour pendant le plan, puis 3/semaine.</p></div>
+      <div class="card" style="padding:2.4mm 3mm"><b>5. Partenariats croisés</b><p>3 à 5 clientes qualifiées par partenariat actif.</p></div>
+      <div class="card" style="padding:2.4mm 3mm"><b>6. Référencement naturel</b><p>Lent, cumulatif — le seul canal qui ne s'arrête jamais.</p></div>
+      <div class="card" style="padding:2.4mm 3mm;grid-column:1/-1"><b>7. Atelier ou webinaire</b><p>1 h 30, 10-15 participantes, 3-4 deviennent clientes.</p></div>
+    </div>
+    <div class="block callout"><span class="tag">Mise en pratique</span><b>Où tes 5 meilleures clientes t'ont-elles trouvée ?</b> Mets 70 % de ton énergie là, sur <b>deux canaux</b> pour les 90 premiers jours, pas sept.</div>
+  </div>
+  <div class="foot"><span><b>Kopio</b> · Checklist du Site Qui Convertit</span><span>15</span></div>
+</section>
+
+<!-- CONCLUSION -->
+<div class="preview-label">16 · Conclusion</div>
+<section class="page">
+  <div class="top"><div class="logo">kopio<i>.</i></div><span class="pill">Conclusion</span></div>
+  <div class="page-main spread">
+    <div class="block stack">
+      <div>
+        <span class="chnum">CONCLUSION</span>
+        <h2>Ce qui change <span class="mk">maintenant</span></h2>
+      </div>
+      <p class="lead">Tu as entre les mains ce que 90 % des entrepreneures de ton secteur n'ont pas : une niche claire, une phrase qui te différencie, un parcours client construit, un site pensé pour convertir, et un plan de 30 jours éprouvé.</p>
+      <p><b>Deux vérités pour finir, et elles sont bonnes nouvelles :</b></p>
+      <div class="card shadow"><span class="tag ess">La première</span>Tu n'as pas besoin de tout faire parfaite. Une phrase honnête, un réseau réveillé, 30 minutes par jour : c'est suffisant pour remplir un premier agenda.</div>
+      <div class="card shadow"><span class="tag ess">La seconde</span>Tu n'es pas seule sur la partie technique. Construction, mise en ligne, pages, SEO de base, maintenance : c'est notre métier chez Kopio, inclus dans ton abonnement.</div>
+    </div>
+    <div class="block quote">L'équipe Kopio</div>
+  </div>
+  <div class="foot"><span><b>Kopio</b> · Checklist du Site Qui Convertit</span><span>16</span></div>
+</section>
+
+</body>
+</html>

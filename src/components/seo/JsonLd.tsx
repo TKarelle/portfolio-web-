@@ -6,6 +6,11 @@ import {
   FOUNDER_NAME,
   FOUNDER_PHOTO,
 } from "@/data/site";
+import {
+  getVideosForPage,
+  iso8601Duration,
+  type SiteVideo,
+} from "@/data/videos";
 import { getBaseUrl } from "@/lib/seo";
 
 function JsonLd({ data }: { data: Record<string, unknown> }) {
@@ -34,9 +39,10 @@ export function OrganizationJsonLd() {
             email: CONTACT_EMAIL,
             priceRange: "89€/mois+",
             description:
-              "Création de site web pour femme entrepreneuse dès 89 €/mois. Design sur-mesure, hébergement inclus, livré en 14 jours.",
+              "Création de site web pour femme entrepreneuse dès 89 €/mois. Design sur-mesure, hébergement inclus, livré en 21 jours.",
             areaServed: { "@type": "Country", name: "France" },
             founder: { "@id": `${base}/#person` },
+            logo: `${base}/favicon.svg`,
           },
           {
             "@type": "Person",
@@ -90,7 +96,7 @@ export function WebSiteJsonLd() {
         name: BRAND_NAME,
         url: base,
         description:
-          "Création de site web pour femme entrepreneuse dès 89 €/mois. Design sur-mesure, hébergement inclus, livré en 14 jours.",
+          "Création de site web pour femme entrepreneuse dès 89 €/mois. Design sur-mesure, hébergement inclus, livré en 21 jours.",
         inLanguage: "fr-FR",
       }}
     />
@@ -103,12 +109,14 @@ export function ArticleJsonLd({
   date,
   image,
   slug,
+  dateModified,
 }: {
   title: string;
   description: string;
   date: string;
   image: string;
   slug: string;
+  dateModified?: string;
 }) {
   const base = getBaseUrl();
 
@@ -120,6 +128,7 @@ export function ArticleJsonLd({
         headline: title,
         description,
         datePublished: date,
+        dateModified: dateModified ?? date,
         author: {
           "@type": "Person",
           name: FOUNDER_NAME,
@@ -129,9 +138,54 @@ export function ArticleJsonLd({
           "@type": "Organization",
           name: BRAND_NAME,
           url: base,
+          logo: {
+            "@type": "ImageObject",
+            url: `${base}/favicon.svg`,
+          },
         },
         image: image.startsWith("http") ? image : `${base}${image}`,
         mainEntityOfPage: `${base}/blog/${slug}`,
+      }}
+    />
+  );
+}
+
+function videoObjectLd(video: SiteVideo, pagePath: string, base: string) {
+  return {
+    "@type": "VideoObject",
+    "@id": `${base}${pagePath}#video-${video.id}`,
+    name: video.name,
+    description: video.description,
+    thumbnailUrl: `${base}${video.thumbnailPath}`,
+    contentUrl: `${base}${video.contentPath}`,
+    embedUrl: `${base}${pagePath === "/" ? "" : pagePath}`,
+    uploadDate: video.uploadDate,
+    duration: iso8601Duration(video.durationSeconds),
+    inLanguage: "fr-FR",
+    isFamilyFriendly: true,
+    publisher: {
+      "@type": "Organization",
+      name: BRAND_NAME,
+      url: base,
+    },
+  };
+}
+
+/** VideoObject pour une page (home, projets…). */
+export function VideoJsonLd({ pagePath }: { pagePath: string }) {
+  const base = getBaseUrl();
+  const videos = getVideosForPage(pagePath);
+  if (videos.length === 0) return null;
+
+  if (videos.length === 1) {
+    return <JsonLd data={{ "@context": "https://schema.org", ...videoObjectLd(videos[0], pagePath, base) }} />;
+  }
+
+  return (
+    <JsonLd
+      data={{
+        "@context": "https://schema.org",
+        "@graph": videos.map((v) => videoObjectLd(v, pagePath, base)),
       }}
     />
   );
@@ -146,20 +200,18 @@ export function OffersJsonLd() {
         "@context": "https://schema.org",
         "@type": "ItemList",
         itemListElement: pricingPlans.map((plan, i) => {
-          const isQuote = plan.price === "Devis";
           return {
             "@type": "ListItem",
             position: i + 1,
             item: {
               "@type": "Service",
-              name: `Forfait ${plan.name}`,
+              name: `Modèle ${plan.name}`,
               description: plan.description,
               provider: { "@type": "Person", name: FOUNDER_NAME },
               offers: {
                 "@type": "Offer",
-                ...(isQuote
-                  ? { priceSpecification: { "@type": "PriceSpecification", priceCurrency: "EUR" } }
-                  : { price: plan.price, priceCurrency: "EUR" }),
+                price: plan.price,
+                priceCurrency: "EUR",
                 url: `${base}/tarifs`,
                 availability: "https://schema.org/InStock",
               },

@@ -15,8 +15,8 @@ import { CTA } from "@/data/copy";
 const waveClass = ["float-wave", "float-wave-slow", "float-wave-alt"] as const;
 
 export function Pricing({
-  title = "Choisis ton forfait",
-  highlight = "forfait",
+  title = "Choisissez votre modèle",
+  highlight = "modèle",
 }: {
   title?: string;
   highlight?: string;
@@ -54,7 +54,7 @@ export function Pricing({
   }, []);
 
   return (
-    <section className="scroll-mt-28 py-14 md:py-20 px-6 bg-bg" id="forfaits">
+    <section className="scroll-mt-28 py-14 md:py-20 px-6 bg-bg" id="modeles">
       <div className="max-w-5xl mx-auto">
         <div className="reveal">
           <PricingIncluded />
@@ -95,11 +95,11 @@ export function Pricing({
                       : "bg-surface"
                   }`}
                 >
-                  {plan.highlight && (
+                  {plan.badge ? (
                     <span className="absolute -top-3 left-1/2 -translate-x-1/2 z-10 bg-lime !text-ink text-xs font-bold px-4 py-1 rounded-full border-2 border-ink whitespace-nowrap">
-                      Le plus populaire
+                      {plan.badge}
                     </span>
-                  )}
+                  ) : null}
 
                   <p
                     className={`text-sm font-bold uppercase tracking-wider ${
@@ -109,73 +109,25 @@ export function Pricing({
                     {plan.name}
                   </p>
 
-                  <div className="mt-4 mb-3">
-                    {plan.price === "Devis" ? (
-                      <>
-                        <p
-                          className={`text-5xl font-extrabold tracking-tight ${
-                            plan.highlight ? "text-white" : ""
-                          }`}
-                        >
-                          Sur devis
-                        </p>
-                        <p
-                          className={`mt-1 text-xs font-medium ${
-                            plan.highlight ? "text-white/45" : "text-muted"
-                          }`}
-                        >
-                          sans frais de dossier
-                        </p>
-                      </>
-                    ) : (
-                      <>
-                        <p className="flex items-baseline gap-1.5 flex-wrap">
-                          <span
-                            className={`text-5xl font-extrabold tracking-tight ${
-                              plan.highlight ? "text-white" : ""
-                            }`}
-                          >
-                            {plan.price}
-                          </span>
-                          {plan.period ? (
-                            <span
-                              className={`text-lg font-semibold ${
-                                plan.highlight ? "text-white/60" : "text-muted"
-                              }`}
-                            >
-                              {plan.period}
-                            </span>
-                          ) : null}
-                        </p>
-                        {plan.setup ? (
-                          <p
-                            className={`mt-1.5 text-sm font-bold ${
-                              plan.highlight ? "text-lime" : "text-violet"
-                            }`}
-                          >
-                            {plan.setup}
-                          </p>
-                        ) : null}
-                        {plan.altPayment ? (
-                          <p
-                            className={`mt-0.5 text-xs font-medium ${
-                              plan.highlight ? "text-white/55" : "text-muted"
-                            }`}
-                          >
-                            {plan.altPayment}
-                          </p>
-                        ) : null}
-                      </>
-                    )}
+                  <div className="mt-4 mb-6">
+                    <p className="flex items-baseline gap-1.5 flex-wrap">
+                      <span
+                        className={`text-5xl font-extrabold tracking-tight ${
+                          plan.highlight ? "text-white" : ""
+                        }`}
+                      >
+                        {plan.price}
+                      </span>
+                      <span
+                        className={`text-lg font-semibold ${
+                          plan.highlight ? "text-white/60" : "text-muted"
+                        }`}
+                      >
+                        {plan.period}
+                      </span>
+                    </p>
                   </div>
 
-                  <p
-                    className={`text-sm mb-1 font-medium ${
-                      plan.highlight ? "text-white/70" : "text-muted"
-                    }`}
-                  >
-                    {plan.description}
-                  </p>
                   <p
                     className={`text-xs font-bold mb-6 ${
                       plan.highlight ? "text-lime" : "text-violet"
@@ -192,7 +144,9 @@ export function Pricing({
                     {plan.features.map((f) => (
                       <li key={f} className="flex items-start gap-2">
                         <span
-                          className={plan.highlight ? "text-lime" : "text-pink"}
+                          className={
+                            plan.highlight ? "text-lime" : "text-pink"
+                          }
                         >
                           ✦
                         </span>
@@ -203,10 +157,10 @@ export function Pricing({
 
                   <Button
                     href="/contact"
-                    variant={plan.highlight ? "primary" : "outline"}
+                    variant={plan.highlight ? "primary" : "dark"}
                     className={`w-full mt-auto ${plan.highlight ? "!text-ink" : ""}`}
                   >
-                    {CTA.plan}
+                    {plan.highlight ? CTA.plan : CTA.planDiscuss}
                   </Button>
                 </div>
               </div>

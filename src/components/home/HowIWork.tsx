@@ -65,22 +65,22 @@ export function HowIWork() {
           <SectionHead
             align="left"
             stroke="violet"
-            highlight="je suis"
+            highlight="déléguée"
             className="mb-5"
           >
-            {"Qui je suis"}
+            {"Kopio n'est pas une agence. C'est votre présence en ligne, déléguée."}
           </SectionHead>
 
           <div className="space-y-4 text-muted text-base md:text-lg font-medium leading-relaxed mb-7">
             <p>
               Je m&apos;appelle <strong className="text-ink">{FOUNDER_NAME}</strong>.
-              Développeuse web indépendante, pas d&apos;agence, pas
-              d&apos;intermédiaire. Juste toi et moi.
+              Développeuse indépendante. Juste vous et moi.
             </p>
             <p>
-              Avec {FOUNDER_EXPERIENCE}, j&apos;aide les femmes entrepreneuses
-              (coachs, consultantes, thérapeutes, créatrices, freelances) à avoir
-              un site clair et professionnel, sans avoir à gérer la technique.
+              Avec {FOUNDER_EXPERIENCE}, j&apos;aide les professionnelles de
+              l&apos;accompagnement (coachs, thérapeutes, sophrologues,
+              naturopathes, consultantes) à avoir une présence en ligne claire,
+              sans la charge mentale technique.
             </p>
           </div>
 

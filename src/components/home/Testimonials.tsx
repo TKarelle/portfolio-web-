@@ -45,7 +45,7 @@ function TestimonialBody({
         <div className="relative w-16 h-16 photo-frame photo-frame-lime shrink-0">
           <Image
             src={t.image}
-            alt={t.fullName}
+            alt={`${t.fullName}, ${t.role}`}
             fill
             className="object-cover rounded-[0.9rem]"
             sizes="64px"
@@ -53,20 +53,16 @@ function TestimonialBody({
         </div>
         <div className="min-w-0">
           <p className="font-extrabold text-lg">{t.fullName}</p>
-          <p className="text-sm text-muted font-medium">{t.role}</p>
-        </div>
-        <div className="ml-auto text-pink font-extrabold text-lg hidden sm:block shrink-0">
-          {"★".repeat(t.rating)}
+          <p className="text-sm text-muted font-medium">
+            {t.role}, {t.city}
+          </p>
+          <p className="text-xs text-muted/80 font-medium mt-0.5">{t.date}</p>
         </div>
       </div>
 
-      <blockquote className="text-lg md:text-xl font-semibold leading-relaxed text-ink flex-1">
+      <blockquote className="text-base md:text-lg font-medium leading-relaxed text-ink flex-1">
         &ldquo;{t.text}&rdquo;
       </blockquote>
-
-      <p className="mt-4 text-sm text-violet font-bold bg-violet-bg inline-block px-3 py-1 rounded-full border border-violet/30 shrink-0 self-start">
-        {t.project}
-      </p>
     </div>
   );
 }
@@ -87,10 +83,10 @@ export function Testimonials() {
       <div className="max-w-4xl mx-auto">
         <div className="reveal mb-12 text-center">
           <p className="text-sm font-bold text-violet mb-3 tracking-wide">
-            Avis clients
+            Elles en parlent
           </p>
-          <SectionHead stroke="violet" highlight="mieux que moi">
-            {"Ils en parlent mieux que moi"}
+          <SectionHead stroke="violet" highlight="réel">
+            {"Des retours sobres, ancrés dans le réel"}
           </SectionHead>
         </div>
 

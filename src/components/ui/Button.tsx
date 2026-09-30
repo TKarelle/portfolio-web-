@@ -35,9 +35,12 @@ export function Button({
     "inline-flex items-center justify-center gap-2 font-bold rounded-full transition-all duration-300 hover:scale-[1.03] active:scale-[0.97] min-h-11 touch-manipulation text-center leading-snug";
 
   const variants = {
-    primary: "bg-lime text-ink hover:bg-lime-soft shadow-[0_4px_0_0_#a8c400] hover:shadow-[0_2px_0_0_#a8c400] hover:translate-y-0.5",
-    secondary: "bg-pink text-white hover:bg-pink-hot shadow-[0_4px_0_0_#c40055] hover:shadow-[0_2px_0_0_#c40055] hover:translate-y-0.5",
-    outline: "bg-surface text-ink border-2 border-ink/10 hover:border-violet hover:bg-violet/5",
+    primary:
+      "bg-lime text-ink hover:bg-lime-soft shadow-[0_4px_0_0_#a8c400] hover:shadow-[0_2px_0_0_#a8c400] hover:translate-y-0.5",
+    secondary:
+      "bg-pink text-white hover:bg-pink-hot shadow-[0_4px_0_0_#c40055] hover:shadow-[0_2px_0_0_#c40055] hover:translate-y-0.5",
+    outline:
+      "bg-surface text-ink border-2 border-ink/10 hover:border-violet hover:bg-violet/5",
     dark: "bg-ink text-white hover:bg-ink/90",
   };
 

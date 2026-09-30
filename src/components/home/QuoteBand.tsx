@@ -22,11 +22,11 @@ export function QuoteBand() {
       <div className="relative max-w-4xl mx-auto text-center">
         <blockquote className="reveal">
           <p className="text-[clamp(1.85rem,5vw,3.15rem)] font-extrabold tracking-tight leading-[1.12] text-ink">
-            Ton métier, c’est ton{" "}
-            <span className="mark mark-pink">savoir-faire</span>.
+            Votre expertise, clairement{" "}
+            <span className="mark mark-pink">visible</span>.
             <br />
-            Le mien, c’est de le{" "}
-            <span className="mark mark-lime">rendre visible</span>.
+            Votre esprit, enfin{" "}
+            <span className="mark mark-lime">libre</span>.
           </p>
         </blockquote>
 
@@ -52,7 +52,7 @@ export function QuoteBand() {
               href="#contact"
               className="inline-flex items-center gap-1.5 mt-2 text-sm font-extrabold text-pink hover:text-pink-hot transition-colors"
             >
-              Parlons de ton projet
+              Parlez-moi de votre pratique
               <span aria-hidden="true">→</span>
             </a>
           </div>

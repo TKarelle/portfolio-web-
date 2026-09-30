@@ -10,7 +10,7 @@ export type Project = {
   url?: string;
 };
 
-/** Portfolio aligné niche femmes entrepreneuses */
+/** Portfolio (Sophie Bluel retirée des mises en avant) */
 export const projects: Project[] = [
   {
     id: "pulse",
@@ -22,17 +22,6 @@ export const projects: Project[] = [
     color: "bg-green-light",
     tags: ["Site vitrine", "Bien-être", "Mobile-first"],
     result: "Identité forte, réservations en un clic",
-  },
-  {
-    id: "sophie-bluel",
-    title: "Sophie Bluel",
-    category: "Architecte d’intérieur",
-    description:
-      "Site pour une architecte d’intérieur : galerie filtrable, espace admin et design éditorial pensé pour mettre en valeur chaque projet.",
-    image: "/image/sophie.png",
-    color: "bg-green-light",
-    tags: ["Galerie", "Contact", "Éditorial"],
-    result: "Galerie + contact : 2× plus de demandes projet",
   },
   {
     id: "madeleine-fragrance",
@@ -55,7 +44,7 @@ export const projects: Project[] = [
     image: "/image/coiffure.jpg",
     color: "bg-green-light",
     tags: ["Beauté", "Réservation", "Google"],
-    result: "1ère page Google en 2 mois",
+    result: "Réservation en ligne à la place du téléphone",
   },
   {
     id: "yoga-zen",
@@ -66,7 +55,7 @@ export const projects: Project[] = [
     image: "/image/yoga.jpg",
     color: "bg-rose-light",
     tags: ["Bien-être", "Planning", "Réservation"],
-    result: "15 nouvelles inscriptions/mois",
+    result: "Inscriptions en ligne simplifiées",
   },
   {
     id: "photographe-iris",
@@ -77,6 +66,6 @@ export const projects: Project[] = [
     image: "/image/photographe.jpg",
     color: "bg-green-light",
     tags: ["Portfolio", "Galerie", "Créatif"],
-    result: "Doublé les demandes de devis",
+    result: "Demandes de devis mieux cadrées",
   },
 ];

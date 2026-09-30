@@ -66,7 +66,7 @@ export function SitePreview() {
 
         <div className="reveal mt-8 md:mt-10">
           <Button href="#contact" size="md">
-            Je veux le même résultat
+            Je veux un site comme ça
           </Button>
         </div>
       </div>

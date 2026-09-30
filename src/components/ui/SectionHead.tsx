@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import type { ElementType } from "react";
 
 /** Longueur max du surlignage (comme sur la landing : 2–5 mots courts). */
 const MAX_HIGHLIGHT_LEN = 28;
@@ -9,6 +10,7 @@ export function SectionHead({
   stroke = "lime",
   className,
   align = "center",
+  as: Tag = "h2",
 }: {
   /** Titre complet (string recommandée pour le surlignage) */
   children: string;
@@ -17,6 +19,7 @@ export function SectionHead({
   stroke?: "lime" | "pink" | "violet";
   className?: string;
   align?: "left" | "center";
+  as?: Extract<ElementType, "h1" | "h2" | "h3">;
 }) {
   const markClass =
     stroke === "pink"
@@ -43,14 +46,14 @@ export function SectionHead({
     );
 
   return (
-    <h2
+    <Tag
       className={cn(
         "text-3xl md:text-4xl font-extrabold tracking-tight leading-tight",
         align === "center" && "text-center",
-        className
+        className,
       )}
     >
       {content}
-    </h2>
+    </Tag>
   );
 }

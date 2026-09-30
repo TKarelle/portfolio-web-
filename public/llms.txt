@@ -7,7 +7,7 @@
 ## Pages principales
 
 - [Accueil](https://www.kopio.eu/) : Site internet pour entrepreneuse ; studio web dès 89 €/mois ; alternative claire à l'agence
-- [Tarifs](https://www.kopio.eu/tarifs) : Formules Pour démarrer 89 €/mois, Complet 129 €/mois, Besoin précis sur devis
+- [Tarifs](https://www.kopio.eu/tarifs) : 6 mois 179 €/mois, 12 mois 139 €/mois, 24 mois 89 €/mois ; Besoin précis sur devis
 - [Projets](https://www.kopio.eu/projets) : Portfolio (PULSE, Sophie Bluel, Madeleine Fragrance…)
 - [FAQ](https://www.kopio.eu/faq) : Questions fréquentes sur l'abonnement Kopio
 - [À propos](https://www.kopio.eu/a-propos) : Karelle, développeuse web derrière Kopio
@@ -33,12 +33,12 @@
 ## Par besoin
 
 - [Créer son site sans compétences techniques](https://www.kopio.eu/besoin/creer-son-site-sans-competences-techniques) : Sans gérer la technique
-- [Site vitrine indépendante](https://www.kopio.eu/besoin/site-vitrine-independante) : En ligne en 14 jours (y compris mompreneure)
+- [Site vitrine indépendante](https://www.kopio.eu/besoin/site-vitrine-independante) : En ligne en 21 jours (y compris mompreneure)
 - [Femme qui se lance](https://www.kopio.eu/besoin/site-web-femme-qui-se-lance) : Création site web pour femmes qui se lancent
 - [Maman freelance](https://www.kopio.eu/besoin/site-web-maman-freelance) : Webdesigner pour maman freelance
 - [Site avec réservation en ligne](https://www.kopio.eu/besoin/site-avec-reservation-en-ligne) : Agenda et confirmation
 - [Boutique en ligne petite entreprise](https://www.kopio.eu/besoin/boutique-en-ligne-petite-entreprise) : Sur devis
-- [Refonte site femme entrepreneuse](https://www.kopio.eu/besoin/refonte-site-internet-entrepreneure) : Moderniser dès 129 €/mois
+- [Refonte site femme entrepreneuse](https://www.kopio.eu/besoin/refonte-site-internet-entrepreneure) : Moderniser dès 89 €/mois
 
 ## Comparatifs
 
@@ -52,7 +52,7 @@
 - [Reconversion professionnelle site web 2026](https://www.kopio.eu/blog/reconversion-professionnelle-site-web-2026)
 - [Combien coûte un site web pour coach France 2026](https://www.kopio.eu/blog/combien-coute-site-web-coach-france-2026)
 - [Erreurs à éviter site indépendante](https://www.kopio.eu/blog/erreurs-a-eviter-site-independante)
-- [Abonnement ou paiement unique](https://www.kopio.eu/blog/abonnement-ou-paiement-unique-site-web)
+- [Abonnement site web durée](https://www.kopio.eu/blog/abonnement-ou-paiement-unique-site-web)
 
 ## Contact
 

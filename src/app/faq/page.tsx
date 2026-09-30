@@ -9,7 +9,7 @@ import { buildPageMetadata } from "@/lib/metadata";
 export const metadata: Metadata = buildPageMetadata({
   title: "FAQ site web entrepreneuse | Prix dès 89€/mois",
   description:
-    "Dès 89 €/mois : prix, délais 14 jours, Instagram vs site, mises à jour par email, propriété du domaine. Réponses claires pour entrepreneuses.",
+    "Dès 89 €/mois : prix, délai 21 jours, Instagram vs site, mises à jour par email, propriété du domaine. Réponses claires pour entrepreneuses.",
   path: "/faq",
 });
 
@@ -33,7 +33,7 @@ export default function FaqPage() {
         secondaryHref="/tarifs"
       />
       <ValueBanner />
-      <FAQ />
+      <FAQ showRoiDisclaimer />
       <ContactSection />
     </>
   );

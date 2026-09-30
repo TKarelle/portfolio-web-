@@ -109,7 +109,7 @@ export function Navbar() {
 
             <div className="hidden md:block">
               <Button href="/contact" size="sm">
-                {CTA.primary}
+                {CTA.nav}
               </Button>
             </div>
 
@@ -177,7 +177,7 @@ export function Navbar() {
                     className="w-full"
                     onClick={() => setOpen(false)}
                   >
-                    {CTA.primary}
+                    {CTA.nav}
                   </Button>
                 </div>
               </div>

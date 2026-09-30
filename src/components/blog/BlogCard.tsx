@@ -59,7 +59,7 @@ export function BlogCard({
       >
         <Image
           src={image}
-          alt=""
+          alt={title}
           fill
           loading="lazy"
           quality={75}

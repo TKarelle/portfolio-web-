@@ -142,6 +142,7 @@ export function PageIntro({
             <AutoPlayVideo
               src={video}
               poster={videoPoster}
+              title={videoLabel}
               aria-label={videoLabel}
               className="absolute inset-0 h-full w-full object-cover object-top rounded-[1.1rem]"
             />

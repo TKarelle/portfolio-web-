@@ -9,7 +9,7 @@ export type NumberedGainItem = {
   d: string;
 };
 
-/** Cartes 01 / 02 / … identiques à la landing (section Constat). */
+/** Cartes numérotées percutantes (Constat + landings). */
 export function NumberedGainCards({
   items,
   ariaLabel = "Points clés",
@@ -49,24 +49,24 @@ export function NumberedGainCards({
   return (
     <ol
       ref={listRef}
-      className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6"
+      className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4"
       aria-label={ariaLabel}
     >
       {items.map((g, i) => (
         <li
           key={g.n}
-          className="bg-surface/80 rounded-2xl px-4 py-4 border border-ink/8 will-change-transform"
+          className="rounded-[1.25rem] border-2 border-ink bg-surface px-5 py-5 sm:px-6 sm:py-6 shadow-[3px_3px_0_#111] will-change-transform"
           style={bubbleInStyle(i, visible)}
         >
-          <div className="flex items-center gap-3 mb-2">
-            <span className="w-8 h-8 rounded-full bg-ink text-lime text-xs font-extrabold flex items-center justify-center shrink-0">
+          <div className="flex items-center gap-3 mb-3">
+            <span className="w-9 h-9 rounded-full bg-ink text-lime text-xs font-extrabold flex items-center justify-center shrink-0">
               {g.n}
             </span>
-            <span className="text-sm font-extrabold text-ink leading-snug">
+            <span className="text-lg sm:text-xl font-extrabold text-ink leading-snug tracking-tight">
               {g.t}
             </span>
           </div>
-          <p className="text-sm text-muted font-medium leading-relaxed pl-11">
+          <p className="text-sm sm:text-[0.95rem] text-muted font-medium leading-relaxed pl-12">
             {g.d}
           </p>
         </li>

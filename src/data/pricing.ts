@@ -2,14 +2,55 @@
 export const PRICE_FROM = "dès 89 €/mois";
 export const PRICE_FROM_SHORT = "89€/mois";
 
-/** Conditions communes des forfaits mensuels */
-export const PLAN_TERMS = "pendant 12 mois, sans frais";
+/** Coût annuel de référence (12 × 89 €) pour les preuves ROI */
+export const YEARLY_COST_AT_89 = "1 068 €";
+
+/**
+ * Mention légale unique pour les estimations de rentabilité.
+ * Placer une * sur chaque affirmation concernée ; afficher ce texte une seule fois par page.
+ */
+export const ROI_DISCLAIMER =
+  "* Estimation illustrative. Trafic, conversion et revenus sont des hypothèses. Le seuil de rentabilité dépend de votre tarif de séance, de votre taux de conversion et du volume réel de demandes. Exemple : à 90 € la séance, une cliente suivie sur l’année couvre souvent le modèle à 89 €/mois. Ce n’est pas une promesse de chiffre d’affaires.";
+
+/** Preuve ROI */
+export const roiProof = {
+  headline:
+    "Un seul contrat peut couvrir plus d’un an de site. Au-delà, c’est du bénéfice.*",
+  columns: [
+    {
+      value: "12*",
+      label: "visites qualifiées supplémentaires par an",
+      note: "1/mois, scénario minimal",
+    },
+    {
+      value: "3*",
+      label: "nouvelles clientes",
+      note: "si 25 % prennent rendez-vous",
+    },
+    {
+      value: "1 080 €*",
+      label: "revenus générés",
+      note: "3 clientes × 4 séances × 90 €",
+    },
+  ],
+  costLabel: "coût Kopio sur 12 mois (à 89 €/mois)",
+  costValue: YEARLY_COST_AT_89,
+} as const;
+export const SHARED_PLAN_FEATURES = [
+  "Jusqu’à 5 pages (accueil, à propos, offres, avis ou FAQ, contact)",
+  "Réservation avancée (agenda, créneaux, confirmation auto)",
+  "Atelier rédaction 1h + réécriture pro",
+] as const;
+
+export const SHARED_PLAN_DESCRIPTION = "";
+
+export const SHARED_PLAN_DELIVERY = "21 jours";
 
 /** Inclus dans toutes les formules : à afficher très fort */
 export const includedInAll = [
   {
     title: "Design 100 % personnalisé",
-    text: "Pas de template générique : ton site est pensé pour ton activité.",
+    text: "Pas de template générique : votre site est pensé pour votre activité.",
   },
   {
     title: "Parfait sur mobile, tablette et ordinateur",
@@ -21,7 +62,7 @@ export const includedInAll = [
   },
   {
     title: "Aide à la rédaction",
-    text: "Je travaille tes textes avec toi, même si tu ne sais pas quoi écrire.",
+    text: "Je travaille vos textes avec vous, même si vous ne savez pas quoi écrire.",
   },
   {
     title: "Conformité RGPD",
@@ -33,131 +74,138 @@ export const includedInAll = [
   },
   {
     title: "Modifications par email",
-    text: "Tu m’écris, je mets à jour sous 24 à 72 h. Sans bricolage technique.",
+    text: "Vous m’écrivez, je mets à jour sous 24 à 72 h. Sans bricolage technique.",
   },
   {
     title: "Un interlocuteur unique",
-    text: "Joignable, qui répond : tu parles toujours à la même personne.",
-  },
-  {
-    title: "Réservation de rendez-vous",
-    text: "Un parcours clair pour que tes clients te réservent facilement.",
+    text: "Joignable, qui répond : vous parlez toujours à la même personne.",
   },
 ] as const;
 
-/** Garanties qui rassurent et font signer */
+/** Garanties alignées sur les modèles 6 / 12 / 24 mois (sans frais de mise en service) */
 export const guarantees = [
   {
-    title: "Tu valides avant de payer la suite",
-    text: "La mise en service n’est facturée qu’à la validation de la maquette.",
+    title: "Vous validez avant la mise en ligne",
+    text: "Rien n’est publié sans votre accord. Vous validez la maquette, puis on met en ligne.",
   },
   {
     title: "Satisfaite ou retravaillé",
     text: "2 cycles de modifications inclus après livraison.",
   },
   {
-    title: "Le site devient le tien",
-    text: "Après 12 mensualités, tu en es propriétaire à 100 %. Ou rachat anticipé à tout moment : tu soldes l’intégralité des mois restants. Le nom de domaine est à ton nom dès le premier jour.",
+    title: "Le site devient le vôtre",
+    text: "À la fin de votre engagement (6, 12 ou 24 mois), le site vous appartient à 100 %. Ou rachat anticipé à tout moment : vous soldez les mois restants. Le nom de domaine est à votre nom dès le premier jour.",
   },
   {
     title: "Transparence totale",
-    text: "Les prix sont sur la page. Pas de devis surprise, pas d’option cachée.",
+    text: "Les prix sont sur la page : 179 €, 139 € ou 89 €/mois selon la durée. Pas de devis surprise, pas d’option cachée.",
   },
 ] as const;
 
 export const pricingPlans = [
   {
-    id: "launch",
-    name: "Pour démarrer",
-    price: "89",
-    period: "€/mois",
-    setup: "+ 390 € de mise en service",
-    altPayment: "ou 1 890 € en paiement unique",
-    terms: PLAN_TERMS,
-    highlight: false,
-    description: "Une page claire pour te présenter et être joignable.",
-    delivery: "Sous 14 jours",
-    features: [
-      "Site one-page élégant et complet (tout sur une page)",
-      "Présentation, offre, témoignages et contact",
-      "Refresh design inclus tous les 12 mois",
-      "30 min d’appel de lancement",
-    ],
-    persona: {
-      label: "Celles qui démarrent",
-      labelShort: "Démarrer",
-      teaser:
-        "Pas encore de site. Envie d’exister en ligne sans te perdre dans la technique.",
-      headline: "Ton premier site,\nsans compétences\ntechniques.",
-      highlight: "sans compétences",
-      body: "Un site clair, pensé pour les femmes entrepreneuses, pour poser tes bases et inspirer confiance dès le premier jour.",
-      cta: "Voir ce forfait",
-    },
-  },
-  {
-    id: "pro",
-    name: "Complet",
-    price: "129",
-    period: "€/mois",
-    setup: "+ 490 € de mise en service",
-    altPayment: "ou 2 390 € en paiement unique",
-    terms: PLAN_TERMS,
-    highlight: true,
-    description: "Plus de pages, réservation avancée et SEO local renforcé.",
-    delivery: "21 jours",
-    features: [
-      "Tout le forfait Pour démarrer",
-      "Jusqu’à 5 pages (accueil, à propos, offres, avis ou FAQ, contact)",
-      "Réservation avancée (agenda, créneaux, confirmation auto)",
-      "Atelier rédaction 1h + réécriture pro",
-      "SEO local : fiche Google Business + mots-clés de zone",
-      "2 pages en plus offertes la 1ʳᵉ année",
-    ],
-    persona: {
-      label: "Celles qui modernisent",
-      labelShort: "Moderniser",
-      teaser:
-        "Ce que les gens voient en ligne ne montre plus ce que tu vaux. Il est temps de moderniser.",
-      headline: "Un site à la hauteur\nde ton expertise",
-      highlight: "à la hauteur",
-      body: "Ton activité a évolué, ton image doit suivre. Je transforme ton site actuel en un outil élégant qui attire et convertit tes clientes idéales.",
-      cta: "Voir ce forfait",
-    },
-  },
-  {
     id: "sur-mesure",
-    name: "Besoin précis",
-    price: "Devis",
-    period: "",
+    name: "6 mois",
+    price: "179",
+    period: "€/mois",
     setup: "",
     altPayment: "",
     terms: "",
     highlight: false,
-    description:
-      "Quand le Complet ne suffit plus : boutique, espace client ou outil métier.",
-    delivery: "Selon le projet",
+    badge: null as string | null,
+    description: SHARED_PLAN_DESCRIPTION,
+    delivery: SHARED_PLAN_DELIVERY,
     features: [
-      "Boutique en ligne (catalogue, panier, commandes)",
-      "Paiement en ligne et confirmations automatiques",
-      "Espace client avec connexion / comptes",
-      "Outil ou parcours métier conçu pour toi",
-      "Intégration de tes outils (CRM, email, agenda…)",
-      "Suivi dédié du brief à la mise en ligne",
+      ...SHARED_PLAN_FEATURES,
+      "SEO : lancement et indexation (sans suivi long terme)",
+      "Bilan analytics unique après mise en ligne",
     ],
     persona: {
-      label: "Celles qui veulent du précis",
-      labelShort: "Sur mesure",
+      label: "Engagement court",
+      labelShort: "6 mois",
       teaser:
-        "Une vitrine ne suffit plus : boutique, outil ou parcours qui travaille pour toi.",
-      headline: "Un site pensé pour\nton besoin précis.",
-      highlight: "besoin précis",
-      body: "Boutique, espace client ou outil métier : je construis ce qui dépasse une vitrine classique.",
-      cta: "En parler",
+        "Pour tester rapidement. La mensualité plus élevée dissuade l’engagement court.",
+      headline: "Votre site professionnel,\nsans la charge mentale.",
+      highlight: "sans la charge mentale",
+      body: "Kopio conçoit, maintient et fait évoluer votre présence en ligne, pour que vos clientes vous trouvent, vous comprennent et réservent.",
+      cta: "Commencer avec ce modèle",
+    },
+  },
+  {
+    id: "pro",
+    name: "12 mois",
+    price: "139",
+    period: "€/mois",
+    setup: "",
+    altPayment: "",
+    terms: "",
+    highlight: true,
+    badge: "Engagement recommandé",
+    description: SHARED_PLAN_DESCRIPTION,
+    delivery: SHARED_PLAN_DELIVERY,
+    features: [
+      ...SHARED_PLAN_FEATURES,
+      "SEO local : fiche Google Business + mots-clés de zone, suivi sur l’année",
+      "Suivi analytics trimestriel (4 bilans)",
+    ],
+    persona: {
+      label: "Offre cœur",
+      labelShort: "12 mois",
+      teaser:
+        "Le compromis durée / mensualité pour la majorité des professionnelles de l’accompagnement.",
+      headline: "Votre site professionnel,\nsans la charge mentale.",
+      highlight: "sans la charge mentale",
+      body: "Kopio conçoit, maintient et fait évoluer votre présence en ligne, pour que vos clientes vous trouvent, vous comprennent et réservent.",
+      cta: "Commencer avec ce modèle",
+    },
+  },
+  {
+    id: "launch",
+    name: "24 mois",
+    price: "89",
+    period: "€/mois",
+    setup: "",
+    altPayment: "",
+    terms: "",
+    highlight: false,
+    badge: null as string | null,
+    description: SHARED_PLAN_DESCRIPTION,
+    delivery: SHARED_PLAN_DELIVERY,
+    features: [
+      ...SHARED_PLAN_FEATURES,
+      "SEO long terme : consolidation locale + ajustements contenus sur 2 ans",
+      "Suivi analytics bimestriel + bilans d’évolution",
+    ],
+    persona: {
+      label: "Meilleur mensuel",
+      labelShort: "24 mois",
+      teaser:
+        "La mensualité la plus basse. Idéal si vous vous engagez sereinement sur la durée.",
+      headline: "Votre site professionnel,\nsans la charge mentale.",
+      highlight: "sans la charge mentale",
+      body: "Kopio conçoit, maintient et fait évoluer votre présence en ligne, pour que vos clientes vous trouvent, vous comprennent et réservent.",
+      cta: "Commencer avec ce modèle",
     },
   },
 ] as const;
 
 export type PricingPlan = (typeof pricingPlans)[number];
+
+/** Bloc anti-peur (section 2) */
+export const antiFear = {
+  eyebrow: "Sortir le sujet de votre tête",
+  headline: "Ce que vous n’aurez jamais à faire avec Kopio",
+  items: [
+    "Choisir un hébergeur ou comprendre un CMS",
+    "Rédiger vos textes seule face à une page blanche",
+    "Mettre à jour, sauvegarder, sécuriser quoi que ce soit",
+    "Re-payer un devis pour chaque modification",
+    "Supplier un prestataire devenu injoignable",
+  ],
+  punchline: "Ce sujet sort de votre tête. Définitivement.",
+  anchor:
+    "15 à 40 heures de charge mentale éparse la première année. C’est ce que Kopio retire de votre semaine.",
+} as const;
 
 /** Comparatif Kopio vs Wix/WordPress vs agence : textes courts pour mobile */
 export const offerComparison = [
@@ -169,14 +217,14 @@ export const offerComparison = [
   },
   {
     label: "Délai",
-    brand: "14–21 jours",
-    diy: "Toi-même",
+    brand: "21 jours",
+    diy: "Vous-même",
     agency: "1–3 mois",
   },
   {
     label: "Mises à jour",
     brand: "24–72 h par mail",
-    diy: "Toi-même",
+    diy: "Vous-même",
     agency: "Tickets / délais",
   },
   {
@@ -192,14 +240,8 @@ export const offerComparison = [
     agency: "Souvent à part",
   },
   {
-    label: "Paiement",
-    brand: "Fractionné 0 frais",
-    diy: "Carte / abo",
-    agency: "Selon contrat",
-  },
-  {
     label: "Engagement",
-    brand: "12 mois min.",
+    brand: "6 / 12 / 24 mois",
     diy: "Mensuel",
     agency: "Contrat",
   },

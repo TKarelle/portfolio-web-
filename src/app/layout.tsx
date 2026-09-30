@@ -25,7 +25,7 @@ export const viewport: Viewport = {
 const defaultMeta = buildPageMetadata({
   title: "Création de site web pour femme entrepreneuse dès 89€/mois",
   description:
-    "Création de site web pour femme entrepreneuse dès 89 €/mois. Design sur-mesure, hébergement inclus, livré en 14 jours. Tu valides, je gère tout.",
+    "Création de site web pour femme entrepreneuse dès 89 €/mois. Design sur-mesure, hébergement inclus, livré en 21 jours. Vous validez, je gère tout.",
   path: "/",
 });
 
@@ -46,8 +46,8 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
   alternates: defaultMeta.alternates,
   icons: {
-    icon: "/image/pp.jpg",
-    apple: "/image/pp.jpg",
+    icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
+    apple: "/apple-icon",
   },
 };
 

@@ -41,11 +41,8 @@ export function HeroFormulas({ plans, activeId, onChange }: HeroFormulasProps) {
             <h2>{plan.persona.headline}</h2>
             <p>{plan.persona.body}</p>
             <p>
-              {plan.name} :{" "}
-              {plan.price === "Devis"
-                ? "sur devis"
-                : `${plan.price} ${plan.period}${plan.setup ? ` ${plan.setup}` : ""}`}
-              , {plan.delivery}
+              {plan.name} : {plan.price} {plan.period}
+              {plan.terms ? `, ${plan.terms}` : ""}, {plan.delivery}
             </p>
             <ul>
               {plan.features.map((f) => (

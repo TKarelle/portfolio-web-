@@ -13,7 +13,7 @@ export function PricingIncluded() {
           {"Ce qui est inclus partout"}
         </SectionHead>
         <p className="mt-3 text-sm md:text-base font-medium text-muted max-w-xl mx-auto">
-          Pas d’option cachée : ces points font partie de chaque forfait.
+          Pas d’option cachée : ces points font partie de chaque modèle.
         </p>
       </div>
 
@@ -45,8 +45,9 @@ export function PricingGuarantees() {
           Les garanties
         </p>
         <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight leading-tight">
-          Ce qui te <span className="mark mark-lime text-white">rassure</span>{" "}
-          avant de signer
+          Ce qui vous{" "}
+          <span className="mark mark-lime text-white">rassure</span> avant de
+          signer
         </h3>
       </div>
 

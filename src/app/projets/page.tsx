@@ -3,28 +3,32 @@ import { CaseStudies } from "@/components/home/CaseStudies";
 import { ContactSection } from "@/components/home/ContactSection";
 import { PageIntro } from "@/components/ui/PageIntro";
 import { ValueBanner } from "@/components/ui/ValueBanner";
+import { VideoJsonLd } from "@/components/seo/JsonLd";
 import { buildPageMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Projets et réalisations",
   description:
-    "Sites livrés pour femmes entrepreneuses : coach, consultante, créatrice… Avant / après et résultats concrets.",
+    "Études de cas Kopio : avant / livrable / résultat sobre pour professionnelles de l’accompagnement.",
   path: "/projets",
+  ogVideo: "/image/videopulse.mp4",
 });
 
 export default function ProjetsPage() {
   return (
     <>
+      <VideoJsonLd pagePath="/projets" />
       <PageIntro
         breadcrumbs={[
           { label: "Accueil", href: "/" },
           { label: "Projets", href: "/projets" },
         ]}
-        title="Des sites livrés. Des résultats concrets."
-        highlight="résultats concrets"
-        description="PULSE, Sophie Bluel, Madeleine Fragrance… Voici ce que ça donne quand le site est clair, joignable, et à la hauteur de ton activité."
-        video="/image/sitewebvideo.mp4"
-        videoLabel="Aperçu d’un site livré : Sophie Bluel"
+        title="Des sites livrés. Des résultats sobres."
+        highlight="résultats sobres"
+        description="Sophrologue, consultante, créatrice… Avant, livrable, résultat vérifiable. Ce que ça change, concrètement."
+        video="/image/videopulse.mp4"
+        videoPoster="/image/videopulse-poster.jpg"
+        videoLabel="Aperçu d’un site livré : PULSE"
         badge="Preuves concrètes"
         frame="lime"
         secondaryHref="/tarifs"

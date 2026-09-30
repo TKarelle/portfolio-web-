@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
+import { ChecklistLeadMagnet } from "@/components/home/ChecklistLeadMagnet";
 import {
   BRAND_NAME,
   BRAND_LOGO,
@@ -97,8 +98,9 @@ export function Footer() {
               )}
             </div>
             <Button href="/contact" size="sm" className="mt-4">
-              {CTA.primary}
+              {CTA.nav}
             </Button>
+            <ChecklistLeadMagnet variant="footer" id="checklist-footer" />
           </div>
 
           <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-8 w-full">

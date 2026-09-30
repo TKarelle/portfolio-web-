@@ -7,17 +7,19 @@ type AutoPlayVideoProps = {
   poster?: string;
   className?: string;
   "aria-label"?: string;
+  title?: string;
 };
 
 /**
- * Lazy video for Lighthouse: no network until near viewport.
- * Poster shows immediately; src is attached only when approaching.
+ * Autoplay au viewport. Le `src` reste dans le HTML (découverte Google Video)
+ * avec preload="none" pour limiter le coût réseau hors viewport.
  */
 export function AutoPlayVideo({
   src,
   poster,
   className,
   "aria-label": ariaLabel,
+  title,
 }: AutoPlayVideoProps) {
   const wrapRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -28,19 +30,12 @@ export function AutoPlayVideo({
     if (!wrap || !video) return;
 
     const reduceMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
+      "(prefers-reduced-motion: reduce)",
     ).matches;
-
-    let attached = false;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          if (!attached) {
-            video.src = src;
-            video.load();
-            attached = true;
-          }
           if (!reduceMotion) {
             void video.play().catch(() => {});
           }
@@ -48,7 +43,7 @@ export function AutoPlayVideo({
           video.pause();
         }
       },
-      { rootMargin: "40px 0px", threshold: 0.1 }
+      { rootMargin: "40px 0px", threshold: 0.1 },
     );
 
     observer.observe(wrap);
@@ -67,9 +62,12 @@ export function AutoPlayVideo({
         loop
         playsInline
         preload="none"
+        title={title}
         aria-label={ariaLabel}
         className={className}
-      />
+      >
+        <source src={src} type="video/mp4" />
+      </video>
     </div>
   );
 }

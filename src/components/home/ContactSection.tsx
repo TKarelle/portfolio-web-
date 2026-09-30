@@ -5,7 +5,12 @@ import { SectionHead } from "@/components/ui/SectionHead";
 import { CTA } from "@/data/copy";
 import { CONTACT_EMAIL, HAS_CALENDLY } from "@/data/site";
 
-export function ContactSection() {
+export function ContactSection({
+  headingAs = "h2",
+}: {
+  /** Sur /contact, passer "h1" pour le titre principal de page. */
+  headingAs?: "h1" | "h2";
+} = {}) {
   return (
     <section
       className="scroll-mt-28 py-16 md:py-28 px-4 sm:px-6 bg-chunk-pink pb-[max(4rem,env(safe-area-inset-bottom))]"
@@ -21,15 +26,17 @@ export function ContactSection() {
           <div className="relative z-10">
             <div className="max-w-2xl mb-7 md:mb-10">
               <SectionHead
+                as={headingAs}
                 align="left"
                 stroke="lime"
-                highlight="allié commercial"
+                highlight="votre pratique"
                 className="mb-4 !text-white !text-[1.65rem] sm:!text-3xl md:!text-4xl"
               >
-                {"Faisons de ton site un vrai allié commercial."}
+                {"Parlez-moi de votre pratique : réponse sous 24 h."}
               </SectionHead>
               <p className="text-white/60 text-sm md:text-base font-medium leading-relaxed">
-                Deux façons simples de me joindre. Choisis celle qui te convient.
+                Deux façons simples de me joindre. Choisissez celle qui vous
+                convient.
               </p>
             </div>
 
@@ -39,15 +46,15 @@ export function ContactSection() {
                   Option 1
                 </p>
                 <h3 className="text-lg sm:text-xl font-extrabold tracking-tight leading-snug mb-2">
-                  Réserver un créneau
+                  Faire le point en 30 minutes
                 </h3>
                 <p className="text-sm text-muted font-medium leading-relaxed mb-5 sm:mb-6 flex-1">
-                  Appel découverte de 15&nbsp;min. Tu choisis l’horaire dans mon
+                  Appel découverte gratuit. Vous choisissez l’horaire dans mon
                   agenda. Sans engagement.
                 </p>
                 {HAS_CALENDLY ? (
                   <CalendlyButton size="lg" className="w-full px-4">
-                    {CTA.book}
+                    {CTA.discovery}
                   </CalendlyButton>
                 ) : (
                   <p className="text-sm font-bold text-muted">
@@ -64,7 +71,8 @@ export function ContactSection() {
                   Envoyer un mail
                 </h3>
                 <p className="text-sm text-white/60 font-medium leading-relaxed mb-5 sm:mb-6 flex-1">
-                  Tu veux plus de détails par écrit&nbsp;? Je te réponds sous 24h.
+                  Vous voulez plus de détails par écrit&nbsp;? Je vous réponds
+                  sous 24&nbsp;h.
                 </p>
                 <a
                   href={`mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent("Demande de détails : site web")}`}
