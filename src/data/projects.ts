@@ -29,7 +29,7 @@ export const projects: Project[] = [
     category: "Créatrice · Parfum",
     description:
       "Site e-commerce et vitrine pour une marque de parfum sur-mesure à Londres. Identité visuelle soignée, parcours de commission, précommandes.",
-    image: "/image/madeleine.png",
+    image: "/image/madeleine.jpg",
     color: "bg-cream",
     tags: ["E-commerce", "Parfum", "Sur-mesure"],
     result: "Précommandes ouvertes dès la mise en ligne",

@@ -50,7 +50,7 @@ export const metiers: MetierPage[] = [
  keyword: "site web pour coach",
  metier: "coach",
  metierPlural: "coachs",
- title: "Site web pour coach | Abonnement mensuel dès 89€/mois",
+ title: "Site web pour coach : Abonnement mensuel dès 89€/mois",
  metaDescription:
  "Site web pour coach en France : offre claire, preuves, prise de contact. Abonnement Kopio dès 89 €/mois, livré en 21 jours, sans compétences techniques.",
  h1: "Le site qui donne à ton activité de coach la crédibilité qu'elle mérite",
@@ -145,7 +145,7 @@ export const metiers: MetierPage[] = [
  keyword: "site web pour praticienne bien-être",
  metier: "praticienne bien-être",
  metierPlural: "praticiennes bien-être",
- title: "Site web pour praticienne bien-être | dès 89€/mois",
+ title: "Site web pour praticienne bien-être : dès 89€/mois",
  metaDescription:
  "Site web pour praticienne bien-être : identité forte, offre claire, réservation. Exemple client PULSE. Abonnement Kopio dès 89 €/mois.",
  h1: "Le site qui donne à ton activité de praticienne bien-être la crédibilité qu'elle mérite",
@@ -243,7 +243,7 @@ export const metiers: MetierPage[] = [
  keyword: "site web pour consultante",
  metier: "consultante",
  metierPlural: "consultantes",
- title: "Site web pour consultante | Abonnement mensuel dès 89€/mois",
+ title: "Site web pour consultante : Abonnement mensuel dès 89€/mois",
  metaDescription:
  "Site web pour consultante indépendante : offre claire, preuves, contact. Abonnement mensuel Kopio dès 89 €/mois, livré en 14-21 jours.",
  h1: "Le site qui donne à ton activité de consultante la crédibilité qu'elle mérite",
@@ -339,7 +339,7 @@ export const metiers: MetierPage[] = [
  metier: "assistante virtuelle",
  metierPlural: "assistantes virtuelles",
  title:
- "Site internet assistante virtuelle | Abonnement dès 89€/mois",
+ "Site internet assistante virtuelle : Abonnement dès 89€/mois",
  metaDescription:
  "Site internet assistante virtuelle : packages clairs, preuves, contact pro. Créer un site pour assistante indépendante dès 89 €/mois avec Kopio.",
  h1: "Le site qui donne à ton activité d'assistante virtuelle la crédibilité qu'elle mérite",
@@ -437,7 +437,7 @@ export const metiers: MetierPage[] = [
  keyword: "site web pour thérapeute",
  metier: "thérapeute",
  metierPlural: "thérapeutes",
- title: "Site web pour thérapeute | dès 89€/mois",
+ title: "Site web pour thérapeute : dès 89€/mois",
  metaDescription:
  "Site web pour thérapeute et hypnothérapeute : cadre clair, éthique, prise de contact. Abonnement mensuel Kopio dès 89 €/mois.",
  h1: "Le site qui donne à ton activité de thérapeute la crédibilité qu'elle mérite",
@@ -533,7 +533,7 @@ export const metiers: MetierPage[] = [
  metier: "sophrologue",
  metierPlural: "sophrologues",
  title:
- "Création site internet sophrologue | Abonnement dès 89€/mois",
+ "Création site internet sophrologue : Abonnement dès 89€/mois",
  metaDescription:
  "Création site internet sophrologue : cadre de séance clair, sérieux, réservation. Prix site web sophrologie transparent dès 89 €/mois avec Kopio.",
  h1: "Le site qui donne à ton activité de sophrologue la crédibilité qu'elle mérite",
@@ -629,7 +629,7 @@ export const metiers: MetierPage[] = [
  keyword: "site web naturopathe",
  metier: "naturopathe",
  metierPlural: "naturopathes",
- title: "Site web naturopathe | Abonnement dès 89€/mois",
+ title: "Site web naturopathe : Abonnement dès 89€/mois",
  metaDescription:
  "Site web naturopathe : cadre éthique, bilans et suivi clairs, sans promesse de guérison. Tarif création site naturopathie dès 89 €/mois avec Kopio.",
  h1: "Le site qui donne à ton activité de naturopathe la crédibilité qu'elle mérite",
@@ -725,7 +725,7 @@ export const metiers: MetierPage[] = [
  keyword: "site web pour formatrice",
  metier: "formatrice",
  metierPlural: "formatrices",
- title: "Site web pour formatrice | Abonnement mensuel dès 89€/mois",
+ title: "Site web pour formatrice : Abonnement mensuel dès 89€/mois",
  metaDescription:
  "Site web pour formatrice et professeure indépendante : programmes, inscriptions, crédibilité. Kopio dès 89 €/mois.",
  h1: "Le site qui donne à ton activité de formatrice la crédibilité qu'elle mérite",
@@ -820,7 +820,7 @@ export const metiers: MetierPage[] = [
  keyword: "site web pour créatrice",
  metier: "créatrice",
  metierPlural: "créatrices",
- title: "Site web pour créatrice | dès 89€/mois",
+ title: "Site web pour créatrice : dès 89€/mois",
  metaDescription:
  "Site web pour créatrice et marque artisanale. Exemple : Madeleine Fragrance. Abonnement mensuel Kopio dès 89 €/mois.",
  h1: "Le site qui donne à ton activité de créatrice la crédibilité qu'elle mérite",
@@ -912,7 +912,7 @@ export const metiers: MetierPage[] = [
  "21 jours pour tous les modèles. Une boutique complète demande un planning plus long, défini dans le devis Besoin précis. Un kickoff court cadre les contenus attendus. Plus tes textes et visuels arrivent tôt, plus la date de mise en ligne reste réaliste.",
  },
  ],
- image: "/image/madeleine.png",
+ image: "/image/madeleine.jpg",
  imageAlt: "Madeleine Fragrance : site web pour créatrice de parfum",
  },
  {
@@ -922,7 +922,7 @@ export const metiers: MetierPage[] = [
  metier: "esthéticienne",
  metierPlural: "esthéticiennes",
  title:
- "Site web pour esthéticienne | Abonnement mensuel dès 89€/mois",
+ "Site web pour esthéticienne : Abonnement mensuel dès 89€/mois",
  metaDescription:
  "Site web pour esthéticienne et prothésiste ongulaire : soins, galerie, réservation. Exemple Coiffure Luna. Kopio dès 89 €/mois.",
  h1: "Le site qui donne à ton activité d'esthéticienne la crédibilité qu'elle mérite",
@@ -1019,7 +1019,7 @@ export const metiers: MetierPage[] = [
  keyword: "site web pour photographe",
  metier: "photographe",
  metierPlural: "photographes",
- title: "Site web pour photographe | dès 89€/mois",
+ title: "Site web pour photographe : dès 89€/mois",
  metaDescription:
  "Site web pour photographe : portfolio, formules, contact. Exemple Photographe Iris. Abonnement mensuel Kopio dès 89 €/mois.",
  h1: "Le site qui donne à ton activité de photographe la crédibilité qu'elle mérite",
@@ -1117,7 +1117,7 @@ export const metiers: MetierPage[] = [
  metier: "architecte d'intérieur",
  metierPlural: "architectes d'intérieur",
  title:
- "Site web pour architecte d'intérieur | dès 89€/mois",
+ "Site web pour architecte d'intérieur : dès 89€/mois",
  metaDescription:
  "Site web pour architecte d'intérieur : galerie projets, devis. Exemple Sophie Bluel. Abonnement Kopio dès 89 €/mois.",
  h1: "Le site qui donne à ton activité d'architecte d'intérieur la crédibilité qu'elle mérite",
@@ -1216,7 +1216,7 @@ export const metiers: MetierPage[] = [
  metier: "wedding planner",
  metierPlural: "wedding planners",
  title:
- "Site web pour wedding planner | Abonnement mensuel dès 89€/mois",
+ "Site web pour wedding planner : Abonnement mensuel dès 89€/mois",
  metaDescription:
  "Site web pour wedding planner : univers, formules, demande de devis. Kopio dès 89 €/mois selon engagement (6, 12 ou 24 mois).",
  h1: "Le site qui donne à ton activité de wedding planner la crédibilité qu'elle mérite",

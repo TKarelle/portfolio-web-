@@ -30,6 +30,8 @@ type BlogCardProps = {
   meta?: string;
   cta?: string;
   featured?: boolean;
+  /** Titre de carte : h2 par défaut, h3 sous une section h2 (related posts). */
+  headingAs?: "h2" | "h3";
 };
 
 /** Carte blog / projet : même DA : contour noir, ombre rose au hover. */
@@ -43,6 +45,7 @@ export function BlogCard({
   meta,
   cta = "Lire l'article →",
   featured = false,
+  headingAs: Heading = "h2",
 }: BlogCardProps) {
   const catClass = categoryColors[category] ?? "bg-lime text-ink";
 
@@ -59,7 +62,7 @@ export function BlogCard({
       >
         <Image
           src={image}
-          alt={title}
+          alt={`Illustration : ${title}`}
           fill
           loading="lazy"
           quality={75}
@@ -78,13 +81,13 @@ export function BlogCard({
           <p className="text-xs text-muted font-semibold mb-3">{meta}</p>
         ) : null}
 
-        <h2
+        <Heading
           className={`font-extrabold leading-snug mb-3 group-hover:text-pink transition-colors flex-1 ${
             featured ? "text-2xl md:text-3xl" : "text-xl"
           }`}
         >
           {title}
-        </h2>
+        </Heading>
 
         <p className="text-muted text-sm leading-relaxed font-medium">
           {description}

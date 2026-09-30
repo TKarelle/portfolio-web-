@@ -28,7 +28,6 @@ export function ComparatifTemplate({ data }: { data: ComparatifPageData }) {
           <Breadcrumbs
             items={[
               { label: "Accueil", href: "/" },
-              { label: "Comparatifs", href: "/tarifs" },
               { label: data.keyword, href: comparatifPath(data.slug) },
             ]}
           />

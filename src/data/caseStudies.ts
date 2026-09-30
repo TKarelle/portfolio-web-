@@ -31,7 +31,7 @@ export const featuredCaseStudies: CaseStudy[] = [
     metier: "Sophrologue",
     city: "Lyon",
     photo: "/image/yoga.jpg",
-    capture: "/image/yoga.jpg",
+    capture: "/image/sitewebvideo-poster.jpg",
     before:
       "Site Wix daté, tarifs obsolètes, réservations uniquement par téléphone et messages Instagram.",
     result:
@@ -45,7 +45,7 @@ export const featuredCaseStudies: CaseStudy[] = [
     metier: "Consultante en bien-être",
     city: "France",
     photo: "/image/pulse.jpg",
-    capture: "/image/pulse.jpg",
+    capture: "/image/videopulse-poster.jpg",
     before:
       "Présence en ligne trop générique, difficile d’expliquer l’offre, prise de contact confuse.",
     result:
@@ -58,8 +58,8 @@ export const featuredCaseStudies: CaseStudy[] = [
     firstName: "Madeleine",
     metier: "Créatrice de parfum sur-mesure",
     city: "Londres",
-    photo: "/image/madeleine.png",
-    capture: "/image/madeleine.png",
+    photo: "/image/madeleine.jpg",
+    capture: "/image/madeleine.jpg",
     before:
       "Marque sans vitrine digitale à la hauteur de l’univers ; précommandes difficiles à ouvrir proprement.",
     result: "Précommandes ouvertes dès la mise en ligne.",

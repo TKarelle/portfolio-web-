@@ -32,6 +32,8 @@ export async function generateMetadata({
     path: `/blog/${post.slug}`,
     ogImage: post.image,
     ogType: "article",
+    publishedTime: post.date,
+    modifiedTime: post.date,
   });
 }
 
@@ -122,7 +124,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             </SectionHead>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               {related.map((p) => (
-                <BlogCard key={p.slug} {...blogPostToCard(p)} />
+                <BlogCard key={p.slug} {...blogPostToCard(p)} headingAs="h3" />
               ))}
             </div>
           </div>

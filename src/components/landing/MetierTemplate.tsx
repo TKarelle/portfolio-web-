@@ -49,7 +49,6 @@ export function MetierTemplate({ data }: { data: MetierPage }) {
           <Breadcrumbs
             items={[
               { label: "Accueil", href: "/" },
-              { label: "Site web pour", href: "/#metiers" },
               { label: data.label, href: metierPath(data.slug) },
             ]}
           />

@@ -36,7 +36,7 @@ export const besoins: BesoinPageData[] = [
  slug: "creer-son-site-sans-competences-techniques",
  label: "Créer son site sans tech",
  title:
- "Créer son site sans compétences techniques | dès 89€/mois",
+ "Créer son site sans compétences techniques : dès 89€/mois",
  metaDescription:
  "Créer son site sans compétences techniques : Kopio s'occupe de design, hébergement et mises à jour. Dès 89 €/mois, livré en 21 jours.",
  keyword: "créer son site sans compétences techniques",
@@ -84,7 +84,7 @@ export const besoins: BesoinPageData[] = [
  {
  slug: "site-vitrine-independante",
  label: "Site vitrine indépendante",
- title: "Site vitrine pour indépendante | En ligne en 21 jours",
+ title: "Site vitrine pour indépendante : En ligne en 21 jours",
  metaDescription:
  "Site vitrine pour indépendante et mompreneure : offre claire, contact, crédibilité. Kopio dès 89 €/mois, livré en 21 jours.",
  keyword: "site vitrine indépendante",
@@ -132,7 +132,7 @@ export const besoins: BesoinPageData[] = [
  {
  slug: "site-avec-reservation-en-ligne",
  label: "Réservation en ligne",
- title: "Site avec réservation en ligne | dès 89€/mois",
+ title: "Site avec réservation en ligne : dès 89€/mois",
  metaDescription:
  "Site avec réservation en ligne pour coachs, thérapeutes, esthéticiennes. Agenda et confirmation. Modèle 12 mois Kopio dès 139 €/mois.",
  keyword: "site avec réservation en ligne",
@@ -181,7 +181,7 @@ export const besoins: BesoinPageData[] = [
  slug: "boutique-en-ligne-petite-entreprise",
  label: "Boutique en ligne",
  title:
- "Boutique en ligne petite entreprise | Sur devis",
+ "Boutique en ligne petite entreprise : Sur devis",
  metaDescription:
  "Boutique en ligne pour petite entreprise et créatrices : catalogue, panier, paiement. Formule Besoin précis Kopio sur devis.",
  keyword: "boutique en ligne petite entreprise",
@@ -223,14 +223,14 @@ export const besoins: BesoinPageData[] = [
  closing:
  "Si tu veux vendre en ligne sans porter toute la technique seule, Besoin précis part d'un devis clair. Envoie-moi ton catalogue ou ton idée de gamme.",
  ctaLabel: "Parler de ma boutique",
- image: "/image/madeleine.png",
+ image: "/image/madeleine.jpg",
  imageAlt: "Boutique en ligne pour créatrice et petite entreprise",
  },
  {
  slug: "refonte-site-internet-entrepreneure",
  label: "Refonte de site",
  title:
- "Refonte site internet femme entrepreneuse | Dès 89€/mois",
+ "Refonte site internet femme entrepreneuse : Dès 89€/mois",
  metaDescription:
  "Refonte site internet femme entrepreneuse : offre clarifiée, parcours à jour, SEO de base. Modèle 12 mois Kopio dès 139 €/mois, livraison 21 jours.",
  keyword: "refonte site internet femme entrepreneuse",
@@ -276,14 +276,14 @@ export const besoins: BesoinPageData[] = [
  closing:
  "Si ton site ne reflète plus ton expertise, le modèle adapté (89 à 179 €/mois) aligne l'outil sur ton offre actuelle. Envoie-moi l'URL ; je te réponds.",
  ctaLabel: "Parler de ma refonte",
- image: "/image/sophie.png",
+ image: "/image/sophie.jpg",
  imageAlt: "Refonte de site internet pour femme entrepreneuse",
  },
  {
  slug: "site-web-femme-qui-se-lance",
  label: "Femme qui se lance",
  title:
- "Création site web pour femmes qui se lancent | dès 89€/mois",
+ "Création site web pour femmes qui se lancent : dès 89€/mois",
  metaDescription:
  "Création de site web pour femmes qui se lancent : vitrine claire, sans compétences techniques. Abonnement Kopio dès 89 €/mois, en ligne en 21 jours.",
  keyword: "création site web femmes qui se lancent",
@@ -332,7 +332,7 @@ export const besoins: BesoinPageData[] = [
  slug: "site-web-maman-freelance",
  label: "Maman freelance",
  title:
- "Webdesigner pour maman freelance | Site web dès 89€/mois",
+ "Webdesigner pour maman freelance : Site web dès 89€/mois",
  metaDescription:
  "Webdesigner pour maman freelance : site clair, mises à jour par email, sans soirées sur un builder. Abonnement Kopio dès 89 €/mois.",
  keyword: "webdesigner pour maman freelance",

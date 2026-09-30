@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { FOUNDER_NAME } from "@/data/site";
 import { getBaseUrl } from "@/lib/seo";
 
 type PageMeta = {
@@ -10,6 +11,10 @@ type PageMeta = {
   ogType?: "website" | "article";
   /** URL absolue ou chemin public d'une vidéo OG (optionnel) */
   ogVideo?: string;
+  /** Article Open Graph */
+  publishedTime?: string;
+  modifiedTime?: string;
+  authors?: string[];
 };
 
 export function buildPageMetadata({
@@ -19,6 +24,9 @@ export function buildPageMetadata({
   ogImage,
   ogType = "website",
   ogVideo,
+  publishedTime,
+  modifiedTime,
+  authors,
 }: PageMeta): Metadata {
   const base = getBaseUrl();
   const url = `${base}${path}`;
@@ -50,6 +58,15 @@ export function buildPageMetadata({
       type: ogType,
       ...(images ? { images } : {}),
       ...(videos ? { videos } : {}),
+      ...(ogType === "article"
+        ? {
+            ...(publishedTime ? { publishedTime } : {}),
+            ...(modifiedTime ?? publishedTime
+              ? { modifiedTime: modifiedTime ?? publishedTime }
+              : {}),
+            authors: authors ?? [FOUNDER_NAME],
+          }
+        : {}),
     },
     twitter: {
       card: "summary_large_image",

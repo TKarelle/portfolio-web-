@@ -1,7 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
-import Script from "next/script";
+import { useCallback, useRef, useState } from "react";
 import { Button } from "@/components/ui/Button";
 import { CTA } from "@/data/copy";
 import { CALENDLY_URL, HAS_CALENDLY } from "@/data/site";
@@ -25,61 +24,92 @@ type CalendlyButtonProps = {
   children?: React.ReactNode;
 };
 
-/** Bouton qui ouvre Calendly en popup (même API que le badge officiel). */
-export function CalendlyButton({
-  className,
-  variant = "primary",
-  size = "lg",
-  children = CTA.book,
-}: CalendlyButtonProps) {
-  const [ready, setReady] = useState(false);
+let calendlyPromise: Promise<void> | null = null;
 
-  useEffect(() => {
-    if (typeof document === "undefined") return;
+function loadCalendlyAssets(): Promise<void> {
+  if (typeof window === "undefined") return Promise.resolve();
+  if (window.Calendly?.initPopupWidget) return Promise.resolve();
+  if (calendlyPromise) return calendlyPromise;
+
+  calendlyPromise = new Promise((resolve, reject) => {
     if (!document.querySelector(`link[href="${CALENDLY_CSS}"]`)) {
       const link = document.createElement("link");
       link.href = CALENDLY_CSS;
       link.rel = "stylesheet";
       document.head.appendChild(link);
     }
-    if (window.Calendly) setReady(true);
-  }, []);
 
-  const openPopup = useCallback(
-    (e: React.MouseEvent) => {
-      e.preventDefault();
-      if (!HAS_CALENDLY) return;
-
+    const existing = document.querySelector<HTMLScriptElement>(
+      `script[src="${CALENDLY_JS}"]`,
+    );
+    if (existing) {
       if (window.Calendly?.initPopupWidget) {
-        window.Calendly.initPopupWidget({ url: CALENDLY_URL });
+        resolve();
         return;
       }
+      existing.addEventListener("load", () => resolve(), { once: true });
+      existing.addEventListener(
+        "error",
+        () => reject(new Error("Calendly script failed")),
+        { once: true },
+      );
+      return;
+    }
 
-      // Script pas encore prêt : ouvrir la page Calendly en secours
+    const script = document.createElement("script");
+    script.src = CALENDLY_JS;
+    script.async = true;
+    script.onload = () => resolve();
+    script.onerror = () => reject(new Error("Calendly script failed"));
+    document.body.appendChild(script);
+  });
+
+  return calendlyPromise;
+}
+
+/** Bouton qui charge Calendly uniquement au clic, puis ouvre le popup. */
+export function CalendlyButton({
+  className,
+  variant = "primary",
+  size = "lg",
+  children = CTA.book,
+}: CalendlyButtonProps) {
+  const [loading, setLoading] = useState(false);
+  const openingRef = useRef(false);
+
+  const openPopup = useCallback(async (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (!HAS_CALENDLY || openingRef.current) return;
+    openingRef.current = true;
+    setLoading(true);
+
+    try {
+      await loadCalendlyAssets();
+      if (window.Calendly?.initPopupWidget) {
+        window.Calendly.initPopupWidget({ url: CALENDLY_URL });
+      } else {
+        window.open(CALENDLY_URL, "_blank", "noopener,noreferrer");
+      }
+    } catch {
       window.open(CALENDLY_URL, "_blank", "noopener,noreferrer");
-    },
-    []
-  );
+    } finally {
+      setLoading(false);
+      openingRef.current = false;
+    }
+  }, []);
 
   if (!HAS_CALENDLY) return null;
 
   return (
-    <>
-      <Script
-        src={CALENDLY_JS}
-        strategy="afterInteractive"
-        onLoad={() => setReady(true)}
-      />
-      <Button
-        type="button"
-        variant={variant}
-        size={size}
-        className={cn(className)}
-        onClick={openPopup}
-        aria-busy={!ready ? true : undefined}
-      >
-        {children}
-      </Button>
-    </>
+    <Button
+      type="button"
+      variant={variant}
+      size={size}
+      className={cn(className)}
+      onClick={openPopup}
+      aria-busy={loading || undefined}
+    >
+      {children}
+    </Button>
   );
 }

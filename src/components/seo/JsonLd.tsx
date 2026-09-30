@@ -1,6 +1,7 @@
 import { faqItems } from "@/data/faq";
 import { pricingPlans } from "@/data/pricing";
 import {
+  BRAND_LOGO_IMAGE,
   BRAND_NAME,
   CONTACT_EMAIL,
   FOUNDER_NAME,
@@ -37,12 +38,26 @@ export function OrganizationJsonLd() {
             url: base,
             image: `${base}${FOUNDER_PHOTO}`,
             email: CONTACT_EMAIL,
-            priceRange: "89€/mois+",
+            priceRange: "EUR 89-179 per month",
             description:
-              "Création de site web pour femme entrepreneuse dès 89 €/mois. Design sur-mesure, hébergement inclus, livré en 21 jours.",
+              "Site web pour professionnelles de l'accompagnement dès 89 €/mois. Conception, maintenance et évolution : vous validez, on gère tout.",
             areaServed: { "@type": "Country", name: "France" },
             founder: { "@id": `${base}/#person` },
-            logo: `${base}/favicon.svg`,
+            logo: `${base}${BRAND_LOGO_IMAGE}`,
+            parentOrganization: { "@id": `${base}/#organization` },
+          },
+          {
+            "@type": "Organization",
+            "@id": `${base}/#organization`,
+            name: BRAND_NAME,
+            url: base,
+            email: CONTACT_EMAIL,
+            logo: {
+              "@type": "ImageObject",
+              url: `${base}${BRAND_LOGO_IMAGE}`,
+              width: 512,
+              height: 512,
+            },
           },
           {
             "@type": "Person",
@@ -93,11 +108,13 @@ export function WebSiteJsonLd() {
       data={{
         "@context": "https://schema.org",
         "@type": "WebSite",
+        "@id": `${base}/#website`,
         name: BRAND_NAME,
         url: base,
         description:
-          "Création de site web pour femme entrepreneuse dès 89 €/mois. Design sur-mesure, hébergement inclus, livré en 21 jours.",
+          "Site web pour professionnelles de l'accompagnement dès 89 €/mois. Conception, maintenance et évolution : vous validez, on gère tout.",
         inLanguage: "fr-FR",
+        publisher: { "@id": `${base}/#organization` },
       }}
     />
   );
@@ -136,11 +153,14 @@ export function ArticleJsonLd({
         },
         publisher: {
           "@type": "Organization",
+          "@id": `${base}/#organization`,
           name: BRAND_NAME,
           url: base,
           logo: {
             "@type": "ImageObject",
-            url: `${base}/favicon.svg`,
+            url: `${base}${BRAND_LOGO_IMAGE}`,
+            width: 512,
+            height: 512,
           },
         },
         image: image.startsWith("http") ? image : `${base}${image}`,
@@ -163,8 +183,10 @@ function videoObjectLd(video: SiteVideo, pagePath: string, base: string) {
     duration: iso8601Duration(video.durationSeconds),
     inLanguage: "fr-FR",
     isFamilyFriendly: true,
+    transcript: video.description,
     publisher: {
       "@type": "Organization",
+      "@id": `${base}/#organization`,
       name: BRAND_NAME,
       url: base,
     },
@@ -178,7 +200,14 @@ export function VideoJsonLd({ pagePath }: { pagePath: string }) {
   if (videos.length === 0) return null;
 
   if (videos.length === 1) {
-    return <JsonLd data={{ "@context": "https://schema.org", ...videoObjectLd(videos[0], pagePath, base) }} />;
+    return (
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          ...videoObjectLd(videos[0], pagePath, base),
+        }}
+      />
+    );
   }
 
   return (
@@ -207,7 +236,7 @@ export function OffersJsonLd() {
               "@type": "Service",
               name: `Modèle ${plan.name}`,
               description: plan.description,
-              provider: { "@type": "Person", name: FOUNDER_NAME },
+              provider: { "@id": `${base}/#business` },
               offers: {
                 "@type": "Offer",
                 price: plan.price,
@@ -223,7 +252,7 @@ export function OffersJsonLd() {
   );
 }
 
-/** Service + Organization pour pages métier / besoin / service */
+/** Service pour pages métier / besoin / comparatif (référence #business, sans réémettre Organization). */
 export function ServiceJsonLd({
   name,
   description,
@@ -242,34 +271,23 @@ export function ServiceJsonLd({
     <JsonLd
       data={{
         "@context": "https://schema.org",
-        "@graph": [
-          {
-            "@type": "Service",
-            name,
-            description,
-            url: path,
-            provider: { "@id": `${base}/#business` },
-            areaServed: { "@type": "Country", name: "France" },
-            ...(price
-              ? {
-                  offers: {
-                    "@type": "Offer",
-                    price,
-                    priceCurrency: "EUR",
-                    url: `${base}/tarifs`,
-                    availability: "https://schema.org/InStock",
-                  },
-                }
-              : {}),
-          },
-          {
-            "@type": "Organization",
-            "@id": `${base}/#business`,
-            name: BRAND_NAME,
-            url: base,
-            email: CONTACT_EMAIL,
-          },
-        ],
+        "@type": "Service",
+        name,
+        description,
+        url: path,
+        provider: { "@id": `${base}/#business` },
+        areaServed: { "@type": "Country", name: "France" },
+        ...(price
+          ? {
+              offers: {
+                "@type": "Offer",
+                price,
+                priceCurrency: "EUR",
+                url: `${base}/tarifs`,
+                availability: "https://schema.org/InStock",
+              },
+            }
+          : {}),
       }}
     />
   );

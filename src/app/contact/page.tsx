@@ -5,7 +5,7 @@ import { buildPageMetadata } from "@/lib/metadata";
 export const metadata: Metadata = buildPageMetadata({
   title: "Contact : Faisons de ton site un vrai allié commercial",
   description:
-    "Réserve un créneau de 15 min ou envoie un mail pour plus de détails. Sans engagement.",
+    "Réservez un créneau de 15 min ou envoyez un mail pour plus de détails. Sans engagement. Pour professionnelles de l'accompagnement.",
   path: "/contact",
 });
 

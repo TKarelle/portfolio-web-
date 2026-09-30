@@ -9,9 +9,9 @@ import { FOUNDER_NAME, FOUNDER_PHOTO } from "@/data/site";
 import { buildPageMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "À propos : Développeuse web indépendante",
+  title: "À propos : développeuse web pour l'accompagnement",
   description:
-    "Karelle, développeuse web indépendante. Sites web pour femmes entrepreneuses dès 89 €/mois, hébergement inclus.",
+    "Karelle, développeuse web indépendante. Sites pour professionnelles de l'accompagnement dès 89 €/mois, hébergement et évolutions inclus.",
   path: "/a-propos",
 });
 
@@ -45,7 +45,7 @@ export default function AboutPage() {
         title={`Je suis ${FOUNDER_NAME}. Ton alliée pour ton site.`}
         highlight="Ton alliée"
         stroke="violet"
-        description="Développeuse web indépendante. J'aide les femmes entrepreneuses à avoir un site clair : sans prise de tête, sans attendre 3 mois."
+        description="Développeuse web indépendante. j'aide les professionnelles de l'accompagnement à avoir un site clair : sans prise de tête, sans attendre 3 mois."
         image={FOUNDER_PHOTO}
         imageAlt={`${FOUNDER_NAME}, développeuse web indépendante`}
         badge="Dès 89 €/mois"
@@ -67,12 +67,12 @@ export default function AboutPage() {
                 key={v.title}
                 className="bg-surface rounded-[1.5rem] border-[3px] border-ink p-6 md:p-7 shadow-[4px_4px_0_#111]"
               >
-                <h2 className="text-lg md:text-xl font-extrabold mb-3 text-ink">
+                <h3 className="text-lg md:text-xl font-extrabold mb-3 text-ink">
                   <span className="float-left mr-2 -mt-0.5 text-3xl md:text-4xl font-extrabold text-pink leading-[0.9]">
                     {v.title.charAt(0)}
                   </span>
                   {v.title.slice(1)}
-                </h2>
+                </h3>
                 <p className="text-sm md:text-base font-medium leading-relaxed text-muted clear-both">
                   {v.text}
                 </p>

@@ -9,8 +9,8 @@ const HERO = {
   badge: "Spécialiste des professionnelles de l'accompagnement",
   headline: "Votre site professionnel,\nsans la charge mentale.",
   highlight: "sans la charge mentale",
-  lede: "Kopio conçoit, maintient et fait évoluer votre présence en ligne, pour que vos clientes vous trouvent, vous comprennent et réservent, pendant que vous vous concentrez sur votre pratique.",
-  proof: "Une seule cliente bien suivie peut couvrir votre abonnement.*",
+  lede: "Kopio conçoit, maintient et fait évoluer votre présence en ligne, pour que vos clients vous trouvent, vous comprennent et réservent, pendant que vous vous concentrez sur votre pratique.",
+  proof: "Un seul client bien accompagné peut couvrir votre abonnement.*",
 } as const;
 
 export function Hero() {
@@ -42,8 +42,8 @@ export function Hero() {
                 {highlightPhrase(HERO.headline, HERO.highlight)}
               </h1>
               <p className="hero-lede">{HERO.lede}</p>
-              <p className="mt-4 flex items-center justify-center lg:justify-start gap-2.5 text-sm sm:text-base font-extrabold text-ink tracking-tight whitespace-nowrap">
-                <span className="proof-check shrink-0" aria-hidden="true">
+              <p className="mt-4 flex items-start md:items-center justify-center lg:justify-start gap-2.5 text-sm sm:text-base font-extrabold text-ink tracking-tight max-w-md md:max-w-none mx-auto lg:mx-0">
+                <span className="proof-check shrink-0 mt-0.5 md:mt-0" aria-hidden="true">
                   <svg
                     viewBox="0 0 16 16"
                     fill="none"
@@ -59,7 +59,9 @@ export function Hero() {
                     />
                   </svg>
                 </span>
-                {HERO.proof}
+                <span className="min-w-0 text-center lg:text-left leading-snug md:whitespace-nowrap">
+                  {HERO.proof}
+                </span>
               </p>
             </div>
 

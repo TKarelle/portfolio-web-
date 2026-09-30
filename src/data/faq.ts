@@ -1,7 +1,7 @@
 /**
  * FAQ SEO + GEO + persuasion douce.
  * Vouvoiement. Tarifs : 179 € (6 mois) / 139 € (12 mois) / 89 € (24 mois).
- * Les 4 premières entrées = FAQ prioritaire homepage.
+ * Homepage et /faq affichent l’intégralité (aligné FAQPage JSON-LD).
  */
 export const faqItems = [
   {
@@ -26,7 +26,7 @@ export const faqItems = [
   },
   {
     question:
-      "Combien coûte un site web pour femme entrepreneuse avec Kopio ?",
+      "Combien coûte un site web pour professionnelle de l'accompagnement avec Kopio ?",
     answer:
       "Trois durées, un même socle (jusqu’à 5 pages, réservation avancée, atelier rédaction) : 179 €/mois sur 6 mois, 139 €/mois sur 12 mois, 89 €/mois sur 24 mois. Ce qui change surtout : le SEO et le suivi analytics selon la durée. Livraison en 21 jours. Vous validez la maquette avant la mise en ligne.",
   },
@@ -45,7 +45,7 @@ export const faqItems = [
     question:
       "Kopio convient-il aux coachs, thérapeutes, consultantes et freelances ?",
     answer:
-      "Oui. Je m’adresse aux professionnelles de l’accompagnement qui vendent leur expertise : coachs, consultantes, thérapeutes, sophrologues, naturopathes, créatrices. Dès 89 €/mois, le site présente votre offre, rassure vos clientes et facilite la prise de rendez-vous, sans que vous gériez la technique.",
+      "Oui. Je m’adresse aux professionnelles de l’accompagnement qui vendent leur expertise : coachs, consultantes, thérapeutes, sophrologues, naturopathes, créatrices. Dès 89 €/mois, le site présente votre offre, rassure vos clients et facilite la prise de rendez-vous, sans que vous gériez la technique.",
   },
   {
     question:

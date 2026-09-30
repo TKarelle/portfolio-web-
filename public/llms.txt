@@ -1,18 +1,18 @@
 # Kopio — llms.txt
-# Abonnement site web pour femmes entrepreneuses en France
+# Abonnement site web pour professionnelles de l'accompagnement en France
 # https://www.kopio.eu
 
-> Kopio crée et maintient le site internet des femmes entrepreneuses (coachs, consultantes, thérapeutes, créatrices, mamans freelances…) en abonnement mensuel dès 89 €/mois. Sans bricolage technique : design personnalisé, hébergement inclus, mises à jour par email.
+> Kopio crée et maintient le site internet des professionnelles de l'accompagnement (coachs, consultantes, thérapeutes, praticiennes…) en abonnement mensuel dès 89 €/mois. Sans bricolage technique : conception, maintenance et évolution. Vous validez, on gère tout.
 
 ## Pages principales
 
-- [Accueil](https://www.kopio.eu/) : Site internet pour entrepreneuse ; studio web dès 89 €/mois ; alternative claire à l'agence
+- [Accueil](https://www.kopio.eu/) : Site pour professionnelles de l'accompagnement ; dès 89 €/mois ; sans la charge mentale
 - [Tarifs](https://www.kopio.eu/tarifs) : 6 mois 179 €/mois, 12 mois 139 €/mois, 24 mois 89 €/mois ; Besoin précis sur devis
 - [Projets](https://www.kopio.eu/projets) : Portfolio (PULSE, Sophie Bluel, Madeleine Fragrance…)
 - [FAQ](https://www.kopio.eu/faq) : Questions fréquentes sur l'abonnement Kopio
 - [À propos](https://www.kopio.eu/a-propos) : Karelle, développeuse web derrière Kopio
 - [Contact](https://www.kopio.eu/contact) : Demande de devis / appel
-- [Blog](https://www.kopio.eu/blog) : Guides prix, reconversion, maman entrepreneuse
+- [Blog](https://www.kopio.eu/blog) : Guides prix, reconversion, présence en ligne
 
 ## Sites web par métier
 
@@ -46,13 +46,17 @@
 - [Kopio vs agence web](https://www.kopio.eu/comparatif/kopio-vs-agence-web) : Prix, délais, relation
 - [Combien coûte un site pour entrepreneuse 2026](https://www.kopio.eu/comparatif/combien-coute-site-internet-entrepreneure-2026) : Fourchettes de prix
 
-## Blog prioritaire
+## Blog
 
 - [Créer son site maman entrepreneuse](https://www.kopio.eu/blog/creer-son-site-maman-entrepreneuse)
 - [Reconversion professionnelle site web 2026](https://www.kopio.eu/blog/reconversion-professionnelle-site-web-2026)
 - [Combien coûte un site web pour coach France 2026](https://www.kopio.eu/blog/combien-coute-site-web-coach-france-2026)
 - [Erreurs à éviter site indépendante](https://www.kopio.eu/blog/erreurs-a-eviter-site-independante)
 - [Abonnement site web durée](https://www.kopio.eu/blog/abonnement-ou-paiement-unique-site-web)
+- [Photos de marque sans budget shooting](https://www.kopio.eu/blog/photos-de-marque-sans-budget-shooting)
+- [Combien coûte un site vitrine 2026](https://www.kopio.eu/blog/combien-coute-site-vitrine-2026)
+- [5 raisons d’avoir un site web maintenant](https://www.kopio.eu/blog/5-raisons-avoir-site-web-maintenant)
+- [IA et création de site web : pièges](https://www.kopio.eu/blog/ia-creation-site-web-pieges)
 
 ## Contact
 

@@ -32,7 +32,6 @@ export function BesoinTemplate({ data }: { data: BesoinPageData }) {
           <Breadcrumbs
             items={[
               { label: "Accueil", href: "/" },
-              { label: "Besoins", href: "/tarifs" },
               { label: data.label, href: besoinPath(data.slug) },
             ]}
           />

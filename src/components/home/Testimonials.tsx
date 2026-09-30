@@ -86,7 +86,7 @@ export function Testimonials() {
             Elles en parlent
           </p>
           <SectionHead stroke="violet" highlight="réel">
-            {"Des retours sobres, ancrés dans le réel"}
+            {"Des retours concrets, ancrés dans le réel"}
           </SectionHead>
         </div>
 

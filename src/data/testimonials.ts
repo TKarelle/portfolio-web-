@@ -35,7 +35,7 @@ export const testimonials = [
     city: "Londres",
     date: "2024",
     project: "Site Madeleine Fragrance",
-    image: "/image/madeleine.png",
+    image: "/image/madeleine.jpg",
     text: "Il me fallait une vitrine à la hauteur de la marque. Le site raconte l’univers et explique le process. Les précommandes ont pu ouvrir dès la mise en ligne, sans bricolage de dernière minute.",
     rating: 5,
   },

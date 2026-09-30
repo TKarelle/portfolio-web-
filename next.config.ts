@@ -20,6 +20,16 @@ const nextConfig: NextConfig = {
           { key: "Accept-Ranges", value: "bytes" },
         ],
       },
+      {
+        source: "/image/captions/:path*.vtt",
+        headers: [
+          { key: "Content-Type", value: "text/vtt; charset=utf-8" },
+          {
+            key: "Cache-Control",
+            value: "public, max-age=86400",
+          },
+        ],
+      },
     ];
   },
   async redirects() {

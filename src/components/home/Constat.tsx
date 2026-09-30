@@ -26,7 +26,7 @@ const gains = [
   {
     n: "04",
     t: "Être joignable",
-    d: "Réserver, écrire, appeler : le prochain pas est évident. Vos clientes agissent pendant que vous restez sur votre pratique.",
+    d: "Réserver, écrire, appeler : le prochain pas est évident. Vos clients agissent pendant que vous restez sur votre pratique.",
   },
 ] as const;
 

@@ -4,8 +4,13 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { OrganizationJsonLd, WebSiteJsonLd } from "@/components/seo/JsonLd";
 import { GoogleAnalytics } from "@/components/seo/GoogleAnalytics";
-import { Analytics } from "@vercel/analytics/next";
-import { SITE_URL, BRAND_NAME } from "@/data/site";
+import { DeferredAnalytics } from "@/components/seo/DeferredAnalytics";
+import {
+  SITE_URL,
+  BRAND_NAME,
+  SITE_META_TITLE,
+  SITE_META_DESCRIPTION,
+} from "@/data/site";
 import { buildPageMetadata } from "@/lib/metadata";
 import "./globals.css";
 
@@ -23,18 +28,16 @@ export const viewport: Viewport = {
   themeColor: "#f4f2ff",
 };
 const defaultMeta = buildPageMetadata({
-  title: "Création de site web pour femme entrepreneuse dès 89€/mois",
-  description:
-    "Création de site web pour femme entrepreneuse dès 89 €/mois. Design sur-mesure, hébergement inclus, livré en 21 jours. Vous validez, je gère tout.",
+  title: SITE_META_TITLE,
+  description: SITE_META_DESCRIPTION,
   path: "/",
 });
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default:
-      "Création de site web pour femme entrepreneuse dès 89€/mois | Kopio",
-    template: "%s | Kopio",
+    default: `${SITE_META_TITLE} | ${BRAND_NAME}`,
+    template: `%s | ${BRAND_NAME}`,
   },
   description: defaultMeta.description,
   openGraph: {
@@ -68,7 +71,8 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
-        <Analytics />
+        {/* Insights script only exists on Vercel — skip locally to avoid Lighthouse 404 */}
+        {process.env.VERCEL ? <DeferredAnalytics /> : null}
       </body>
     </html>
   );

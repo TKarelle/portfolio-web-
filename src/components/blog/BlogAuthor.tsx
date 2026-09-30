@@ -16,7 +16,7 @@ export function BlogAuthor() {
       <div>
         <p className="font-extrabold">{FOUNDER_NAME}</p>
         <p className="text-sm text-muted font-medium">
-          Développeuse web · sites pour femmes entrepreneuses
+          Développeuse web · sites pour professionnelles de l'accompagnement
         </p>
       </div>
     </div>

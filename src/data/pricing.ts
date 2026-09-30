@@ -42,7 +42,8 @@ export const SHARED_PLAN_FEATURES = [
   "Atelier rédaction 1h + réécriture pro",
 ] as const;
 
-export const SHARED_PLAN_DESCRIPTION = "";
+export const SHARED_PLAN_DESCRIPTION =
+  "Site web professionnel pour l'accompagnement : jusqu'à 5 pages, réservation, atelier rédaction, hébergement et mises à jour inclus.";
 
 export const SHARED_PLAN_DELIVERY = "21 jours";
 
@@ -127,7 +128,7 @@ export const pricingPlans = [
         "Pour tester rapidement. La mensualité plus élevée dissuade l’engagement court.",
       headline: "Votre site professionnel,\nsans la charge mentale.",
       highlight: "sans la charge mentale",
-      body: "Kopio conçoit, maintient et fait évoluer votre présence en ligne, pour que vos clientes vous trouvent, vous comprennent et réservent.",
+      body: "Kopio conçoit, maintient et fait évoluer votre présence en ligne, pour que vos clients vous trouvent, vous comprennent et réservent.",
       cta: "Commencer avec ce modèle",
     },
   },
@@ -155,7 +156,7 @@ export const pricingPlans = [
         "Le compromis durée / mensualité pour la majorité des professionnelles de l’accompagnement.",
       headline: "Votre site professionnel,\nsans la charge mentale.",
       highlight: "sans la charge mentale",
-      body: "Kopio conçoit, maintient et fait évoluer votre présence en ligne, pour que vos clientes vous trouvent, vous comprennent et réservent.",
+      body: "Kopio conçoit, maintient et fait évoluer votre présence en ligne, pour que vos clients vous trouvent, vous comprennent et réservent.",
       cta: "Commencer avec ce modèle",
     },
   },
@@ -183,7 +184,7 @@ export const pricingPlans = [
         "La mensualité la plus basse. Idéal si vous vous engagez sereinement sur la durée.",
       headline: "Votre site professionnel,\nsans la charge mentale.",
       highlight: "sans la charge mentale",
-      body: "Kopio conçoit, maintient et fait évoluer votre présence en ligne, pour que vos clientes vous trouvent, vous comprennent et réservent.",
+      body: "Kopio conçoit, maintient et fait évoluer votre présence en ligne, pour que vos clients vous trouvent, vous comprennent et réservent.",
       cta: "Commencer avec ce modèle",
     },
   },

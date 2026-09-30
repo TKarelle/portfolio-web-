@@ -9,7 +9,7 @@ import { buildPageMetadata } from "@/lib/metadata";
 export const metadata: Metadata = buildPageMetadata({
   title: "Projets et réalisations",
   description:
-    "Études de cas Kopio : avant / livrable / résultat sobre pour professionnelles de l’accompagnement.",
+    "Études de cas Kopio : avant / livrable / résultat concret pour professionnelles de l’accompagnement.",
   path: "/projets",
   ogVideo: "/image/videopulse.mp4",
 });
@@ -23,8 +23,8 @@ export default function ProjetsPage() {
           { label: "Accueil", href: "/" },
           { label: "Projets", href: "/projets" },
         ]}
-        title="Des sites livrés. Des résultats sobres."
-        highlight="résultats sobres"
+        title="Des sites livrés. Des résultats concrets."
+        highlight="résultats concrets"
         description="Sophrologue, consultante, créatrice… Avant, livrable, résultat vérifiable. Ce que ça change, concrètement."
         video="/image/videopulse.mp4"
         videoPoster="/image/videopulse-poster.jpg"

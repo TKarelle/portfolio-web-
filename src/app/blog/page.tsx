@@ -7,9 +7,9 @@ import { ContactSection } from "@/components/home/ContactSection";
 import { buildPageMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Blog : Conseils web pour femmes entrepreneuses",
+  title: "Blog : conseils web pour professionnelles de l'accompagnement",
   description:
-    "Guides pour créer ton site vitrine en abonnement : prix, délais, Instagram vs site, pièges à éviter. Pour coachs, consultantes et freelances.",
+    "Guides pour créer votre site vitrine en abonnement : prix, délais, Instagram vs site, pièges à éviter. Pour coachs, thérapeutes et consultantes.",
   path: "/blog",
 });
 
@@ -25,7 +25,7 @@ export default function BlogPage() {
         ]}
         title="Conseils concrets pour ton premier site."
         highlight="premier site"
-        description="Prix, délais, Google, pièges à éviter… Des articles utiles pour les femmes entrepreneuses qui veulent avancer sans se perdre."
+        description="Prix, délais, Google, pièges à éviter… Des articles utiles pour les professionnelles de l'accompagnement qui veulent avancer sans se perdre."
         image="/image/photographe.jpg"
         imageAlt="Femme entrepreneuse : conseils blog pour créer son site"
         badge="Guides pratiques"

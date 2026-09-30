@@ -4,8 +4,16 @@ export const FOUNDER_DIPLOMA = "Diplômée en développement web";
 export const FOUNDER_EXPERIENCE = "2 ans d’expérience";
 export const BRAND_NAME = "Kopio";
 export const BRAND_LOGO = "kopio";
+/** Logo carré PNG pour JSON-LD / rich results (min. 112×112). */
+export const BRAND_LOGO_IMAGE = "/image/logo-kopio.png";
 export const BRAND_SIGNATURE = "Votre présence en ligne, déléguée.";
 export const CONTACT_EMAIL = "karelle.dev@gmail.com";
+
+/** SEO défaut — niche professionnelles de l'accompagnement */
+export const SITE_META_TITLE =
+  "Site web pour professionnelles de l'accompagnement dès 89€/mois";
+export const SITE_META_DESCRIPTION =
+  "Votre site professionnel, sans la charge mentale. Dès 89 €/mois : conception, maintenance et évolution pour coachs, thérapeutes et consultantes. Vous validez, on gère tout.";
 
 export const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.kopio.eu";
