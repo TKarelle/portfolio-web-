@@ -8,7 +8,12 @@ const CHECKLIST_TITLE = "La Checklist du Site Qui Convertit";
 
 function DownloadIcon({ className = "w-4 h-4" }: { className?: string }) {
   return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      fill="none"
+      aria-hidden="true"
+    >
       <path
         d="M12 3v12m0 0 4-4m-4 4-4-4M5 19h14"
         stroke="currentColor"
@@ -42,7 +47,10 @@ export function ChecklistLeadMagnet({
     const body = encodeURIComponent(
       `Nouvelle demande de checklist\nEmail : ${trimmed}\n`,
     );
-    window.open(`mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`, "_self");
+    window.open(
+      `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`,
+      "_self",
+    );
 
     const a = document.createElement("a");
     a.href = CHECKLIST_PDF;
@@ -123,7 +131,7 @@ export function ChecklistLeadMagnet({
         </h2>
         <p className="mt-3 text-sm sm:text-base font-medium text-muted leading-relaxed max-w-xl">
           Un guide court (~15&nbsp;min) pour clarifier ce dont votre site a
-          vraiment besoin. 
+          vraiment besoin.
         </p>
 
         {status === "done" ? (
@@ -162,7 +170,7 @@ export function ChecklistLeadMagnet({
               className="inline-flex items-center justify-center gap-2.5 min-h-12 shrink-0 rounded-xl bg-pink text-white text-sm sm:text-base font-bold px-5 sm:px-6 border-2 border-ink shadow-[4px_4px_0_#111] hover:translate-y-0.5 hover:shadow-[2px_2px_0_#111] transition-all touch-manipulation"
             >
               <DownloadIcon className="w-5 h-5" />
-              Recevoir la checklist 
+              Recevoir la checklist
             </button>
           </form>
         )}

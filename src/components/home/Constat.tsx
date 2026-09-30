@@ -68,7 +68,10 @@ function DemoVideos() {
 
 export function Constat() {
   return (
-    <section className="py-14 md:py-20 px-5 sm:px-6 bg-chunk-pink" id="premier-site">
+    <section
+      className="py-14 md:py-20 px-5 sm:px-6 bg-chunk-pink"
+      id="premier-site"
+    >
       <div className="max-w-5xl mx-auto">
         <div className="reveal max-w-2xl mb-8 md:mb-10">
           <p className="text-sm font-bold text-pink mb-3 tracking-wide">
@@ -81,7 +84,9 @@ export function Constat() {
             highlight="déléguée"
             className="mb-4"
           >
-            {"Kopio n'est pas une agence. C'est votre présence en ligne, déléguée."}
+            {
+              "Kopio n'est pas une agence. C'est votre présence en ligne, déléguée."
+            }
           </SectionHead>
 
           <p className="text-base md:text-lg font-medium text-muted leading-relaxed max-w-xl">

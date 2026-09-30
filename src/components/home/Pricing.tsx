@@ -144,9 +144,7 @@ export function Pricing({
                     {plan.features.map((f) => (
                       <li key={f} className="flex items-start gap-2">
                         <span
-                          className={
-                            plan.highlight ? "text-lime" : "text-pink"
-                          }
+                          className={plan.highlight ? "text-lime" : "text-pink"}
                         >
                           ✦
                         </span>
