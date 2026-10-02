@@ -4,9 +4,11 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/Button";
+import { PromoBar } from "@/components/layout/PromoBar";
 import { cn } from "@/lib/utils";
 import { BRAND_LOGO } from "@/data/site";
 import { CTA } from "@/data/copy";
+import { QUIZ_META } from "@/data/etancheite-quiz";
 
 const links = [
   { href: "/tarifs", label: "Tarifs" },
@@ -48,6 +50,8 @@ export function Navbar() {
     };
   }, [open]);
 
+  const onQuizPage = pathname === QUIZ_META.path;
+
   return (
     <>
       <div
@@ -62,10 +66,12 @@ export function Navbar() {
         onClick={() => setOpen(false)}
       />
 
-      <header
-        className="fixed top-0 left-0 z-50 px-4 pt-[max(1rem,env(safe-area-inset-top))]"
-        style={scrollbarW ? { right: scrollbarW } : undefined}
+      <div
+        className="fixed top-0 left-0 z-50 w-full pt-[env(safe-area-inset-top)]"
+        style={scrollbarW ? { right: scrollbarW, width: "auto" } : undefined}
       >
+        <PromoBar />
+        <header className={cn("px-4", onQuizPage ? "pt-3" : "pt-2")}>
         <nav
           aria-label="Navigation principale"
           className={cn(
@@ -184,7 +190,8 @@ export function Navbar() {
             </div>
           </div>
         </nav>
-      </header>
+        </header>
+      </div>
     </>
   );
 }

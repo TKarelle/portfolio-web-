@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Hero } from "@/components/home/Hero";
 import { SocialProof } from "@/components/home/SocialProof";
 import { AntiFear } from "@/components/home/AntiFear";
-import { ChecklistLeadMagnet } from "@/components/home/ChecklistLeadMagnet";
+import { QuizLeadMagnet } from "@/components/home/QuizLeadMagnet";
 import { Constat } from "@/components/home/Constat";
 import { RoiProof } from "@/components/home/RoiProof";
 import { QuoteBand } from "@/components/home/QuoteBand";
@@ -38,7 +38,7 @@ export default function HomePage() {
       <SocialProof />
       <AntiFear />
       <Constat />
-      <ChecklistLeadMagnet />
+      <QuizLeadMagnet />
       <RoiProof />
       <QuoteBand />
       <CaseStudies />

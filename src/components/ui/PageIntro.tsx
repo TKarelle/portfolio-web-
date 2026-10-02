@@ -82,7 +82,7 @@ export function PageIntro({
   const mediaAspect = video ? "aspect-[16/10]" : "aspect-[4/3]";
 
   return (
-    <section className="relative overflow-hidden pt-28 md:pt-32 pb-14 md:pb-20 px-6">
+    <section className="relative overflow-hidden pt-36 md:pt-40 pb-14 md:pb-20 px-6">
       <div
         className="absolute inset-0 z-0 pointer-events-none"
         aria-hidden

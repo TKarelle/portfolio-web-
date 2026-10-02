@@ -145,6 +145,12 @@ Verdict : Budget réaliste 2026 : dès 89 €/mois en WaaS, ou 2 000 €+ en age
 BLOG CLÉS
 ================================================================================
 
+/blog/page-non-indexee-google-guide-debutant
+Angle : guide débutant Search Console (détectée / explorée non indexée), CSR vs SSR, checklist. Date 2026-10-02. Maillage vers l’article technique.
+
+/blog/indexation-google-bloquee-rejets-crawl
+Angle : anatomie des rejets de crawl (détectée / explorée non indexée), CSR vs SSR, Information Gain, protocole de déblocage. Date 2026-10-02.
+
 /blog/creer-son-site-maman-entrepreneuse
 Angle : créer son site quand on est maman entrepreneuse ; capacité vs motivation ; maillage besoins femme qui se lance + maman freelance.
 

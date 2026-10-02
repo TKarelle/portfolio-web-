@@ -15,7 +15,7 @@ const HERO = {
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen min-h-dvh overflow-x-clip overflow-y-visible flex flex-col pt-24 pb-[max(2rem,env(safe-area-inset-bottom))] md:pb-10 px-5 sm:px-6 lg:px-0 bg-bg">
+    <section className="relative min-h-screen min-h-dvh overflow-x-clip overflow-y-visible flex flex-col pt-32 pb-[max(2rem,env(safe-area-inset-bottom))] md:pt-36 md:pb-10 px-5 sm:px-6 lg:px-0 bg-bg">
       <div
         className="absolute inset-0 z-0 pointer-events-none"
         aria-hidden="true"

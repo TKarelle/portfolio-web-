@@ -63,7 +63,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         image={post.image}
         slug={post.slug}
       />
-      <article className="pt-28 md:pt-36 pb-16 px-6">
+      <article className="pt-36 md:pt-40 pb-16 px-6">
         <div className="max-w-3xl mx-auto">
           <Link
             href="/blog"

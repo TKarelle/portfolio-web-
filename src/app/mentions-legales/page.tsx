@@ -19,7 +19,7 @@ export const metadata: Metadata = buildPageMetadata({
 
 export default function MentionsLegalesPage() {
   return (
-    <section className="pt-28 md:pt-36 pb-20 px-6 bg-bg">
+    <section className="pt-36 md:pt-40 pb-20 px-6 bg-bg">
       <div className="max-w-3xl mx-auto">
         <Breadcrumbs
           items={[

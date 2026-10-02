@@ -49,6 +49,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
+      url: `${base}/grille-etancheite`,
+      lastModified: contentUpdated,
+      changeFrequency: "monthly",
+      priority: 0.85,
+    },
+    {
       url: `${base}/mentions-legales`,
       lastModified: contentUpdated,
       changeFrequency: "yearly",

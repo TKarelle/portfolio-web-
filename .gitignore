@@ -44,3 +44,8 @@ next-env.d.ts
 public/image/sitewebvideo.mov
 *.mov
 
+# Leads quiz (Excel local, pas de backend distant)
+/data/quiz-leads.xls
+/data/quiz-leads.xlsx
+/data/quiz-leads.csv
+

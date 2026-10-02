@@ -23,8 +23,8 @@ export default function BlogPage() {
           { label: "Accueil", href: "/" },
           { label: "Blog", href: "/blog" },
         ]}
-        title="Conseils concrets pour ton premier site."
-        highlight="premier site"
+        title="Conseils concrets pour ton site web."
+        highlight="site web"
         description="Prix, délais, Google, pièges à éviter… Des articles utiles pour les professionnelles de l'accompagnement qui veulent avancer sans se perdre."
         image="/image/photographe.jpg"
         imageAlt="Femme entrepreneuse : conseils blog pour créer son site"

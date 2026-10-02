@@ -23,7 +23,7 @@ export function ComparatifTemplate({ data }: { data: ComparatifPageData }) {
         url={comparatifPath(data.slug)}
       />
 
-      <section className="pt-28 md:pt-36 pb-12 px-6 mesh-hero">
+      <section className="pt-36 md:pt-40 pb-12 px-6 mesh-hero">
         <div className="max-w-4xl mx-auto">
           <Breadcrumbs
             items={[
