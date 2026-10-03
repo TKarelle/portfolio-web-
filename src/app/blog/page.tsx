@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { blogPosts } from "@/data/blog";
+import { getBlogPosts } from "@/data/blog";
 import { BlogCard, blogPostToCard } from "@/components/blog/BlogCard";
 import { PageIntro } from "@/components/ui/PageIntro";
 import { ValueBanner } from "@/components/ui/ValueBanner";
@@ -14,7 +14,7 @@ export const metadata: Metadata = buildPageMetadata({
 });
 
 export default function BlogPage() {
-  const [featured, ...rest] = blogPosts;
+  const [featured, ...rest] = getBlogPosts();
 
   return (
     <>
@@ -26,8 +26,9 @@ export default function BlogPage() {
         title="Conseils concrets pour ton site web."
         highlight="site web"
         description="Prix, délais, Google, pièges à éviter… Des articles utiles pour les professionnelles de l'accompagnement qui veulent avancer sans se perdre."
-        image="/image/photographe.jpg"
-        imageAlt="Femme entrepreneuse : conseils blog pour créer son site"
+        video="/image/sitewebvideo.mp4"
+        videoPoster="/image/sophie.jpg"
+        videoLabel="Aperçu du site Sophie Bluel, architecte d'intérieur"
         badge="Guides pratiques"
         frame="lime"
         secondaryHref="/tarifs"

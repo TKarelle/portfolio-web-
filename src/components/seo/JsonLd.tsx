@@ -149,6 +149,10 @@ export function ArticleJsonLd({
         author: {
           "@type": "Person",
           name: FOUNDER_NAME,
+          jobTitle: "Développeuse web indépendante",
+          description:
+            "Diplômée en développement web, spécialisée dans les sites des professionnelles de l'accompagnement",
+          image: `${base}${FOUNDER_PHOTO}`,
           url: `${base}/a-propos`,
         },
         publisher: {

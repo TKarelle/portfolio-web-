@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Fragment, type ReactNode } from "react";
+import { QuizLeadMagnet } from "@/components/home/QuizLeadMagnet";
 import { pickShortHighlight } from "@/lib/highlight";
 
 function ProofCheck() {
@@ -232,6 +233,70 @@ function Heading({ title }: { title: string }) {
   );
 }
 
+function parsePipeRow(line: string): string[] {
+  const trimmed = line.trim().replace(/^\|/, "").replace(/\|$/, "");
+  return trimmed.split("|").map((c) => c.trim());
+}
+
+function isPipeTable(block: string): boolean {
+  const lines = block
+    .split("\n")
+    .map((l) => l.trim())
+    .filter(Boolean);
+  if (lines.length < 3) return false;
+  if (!lines.every((l) => l.includes("|"))) return false;
+  const sep = lines[1].replace(/\s/g, "");
+  return /^:?-+:?(\|:?-+:?)+$/.test(sep) || /^[-:|]+$/.test(sep);
+}
+
+function PipeTable({ block }: { block: string }) {
+  const lines = block
+    .split("\n")
+    .map((l) => l.trim())
+    .filter(Boolean);
+  const headers = parsePipeRow(lines[0]);
+  const rows = lines.slice(2).map(parsePipeRow);
+
+  return (
+    <div className="my-8 overflow-x-auto not-prose rounded-2xl border-2 border-ink shadow-[4px_4px_0_#111]">
+      <table className="w-full min-w-[36rem] border-collapse text-left">
+        <thead>
+          <tr className="bg-ink text-white">
+            {headers.map((h) => (
+              <th
+                key={h}
+                scope="col"
+                className="px-3 py-3 text-xs sm:text-sm font-extrabold border-r border-white/15 last:border-r-0 align-bottom"
+              >
+                {renderInline(h)}
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((cells, i) => (
+            <tr
+              key={`r-${i}`}
+              className={i % 2 === 0 ? "bg-surface" : "bg-bg"}
+            >
+              {cells.map((cell, j) => (
+                <td
+                  key={`c-${i}-${j}`}
+                  className={`px-3 py-3 text-xs sm:text-sm font-medium text-ink/85 border-t border-ink/10 border-r border-ink/10 last:border-r-0 align-top leading-snug ${
+                    j === 0 ? "font-extrabold text-ink" : ""
+                  }`}
+                >
+                  {renderInline(cell)}
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
 type Segment =
   | { type: "block"; value: string }
   | { type: "steps"; steps: { n: string; title: string; body: string }[] };
@@ -260,6 +325,10 @@ function segmentBlocks(blocks: string[]): Segment[] {
 }
 
 function renderBlock(block: string, key: string) {
+  if (block.trim() === "{{quiz}}") {
+    return <QuizLeadMagnet key={key} variant="inline" id="quiz-article" />;
+  }
+
   if (block.startsWith("## ")) {
     return <Heading key={key} title={block.replace("## ", "")} />;
   }
@@ -273,6 +342,10 @@ function renderBlock(block: string, key: string) {
         {renderInline(block.replace(/^>\s?/, ""))}
       </aside>
     );
+  }
+
+  if (isPipeTable(block)) {
+    return <PipeTable key={key} block={block} />;
   }
 
   if (isChecklistBlock(block)) {

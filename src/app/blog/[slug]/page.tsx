@@ -8,7 +8,8 @@ import { BlogAuthor } from "@/components/blog/BlogAuthor";
 import { BlogCard, blogPostToCard } from "@/components/blog/BlogCard";
 import { ContactSection } from "@/components/home/ContactSection";
 import { SectionHead } from "@/components/ui/SectionHead";
-import { ArticleJsonLd } from "@/components/seo/JsonLd";
+import { FAQ } from "@/components/home/FAQ";
+import { ArticleJsonLd, FaqJsonLd } from "@/components/seo/JsonLd";
 import { buildPageMetadata } from "@/lib/metadata";
 
 interface BlogPostPageProps {
@@ -27,13 +28,13 @@ export async function generateMetadata({
   if (!post) return { title: "Article non trouvé" };
 
   return buildPageMetadata({
-    title: post.title,
+    title: post.metaTitle ?? post.title,
     description: post.excerpt,
     path: `/blog/${post.slug}`,
     ogImage: post.image,
     ogType: "article",
     publishedTime: post.date,
-    modifiedTime: post.date,
+    modifiedTime: post.updatedAt ?? post.date,
   });
 }
 
@@ -60,9 +61,13 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         title={post.title}
         description={post.excerpt}
         date={post.date}
+        dateModified={post.updatedAt}
         image={post.image}
         slug={post.slug}
       />
+      {post.faqs && post.faqs.length > 0 ? (
+        <FaqJsonLd items={post.faqs} />
+      ) : null}
       <article className="pt-36 md:pt-40 pb-16 px-6">
         <div className="max-w-3xl mx-auto">
           <Link
@@ -78,12 +83,15 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             >
               {post.category}
             </span>
-            <time dateTime={post.date} className="text-muted">
-              {new Date(post.date).toLocaleDateString("fr-FR", {
-                day: "numeric",
-                month: "long",
-                year: "numeric",
-              })}
+            <time dateTime={post.updatedAt ?? post.date} className="text-muted">
+              {new Date(post.updatedAt ?? post.date).toLocaleDateString(
+                "fr-FR",
+                {
+                  day: "numeric",
+                  month: "long",
+                  year: "numeric",
+                },
+              )}
             </time>
             <span className="text-muted">· {post.readTime} de lecture</span>
           </div>
@@ -113,6 +121,14 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           <BlogContent blocks={post.content} />
         </div>
       </article>
+
+      {post.faqs && post.faqs.length > 0 ? (
+        <FAQ
+          items={post.faqs}
+          title="Questions fréquentes"
+          highlight="fréquentes"
+        />
+      ) : null}
 
       <ContactSection />
 

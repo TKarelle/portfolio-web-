@@ -1,7 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
-import type { BlogPost } from "@/data/blog";
+import type { ResolvedBlogPost } from "@/data/blog";
 import type { Project } from "@/data/projects";
+import { getBlogCover } from "@/data/blog-covers";
 
 const categoryColors: Record<string, string> = {
   Guide: "bg-lime text-ink",
@@ -120,10 +121,10 @@ export function BlogCard({
   );
 }
 
-export function blogPostToCard(post: BlogPost): BlogCardProps {
+export function blogPostToCard(post: ResolvedBlogPost): BlogCardProps {
   return {
     href: `/blog/${post.slug}`,
-    image: post.image,
+    image: getBlogCover(post.slug, post.image),
     category: post.category,
     title: post.title,
     description: post.excerpt,

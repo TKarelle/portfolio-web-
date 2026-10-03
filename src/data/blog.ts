@@ -1,12 +1,28 @@
+import { getBlogCover } from "@/data/blog-covers";
+
 export interface BlogPost {
  slug: string;
  title: string;
+ /** Meta title SERP si différent du H1 */
+ metaTitle?: string;
  excerpt: string;
  date: string;
+ /** dateModified schema / OG (sinon = date) */
+ updatedAt?: string;
  readTime: string;
  category: string;
- image: string;
+ /** Cover optionnelle : si absente, résolue via blog-covers.ts */
+ image?: string;
  content: string[];
+ /** FAQPage schema + bloc Questions fréquentes */
+ faqs?: { question: string; answer: string }[];
+}
+
+/** Article avec cover résolue (map slug → /image/blog-covers/…). */
+export type ResolvedBlogPost = BlogPost & { image: string };
+
+function withCover(post: BlogPost): ResolvedBlogPost {
+  return { ...post, image: getBlogCover(post.slug, post.image) };
 }
 
 export const blogPosts: BlogPost[] = [
@@ -19,7 +35,6 @@ export const blogPosts: BlogPost[] = [
     date: "2026-10-02",
     readTime: "10 min",
     category: "Guide",
-    image: "/image/blog-analytics.jpg",
     content: [
       "Beaucoup de débutantes pensent qu’il suffit de publier une page pour qu’elle apparaisse sur Google. Ce n’est plus le cas. Google ne stocke pas tout ce qu’il trouve : il choisit ce qui mérite de rejoindre son ==index==. Chaque page lui coûte de l’énergie, du temps et de l’espace de stockage. Il **trie**.",
       "Prends l’image d’un libraire qui reçoit 1 000 livres par jour mais n’a de place que pour 100. Il regarde la couverture, feuillette quelques pages, puis décide. Si un livre ressemble à dix autres déjà en rayon, il finit à la réserve. Ton URL suit la même logique économique.",
@@ -90,7 +105,6 @@ export const blogPosts: BlogPost[] = [
     date: "2026-10-02",
     readTime: "12 min",
     category: "Technique",
-    image: "/image/sophie.jpg",
     content: [
       "Pendant des années, le SEO a reposé sur un postulat implicite : si une URL est accessible, Google finira par l’indexer. Ce postulat est ==caduc==. Google n’indexe plus le web de manière exhaustive. Il arbitre en continu entre le **coût** de traitement d’une URL et la **valeur marginale** qu’elle apporterait à l’index.",
       "Chaque étape du pipeline est un point de décision économique. Un modèle prédictif estime la valeur d’une page avant d’avoir investi les ressources pour la lire. Si ton site Kopio ou un site livré ailleurs reste « détecté » ou « exploré » sans indexation, le diagnostic se situe dans ce cadre, pas dans un simple bug mystérieux.",
@@ -156,7 +170,6 @@ export const blogPosts: BlogPost[] = [
  date: "2026-09-28",
  readTime: "9 min",
  category: "Guide",
- image: "/image/independant.jpg",
  content: [
  "Créer son site quand on est maman entrepreneuse n'est pas un problème de motivation. C'est un problème de capacité. Entre les clients, l'admin et la famille, le builder ouvert à 22 h finit souvent fermé sans mise en ligne. Voici un cadre réaliste pour décider quoi faire, dans quel ordre, et avec quel niveau d'accompagnement.",
  "## Pourquoi le temps manque vraiment (et ce que ça change) ?",
@@ -191,7 +204,6 @@ export const blogPosts: BlogPost[] = [
  date: "2026-09-25",
  readTime: "8 min",
  category: "Tendance",
- image: "/image/yoga.jpg",
  content: [
  "En 2026, près de **30 % des Français** déclarent envisager une reconversion professionnelle. Derrière ce chiffre : des femmes qui quittent le salariat pour le coaching, la thérapie, le conseil, la création. Et une question qui revient dès les premières semaines : « J’ai besoin d’un site ? » La réponse courte : oui, dès que tu factures. La réponse utile : voici pourquoi, concrètement, et comment avancer sans te perdre dans la technique.",
  "## Pourquoi la reconversion change la donne en ligne ?",
@@ -226,43 +238,80 @@ export const blogPosts: BlogPost[] = [
  },
  {
  slug: "combien-coute-site-web-coach-france-2026",
- title: "Combien coûte un site web pour coach en France en 2026 ?",
+ title:
+ "Site internet pour coach : combien ça coûte vraiment, et comment choisir en 2026",
+ metaTitle: "Site internet pour coach : le vrai coût et comment choisir (2026)",
  excerpt:
- "Prix réels pour un site de coach : outil en autonomie, agence ou abonnement. Fourchettes 2026 et ce qui est inclus chez Kopio.",
+ "Création, maintenance, refonte : le coût réel d'un site pour coach sur 3 ans, comparé. Données issues de 30+ sites livrés. Guide mis à jour le 6 octobre 2026.",
  date: "2026-09-22",
- readTime: "8 min",
+ updatedAt: "2026-10-06",
+ readTime: "14 min",
  category: "Prix",
- image: "/image/pulse.jpg",
+ faqs: [
+ {
+ question: "Un site Wix à 25 €/mois ne suffit-il pas pour démarrer ?",
+ answer:
+ "Pour tester une idée, oui. Pour une pratique déjà en place, trois écarts apparaissent : tu portes seule toute la charge technique, le design reste celui d'un modèle que tes clientes ont déjà vu cent fois, et chaque modification repose sur toi. Le jour où tu factures 5 à 10 séances par mois, ton temps vaut plus que l'économie.",
+ },
+ {
+ question: "Que se passe-t-il si je pars avant la fin de mon engagement ?",
+ answer:
+ "Tu soldes les mois restants : c'est le rachat anticipé. À la fin de l'engagement (6, 12 ou 24 mois), le site t'appartient à 100 %. Le nom de domaine est à ton nom dès le premier jour. Tu n'as pas loué : tu as acquis en lissant le paiement.",
+ },
+ {
+ question: "En combien de temps mon site peut-il être en ligne ?",
+ answer:
+ "Compte 21 jours en moyenne : un échange de 30 minutes, une première maquette sous 10 jours ouvrés, deux cycles de modifications inclus, puis mise en ligne. Rien n'est publié sans ta validation.",
+ },
+ {
+ question: "Faut-il un blog pour être trouvée sur Google ?",
+ answer:
+ "Non. Pour une pratique locale ou de niche, ce qui fait l'essentiel du travail est : un site clair et rapide, une fiche Google bien remplie, et des textes qui reprennent les mots que tes clientes tapent. Un blog peut venir plus tard, une fois la base en place.",
+ },
+ {
+ question:
+ "Comment savoir si mon site actuel est récupérable ou s'il faut repartir de zéro ?",
+ answer:
+ "En deux minutes, le Test des 10 Secondes (10 questions simples) te donne un score clair sur ce qui bloque encore sur ton site. Tu le trouves sur la page quiz Kopio.",
+ },
+ ],
  content: [
- "« Combien coûte un site web pour coach ? » La question revient dès qu’une coach quitte LinkedIn pour se professionnaliser. Voici des repères clairs pour la France en 2026 : fourchettes du marché, ce que le prix doit vraiment couvrir, et comment situer un abonnement face à une agence ou à un outil en autonomie.",
- "## Quelles sont les fourchettes du marché en 2026 ?",
- "Trois grandes options structurent le marché. L’outil en autonomie (Wix et équivalents) coûte souvent **10 à 40 €/mois**, plus ton temps : design, textes, SEO, correctifs. L’agence se situe plutôt entre **2 000 et 8 000 €** pour une vitrine, avec des délais d’un à trois mois. L’abonnement avec accompagnement, modèle Kopio, se situe à **89 à 179 €/mois** pour un site clair livré en **21 jours**.",
- "Ces fourchettes ne disent rien si tu compares uniquement le chiffre affiché. Un builder à 20 €/mois sans accompagnement te laisse seule face aux blocages. Un devis agence à 4 000 € peut exclure la maintenance. Un abonnement inclut souvent hébergement, sécurité et mises à jour. Le bon critère, ce n’est pas le prix le plus bas : c’est le prix pour un site qui explique ton accompagnement et rend le prochain pas évident. Le détail métier est sur [site web pour coach](/site-web-pour/coach).",
- "Pour situer rapidement :",
- "1. **Outil en autonomie** : 10 à 40 €/mois + ton temps\n2. **Agence** : 2 000 à 8 000 €, délais 1 à 3 mois\n3. **Abonnement accompagné** : 89 à 179 €/mois, livraison 21 jours",
- "## Que dois-tu vraiment payer dans un site de coach ?",
- "Le prix ne se limite pas à la mise en ligne. Compte le design adapté à ton positionnement, l’aide aux textes (méthode, formats, preuves), la lecture sur téléphone, les bases pour être trouvée sur Google, l’hébergement, le domaine, la conformité RGPD, et un moyen simple de mettre à jour. Un devis « site à 500 € » qui oublie la suite n’est pas une bonne affaire : tu paieras ailleurs, en temps ou en correctifs.",
- "Pour une coach, le site vend de la confiance. Une landing générique type B2B ne raconte pas ta méthode ni pour qui tu travailles. Tu as besoin d’une structure claire : positionnement, formats (1:1, groupe, programme), preuves, une seule action (appel, formulaire ou réservation). Ce cadrage prend du temps de conception. C’est ce temps que tu achètes, pas seulement des pixels. Le comparatif [Kopio vs agence web](/comparatif/kopio-vs-agence-web) explique quand l’agence reste pertinente et quand elle est surdimensionnée.",
+ "Un site internet pour une coach coûte entre **500 € et 3 000 €** à la création, puis **400 à 700 € par an** en maintenance et ajustements : un total réel de **5 000 à 6 000 € sur trois ans**. En abonnement, le même service tourne entre **89 € et 179 € par mois** selon l'engagement, et le site devient ta propriété à la fin. Voici le détail chiffré, et les cinq questions à te poser avant de choisir.",
+ "> Vérifié le 6 octobre 2026 · Par Karelle, développeuse web · 30+ sites livrés pour des professionnelles de l'accompagnement",
+ "## Que montrent les 30+ sites livrés pour des coachs ?",
+ "Depuis deux ans, je conçois des sites web exclusivement pour des professionnelles de l'accompagnement : coachs, psychologues, sophrologues, thérapeutes, consultantes bien-être. Sur les **30+ sites livrés**, trois constats reviennent à chaque premier échange.",
+ "Le site précédent avait été payé en moyenne **1 800 €**, puis abandonné. Pas parce qu'il était mauvais : parce que personne ne pouvait le mettre à jour, et que le prestataire était devenu injoignable. La modification la plus demandée n'est jamais technique. C'est : « mes tarifs ont changé », « j'ai une nouvelle certification », « j'arrête les séances en visio ». Trois changements par an, qui coûtent **150 à 300 €** facturés au devis chez un freelance, ou restent simplement non faits.",
+ "Le délai qui compte n'est pas celui de la création (**21 jours** en moyenne chez moi), mais celui des ==dix secondes== après un bouche-à-oreille : le moment où une personne, envoyée par ta cliente, cherche ton nom sur Google. Ce que ton site montre alors décide si elle ose te contacter. C'est ce moment-là qu'un site doit servir. Ces trois constats déterminent tout ce qui suit. Le détail métier est sur [site web pour coach](/site-web-pour/coach).",
+ "## Quel est le vrai coût d'un site de coach sur 3 ans ?",
+ "Comparer une facture de création à un abonnement mensuel fausse le calcul. Ce qui compte, c'est le coût réel sur trois ans : création, entretien, mises à jour, petite refonte, et l'état du site à la fin. Le tableau ci-dessous pose les trois chemins que je vois le plus souvent.",
+ "| Poste | Tout faire seule (Wix, Squarespace…) | Freelance ou agence (payé une fois) | Abonnement accompagné |\n| --- | --- | --- | --- |\n| **Création** | 20–30 €/mois + ton temps | 2 000–3 000 € | Incluse |\n| **Entretien et sécurité** | À ta charge | ~400 €/an, souvent conflictuelle | Incluse |\n| **Mises à jour** (tarifs, textes, offres) | Toi seule, 2–5 h par modification | ~150–300 € au devis, délais longs | Incluses, sous 24–72 h par email |\n| **Petite refonte (an 2)** | À refaire seule | ~800 € | Incluse |\n| **Coût réel sur 3 ans** | ~700–900 € + 40–100 h de ton temps | ~5 600 € | **2 136 € à 4 296 €** selon engagement |\n| **État du site au bout de 3 ans** | Daté, à refaire | Daté, à refaire | À jour, qui suit ton activité |\n| **Propriété** | Toi (tu restes liée à l'outil) | Toi | À toi à 100 % à la fin ; domaine à ton nom dès le jour 1 |",
+ "Le point qui change tout n'est pas dans le tableau : c'est le tarif de ton heure. Une coach qui facture **90 €** la séance et passe **10 heures** par an à bricoler son site Wix en dépense **900 €** en temps, sans compter les clientes qui ne se sont jamais manifestées parce que le site ne les a pas rassurées. Pour une vue plus large, le [comparatif des prix 2026](/comparatif/combien-coute-site-internet-entrepreneure-2026) situe autonomie, freelance, abonnement et agence.",
  "## Combien coûte un site chez Kopio pour une coach ?",
- "Chez moi : **89 €/mois** (24 mois), **139 €/mois** (12 mois) ou **179 €/mois** (6 mois), sans frais de mise en service. Socle commun : jusqu’à 5 pages, réservation avancée, atelier rédaction. Le SEO et le suivi analytics varient selon la durée. **Besoin précis** couvre sur devis ce qui dépasse ce cadre (tunnel complexe, espace client, boutique de programmes).",
- "La livraison vise **21 jours**, après validation, si les contenus arrivent à temps. Les mises à jour passent par email sous 24 à 72 h : tu n’apprends pas un éditeur. Le détail des inclusions est sur [tarifs](/tarifs). Pour une vue marché plus large, le [comparatif des prix 2026](/comparatif/combien-coute-site-internet-entrepreneure-2026) recoupe autonomie, freelance, abonnement et agence.",
- "## Abonnement : quelle durée choisir ?",
- "L’abonnement protège ta trésorerie en phase de lancement. Tu lisses la dépense pendant que tu construis ta clientèle, et la maintenance reste dans le périmètre. Tu choisis 6, 12 ou 24 mois selon ta trésorerie et la durée d’engagement qui te convient. À la fin de ton engagement, tu es propriétaire ; un rachat anticipé est possible en soldant les mois restants. Le domaine est à ton nom dès le premier jour.",
- "Le piège classique, c’est un abonnement sur un outil où tu restes seule face à la technique, ou un devis d’agence en une fois sans suivi puis un devis pour chaque virgule. Avant de signer, pose trois questions : qui met à jour, en combien de temps, à quel coût. Si tu compares avec un builder, [Kopio vs Wix](/comparatif/kopio-vs-wix) tranche le critère « qui fait le travail au quotidien ».",
+ "Chez moi : **89 €/mois** (24 mois), **139 €/mois** (12 mois) ou **179 €/mois** (6 mois), sans frais de mise en service. Base commune : jusqu'à 5 pages, prise de rendez-vous, atelier rédaction. Le référencement et le suivi des visites varient selon la durée. **Besoin précis** couvre sur devis ce qui dépasse ce cadre (parcours long, espace client, boutique de programmes). Le détail est sur [tarifs](/tarifs).",
+ "À la fin de ton engagement, le site est à toi à 100 %. Tu n'as pas loué : tu as acquis, en lissant le paiement. Un rachat anticipé est possible en soldant les mois restants. Compare avec un site à 3 000 € que tu devras souvent refaire sous trois ans. Le piège classique reste un abonnement Wix où tu restes seule face à la technique, ou un devis agence sans suivi puis un devis pour chaque virgule. [Kopio vs Wix](/comparatif/kopio-vs-wix) et [Kopio vs agence](/comparatif/kopio-vs-agence-web) détaillent ces écarts.",
+ "## Quelles cinq questions doivent guider ton choix ?",
+ "Avant de comparer les prix, pose-toi ces cinq questions, dans l'ordre. Elles valent plus qu'un devis bas ou qu'une promesse commerciale.",
+ "Étape 1 : Une visiteuse comprend-elle en cinq secondes ce que tu fais et pour qui ? Montre ton site à quelqu'un qui ne te connaît pas, compte cinq secondes, demande-lui ce que tu fais. Si la réponse est floue, ton site embrouille au lieu d'éclairer.",
+ "Étape 2 : Ton parcours et tes certifications sont-ils visibles en un clic ? Dans l'accompagnement, la confiance se construit sur tes qualifications en dix secondes. Un parcours enfoui derrière un long texte d'intention reste invisible.",
+ "Étape 3 : Sais-tu combien ton site te coûte par an, en argent et en pensées ? Le coût réel n'est pas seulement la facture. C'est la tâche « mon site » qui traîne, la gêne quand tu envoies le lien, la modification que tu repousses. Ce coût-là ne figure dans aucun devis.",
+ "Étape 4 : Ton site te ressemble-t-il, au point qu'on te reconnaîtrait sans ton nom ? Un modèle tout fait dit « j'ai un site ». Un site sobre, pensé pour ta pratique dit « j'ai une pratique établie ». Dans un secteur où la frontière entre professionnelle diplômée et improvisation est floue, ton site est l'un des rares signes qui te distinguent sans un mot de justification.",
+ "Étape 5 : Que se passe-t-il dans deux ans, quand tu changeras ? Tu changeras de tarifs, ajouteras une offre, passeras d'un format à un autre. La bonne question n'est donc pas « combien coûte la création ? » mais « qui porte l'évolution, et à quel prix ? »",
+ "## Que doit contenir un site de coach (et rien de plus) ?",
+ "Contrairement aux agences qui vendent des options, un site de coach utile est un site sobre. Les éléments qui comptent vraiment sont peu nombreux. Le reste distrait et alourdit l'entretien.",
+ "- Une page d'accueil qui dit ce que tu fais, pour qui, et comment prendre rendez-vous\n- Un parcours crédible : diplômes, certifications, expérience, en un clic\n- Des tarifs indicatifs : pas le détail obligatoire, mais un ordre de grandeur\n- Une prise de rendez-vous simple : agenda, créneaux, confirmation\n- Quelques preuves : deux ou trois témoignages réels, datés, nommés",
+ "Ce qu'il ne doit pas contenir : fenêtres urgentes, compte à rebours, « offre irrésistible », robots de chat insistants. Ta clientèle vient souvent pour fuir ce langage-là. Un site calme aide une lectrice qui déteste se sentir vendue. Si tu as besoin de la réservation dès le départ, vois [site avec réservation en ligne](/besoin/site-avec-reservation-en-ligne).",
  "## Pourquoi les prix « très bas » trompent souvent ?",
- "Un site à 15 €/mois existe. Souvent, c’est un builder nu avec un template. Le coût réel inclut ton temps de construction, de correction, et parfois un résultat qui ne convertit pas. Une coach qui facture 150 € l’heure et passe vingt heures sur un éditeur a « payé » 3 000 € en opportunité. Ce calcul n’apparaît sur aucun devis. Il apparaît dans ton agenda.",
- "À l’inverse, un devis élevé n’est pas automatiquement justifié. Si tu as besoin d’une vitrine claire et d’une prise de rendez-vous, tu n’as pas besoin d’une usine à gaz multi-équipes. Calibre le périmètre à ton stade. Une coach qui démarre gagne souvent plus à être en ligne rapidement qu’à attendre un projet parfait. L’accueil [Kopio](/) décrit ce positionnement : site tenu pour toi, pas second job.",
- "## Quel budget selon ton stade d’activité ?",
- "Si tu lances ton offre et que tu as besoin d’exister clairement : **89 €/mois (24 mois)** suffit souvent. Dès que tu as plusieurs formats, une zone géographique à pousser, et besoin de réservation avancée : **139 €/mois (12 mois)**. Si tu vends des programmes avec panier ou un espace membre : **Besoin précis**. Ce n’est pas une montée de gamme marketing ; c’est un alignement sur la complexité réelle.",
- "Les coachs qui me contactent après un an d’activité ont souvent le même regret : avoir attendu d’avoir « assez de contenu ». Le contenu se construit avec le site, pas avant. Trois témoignages courts et une offre cadrée battent une page vide en construction depuis six mois. Si tu veux une vitrine simple et joignable, vois aussi [site vitrine pour indépendante](/besoin/site-vitrine-independante).",
- "## Que comparer au-delà du prix affiché ?",
- "Compare le délai, l’interlocuteur, la maintenance, la propriété du domaine, et la clarté du périmètre. Un devis bas qui exclut l’aide aux textes te laisse seule face à la page blanche. Un devis élevé sans interlocuteur unique te fait perdre du temps en validations. Une coach gagne à poser ces questions avant de parler uniquement d’euros.",
- "Demande aussi ce qui se passe si ton offre évolue dans six mois. Ton programme change ; ton site doit suivre. Si chaque modification déclenche un nouveau devis, le coût réel dépasse le devis initial. Chez moi, les modifications courantes passent par email dans le cadre de l’abonnement. C’est un critère de choix autant que le prix mensuel. Le besoin [site avec réservation en ligne](/besoin/site-avec-reservation-en-ligne) montre aussi comment le parcours RDV entre dans le budget 139 €/mois.",
- "## Comment budgéter site et acquisition sans tout confondre ?",
- "Le site n’est pas ton budget pub. C’est l’endroit où aboutissent tes efforts. Si tu investis en networking, LinkedIn ou publicité sans page claire, tu paies pour envoyer du trafic vers le flou. Budgète d’abord une vitrine lisible, puis l’acquisition. L’ordre inverse brûle du cash pour un message instable.",
- "Une fourchette réaliste pour démarrer : **89 €/mois (24 mois)** plus quelques heures de ton temps pour fournir contenus et photos. Ensuite, tu mesures. Si les demandes arrivent mais le calendrier sature, monte vers **139 €/mois (12 mois)** pour la réservation avancée. Si tu vends des programmes avec panier, passe en **Besoin précis**. Tu scales le site avec l’activité, pas l’inverse.",
- "## Que retenir sur le prix d’un site de coach ?",
- "En 2026, une coach en France peut avoir un site professionnel dès **89 €/mois** sans tout gérer seule. Le bon critère : clarté de l’offre, délai, et qui s’occupe des mises à jour. Pour le détail métier et les inclusions, passe par [site web pour coach](/site-web-pour/coach) et [tarifs](/tarifs). Tu valides le cadrage ; je livre et je maintiens.",
+ "Un site à 15 €/mois existe. Souvent, c'est un outil nu avec un modèle tout fait. Le coût réel inclut ton temps de construction, de correction, et parfois un résultat qui n'amène personne à te contacter. Une coach qui facture 150 € l'heure et passe vingt heures sur un éditeur a « payé » 3 000 € en temps non facturé. Ce calcul n'apparaît sur aucun devis. Il apparaît dans ton agenda.",
+ "À l'inverse, un devis élevé n'est pas automatiquement justifié. Si tu as besoin d'une vitrine claire et d'une prise de rendez-vous, tu n'as pas besoin d'un projet immense. Calibre le périmètre à ton stade. Une coach qui démarre gagne souvent plus à être en ligne rapidement qu'à attendre un projet parfait. Les coachs qui me contactent après un an d'activité regrettent souvent d'avoir attendu d'avoir « assez de contenu ». Trois témoignages courts et une offre claire battent une page vide depuis six mois.",
+ "## Comment séparer le budget du site et celui pour te faire connaître ?",
+ "Le site n'est pas ton budget publicité. C'est l'endroit où aboutissent tes efforts. Si tu investis en rencontres pro, LinkedIn ou publicité sans page claire, tu paies pour envoyer des personnes vers le flou. Pose d'abord une vitrine lisible, puis ce qui amène du monde. L'ordre inverse brûle de la trésorerie pour un message encore instable.",
+ "Une fourchette réaliste pour démarrer : **89 €/mois (24 mois)** plus quelques heures pour fournir textes et photos. Ensuite, tu regardes ce qui arrive. Si les demandes affluent mais le calendrier sature, **139 €/mois (12 mois)** pour la réservation. Si tu vends des programmes avec panier, **Besoin précis**. Tu fais évoluer le site avec l'activité, pas l'inverse. Pour une vitrine simple, vois aussi [site vitrine pour indépendante](/besoin/site-vitrine-independante).",
+ "## Comment mesurer si ton site actuel travaille pour toi ?",
+ "Tu n'as pas besoin de moi pour un premier diagnostic. Le Test des 10 Secondes pose 10 questions simples sur ton site actuel et te donne un score clair. Deux minutes, avec tes propres chiffres.",
+ "{{quiz}}",
+ "## Que retenir sur le coût d'un site de coach ?",
+ "Le coût d'un site se compare sur **3 ans**, pas à la facture initiale : environ **5 600 €** pour un site payé une fois contre **2 136 € à 4 296 €** pour un abonnement accompagné, avec un site qui reste à jour au lieu de dater. Le vrai repère n'est pas le prix du site : c'est le prix de ton heure et le poids mental du sujet.",
+ "Un site de coach n'a pas besoin d'effets inutiles. Il a besoin de clarté, de preuve, et de quelqu'un qui le fait évoluer pendant que tu accompagnes. Pour le détail métier et ce qui est inclus : [site web pour coach](/site-web-pour/coach) et [tarifs](/tarifs). [En discuter avec Karelle](/#contact) en 30 minutes.",
  ],
  },
  {
@@ -273,7 +322,6 @@ export const blogPosts: BlogPost[] = [
  date: "2026-09-18",
  readTime: "8 min",
  category: "Guide",
- image: "/image/og-mockup.jpg",
  content: [
  "Un site peut te faire perdre des clientes sans que tu t’en rendes compte. Voici les erreurs les plus fréquentes chez les indépendantes (coachs, consultantes, thérapeutes, créatrices), et ce que tu peux changer dès maintenant. Chaque point suit le même ordre : ce qui se passe, pourquoi ça bloque, un cas concret, quoi faire.",
  "## Pourquoi « Bienvenue sur mon site » ne convertit pas ?",
@@ -318,7 +366,6 @@ export const blogPosts: BlogPost[] = [
  date: "2026-09-12",
  readTime: "8 min",
  category: "Prix",
- image: "/image/madeleine.jpg",
  content: [
  "Chez Kopio comme ailleurs, tu peux payer un site **au mois** ou **en une fois**. Ce n’est pas qu’une question de préférence : c’est trésorerie, suivi dans le temps, et liberté de partir si besoin. Voici comment trancher sans te laisser influencer par un discours commercial.",
  "## Que paies-tu vraiment avec un abonnement site web ?",
@@ -362,7 +409,6 @@ export const blogPosts: BlogPost[] = [
  date: "2026-09-05",
  readTime: "8 min",
  category: "Conseils",
- image: "/image/photographe.jpg",
  content: [
  "Le frein n°1 avant de lancer un site : « Je n’ai pas de belles photos. » Tu n’as pas besoin d’un shooting magazine pour être crédible. Tu as besoin d’images authentiques, nettes, cohérentes avec ton activité. Voici un guide réaliste pour avancer sans attendre un budget de 1 500 €.",
  "## Qu’est-ce qui compte vraiment sur un site d’entrepreneuse ?",
@@ -408,7 +454,6 @@ export const blogPosts: BlogPost[] = [
  date: "2026-06-20",
  readTime: "8 min",
  category: "Prix",
- image: "/image/sitewebvideo-poster.jpg",
  content: [
  "« Combien ça coûte un site vitrine ? » Entre le gratuit trompeur et l’agence à plusieurs milliers d’euros, voici des repères pour 2026, orientés femmes entrepreneuses. L’objectif : savoir ce que tu achètes réellement, pas seulement lire un chiffre sur un devis.",
  "## Quelles options de prix pour un site vitrine en 2026 ?",
@@ -454,7 +499,6 @@ export const blogPosts: BlogPost[] = [
  date: "2026-06-12",
  readTime: "8 min",
  category: "Business",
- image: "/image/coiffure.jpg",
  content: [
  "« Je verrai plus tard. » Si tu te reconnais, cet article est pour toi : coach, consultante, thérapeute ou créatrice. Reporter un site a un coût invisible : des prospectes qui ne te trouvent pas, des concurrentes qui prennent ta place, une offre qui reste floue hors de ta tête. Voici cinq raisons concrètes de ne plus attendre.",
  "## Tes clientes te cherchent-elles vraiment sur Google ?",
@@ -498,7 +542,6 @@ export const blogPosts: BlogPost[] = [
  date: "2026-06-08",
  readTime: "8 min",
  category: "Conseils",
- image: "/image/mockup.png",
  content: [
  "L’intelligence artificielle accélère beaucoup de choses. Elle ne remplace pas encore un site qui convertit vraiment, surtout quand tu vends de la confiance et de l’accompagnement. Voici cinq pièges concrets, le mécanisme derrière chacun, et ce que tu peux faire à la place.",
  "## Pourquoi les sites générés par IA se ressemblent-ils autant ?",
@@ -537,10 +580,15 @@ export const blogPosts: BlogPost[] = [
  },
 ];
 
-export function getBlogPost(slug: string): BlogPost | undefined {
- return blogPosts.find((post) => post.slug === slug);
+export function getBlogPosts(): ResolvedBlogPost[] {
+  return blogPosts.map(withCover);
 }
 
-export function getRelatedPosts(slug: string, limit = 3): BlogPost[] {
- return blogPosts.filter((p) => p.slug !== slug).slice(0, limit);
+export function getBlogPost(slug: string): ResolvedBlogPost | undefined {
+  const post = blogPosts.find((p) => p.slug === slug);
+  return post ? withCover(post) : undefined;
+}
+
+export function getRelatedPosts(slug: string, limit = 3): ResolvedBlogPost[] {
+  return blogPosts.filter((p) => p.slug !== slug).slice(0, limit).map(withCover);
 }

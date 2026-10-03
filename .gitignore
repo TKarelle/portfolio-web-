@@ -49,3 +49,7 @@ public/image/sitewebvideo.mov
 /data/quiz-leads.xlsx
 /data/quiz-leads.csv
 
+# Charte éditoriale / règles agent (local only)
+/docs/
+.cursor/rules/charte-editoriale-seo.mdc
+

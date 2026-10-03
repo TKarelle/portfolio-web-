@@ -50,8 +50,7 @@ export function Navbar() {
     };
   }, [open]);
 
-  const onQuizPage = pathname === QUIZ_META.path;
-  const showPromo = !onQuizPage;
+  const showPromo = pathname !== QUIZ_META.path;
 
   return (
     <>
@@ -73,19 +72,23 @@ export function Navbar() {
         </div>
       ) : null}
 
+      {/*
+        Comme avant la barre quiz : left-0 sans right → largeur = contenu.
+        Ne jamais poser left+right ensemble (ça étire en full width à l’ouverture).
+        Décalage promo uniquement via padding-top.
+      */}
       <header
         className={cn(
-          "fixed left-0 z-50 px-4",
+          "fixed top-0 left-0 z-50 px-4 w-max max-w-[calc(100%-2rem)]",
           showPromo
-            ? "top-[calc(env(safe-area-inset-top)+2rem)] pt-2"
-            : "top-0 pt-[max(1rem,env(safe-area-inset-top))]",
+            ? "pt-[calc(env(safe-area-inset-top)+2.25rem)]"
+            : "pt-[max(1rem,env(safe-area-inset-top))]",
         )}
-        style={scrollbarW ? { right: scrollbarW } : undefined}
       >
         <nav
           aria-label="Navigation principale"
           className={cn(
-            "mx-auto w-full max-w-5xl overflow-hidden border transition-[background-color,box-shadow] duration-300 ease-out",
+            "w-full overflow-hidden border transition-[background-color,box-shadow] duration-300 ease-out",
             "rounded-[1.35rem] md:rounded-full",
             scrolled || open
               ? "glass-nav shadow-lg shadow-violet/5 border-ink/10"

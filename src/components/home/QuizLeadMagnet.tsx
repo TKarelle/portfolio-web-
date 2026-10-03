@@ -4,7 +4,7 @@ import Link from "next/link";
 import { QUIZ_META } from "@/data/etancheite-quiz";
 
 type QuizLeadMagnetProps = {
-  variant?: "section" | "footer";
+  variant?: "section" | "footer" | "inline";
   id?: string;
 };
 
@@ -57,6 +57,40 @@ export function QuizLeadMagnet({
           Faire le quiz
         </Link>
       </div>
+    );
+  }
+
+  if (variant === "inline") {
+    return (
+      <aside
+        id={id}
+        className="my-10 relative rounded-[1.5rem] border-2 border-dashed border-ink bg-chunk-pink p-6 sm:p-8 shadow-[6px_6px_0_#ff1f71] not-prose"
+        aria-labelledby={`${id}-title`}
+      >
+        <span className="absolute -top-3 left-6 inline-flex items-center gap-1.5 bg-pink text-white text-[11px] font-extrabold uppercase tracking-[0.12em] px-3 py-1 rounded-full border-2 border-ink">
+          Cadeau gratuit
+        </span>
+        <p className="text-sm font-bold text-pink mb-2 tracking-wide mt-1">
+          Le Test des 10 Secondes
+        </p>
+        <h3
+          id={`${id}-title`}
+          className="text-xl sm:text-2xl font-extrabold tracking-tight text-ink leading-tight"
+        >
+          Ton site te représente-t-il encore ?
+        </h3>
+        <p className="mt-3 text-sm font-medium text-muted leading-relaxed">
+          10 questions simples pour voir ce qui bloque encore sur ton site.
+          Deux minutes, ton propre site, tes propres chiffres.
+        </p>
+        <Link
+          href={QUIZ_META.path}
+          className="mt-5 inline-flex items-center justify-center gap-2.5 min-h-12 rounded-xl bg-pink text-white text-sm font-bold px-5 border-2 border-ink shadow-[4px_4px_0_#111] hover:translate-y-0.5 hover:shadow-[2px_2px_0_#111] transition-all touch-manipulation"
+        >
+          <QuizIcon className="w-5 h-5" />
+          Faire le quiz
+        </Link>
+      </aside>
     );
   }
 
