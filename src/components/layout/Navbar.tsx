@@ -51,6 +51,7 @@ export function Navbar() {
   }, [open]);
 
   const onQuizPage = pathname === QUIZ_META.path;
+  const showPromo = !onQuizPage;
 
   return (
     <>
@@ -66,12 +67,21 @@ export function Navbar() {
         onClick={() => setOpen(false)}
       />
 
-      <div
-        className="fixed top-0 left-0 z-50 w-full pt-[env(safe-area-inset-top)]"
-        style={scrollbarW ? { right: scrollbarW, width: "auto" } : undefined}
+      {showPromo ? (
+        <div className="fixed top-0 left-0 right-0 z-50 pt-[env(safe-area-inset-top)]">
+          <PromoBar />
+        </div>
+      ) : null}
+
+      <header
+        className={cn(
+          "fixed left-0 z-50 px-4",
+          showPromo
+            ? "top-[calc(env(safe-area-inset-top)+2rem)] pt-2"
+            : "top-0 pt-[max(1rem,env(safe-area-inset-top))]",
+        )}
+        style={scrollbarW ? { right: scrollbarW } : undefined}
       >
-        <PromoBar />
-        <header className={cn("px-4", onQuizPage ? "pt-3" : "pt-2")}>
         <nav
           aria-label="Navigation principale"
           className={cn(
@@ -190,8 +200,7 @@ export function Navbar() {
             </div>
           </div>
         </nav>
-        </header>
-      </div>
+      </header>
     </>
   );
 }

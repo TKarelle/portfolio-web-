@@ -56,6 +56,12 @@ export default function AboutPage() {
 
       <section className="py-14 md:py-20 px-6 bg-bg">
         <div className="max-w-5xl mx-auto">
+          <p className="max-w-3xl mx-auto text-center text-lg sm:text-xl md:text-2xl font-extrabold leading-snug text-ink mb-12 md:mb-14">
+            Mon métier, c&apos;est de concevoir des architectures web invisibles,
+            fluides et ultra-rapides, pour que la technique s&apos;efface
+            totalement au profit de votre message.
+          </p>
+
           <div className="text-center mb-10">
             <SectionHead stroke="violet" highlight="je crois">
               {"Ce en quoi je crois"}
