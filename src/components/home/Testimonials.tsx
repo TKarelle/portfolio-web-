@@ -2,9 +2,24 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import { googleReviews, GOOGLE_REVIEWS_URL } from "@/data/google-reviews";
 import { testimonials } from "@/data/testimonials";
 import { SectionHead } from "@/components/ui/SectionHead";
+import { StarRating } from "@/components/ui/StarRating";
 import { MOTION } from "@/lib/motion";
+
+type DisplayTestimonial = {
+  id: number | string;
+  name: string;
+  fullName: string;
+  role?: string;
+  city?: string;
+  date: string;
+  text: string;
+  rating: number;
+  image?: string;
+  source?: "google";
+};
 
 function ArrowLeft({ className = "w-5 h-5" }: { className?: string }) {
   return (
@@ -34,42 +49,100 @@ function ArrowRight({ className = "w-5 h-5" }: { className?: string }) {
   );
 }
 
-function TestimonialBody({
-  t,
-}: {
-  t: (typeof testimonials)[number];
-}) {
+function GoogleAvatar({ name }: { name: string }) {
+  const initial = name.charAt(0).toUpperCase();
+
+  return (
+    <div
+      className="relative w-16 h-16 photo-frame photo-frame-lime shrink-0 flex items-center justify-center bg-lime/30 rounded-[0.9rem] font-extrabold text-xl text-ink"
+      aria-hidden="true"
+    >
+      {initial}
+    </div>
+  );
+}
+
+function TestimonialBody({ t }: { t: DisplayTestimonial }) {
+  const isGoogle = t.source === "google";
+
   return (
     <div className="flex flex-col h-full min-h-0">
       <div className="flex items-center gap-4 mb-6 shrink-0">
-        <div className="relative w-16 h-16 photo-frame photo-frame-lime shrink-0">
-          <Image
-            src={t.image}
-            alt={`${t.fullName}, ${t.role}`}
-            fill
-            className="object-cover rounded-[0.9rem]"
-            sizes="64px"
-          />
-        </div>
+        {t.image ? (
+          <div className="relative w-16 h-16 photo-frame photo-frame-lime shrink-0">
+            <Image
+              src={t.image}
+              alt={`${t.fullName}, ${t.role}`}
+              fill
+              className="object-cover rounded-[0.9rem]"
+              sizes="64px"
+            />
+          </div>
+        ) : (
+          <GoogleAvatar name={t.fullName} />
+        )}
         <div className="min-w-0">
           <p className="font-extrabold text-lg">{t.fullName}</p>
-          <p className="text-sm text-muted font-medium">
-            {t.role}, {t.city}
-          </p>
-          <p className="text-xs text-muted/80 font-medium mt-0.5">{t.date}</p>
+          {isGoogle ? (
+            <p className="text-sm text-muted font-medium">Avis Google</p>
+          ) : (
+            <p className="text-sm text-muted font-medium">
+              {t.role}, {t.city}
+            </p>
+          )}
+          <div className="flex items-center gap-2 mt-1">
+            <StarRating rating={t.rating} size="sm" />
+            <p className="text-xs text-muted/80 font-medium">{t.date}</p>
+          </div>
         </div>
       </div>
 
       <blockquote className="text-base md:text-lg font-medium leading-relaxed text-ink flex-1">
         &ldquo;{t.text}&rdquo;
       </blockquote>
+
+      {isGoogle ? (
+        <p className="mt-5 text-sm font-semibold">
+          <a
+            href={GOOGLE_REVIEWS_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-violet hover:underline underline-offset-2"
+          >
+            Voir l&apos;avis sur Google →
+          </a>
+        </p>
+      ) : null}
     </div>
   );
 }
 
+const displayedTestimonials: DisplayTestimonial[] = [
+  ...googleReviews.map((r) => ({
+    id: r.id,
+    name: r.name,
+    fullName: r.fullName,
+    date: r.date,
+    text: r.text,
+    rating: r.rating,
+    source: r.source,
+  })),
+  ...testimonials.map((t) => ({
+    id: t.id,
+    name: t.name,
+    fullName: t.fullName,
+    role: t.role,
+    city: t.city,
+    date: t.date,
+    text: t.text,
+    rating: t.rating,
+    image: t.image,
+  })),
+];
+
 export function Testimonials() {
   const [active, setActive] = useState(0);
-  const displayed = testimonials;
+  const displayed = displayedTestimonials;
   const len = displayed.length;
   const current = displayed[active];
 

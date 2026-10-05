@@ -1,5 +1,5 @@
 import { StatsBand } from "@/components/ui/StatsBand";
-
+import { GoogleReviewBadge } from "@/components/ui/GoogleReviewBadge";
 const clients = [
   "PULSE",
   "Marion D.",
@@ -8,7 +8,7 @@ const clients = [
 
 const stats = [
   { n: "30+", l: "sites livrés pour des entrepreneuses" },
-  { n: "5★", l: "retours clients sur les projets livrés" },
+  { n: "5★", l: "note Google" },
   { n: "21 j", l: "délai habituel de livraison" },
 ] as const;
 
@@ -51,6 +51,9 @@ export function SocialProof() {
       eyebrow="Elles m'ont fait confiance"
       footer={
         <>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 mb-5">
+            <GoogleReviewBadge variant="card" />
+          </div>
           <ClientMarquee />
           <span className="sr-only">{clients.join(" · ")}</span>
         </>
