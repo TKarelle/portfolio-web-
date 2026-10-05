@@ -48,6 +48,7 @@
 
 ## Blog
 
+- [Optimiser son référencement Google et IA (débutantes 2026)](https://www.kopio.eu/blog/optimiser-seo-google-ia-debutant)
 - [Page non indexée Google (guide débutant)](https://www.kopio.eu/blog/page-non-indexee-google-guide-debutant)
 - [Indexation Google bloquée](https://www.kopio.eu/blog/indexation-google-bloquee-rejets-crawl) : Rejets de crawl, GSC, protocoles de résolution
 - [Créer son site maman entrepreneuse](https://www.kopio.eu/blog/creer-son-site-maman-entrepreneuse)

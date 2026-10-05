@@ -16,6 +16,12 @@ export interface BlogPost {
  content: string[];
  /** FAQPage schema + bloc Questions fréquentes */
  faqs?: { question: string; answer: string }[];
+ /** HowTo schema (ex. fiche Google Business) */
+ howTo?: {
+   name: string;
+   description: string;
+   steps: { name: string; text: string }[];
+ };
 }
 
 /** Article avec cover résolue (map slug → /image/blog-covers/…). */
@@ -26,6 +32,105 @@ function withCover(post: BlogPost): ResolvedBlogPost {
 }
 
 export const blogPosts: BlogPost[] = [
+  {
+    slug: "optimiser-seo-google-ia-debutant",
+    title:
+      "Optimiser son référencement pour Google et les IA : le guide des débutantes en 2026",
+    metaTitle:
+      "SEO pour débutant : être trouvée sur Google ET citée par les IA (2026)",
+    excerpt:
+      "Référencer son site sur Google et apparaître dans ChatGPT et Perplexity : les 6 fondamentaux accessibles sans compétences techniques, expliqués pour les coachs et thérapeutes.",
+    date: "2026-10-05",
+    updatedAt: "2026-10-05",
+    readTime: "14 min",
+    category: "Guide",
+    howTo: {
+      name: "Être trouvée sur ton métier et ta ville",
+      description:
+        "Les trois actions concrètes pour apparaître sur une recherche métier + ville : fiche Google, page locale, avis.",
+      steps: [
+        {
+          name: "Créer ou reprendre ta fiche Google",
+          text: "Remplis horaires, prestations, photos et une description avec les mots que tes clientes utilisent. La fiche apparaît souvent dans la carte locale avant les sites.",
+        },
+        {
+          name: "Titre de page avec métier et ville",
+          text: "Sur ton site, une page par offre principale dont le titre contient le métier et la ville, par exemple « Sophrologue à Lyon : gestion du stress et sommeil ».",
+        },
+        {
+          name: "Demander des avis Google réguliers",
+          text: "Les fiches avec des avis récents dominent les résultats locaux. Trois avis nommés valent mieux qu'un long paragraphe À propos.",
+        },
+      ],
+    },
+    faqs: [
+      {
+        question: "Combien de temps faut-il pour apparaître sur Google ?",
+        answer:
+          "L'indexation prend quelques jours après la mise en ligne. Le positionnement sur ton nom, quelques semaines. Sur ton métier + ville, quelques mois selon la concurrence locale. C'est pourquoi un site lancé en automne capte mieux la vague de janvier que l'inverse.",
+      },
+      {
+        question:
+          "Les moteurs d'IA comme ChatGPT peuvent-ils vraiment m'apporter des clientes ?",
+        answer:
+          "Oui, et de plus en plus : les personnes leur demandent « comment trouver une sophrologue pour le stress près de Lyon », et l'IA cite les sources qu'elle juge fiables et claires. Être citée demande les mêmes bases que ce guide : auteure identifiée, réponses directes aux questions, dates à jour, avis.",
+      },
+      {
+        question: "Faut-il payer pour référencer son site ?",
+        answer:
+          "Non. Tout ce qui compte pour une pratique locale est gratuit : fiche Google, contenu clair, avis, bases techniques propres. La publicité Google Ads est un autre sujet, utile dans certains cas, inutile tant que les fondamentaux ne sont pas en place.",
+      },
+      {
+        question: "Comment savoir si mon site actuel a des problèmes de référencement ?",
+        answer:
+          "Recherche ton nom + métier + ville : si tu n'es pas visible, quelque chose bloque. Pour un diagnostic en deux minutes (indexation, mobile, prise de contact), le Test des 10 Secondes te donne un score clair.",
+      },
+      {
+        question: "Puis-je faire tout ça moi-même ?",
+        answer:
+          "Les points sur le nom, la fiche Google, les textes et les signes de confiance : oui, avec du temps et de la régularité. La vitesse et le mobile dépendent de la qualité de la base de ton site. C'est là qu'un site mal construit au départ coûte cher, et où le déléguer à quelqu'un qui porte ce sujet pour toi change tout.",
+      },
+    ],
+    content: [
+      "Optimiser son référencement en 2026, cela veut dire deux choses : être trouvée sur Google quand on cherche ton métier dans ta ville, et être citée par les moteurs d'IA (ChatGPT, Perplexity, Google AI Overviews) quand on leur demande « comment trouver une thérapeute près de chez moi ». La bonne nouvelle : dans les deux cas, les fondamentaux sont les mêmes, et aucun ne demande de compétences techniques. Voici les six, dans l'ordre où ils rapportent.",
+      "> Vérifié le 5 octobre 2026 · Par Karelle, développeuse web · 30+ sites livrés pour des professionnelles de l'accompagnement",
+      "## Que montrent les 30+ sites livrés ?",
+      "Sur les sites que je construis pour des coachs, thérapeutes et sophrologues, la quasi-totalité des visites depuis la recherche vient de quatre sources : le nom de la praticienne (le bouche-à-oreille), son métier + sa ville, sa fiche Google, et de plus en plus, les réponses des moteurs d'IA. Ces quatre sources ne demandent aucune technique avancée. Elles demandent que les bases soient propres. C'est l'objet de ce guide.",
+      "Si ton site n'apparaît pas encore, commence par le diagnostic d'indexation : [Ma page n'est pas indexée par Google](/blog/page-non-indexee-google-guide-debutant). Si tu hésites encore sur le budget d'un site clair, vois aussi [Combien coûte un site web pour coach en 2026](/blog/combien-coute-site-web-coach-france-2026).",
+      "## Pourquoi être trouvée sur ton nom est la priorité n°1 ?",
+      "Quand une cliente ravie dit à une amie « tu devrais la contacter », l'amie cherche ton nom sur Google dans la foulée. C'est la requête la plus simple à gagner, et la plus importante, parce que c'est celle qui clôt toute recommandation.",
+      "Recherche ton prénom + nom + métier. Es-tu en première page, sur une page que tu contrôles ? Si un autre site parle de toi avant le tien (annuaire, réseau social), c'est souvent le signe que ton propre site est mal indexé ou trop peu clair. Si rien d'exploitable n'apparaît, ton site n'est soit pas indexé, soit trop récent.",
+      "Google indexe d'abord les sites dont le contenu est clair, rapide et identifié. Un site sobre de cinq pages, bien construit, atteint souvent la première page sur le nom de sa propriétaire en quelques semaines. C'est le premier chantier, et il ne demande rien de plus que des bases propres. En pratique, tu vérifies ce point avant toute autre ambition locale.",
+      "## Comment être trouvée sur ton métier et ta ville ?",
+      "La requête « sophrologue Lyon » ou « coach de vie Bordeaux » est celle qui apporte des clientes que tu ne connais pas encore. Elle est plus concurrentielle que ton nom, mais reste accessible dans la plupart des villes françaises. Voici l'ordre d'action qui marche le mieux chez les professionnelles que j'accompagne.",
+      "Étape 1 : Créer ou reprendre ta fiche Google. Elle est gratuite. C'est elle qui apparaît dans la carte locale, souvent avant les sites. Remplis tout : horaires, prestations, photos, description avec les mots que tes clientes utilisent vraiment.",
+      "Étape 2 : Une page par offre principale. Sur ton site, le titre contient le métier et la ville : « Sophrologue à Lyon : gestion du stress et sommeil ». Une page claire bat dix pages vagues. Pour un cadrage métier, vois [site web pour coach](/site-web-pour/coach) ou [site web pour sophrologue](/site-web-pour/sophrologue).",
+      "Étape 3 : Demander des avis Google régulièrement. Les fiches avec des avis récents dominent les résultats locaux. Trois avis nommés valent mieux qu'un long paragraphe « À propos ».",
+      "Erreur à éviter : ne cherche pas à être trouvée sur « coach » toute seule. Tu ne seras jamais en page 1 face aux sites généralistes, et ce n'est pas grave. La cliente qui cherche « coach » seule ne sait pas encore ce qu'elle veut. Celle qui cherche « coach de carrière Toulouse » est prête.",
+      "## Comment écrire pour les questions que tes clientes posent vraiment ?",
+      "C'est le point qui change le plus depuis l'arrivée des moteurs d'IA, et la première chose que les débutantes sous-estiment. Google et les IA répondent à des questions. Ton contenu doit contenir les réponses, formulées simplement, dans les termes exacts de tes clientes. Pas « Optimisation de ton potentiel professionnel par accompagnement individualisé ». Mais « Je t'aide à retrouver du sens dans ton travail ».",
+      "Comment trouver ces questions sans outil payant. Tape ton métier dans Google et laisse l'autocomplétion parler : « sophrologue pour… » révèle stress, sommeil, grossesse. Ce sont les sujets à mettre sur ton site. Regarde la section « Autres questions posées » sous les résultats : ce sont des questions réelles, posées des centaines de fois. Écoute tes clientes : les questions qu'elles posent avant de réserver (combien de séances ? ça marche comment ? c'est remboursé ?) méritent chacune une réponse visible sur ton site.",
+      "Le format qui gagne : une question en titre, une réponse directe en une ou deux phrases juste en dessous, puis le développement. Ce format est lu par Google (extrait en haut des résultats) et cité tel quel par les IA. C'est aussi la structure de cet article.",
+      "## Quels signes de confiance Google et les IA lisent-ils ?",
+      "Les moteurs d'IA citent les sources qu'ils jugent fiables. Leurs critères se recoupent largement avec ceux de Google. Heureusement, ce sont des critères humains. Je les résume dans le tableau ci-dessous, tel que je les pose sur les sites livrés.",
+      "| Signe | Ce que ça prouve | Comment l'obtenir |\n| --- | --- | --- |\n| **Auteure identifiée** (nom, photo, diplôme) | Un humain responsable du contenu | Page À propos complète, signature sur chaque article |\n| **Avis clientes** nommés et datés | Une pratique réelle, vérifiée | Demander un avis Google après chaque séance satisfaite |\n| **Dates de mise à jour** visibles | Le contenu est vivant | Afficher « Vérifié le [date] » sur tes pages clés |\n| **Diplômes et certifications** visibles | La légitimité du métier | Un clic maximum entre l'accueil et tes qualifications |\n| **Coordonnées réelles** et mentions légales | Une activité réelle et conforme | Pied de page complet sur chaque page |",
+      "Ce qui compte pour les IA en plus : les définitions claires et les données précises. Si ta page explique simplement ce qu'est la sophrologie, ou indique un prix indicatif, les moteurs d'IA peuvent la citer comme source. Les pages vagues et génériques ne sont jamais citées. En pratique, une phrase nette vaut mieux qu'un paragraphe flou.",
+      "## Pourquoi la vitesse et le mobile sont-ils éliminatoires ?",
+      "Environ 70 % des recherches dans ton secteur se font sur téléphone. Un site lent ou mal affiché sur mobile est pénalisé par Google, et abandonné par les clientes en trois secondes. Ce n'est pas une question de décor : c'est une question d'accès.",
+      "Les trois vérifications accessibles à toutes. Ouvre ton site sur ton téléphone, en 4G (pas en wifi). Les pages apparaissent-elles en moins de 3 secondes ? Le texte est-il lisible sans zoomer ? Les boutons (Réserver, Contact) sont-ils accessibles au pouce ? La prise de rendez-vous fonctionne-t-elle sur mobile en moins de deux clics ?",
+      "Si un point échoue, c'est typiquement le signe d'un site construit sur un modèle tout fait trop chargé, ou d'une base trop ancienne. C'est un problème technique à faire traiter, pas à réparer seule en lisant trois tutoriels. Ton temps vaut plus cher que ça. Si ton site ne suit plus ton activité, la [refonte pour entrepreneuse](/besoin/refonte-site-internet-entrepreneure) cadre le scénario.",
+      "## Qu'est-ce qui ne sert à rien (et coûte du temps) ?",
+      "Pour conclure, trois pratiques que les débutantes croient obligatoires et qui ne rapportent presque rien dans ton secteur. Le blog hebdomadaire : sans sujets précis, c'est un gouffre de temps. Un site de cinq pages excellent bat dix articles médiocres. Reviens au blog en deuxième année, avec des sujets ciblés.",
+      "Les hashtags et la fréquence de publication sur les réseaux n'ont aucun effet sur Google. Les réseaux servent à être découverte ; ils ne servent pas à être trouvée sur une recherche métier. Les outils de référencement payants non plus : aucun outil à 99 €/mois n'est nécessaire pour une pratique locale. Les six points de cet article couvrent l'essentiel de ce qui compte.",
+      "## Comment mesurer si ton site travaille déjà pour toi ?",
+      "Tu n'as pas besoin de moi pour un premier diagnostic. Le Test des 10 Secondes pose 10 questions simples sur ton site actuel et te donne un score clair. Deux minutes, avec tes propres chiffres.",
+      "{{quiz}}",
+      "## Que retenir pour référencer ton site en 2026 ?",
+      "| Priorité | Action | Effort | Impact |\n| --- | --- | --- | --- |\n| **1** | Être en page 1 sur ton nom | Faible | Énorme (ferme toute recommandation) |\n| **2** | Fiche Google bien remplie + avis | Faible, régulier | Énorme (résultats locaux) |\n| **3** | Pages métier + ville, réponses aux vraies questions | Moyen | Fort |\n| **4** | Signes de confiance (auteure, diplômes, dates) | Faible | Fort, surtout pour les IA |\n| **5** | Mobile et vitesse | Technique, à déléguer | Éliminatoire si absent |\n| **6** | Ce que tu peux ignorer : blog fréquent, outils payants | Aucun | Économise ce temps |",
+      "Le référencement n'est pas une discipline de spécialistes du marketing digital. Pour une pratique d'accompagnement, c'est de l'hygiène. Un site clair, rapide, honnête sur qui tu es et ce que tu proposes : c'est exactement ce que Google classe, ce que les IA citent, et ce qu'une cliente rassurée attend de toi.",
+      "Si tu veux démarrer sans attendre le « moment parfait », [5 raisons d'avoir un site web maintenant](/blog/5-raisons-avoir-site-web-maintenant) complète ce guide sur le timing. Pour le détail métier et les inclusions : [site web pour coach](/site-web-pour/coach) et [tarifs](/tarifs). [En discuter avec Karelle](/#contact) en 30 minutes.",
+    ],
+  },
   {
     slug: "page-non-indexee-google-guide-debutant",
     title:
@@ -41,7 +146,7 @@ export const blogPosts: BlogPost[] = [
       "Pour comprendre ce qui bloque, il faut distinguer ==trois étapes== :",
       "- **L’exploration (crawl)** : Googlebot peut-il accéder à ta page ?\n- **Le rendu** : une fois la page ouverte, peut-il voir le contenu (surtout avec du JavaScript) ?\n- **L’indexation** : la page est-elle assez utile et originale pour être gardée ?",
       "Une page peut passer la première étape et échouer aux suivantes. Savoir où elle échoue est la **clé du diagnostic**.",
-      "Précision honnête. Google ne publie pas toutes les règles de son fonctionnement. Certaines notions de cet article, comme le « gain d’information », viennent de brevets et de déclarations d’ingénieurs. Ce sont des explications cohérentes avec ce que l’on observe, pas des chiffres officiels. Pour la version technique approfondie (logs, SSR, protocoles avancés), vois aussi [Indexation Google bloquée : anatomie des rejets de crawl](/blog/indexation-google-bloquee-rejets-crawl).",
+      "Précision honnête. Google ne publie pas toutes les règles de son fonctionnement. Certaines notions de cet article, comme le « gain d’information », viennent de brevets et de déclarations d’ingénieurs. Ce sont des explications cohérentes avec ce que l’on observe, pas des chiffres officiels. Pour la version technique approfondie (logs, SSR, protocoles avancés), vois aussi [Indexation Google bloquée : anatomie des rejets de crawl](/blog/indexation-google-bloquee-rejets-crawl). Pour le cadre global (nom, métier + ville, IA), vois [Optimiser son référencement pour Google et les IA](/blog/optimiser-seo-google-ia-debutant).",
       "## Que signifie « Détectée, actuellement non indexée » ?",
       "Google a repéré l’adresse (via ton sitemap ou un lien), mais ne l’a pas encore visitée. Il la juge ==trop peu prioritaire== pour l’instant. Dans Search Console, c’est souvent le premier message frustrant.",
       "Les causes fréquentes sont concrètes. La page est difficile à atteindre : aucun ou très peu de liens depuis d’autres pages de ton site. Ton site contient beaucoup de pages sans intérêt (filtres, pages vides, doublons), ce qui dilue l’attention de Google. Ton serveur est lent ou instable, et Googlebot ralentit pour ne pas le surcharger.",
@@ -355,7 +460,7 @@ export const blogPosts: BlogPost[] = [
  "Non. Une preuve fausse se retourne contre toi dès le premier échange réel. Mieux vaut trois phrases vraies qu’un mur de citations fabriquées. Si tu démarres, dis-le avec élégance : premiers accompagnements, retours de test, extrait de message avec accord. L’honnêteté convertit mieux que le théâtre sur le long terme.",
  "Place la preuve près de l’offre, pas en bas de page oubliée. Une phrase courte d’une cliente à côté du format 1:1 rassure au moment de la décision. C’est là que le doute apparaît. Traite-le à cet endroit. Sur [l’accueil](/), tu vois comment preuves et structure travaillent ensemble sans empiler les blocs décoratifs.",
  "## Que corriger en priorité cette semaine ?",
- "Clarté de l’offre, preuve, prochain pas visible, et lecture fluide sur téléphone : ces bases convertissent mieux qu’un site joli mais muet. Corrige-les avant d’ajouter une douzième page. Si ton site actuel est daté, la [refonte pour entrepreneuse](/besoin/refonte-site-internet-entrepreneure) décrit le scénario. Tu n’as pas besoin de perfection ; tu as besoin d’un site qui travaille pour toi.",
+ "Clarté de l’offre, preuve, prochain pas visible, et lecture fluide sur téléphone : ces bases aident plus qu’un site joli mais muet. Corrige-les avant d’ajouter une douzième page. Si ton site actuel est daté, la [refonte pour entrepreneuse](/besoin/refonte-site-internet-entrepreneure) décrit le scénario. Pour être trouvée ensuite sur Google et citée par les IA, vois [Optimiser son référencement pour Google et les IA](/blog/optimiser-seo-google-ia-debutant). Tu n’as pas besoin de perfection ; tu as besoin d’un site qui travaille pour toi.",
  ],
  },
  {
@@ -531,7 +636,7 @@ export const blogPosts: BlogPost[] = [
  "## Et si ton offre n’est pas encore « figée » ?",
  "Elle ne le sera jamais complètement. Une version 1 honnête bat une version idéale absente. Indique le format actuel, le public actuel, le prochain pas actuel. Tu mettras à jour quand l’offre évoluera. C’est précisément ce que permettent les modifications par email : le site suit ton métier, il ne le fige pas pour deux ans. Attendre la version finale, c’est souvent attendre trop longtemps. Publie d’abord ; affine ensuite avec les vrais retours de tes prospectes et de tes premières clientes.",
  "## Que faire cette semaine ?",
- "Chaque semaine sans site, c’est des demandes qui partent ailleurs. Le deuxième meilleur moment pour te lancer, c’est maintenant. Pose trois phrases d’offre, rassemble cinq photos, choisis **89 €/mois (24 mois)** ou **139 €/mois (12 mois)** selon ton besoin, et avance. Les [tarifs](/tarifs) et [l’accueil](/) donnent le cadre. Tu racontes ton activité ; je m’occupe du reste.",
+ "Chaque semaine sans site, c’est des demandes qui partent ailleurs. Le deuxième meilleur moment pour te lancer, c’est maintenant. Pose trois phrases d’offre, rassemble cinq photos, choisis **89 €/mois (24 mois)** ou **139 €/mois (12 mois)** selon ton besoin, et avance. Les [tarifs](/tarifs) et [l’accueil](/) donnent le cadre. Pour être trouvée ensuite sur Google et citée par les IA, le guide [Optimiser son référencement pour Google et les IA](/blog/optimiser-seo-google-ia-debutant) pose les six fondamentaux. Tu racontes ton activité ; je m’occupe du reste.",
  ],
  },
  {

@@ -7,7 +7,7 @@ export type SiteVideo = {
   thumbnailPath: string;
   name: string;
   description: string;
-  /** ISO 8601 date (YYYY-MM-DD) */
+  /** ISO 8601 date-heure avec fuseau (ex. 2025-09-24T10:00:00+02:00) */
   uploadDate: string;
   /** Secondes (arrondi) */
   durationSeconds: number;
@@ -25,7 +25,7 @@ export const siteVideos: readonly SiteVideo[] = [
     name: "Aperçu d’un site web livré par Kopio",
     description:
       "Démo d’un site livré : offre claire, preuves et parcours de contact.",
-    uploadDate: "2025-09-24",
+    uploadDate: "2025-09-24T10:00:00+02:00",
     durationSeconds: 28,
     pagePaths: ["/"],
     category: "Site livré",
@@ -38,7 +38,7 @@ export const siteVideos: readonly SiteVideo[] = [
     name: "Aperçu site web PULSE, consultante en bien-être",
     description:
       "Démo du site livré pour PULSE, consultante en bien-être : offre claire, preuves et prise de contact simplifiée.",
-    uploadDate: "2025-09-25",
+    uploadDate: "2025-09-25T10:00:00+02:00",
     durationSeconds: 29,
     pagePaths: ["/", "/projets"],
     category: "Consultante en bien-être",

@@ -9,7 +9,7 @@ import { BlogCard, blogPostToCard } from "@/components/blog/BlogCard";
 import { ContactSection } from "@/components/home/ContactSection";
 import { SectionHead } from "@/components/ui/SectionHead";
 import { FAQ } from "@/components/home/FAQ";
-import { ArticleJsonLd, FaqJsonLd } from "@/components/seo/JsonLd";
+import { ArticleJsonLd, FaqJsonLd, HowToJsonLd } from "@/components/seo/JsonLd";
 import { buildPageMetadata } from "@/lib/metadata";
 
 interface BlogPostPageProps {
@@ -67,6 +67,13 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       />
       {post.faqs && post.faqs.length > 0 ? (
         <FaqJsonLd items={post.faqs} />
+      ) : null}
+      {post.howTo ? (
+        <HowToJsonLd
+          name={post.howTo.name}
+          description={post.howTo.description}
+          steps={post.howTo.steps}
+        />
       ) : null}
       <article className="pt-36 md:pt-40 pb-16 px-6">
         <div className="max-w-3xl mx-auto">

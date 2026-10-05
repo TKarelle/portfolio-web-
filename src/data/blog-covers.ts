@@ -16,6 +16,7 @@ export const BLOG_COVER_BY_SLUG: Record<string, string> = {
   "combien-coute-site-vitrine-2026": `${BASE}/blog-prix-vitrine.jpg`,
   "5-raisons-avoir-site-web-maintenant": `${BASE}/blog-site-maintenant.jpg`,
   "ia-creation-site-web-pieges": `${BASE}/blog-ia-pieges.jpg`,
+  "optimiser-seo-google-ia-debutant": `${BASE}/blog-seo.jpg`,
 };
 
 const FALLBACK = `${BASE}/blog-seo.jpg`;

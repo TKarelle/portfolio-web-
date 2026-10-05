@@ -145,8 +145,11 @@ Verdict : Budget réaliste 2026 : dès 89 €/mois en WaaS, ou 2 000 €+ en age
 BLOG CLÉS
 ================================================================================
 
+/blog/optimiser-seo-google-ia-debutant
+Angle : 6 fondamentaux pour être trouvée sur Google et citée par les IA (débutantes, coachs/thérapeutes). Date 2026-10-05. Cluster « être trouvée ». Maillage quiz + coût coach + indexation.
+
 /blog/page-non-indexee-google-guide-debutant
-Angle : guide débutant Search Console (détectée / explorée non indexée), CSR vs SSR, checklist. Date 2026-10-02. Maillage vers l’article technique.
+Angle : guide débutant Search Console (détectée / explorée non indexée), CSR vs SSR, checklist. Date 2026-10-02. Maillage vers l’article technique et le guide référencement IA.
 
 /blog/indexation-google-bloquee-rejets-crawl
 Angle : anatomie des rejets de crawl (détectée / explorée non indexée), CSR vs SSR, Information Gain, protocole de déblocage. Date 2026-10-02.
