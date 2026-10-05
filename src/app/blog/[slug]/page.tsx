@@ -116,7 +116,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           <div className="relative h-64 md:h-80 photo-frame my-10">
             <Image
               src={post.image}
-              alt={post.title}
+              alt={post.imageAlt}
               fill
               priority
               quality={80}

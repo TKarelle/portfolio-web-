@@ -8,6 +8,7 @@ import {
   FOUNDER_EXPERIENCE,
   FOUNDER_NAME,
   FOUNDER_PHOTO,
+  FOUNDER_PHOTO_ALT,
 } from "@/data/site";
 import { SectionHead } from "@/components/ui/SectionHead";
 
@@ -49,7 +50,7 @@ export function HowIWork() {
           >
             <Image
               src={FOUNDER_PHOTO}
-              alt={`${FOUNDER_NAME}, développeuse web indépendante`}
+              alt={FOUNDER_PHOTO_ALT}
               fill
               className="object-cover rounded-[1.1rem]"
               sizes="400px"

@@ -25,6 +25,8 @@ type BlogCardProps = {
   href: string;
   external?: boolean;
   image: string;
+  /** Alt descriptif (sujet + contexte) ; fallback titre si absent */
+  imageAlt?: string;
   category: string;
   title: string;
   description: string;
@@ -40,6 +42,7 @@ export function BlogCard({
   href,
   external = false,
   image,
+  imageAlt,
   category,
   title,
   description,
@@ -63,7 +66,7 @@ export function BlogCard({
       >
         <Image
           src={image}
-          alt={`Illustration : ${title}`}
+          alt={imageAlt ?? title}
           fill
           loading="lazy"
           quality={75}
@@ -125,6 +128,7 @@ export function blogPostToCard(post: ResolvedBlogPost): BlogCardProps {
   return {
     href: `/blog/${post.slug}`,
     image: getBlogCover(post.slug, post.image),
+    imageAlt: post.imageAlt,
     category: post.category,
     title: post.title,
     description: post.excerpt,
@@ -142,6 +146,7 @@ export function projectToCard(project: Project): BlogCardProps {
     href: project.url ?? "/projets",
     external: Boolean(project.url),
     image: project.image,
+    imageAlt: project.imageAlt,
     category: project.category,
     title: project.title,
     description: project.result,

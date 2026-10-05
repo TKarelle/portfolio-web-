@@ -121,7 +121,7 @@ export function MetierTemplate({ data }: { data: MetierPage }) {
                 <div className="lg:col-span-2 relative aspect-[16/10] lg:aspect-auto lg:min-h-[280px] photo-frame overflow-hidden">
                   <Image
                     src={study.image}
-                    alt={study.title}
+                    alt={study.imageAlt}
                     fill
                     loading="lazy"
                     className="object-cover object-top"

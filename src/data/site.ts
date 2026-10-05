@@ -1,5 +1,8 @@
 export const FOUNDER_NAME = "Karelle";
 export const FOUNDER_PHOTO = "/image/pp.jpg";
+/** Alt accessible / SEO : nom + rôle (E-E-A-T) */
+export const FOUNDER_PHOTO_ALT =
+  "Karelle, développeuse web indépendante spécialisée dans les sites des professionnelles de l'accompagnement";
 export const FOUNDER_DIPLOMA = "Diplômée en développement web";
 export const FOUNDER_EXPERIENCE = "2 ans d’expérience";
 export const BRAND_NAME = "Kopio";

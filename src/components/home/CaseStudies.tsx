@@ -30,7 +30,7 @@ export function CaseStudies() {
                 <div className="lg:col-span-2 lg:[direction:ltr] relative aspect-[16/10] lg:aspect-auto lg:min-h-[300px] border-b-2 lg:border-b-0 lg:border-r-2 border-ink overflow-hidden bg-ink/5">
                   <Image
                     src={study.capture}
-                    alt={`Livrable : site de ${study.firstName}, ${study.metier}`}
+                    alt={`Capture du site livré pour ${study.firstName}, ${study.metier} à ${study.city}`}
                     fill
                     loading="lazy"
                     className="object-cover object-top"
@@ -47,7 +47,7 @@ export function CaseStudies() {
                     <div className="relative w-12 h-12 shrink-0 photo-frame photo-frame-lime overflow-hidden">
                       <Image
                         src={study.photo}
-                        alt={`${study.firstName}, ${study.metier}`}
+                        alt={`Portrait de ${study.firstName}, ${study.metier} à ${study.city}`}
                         fill
                         className="object-cover rounded-[0.75rem]"
                         sizes="48px"

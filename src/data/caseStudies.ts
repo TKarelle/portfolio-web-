@@ -76,6 +76,7 @@ export const caseStudies = projects
     title: p.title,
     category: p.category,
     image: p.image,
+    imageAlt: p.imageAlt,
     context: p.description.split(".")[0] + ".",
     problem: getProblem(p.id),
     solution: getSolution(p.id),

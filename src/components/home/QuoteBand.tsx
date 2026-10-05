@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { FOUNDER_DIPLOMA, FOUNDER_NAME, FOUNDER_PHOTO } from "@/data/site";
+import { FOUNDER_DIPLOMA, FOUNDER_NAME, FOUNDER_PHOTO, FOUNDER_PHOTO_ALT } from "@/data/site";
 
 export function QuoteBand() {
   return (
@@ -34,7 +34,7 @@ export function QuoteBand() {
           <div className="relative w-16 h-16 md:w-[4.5rem] md:h-[4.5rem] shrink-0 photo-frame photo-frame-lime">
             <Image
               src={FOUNDER_PHOTO}
-              alt={FOUNDER_NAME}
+              alt={FOUNDER_PHOTO_ALT}
               fill
               className="object-cover rounded-[0.9rem]"
               sizes="72px"

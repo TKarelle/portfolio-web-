@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { FOUNDER_NAME, FOUNDER_PHOTO } from "@/data/site";
+import { FOUNDER_NAME, FOUNDER_PHOTO, FOUNDER_PHOTO_ALT } from "@/data/site";
 
 export function BlogAuthor() {
   return (
@@ -7,7 +7,7 @@ export function BlogAuthor() {
       <div className="relative w-14 h-14 photo-frame-lime shrink-0">
         <Image
           src={FOUNDER_PHOTO}
-          alt={FOUNDER_NAME}
+          alt={FOUNDER_PHOTO_ALT}
           fill
           className="object-cover rounded-xl"
           sizes="56px"

@@ -40,7 +40,7 @@ export function PageIntro({
   description,
   stroke = "pink",
   image,
-  imageAlt = "",
+  imageAlt,
   video,
   videoPoster = "/image/sitewebvideo-poster.jpg",
   videoLabel = "Aperçu du projet",
@@ -149,7 +149,7 @@ export function PageIntro({
           ) : image ? (
             <Image
               src={image}
-              alt={imageAlt}
+              alt={imageAlt ?? title}
               fill
               priority
               className="object-cover rounded-[1.1rem]"

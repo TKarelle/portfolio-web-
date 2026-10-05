@@ -1,4 +1,4 @@
-import { getBlogCover } from "@/data/blog-covers";
+import { getBlogCover, getBlogCoverAlt } from "@/data/blog-covers";
 
 export interface BlogPost {
  slug: string;
@@ -13,6 +13,8 @@ export interface BlogPost {
  category: string;
  /** Cover optionnelle : si absente, résolue via blog-covers.ts */
  image?: string;
+ /** Alt cover optionnel ; sinon résolu via blog-covers.ts */
+ imageAlt?: string;
  content: string[];
  /** FAQPage schema + bloc Questions fréquentes */
  faqs?: { question: string; answer: string }[];
@@ -24,11 +26,15 @@ export interface BlogPost {
  };
 }
 
-/** Article avec cover résolue (map slug → /image/blog-covers/…). */
-export type ResolvedBlogPost = BlogPost & { image: string };
+/** Article avec cover + alt résolus (map slug → /image/blog-covers/…). */
+export type ResolvedBlogPost = BlogPost & { image: string; imageAlt: string };
 
 function withCover(post: BlogPost): ResolvedBlogPost {
-  return { ...post, image: getBlogCover(post.slug, post.image) };
+  return {
+    ...post,
+    image: getBlogCover(post.slug, post.image),
+    imageAlt: post.imageAlt ?? getBlogCoverAlt(post.slug, post.title),
+  };
 }
 
 export const blogPosts: BlogPost[] = [

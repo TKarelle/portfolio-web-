@@ -5,7 +5,7 @@ import { PageIntro } from "@/components/ui/PageIntro";
 import { ValueBanner } from "@/components/ui/ValueBanner";
 import { ContactSection } from "@/components/home/ContactSection";
 import { CTA } from "@/data/copy";
-import { FOUNDER_NAME, FOUNDER_PHOTO } from "@/data/site";
+import { FOUNDER_NAME, FOUNDER_PHOTO, FOUNDER_PHOTO_ALT } from "@/data/site";
 import { buildPageMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = buildPageMetadata({
@@ -47,7 +47,7 @@ export default function AboutPage() {
         stroke="violet"
         description="Développeuse web indépendante. j'aide les professionnelles de l'accompagnement à avoir un site clair : sans prise de tête, sans attendre 3 mois."
         image={FOUNDER_PHOTO}
-        imageAlt={`${FOUNDER_NAME}, développeuse web indépendante`}
+        imageAlt={FOUNDER_PHOTO_ALT}
         badge="Dès 89 €/mois"
         frame="lime"
         secondaryHref="/tarifs"
