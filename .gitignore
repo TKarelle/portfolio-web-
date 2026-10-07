@@ -49,6 +49,10 @@ public/image/sitewebvideo.mov
 /data/quiz-leads.xlsx
 /data/quiz-leads.csv
 
+# Exports logs bots (Sem.1 crawl analysis, local)
+/data/bot-hits.jsonl
+/data/bot-hits*.jsonl
+
 # Charte éditoriale / règles agent (local only)
 /docs/
 .cursor/rules/charte-editoriale-seo.mdc

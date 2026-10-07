@@ -30,6 +30,13 @@ const nextConfig: NextConfig = {
           },
         ],
       },
+      // Sem.1 — API hors index (Waste Crawl), 0 €
+      {
+        source: "/api/:path*",
+        headers: [
+          { key: "X-Robots-Tag", value: "noindex, nofollow" },
+        ],
+      },
     ];
   },
   async redirects() {
