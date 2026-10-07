@@ -21,8 +21,11 @@ export const SITE_META_DESCRIPTION =
 export const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.kopio.eu";
 
-/** Dernière mise à jour éditoriale majeure (sitemap lastmod stable). */
-export const SITE_CONTENT_UPDATED = "2026-09-30";
+/**
+ * Fallback lastmod (sitemap). Préférer CLUSTER_LASTMOD dans content-dates.ts.
+ * Bump lors d’une refonte éditoriale globale.
+ */
+export const SITE_CONTENT_UPDATED = "2026-10-07";
 
 /** Lien Calendly (couleurs natives Calendly) */
 export const CALENDLY_URL =

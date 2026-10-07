@@ -1,7 +1,7 @@
 # Kopio — llms-full.txt
 # Contenu clé en texte brut pour crawlers IA (GPTBot, PerplexityBot, ClaudeBot, Google-Extended)
 # Site : https://www.kopio.eu
-# Dernière mise à jour : 2026-09-30
+# Dernière mise à jour : 2026-10-07
 
 ================================================================================
 QUI EST KOPIO
