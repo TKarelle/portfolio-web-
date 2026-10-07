@@ -10,6 +10,7 @@ import { ComparisonTable } from "@/components/home/ComparisonTable";
 import { SeoProseSections } from "@/components/seo/SeoProseSections";
 import { HeroFacts } from "@/components/ui/HeroFacts";
 import { BRAND_NAME } from "@/data/site";
+import { BlackInkBridge } from "@/components/seo/BlackInkBridge";
 
 export function ComparatifTemplate({ data }: { data: ComparatifPageData }) {
   const siblings = comparatifs.filter((c) => c.slug !== data.slug);
@@ -109,17 +110,14 @@ export function ComparatifTemplate({ data }: { data: ComparatifPageData }) {
           <Button href="/contact" size="lg">
             {data.ctaLabel}
           </Button>
-          <p className="mt-6 text-sm text-muted font-medium">
-            Voir l&apos;{" "}
-            <Link href="/" className="text-violet font-bold hover:underline">
-              accueil
-            </Link>{" "}
-            ou les{" "}
-            <Link href="/tarifs" className="text-violet font-bold hover:underline">
-              tarifs
-            </Link>
-            .
-          </p>
+          <BlackInkBridge
+            variant="comparatif"
+            keyword={data.keyword}
+            siblings={siblings.slice(0, 1).map((c) => ({
+              href: comparatifPath(c.slug),
+              anchor: c.keyword,
+            }))}
+          />
         </div>
         <div className="max-w-4xl mx-auto">
           <p className="text-sm font-extrabold uppercase tracking-wider text-pink mb-3">

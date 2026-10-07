@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-07T12:26:22.232Z",
+  "generatedAt": "2026-10-07T12:35:08.971Z",
   "base": "https://www.kopio.eu",
   "axioms": [
     {
@@ -42,10 +42,35 @@
     "@context": "https://schema.org",
     "@graph": [
       {
+        "@type": "WebSite",
+        "@id": "https://www.kopio.eu/#website",
+        "name": "Kopio",
+        "url": "https://www.kopio.eu",
+        "publisher": {
+          "@id": "https://www.kopio.eu/#organization"
+        },
+        "about": {
+          "@id": "https://www.kopio.eu/#business"
+        }
+      },
+      {
         "@type": "Organization",
         "@id": "https://www.kopio.eu/#organization",
         "name": "Kopio",
-        "url": "https://www.kopio.eu"
+        "url": "https://www.kopio.eu",
+        "founder": {
+          "@id": "https://www.kopio.eu/#person"
+        },
+        "sameAs": [
+          "https://share.google/n6U3hqCZBrkWmJtln"
+        ],
+        "knowsAbout": [
+          "Création de site web",
+          "SEO",
+          "Coaching",
+          "Thérapie",
+          "Sophrologie"
+        ]
       },
       {
         "@type": "Person",
@@ -54,8 +79,21 @@
         "jobTitle": "Développeuse web indépendante",
         "url": "https://www.kopio.eu/a-propos",
         "worksFor": {
-          "@id": "https://www.kopio.eu/#organization"
-        }
+          "@id": "https://www.kopio.eu/#business"
+        },
+        "sameAs": [
+          "https://www.linkedin.com/in/karelle-table/",
+          "https://share.google/n6U3hqCZBrkWmJtln"
+        ],
+        "hasCredential": {
+          "@type": "EducationalOccupationalCredential",
+          "name": "Diplôme en développement web"
+        },
+        "knowsAbout": [
+          "Création de site web",
+          "SEO",
+          "Professionnelles de l'accompagnement"
+        ]
       },
       {
         "@type": "ProfessionalService",
@@ -65,7 +103,13 @@
         "priceRange": "EUR 89-179 per month",
         "founder": {
           "@id": "https://www.kopio.eu/#person"
-        }
+        },
+        "parentOrganization": {
+          "@id": "https://www.kopio.eu/#organization"
+        },
+        "sameAs": [
+          "https://share.google/n6U3hqCZBrkWmJtln"
+        ]
       }
     ]
   },

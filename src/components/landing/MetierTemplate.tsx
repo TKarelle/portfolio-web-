@@ -15,7 +15,9 @@ import { SeoProseSections } from "@/components/seo/SeoProseSections";
 import { HeroFacts } from "@/components/ui/HeroFacts";
 import { pricingPlans } from "@/data/pricing";
 import { resolveMetierSiblings } from "@/lib/cluster-mesh";
+import { metierAnchor } from "@/lib/black-ink";
 import { IgDecisionMatrix } from "@/components/seo/IgDecisionMatrix";
+import { BlackInkBridge } from "@/components/seo/BlackInkBridge";
 
 const THERAPIE_VS_SOPHRO: readonly (readonly [string, string, string])[] = [
   ["Intention de la visiteuse", "Cadre thérapeutique, motif de consultation", "Stress, sommeil, préparation mentale"],
@@ -218,36 +220,30 @@ export function MetierTemplate({ data }: { data: MetierPage }) {
           <Button href="/contact" size="lg">
             {data.ctaLabel}
           </Button>
-          <p className="mt-6 text-sm text-muted font-medium">
-            Voir l&apos;{" "}
-            <Link href="/" className="text-violet font-bold hover:underline">
-              offre Kopio
-            </Link>
-            , les{" "}
-            <Link href="/tarifs" className="text-violet font-bold hover:underline">
-              tarifs
-            </Link>
-            {data.relatedBesoinSlug && (
-              <>
-                {" "}
-                ou{" "}
-                <Link
-                  href={besoinPath(data.relatedBesoinSlug)}
-                  className="text-violet font-bold hover:underline"
-                >
-                  {data.relatedBesoinLabel ?? "un besoin proche"}
-                </Link>
-              </>
-            )}
-            .
-          </p>
+          <BlackInkBridge
+            variant="metier"
+            keyword={data.keyword}
+            relatedBesoin={
+              data.relatedBesoinSlug
+                ? {
+                    href: besoinPath(data.relatedBesoinSlug),
+                    anchor:
+                      data.relatedBesoinLabel ?? "un besoin proche",
+                  }
+                : undefined
+            }
+            siblings={siblings.slice(0, 2).map((m) => ({
+              href: metierPath(m.slug),
+              anchor: metierAnchor(m.metier),
+            }))}
+          />
         </div>
       </section>
 
       <section className="py-12 px-6 bg-chunk-pink border-t border-ink/5">
         <div className="max-w-5xl mx-auto">
           <p className="text-sm font-extrabold uppercase tracking-wider text-pink mb-4">
-            Autres métiers
+            Métiers du même cocon
           </p>
           <ul className="flex flex-wrap gap-2">
             {siblings.map((m) => (
@@ -256,7 +252,7 @@ export function MetierTemplate({ data }: { data: MetierPage }) {
                   href={metierPath(m.slug)}
                   className="inline-block px-3 py-1.5 text-sm font-semibold rounded-full border border-ink/15 bg-surface hover:bg-lime transition-colors"
                 >
-                  Site web pour {m.metier}
+                  {m.label}
                 </Link>
               </li>
             ))}

@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Hero } from "@/components/home/Hero";
 import { SocialProof } from "@/components/home/SocialProof";
-import { AntiFear } from "@/components/home/AntiFear";
 import { QuizLeadMagnet } from "@/components/home/QuizLeadMagnet";
 import { Constat } from "@/components/home/Constat";
 import { RoiProof } from "@/components/home/RoiProof";
@@ -36,7 +35,6 @@ export default function HomePage() {
       <VideoJsonLd pagePath="/" />
       <Hero />
       <SocialProof />
-      <AntiFear />
       <Constat />
       <QuizLeadMagnet />
       <RoiProof />

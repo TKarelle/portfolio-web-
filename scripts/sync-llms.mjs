@@ -331,10 +331,27 @@ const entities = {
     "@context": "https://schema.org",
     "@graph": [
       {
+        "@type": "WebSite",
+        "@id": `${BASE}/#website`,
+        name: "Kopio",
+        url: BASE,
+        publisher: { "@id": `${BASE}/#organization` },
+        about: { "@id": `${BASE}/#business` },
+      },
+      {
         "@type": "Organization",
         "@id": `${BASE}/#organization`,
         name: "Kopio",
         url: BASE,
+        founder: { "@id": `${BASE}/#person` },
+        sameAs: ["https://share.google/n6U3hqCZBrkWmJtln"],
+        knowsAbout: [
+          "Création de site web",
+          "SEO",
+          "Coaching",
+          "Thérapie",
+          "Sophrologie",
+        ],
       },
       {
         "@type": "Person",
@@ -342,7 +359,20 @@ const entities = {
         name: "Karelle",
         jobTitle: "Développeuse web indépendante",
         url: `${BASE}/a-propos`,
-        worksFor: { "@id": `${BASE}/#organization` },
+        worksFor: { "@id": `${BASE}/#business` },
+        sameAs: [
+          "https://www.linkedin.com/in/karelle-table/",
+          "https://share.google/n6U3hqCZBrkWmJtln",
+        ],
+        hasCredential: {
+          "@type": "EducationalOccupationalCredential",
+          name: "Diplôme en développement web",
+        },
+        knowsAbout: [
+          "Création de site web",
+          "SEO",
+          "Professionnelles de l'accompagnement",
+        ],
       },
       {
         "@type": "ProfessionalService",
@@ -351,6 +381,8 @@ const entities = {
         url: BASE,
         priceRange: "EUR 89-179 per month",
         founder: { "@id": `${BASE}/#person` },
+        parentOrganization: { "@id": `${BASE}/#organization` },
+        sameAs: ["https://share.google/n6U3hqCZBrkWmJtln"],
       },
     ],
   },

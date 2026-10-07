@@ -4,6 +4,7 @@ import { SectionHead } from "@/components/ui/SectionHead";
 import { PageIntro } from "@/components/ui/PageIntro";
 import { ValueBanner } from "@/components/ui/ValueBanner";
 import { ContactSection } from "@/components/home/ContactSection";
+import { ProfilePageJsonLd } from "@/components/seo/JsonLd";
 import { CTA } from "@/data/copy";
 import { FOUNDER_NAME, FOUNDER_PHOTO, FOUNDER_PHOTO_ALT } from "@/data/site";
 import { buildPageMetadata } from "@/lib/metadata";
@@ -37,6 +38,7 @@ const values = [
 export default function AboutPage() {
   return (
     <>
+      <ProfilePageJsonLd />
       <PageIntro
         breadcrumbs={[
           { label: "Accueil", href: "/" },
@@ -61,6 +63,34 @@ export default function AboutPage() {
             fluides et ultra-rapides, pour que la technique s&apos;efface
             totalement au profit de votre message.
           </p>
+
+          <div className="max-w-3xl mx-auto mb-14 md:mb-16">
+            <div className="text-center mb-6">
+              <SectionHead stroke="lime" highlight="accompagnement">
+                {"Pour qui je travaille"}
+              </SectionHead>
+            </div>
+            <div className="space-y-4 text-base md:text-lg font-medium leading-relaxed text-muted">
+              <p>
+                <strong className="text-ink">Kopio</strong> s&apos;adresse aux{" "}
+                <strong className="text-ink">
+                  professionnelles de l&apos;accompagnement
+                </strong>{" "}
+                : coachs, thérapeutes, sophrologues, consultantes, assistantes
+                virtuelles, naturopathes, créatrices. Sites en abonnement dès{" "}
+                89&nbsp;€/mois — conception, hébergement et évolutions inclus.
+              </p>
+              <p>
+                Ce n&apos;est plus une offre pour artisans du bâtiment, plombiers
+                ou entreprises de travaux. Les anciennes pages sur ces métiers
+                redirigent vers la niche actuelle : l&apos;entité indexée est{" "}
+                <strong className="text-ink">
+                  Karelle / Kopio — sites pour l&apos;accompagnement
+                </strong>
+                , pas le BTP.
+              </p>
+            </div>
+          </div>
 
           <div className="text-center mb-10">
             <SectionHead stroke="violet" highlight="je crois">

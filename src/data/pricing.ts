@@ -192,22 +192,6 @@ export const pricingPlans = [
 
 export type PricingPlan = (typeof pricingPlans)[number];
 
-/** Bloc anti-peur (section 2) */
-export const antiFear = {
-  eyebrow: "Sortir le sujet de votre tête",
-  headline: "Ce que vous n’aurez jamais à faire avec Kopio",
-  items: [
-    "Choisir un hébergeur ou comprendre un CMS",
-    "Rédiger vos textes seule face à une page blanche",
-    "Mettre à jour, sauvegarder, sécuriser quoi que ce soit",
-    "Re-payer un devis pour chaque modification",
-    "Supplier un prestataire devenu injoignable",
-  ],
-  punchline: "Ce sujet sort de votre tête. Définitivement.",
-  anchor:
-    "15 à 40 heures de charge mentale éparse la première année. C’est ce que Kopio retire de votre semaine.",
-} as const;
-
 /** Comparatif Kopio vs Wix/WordPress vs agence : textes courts pour mobile */
 export const offerComparison = [
   {

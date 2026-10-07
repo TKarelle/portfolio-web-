@@ -12,6 +12,7 @@ import { ServiceJsonLd } from "@/components/seo/JsonLd";
 import { SeoProseSections } from "@/components/seo/SeoProseSections";
 import { HeroFacts } from "@/components/ui/HeroFacts";
 import { resolveBesoinSiblings } from "@/lib/cluster-mesh";
+import { BlackInkBridge } from "@/components/seo/BlackInkBridge";
 
 export function BesoinTemplate({ data }: { data: BesoinPageData }) {
   const recommended =
@@ -127,24 +128,21 @@ export function BesoinTemplate({ data }: { data: BesoinPageData }) {
           <Button href="/contact" size="lg">
             {data.ctaLabel}
           </Button>
-          <p className="mt-6 text-sm text-muted font-medium">
-            Retour à l&apos;{" "}
-            <Link href="/" className="text-violet font-bold hover:underline">
-              accueil
-            </Link>{" "}
-            ou aux{" "}
-            <Link href="/tarifs" className="text-violet font-bold hover:underline">
-              tarifs
-            </Link>
-            .
-          </p>
+          <BlackInkBridge
+            variant="besoin"
+            keyword={data.keyword}
+            siblings={siblings.slice(0, 2).map((b) => ({
+              href: besoinPath(b.slug),
+              anchor: b.label,
+            }))}
+          />
         </div>
       </section>
 
       <section className="py-10 px-6 bg-bg">
         <div className="max-w-5xl mx-auto">
           <p className="text-sm font-extrabold uppercase tracking-wider text-pink mb-3">
-            Autres besoins
+            Besoins du même cocon
           </p>
           <ul className="flex flex-wrap gap-2">
             {siblings.map((b) => (

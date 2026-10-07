@@ -1,4 +1,5 @@
 import { getBlogCover, getBlogCoverAlt } from "@/data/blog-covers";
+import clusterNeighbors from "@/data/generated/cluster-neighbors.json";
 
 export interface BlogPost {
  slug: string;
@@ -705,5 +706,27 @@ export function getBlogPost(slug: string): ResolvedBlogPost | undefined {
 }
 
 export function getRelatedPosts(slug: string, limit = 3): ResolvedBlogPost[] {
-  return blogPosts.filter((p) => p.slug !== slug).slice(0, limit).map(withCover);
+  // Sem.10 — préférer voisins cosine (cluster-neighbors)
+  const preferred =
+    (
+      clusterNeighbors as {
+        neighbors?: Record<string, { slug: string }[]>;
+      }
+    ).neighbors?.[`/blog/${slug}`]?.map((n) => n.slug) ?? [];
+
+  const bySlug = new Map(blogPosts.map((p) => [p.slug, p]));
+  const picked: BlogPost[] = [];
+  for (const s of preferred) {
+    const p = bySlug.get(s);
+    if (p && p.slug !== slug) picked.push(p);
+    if (picked.length >= limit) break;
+  }
+  if (picked.length < limit) {
+    for (const p of blogPosts) {
+      if (p.slug === slug || picked.some((x) => x.slug === p.slug)) continue;
+      picked.push(p);
+      if (picked.length >= limit) break;
+    }
+  }
+  return picked.map(withCover);
 }
