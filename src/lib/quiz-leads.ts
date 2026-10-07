@@ -1,15 +1,10 @@
 /**
- * Stockage des leads quiz.
- *
- * - Local : data/quiz-leads.xls
- * - Vercel : email via Web3Forms (gratuit) → Gmail + log stdout
- * - Optionnel : QUIZ_LEADS_WEBHOOK_URL (Discord)
- *
- * Clé gratuite : https://web3forms.com → Access Key → var WEB3FORMS_ACCESS_KEY
+ * Stockage / log des leads quiz (fichier local ou /tmp + stdout).
+ * L’email Web3Forms part du navigateur (NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY) —
+ * le plan gratuit refuse les appels serveur (403).
  */
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
-import { CONTACT_EMAIL } from "@/data/site";
 
 export type QuizLead = {
   name: string;
@@ -102,82 +97,6 @@ export function getLeadsFilePath(): string {
   return resolveLeadsFile();
 }
 
-/** Envoie le lead dans Gmail via Web3Forms (0 €, API serveur OK — pas de Cloudflare). */
-async function notifyEmail(lead: QuizLead): Promise<boolean> {
-  const accessKey = process.env.WEB3FORMS_ACCESS_KEY?.trim();
-  if (!accessKey) {
-    console.warn(
-      "[quiz-leads] WEB3FORMS_ACCESS_KEY manquante — lead visible dans les logs uniquement",
-    );
-    return false;
-  }
-
-  const to = (process.env.QUIZ_LEADS_EMAIL ?? CONTACT_EMAIL).trim();
-
-  try {
-    const res = await fetch("https://api.web3forms.com/submit", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-      body: JSON.stringify({
-        access_key: accessKey,
-        subject: `[Kopio] Lead quiz — ${lead.name}`,
-        from_name: "Kopio Quiz",
-        name: lead.name,
-        email: lead.email,
-        replyto: lead.email,
-        message: `Nouveau lead quiz Kopio\n\nNom : ${lead.name}\nEmail : ${lead.email}\nDate : ${lead.createdAt}`,
-        to,
-      }),
-    });
-    const data = (await res.json().catch(() => null)) as {
-      success?: boolean;
-      message?: string;
-    } | null;
-    if (!res.ok || data?.success === false) {
-      console.error("[quiz-leads] web3forms", res.status, data);
-      return false;
-    }
-    return true;
-  } catch (err) {
-    console.error("[quiz-leads] email failed", err);
-    return false;
-  }
-}
-
-async function notifyWebhook(lead: QuizLead): Promise<void> {
-  const url = process.env.QUIZ_LEADS_WEBHOOK_URL?.trim();
-  if (!url) return;
-
-  try {
-    await fetch(url, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        content: `Nouveau lead quiz Kopio : **${lead.name}** — ${lead.email}`,
-        embeds: [
-          {
-            title: "Lead quiz",
-            fields: [
-              { name: "Nom", value: lead.name, inline: true },
-              { name: "Email", value: lead.email, inline: true },
-              { name: "Date", value: lead.createdAt, inline: false },
-            ],
-          },
-        ],
-        name: lead.name,
-        email: lead.email,
-        createdAt: lead.createdAt,
-        source: "kopio-quiz",
-      }),
-    });
-  } catch (err) {
-    console.error("[quiz-leads] webhook failed", err);
-  }
-}
-
 export async function appendQuizLead(
   lead: Omit<QuizLead, "createdAt">,
 ): Promise<{
@@ -192,7 +111,6 @@ export async function appendQuizLead(
     createdAt: new Date().toISOString(),
   };
 
-  // Toujours tracer en logs Vercel (récupération manuelle, 0 €)
   console.info(
     JSON.stringify({
       type: "quiz_lead",
@@ -225,17 +143,13 @@ export async function appendQuizLead(
     }
     persisted = true;
   } catch (err) {
-    // EROFS ou autre : le lead est déjà dans stdout ; ne pas faire échouer le quiz
     console.error("[quiz-leads] file persist skipped", err);
     existing = [entry];
   }
 
-  const emailed = await notifyEmail(entry);
-  await notifyWebhook(entry);
-
   return {
     path: filePath,
     total: existing.length,
-    persisted: persisted || emailed,
+    persisted,
   };
 }

@@ -77,17 +77,44 @@ function GateForm({ onUnlocked }: { onUnlocked: (g: GateState) => void }) {
 
     setLoading(true);
     try {
-      const res = await fetch("/api/quiz-leads", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name: trimmedName, email: trimmedEmail }),
-      });
-      const data = (await res.json()) as { error?: string };
-      if (!res.ok) {
-        setError(data.error ?? "Enregistrement impossible.");
+      // Web3Forms gratuit = appel navigateur uniquement (403 si proxy serveur)
+      const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY?.trim();
+      if (!accessKey) {
+        setError("Configuration email manquante. Réessayez plus tard.");
         setLoading(false);
         return;
       }
+
+      const formData = new FormData();
+      formData.append("access_key", accessKey);
+      formData.append("subject", `[Kopio] Lead quiz — ${trimmedName}`);
+      formData.append("from_name", "Kopio Quiz");
+      formData.append("name", trimmedName);
+      formData.append("email", trimmedEmail);
+      formData.append(
+        "message",
+        `Nouveau lead quiz Kopio\n\nNom : ${trimmedName}\nEmail : ${trimmedEmail}\nDate : ${new Date().toISOString()}`,
+      );
+      formData.append("botcheck", "");
+
+      const w3 = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
+      });
+      const w3Data = (await w3.json()) as { success?: boolean; message?: string };
+      if (!w3.ok || !w3Data.success) {
+        setError(w3Data.message ?? "Envoi impossible. Réessayez.");
+        setLoading(false);
+        return;
+      }
+
+      // Log serveur optionnel (ne bloque pas si ça échoue)
+      void fetch("/api/quiz-leads", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name: trimmedName, email: trimmedEmail }),
+      }).catch(() => {});
+
       const gate = { name: trimmedName, email: trimmedEmail };
       sessionStorage.setItem(STORAGE_KEY, JSON.stringify(gate));
       onUnlocked(gate);
