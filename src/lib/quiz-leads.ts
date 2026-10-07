@@ -2,8 +2,10 @@
  * Stockage des leads quiz.
  *
  * - Local : data/quiz-leads.xls
- * - Vercel : email gratuit vers CONTACT_EMAIL (FormSubmit) + log stdout
+ * - Vercel : email via Web3Forms (gratuit) → Gmail + log stdout
  * - Optionnel : QUIZ_LEADS_WEBHOOK_URL (Discord)
+ *
+ * Clé gratuite : https://web3forms.com → Access Key → var WEB3FORMS_ACCESS_KEY
  */
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
@@ -100,29 +102,42 @@ export function getLeadsFilePath(): string {
   return resolveLeadsFile();
 }
 
-/** Envoie le lead dans ta boîte Gmail (FormSubmit, 0 €, sans compte). */
+/** Envoie le lead dans Gmail via Web3Forms (0 €, API serveur OK — pas de Cloudflare). */
 async function notifyEmail(lead: QuizLead): Promise<boolean> {
+  const accessKey = process.env.WEB3FORMS_ACCESS_KEY?.trim();
+  if (!accessKey) {
+    console.warn(
+      "[quiz-leads] WEB3FORMS_ACCESS_KEY manquante — lead visible dans les logs uniquement",
+    );
+    return false;
+  }
+
   const to = (process.env.QUIZ_LEADS_EMAIL ?? CONTACT_EMAIL).trim();
-  if (!to) return false;
 
   try {
-    const res = await fetch(`https://formsubmit.co/ajax/${encodeURIComponent(to)}`, {
+    const res = await fetch("https://api.web3forms.com/submit", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
       },
       body: JSON.stringify({
+        access_key: accessKey,
+        subject: `[Kopio] Lead quiz — ${lead.name}`,
+        from_name: "Kopio Quiz",
         name: lead.name,
         email: lead.email,
-        message: `Nouveau lead quiz Kopio\nNom : ${lead.name}\nEmail : ${lead.email}\nDate : ${lead.createdAt}`,
-        _subject: `[Kopio] Lead quiz — ${lead.name}`,
-        _template: "table",
-        _captcha: "false",
+        replyto: lead.email,
+        message: `Nouveau lead quiz Kopio\n\nNom : ${lead.name}\nEmail : ${lead.email}\nDate : ${lead.createdAt}`,
+        to,
       }),
     });
-    if (!res.ok) {
-      console.error("[quiz-leads] email status", res.status, await res.text());
+    const data = (await res.json().catch(() => null)) as {
+      success?: boolean;
+      message?: string;
+    } | null;
+    if (!res.ok || data?.success === false) {
+      console.error("[quiz-leads] web3forms", res.status, data);
       return false;
     }
     return true;
