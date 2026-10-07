@@ -8,7 +8,9 @@
     "start": "next start",
     "lint": "eslint",
     "indexnow": "node scripts/ping-indexnow.mjs",
-    "clusters": "node scripts/cosine-clusters.mjs"
+    "clusters": "node scripts/cosine-clusters.mjs",
+    "sync:llms": "node scripts/sync-llms.mjs",
+    "qdf": "node scripts/qdf-ping.mjs"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",

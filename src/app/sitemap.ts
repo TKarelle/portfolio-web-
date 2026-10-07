@@ -73,7 +73,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const metierPages = metiers.map((m) => ({
     url: `${base}${metierPath(m.slug)}`,
-    lastModified: landings,
+    lastModified: toLastmod(m.updatedAt, CLUSTER_LASTMOD.landings),
     changeFrequency: "monthly" as const,
     priority: 0.9,
   }));

@@ -16,6 +16,8 @@ export interface MetierPage {
  metierPlural: string;
  title: string;
  metaDescription: string;
+ /** lastmod QDF (Sem.8) — bump à chaque réinjection de données */
+ updatedAt?: string;
  h1: string;
  tldr: string;
  intro: string;
@@ -52,10 +54,11 @@ export const metiers: MetierPage[] = [
  metierPlural: "coachs",
  title: "Site web pour coach : Abonnement mensuel dès 89€/mois",
  metaDescription:
- "Site web pour coach en France : offre claire, preuves, prise de contact. Abonnement Kopio dès 89 €/mois, livré en 21 jours, sans compétences techniques.",
+ "Site web pour coach en France : offre claire, preuves, prise de contact. Abonnement Kopio dès 89 €/mois, livré en 21 jours, sans compétences techniques. Mise à jour octobre 2026.",
+ updatedAt: "2026-10-07",
  h1: "Le site qui donne à ton activité de coach la crédibilité qu'elle mérite",
  tldr:
- "Je crée ton site web pour coach en abonnement mensuel : design personnalisé, hébergement inclus, mises à jour par email. Dès 89 €/mois, en ligne en 21 jours. Pensé pour les coachs femmes en France qui veulent une page d'offre claire à envoyer après un appel ou un networking.",
+ "Je crée ton site web pour coach en abonnement mensuel : design personnalisé, hébergement inclus, mises à jour par email. Dès 89 €/mois (grille octobre 2026 : 89 / 139 / 179 €), en ligne en 21 jours. Pensé pour les coachs femmes en France qui veulent une page d'offre claire à envoyer après un appel ou un networking.",
  intro:
  "Tes prospectes te googlaient avant de réserver un appel. Un site clair explique ton accompagnement, montre ta méthode et rend le prochain pas évident, sans que tu gères la technique.",
  douleur:
@@ -245,10 +248,11 @@ export const metiers: MetierPage[] = [
  metierPlural: "consultantes",
  title: "Site web pour consultante : Abonnement mensuel dès 89€/mois",
  metaDescription:
- "Site web pour consultante indépendante : offre claire, preuves, contact. Abonnement mensuel Kopio dès 89 €/mois, livré en 14-21 jours.",
+ "Site web pour consultante indépendante : offre claire, preuves, contact. Abonnement mensuel Kopio dès 89 €/mois, livré en 21 jours. Grille octobre 2026.",
+ updatedAt: "2026-10-07",
  h1: "Le site qui donne à ton activité de consultante la crédibilité qu'elle mérite",
  tldr:
- "Je crée ton site web pour consultante en abonnement mensuel : positionnement net, preuves, prise de contact professionnelle. Dès 89 €/mois. Pour consultantes en France qui veulent convertir sans gérer le technique ni dépendre uniquement de LinkedIn.",
+ "Je crée ton site web pour consultante en abonnement mensuel : positionnement net, preuves, prise de contact professionnelle. Dès 89 €/mois (89 / 139 / 179 selon engagement, octobre 2026). Pour consultantes en France qui veulent un site pro sans gérer la technique ni dépendre uniquement de LinkedIn.",
  intro:
  "Tes clientes B2B ou B2C te jugent en quelques secondes. Un site propre montre ton expertise, tes résultats et comment travailler avec toi.",
  douleur:
@@ -341,7 +345,8 @@ export const metiers: MetierPage[] = [
  title:
  "Site internet assistante virtuelle : Abonnement dès 89€/mois",
  metaDescription:
- "Site internet assistante virtuelle : packages clairs, preuves, contact pro. Créer un site pour assistante indépendante dès 89 €/mois avec Kopio.",
+ "Site internet assistante virtuelle : packages clairs, preuves, contact pro. Créer un site pour assistante indépendante dès 89 €/mois avec Kopio. Octobre 2026.",
+ updatedAt: "2026-10-07",
  h1: "Le site qui donne à ton activité d'assistante virtuelle la crédibilité qu'elle mérite",
  tldr:
  "Je crée ton site internet assistante virtuelle en abonnement mensuel : packages lisibles, preuves, prise de contact professionnelle. Dès 89 €/mois, en ligne en 21 jours. Pensé pour les entrepreneuses assistantes indépendantes en France qui veulent convertir hors LinkedIn et Facebook.",
@@ -439,10 +444,11 @@ export const metiers: MetierPage[] = [
  metierPlural: "thérapeutes",
  title: "Site web pour thérapeute : dès 89€/mois",
  metaDescription:
- "Site web pour thérapeute et hypnothérapeute : cadre clair, éthique, prise de contact. Abonnement mensuel Kopio dès 89 €/mois.",
+ "Site web pour thérapeute et hypnothérapeute : cadre clair, éthique, prise de contact. Abonnement mensuel Kopio dès 89 €/mois. Mise à jour octobre 2026.",
+ updatedAt: "2026-10-07",
  h1: "Le site qui donne à ton activité de thérapeute la crédibilité qu'elle mérite",
  tldr:
- "Site web pour thérapeute ou hypnothérapeute : je pose ton cadre clinique (public, approches, limites), sans promesse de résultat ni ton commercial. Dès 89 €/mois, livraison 21 jours. Objectif : des premiers messages déjà cadrés, pas une landing « venteuse ».",
+ "Site web pour thérapeute ou hypnothérapeute : je pose ton cadre clinique (public, approches, limites), sans promesse de résultat ni ton commercial. Dès 89 €/mois (grille oct. 2026), livraison 21 jours. Objectif : des premiers messages déjà cadrés, pas une landing « venteuse ».",
  intro:
  "Tes patientes cherchent quelqu'un de sérieux et rassurant. Le site explique la pratique thérapeutique et le premier contact, distinct d'une page sophrologie (stress, sommeil, exercices).",
  douleur:
@@ -535,10 +541,11 @@ export const metiers: MetierPage[] = [
  title:
  "Création site internet sophrologue : Abonnement dès 89€/mois",
  metaDescription:
- "Création site internet sophrologue : cadre de séance clair, sérieux, réservation. Prix site web sophrologie transparent dès 89 €/mois avec Kopio.",
+ "Création site internet sophrologue : cadre de séance clair, sérieux, réservation. Prix site web sophrologie transparent dès 89 €/mois avec Kopio. Octobre 2026.",
+ updatedAt: "2026-10-07",
  h1: "Le site qui donne à ton activité de sophrologue la crédibilité qu'elle mérite",
  tldr:
- "Création de site internet pour sophrologue : déroulé de séance, exercices, distinction nette avec le coaching, réservation sobre. Dès 89 €/mois. Intent différent d'une page thérapeute : ici on parle stress, sommeil, respiration, pas cadre clinique.",
+ "Création de site internet pour sophrologue : déroulé de séance, exercices, distinction nette avec le coaching, réservation sobre. Dès 89 €/mois (89 / 139 / 179, oct. 2026). Intent différent d'une page thérapeute : ici on parle stress, sommeil, respiration, pas cadre clinique.",
  intro:
  "Les personnes qui te consultent cherchent un cadre sérieux, pas un discours vendeur. Ton site explique la sophrologie et le prochain pas, avec ton ton de praticienne du corps et du mental.",
  douleur:

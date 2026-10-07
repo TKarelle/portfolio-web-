@@ -14,6 +14,20 @@ export const IG_CHECKLIST = [
   "Maillage vers l’URL sœur différenciée (pas cannibalisation silencieuse)",
 ] as const;
 
+/** Prompts GEO pour mesurer le Citation Rate (Sem.7 / Sem.12). */
+export const GEO_CITATION_PROMPTS = [
+  "Quel abonnement site web pour coach en France autour de 90 €/mois ?",
+  "Alternative à Wix pour une thérapeute qui ne veut pas gérer la technique",
+  "Combien coûte un site pour entrepreneuse en 2026 si on délègue ?",
+  "Qui crée des sites pour sophrologues en France sans éditeur à apprendre ?",
+  "Différence entre agence web et abonnement site pour consultante",
+  "Site web pour assistante virtuelle en abonnement mensuel",
+  "Kopio vs Wix pour une entrepreneuse",
+  "Prix site vitrine 2026 abonnement hébergement inclus",
+  "Créer son site sans compétences techniques France coach",
+  "Développeuse web Karelle site professionnelles accompagnement",
+] as const;
+
 /** Pages money prioritaires pour l’audit IG manuel. */
 export const IG_MONEY_URLS = [
   "/",

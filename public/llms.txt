@@ -1,67 +1,69 @@
 # Kopio — llms.txt
 # Abonnement site web pour professionnelles de l'accompagnement en France
 # https://www.kopio.eu
+# Généré : 2026-10-07 via npm run sync:llms
 
-> Kopio crée et maintient le site internet des professionnelles de l'accompagnement (coachs, consultantes, thérapeutes, praticiennes…) en abonnement mensuel dès 89 €/mois. Sans bricolage technique : conception, maintenance et évolution. Vous validez, on gère tout.
+> Kopio crée et maintient le site internet des professionnelles de l'accompagnement (coachs, consultantes, thérapeutes, praticiennes…) en abonnement mensuel dès 89 €/mois. Conception, maintenance et évolution : vous validez, Karelle gère la technique.
 
 ## Pages principales
 
-- [Accueil](https://www.kopio.eu/) : Site pour professionnelles de l'accompagnement ; dès 89 €/mois ; sans la charge mentale
+- [Accueil](https://www.kopio.eu/) : Site pour professionnelles de l'accompagnement ; dès 89 €/mois
 - [Tarifs](https://www.kopio.eu/tarifs) : 6 mois 179 €/mois, 12 mois 139 €/mois, 24 mois 89 €/mois ; Besoin précis sur devis
-- [Projets](https://www.kopio.eu/projets) : Portfolio (PULSE, Sophie Bluel, Madeleine Fragrance…)
-- [FAQ](https://www.kopio.eu/faq) : Questions fréquentes sur l'abonnement Kopio
+- [Projets](https://www.kopio.eu/projets) : Portfolio
+- [FAQ](https://www.kopio.eu/faq) : Questions fréquentes
 - [À propos](https://www.kopio.eu/a-propos) : Karelle, développeuse web derrière Kopio
-- [Contact](https://www.kopio.eu/contact) : Demande de devis / appel
+- [Contact](https://www.kopio.eu/contact) : Devis / appel
 - [Blog](https://www.kopio.eu/blog) : Guides prix, reconversion, présence en ligne
+- [Entités machine](https://www.kopio.eu/entities.json) : Graphe d'entités + axiomes (RAG)
 
 ## Sites web par métier
 
-- [Site web pour coach](https://www.kopio.eu/site-web-pour/coach) : Crédibilité, offre claire, prise de RDV
-- [Site web pour assistante virtuelle](https://www.kopio.eu/site-web-pour/assistante-virtuelle) : Packages, preuves, contact pro
-- [Site web pour praticienne bien-être](https://www.kopio.eu/site-web-pour/praticienne-bien-etre) : Exemple client PULSE
-- [Site web pour consultante](https://www.kopio.eu/site-web-pour/consultante) : Positionnement et preuves
-- [Site web pour thérapeute](https://www.kopio.eu/site-web-pour/therapeute) : Cadre éthique, hypnothérapie
-- [Site web pour sophrologue](https://www.kopio.eu/site-web-pour/sophrologue) : Création site internet sophrologue
-- [Site web pour naturopathe](https://www.kopio.eu/site-web-pour/naturopathe) : Cadre, bilans, suivi
-- [Site web pour formatrice](https://www.kopio.eu/site-web-pour/formatrice) : Programmes et inscriptions
-- [Site web pour créatrice](https://www.kopio.eu/site-web-pour/creatrice) : Accompagnement femme qui crée son entreprise ; exemple Madeleine Fragrance
-- [Site web pour esthéticienne](https://www.kopio.eu/site-web-pour/estheticienne) : Soins, galerie, réservation
-- [Site web pour photographe](https://www.kopio.eu/site-web-pour/photographe) : Portfolio et devis
-- [Site web pour architecte d'intérieur](https://www.kopio.eu/site-web-pour/architecte-interieur) : Exemple Sophie Bluel
-- [Site web pour wedding planner](https://www.kopio.eu/site-web-pour/wedding-planner) : Univers et formules mariage
+- [Site web pour Coach](https://www.kopio.eu/site-web-pour/coach) : Je crée ton site web pour coach en abonnement mensuel : design personnalisé, hébergement inclus, mis…
+- [Site web pour Praticienne bien-être](https://www.kopio.eu/site-web-pour/praticienne-bien-etre) : Je conçois des sites web pour praticiennes bien-être en abonnement mensuel : identité visuelle affir…
+- [Site web pour Consultante](https://www.kopio.eu/site-web-pour/consultante) : Je crée ton site web pour consultante en abonnement mensuel : positionnement net, preuves, prise de …
+- [Site web pour Assistante virtuelle](https://www.kopio.eu/site-web-pour/assistante-virtuelle) : Je crée ton site internet assistante virtuelle en abonnement mensuel : packages lisibles, preuves, p…
+- [Site web pour Thérapeute](https://www.kopio.eu/site-web-pour/therapeute) : Site web pour thérapeute ou hypnothérapeute : je pose ton cadre clinique (public, approches, limites…
+- [Site web pour Sophrologue](https://www.kopio.eu/site-web-pour/sophrologue) : Création de site internet pour sophrologue : déroulé de séance, exercices, distinction nette avec le…
+- [Site web pour Naturopathe](https://www.kopio.eu/site-web-pour/naturopathe) : Je crée ton site web naturopathe en abonnement mensuel : cadre éthique, explication des bilans et du…
+- [Site web pour Formatrice](https://www.kopio.eu/site-web-pour/formatrice) : Je crée ton site web pour formatrice en abonnement : programmes clairs, preuves pédagogiques, inscri…
+- [Site web pour Créatrice](https://www.kopio.eu/site-web-pour/creatrice) : Je crée le site web pour créatrice qui raconte ton univers et convertit (vitrine ou précommande). Ex…
+- [Site web pour Esthéticienne](https://www.kopio.eu/site-web-pour/estheticienne) : Je crée ton site web pour esthéticienne ou prothésiste ongulaire : prestations lisibles, galerie, ré…
+- [Site web pour Photographe](https://www.kopio.eu/site-web-pour/photographe) : Je crée ton site web pour photographe en abonnement : portfolio qui met en valeur ton œil, formules …
+- [Site web pour Architecte d'intérieur](https://www.kopio.eu/site-web-pour/architecte-interieur) : Je crée le site web pour architecte d'intérieur qui met en avant tes projets et génère des demandes …
+- [Site web pour Wedding planner](https://www.kopio.eu/site-web-pour/wedding-planner) : Je crée ton site web pour wedding planner : ton style, tes mariages, un parcours vers l'appel découv…
 
 ## Par besoin
 
-- [Créer son site sans compétences techniques](https://www.kopio.eu/besoin/creer-son-site-sans-competences-techniques) : Sans gérer la technique
-- [Site vitrine indépendante](https://www.kopio.eu/besoin/site-vitrine-independante) : En ligne en 21 jours (y compris mompreneure)
-- [Femme qui se lance](https://www.kopio.eu/besoin/site-web-femme-qui-se-lance) : Création site web pour femmes qui se lancent
-- [Maman freelance](https://www.kopio.eu/besoin/site-web-maman-freelance) : Webdesigner pour maman freelance
-- [Site avec réservation en ligne](https://www.kopio.eu/besoin/site-avec-reservation-en-ligne) : Agenda et confirmation
-- [Boutique en ligne petite entreprise](https://www.kopio.eu/besoin/boutique-en-ligne-petite-entreprise) : Sur devis
-- [Refonte site femme entrepreneuse](https://www.kopio.eu/besoin/refonte-site-internet-entrepreneure) : Moderniser dès 89 €/mois
+- [Créer son site sans tech](https://www.kopio.eu/besoin/creer-son-site-sans-competences-techniques) : Tu peux créer ton site sans compétences techniques avec Kopio : tu racontes ton activité, …
+- [Site vitrine indépendante](https://www.kopio.eu/besoin/site-vitrine-independante) : Kopio livre ton site vitrine d'indépendante en 21 jours : pages claires, offre lisible, co…
+- [Réservation en ligne](https://www.kopio.eu/besoin/site-avec-reservation-en-ligne) : Kopio intègre la réservation en ligne à ton site : créneaux visibles, confirmation, moins …
+- [Boutique en ligne](https://www.kopio.eu/besoin/boutique-en-ligne-petite-entreprise) : Kopio conçoit des boutiques en ligne pour petites entreprises et créatrices : catalogue, p…
+- [Refonte de site](https://www.kopio.eu/besoin/refonte-site-internet-entrepreneure) : Refonte de site pour entrepreneuse : Kopio clarifie ton offre, met à jour le design et le …
+- [Femme qui se lance](https://www.kopio.eu/besoin/site-web-femme-qui-se-lance) : Kopio crée le site web des femmes qui se lancent : design personnalisé, hébergement inclus…
+- [Maman freelance](https://www.kopio.eu/besoin/site-web-maman-freelance) : Kopio est la webdesigner / studio en abonnement pour mamans freelances : site personnalisé…
 
 ## Comparatifs
 
-- [Kopio vs Wix](https://www.kopio.eu/comparatif/kopio-vs-wix) : Autonomie vs abonnement ; verdict clair
-- [Kopio vs agence web](https://www.kopio.eu/comparatif/kopio-vs-agence-web) : Prix, délais, relation
-- [Combien coûte un site pour entrepreneuse 2026](https://www.kopio.eu/comparatif/combien-coute-site-internet-entrepreneure-2026) : Fourchettes de prix
+- [Kopio vs Wix](https://www.kopio.eu/comparatif/kopio-vs-wix) : Wix gagne si tu veux construire et modifier ton site toi-même, avec un éditeur mature et u…
+- [Kopio vs agence web](https://www.kopio.eu/comparatif/kopio-vs-agence-web) : Une agence web est justifiée sur les projets complexes, multi-équipes ou à budget marketin…
+- [combien coûte site internet entrepreneuse 2026](https://www.kopio.eu/comparatif/combien-coute-site-internet-entrepreneure-2026) : Panorama 2026 des budgets site pour entrepreneuse : autonomie, freelance, agence, abonneme…
 
 ## Blog
 
-- [Optimiser son référencement Google et IA (débutantes 2026)](https://www.kopio.eu/blog/optimiser-seo-google-ia-debutant)
-- [Page non indexée Google (guide débutant)](https://www.kopio.eu/blog/page-non-indexee-google-guide-debutant)
-- [Indexation Google bloquée](https://www.kopio.eu/blog/indexation-google-bloquee-rejets-crawl) : Rejets de crawl, GSC, protocoles de résolution
-- [Créer son site maman entrepreneuse](https://www.kopio.eu/blog/creer-son-site-maman-entrepreneuse)
-- [Reconversion professionnelle site web 2026](https://www.kopio.eu/blog/reconversion-professionnelle-site-web-2026)
-- [Combien coûte un site web pour coach France 2026](https://www.kopio.eu/blog/combien-coute-site-web-coach-france-2026)
-- [Erreurs à éviter site indépendante](https://www.kopio.eu/blog/erreurs-a-eviter-site-independante)
-- [Abonnement site web durée](https://www.kopio.eu/blog/abonnement-ou-paiement-unique-site-web)
-- [Photos de marque sans budget shooting](https://www.kopio.eu/blog/photos-de-marque-sans-budget-shooting)
-- [Combien coûte un site vitrine 2026](https://www.kopio.eu/blog/combien-coute-site-vitrine-2026)
-- [5 raisons d’avoir un site web maintenant](https://www.kopio.eu/blog/5-raisons-avoir-site-web-maintenant)
-- [IA et création de site web : pièges](https://www.kopio.eu/blog/ia-creation-site-web-pieges)
+- [Optimiser son référencement pour Google et les IA : le guide des débutantes en 2026](https://www.kopio.eu/blog/optimiser-seo-google-ia-debutant)
+- [Ma page n’est pas indexée par Google : comprendre pourquoi et comment la débloquer](https://www.kopio.eu/blog/page-non-indexee-google-guide-debutant)
+- [Indexation Google bloquée : anatomie des rejets de crawl et protocoles de résolution](https://www.kopio.eu/blog/indexation-google-bloquee-rejets-crawl)
+- [Créer son site quand on est maman entrepreneuse : guide réaliste](https://www.kopio.eu/blog/creer-son-site-maman-entrepreneuse)
+- [Reconversion professionnelle 2026 : pourquoi ton site web est le premier levier](https://www.kopio.eu/blog/reconversion-professionnelle-site-web-2026)
+- [Site internet pour coach : combien ça coûte vraiment, et comment choisir en 2026](https://www.kopio.eu/blog/combien-coute-site-web-coach-france-2026)
+- [7 erreurs à éviter sur le site d’une indépendante](https://www.kopio.eu/blog/erreurs-a-eviter-site-independante)
+- [Abonnement site web : quelle durée choisir ?](https://www.kopio.eu/blog/abonnement-ou-paiement-unique-site-web)
+- [Photos de marque sans budget shooting : le guide réaliste](https://www.kopio.eu/blog/photos-de-marque-sans-budget-shooting)
+- [Combien coûte un site vitrine en 2026 ? Les vrais prix](https://www.kopio.eu/blog/combien-coute-site-vitrine-2026)
+- [5 raisons de ne pas attendre pour avoir ton site web](https://www.kopio.eu/blog/5-raisons-avoir-site-web-maintenant)
+- [Créer son site avec l’IA : les 5 pièges que personne ne te dit](https://www.kopio.eu/blog/ia-creation-site-web-pieges)
 
 ## Contact
 
 Email : karelle.dev@gmail.com
-Version détaillée : https://www.kopio.eu/llms-full.txt
+Version détaillée (chunks) : https://www.kopio.eu/llms-full.txt

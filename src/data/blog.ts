@@ -47,7 +47,7 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "Référencer son site sur Google et apparaître dans ChatGPT et Perplexity : les 6 fondamentaux accessibles sans compétences techniques, expliqués pour les coachs et thérapeutes.",
     date: "2026-10-05",
-    updatedAt: "2026-10-05",
+    updatedAt: "2026-10-07",
     readTime: "14 min",
     category: "Guide",
     howTo: {
@@ -144,6 +144,7 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "Guide débutant : pourquoi Google refuse d’indexer une page, comment lire Search Console, et quelles corrections concrètes faire avant de redemander une indexation.",
     date: "2026-10-02",
+    updatedAt: "2026-10-07",
     readTime: "10 min",
     category: "Guide",
     content: [
@@ -214,6 +215,7 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "Crawlability, renderability, indexability : pourquoi Google refuse d’indexer une URL, comment lire Search Console, et quoi corriger concrètement.",
     date: "2026-10-02",
+    updatedAt: "2026-10-07",
     readTime: "12 min",
     category: "Technique",
     content: [
@@ -355,7 +357,7 @@ export const blogPosts: BlogPost[] = [
  excerpt:
  "Création, maintenance, refonte : le coût réel d'un site pour coach sur 3 ans, comparé. Données issues de 30+ sites livrés. Guide mis à jour le 6 octobre 2026.",
  date: "2026-09-22",
- updatedAt: "2026-10-06",
+ updatedAt: "2026-10-07",
  readTime: "14 min",
  category: "Prix",
  faqs: [

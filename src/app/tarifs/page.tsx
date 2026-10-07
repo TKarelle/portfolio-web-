@@ -10,7 +10,7 @@ import { buildPageMetadata } from "@/lib/metadata";
 export const metadata: Metadata = buildPageMetadata({
   title: "Tarifs site web : 89, 139 ou 179 €/mois selon engagement",
   description:
-    "Présence en ligne déléguée pour professionnelles de l'accompagnement. 89 €/mois (24 mois), 139 €/mois (12 mois) ou 179 €/mois (6 mois). Livraison en 21 jours.",
+    "Grille octobre 2026 : 89 €/mois (24 mois), 139 €/mois (12 mois) ou 179 €/mois (6 mois). Présence en ligne déléguée, livraison 21 jours, propriété en fin d'engagement.",
   path: "/tarifs",
 });
 
@@ -30,7 +30,7 @@ export default function TarifsPage() {
         ]}
         title="Votre site, clair et maintenu dans le temps."
         highlight="maintenu dans le temps"
-        description="Professionnelles de l'accompagnement : conception, hébergement et évolutions inclus. Vous validez tout avant la mise en ligne."
+        description="Grille octobre 2026 pour professionnelles de l'accompagnement : conception, hébergement et évolutions inclus. Vous validez tout avant la mise en ligne."
         image="/image/independant.jpg"
         imageAlt="Professionnelle de l'accompagnement : site web dès 89 €/mois"
         badge="Dès 89 €/mois"

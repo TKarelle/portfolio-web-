@@ -5,6 +5,11 @@
  */
 export const faqItems = [
   {
+    question: "La grille tarifaire Kopio a-t-elle changé en octobre 2026 ?",
+    answer:
+      "La grille en vigueur en octobre 2026 reste : 179 €/mois sur 6 mois, 139 €/mois sur 12 mois, 89 €/mois sur 24 mois. Même socle site (jusqu’à 5 pages, réservation, atelier rédaction, hébergement). Ce qui varie selon la durée : le suivi SEO et analytics. Pas de frais de mise en service. Propriété à la fin de l’engagement ou rachat anticipé.",
+  },
+  {
     question: "89 €/mois au départ : n’est-ce pas cher pour un site ?",
     answer:
       "Comparons ce qui est comparable. Un site freelance à 3 000 €, avec maintenance (~400 €/an) et ajustements facturés au devis (~300 €/an), revient à ~5 600 € sur 3 ans, pour un site vieilli à refaire. Kopio à 89 €/mois sur 24 mois revient à 2 136 €/an de site maintenu et évolutif. Et le vrai repère n’est pas le site : c’est le tarif de votre heure. Une seule cliente qui vous suit 9 mois à une séance par mois peut couvrir l’année*.",
