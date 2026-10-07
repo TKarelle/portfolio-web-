@@ -14,6 +14,15 @@ import { FaqJsonLd, ServiceJsonLd } from "@/components/seo/JsonLd";
 import { SeoProseSections } from "@/components/seo/SeoProseSections";
 import { HeroFacts } from "@/components/ui/HeroFacts";
 import { pricingPlans } from "@/data/pricing";
+import { resolveMetierSiblings } from "@/lib/cluster-mesh";
+import { IgDecisionMatrix } from "@/components/seo/IgDecisionMatrix";
+
+const THERAPIE_VS_SOPHRO: readonly (readonly [string, string, string])[] = [
+  ["Intention de la visiteuse", "Cadre thérapeutique, motif de consultation", "Stress, sommeil, préparation mentale"],
+  ["Risque de confusion", "Guérison / promesse médicale", "Coaching de performance"],
+  ["Preuve utile sur le site", "Approches, limites, déroulé de séance", "Exercices, formats individuels / groupe"],
+  ["Prochain pas typique", "Premier contact prudent", "Réservation de séance"],
+];
 
 export function MetierTemplate({ data }: { data: MetierPage }) {
   const study = data.caseStudyId
@@ -22,7 +31,10 @@ export function MetierTemplate({ data }: { data: MetierPage }) {
   const recommended =
     pricingPlans.find((p) => p.id === data.recommendedPlanId) ??
     pricingPlans[0];
-  const siblings = metiers.filter((m) => m.slug !== data.slug).slice(0, 6);
+  const siblingSlugs = resolveMetierSiblings(data.slug, 5);
+  const siblings = siblingSlugs
+    .map((slug) => metiers.find((m) => m.slug === slug))
+    .filter((m): m is NonNullable<typeof m> => Boolean(m));
 
   const gainItems = data.whyPoints.map((p, i) => ({
     n: String(i + 1).padStart(2, "0"),
@@ -58,14 +70,15 @@ export function MetierTemplate({ data }: { data: MetierPage }) {
               <h1 className="text-[1.65rem] sm:text-3xl md:text-4xl lg:text-[2.5rem] font-extrabold leading-[1.12] tracking-tight">
                 {data.h1}
               </h1>
-              <p className="mt-6 text-base md:text-lg text-muted font-medium leading-relaxed">
-                {data.intro}
-              </p>
+              {/* Sem.6 — pyramide inversée : réponse (tldr) avant le mécanisme (intro) */}
               <HeroFacts
                 geoSummary={data.tldr}
                 proof={study?.title}
                 delivery="Sous 21 jours"
               />
+              <p className="mt-5 text-base md:text-lg text-muted font-medium leading-relaxed">
+                {data.intro}
+              </p>
             </div>
 
             <div className="photo-frame photo-frame-lime relative aspect-[4/3] max-w-lg mx-auto lg:ml-auto w-full">
@@ -83,6 +96,27 @@ export function MetierTemplate({ data }: { data: MetierPage }) {
       </section>
 
       <SeoProseSections sections={data.sections} />
+
+      {(data.slug === "therapeute" || data.slug === "sophrologue") && (
+        <section className="py-12 md:py-14 px-6 bg-bg">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight leading-tight mb-2">
+              {data.slug === "therapeute"
+                ? "Thérapeute ou sophrologue : quelle page te correspond ?"
+                : "Sophrologue ou thérapeute : quelle page te correspond ?"}
+            </h2>
+            <p className="text-muted font-medium leading-relaxed mb-2">
+              Deux métiers proches, deux intents de recherche distincts. Cette
+              matrice évite de coller le même discours sur les deux URLs.
+            </p>
+            <IgDecisionMatrix
+              caption="Matrice d'autorité — différenciation thérapeutique / sophrologie"
+              headers={["Critère", "Thérapeute", "Sophrologue"]}
+              rows={THERAPIE_VS_SOPHRO}
+            />
+          </div>
+        </section>
+      )}
 
       <section className="py-16 md:py-20 px-6 bg-chunk-pink">
         <div className="max-w-5xl mx-auto">

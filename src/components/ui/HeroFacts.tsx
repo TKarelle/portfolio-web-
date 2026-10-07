@@ -1,7 +1,10 @@
 import { PRICE_FROM } from "@/data/pricing";
 
 type HeroFactsProps = {
-  /** Texte long réservé aux crawlers IA (non visible) */
+  /**
+   * Réponse directe (Information Gain / pyramide inversée).
+   * Visible — pas de cloaking sr-only (Sem.6).
+   */
   geoSummary: string;
   /** Preuve client courte, ex. "PULSE" */
   proof?: string;
@@ -9,8 +12,8 @@ type HeroFactsProps = {
 };
 
 /**
- * Faits utiles sous le hero : design chips Kopio.
- * Le résumé GEO reste en sr-only pour l’extraction IA.
+ * Faits sous le hero : réponse extractible + chips Kopio.
+ * Pas de label « TL;DR » (charte).
  */
 export function HeroFacts({
   geoSummary,
@@ -25,9 +28,11 @@ export function HeroFacts({
   ];
 
   return (
-    <>
-      <p className="sr-only">{geoSummary}</p>
-      <ul className="mt-6 flex flex-wrap gap-2" aria-label="Points clés">
+    <div className="mt-6">
+      <p className="text-base md:text-lg text-muted font-medium leading-relaxed max-w-2xl">
+        {geoSummary}
+      </p>
+      <ul className="mt-5 flex flex-wrap gap-2" aria-label="Points clés">
         {chips.map((label) => (
           <li
             key={label}
@@ -37,6 +42,6 @@ export function HeroFacts({
           </li>
         ))}
       </ul>
-    </>
+    </div>
   );
 }

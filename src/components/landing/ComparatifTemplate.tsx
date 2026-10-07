@@ -35,13 +35,13 @@ export function ComparatifTemplate({ data }: { data: ComparatifPageData }) {
           <h1 className="mt-10 text-3xl md:text-4xl lg:text-[2.5rem] font-extrabold leading-tight tracking-tight">
             {data.h1}
           </h1>
-          <p className="mt-6 text-lg text-muted font-medium leading-relaxed">
-            {data.intro}
-          </p>
+          <HeroFacts geoSummary={data.tldr} />
           <p className="mt-4 text-base font-extrabold text-ink leading-snug">
             {data.verdict}
           </p>
-          <HeroFacts geoSummary={data.tldr} />
+          <p className="mt-4 text-lg text-muted font-medium leading-relaxed">
+            {data.intro}
+          </p>
         </div>
       </section>
 

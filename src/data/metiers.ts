@@ -442,9 +442,9 @@ export const metiers: MetierPage[] = [
  "Site web pour thérapeute et hypnothérapeute : cadre clair, éthique, prise de contact. Abonnement mensuel Kopio dès 89 €/mois.",
  h1: "Le site qui donne à ton activité de thérapeute la crédibilité qu'elle mérite",
  tldr:
- "Je propose un site web pour thérapeute en abonnement : ton cadre, tes approches, la prise de rendez-vous, sans marketing agressif. Dès 89 €/mois. Pour hypnothérapeutes et praticiennes en accompagnement thérapeutique en France qui veulent rassurer avant le premier contact.",
+ "Site web pour thérapeute ou hypnothérapeute : je pose ton cadre clinique (public, approches, limites), sans promesse de résultat ni ton commercial. Dès 89 €/mois, livraison 21 jours. Objectif : des premiers messages déjà cadrés, pas une landing « venteuse ».",
  intro:
- "Tes patientes cherchent quelqu'un de sérieux et rassurant. Ton site doit poser le cadre, expliquer ta pratique et faciliter le premier contact.",
+ "Tes patientes cherchent quelqu'un de sérieux et rassurant. Le site explique la pratique thérapeutique et le premier contact, distinct d'une page sophrologie (stress, sommeil, exercices).",
  douleur:
  "Présence limitée à Doctolib ou pages trop « venteuses » qui ne collent pas à ton éthique professionnelle.",
  whyTitle:
@@ -474,7 +474,7 @@ export const metiers: MetierPage[] = [
  },
  {
  h2: "Comment parler de ta pratique sans promettre de résultats ?",
- body: "Le marketing agressif casse la confiance dans les métiers d'accompagnement thérapeutique. J'écris et je structure autour du cadre : pour qui tu reçois, comment se déroule une séance, quelles approches tu utilises, sans garantie de guérison. Le mécanisme rassure parce qu'il est précis. Une hypnothérapeute a ainsi clarifié ce qu'elle traitait et ce qu'elle orientait ailleurs ; les premiers messages sont devenus plus adaptés. Tu restes alignée avec ton éthique. Le site filtre autant qu'il attire.\n\nSi tu es sophrologue ou naturopathe, j'ai des pages dédiées à ces pratiques : le raisonnement reste proche (cadre, sérieux, prochain pas), avec des formulations propres à chaque métier. Pour une thérapeute, je reste sur ton langage d'accompagnement et tes limites professionnelles.",
+ body: "Le marketing agressif casse la confiance dans les métiers d'accompagnement thérapeutique. J'écris et je structure autour du cadre : pour qui tu reçois, comment se déroule une séance, quelles approches tu utilises, sans garantie de guérison. Le mécanisme rassure parce qu'il est précis. Une hypnothérapeute a ainsi clarifié ce qu'elle traitait et ce qu'elle orientait ailleurs ; les premiers messages sont devenus plus adaptés. Tu restes alignée avec ton éthique. Le site filtre autant qu'il attire.\n\nPour une thérapeute, je reste sur ton langage clinique et tes limites professionnelles. La page sophrologue traite un autre intent (exercices, stress, distinction coaching). La page naturopathe un troisième (bilans, hygiène de vie). Une URL = un métier.",
  },
  {
  h2: "Combien coûte un site pour une thérapeute ?",
@@ -538,9 +538,9 @@ export const metiers: MetierPage[] = [
  "Création site internet sophrologue : cadre de séance clair, sérieux, réservation. Prix site web sophrologie transparent dès 89 €/mois avec Kopio.",
  h1: "Le site qui donne à ton activité de sophrologue la crédibilité qu'elle mérite",
  tldr:
- "Je crée ton site web pour sophrologue en abonnement mensuel : cadre de séance lisible, distinction claire avec le coaching, prise de rendez-vous sans marketing agressif. Dès 89 €/mois selon engagement (6, 12 ou 24 mois). Pour entrepreneuses sophrologues en France qui veulent rassurer avant le premier contact.",
+ "Création de site internet pour sophrologue : déroulé de séance, exercices, distinction nette avec le coaching, réservation sobre. Dès 89 €/mois. Intent différent d'une page thérapeute : ici on parle stress, sommeil, respiration, pas cadre clinique.",
  intro:
- "Les personnes qui te consultent cherchent un cadre sérieux, pas un discours vendeur. Ton site explique la sophrologie, le déroulé d'une séance et le prochain pas, avec ton ton.",
+ "Les personnes qui te consultent cherchent un cadre sérieux, pas un discours vendeur. Ton site explique la sophrologie et le prochain pas, avec ton ton de praticienne du corps et du mental.",
  douleur:
  "Cadre de séance peu clair en ligne, confusion fréquente avec le coaching, besoin de sérieux sans marketing agressif.",
  whyTitle:
@@ -565,28 +565,28 @@ export const metiers: MetierPage[] = [
  ],
  sections: [
  {
- h2: "Doctolib suffit-il vraiment pour une sophrologue ?",
- body: "Doctolib aide à la prise de rendez-vous et à la visibilité locale. Il ne raconte pas ta méthode, tes limites ni le déroulé d'une première séance de sophrologie. Une consultante hésitante lit souvent plusieurs profils avant d'écrire ; un site pose le cadre avec ton ton. En 2025, une sophrologue à Nantes m'a dit que les demandes via son site arrivaient déjà « cadrées » : motif, format, disponibilité. Doctolib reste un canal. Le site est ta vitrine éthique, proche des thérapeutes dans l'esprit, que tu contrôles hors de la logique d'annuaire.",
+ h2: "Pourquoi une sophrologue a besoin d'une page dédiée, pas d'une page « thérapeute » générique ?",
+ body: "Les recherches « site web sophrologue » et « site web thérapeute » ne portent pas le même intent. La visiteuse sophrologie cherche souvent stress, sommeil, préparation d'examen ou gestion des émotions via des exercices. La visiteuse thérapie cherche un cadre d'accompagnement plus clinique. Si tu colles le même texte sur les deux URLs, Google et les IA mélangent les signaux. Je rédige ta page autour de la sophrologie : vocabulaire de séance, formats individuels ou groupe, distinction coaching. La page thérapeute reste sur son intent. Tu gagnes en clarté pour la lectrice et en Information Gain pour l'index.",
  },
  {
  h2: "Comment expliquer la sophrologie sans la confondre avec le coaching ?",
- body: "La confusion avec le coaching affaiblit la crédibilité perçue. J'écris et je structure autour du cadre : pour qui tu reçois, comment se déroule une séance, ce que la sophrologie est et n'est pas, sans promesse de résultat. Le mécanisme rassure parce qu'il est précis. En 2024, une sophrologue a clarifié sur son one-page la distinction avec un accompagnement de performance ; les premiers messages sont devenus plus adaptés. Tu restes alignée avec ton éthique. Le site filtre autant qu'il attire.\n\nLe détail compte pour la lectrice pressée : titres scannables, informations de cadre placées au bon endroit, un seul prochain pas visible sur mobile. Tu gagnes des conversations déjà cadrées. Le site ne remplace pas ton expertise ; il la rend lisible avant le premier échange.",
+ body: "La confusion avec le coaching affaiblit la crédibilité perçue. J'écris autour du cadre : pour qui tu reçois, comment se déroule une séance, ce que la sophrologie est et n'est pas, sans promesse de performance. En 2024, une sophrologue a clarifié sur sa page la distinction avec un accompagnement « résultats business » ; les premiers messages sont devenus plus adaptés. Tu restes alignée avec ton éthique. Le site filtre autant qu'il attire.\n\nLe détail compte pour la lectrice pressée : titres scannables, déroulé de séance, un seul prochain pas sur mobile. Tu gagnes des conversations déjà cadrées. Le site ne remplace pas ton expertise ; il la rend lisible avant le premier échange.",
  },
  {
  h2: "Quel est le prix d'un site web sophrologie chez Kopio ?",
- body: "Dès 89 €/mois (24 mois), 139 €/mois (12 mois) ou 179 €/mois (6 mois) : jusqu'à 5 pages, réservation avancée et atelier rédaction. Ce qui change selon la durée : le SEO et le suivi analytics. Besoin précis intervient sur devis pour des besoins très spécifiques. Le prix d'un site web sophrologie suit cette grille transparente ; tu choisis selon la complexité réelle, pas selon une grille marketing.\n\nLe devis précise le périmètre avant ton engagement. Tu sais ce qui est inclus (design, hébergement, mises à jour) et ce qui reste hors scope. Si ton offre grossit plus tard, je te propose le passage de formule sans tout reconstruire. Tu paies pour une présence maintenue, pas pour un fichier livré puis abandonné.",
+ body: "Dès 89 €/mois (24 mois), 139 €/mois (12 mois) ou 179 €/mois (6 mois) : jusqu'à 5 pages, réservation avancée et atelier rédaction. Ce qui change selon la durée : le SEO et le suivi analytics. Le prix d'un site web sophrologie suit cette grille ; tu choisis selon la complexité réelle (atelier collectif, plusieurs lieux, etc.).\n\nLe devis précise le périmètre avant ton engagement. Tu sais ce qui est inclus (design, hébergement, mises à jour) et ce qui reste hors scope. Si tu ajoutes plus tard des ateliers ou une page ressources, je l'intègre par email sans tout reconstruire.",
  },
  {
- h2: "Un site peut-il rester discret et sérieux, sans marketing agressif ?",
- body: "Oui, et c'est souvent la condition pour que tu te sentes à l'aise de le partager. Je pars de ton brief professionnel : ton, limites, mentions légales, absence de promesses. Pas de pop-ups agressifs ni de formulations vendeuses. En pratique, le design reste sobre, le formulaire est simple, les informations utiles sont accessibles. Une sophrologue a validé chaque phrase sensible avant mise en ligne en 2025. Tu gardes la main sur le message. Le site reflète ton cabinet, pas une landing de conversion forcée.\n\nConcrètement, tu avances avec ce que tu as déjà sous la main. Je priorise la clarté du cadre et le prochain pas pour la visiteuse. Les enrichissements (pages approches, FAQ) arrivent ensuite par email, au rythme de ton activité. Tu n'as pas besoin d'un dossier parfait pour être joignable et crédible.",
+ h2: "Comment montrer exercices et formats sans transformer le site en cours en ligne ?",
+ body: "Beaucoup de sophrologues veulent rassurer sans livrer toute la méthode gratuitement. Le mécanisme : une page explique le déroulé type, les publics, les formats (individuel, duo, entreprise), et renvoie vers la réservation. Tu ne publies pas vingt protocoles. Tu montres assez pour que la visiteuse comprenne ce qui l'attend. En 2025, une sophrologue à Lyon a gardé les exercices détaillés pour la séance ; le site ne portait que le cadre. Tu restes experte en salle. Le site ouvre la porte, il ne remplace pas la pratique.",
  },
  {
- h2: "Comment articuler site, Doctolib et Instagram pour une sophrologue ?",
- body: "Chaque canal a un rôle. Instagram humanise ; Doctolib facilite le créneau ; le site explique la pratique en profondeur. Le maillage consiste à renvoyer bio, fiche et signature vers la même URL de cadre. Une consultante qui te découvre sur Instagram lit le déroulé de séance sur le site avant de réserver. Tu réduis les questions répétitives en message. Concrètement, tu n'abandonnes aucun outil : tu leur donnes une maison commune. Quand une plateforme change ses règles, ton site reste ta référence.",
+ h2: "Comment articuler Instagram, agenda et site pour une sophrologue ?",
+ body: "Instagram humanise (voix, face, extraits de séance). L'agenda (Doctolib ou autre) prend le créneau. Le site porte le cadre long : sophrologie vs coaching, formats, tarifs ou fourchettes. Le maillage : bio et signature pointent vers la même URL. Une personne qui te découvre en reel lit le déroulé sur le site avant de réserver. Tu réduis les DM répétitifs. Quand une plateforme change ses règles, ton site reste ta référence stable.",
  },
  {
- h2: "Que se passe-t-il quand tu modifies tarifs, formats ou horaires ?",
- body: "Les cabinets ajustent horaires, tarifs et formats (présentiel, visio) plusieurs fois par an. Tu m'envoies la modification par email ; je mets à jour sous 24 à 72 h. Tu n'ouvres pas un back-office entre deux séances. En 2024, plusieurs sophrologues ont basculé une partie de leur activité en visio : le site a suivi en quelques échanges. Tu restes concentrée sur les séances. La maintenance fait partie de l'abonnement, ce n'est pas une option oubliée après la livraison.\n\nCe rythme de maintenance colle au quotidien d'une indépendante : peu de temps, besoin de réactivité, zéro formation outil. Tu restes dans ton métier pendant que le site reste à jour. Si un chantier plus large apparaît (nouvelle offre, refonte de parcours), je le traite dans un échange dédié avant de toucher à la structure.",
+ h2: "Que faire quand tu lances un atelier collectif ou un format entreprise ?",
+ body: "Les sophrologues ajoutent souvent ateliers, interventions en entreprise ou cycles sur quelques semaines. Tu m'envoies le nouveau format par email ; je mets à jour pages et formulaires sous 24 à 72 h. Tu n'ouvres pas un éditeur entre deux groupes. En 2024, plusieurs praticiennes ont ajouté une page « entreprises » sans reconstruire tout le site. Tu restes sur tes séances. La maintenance fait partie de l'abonnement.\n\nSi le chantier dépasse une simple page (espace membres, replay), on passe en échange dédié avant de toucher à la structure. Tu gardes le contrôle du périmètre.",
  },
  ],
  includedTitle: "Ce qui est inclus dans un site Kopio pour sophrologue",

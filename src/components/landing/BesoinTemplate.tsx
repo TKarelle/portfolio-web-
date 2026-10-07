@@ -11,12 +11,16 @@ import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 import { ServiceJsonLd } from "@/components/seo/JsonLd";
 import { SeoProseSections } from "@/components/seo/SeoProseSections";
 import { HeroFacts } from "@/components/ui/HeroFacts";
+import { resolveBesoinSiblings } from "@/lib/cluster-mesh";
 
 export function BesoinTemplate({ data }: { data: BesoinPageData }) {
   const recommended =
     pricingPlans.find((p) => p.id === data.recommendedPlanId) ??
     pricingPlans[0];
-  const siblings = besoins.filter((b) => b.slug !== data.slug);
+  const siblingSlugs = resolveBesoinSiblings(data.slug, 4);
+  const siblings = siblingSlugs
+    .map((slug) => besoins.find((b) => b.slug === slug))
+    .filter((b): b is NonNullable<typeof b> => Boolean(b));
 
   return (
     <>
@@ -42,9 +46,6 @@ export function BesoinTemplate({ data }: { data: BesoinPageData }) {
                 {data.h1}{" "}
                 <span className="mark mark-pink">{data.h1Highlight}</span>
               </h1>
-              <p className="mt-6 text-lg text-muted font-medium leading-relaxed">
-                {data.intro}
-              </p>
               <HeroFacts
                 geoSummary={data.tldr}
                 delivery={
@@ -55,6 +56,9 @@ export function BesoinTemplate({ data }: { data: BesoinPageData }) {
                     : "Sur devis"
                 }
               />
+              <p className="mt-5 text-lg text-muted font-medium leading-relaxed">
+                {data.intro}
+              </p>
               <DeliveryDisclaimer className="mt-4" />
             </div>
 

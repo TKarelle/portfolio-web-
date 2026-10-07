@@ -262,11 +262,11 @@ Kopio remplace une agence quand le brief réel est : « j'ai besoin d'un site pr
  keyword: "combien coûte site internet entrepreneuse 2026",
  h1: "Combien coûte un site internet pour une entrepreneuse en 2026 ?",
  tldr:
- "En 2026, un site pour entrepreneuse va de quelques euros par mois en autonomie (plus ton temps) à 2 000 à 8 000 €+ en agence. Un freelance se situe souvent entre 800 et 3 000 € selon le périmètre. Kopio : 89 €/mois (engagement 24 mois) ou 139 €/mois (engagement 12 mois), tout inclus côté hébergement et mises à jour. Verdict : pour une vitrine pro sans tout gérer seule, compte dès 89 €/mois selon engagement, livré en 21 jours.",
+ "Panorama 2026 des budgets site pour entrepreneuse : autonomie, freelance, agence, abonnement. Fourchettes, inclus, pièges. Kopio dès 89 €/mois (24 mois). Cette page compare les modèles de coût ; l'article « site vitrine » détaille le format vitrine seul.",
  verdict:
  "Budget réaliste 2026 pour une entrepreneuse : dès 89 €/mois en abonnement tenu pour toi, ou 2 000 €+ en agence ; en autonomie, le « gratuit » ignore ton temps.",
  intro:
- "La question n'est pas seulement « combien ». C'est « quoi inclus, en combien de temps, et qui s'occupe des mises à jour ».",
+ "Ici tu compares les modèles de prix (qui paie quoi, qui maintient). Pour le format vitrine en tant que tel, lis l'article dédié sur le blog. La question n'est pas seulement « combien » : c'est « quoi inclus, en combien de temps, et qui s'occupe des mises à jour ».",
  otherName: "Autres options",
  otherFairPoints: [
  "Outils en autonomie : entrée de gamme si tu as le temps",

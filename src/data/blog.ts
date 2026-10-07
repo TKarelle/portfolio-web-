@@ -561,12 +561,14 @@ export const blogPosts: BlogPost[] = [
  slug: "combien-coute-site-vitrine-2026",
  title: "Combien coûte un site vitrine en 2026 ? Les vrais prix",
  excerpt:
- "Outil en autonomie, freelance, agence : fourchettes réelles pour un site vitrine d’entrepreneuse en 2026.",
+ "Prix d’un site vitrine (format pages + contact) en 2026 : ce que tu paies vraiment en autonomie, freelance, agence ou abonnement. Distinct du panorama budgétaire entrepreneuse.",
  date: "2026-06-20",
+ updatedAt: "2026-10-07",
  readTime: "8 min",
  category: "Prix",
  content: [
- "« Combien ça coûte un site vitrine ? » Entre le gratuit trompeur et l’agence à plusieurs milliers d’euros, voici des repères pour 2026, orientés femmes entrepreneuses. L’objectif : savoir ce que tu achètes réellement, pas seulement lire un chiffre sur un devis.",
+ "Cet article traite le format vitrine : quelques pages, offre claire, contact ou réservation. Ce n’est pas le panorama de tous les budgets entrepreneuse (autonomie vs agence vs abonnement) : ce panorama est sur le [comparatif prix 2026](/comparatif/combien-coute-site-internet-entrepreneure-2026). Ici, tu réponds à « combien pour une vitrine utile », pas à « quel modèle économique choisir ».",
+ "« Combien ça coûte un site vitrine ? » Entre le gratuit trompeur et l’agence à plusieurs milliers d’euros, voici des repères pour 2026, orientés femmes entrepreneuses. L’objectif : savoir ce que tu achètes réellement pour ce format, pas seulement lire un chiffre sur un devis.",
  "## Quelles options de prix pour un site vitrine en 2026 ?",
  "Quatre options structurent le marché. L’outil en autonomie ou l’IA : **0 à 40 €/mois**, rapide, souvent générique, à ta charge. L’agence : **2 000 à 8 000 €**, professionnel, délais plus longs. Le freelance généraliste : variable selon l’expérience et le périmètre. L’abonnement avec accompagnement : **89 à 179 €/mois**, livré en 21 jours chez Kopio pour une vitrine claire.",
  "La vitrine utile n’exige pas 5 000 €. Elle exige de la clarté, une bonne lecture sur téléphone, et quelqu’un pour les mises à jour. Un site « gratuit » qui te coûte vingt soirs et reste inachevé n’est pas gratuit. Le [comparatif des prix 2026](/comparatif/combien-coute-site-internet-entrepreneure-2026) détaille ces fourchettes. Pour le format vitrine lui-même, vois [site vitrine pour indépendante](/besoin/site-vitrine-independante).",

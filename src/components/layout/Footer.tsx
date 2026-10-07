@@ -13,16 +13,11 @@ import { CTA } from "@/data/copy";
 import { metiers, metierPath } from "@/data/metiers";
 import { besoins, besoinPath } from "@/data/besoins";
 import { comparatifs, comparatifPath } from "@/data/comparatifs";
-
-const navLinks = [
-  { href: "/tarifs", label: "Tarifs" },
-  { href: "/projets", label: "Projets" },
-  { href: "/faq", label: "Questions" },
-  { href: "/blog", label: "Blog" },
-  { href: "/a-propos", label: "À propos" },
-  { href: "/contact", label: "Contact" },
-  { href: "/mentions-legales", label: "Mentions légales" },
-];
+import {
+  FOOTER_BESOIN_SLUGS,
+  FOOTER_HUB_LINKS,
+  FOOTER_METIER_SLUGS,
+} from "@/data/topic-clusters";
 
 function FooterNav({
   title,
@@ -52,16 +47,26 @@ function FooterNav({
   );
 }
 
+/**
+ * Footer Sem.5 — hubs + sélection courte (Topical PageRank).
+ * Plus de dump exhaustif de tous les métiers/besoins sur chaque URL.
+ */
 export function Footer() {
-  const metierLinks = metiers.map((m) => ({
-    href: metierPath(m.slug),
-    label: m.label,
-  }));
+  const metierLinks = FOOTER_METIER_SLUGS.map((slug) => {
+    const m = metiers.find((x) => x.slug === slug);
+    return {
+      href: metierPath(slug),
+      label: m?.label ?? slug,
+    };
+  });
 
-  const besoinLinks = besoins.map((b) => ({
-    href: besoinPath(b.slug),
-    label: b.label,
-  }));
+  const besoinLinks = FOOTER_BESOIN_SLUGS.map((slug) => {
+    const b = besoins.find((x) => x.slug === slug);
+    return {
+      href: besoinPath(slug),
+      label: b?.label ?? slug,
+    };
+  });
 
   const comparatifLinks = comparatifs.map((c) => ({
     href: comparatifPath(c.slug),
@@ -104,7 +109,7 @@ export function Footer() {
           </div>
 
           <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-8 w-full">
-            <FooterNav title="Le site" links={navLinks} />
+            <FooterNav title="Le site" links={[...FOOTER_HUB_LINKS]} />
             <FooterNav title="Par métier" links={metierLinks} />
             <FooterNav title="Par besoin" links={besoinLinks} />
             <FooterNav title="Comparer" links={comparatifLinks} />
@@ -113,7 +118,13 @@ export function Footer() {
 
         <div className="mt-7 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 border-t border-white/10 pt-4">
           <p className="text-white/30 text-xs font-medium">
-            © {new Date().getFullYear()} {BRAND_NAME} · France
+            © {new Date().getFullYear()} {BRAND_NAME} · France ·{" "}
+            <Link
+              href="/mentions-legales"
+              className="hover:text-white/50 transition-colors"
+            >
+              Mentions légales
+            </Link>
           </p>
           <p className="text-white/25 text-xs font-medium">Prix TTC indicatifs</p>
         </div>

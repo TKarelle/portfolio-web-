@@ -7,7 +7,8 @@
     "dev": "next dev --webpack",
     "start": "next start",
     "lint": "eslint",
-    "indexnow": "node scripts/ping-indexnow.mjs"
+    "indexnow": "node scripts/ping-indexnow.mjs",
+    "clusters": "node scripts/cosine-clusters.mjs"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",

@@ -1,0 +1,750 @@
+{
+  "generatedAt": "2026-10-07T12:18:13.564Z",
+  "threshold": 0.55,
+  "cannibalPairs": [
+    {
+      "a": "/comparatif/combien-coute-site-internet-entrepreneure-2026",
+      "b": "/blog/combien-coute-site-vitrine-2026",
+      "typeA": "comparatif",
+      "typeB": "blog",
+      "score": 0.599,
+      "sameCluster": false
+    }
+  ],
+  "neighbors": {
+    "/site-web-pour/coach": [
+      {
+        "slug": "consultante",
+        "score": 0.418
+      },
+      {
+        "slug": "formatrice",
+        "score": 0.282
+      },
+      {
+        "slug": "praticienne-bien-etre",
+        "score": 0.273
+      },
+      {
+        "slug": "therapeute",
+        "score": 0.26
+      },
+      {
+        "slug": "estheticienne",
+        "score": 0.244
+      }
+    ],
+    "/site-web-pour/praticienne-bien-etre": [
+      {
+        "slug": "consultante",
+        "score": 0.33
+      },
+      {
+        "slug": "estheticienne",
+        "score": 0.306
+      },
+      {
+        "slug": "coach",
+        "score": 0.273
+      },
+      {
+        "slug": "photographe",
+        "score": 0.236
+      },
+      {
+        "slug": "formatrice",
+        "score": 0.21
+      }
+    ],
+    "/site-web-pour/consultante": [
+      {
+        "slug": "assistante-virtuelle",
+        "score": 0.42
+      },
+      {
+        "slug": "coach",
+        "score": 0.418
+      },
+      {
+        "slug": "praticienne-bien-etre",
+        "score": 0.33
+      },
+      {
+        "slug": "photographe",
+        "score": 0.266
+      },
+      {
+        "slug": "formatrice",
+        "score": 0.265
+      }
+    ],
+    "/site-web-pour/assistante-virtuelle": [
+      {
+        "slug": "consultante",
+        "score": 0.42
+      },
+      {
+        "slug": "coach",
+        "score": 0.227
+      },
+      {
+        "slug": "praticienne-bien-etre",
+        "score": 0.185
+      },
+      {
+        "slug": "formatrice",
+        "score": 0.166
+      },
+      {
+        "slug": "photographe",
+        "score": 0.155
+      }
+    ],
+    "/site-web-pour/therapeute": [
+      {
+        "slug": "naturopathe",
+        "score": 0.422
+      },
+      {
+        "slug": "sophrologue",
+        "score": 0.406
+      },
+      {
+        "slug": "coach",
+        "score": 0.26
+      },
+      {
+        "slug": "consultante",
+        "score": 0.219
+      },
+      {
+        "slug": "praticienne-bien-etre",
+        "score": 0.18
+      }
+    ],
+    "/site-web-pour/sophrologue": [
+      {
+        "slug": "therapeute",
+        "score": 0.406
+      },
+      {
+        "slug": "naturopathe",
+        "score": 0.238
+      },
+      {
+        "slug": "praticienne-bien-etre",
+        "score": 0.177
+      },
+      {
+        "slug": "coach",
+        "score": 0.163
+      },
+      {
+        "slug": "consultante",
+        "score": 0.131
+      }
+    ],
+    "/site-web-pour/naturopathe": [
+      {
+        "slug": "therapeute",
+        "score": 0.422
+      },
+      {
+        "slug": "sophrologue",
+        "score": 0.238
+      },
+      {
+        "slug": "coach",
+        "score": 0.21
+      },
+      {
+        "slug": "consultante",
+        "score": 0.187
+      },
+      {
+        "slug": "praticienne-bien-etre",
+        "score": 0.169
+      }
+    ],
+    "/site-web-pour/formatrice": [
+      {
+        "slug": "coach",
+        "score": 0.282
+      },
+      {
+        "slug": "consultante",
+        "score": 0.265
+      },
+      {
+        "slug": "praticienne-bien-etre",
+        "score": 0.21
+      },
+      {
+        "slug": "creatrice",
+        "score": 0.198
+      },
+      {
+        "slug": "photographe",
+        "score": 0.177
+      }
+    ],
+    "/site-web-pour/creatrice": [
+      {
+        "slug": "coach",
+        "score": 0.203
+      },
+      {
+        "slug": "wedding-planner",
+        "score": 0.2
+      },
+      {
+        "slug": "formatrice",
+        "score": 0.198
+      },
+      {
+        "slug": "praticienne-bien-etre",
+        "score": 0.178
+      },
+      {
+        "slug": "photographe",
+        "score": 0.171
+      }
+    ],
+    "/site-web-pour/estheticienne": [
+      {
+        "slug": "praticienne-bien-etre",
+        "score": 0.306
+      },
+      {
+        "slug": "coach",
+        "score": 0.244
+      },
+      {
+        "slug": "consultante",
+        "score": 0.216
+      },
+      {
+        "slug": "photographe",
+        "score": 0.193
+      },
+      {
+        "slug": "formatrice",
+        "score": 0.175
+      }
+    ],
+    "/site-web-pour/photographe": [
+      {
+        "slug": "consultante",
+        "score": 0.266
+      },
+      {
+        "slug": "architecte-interieur",
+        "score": 0.245
+      },
+      {
+        "slug": "wedding-planner",
+        "score": 0.243
+      },
+      {
+        "slug": "praticienne-bien-etre",
+        "score": 0.236
+      },
+      {
+        "slug": "coach",
+        "score": 0.23
+      }
+    ],
+    "/site-web-pour/architecte-interieur": [
+      {
+        "slug": "photographe",
+        "score": 0.245
+      },
+      {
+        "slug": "consultante",
+        "score": 0.186
+      },
+      {
+        "slug": "coach",
+        "score": 0.176
+      },
+      {
+        "slug": "estheticienne",
+        "score": 0.17
+      },
+      {
+        "slug": "praticienne-bien-etre",
+        "score": 0.169
+      }
+    ],
+    "/site-web-pour/wedding-planner": [
+      {
+        "slug": "photographe",
+        "score": 0.243
+      },
+      {
+        "slug": "coach",
+        "score": 0.224
+      },
+      {
+        "slug": "consultante",
+        "score": 0.201
+      },
+      {
+        "slug": "creatrice",
+        "score": 0.2
+      },
+      {
+        "slug": "estheticienne",
+        "score": 0.172
+      }
+    ],
+    "/besoin/creer-son-site-sans-competences-techniques": [
+      {
+        "slug": "site-web-femme-qui-se-lance",
+        "score": 0.249
+      },
+      {
+        "slug": "site-vitrine-independante",
+        "score": 0.191
+      },
+      {
+        "slug": "site-web-maman-freelance",
+        "score": 0.181
+      },
+      {
+        "slug": "refonte-site-internet-entrepreneure",
+        "score": 0.141
+      },
+      {
+        "slug": "site-avec-reservation-en-ligne",
+        "score": 0.114
+      }
+    ],
+    "/besoin/site-vitrine-independante": [
+      {
+        "slug": "site-web-femme-qui-se-lance",
+        "score": 0.208
+      },
+      {
+        "slug": "creer-son-site-sans-competences-techniques",
+        "score": 0.191
+      },
+      {
+        "slug": "site-avec-reservation-en-ligne",
+        "score": 0.179
+      },
+      {
+        "slug": "refonte-site-internet-entrepreneure",
+        "score": 0.165
+      },
+      {
+        "slug": "site-web-maman-freelance",
+        "score": 0.126
+      }
+    ],
+    "/besoin/site-avec-reservation-en-ligne": [
+      {
+        "slug": "refonte-site-internet-entrepreneure",
+        "score": 0.189
+      },
+      {
+        "slug": "site-vitrine-independante",
+        "score": 0.179
+      },
+      {
+        "slug": "creer-son-site-sans-competences-techniques",
+        "score": 0.114
+      },
+      {
+        "slug": "site-web-femme-qui-se-lance",
+        "score": 0.113
+      },
+      {
+        "slug": "boutique-en-ligne-petite-entreprise",
+        "score": 0.1
+      }
+    ],
+    "/besoin/boutique-en-ligne-petite-entreprise": [
+      {
+        "slug": "site-vitrine-independante",
+        "score": 0.117
+      },
+      {
+        "slug": "site-avec-reservation-en-ligne",
+        "score": 0.1
+      },
+      {
+        "slug": "creer-son-site-sans-competences-techniques",
+        "score": 0.083
+      },
+      {
+        "slug": "refonte-site-internet-entrepreneure",
+        "score": 0.081
+      },
+      {
+        "slug": "site-web-femme-qui-se-lance",
+        "score": 0.069
+      }
+    ],
+    "/besoin/refonte-site-internet-entrepreneure": [
+      {
+        "slug": "site-avec-reservation-en-ligne",
+        "score": 0.189
+      },
+      {
+        "slug": "site-vitrine-independante",
+        "score": 0.165
+      },
+      {
+        "slug": "creer-son-site-sans-competences-techniques",
+        "score": 0.141
+      },
+      {
+        "slug": "site-web-femme-qui-se-lance",
+        "score": 0.131
+      },
+      {
+        "slug": "site-web-maman-freelance",
+        "score": 0.105
+      }
+    ],
+    "/besoin/site-web-femme-qui-se-lance": [
+      {
+        "slug": "creer-son-site-sans-competences-techniques",
+        "score": 0.249
+      },
+      {
+        "slug": "site-vitrine-independante",
+        "score": 0.208
+      },
+      {
+        "slug": "site-web-maman-freelance",
+        "score": 0.138
+      },
+      {
+        "slug": "refonte-site-internet-entrepreneure",
+        "score": 0.131
+      },
+      {
+        "slug": "site-avec-reservation-en-ligne",
+        "score": 0.113
+      }
+    ],
+    "/besoin/site-web-maman-freelance": [
+      {
+        "slug": "creer-son-site-sans-competences-techniques",
+        "score": 0.181
+      },
+      {
+        "slug": "site-web-femme-qui-se-lance",
+        "score": 0.138
+      },
+      {
+        "slug": "site-vitrine-independante",
+        "score": 0.126
+      },
+      {
+        "slug": "refonte-site-internet-entrepreneure",
+        "score": 0.105
+      },
+      {
+        "slug": "site-avec-reservation-en-ligne",
+        "score": 0.098
+      }
+    ],
+    "/comparatif/kopio-vs-wix": [
+      {
+        "slug": "combien-coute-site-internet-entrepreneure-2026",
+        "score": 0.323
+      },
+      {
+        "slug": "kopio-vs-agence-web",
+        "score": 0.183
+      }
+    ],
+    "/comparatif/kopio-vs-agence-web": [
+      {
+        "slug": "combien-coute-site-internet-entrepreneure-2026",
+        "score": 0.403
+      },
+      {
+        "slug": "kopio-vs-wix",
+        "score": 0.183
+      }
+    ],
+    "/comparatif/combien-coute-site-internet-entrepreneure-2026": [
+      {
+        "slug": "kopio-vs-agence-web",
+        "score": 0.403
+      },
+      {
+        "slug": "kopio-vs-wix",
+        "score": 0.323
+      }
+    ],
+    "/blog/optimiser-seo-google-ia-debutant": [
+      {
+        "slug": "page-non-indexee-google-guide-debutant",
+        "score": 0.256
+      },
+      {
+        "slug": "combien-coute-site-web-coach-france-2026",
+        "score": 0.14
+      },
+      {
+        "slug": "reconversion-professionnelle-site-web-2026",
+        "score": 0.13
+      },
+      {
+        "slug": "indexation-google-bloquee-rejets-crawl",
+        "score": 0.112
+      },
+      {
+        "slug": "ia-creation-site-web-pieges",
+        "score": 0.092
+      }
+    ],
+    "/blog/page-non-indexee-google-guide-debutant": [
+      {
+        "slug": "indexation-google-bloquee-rejets-crawl",
+        "score": 0.422
+      },
+      {
+        "slug": "optimiser-seo-google-ia-debutant",
+        "score": 0.256
+      },
+      {
+        "slug": "combien-coute-site-web-coach-france-2026",
+        "score": 0.119
+      },
+      {
+        "slug": "ia-creation-site-web-pieges",
+        "score": 0.114
+      },
+      {
+        "slug": "5-raisons-avoir-site-web-maintenant",
+        "score": 0.07
+      }
+    ],
+    "/blog/indexation-google-bloquee-rejets-crawl": [
+      {
+        "slug": "page-non-indexee-google-guide-debutant",
+        "score": 0.422
+      },
+      {
+        "slug": "optimiser-seo-google-ia-debutant",
+        "score": 0.112
+      },
+      {
+        "slug": "erreurs-a-eviter-site-independante",
+        "score": 0.06
+      },
+      {
+        "slug": "ia-creation-site-web-pieges",
+        "score": 0.059
+      },
+      {
+        "slug": "combien-coute-site-web-coach-france-2026",
+        "score": 0.052
+      }
+    ],
+    "/blog/creer-son-site-maman-entrepreneuse": [
+      {
+        "slug": "photos-de-marque-sans-budget-shooting",
+        "score": 0.122
+      },
+      {
+        "slug": "combien-coute-site-vitrine-2026",
+        "score": 0.105
+      },
+      {
+        "slug": "reconversion-professionnelle-site-web-2026",
+        "score": 0.105
+      },
+      {
+        "slug": "combien-coute-site-web-coach-france-2026",
+        "score": 0.09
+      },
+      {
+        "slug": "erreurs-a-eviter-site-independante",
+        "score": 0.089
+      }
+    ],
+    "/blog/reconversion-professionnelle-site-web-2026": [
+      {
+        "slug": "combien-coute-site-web-coach-france-2026",
+        "score": 0.149
+      },
+      {
+        "slug": "combien-coute-site-vitrine-2026",
+        "score": 0.133
+      },
+      {
+        "slug": "optimiser-seo-google-ia-debutant",
+        "score": 0.13
+      },
+      {
+        "slug": "abonnement-ou-paiement-unique-site-web",
+        "score": 0.107
+      },
+      {
+        "slug": "creer-son-site-maman-entrepreneuse",
+        "score": 0.105
+      }
+    ],
+    "/blog/combien-coute-site-web-coach-france-2026": [
+      {
+        "slug": "combien-coute-site-vitrine-2026",
+        "score": 0.172
+      },
+      {
+        "slug": "reconversion-professionnelle-site-web-2026",
+        "score": 0.149
+      },
+      {
+        "slug": "optimiser-seo-google-ia-debutant",
+        "score": 0.14
+      },
+      {
+        "slug": "abonnement-ou-paiement-unique-site-web",
+        "score": 0.131
+      },
+      {
+        "slug": "page-non-indexee-google-guide-debutant",
+        "score": 0.119
+      }
+    ],
+    "/blog/erreurs-a-eviter-site-independante": [
+      {
+        "slug": "ia-creation-site-web-pieges",
+        "score": 0.13
+      },
+      {
+        "slug": "5-raisons-avoir-site-web-maintenant",
+        "score": 0.101
+      },
+      {
+        "slug": "creer-son-site-maman-entrepreneuse",
+        "score": 0.089
+      },
+      {
+        "slug": "reconversion-professionnelle-site-web-2026",
+        "score": 0.069
+      },
+      {
+        "slug": "combien-coute-site-vitrine-2026",
+        "score": 0.067
+      }
+    ],
+    "/blog/abonnement-ou-paiement-unique-site-web": [
+      {
+        "slug": "combien-coute-site-vitrine-2026",
+        "score": 0.171
+      },
+      {
+        "slug": "combien-coute-site-web-coach-france-2026",
+        "score": 0.131
+      },
+      {
+        "slug": "reconversion-professionnelle-site-web-2026",
+        "score": 0.107
+      },
+      {
+        "slug": "ia-creation-site-web-pieges",
+        "score": 0.103
+      },
+      {
+        "slug": "creer-son-site-maman-entrepreneuse",
+        "score": 0.066
+      }
+    ],
+    "/blog/photos-de-marque-sans-budget-shooting": [
+      {
+        "slug": "creer-son-site-maman-entrepreneuse",
+        "score": 0.122
+      },
+      {
+        "slug": "ia-creation-site-web-pieges",
+        "score": 0.122
+      },
+      {
+        "slug": "5-raisons-avoir-site-web-maintenant",
+        "score": 0.091
+      },
+      {
+        "slug": "combien-coute-site-web-coach-france-2026",
+        "score": 0.071
+      },
+      {
+        "slug": "erreurs-a-eviter-site-independante",
+        "score": 0.062
+      }
+    ],
+    "/blog/combien-coute-site-vitrine-2026": [
+      {
+        "slug": "combien-coute-site-web-coach-france-2026",
+        "score": 0.172
+      },
+      {
+        "slug": "abonnement-ou-paiement-unique-site-web",
+        "score": 0.171
+      },
+      {
+        "slug": "reconversion-professionnelle-site-web-2026",
+        "score": 0.133
+      },
+      {
+        "slug": "creer-son-site-maman-entrepreneuse",
+        "score": 0.105
+      },
+      {
+        "slug": "ia-creation-site-web-pieges",
+        "score": 0.087
+      }
+    ],
+    "/blog/5-raisons-avoir-site-web-maintenant": [
+      {
+        "slug": "ia-creation-site-web-pieges",
+        "score": 0.151
+      },
+      {
+        "slug": "combien-coute-site-web-coach-france-2026",
+        "score": 0.103
+      },
+      {
+        "slug": "erreurs-a-eviter-site-independante",
+        "score": 0.101
+      },
+      {
+        "slug": "reconversion-professionnelle-site-web-2026",
+        "score": 0.098
+      },
+      {
+        "slug": "photos-de-marque-sans-budget-shooting",
+        "score": 0.091
+      }
+    ],
+    "/blog/ia-creation-site-web-pieges": [
+      {
+        "slug": "5-raisons-avoir-site-web-maintenant",
+        "score": 0.151
+      },
+      {
+        "slug": "erreurs-a-eviter-site-independante",
+        "score": 0.13
+      },
+      {
+        "slug": "photos-de-marque-sans-budget-shooting",
+        "score": 0.122
+      },
+      {
+        "slug": "page-non-indexee-google-guide-debutant",
+        "score": 0.114
+      },
+      {
+        "slug": "combien-coute-site-web-coach-france-2026",
+        "score": 0.106
+      }
+    ]
+  }
+}

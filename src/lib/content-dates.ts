@@ -8,8 +8,8 @@ import { SITE_CONTENT_UPDATED } from "@/data/site";
 export const CLUSTER_LASTMOD = {
   /** Accueil, tarifs, contact, FAQ, process (WRS Sem.2, quiz, etc.) */
   core: "2026-10-07",
-  /** /site-web-pour/*, /besoin/*, /comparatif/* */
-  landings: "2026-09-30",
+  /** /site-web-pour/*, /besoin/*, /comparatif/* — bump Sem.6 IG */
+  landings: "2026-10-07",
   /** Mentions légales */
   legal: "2026-09-30",
   /** Lead magnet grille */
