@@ -13,12 +13,16 @@ export function FAQ({
   title = "Des questions ?",
   highlight = "questions",
   showRoiDisclaimer = false,
+  contactHref = "#contact",
+  contactLabel = "Poser ma dernière question",
 }: {
   items?: readonly FaqEntry[];
   title?: string;
   highlight?: string;
   /** Afficher la mention * une seule fois (ex. page /faq, hors homepage) */
   showRoiDisclaimer?: boolean;
+  contactHref?: string;
+  contactLabel?: string;
 } = {}) {
   const source = items ?? defaultFaqItems;
 
@@ -61,10 +65,10 @@ export function FAQ({
 
         <div className="reveal mt-8 text-center">
           <a
-            href="#contact"
+            href={contactHref}
             className="inline-flex items-center gap-1.5 text-sm font-extrabold text-pink hover:text-pink-hot transition-colors"
           >
-            Poser ma dernière question
+            {contactLabel}
             <span aria-hidden="true">→</span>
           </a>
         </div>

@@ -47,14 +47,14 @@ export function QuizLeadMagnet({
           {QUIZ_META.title}
         </p>
         <p className="mt-1.5 text-xs font-medium text-white/55 leading-snug">
-          10 points de contrôle pour chiffrer les fuites de votre site.
+          10 points pour voir ce que Google et ChatGPT disent vraiment de toi.
         </p>
         <Link
           href={QUIZ_META.path}
           className="mt-3 inline-flex w-full items-center justify-center gap-2 min-h-11 rounded-xl bg-pink text-white text-sm font-bold px-4 hover:bg-pink-hot transition-colors touch-manipulation border-2 border-white/10"
         >
           <QuizIcon />
-          Faire le quiz
+          {QUIZ_META.promoCta}
         </Link>
       </div>
     );
@@ -88,7 +88,7 @@ export function QuizLeadMagnet({
           className="mt-5 inline-flex items-center justify-center gap-2.5 min-h-12 rounded-xl bg-pink text-white text-sm font-bold px-5 border-2 border-ink shadow-[4px_4px_0_#111] hover:translate-y-0.5 hover:shadow-[2px_2px_0_#111] transition-all touch-manipulation"
         >
           <QuizIcon className="w-5 h-5" />
-          Faire le quiz
+          {QUIZ_META.promoCta}
         </Link>
       </aside>
     );
@@ -134,7 +134,7 @@ export function QuizLeadMagnet({
           className="mt-6 inline-flex items-center justify-center gap-2.5 min-h-12 rounded-xl bg-pink text-white text-sm sm:text-base font-bold px-5 sm:px-6 border-2 border-ink shadow-[4px_4px_0_#111] hover:translate-y-0.5 hover:shadow-[2px_2px_0_#111] transition-all touch-manipulation"
         >
           <QuizIcon className="w-5 h-5" />
-          Accéder au quiz
+          {QUIZ_META.promoCta}
         </Link>
       </div>
     </section>
