@@ -1,5 +1,3 @@
-"use client";
-
 import { Button } from "@/components/ui/Button";
 import { SectionHead } from "@/components/ui/SectionHead";
 import { AutoPlayVideo } from "@/components/ui/AutoPlayVideo";
@@ -66,6 +64,7 @@ function DemoVideos() {
   );
 }
 
+/** Gains + démos — Server Component (Sem.2). Vidéo = îlot client. */
 export function Constat() {
   return (
     <section

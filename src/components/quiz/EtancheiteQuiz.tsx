@@ -101,7 +101,10 @@ function GateForm({ onUnlocked }: { onUnlocked: (g: GateState) => void }) {
         method: "POST",
         body: formData,
       });
-      const w3Data = (await w3.json()) as { success?: boolean; message?: string };
+      const w3Data = (await w3.json()) as {
+        success?: boolean;
+        message?: string;
+      };
       if (!w3.ok || !w3Data.success) {
         setError(w3Data.message ?? "Envoi impossible. Réessayez.");
         setLoading(false);
@@ -395,8 +398,8 @@ function ResultsPanel({
 
 function QuizBody({ gate }: { gate: GateState }) {
   const [figures, setFigures] = useState<QuizFigures>(DEFAULT_FIGURES);
-  const [answers, setAnswers] = useState<Array<QuizAnswerLevel | null>>(
-    () => Array(CONTROL_POINTS.length).fill(null),
+  const [answers, setAnswers] = useState<Array<QuizAnswerLevel | null>>(() =>
+    Array(CONTROL_POINTS.length).fill(null),
   );
 
   const result = useMemo(
@@ -404,8 +407,9 @@ function QuizBody({ gate }: { gate: GateState }) {
     [answers, figures],
   );
   const complete = result.remainingAnswers === 0;
-  const pointsDisplay =
-    Number.isInteger(result.points) ? result.points : result.points.toFixed(1);
+  const pointsDisplay = Number.isInteger(result.points)
+    ? result.points
+    : result.points.toFixed(1);
 
   const setAnswer = (index: number, level: QuizAnswerLevel) => {
     setAnswers((prev) => {
@@ -443,7 +447,9 @@ function QuizBody({ gate }: { gate: GateState }) {
       </header>
 
       <div className="rounded-[1.25rem] border-2 border-ink/10 bg-surface/80 p-5 sm:p-6">
-        <h2 className="text-xl font-extrabold text-ink">{QUIZ_META.introTitle}</h2>
+        <h2 className="text-xl font-extrabold text-ink">
+          {QUIZ_META.introTitle}
+        </h2>
         <p className="mt-3 text-sm sm:text-base font-medium text-muted leading-relaxed">
           {QUIZ_META.introBody}
         </p>

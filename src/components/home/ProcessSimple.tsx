@@ -1,10 +1,7 @@
-"use client";
-
-import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/Button";
 import { SectionHead } from "@/components/ui/SectionHead";
 import { process } from "@/data/services";
-import { bubbleInStyle, waveDelay } from "@/lib/motion";
+import { MOTION } from "@/lib/motion";
 import { CTA } from "@/data/copy";
 
 const styles = [
@@ -28,39 +25,8 @@ const waveClass = [
   "float-wave",
 ] as const;
 
+/** Processus 4 étapes — Server Component (Sem.2). */
 export function ProcessSimple() {
-  const gridRef = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
-  const [reduceMotion, setReduceMotion] = useState(false);
-
-  useEffect(() => {
-    const prefersReduced = window.matchMedia(
-      "(prefers-reduced-motion: reduce)",
-    ).matches;
-    setReduceMotion(prefersReduced);
-
-    const el = gridRef.current;
-    if (!el) return;
-
-    if (prefersReduced) {
-      setVisible(true);
-      return;
-    }
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.15, rootMargin: "0px 0px -6% 0px" },
-    );
-
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
-
   return (
     <section className="py-20 md:py-28 px-6 bg-chunk-lime" id="processus">
       <div className="max-w-5xl mx-auto">
@@ -73,27 +39,18 @@ export function ProcessSimple() {
           </SectionHead>
         </div>
 
-        <div
-          ref={gridRef}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-10 items-stretch"
-        >
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-10 items-stretch">
           {process.map((s, i) => (
             <div
               key={s.step}
-              className="h-full"
-              style={bubbleInStyle(i, visible)}
+              className="h-full bubble-stagger"
+              style={{ animationDelay: `${i * MOTION.stagger}s` }}
             >
               <div
-                className={`h-full ${
-                  reduceMotion || !visible
-                    ? ""
-                    : waveClass[i % waveClass.length]
-                }`}
-                style={
-                  reduceMotion || !visible
-                    ? undefined
-                    : { animationDelay: waveDelay(i) }
-                }
+                className={`h-full ${waveClass[i % waveClass.length]}`}
+                style={{
+                  animationDelay: `${i * MOTION.stagger + MOTION.duration * 0.85}s`,
+                }}
               >
                 <div className={`${styles[i]} flex flex-col`}>
                   <p className="text-3xl font-extrabold opacity-40 mb-3">

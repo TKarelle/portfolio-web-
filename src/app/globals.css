@@ -333,11 +333,40 @@ select {
   opacity: 1;
 }
 
+/* Sem.2 — visible par défaut (bots) ; flip CSS si view-timeline + motion OK */
+.mirror-flip-auto {
+  transform: rotateY(0deg);
+  opacity: 1;
+}
+@keyframes mirror-reveal {
+  from {
+    transform: rotateY(90deg);
+    opacity: 0;
+  }
+  to {
+    transform: rotateY(0deg);
+    opacity: 1;
+  }
+}
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .mirror-flip-auto {
+      opacity: 0;
+      transform: rotateY(90deg);
+      animation: mirror-reveal var(--motion-duration) var(--motion-ease) forwards;
+      animation-timeline: view();
+      animation-range: entry 10% cover 40%;
+    }
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .mirror-flip {
+  .mirror-flip,
+  .mirror-flip-auto {
     transform: none;
     opacity: 1;
     transition: none;
+    animation: none;
   }
 }
 
@@ -402,21 +431,32 @@ select {
   }
 }
 
-.reveal {
-  opacity: 0;
-  animation: slide-up var(--motion-duration) var(--motion-ease) forwards;
-  animation-timeline: view();
-  animation-range: entry 0% cover 30%;
+/* Visible par défaut pour crawlers ; motion = progressive enhancement */
+.reveal,
+.bubble-stagger {
+  opacity: 1;
 }
-@supports not (animation-timeline: view()) {
-  .reveal {
-    opacity: 1;
-    animation: none;
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal {
+      opacity: 0;
+      animation: slide-up var(--motion-duration) var(--motion-ease) forwards;
+      animation-timeline: view();
+      animation-range: entry 0% cover 30%;
+    }
+    .bubble-stagger {
+      opacity: 0;
+      animation: bubble-in var(--motion-duration) var(--motion-ease) forwards;
+      animation-timeline: view();
+      animation-range: entry 0% cover 35%;
+    }
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .reveal,
+  .bubble-stagger,
   .hero-enter {
     opacity: 1;
     animation: none;

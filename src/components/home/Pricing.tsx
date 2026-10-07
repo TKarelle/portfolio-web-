@@ -1,6 +1,3 @@
-"use client";
-
-import { useEffect, useRef, useState } from "react";
 import { pricingPlans } from "@/data/pricing";
 import { Button } from "@/components/ui/Button";
 import { SectionHead } from "@/components/ui/SectionHead";
@@ -9,11 +6,12 @@ import {
   PricingGuarantees,
   PricingIncluded,
 } from "@/components/home/PricingPromises";
-import { bubbleInStyle, waveDelay } from "@/lib/motion";
+import { MOTION } from "@/lib/motion";
 import { CTA } from "@/data/copy";
 
 const waveClass = ["float-wave", "float-wave-slow", "float-wave-alt"] as const;
 
+/** Tarifs — Server Component (Sem.2). Motion via CSS view-timeline, pas d’hydratation. */
 export function Pricing({
   title = "Choisissez votre modèle",
   highlight = "modèle",
@@ -21,38 +19,6 @@ export function Pricing({
   title?: string;
   highlight?: string;
 } = {}) {
-  const gridRef = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
-  const [reduceMotion, setReduceMotion] = useState(false);
-
-  useEffect(() => {
-    const prefersReduced = window.matchMedia(
-      "(prefers-reduced-motion: reduce)",
-    ).matches;
-    setReduceMotion(prefersReduced);
-
-    const el = gridRef.current;
-    if (!el) return;
-
-    if (prefersReduced) {
-      setVisible(true);
-      return;
-    }
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.15, rootMargin: "0px 0px -6% 0px" },
-    );
-
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
-
   return (
     <section className="scroll-mt-28 py-14 md:py-20 px-6 bg-bg" id="modeles">
       <div className="max-w-5xl mx-auto">
@@ -66,27 +32,18 @@ export function Pricing({
           </SectionHead>
         </div>
 
-        <div
-          ref={gridRef}
-          className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6 md:items-stretch"
-        >
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6 md:items-stretch">
           {pricingPlans.map((plan, i) => (
             <div
               key={plan.id}
-              className={`h-full ${plan.highlight ? "md:-translate-y-3" : ""}`}
-              style={bubbleInStyle(i, visible)}
+              className={`h-full bubble-stagger ${plan.highlight ? "md:-translate-y-3" : ""}`}
+              style={{ animationDelay: `${i * MOTION.stagger}s` }}
             >
               <div
-                className={`h-full ${
-                  reduceMotion || !visible
-                    ? undefined
-                    : waveClass[i % waveClass.length]
-                }`}
-                style={
-                  reduceMotion || !visible
-                    ? undefined
-                    : { animationDelay: waveDelay(i) }
-                }
+                className={`h-full ${waveClass[i % waveClass.length]}`}
+                style={{
+                  animationDelay: `${i * MOTION.stagger + MOTION.duration * 0.85}s`,
+                }}
               >
                 <div
                   className={`card card-hover p-7 md:p-8 flex flex-col relative h-full ${

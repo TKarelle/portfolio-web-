@@ -1,7 +1,4 @@
-"use client";
-
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
 import {
   BRAND_SIGNATURE,
   FOUNDER_DIPLOMA,
@@ -12,42 +9,13 @@ import {
 } from "@/data/site";
 import { SectionHead } from "@/components/ui/SectionHead";
 
+/** À propos fondatrice — Server Component (Sem.2). Photo visible sans JS (WRS / bots). */
 export function HowIWork() {
-  const stageRef = useRef<HTMLDivElement>(null);
-  const [flipped, setFlipped] = useState(false);
-
-  useEffect(() => {
-    const el = stageRef.current;
-    if (!el) return;
-
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      setFlipped(true);
-      return;
-    }
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setFlipped(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.25, rootMargin: "0px 0px -10% 0px" }
-    );
-
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
-
   return (
     <section className="py-16 md:py-20 px-6 bg-chunk-violet" id="pourquoi-moi">
       <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
-        <div ref={stageRef} className="mirror-stage w-full max-w-sm mx-auto lg:mx-0">
-          <div
-            className={`mirror-flip relative aspect-[4/5] w-full photo-frame photo-frame-lime ${
-              flipped ? "is-visible" : ""
-            }`}
-          >
+        <div className="mirror-stage w-full max-w-sm mx-auto lg:mx-0">
+          <div className="mirror-flip mirror-flip-auto relative aspect-[4/5] w-full photo-frame photo-frame-lime">
             <Image
               src={FOUNDER_PHOTO}
               alt={FOUNDER_PHOTO_ALT}

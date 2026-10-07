@@ -1,10 +1,9 @@
-"use client";
-
 import { CalendlyButton } from "@/components/ui/CalendlyButton";
 import { SectionHead } from "@/components/ui/SectionHead";
 import { CTA } from "@/data/copy";
 import { CONTACT_EMAIL, HAS_CALENDLY } from "@/data/site";
 
+/** Contact home — Server Component (Sem.2). Calendly = îlot client. */
 export function ContactSection({
   headingAs = "h2",
 }: {

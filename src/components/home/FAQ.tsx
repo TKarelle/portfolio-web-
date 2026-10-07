@@ -1,12 +1,13 @@
-"use client";
-
-import { useState } from "react";
 import { faqItems as defaultFaqItems } from "@/data/faq";
 import { ROI_DISCLAIMER } from "@/data/pricing";
 import { SectionHead } from "@/components/ui/SectionHead";
 
 type FaqEntry = { question: string; answer: string };
 
+/**
+ * Accordion natif `<details>` — Server Component (Sem.2 WRS).
+ * Toutes les réponses sont dans le HTML initial (Googlebot / RAG / GEO).
+ */
 export function FAQ({
   items,
   title = "Des questions ?",
@@ -20,7 +21,6 @@ export function FAQ({
   showRoiDisclaimer?: boolean;
 } = {}) {
   const source = items ?? defaultFaqItems;
-  const [open, setOpen] = useState<number | null>(0);
 
   return (
     <section className="py-14 md:py-20 px-6 bg-bg" id="faq">
@@ -33,35 +33,29 @@ export function FAQ({
 
         <div className="space-y-3">
           {source.map((item, i) => (
-            <div
+            <details
               key={item.question}
-              className="reveal card overflow-hidden bg-surface"
+              className="reveal card overflow-hidden bg-surface group"
               style={{ animationDelay: `${i * 0.38}s` }}
+              open={i === 0 ? true : undefined}
             >
-              <button
-                onClick={() => setOpen(open === i ? null : i)}
-                className="w-full flex items-center justify-between gap-4 p-5 md:p-6 text-left"
-                aria-expanded={open === i}
-              >
+              <summary className="w-full flex items-center justify-between gap-4 p-5 md:p-6 text-left cursor-pointer list-none [&::-webkit-details-marker]:hidden">
                 <span className="font-extrabold text-sm md:text-base">
                   {item.question}
                 </span>
                 <span
-                  className={`w-8 h-8 rounded-full border-2 border-ink flex items-center justify-center text-pink font-bold shrink-0 transition-transform duration-300 ${
-                    open === i ? "bg-lime rotate-45" : "bg-surface"
-                  }`}
+                  className="w-8 h-8 rounded-full border-2 border-ink flex items-center justify-center text-pink font-bold shrink-0 bg-surface transition-transform duration-300 group-open:bg-lime group-open:rotate-45"
+                  aria-hidden="true"
                 >
                   +
                 </span>
-              </button>
-              {open === i && (
-                <div className="px-5 md:px-6 pb-5 md:pb-6 -mt-1 border-t-2 border-ink/5">
-                  <p className="text-muted text-sm leading-relaxed font-medium pt-4">
-                    {item.answer}
-                  </p>
-                </div>
-              )}
-            </div>
+              </summary>
+              <div className="px-5 md:px-6 pb-5 md:pb-6 -mt-1 border-t-2 border-ink/5">
+                <p className="text-muted text-sm leading-relaxed font-medium pt-4">
+                  {item.answer}
+                </p>
+              </div>
+            </details>
           ))}
         </div>
 
