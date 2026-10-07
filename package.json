@@ -6,7 +6,8 @@
     "build": "next build --webpack",
     "dev": "next dev --webpack",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "indexnow": "node scripts/ping-indexnow.mjs"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",

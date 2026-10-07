@@ -47,7 +47,12 @@ export const metadata: Metadata = {
   },
   twitter: defaultMeta.twitter,
   robots: { index: true, follow: true },
-  alternates: defaultMeta.alternates,
+  alternates: {
+    ...defaultMeta.alternates,
+    types: {
+      "application/atom+xml": `${SITE_URL.replace(/\/$/, "")}/feed.xml`,
+    },
+  },
   icons: {
     icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
     apple: "/apple-icon",
