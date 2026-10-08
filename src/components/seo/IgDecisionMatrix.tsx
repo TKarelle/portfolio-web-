@@ -12,8 +12,8 @@ export function IgDecisionMatrix({
   rows: readonly (readonly [string, string, string])[];
 }) {
   return (
-    <figure className="my-8 overflow-x-auto rounded-[1.25rem] border-2 border-ink bg-surface shadow-[4px_4px_0_#111]">
-      <figcaption className="px-4 py-3 border-b-2 border-ink text-sm font-extrabold text-ink">
+    <figure className="my-8 overflow-x-auto rounded-[var(--rounded-large)] border border-ink/10 bg-white shadow-[0_14px_44px_rgba(17,17,17,0.07)]">
+      <figcaption className="px-4 py-3 border-b border-ink/10 text-sm font-extrabold text-ink">
         {caption}
       </figcaption>
       <table className="w-full min-w-[28rem] text-left text-sm">

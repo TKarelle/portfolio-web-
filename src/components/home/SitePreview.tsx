@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { projects } from "@/data/projects";
 import { BlogCard, projectToCard } from "@/components/blog/BlogCard";
 import { Button } from "@/components/ui/Button";
-import { SectionHead } from "@/components/ui/SectionHead";
+import { SectionHead, TitleEm } from "@/components/ui/SectionHead";
 import { bubbleInStyle } from "@/lib/motion";
 
 const selection = projects.slice(0, 3);
@@ -40,11 +40,11 @@ export function SitePreview() {
     <section className="py-14 md:py-20 px-6 bg-bg" id="projets">
       <div className="max-w-5xl mx-auto">
         <div className="reveal mb-8 md:mb-10 max-w-2xl">
-          <p className="text-sm font-bold text-pink mb-3 tracking-wide">
+          <p className="text-[11px] font-extrabold uppercase tracking-[0.16em] text-ink/35 mb-3">
             Ce que je te propose
           </p>
-          <SectionHead align="left" stroke="pink" highlight="déjà en ligne">
-            {"Des projets concrets, déjà en ligne"}
+          <SectionHead align="left" size="xl">
+            Des projets concrets, <TitleEm>déjà en ligne</TitleEm>
           </SectionHead>
         </div>
 

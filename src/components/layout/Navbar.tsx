@@ -59,7 +59,7 @@ export function Navbar() {
           "fixed inset-0 z-40 bg-ink/20 backdrop-blur-[2px] md:hidden transition-opacity duration-300 ease-out",
           open
             ? "opacity-100 pointer-events-auto"
-            : "opacity-0 pointer-events-none"
+            : "opacity-0 pointer-events-none",
         )}
         style={scrollbarW ? { right: scrollbarW } : undefined}
         aria-hidden={!open}
@@ -89,10 +89,10 @@ export function Navbar() {
           aria-label="Navigation principale"
           className={cn(
             "w-full overflow-hidden border transition-[background-color,box-shadow] duration-300 ease-out",
-            "rounded-[1.35rem] md:rounded-full",
+            "rounded-[var(--rounded-large)]",
             scrolled || open
               ? "glass-nav shadow-lg shadow-violet/5 border-ink/10"
-              : "bg-surface/80 backdrop-blur-md border-ink/5"
+              : "bg-surface/80 backdrop-blur-md border-ink/5",
           )}
         >
           <div className="flex items-center justify-between gap-3 px-5 h-14">
@@ -118,7 +118,7 @@ export function Navbar() {
                 <li key={l.href}>
                   <Link
                     href={l.href}
-                    className="px-4 py-2 text-sm font-semibold text-muted hover:text-ink rounded-full hover:bg-white/60 transition-colors"
+                    className="px-4 py-2 text-sm font-semibold text-muted hover:text-ink rounded-[var(--rounded-large)] hover:bg-white/60 transition-colors"
                   >
                     {l.label}
                   </Link>
@@ -127,7 +127,7 @@ export function Navbar() {
             </ul>
 
             <div className="hidden md:block">
-              <Button href="/contact" size="sm">
+              <Button href="/contact" size="sm" variant="violet">
                 {CTA.nav}
               </Button>
             </div>
@@ -144,19 +144,19 @@ export function Navbar() {
                 <span
                   className={cn(
                     "absolute left-0 top-0 block h-0.5 w-4 bg-ink rounded-full transition-transform duration-300 ease-out",
-                    open && "translate-y-[7px] rotate-45"
+                    open && "translate-y-[7px] rotate-45",
                   )}
                 />
                 <span
                   className={cn(
                     "absolute left-0 top-[7px] block h-0.5 w-4 bg-ink rounded-full transition-opacity duration-200",
-                    open && "opacity-0"
+                    open && "opacity-0",
                   )}
                 />
                 <span
                   className={cn(
                     "absolute left-0 top-[14px] block h-0.5 w-4 bg-ink rounded-full transition-transform duration-300 ease-out",
-                    open && "-translate-y-[7px] -rotate-45"
+                    open && "-translate-y-[7px] -rotate-45",
                   )}
                 />
               </span>
@@ -167,7 +167,7 @@ export function Navbar() {
             id="mobile-nav"
             className={cn(
               "md:hidden grid transition-[grid-template-rows] duration-350 ease-[cubic-bezier(0.22,1,0.36,1)]",
-              open ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+              open ? "grid-rows-[1fr]" : "grid-rows-[0fr]",
             )}
             style={{ transitionDuration: "350ms" }}
             inert={open ? undefined : true}
@@ -193,6 +193,7 @@ export function Navbar() {
                   <Button
                     href="/contact"
                     size="sm"
+                    variant="violet"
                     className="w-full"
                     onClick={() => setOpen(false)}
                   >

@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Plus_Jakarta_Sans } from "next/font/google";
+import { Instrument_Serif, Plus_Jakarta_Sans } from "next/font/google";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { OrganizationJsonLd, WebSiteJsonLd } from "@/components/seo/JsonLd";
@@ -18,6 +18,15 @@ const jakarta = Plus_Jakarta_Sans({
   variable: "--font-jakarta",
   subsets: ["latin"],
   weight: ["500", "600", "700", "800"],
+  display: "swap",
+});
+
+/** Accents italiques dans les titres (Jakarta reste le corps). */
+const instrumentSerif = Instrument_Serif({
+  variable: "--font-instrument",
+  subsets: ["latin"],
+  weight: "400",
+  style: ["normal", "italic"],
   display: "swap",
 });
 
@@ -63,7 +72,10 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="fr" className={`${jakarta.variable} h-full antialiased`}>
+    <html
+      lang="fr"
+      className={`${jakarta.variable} ${instrumentSerif.variable} h-full antialiased`}
+    >
       <body className="min-h-full flex flex-col font-sans">
         <OrganizationJsonLd />
         <WebSiteJsonLd />

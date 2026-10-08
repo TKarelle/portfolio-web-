@@ -4,13 +4,14 @@ import { useState } from "react";
 import Image from "next/image";
 import { googleReviews, GOOGLE_REVIEWS_URL } from "@/data/google-reviews";
 import { testimonials } from "@/data/testimonials";
-import { SectionHead } from "@/components/ui/SectionHead";
+import { SectionHead, TitleEm } from "@/components/ui/SectionHead";
+import { SoftBlurBand } from "@/components/ui/SoftBlurBand";
+import { SoftNavButton } from "@/components/ui/SoftNavButton";
 import { StarRating } from "@/components/ui/StarRating";
-import { MOTION } from "@/lib/motion";
+import { cn } from "@/lib/utils";
 
 type DisplayTestimonial = {
   id: number | string;
-  name: string;
   fullName: string;
   role?: string;
   city?: string;
@@ -21,106 +22,9 @@ type DisplayTestimonial = {
   source?: "google";
 };
 
-function ArrowLeft({ className = "w-5 h-5" }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" aria-hidden>
-      <path
-        d="M15 6L9 12l6 6"
-        stroke="currentColor"
-        strokeWidth="2.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
-function ArrowRight({ className = "w-5 h-5" }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" aria-hidden>
-      <path
-        d="M9 6l6 6-6 6"
-        stroke="currentColor"
-        strokeWidth="2.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
-function GoogleAvatar({ name }: { name: string }) {
-  const initial = name.charAt(0).toUpperCase();
-
-  return (
-    <div
-      className="relative w-16 h-16 photo-frame photo-frame-lime shrink-0 flex items-center justify-center bg-lime/30 rounded-[0.9rem] font-extrabold text-xl text-ink"
-      aria-hidden="true"
-    >
-      {initial}
-    </div>
-  );
-}
-
-function TestimonialBody({ t }: { t: DisplayTestimonial }) {
-  const isGoogle = t.source === "google";
-
-  return (
-    <div className="flex flex-col h-full min-h-0">
-      <div className="flex items-center gap-4 mb-6 shrink-0">
-        {t.image ? (
-          <div className="relative w-16 h-16 photo-frame photo-frame-lime shrink-0">
-            <Image
-              src={t.image}
-              alt={`${t.fullName}, ${t.role}`}
-              fill
-              className="object-cover rounded-[0.9rem]"
-              sizes="64px"
-            />
-          </div>
-        ) : (
-          <GoogleAvatar name={t.fullName} />
-        )}
-        <div className="min-w-0">
-          <p className="font-extrabold text-lg">{t.fullName}</p>
-          {isGoogle ? (
-            <p className="text-sm text-muted font-medium">Avis Google</p>
-          ) : (
-            <p className="text-sm text-muted font-medium">
-              {t.role}, {t.city}
-            </p>
-          )}
-          <div className="flex items-center gap-2 mt-1">
-            <StarRating rating={t.rating} size="sm" />
-            <p className="text-xs text-muted/80 font-medium">{t.date}</p>
-          </div>
-        </div>
-      </div>
-
-      <blockquote className="text-base md:text-lg font-medium leading-relaxed text-ink flex-1">
-        &ldquo;{t.text}&rdquo;
-      </blockquote>
-
-      {isGoogle ? (
-        <p className="mt-5 text-sm font-semibold">
-          <a
-            href={GOOGLE_REVIEWS_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-violet hover:underline underline-offset-2"
-          >
-            Voir l&apos;avis sur Google →
-          </a>
-        </p>
-      ) : null}
-    </div>
-  );
-}
-
 const displayedTestimonials: DisplayTestimonial[] = [
   ...googleReviews.map((r) => ({
     id: r.id,
-    name: r.name,
     fullName: r.fullName,
     date: r.date,
     text: r.text,
@@ -129,7 +33,6 @@ const displayedTestimonials: DisplayTestimonial[] = [
   })),
   ...testimonials.map((t) => ({
     id: t.id,
-    name: t.name,
     fullName: t.fullName,
     role: t.role,
     city: t.city,
@@ -140,113 +43,175 @@ const displayedTestimonials: DisplayTestimonial[] = [
   })),
 ];
 
+function TestimonialSlide({
+  t,
+  className,
+}: {
+  t: DisplayTestimonial;
+  className?: string;
+}) {
+  const isGoogle = t.source === "google";
+
+  return (
+    <figure className={cn("text-center flex flex-col items-center", className)}>
+      <blockquote className="max-w-3xl mx-auto text-[1.2rem] sm:text-xl md:text-[1.45rem] lg:text-[1.55rem] font-medium text-ink leading-[1.45] tracking-tight text-balance">
+        &ldquo;{t.text}&rdquo;
+      </blockquote>
+
+      <figcaption className="mt-8 sm:mt-10 flex flex-col items-center gap-3 w-full">
+        {t.image ? (
+          <div className="relative w-12 h-12 sm:w-14 sm:h-14 overflow-hidden rounded-full ring-1 ring-ink/10">
+            <Image
+              src={t.image}
+              alt=""
+              fill
+              className="object-cover"
+              sizes="56px"
+            />
+          </div>
+        ) : (
+          <div
+            className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-ink text-lime flex items-center justify-center text-lg font-extrabold"
+            aria-hidden
+          >
+            {t.fullName.charAt(0)}
+          </div>
+        )}
+
+        <div>
+          <p className="font-extrabold text-ink tracking-tight">{t.fullName}</p>
+          <p className="mt-0.5 text-sm font-medium text-muted">
+            {isGoogle
+              ? "Avis Google"
+              : [t.role, t.city].filter(Boolean).join(" · ")}
+          </p>
+          <div className="mt-2 flex items-center justify-center gap-2">
+            <StarRating rating={t.rating} size="sm" />
+            <span className="text-xs font-medium text-muted/70">{t.date}</span>
+          </div>
+        </div>
+
+        {/* Réserve la hauteur du lien Google pour tous les slides */}
+        <p
+          className={cn(
+            "mt-1 text-sm font-semibold min-h-[1.25rem]",
+            isGoogle ? "visible" : "invisible",
+          )}
+        >
+          <a
+            href={GOOGLE_REVIEWS_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-ink/50 hover:text-pink transition-colors underline-offset-2 hover:underline"
+            tabIndex={isGoogle ? undefined : -1}
+            aria-hidden={!isGoogle}
+          >
+            Voir l&apos;avis sur Google →
+          </a>
+        </p>
+      </figcaption>
+    </figure>
+  );
+}
+
+/**
+ * Témoignages — hauteur figée (slide le plus long) pour titre / flèches stables.
+ */
 export function Testimonials() {
   const [active, setActive] = useState(0);
-  const displayed = displayedTestimonials;
-  const len = displayed.length;
-  const current = displayed[active];
+  const len = displayedTestimonials.length;
+  const current = displayedTestimonials[active];
 
   const goNext = () => setActive((a) => (a + 1) % len);
   const goPrev = () => setActive((a) => (a - 1 + len) % len);
 
-  const transition = `transform ${MOTION.duration}s ${MOTION.ease}, opacity ${MOTION.duration}s ${MOTION.ease}`;
-
   return (
-    <section className="py-20 md:py-28 px-6 bg-chunk-pink" id="temoignages">
-      <div className="max-w-4xl mx-auto">
-        <div className="reveal mb-12 text-center">
-          <p className="text-sm font-bold text-violet mb-3 tracking-wide">
-            Elles en parlent
-          </p>
-          <SectionHead stroke="violet" highlight="réel">
-            {"Des retours concrets, ancrés dans le réel"}
+    <section id="temoignages" className="relative z-10 w-full">
+      <SoftBlurBand contentClassName="w-full max-w-4xl mx-auto px-5 sm:px-8 md:px-10">
+        <div className="reveal text-center max-w-3xl mx-auto mb-12 sm:mb-14 md:mb-16">
+          <SectionHead size="xl">
+            Des retours concrets, ancrés dans le{" "}
+            <TitleEm>réel</TitleEm>
           </SectionHead>
         </div>
 
-        <div className="reveal relative mx-auto max-w-2xl">
-          <div className="relative pb-12">
-            {/* Hauteur = card la plus haute (grille superposée) */}
-            <div className="relative grid">
-              {displayed.map((t) => (
-                <article
-                  key={`measure-${t.id}`}
-                  className="card bg-surface col-start-1 row-start-1 invisible pointer-events-none p-8 md:p-10 border-ink"
-                  aria-hidden
+        <div className="reveal relative">
+          {/* Hauteur = slide le plus long → titre / flèches ne bougent pas */}
+          <div className="relative grid">
+            {displayedTestimonials.map((t) => (
+              <div
+                key={`measure-${t.id}`}
+                className="col-start-1 row-start-1 invisible pointer-events-none"
+                aria-hidden
+              >
+                <TestimonialSlide t={t} />
+              </div>
+            ))}
+
+            {displayedTestimonials.map((t, i) => {
+              const isFront = i === active;
+              return (
+                <div
+                  key={t.id}
+                  className={cn(
+                    "col-start-1 row-start-1 absolute inset-0 flex items-center justify-center transition-opacity duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]",
+                    isFront
+                      ? "z-10 opacity-100"
+                      : "z-0 opacity-0 pointer-events-none",
+                  )}
+                  aria-hidden={!isFront}
                 >
-                  <TestimonialBody t={t} />
-                </article>
-              ))}
-
-              {displayed.map((t, i) => {
-                const offset = (i - active + len) % len;
-                const deep = offset > 2;
-                const isFront = offset === 0;
-
-                return (
-                  <article
-                    key={t.id}
-                    aria-hidden={!isFront}
-                    className="card bg-surface absolute inset-0 p-8 md:p-10 border-ink"
-                    style={{
-                      zIndex: len - offset,
-                      opacity: deep ? 0 : 1 - offset * 0.14,
-                      transform: deep
-                        ? "translateY(48px) scale(0.9)"
-                        : `translateY(${offset * 14}px) scale(${1 - offset * 0.04}) rotate(${offset * -1.2}deg)`,
-                      transition,
-                      pointerEvents: isFront ? "auto" : "none",
-                    }}
-                  >
-                    <TestimonialBody t={t} />
-                  </article>
-                );
-              })}
-            </div>
+                  <TestimonialSlide
+                    t={t}
+                    className={cn("w-full", isFront && "testimonial-quote")}
+                  />
+                </div>
+              );
+            })}
           </div>
 
-          <div className="flex items-center justify-between gap-4 mt-2">
-            <button
-              type="button"
+          <div className="mt-10 sm:mt-12 flex items-center justify-center gap-4">
+            <SoftNavButton
+              direction="prev"
+              label="Témoignage précédent"
               onClick={goPrev}
-              className="inline-flex items-center justify-center w-11 h-11 rounded-full border-2 border-ink bg-surface hover:bg-ink hover:text-white transition-colors"
-              aria-label="Témoignage précédent"
-            >
-              <ArrowLeft />
-            </button>
+            />
 
-            <div className="flex gap-2">
-              {displayed.map((t, i) => (
+            <div
+              className="flex items-center gap-2"
+              role="tablist"
+              aria-label="Témoignages"
+            >
+              {displayedTestimonials.map((t, i) => (
                 <button
                   key={t.id}
                   type="button"
-                  onClick={() => setActive(i)}
-                  className={`h-2.5 rounded-full border border-ink ${
-                    i === active
-                      ? "bg-pink w-10"
-                      : "bg-surface w-2.5 hover:bg-pink/30"
-                  }`}
-                  style={{ transition }}
+                  role="tab"
+                  aria-selected={i === active}
                   aria-label={`Témoignage ${i + 1} : ${t.fullName}`}
-                  aria-current={i === active ? "true" : undefined}
+                  onClick={() => setActive(i)}
+                  className={cn(
+                    "h-2 rounded-full transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] touch-manipulation",
+                    i === active
+                      ? "w-7 bg-ink"
+                      : "w-2 bg-ink/20 hover:bg-ink/40",
+                  )}
                 />
               ))}
             </div>
 
-            <button
-              type="button"
+            <SoftNavButton
+              direction="next"
+              label="Témoignage suivant"
               onClick={goNext}
-              className="inline-flex items-center justify-center w-11 h-11 rounded-full border-2 border-ink bg-surface hover:bg-ink hover:text-white transition-colors"
-              aria-label="Témoignage suivant"
-            >
-              <ArrowRight />
-            </button>
+            />
           </div>
 
           <p className="sr-only" aria-live="polite">
             Témoignage de {current.fullName}
           </p>
         </div>
-      </div>
+      </SoftBlurBand>
     </section>
   );
 }

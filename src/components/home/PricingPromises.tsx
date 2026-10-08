@@ -1,71 +1,127 @@
-import { guarantees, includedInAll } from "@/data/pricing";
-import { SectionHead } from "@/components/ui/SectionHead";
+"use client";
 
-/** Inclus dans toutes les formules : avant les tarifs */
+import { useCallback, useEffect, useRef } from "react";
+import { guarantees, includedInAll } from "@/data/pricing";
+import { SectionHead, TitleEm } from "@/components/ui/SectionHead";
+import { MediaCard, MediaCardCaption } from "@/components/ui/MediaCard";
+import { FeaturePoints } from "@/components/ui/FeaturePoints";
+import { SoftNavButton } from "@/components/ui/SoftNavButton";
+import {
+  IconCheck,
+  IconHome,
+  IconSliders,
+  IconTag,
+} from "@/components/ui/FeatureIcon";
+
+/** Inclus — carrousel MediaCard (même shell que le reste du site). */
 export function PricingIncluded() {
+  const scrollerRef = useRef<HTMLUListElement>(null);
+
+  useEffect(() => {
+    const el = scrollerRef.current;
+    if (!el) return;
+
+    const reset = () => {
+      el.scrollLeft = 0;
+    };
+
+    reset();
+    const t1 = window.setTimeout(reset, 0);
+    const t2 = window.setTimeout(reset, 100);
+    requestAnimationFrame(reset);
+
+    window.addEventListener("load", reset);
+    return () => {
+      window.clearTimeout(t1);
+      window.clearTimeout(t2);
+      window.removeEventListener("load", reset);
+    };
+  }, []);
+
+  const scrollByCard = useCallback((dir: -1 | 1) => {
+    const el = scrollerRef.current;
+    if (!el) return;
+    const card = el.querySelector<HTMLElement>("[data-included-card]");
+    const styles = getComputedStyle(el);
+    const gap = Number.parseFloat(styles.columnGap || styles.gap || "20") || 20;
+    const step = card ? card.offsetWidth + gap : 320;
+    el.scrollBy({ left: dir * step, behavior: "smooth" });
+  }, []);
+
   return (
-    <div className="mb-12 md:mb-16">
-      <div className="text-center mb-8 md:mb-10">
-        <p className="text-sm font-extrabold uppercase tracking-[0.14em] text-pink mb-3">
-          Dans toutes les formules
-        </p>
-        <SectionHead stroke="lime" highlight="partout">
-          {"Ce qui est inclus partout"}
+    <div className="included-carousel mb-14 md:mb-20 w-full">
+      <div className="text-center mb-10 md:mb-12 px-5 sm:px-6 max-w-3xl mx-auto">
+        <SectionHead size="xl">
+          Tout ce qu’il faut pour faire rayonner votre{" "}
+          <TitleEm>expertise</TitleEm>.
         </SectionHead>
-        <p className="mt-3 text-sm md:text-base font-medium text-muted max-w-xl mx-auto">
-          Pas d’option cachée : ces points font partie de chaque modèle.
-        </p>
       </div>
 
-      <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
-        {includedInAll.map((item) => (
-          <li
-            key={item.title}
-            className="rounded-[1.25rem] border-2 border-ink bg-surface p-5 md:p-6 shadow-[3px_3px_0_#111]"
-          >
-            <p className="text-base md:text-lg font-extrabold text-ink leading-snug">
-              {item.title}
-            </p>
-            <p className="mt-2 text-sm font-medium text-muted leading-relaxed">
-              {item.text}
-            </p>
-          </li>
-        ))}
-      </ul>
+      <div className="relative w-full">
+        <ul
+          ref={scrollerRef}
+          className="included-carousel__track flex overflow-x-auto scroll-smooth snap-x snap-mandatory scrollbar-hide pb-2"
+          aria-label="Ce qui est inclus"
+        >
+          <li className="included-carousel__spacer" aria-hidden="true" />
+
+          {includedInAll.map((item) => (
+            <li
+              key={item.title}
+              data-included-card
+              className="included-carousel__card shrink-0"
+            >
+              <MediaCard
+                src={item.image}
+                alt={item.imageAlt}
+                video={"video" in item ? item.video : undefined}
+                aspect="16/10"
+                sizes="(max-width: 768px) 70vw, 50vw"
+              >
+                <MediaCardCaption title={item.title} text={item.text} />
+              </MediaCard>
+            </li>
+          ))}
+        </ul>
+
+        <div className="mt-6 flex justify-end gap-2.5 pr-5 sm:pr-6">
+          <SoftNavButton
+            direction="prev"
+            label="Carte précédente"
+            onClick={() => scrollByCard(-1)}
+          />
+          <SoftNavButton
+            direction="next"
+            label="Carte suivante"
+            onClick={() => scrollByCard(1)}
+          />
+        </div>
+      </div>
     </div>
   );
 }
 
-/** Garanties : après les tarifs */
+const guaranteeItems = guarantees.map((g, i) => ({
+  id: g.title,
+  title: g.title,
+  text: g.text,
+  icon: [IconCheck, IconSliders, IconHome, IconTag][i] ?? IconCheck,
+}));
+
+/** Garanties — même FeaturePoints que Constat. */
 export function PricingGuarantees() {
   return (
-    <div className="mt-14 md:mt-16 rounded-[1.75rem] md:rounded-blob border-[3px] border-ink bg-ink text-white p-6 sm:p-8 md:p-10 shadow-[6px_6px_0_#d4ff00]">
-      <div className="text-center mb-8 md:mb-10">
-        <p className="text-sm font-extrabold uppercase tracking-[0.14em] text-lime mb-3">
-          Les garanties
-        </p>
-        <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight leading-tight">
-          Ce qui vous{" "}
-          <span className="mark mark-lime text-white">rassure</span> avant de
-          signer
-        </h3>
-      </div>
-
-      <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
-        {guarantees.map((g) => (
-          <li
-            key={g.title}
-            className="rounded-[1.25rem] border-2 border-white/20 bg-white/5 p-5 md:p-6"
-          >
-            <p className="text-base md:text-lg font-extrabold text-lime leading-snug">
-              {g.title}
-            </p>
-            <p className="mt-2 text-sm font-medium text-white/70 leading-relaxed">
-              {g.text}
-            </p>
-          </li>
-        ))}
-      </ul>
-    </div>
+    <FeaturePoints
+      as="div"
+      glass
+      title={
+        <>
+          Votre projet, entre de <TitleEm>bonnes mains</TitleEm>.
+        </>
+      }
+      ariaLabel="Garanties"
+      items={guaranteeItems}
+      className="mt-16 md:mt-20"
+    />
   );
 }

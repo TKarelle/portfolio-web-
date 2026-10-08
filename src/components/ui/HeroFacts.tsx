@@ -12,7 +12,7 @@ type HeroFactsProps = {
 };
 
 /**
- * Faits sous le hero : réponse extractible + chips Kopio.
+ * Faits sous le hero : réponse extractible + chips soft.
  * Pas de label « TL;DR » (charte).
  */
 export function HeroFacts({
@@ -36,7 +36,7 @@ export function HeroFacts({
         {chips.map((label) => (
           <li
             key={label}
-            className="inline-flex items-center rounded-full border-2 border-ink bg-surface px-3.5 py-1.5 text-xs sm:text-sm font-extrabold text-ink shadow-[3px_3px_0_0_var(--lime)]"
+            className="inline-flex items-center rounded-[var(--rounded-large)] border border-ink/10 bg-white/80 px-3.5 py-1.5 text-xs sm:text-sm font-extrabold text-ink/80 shadow-[0_8px_24px_rgba(17,17,17,0.05)]"
           >
             {label}
           </li>

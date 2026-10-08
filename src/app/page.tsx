@@ -1,14 +1,11 @@
 import type { Metadata } from "next";
 import { Hero } from "@/components/home/Hero";
-import { SocialProof } from "@/components/home/SocialProof";
-import { QuizLeadMagnet } from "@/components/home/QuizLeadMagnet";
 import { Constat } from "@/components/home/Constat";
-import { RoiProof } from "@/components/home/RoiProof";
+import { DemoVideos } from "@/components/home/DemoVideos";
 import { QuoteBand } from "@/components/home/QuoteBand";
 import { HowIWork } from "@/components/home/HowIWork";
 import { Pricing } from "@/components/home/Pricing";
 import { ProcessSimple } from "@/components/home/ProcessSimple";
-import { CaseStudies } from "@/components/home/CaseStudies";
 import { Testimonials } from "@/components/home/Testimonials";
 import { FAQ } from "@/components/home/FAQ";
 import { ContactSection } from "@/components/home/ContactSection";
@@ -23,7 +20,6 @@ export const metadata: Metadata = {
     description: SITE_META_DESCRIPTION,
     path: "/",
   }),
-  // Évite le template `%s | Kopio` qui doublerait la marque déjà dans le titre défaut.
   title: { absolute: `${SITE_META_TITLE} | ${BRAND_NAME}` },
 };
 
@@ -33,15 +29,14 @@ export default function HomePage() {
       <FaqJsonLd />
       <OffersJsonLd />
       <VideoJsonLd pagePath="/" />
-      <Hero />
-      <SocialProof />
-      <Constat />
-      <QuizLeadMagnet />
-      <RoiProof />
-      <QuoteBand />
-      <CaseStudies />
+      <div className="relative">
+        <Hero />
+        <Constat />
+      </div>
+      <DemoVideos />
       <HowIWork />
       <Pricing />
+      <QuoteBand />
       <ProcessSimple />
       <Testimonials />
       <FAQ />

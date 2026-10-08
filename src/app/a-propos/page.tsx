@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Button } from "@/components/ui/Button";
-import { SectionHead } from "@/components/ui/SectionHead";
+import { SectionHead, TitleEm } from "@/components/ui/SectionHead";
 import { PageIntro } from "@/components/ui/PageIntro";
+import { SurfaceCard } from "@/components/ui/SurfaceCard";
 import { ValueBanner } from "@/components/ui/ValueBanner";
 import { ContactSection } from "@/components/home/ContactSection";
 import { ProfilePageJsonLd } from "@/components/seo/JsonLd";
@@ -46,12 +47,10 @@ export default function AboutPage() {
         ]}
         title={`Je suis ${FOUNDER_NAME}. Ton alliée pour ton site.`}
         highlight="Ton alliée"
-        stroke="violet"
         description="Développeuse web indépendante. j'aide les professionnelles de l'accompagnement à avoir un site clair : sans prise de tête, sans attendre 3 mois."
         image={FOUNDER_PHOTO}
         imageAlt={FOUNDER_PHOTO_ALT}
         badge="Dès 89 €/mois"
-        frame="lime"
         secondaryHref="/tarifs"
       />
       <ValueBanner />
@@ -66,8 +65,8 @@ export default function AboutPage() {
 
           <div className="max-w-3xl mx-auto mb-14 md:mb-16">
             <div className="text-center mb-6">
-              <SectionHead stroke="lime" highlight="accompagnement">
-                {"Pour qui je travaille"}
+              <SectionHead size="xl">
+                Pour qui je <TitleEm>travaille</TitleEm>
               </SectionHead>
             </div>
             <div className="space-y-4 text-base md:text-lg font-medium leading-relaxed text-muted">
@@ -93,26 +92,20 @@ export default function AboutPage() {
           </div>
 
           <div className="text-center mb-10">
-            <SectionHead stroke="violet" highlight="je crois">
-              {"Ce en quoi je crois"}
+            <SectionHead size="xl">
+              Ce en quoi je <TitleEm>crois</TitleEm>
             </SectionHead>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-5">
             {values.map((v) => (
-              <div
-                key={v.title}
-                className="bg-surface rounded-[1.5rem] border-[3px] border-ink p-6 md:p-7 shadow-[4px_4px_0_#111]"
-              >
-                <h3 className="text-lg md:text-xl font-extrabold mb-3 text-ink">
-                  <span className="float-left mr-2 -mt-0.5 text-3xl md:text-4xl font-extrabold text-pink leading-[0.9]">
-                    {v.title.charAt(0)}
-                  </span>
-                  {v.title.slice(1)}
+              <SurfaceCard key={v.title} as="article" className="h-full">
+                <h3 className="text-lg md:text-xl font-extrabold mb-3 text-ink tracking-tight">
+                  {v.title}
                 </h3>
-                <p className="text-sm md:text-base font-medium leading-relaxed text-muted clear-both">
+                <p className="text-sm md:text-base font-medium leading-relaxed text-muted">
                   {v.text}
                 </p>
-              </div>
+              </SurfaceCard>
             ))}
           </div>
           <div className="mt-10 flex flex-col sm:flex-row gap-3 justify-center">

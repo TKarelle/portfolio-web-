@@ -1,63 +1,45 @@
 import Image from "next/image";
-import {
-  BRAND_SIGNATURE,
-  FOUNDER_DIPLOMA,
-  FOUNDER_EXPERIENCE,
-  FOUNDER_NAME,
-  FOUNDER_PHOTO,
-  FOUNDER_PHOTO_ALT,
-} from "@/data/site";
-import { SectionHead } from "@/components/ui/SectionHead";
+import { FOUNDER_NAME, FOUNDER_PHOTO, FOUNDER_PHOTO_ALT } from "@/data/site";
+import { ScrollBoldText } from "@/components/home/ScrollBoldText";
+import { SoftBlurBand } from "@/components/ui/SoftBlurBand";
+import { SectionCta } from "@/components/ui/SectionCta";
+import { CTA } from "@/data/copy";
 
-/** À propos fondatrice — Server Component (Sem.2). Photo visible sans JS (WRS / bots). */
+const ABOUT_COPY = [
+  "Un site n’est jamais simplement un site.",
+  "Vous avez construit votre expertise. Comment la faire ressentir en quelques secondes sur Google ?",
+  "C’est là que j’interviens.",
+  `Je suis ${FOUNDER_NAME}, développeuse web. Je transforme votre expertise en une présence claire, personnelle et rassurante.`,
+  "Votre expertise est déjà là. Mon rôle : lui donner la place qu’elle mérite.",
+] as const;
+
+/** À propos — SoftBlurBand + photo + texte scroll-bold. */
 export function HowIWork() {
   return (
-    <section className="py-16 md:py-20 px-6 bg-chunk-violet" id="pourquoi-moi">
-      <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
-        <div className="mirror-stage w-full max-w-sm mx-auto lg:mx-0">
-          <div className="mirror-flip mirror-flip-auto relative aspect-[4/5] w-full photo-frame photo-frame-lime">
+    <section id="pourquoi-moi" className="relative z-10 w-full">
+      <SoftBlurBand contentClassName="w-full max-w-6xl mx-auto px-5 sm:px-8 md:px-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 xl:gap-20 items-center">
+          <div className="relative w-full max-w-md mx-auto lg:mx-0 aspect-[4/5] overflow-hidden rounded-[var(--rounded-large)]">
             <Image
               src={FOUNDER_PHOTO}
               alt={FOUNDER_PHOTO_ALT}
               fill
-              className="object-cover rounded-[1.1rem]"
-              sizes="400px"
+              className="object-cover"
+              sizes="(max-width: 1024px) 90vw, 420px"
             />
           </div>
-        </div>
 
-        <div className="reveal">
-          <p className="text-sm font-bold text-violet mb-3">
-            {FOUNDER_DIPLOMA} · {FOUNDER_EXPERIENCE}
-          </p>
-
-          <SectionHead
-            align="left"
-            stroke="violet"
-            highlight="déléguée"
-            className="mb-5"
-          >
-            {"Kopio n'est pas une agence. C'est votre présence en ligne, déléguée."}
-          </SectionHead>
-
-          <div className="space-y-4 text-muted text-base md:text-lg font-medium leading-relaxed mb-7">
-            <p>
-              Je m&apos;appelle <strong className="text-ink">{FOUNDER_NAME}</strong>.
-              Développeuse indépendante. Juste vous et moi.
-            </p>
-            <p>
-              Avec {FOUNDER_EXPERIENCE}, j&apos;aide les professionnelles de
-              l&apos;accompagnement (coachs, thérapeutes, sophrologues,
-              naturopathes, consultantes) à avoir une présence en ligne claire,
-              sans la charge mentale technique.
-            </p>
+          <div className="flex flex-col items-center justify-center lg:items-start lg:justify-start text-center lg:text-left min-h-[50vh] lg:min-h-0">
+            <ScrollBoldText
+              paragraphs={ABOUT_COPY}
+              className="max-w-xl mx-auto lg:mx-0"
+            />
+            <SectionCta align="left" className="lg:justify-start">
+              {CTA.practice}
+            </SectionCta>
           </div>
-
-          <p className="text-sm font-semibold text-ink/70 border-l-4 border-lime pl-4 leading-snug">
-            {BRAND_SIGNATURE}
-          </p>
         </div>
-      </div>
+      </SoftBlurBand>
     </section>
   );
 }

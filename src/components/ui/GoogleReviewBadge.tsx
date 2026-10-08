@@ -29,7 +29,7 @@ function GoogleG({ className = "w-4 h-4" }: { className?: string }) {
 }
 
 type GoogleReviewBadgeProps = {
-  variant?: "inline" | "card";
+  variant?: "inline" | "card" | "soft";
   className?: string;
 };
 
@@ -53,10 +53,26 @@ export function GoogleReviewBadge({
         href={GOOGLE_REVIEWS_URL}
         target="_blank"
         rel="noopener noreferrer"
-        className={`inline-flex items-center gap-3 rounded-2xl border-2 border-ink bg-surface px-4 py-3 shadow-[3px_3px_0_#111] hover:bg-lime/20 transition-colors ${className}`}
+        className={`inline-flex items-center gap-3 rounded-[var(--rounded-large)] border border-ink/10 bg-white px-4 py-3 shadow-[0_14px_44px_rgba(17,17,17,0.07)] hover:bg-lime/20 transition-colors ${className}`}
         aria-label={ariaLabel}
       >
         {content}
+      </a>
+    );
+  }
+
+  if (variant === "soft") {
+    return (
+      <a
+        href={GOOGLE_REVIEWS_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={`inline-flex items-center gap-2.5 text-sm font-medium text-ink/50 hover:text-ink transition-colors ${className}`}
+        aria-label={ariaLabel}
+      >
+        <GoogleG className="w-4 h-4 shrink-0 opacity-90" />
+        <StarRating rating={score} size="sm" />
+        <span className="tabular-nums">{score.toFixed(1)}</span>
       </a>
     );
   }

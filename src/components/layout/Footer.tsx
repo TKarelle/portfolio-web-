@@ -28,15 +28,15 @@ function FooterNav({
 }) {
   return (
     <nav aria-label={title}>
-      <p className="text-[11px] font-extrabold uppercase tracking-wider text-white/35 mb-2 px-2">
+      <p className="text-[11px] font-extrabold uppercase tracking-[0.16em] text-white/30 mb-3">
         {title}
       </p>
-      <ul className="flex flex-col gap-0.5">
+      <ul className="flex flex-col gap-2">
         {links.map((l) => (
           <li key={l.href}>
             <Link
               href={l.href}
-              className="inline-block px-2 py-1 text-sm font-semibold text-white/55 hover:text-ink hover:bg-lime rounded-full transition-colors"
+              className="text-sm font-medium text-white/55 hover:text-white transition-colors"
             >
               {l.label}
             </Link>
@@ -48,8 +48,7 @@ function FooterNav({
 }
 
 /**
- * Footer Sem.5 — hubs + sélection courte (Topical PageRank).
- * Plus de dump exhaustif de tous les métiers/besoins sur chaque URL.
+ * Footer soft — aligné DA Apple/premium (sans cards / ombres offset).
  */
 export function Footer() {
   const metierLinks = FOOTER_METIER_SLUGS.map((slug) => {
@@ -74,41 +73,44 @@ export function Footer() {
   }));
 
   return (
-    <footer className="bg-bg-dark text-white overflow-hidden rounded-t-[2rem] md:rounded-t-[2.75rem] border-t-[3px] border-x-[3px] border-ink shadow-[0_-6px_0_#ff1f71] pb-[env(safe-area-inset-bottom)]">
-      <div className="mx-auto max-w-6xl px-5 pt-8 pb-5 md:px-10 md:pt-10 md:pb-6">
-        <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-between lg:gap-12">
-          <div className="max-w-xs shrink-0">
-            <p className="text-sm font-semibold text-white/50 leading-snug">
+    <footer className="relative z-10 bg-ink text-white overflow-hidden pb-[env(safe-area-inset-bottom)]">
+      <div className="mx-auto max-w-6xl px-5 pt-14 pb-8 sm:px-8 md:px-10 md:pt-16 md:pb-10">
+        <div className="flex flex-col gap-12 lg:flex-row lg:items-start lg:justify-between lg:gap-16">
+          <div className="max-w-sm shrink-0">
+            <p className="text-base sm:text-lg font-extrabold text-white tracking-tight leading-snug">
               {BRAND_SIGNATURE}
             </p>
-            <p className="mt-1.5 text-xs font-medium text-white/35">
+            <p className="mt-2 text-sm font-medium text-white/40">
               Dès 89&nbsp;€/mois · hébergement inclus
             </p>
-            <div className="mt-3 flex flex-col gap-1">
+
+            <div className="mt-5 flex flex-col gap-2">
               <a
                 href={`mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent("Demande de détails : site web")}`}
-                className="text-sm font-semibold text-lime hover:underline underline-offset-2"
+                className="text-sm font-semibold text-lime hover:text-white transition-colors"
               >
-                Envoyer un mail
+                {CTA.mail}
               </a>
-              {HAS_CALENDLY && (
+              {HAS_CALENDLY ? (
                 <a
                   href={CALENDLY_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm font-semibold text-white/70 hover:text-white transition-colors"
+                  className="text-sm font-medium text-white/50 hover:text-white transition-colors"
                 >
-                  Réserver un créneau
+                  {CTA.discovery}
                 </a>
-              )}
+              ) : null}
             </div>
-            <Button href="/contact" size="sm" className="mt-4">
+
+            <Button href="/contact" size="sm" className="mt-6">
               {CTA.nav}
             </Button>
+
             <QuizLeadMagnet variant="footer" id="grille-footer" />
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-8 w-full">
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-10 w-full">
             <FooterNav title="Le site" links={[...FOOTER_HUB_LINKS]} />
             <FooterNav title="Par métier" links={metierLinks} />
             <FooterNav title="Par besoin" links={besoinLinks} />
@@ -116,17 +118,19 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-7 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 border-t border-white/10 pt-4">
+        <div className="mt-12 md:mt-14 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 border-t border-white/10 pt-6">
           <p className="text-white/30 text-xs font-medium">
             © {new Date().getFullYear()} {BRAND_NAME} · France ·{" "}
             <Link
               href="/mentions-legales"
-              className="hover:text-white/50 transition-colors"
+              className="hover:text-white/55 transition-colors"
             >
               Mentions légales
             </Link>
           </p>
-          <p className="text-white/25 text-xs font-medium">Prix TTC indicatifs</p>
+          <p className="text-white/25 text-xs font-medium">
+            Prix TTC indicatifs
+          </p>
         </div>
       </div>
 
@@ -135,11 +139,11 @@ export function Footer() {
         aria-hidden
       >
         <p
-          className="font-extrabold tracking-tighter leading-[0.78] text-center text-white translate-y-[0.08em] whitespace-nowrap"
+          className="font-extrabold tracking-tighter leading-[0.78] text-center text-white/8 translate-y-[0.08em] whitespace-nowrap"
           style={{ fontSize: "clamp(3.5rem, 18vw, 8rem)" }}
         >
           {BRAND_LOGO}
-          <span className="text-pink">.</span>
+          <span className="text-pink/40">.</span>
         </p>
       </div>
     </footer>

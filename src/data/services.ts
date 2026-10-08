@@ -1,22 +1,34 @@
 export const process = [
   {
     step: "01",
-    title: "Échange de 15 minutes",
-    text: "Je parle vraiment de tes besoins et du tarif. Tu sais ce que ça coûte, ce qui est inclus, et ce qui est possible, sans engagement.",
+    title: "On fait connaissance",
+    paragraphs: [
+      "15 minutes pour parler de vous, de votre activité et de ce que vous voulez faire évoluer.",
+      "Je vous présente ensuite l’accompagnement le plus adapté et son tarif. Sans engagement.",
+    ],
   },
   {
     step: "02",
-    title: "Tu valides l’offre",
-    text: "Tu valides l’offre. Je pose un cahier des charges clair : ce que je livre, le planning, et ce qui est inclus.",
+    title: "On pose les bases",
+    paragraphs: [
+      "Vous choisissez votre accompagnement. Je transforme nos échanges en un cahier des charges clair.",
+      "Pages, contenus, fonctionnalités, planning : tout est défini avant de commencer.",
+    ],
   },
   {
     step: "03",
-    title: "Je crée avec un suivi",
-    text: "Je construis ton site et je te tiens au courant à chaque étape. Tu vois l’avancement, tu valides, j’ajuste.",
+    title: "Votre site prend forme",
+    paragraphs: [
+      "Je conçois votre site et vous suivez son évolution.",
+      "Vous découvrez les différentes étapes, donnez votre avis et validez avant la mise en ligne.",
+    ],
   },
   {
     step: "04",
-    title: "C’est en ligne",
-    text: "Mise en ligne, et ensuite : tu m’envoies un mail, c’est en ligne sous 24 à 72 h. Sans bricolage technique. Tu reprends ton métier, je gère le site.",
+    title: "Vous êtes prête à être trouvée",
+    paragraphs: [
+      "Votre site est en ligne, optimisé et prêt à accueillir vos visiteurs.",
+      "Et après ? Vous ne restez pas seule avec votre site : selon votre accompagnement, je continue à travailler sur sa visibilité et son évolution.",
+    ],
   },
 ] as const;

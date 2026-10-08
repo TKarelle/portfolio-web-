@@ -48,12 +48,9 @@ function renderInline(text: string): ReactNode[] {
       );
     } else if (match[3]) {
       parts.push(
-        <span
-          key={`m-${key++}`}
-          className="mark mark-lime font-extrabold whitespace-normal"
-        >
+        <em key={`m-${key++}`} className="title-em whitespace-normal">
           {match[3]}
-        </span>,
+        </em>,
       );
     } else if (match[4] && match[5]) {
       const href = match[5];
@@ -180,7 +177,7 @@ function StepCard({
           aria-hidden
         />
       ) : null}
-      <article className="relative flex gap-4 sm:gap-5 rounded-[1.25rem] border-2 border-ink bg-surface p-5 sm:p-6 shadow-[3px_3px_0_#111]">
+      <article className="relative flex gap-4 sm:gap-5 rounded-[var(--rounded-large)] border-2 border-ink bg-surface p-5 sm:p-6 shadow-[3px_3px_0_#111]">
         <span className="relative z-10 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-ink text-lime text-xs sm:text-sm font-extrabold flex items-center justify-center shrink-0">
           {n}
         </span>

@@ -1,94 +1,105 @@
 import Image from "next/image";
 import { featuredCaseStudies } from "@/data/caseStudies";
-import { SectionHead } from "@/components/ui/SectionHead";
+import { MediaCard } from "@/components/ui/MediaCard";
+import { SectionHead, TitleEm } from "@/components/ui/SectionHead";
+import { SectionCta } from "@/components/ui/SectionCta";
+import { CTA } from "@/data/copy";
 
+/**
+ * Études de cas — éditorial premium (lisible, sans cards lourdes).
+ */
 export function CaseStudies() {
   return (
-    <section className="pt-6 md:pt-8 pb-14 md:pb-20 px-6 bg-bg" id="projets">
-      <div className="max-w-5xl mx-auto">
-        <div className="reveal mb-10 md:mb-12 text-center md:text-left max-w-2xl md:mx-0 mx-auto">
-          <p className="text-sm font-bold text-pink mb-3 tracking-wide">
-            Études de cas
-          </p>
-          <SectionHead align="left" stroke="pink" highlight="concrètement">
-            {"Ce que ça change, concrètement"}
+    <section
+      className="relative z-10 py-20 sm:py-24 md:py-28 px-5 sm:px-8 md:px-10 bg-bg"
+      id="projets"
+    >
+      <div className="w-full max-w-5xl mx-auto">
+        <div className="reveal mb-14 sm:mb-16 md:mb-20 max-w-3xl">
+          <SectionHead
+            align="left"
+            size="xl"
+            eyebrow="Études de cas"
+            className="!max-w-none"
+          >
+            Ce que ça change,
+            <br />
+            <TitleEm>concrètement</TitleEm>
           </SectionHead>
         </div>
 
-        <div className="space-y-8 md:space-y-10">
+        <ul className="space-y-16 sm:space-y-20 md:space-y-24">
           {featuredCaseStudies.map((study, i) => (
-            <article
-              key={study.id}
-              className="reveal rounded-[1.5rem] border-2 border-ink bg-surface overflow-hidden shadow-[4px_4px_0_#111]"
-              style={{ animationDelay: `${i * 0.2}s` }}
-            >
-              <div
-                className={`grid grid-cols-1 lg:grid-cols-5 ${
-                  i % 2 === 1 ? "lg:[direction:rtl]" : ""
-                }`}
-              >
-                <div className="lg:col-span-2 lg:[direction:ltr] relative aspect-[16/10] lg:aspect-auto lg:min-h-[300px] border-b-2 lg:border-b-0 lg:border-r-2 border-ink overflow-hidden bg-ink/5">
-                  <Image
+            <li key={study.id} className="reveal">
+              <article className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 xl:gap-14 items-start">
+                <div
+                  className={`lg:col-span-5 min-w-0 ${
+                    i % 2 === 1 ? "lg:order-2" : ""
+                  }`}
+                >
+                  <MediaCard
                     src={study.capture}
-                    alt={`Capture du site livré pour ${study.firstName}, ${study.metier} à ${study.city}`}
-                    fill
-                    loading="lazy"
-                    className="object-cover object-top"
-                    sizes="(max-width: 1024px) 100vw, 40vw"
-                    quality={75}
+                    alt={`Site livré pour ${study.firstName}, ${study.metier} à ${study.city}`}
+                    aspect="16/10"
+                    sizes="(max-width: 1024px) 100vw, 42vw"
                   />
-                  <span className="absolute top-4 left-4 bg-ink text-lime text-xs font-bold px-3 py-1 rounded-full z-10">
-                    Livrable
-                  </span>
                 </div>
 
-                <div className="lg:col-span-3 lg:[direction:ltr] p-6 sm:p-8 md:p-9 flex flex-col gap-5">
-                  <div className="flex items-center gap-3">
-                    <div className="relative w-12 h-12 shrink-0 photo-frame photo-frame-lime overflow-hidden">
+                <div
+                  className={`lg:col-span-7 flex flex-col gap-7 min-w-0 ${
+                    i % 2 === 1 ? "lg:order-1" : ""
+                  }`}
+                >
+                  <div className="flex items-center gap-3.5">
+                    <div className="relative w-14 h-14 shrink-0 overflow-hidden rounded-full ring-1 ring-ink/10">
                       <Image
                         src={study.photo}
-                        alt={`Portrait de ${study.firstName}, ${study.metier} à ${study.city}`}
+                        alt=""
                         fill
-                        className="object-cover rounded-[0.75rem]"
-                        sizes="48px"
+                        className="object-cover"
+                        sizes="56px"
                       />
                     </div>
                     <div>
-                      <p className="font-extrabold text-ink leading-tight">
+                      <p className="text-lg font-extrabold text-ink leading-tight tracking-tight">
                         {study.firstName}
                       </p>
-                      <p className="text-sm font-medium text-muted">
-                        {study.metier}, {study.city}
+                      <p className="text-sm font-medium text-muted mt-0.5">
+                        {study.metier} · {study.city}
                       </p>
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
-                    <div className="rounded-2xl p-4 border border-ink/12 bg-bg/70">
-                      <p className="font-bold text-muted text-xs uppercase tracking-wide mb-1.5">
+                  <div className="space-y-5">
+                    <div>
+                      <p className="text-[11px] font-extrabold uppercase tracking-[0.18em] text-ink/40 mb-2">
                         Avant
                       </p>
-                      <p className="text-ink/85 font-medium leading-snug">
+                      <p className="text-base sm:text-[1.05rem] font-medium text-ink/80 leading-relaxed">
                         {study.before}
                       </p>
                     </div>
-                    <div className="rounded-2xl p-4 border border-ink/12 bg-bg/70">
-                      <p className="font-bold text-muted text-xs uppercase tracking-wide mb-1.5">
+                    <div>
+                      <p className="text-[11px] font-extrabold uppercase tracking-[0.18em] text-ink/40 mb-2">
                         Résultat
                       </p>
-                      <p className="text-ink font-extrabold leading-snug">
+                      <p className="text-base sm:text-[1.05rem] font-extrabold text-ink leading-relaxed">
                         {study.result}
                       </p>
                     </div>
                   </div>
 
-                  <blockquote className="text-base md:text-lg font-medium text-ink leading-relaxed border-l-4 border-lime pl-4">
+                  <blockquote className="text-lg sm:text-xl font-medium text-ink leading-snug tracking-tight border-l-2 border-ink/15 pl-5">
                     &ldquo;{study.quote}&rdquo;
                   </blockquote>
                 </div>
-              </div>
-            </article>
+              </article>
+            </li>
           ))}
+        </ul>
+
+        <div className="reveal">
+          <SectionCta href="#contact">{CTA.practice}</SectionCta>
         </div>
       </div>
     </section>

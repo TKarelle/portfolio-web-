@@ -1,31 +1,14 @@
 import Link from "next/link";
-import Image from "next/image";
 import type { ResolvedBlogPost } from "@/data/blog";
 import type { Project } from "@/data/projects";
 import { getBlogCover } from "@/data/blog-covers";
-
-const categoryColors: Record<string, string> = {
-  Guide: "bg-lime text-ink",
-  Conseils: "bg-pink text-white",
-  Accessibilité: "bg-violet text-white",
-  Prix: "bg-pink text-white",
-  Business: "bg-violet text-white",
-  Parfum: "bg-pink text-white",
-  Artisanat: "bg-lime text-ink",
-  Beauté: "bg-violet text-white",
-  "Artisan BTP": "bg-lime text-ink",
-  "Bien-être": "bg-violet text-white",
-  Créatif: "bg-pink text-white",
-  Restauration: "bg-lime text-ink",
-  "Architecte d’intérieur": "bg-violet text-white",
-  "Consultante en bien-être": "bg-lime text-ink",
-};
+import { MediaCard } from "@/components/ui/MediaCard";
+import { cn } from "@/lib/utils";
 
 type BlogCardProps = {
   href: string;
   external?: boolean;
   image: string;
-  /** Alt descriptif (sujet + contexte) ; fallback titre si absent */
   imageAlt?: string;
   category: string;
   title: string;
@@ -33,11 +16,12 @@ type BlogCardProps = {
   meta?: string;
   cta?: string;
   featured?: boolean;
-  /** Titre de carte : h2 par défaut, h3 sous une section h2 (related posts). */
   headingAs?: "h2" | "h3";
 };
 
-/** Carte blog / projet : même DA : contour noir, ombre rose au hover. */
+/**
+ * Carte blog / projet — MediaCard (même shell que le reste du site).
+ */
 export function BlogCard({
   href,
   external = false,
@@ -51,57 +35,46 @@ export function BlogCard({
   featured = false,
   headingAs: Heading = "h2",
 }: BlogCardProps) {
-  const catClass = categoryColors[category] ?? "bg-lime text-ink";
-
-  const className = `card card-hover overflow-hidden group h-full bg-surface ${
-    featured ? "md:grid md:grid-cols-2 md:col-span-2" : "flex flex-col"
-  }`;
-
   const body = (
-    <>
-      <div
-        className={`relative overflow-hidden ${
-          featured ? "min-h-[220px] md:min-h-full" : "h-48"
-        }`}
-      >
-        <Image
-          src={image}
-          alt={imageAlt ?? title}
-          fill
-          loading="lazy"
-          quality={75}
-          className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
-          sizes={featured ? "50vw" : "(max-width: 768px) 100vw, 350px"}
-        />
-        <span
-          className={`absolute top-4 left-4 text-xs font-bold px-3 py-1 rounded-full border-2 border-ink ${catClass}`}
-        >
-          {category}
-        </span>
-      </div>
-
-      <div className="p-6 md:p-7 flex-1 flex flex-col">
+    <MediaCard
+      src={image}
+      alt={imageAlt ?? title}
+      aspect={featured ? "16/9" : "16/10"}
+      sizes={featured ? "(max-width: 768px) 100vw, 900px" : "(max-width: 768px) 100vw, 420px"}
+      className="h-full group"
+    >
+      <p className="text-[11px] font-extrabold uppercase tracking-[0.16em] text-ink/35">
+        {category}
         {meta ? (
-          <p className="text-xs text-muted font-semibold mb-3">{meta}</p>
+          <span className="font-medium normal-case tracking-normal text-muted">
+            {" "}
+            · {meta}
+          </span>
         ) : null}
+      </p>
 
-        <Heading
-          className={`font-extrabold leading-snug mb-3 group-hover:text-pink transition-colors flex-1 ${
-            featured ? "text-2xl md:text-3xl" : "text-xl"
-          }`}
-        >
-          {title}
-        </Heading>
+      <Heading
+        className={cn(
+          "mt-2 font-extrabold text-ink tracking-tight leading-snug group-hover:text-pink transition-colors",
+          featured ? "text-xl sm:text-2xl md:text-[1.65rem]" : "text-lg sm:text-xl",
+        )}
+      >
+        {title}
+      </Heading>
 
-        <p className="text-muted text-sm leading-relaxed font-medium">
-          {description}
-        </p>
+      <p className="mt-2 text-sm font-medium text-muted leading-relaxed line-clamp-3">
+        {description}
+      </p>
 
-        <p className="mt-4 text-sm font-extrabold text-ink group-hover:text-violet transition-colors">
-          {cta}
-        </p>
-      </div>
-    </>
+      <p className="mt-3 text-sm font-extrabold text-ink group-hover:text-violet transition-colors">
+        {cta}
+      </p>
+    </MediaCard>
+  );
+
+  const className = cn(
+    "block h-full min-w-0",
+    featured && "md:col-span-2",
   );
 
   if (external) {

@@ -24,12 +24,10 @@ export default function FaqPage() {
         ]}
         title="Les réponses claires avant de te lancer."
         highlight="réponses claires"
-        stroke="violet"
         description="Abonnement site web, prix, délais, Instagram ou site, mises à jour : les questions que se posent les professionnelles de l'accompagnement."
         image="/image/independant.jpg"
         imageAlt="Femme entrepreneuse : FAQ abonnement site web Kopio"
         badge="FAQ"
-        frame="violet"
         secondaryHref="/tarifs"
       />
       <ValueBanner />

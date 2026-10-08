@@ -14,7 +14,7 @@ export function PromoBar() {
         href={QUIZ_META.path}
         className="flex items-center justify-center gap-2 sm:gap-3 min-h-8 px-3 py-1.5 text-center touch-manipulation hover:bg-violet-soft/30 transition-colors"
       >
-        <span className="inline-flex items-center rounded-full bg-lime text-ink text-[10px] font-extrabold uppercase tracking-[0.1em] px-2 py-0.5 shrink-0">
+        <span className="inline-flex items-center rounded-[var(--rounded-large)] bg-lime text-ink text-[10px] font-extrabold uppercase tracking-[0.1em] px-2 py-0.5 shrink-0">
           {QUIZ_META.promoLabel}
         </span>
         <span className="text-[11px] sm:text-xs font-semibold text-white leading-tight line-clamp-1">

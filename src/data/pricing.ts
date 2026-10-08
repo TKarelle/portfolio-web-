@@ -2,9 +2,6 @@
 export const PRICE_FROM = "dès 89 €/mois";
 export const PRICE_FROM_SHORT = "89€/mois";
 
-/** Coût annuel de référence (12 × 89 €) pour les preuves ROI */
-export const YEARLY_COST_AT_89 = "1 068 €";
-
 /**
  * Mention légale unique pour les estimations de rentabilité.
  * Placer une * sur chaque affirmation concernée ; afficher ce texte une seule fois par page.
@@ -12,30 +9,6 @@ export const YEARLY_COST_AT_89 = "1 068 €";
 export const ROI_DISCLAIMER =
   "* Estimation illustrative. Trafic, conversion et revenus sont des hypothèses. Le seuil de rentabilité dépend de votre tarif de séance, de votre taux de conversion et du volume réel de demandes. Exemple : à 90 € la séance, une cliente suivie sur l’année couvre souvent le modèle à 89 €/mois. Ce n’est pas une promesse de chiffre d’affaires.";
 
-/** Preuve ROI */
-export const roiProof = {
-  headline:
-    "Un seul contrat peut couvrir plus d’un an de site. Au-delà, c’est du bénéfice.*",
-  columns: [
-    {
-      value: "12*",
-      label: "visites qualifiées supplémentaires par an",
-      note: "1/mois, scénario minimal",
-    },
-    {
-      value: "3*",
-      label: "nouvelles clientes",
-      note: "si 25 % prennent rendez-vous",
-    },
-    {
-      value: "1 080 €*",
-      label: "revenus générés",
-      note: "3 clientes × 4 séances × 90 €",
-    },
-  ],
-  costLabel: "coût Kopio sur 12 mois (à 89 €/mois)",
-  costValue: YEARLY_COST_AT_89,
-} as const;
 export const SHARED_PLAN_FEATURES = [
   "Jusqu’à 5 pages (accueil, à propos, offres, avis ou FAQ, contact)",
   "Réservation avancée (agenda, créneaux, confirmation auto)",
@@ -47,65 +20,82 @@ export const SHARED_PLAN_DESCRIPTION =
 
 export const SHARED_PLAN_DELIVERY = "21 jours";
 
-/** Inclus dans toutes les formules : à afficher très fort */
+/** Inclus dans toutes les formules : carrousel homepage */
 export const includedInAll = [
   {
-    title: "Design 100 % personnalisé",
-    text: "Pas de template générique : votre site est pensé pour votre activité.",
+    title: "Une identité qui vous ressemble",
+    text: "Votre site ne part pas d’un modèle. Il est construit autour de votre univers, votre personnalité et votre expertise.",
+    image: "/image/videopulse-poster.jpg",
+    video: "/image/videopulse.mp4",
+    imageAlt: "Aperçu d’un site livré : identité PULSE",
   },
   {
-    title: "Parfait sur mobile, tablette et ordinateur",
-    text: "Lisible et fluide partout, surtout sur téléphone.",
+    title: "Une expérience qui donne confiance",
+    text: "Chaque page est pensée pour que vos visiteurs comprennent rapidement qui vous êtes, ce que vous proposez et pourquoi vous choisir.",
+    image: "/image/sitewebvideo-poster.jpg",
+    video: "/image/sitewebvideo.mp4",
+    imageAlt: "Parcours de site pensé pour rassurer les visiteurs",
   },
   {
-    title: "Référencement Google de base",
-    text: "Structure, balises, vitesse et indexation : les bases pour être trouvé.",
+    title: "Une visibilité pensée dès le départ",
+    text: "Structure, contenus et performances sont optimisés pour Google et préparés pour être compris par les IA.",
+    image: "/image/performance.png",
+    imageAlt: "Visibilité Google et IA dès la conception",
   },
   {
-    title: "Aide à la rédaction",
-    text: "Je travaille vos textes avec vous, même si vous ne savez pas quoi écrire.",
+    title: "Des contenus qui parlent de vous",
+    text: "Je vous aide à transformer votre expertise en mots clairs, utiles et convaincants, sans vous demander de devenir rédactrice.",
+    image: "/image/writing-desk.jpg",
+    imageAlt: "Aide à la rédaction de contenus experts",
   },
   {
-    title: "Conformité RGPD",
-    text: "Mentions légales, cookies et politique de confidentialité inclus.",
+    title: "Tout fonctionne, partout",
+    text: "Mobile, tablette, ordinateur, formulaires, réservation, sécurité : votre site est conçu pour fonctionner sans vous demander de bricoler.",
+    image: "/image/mockup.png",
+    imageAlt: "Site fluide sur mobile, tablette et ordinateur",
   },
   {
-    title: "Hébergement, domaine et sécurité",
-    text: "Nom de domaine, certificat SSL, hébergement et sauvegardes inclus.",
-  },
-  {
-    title: "Modifications par email",
-    text: "Vous m’écrivez, je mets à jour sous 24 à 72 h. Sans bricolage technique.",
-  },
-  {
-    title: "Un interlocuteur unique",
-    text: "Joignable, qui répond : vous parlez toujours à la même personne.",
+    title: "Et après la mise en ligne ?",
+    text: "Votre activité évolue. Votre site aussi. Vous pouvez me demander des modifications et continuer à le faire évoluer avec vous.",
+    image: "/image/apres-support.jpg",
+    imageAlt: "Évolutions et modifications après mise en ligne",
   },
 ] as const;
 
-/** Garanties alignées sur les modèles 6 / 12 / 24 mois (sans frais de mise en service) */
+/** Garanties alignées sur les modèles 6 / 12 / 24 mois */
 export const guarantees = [
   {
-    title: "Vous validez avant la mise en ligne",
-    text: "Rien n’est publié sans votre accord. Vous validez la maquette, puis on met en ligne.",
+    title: "Vous gardez le dernier mot.",
+    text: "Rien ne part en ligne sans votre validation. Vous découvrez la maquette, échangez avec moi, demandez vos ajustements et validez avant la mise en ligne.",
   },
   {
-    title: "Satisfaite ou retravaillé",
-    text: "2 cycles de modifications inclus après livraison.",
+    title: "On ajuste jusqu’à ce que ce soit juste.",
+    text: "2 cycles de modifications sont inclus. L’objectif : un site dans lequel vous vous reconnaissez vraiment, pas simplement un site « livré ».",
   },
   {
-    title: "Le site devient le vôtre",
-    text: "À la fin de votre engagement (6, 12 ou 24 mois), le site vous appartient à 100 %. Ou rachat anticipé à tout moment : vous soldez les mois restants. Le nom de domaine est à votre nom dès le premier jour.",
+    title: "Votre site reste votre site.",
+    text: "Le nom de domaine est à votre nom dès le premier jour. À la fin de votre engagement, le site vous appartient à 100 %. Vous pouvez également choisir de solder les mensualités restantes à tout moment pour en devenir propriétaire plus tôt.",
   },
   {
-    title: "Transparence totale",
-    text: "Les prix sont sur la page : 179 €, 139 € ou 89 €/mois selon la durée. Pas de devis surprise, pas d’option cachée.",
+    title: "Vous savez où vous allez.",
+    text: "Le prix est annoncé dès le départ. 179 €, 139 € ou 89 €/mois selon l’accompagnement choisi. Pas d’option cachée ni de mauvaise surprise en cours de route.",
   },
 ] as const;
+
+const SITE_GROUP = {
+  label: "Votre site",
+  items: [
+    "Jusqu’à 5 pages",
+    "Design personnalisé",
+    "Réservation en ligne",
+    "Atelier rédaction 1h + réécriture professionnelle",
+  ],
+} as const;
 
 export const pricingPlans = [
   {
     id: "sur-mesure",
+    tier: "Lancement",
     name: "6 mois",
     price: "179",
     period: "€/mois",
@@ -114,8 +104,24 @@ export const pricingPlans = [
     terms: "",
     highlight: false,
     badge: null as string | null,
+    tagline: "Poser votre présence et partir sur de bonnes bases.",
     description: SHARED_PLAN_DESCRIPTION,
     delivery: SHARED_PLAN_DELIVERY,
+    groups: [
+      SITE_GROUP,
+      {
+        label: "Votre visibilité",
+        items: [
+          "Structure SEO optimisée",
+          "Indexation Google",
+          "Configuration Search Console",
+        ],
+      },
+      {
+        label: "Votre suivi",
+        items: ["1 bilan analytics après mise en ligne"],
+      },
+    ],
     features: [
       ...SHARED_PLAN_FEATURES,
       "SEO : lancement et indexation (sans suivi long terme)",
@@ -134,6 +140,7 @@ export const pricingPlans = [
   },
   {
     id: "pro",
+    tier: "Développement",
     name: "12 mois",
     price: "139",
     period: "€/mois",
@@ -142,8 +149,28 @@ export const pricingPlans = [
     terms: "",
     highlight: true,
     badge: "Engagement recommandé",
+    tagline: "Faire grandir votre visibilité et vous installer sur Google.",
     description: SHARED_PLAN_DESCRIPTION,
     delivery: SHARED_PLAN_DELIVERY,
+    groups: [
+      SITE_GROUP,
+      {
+        label: "Votre visibilité",
+        items: [
+          "Structure SEO optimisée",
+          "Optimisation Google Business Profile",
+          "Travail des mots-clés locaux",
+          "Ajustements SEO pendant 12 mois",
+        ],
+      },
+      {
+        label: "Votre suivi",
+        items: [
+          "4 bilans analytics",
+          "Suivi de l’évolution de votre visibilité",
+        ],
+      },
+    ],
     features: [
       ...SHARED_PLAN_FEATURES,
       "SEO local : fiche Google Business + mots-clés de zone, suivi sur l’année",
@@ -162,6 +189,7 @@ export const pricingPlans = [
   },
   {
     id: "launch",
+    tier: "Rayonnement",
     name: "24 mois",
     price: "89",
     period: "€/mois",
@@ -170,8 +198,29 @@ export const pricingPlans = [
     terms: "",
     highlight: false,
     badge: null as string | null,
+    tagline: "Construire une visibilité durable sur Google et les IA.",
     description: SHARED_PLAN_DESCRIPTION,
     delivery: SHARED_PLAN_DELIVERY,
+    groups: [
+      SITE_GROUP,
+      {
+        label: "Votre visibilité",
+        items: [
+          "Optimisation SEO continue",
+          "Consolidation du référencement local",
+          "Optimisation régulière des contenus",
+          "Travail de visibilité sur Google et les IA",
+        ],
+      },
+      {
+        label: "Votre suivi",
+        items: [
+          "Analyse tous les 2 mois",
+          "Ajustements selon les évolutions",
+          "Bilans d’évolution",
+        ],
+      },
+    ],
     features: [
       ...SHARED_PLAN_FEATURES,
       "SEO long terme : consolidation locale + ajustements contenus sur 2 ans",

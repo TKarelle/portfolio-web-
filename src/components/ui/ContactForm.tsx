@@ -13,7 +13,7 @@ interface ContactFormProps {
 }
 
 const fieldClass =
-  "w-full px-4 py-3.5 rounded-2xl border-2 border-ink bg-bg text-base font-medium focus:outline-none focus:ring-2 focus:ring-pink";
+  "w-full px-4 py-3.5 rounded-[var(--rounded-large)] border border-ink/10 bg-bg text-base font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-ink/20";
 
 export function ContactForm({
   className,
@@ -43,7 +43,7 @@ export function ContactForm({
   if (submitted) {
     return (
       <div
-        className={`bg-lime text-ink rounded-blob p-8 md:p-10 text-center border-2 border-ink ${className ?? ""}`}
+        className={`bg-lime/50 text-ink rounded-[var(--rounded-large)] p-8 md:p-10 text-center border border-ink/10 shadow-[0_14px_44px_rgba(17,17,17,0.07)] ${className ?? ""}`}
       >
         <p className="text-2xl font-extrabold mb-2">Merci</p>
         <p className="font-medium opacity-80 leading-relaxed">

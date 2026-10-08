@@ -28,11 +28,14 @@ export default function TarifsPage() {
           { label: "Accueil", href: "/" },
           { label: "Tarifs", href: "/tarifs" },
         ]}
-        title="Votre site, clair et maintenu dans le temps."
-        highlight="maintenu dans le temps"
-        description="Grille octobre 2026 pour professionnelles de l'accompagnement : conception, hébergement et évolutions inclus. Vous validez tout avant la mise en ligne."
-        image="/image/independant.jpg"
-        imageAlt="Professionnelle de l'accompagnement : site web dès 89 €/mois"
+        title="Votre site, clair et pensé pour durer."
+        highlight="pensé pour durer"
+        description="Une offre conçue pour les professionnelles de l’accompagnement : conception, hébergement, évolutions et accompagnement inclus. Vous gardez toujours le dernier mot avant la mise en ligne."
+        image="/image/sitewebvideo-poster.jpg"
+        imageAlt="Aperçu d’un site livré"
+        video="/image/sitewebvideo.mp4"
+        videoPoster="/image/sitewebvideo-poster.jpg"
+        videoLabel="Aperçu d’un site livré"
         badge="Dès 89 €/mois"
         secondaryHref="#modeles"
         secondaryLabel="Voir les modèles"

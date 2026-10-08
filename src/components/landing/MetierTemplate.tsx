@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import type { MetierPage } from "@/data/metiers";
 import { metiers, metierPath } from "@/data/metiers";
@@ -7,12 +6,12 @@ import { caseStudies } from "@/data/caseStudies";
 import { Pricing } from "@/components/home/Pricing";
 import { FAQ } from "@/components/home/FAQ";
 import { Button } from "@/components/ui/Button";
-import { SectionHead } from "@/components/ui/SectionHead";
+import { SectionHead, TitleEm } from "@/components/ui/SectionHead";
 import { NumberedGainCards } from "@/components/ui/NumberedGainCards";
-import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
+import { LandingHero } from "@/components/ui/LandingHero";
+import { MediaCard } from "@/components/ui/MediaCard";
 import { FaqJsonLd, ServiceJsonLd } from "@/components/seo/JsonLd";
 import { SeoProseSections } from "@/components/seo/SeoProseSections";
-import { HeroFacts } from "@/components/ui/HeroFacts";
 import { pricingPlans } from "@/data/pricing";
 import { resolveMetierSiblings } from "@/lib/cluster-mesh";
 import { metierAnchor } from "@/lib/black-ink";
@@ -58,56 +57,39 @@ export function MetierTemplate({ data }: { data: MetierPage }) {
         price={recommended.price}
       />
 
-      <section className="pt-36 md:pt-40 pb-12 px-6 mesh-hero">
-        <div className="max-w-5xl mx-auto">
-          <Breadcrumbs
-            items={[
-              { label: "Accueil", href: "/" },
-              { label: data.label, href: metierPath(data.slug) },
-            ]}
-          />
-
-          <div className="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
-            <div>
-              <h1 className="text-[1.65rem] sm:text-3xl md:text-4xl lg:text-[2.5rem] font-extrabold leading-[1.12] tracking-tight">
-                {data.h1}
-              </h1>
-              {/* Sem.6 — pyramide inversée : réponse (tldr) avant le mécanisme (intro) */}
-              <HeroFacts
-                geoSummary={data.tldr}
-                proof={study?.title}
-                delivery="Sous 21 jours"
-              />
-              <p className="mt-5 text-base md:text-lg text-muted font-medium leading-relaxed">
-                {data.intro}
-              </p>
-            </div>
-
-            <div className="photo-frame photo-frame-lime relative aspect-[4/3] max-w-lg mx-auto lg:ml-auto w-full">
-              <Image
-                src={data.image}
-                alt={data.imageAlt}
-                fill
-                className="object-cover rounded-[1.1rem]"
-                sizes="(max-width: 1024px) 100vw, 500px"
-                priority
-              />
-            </div>
-          </div>
-        </div>
-      </section>
+      <LandingHero
+        breadcrumbs={[
+          { label: "Accueil", href: "/" },
+          { label: data.label, href: metierPath(data.slug) },
+        ]}
+        title={data.h1}
+        intro={data.intro}
+        image={data.image}
+        imageAlt={data.imageAlt}
+        geoSummary={data.tldr}
+        proof={study?.title}
+        delivery="Sous 21 jours"
+      />
 
       <SeoProseSections sections={data.sections} />
 
       {(data.slug === "therapeute" || data.slug === "sophrologue") && (
-        <section className="py-12 md:py-14 px-6 bg-bg">
+        <section className="py-16 md:py-20 px-5 sm:px-8 bg-bg">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight leading-tight mb-2">
-              {data.slug === "therapeute"
-                ? "Thérapeute ou sophrologue : quelle page te correspond ?"
-                : "Sophrologue ou thérapeute : quelle page te correspond ?"}
-            </h2>
-            <p className="text-muted font-medium leading-relaxed mb-2">
+            <SectionHead size="xl" align="left" className="mb-3 !max-w-none">
+              {data.slug === "therapeute" ? (
+                <>
+                  Thérapeute ou sophrologue : quelle page te{" "}
+                  <TitleEm>correspond</TitleEm>&nbsp;?
+                </>
+              ) : (
+                <>
+                  Sophrologue ou thérapeute : quelle page te{" "}
+                  <TitleEm>correspond</TitleEm>&nbsp;?
+                </>
+              )}
+            </SectionHead>
+            <p className="text-muted font-medium leading-relaxed mb-8">
               Deux métiers proches, deux intents de recherche distincts. Cette
               matrice évite de coller le même discours sur les deux URLs.
             </p>
@@ -120,18 +102,10 @@ export function MetierTemplate({ data }: { data: MetierPage }) {
         </section>
       )}
 
-      <section className="py-16 md:py-20 px-6 bg-chunk-pink">
+      <section className="py-16 md:py-20 px-5 sm:px-8 bg-bg">
         <div className="max-w-5xl mx-auto">
-          <div className="reveal max-w-3xl">
-            <p className="text-sm font-bold text-pink mb-3 tracking-wide">
-              Pour {data.metierPlural}
-            </p>
-            <SectionHead
-              align="left"
-              stroke="lime"
-              highlight="en pratique"
-              className="mb-8"
-            >
+          <div className="reveal max-w-3xl mb-10">
+            <SectionHead align="left" size="xl" eyebrow={`Pour ${data.metierPlural}`}>
               {data.whyTitle}
             </SectionHead>
           </div>
@@ -144,62 +118,63 @@ export function MetierTemplate({ data }: { data: MetierPage }) {
       <Pricing title={data.includedTitle} highlight="inclus" />
 
       {study && (
-        <section className="pt-6 md:pt-8 pb-14 md:pb-20 px-6 bg-bg">
+        <section className="py-16 md:py-20 px-5 sm:px-8 bg-surface">
           <div className="max-w-5xl mx-auto">
             <div className="reveal mb-10 md:mb-12 text-center">
-              <SectionHead stroke="pink" highlight="concret">
+              <SectionHead size="xl">
                 {caseHeading}
               </SectionHead>
             </div>
 
-            <article className="reveal card card-hover overflow-hidden bg-surface">
-              <div className="grid grid-cols-1 lg:grid-cols-5">
-                <div className="lg:col-span-2 relative aspect-[16/10] lg:aspect-auto lg:min-h-[280px] photo-frame overflow-hidden">
-                  <Image
-                    src={study.image}
-                    alt={study.imageAlt}
-                    fill
-                    loading="lazy"
-                    className="object-cover object-top"
-                    sizes="40vw"
-                    quality={75}
-                  />
-                  <span className="absolute top-4 left-4 bg-ink text-surface text-xs font-bold px-3 py-1 rounded-full z-10">
-                    {study.category}
-                  </span>
-                </div>
-
-                <div className="lg:col-span-3 p-7 md:p-9">
-                  <h3 className="text-2xl md:text-3xl font-extrabold mb-5 tracking-tight leading-tight">
-                    {study.title}
-                  </h3>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm mb-5">
-                    <div className="rounded-2xl p-4 border border-ink/12 bg-bg/60">
-                      <p className="font-bold text-muted text-xs uppercase tracking-wide mb-1">
-                        Avant
-                      </p>
-                      <p className="text-ink/80 font-medium">{study.problem}</p>
-                    </div>
-                    <div className="rounded-2xl p-4 border border-ink/12 bg-bg/60">
-                      <p className="font-bold text-muted text-xs uppercase tracking-wide mb-1">
-                        Ce que j&apos;ai fait
-                      </p>
-                      <p className="text-ink/80 font-medium">{study.solution}</p>
-                    </div>
-                  </div>
-
-                  <div className="flex flex-wrap items-center gap-3">
-                    <p className="font-extrabold text-lg bg-ink text-lime inline-block px-4 py-2 rounded-full">
-                      → {study.result}
+            <article className="reveal grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+              <div className="lg:col-span-5">
+                <MediaCard
+                  src={study.image}
+                  alt={study.imageAlt}
+                  aspect="16/10"
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                />
+              </div>
+              <div className="lg:col-span-7 flex flex-col gap-6">
+                <p className="text-[11px] font-extrabold uppercase tracking-[0.16em] text-ink/35">
+                  {study.category}
+                </p>
+                <h3 className="text-2xl md:text-3xl font-extrabold tracking-tight leading-tight">
+                  {study.title}
+                </h3>
+                <div className="space-y-5">
+                  <div>
+                    <p className="text-[11px] font-extrabold uppercase tracking-[0.18em] text-ink/40 mb-2">
+                      Avant
                     </p>
-                    {study.url && (
-                      <Button href={study.url} variant="outline" size="sm">
-                        Voir le site →
-                      </Button>
-                    )}
+                    <p className="text-base font-medium text-ink/80 leading-relaxed">
+                      {study.problem}
+                    </p>
+                  </div>
+                  <div>
+                    <p className="text-[11px] font-extrabold uppercase tracking-[0.18em] text-ink/40 mb-2">
+                      Ce que j&apos;ai fait
+                    </p>
+                    <p className="text-base font-medium text-ink/80 leading-relaxed">
+                      {study.solution}
+                    </p>
+                  </div>
+                  <div>
+                    <p className="text-[11px] font-extrabold uppercase tracking-[0.18em] text-ink/40 mb-2">
+                      Résultat
+                    </p>
+                    <p className="text-base font-extrabold text-ink leading-relaxed">
+                      {study.result}
+                    </p>
                   </div>
                 </div>
+                {study.url ? (
+                  <div>
+                    <Button href={study.url} variant="outline" size="sm">
+                      Voir le site →
+                    </Button>
+                  </div>
+                ) : null}
               </div>
             </article>
           </div>
@@ -208,11 +183,14 @@ export function MetierTemplate({ data }: { data: MetierPage }) {
 
       <FAQ
         items={data.faqs}
-        title={`Questions fréquentes des ${data.metierPlural}`}
-        highlight={data.metierPlural}
+        title={
+          <>
+            Questions fréquentes des <TitleEm>{data.metierPlural}</TitleEm>
+          </>
+        }
       />
 
-      <section className="py-16 px-6 bg-chunk-violet">
+      <section className="py-16 md:py-20 px-5 sm:px-8 bg-bg">
         <div className="max-w-3xl mx-auto text-center">
           <p className="text-lg md:text-xl font-medium text-ink leading-relaxed mb-8">
             {data.closing}
@@ -240,9 +218,9 @@ export function MetierTemplate({ data }: { data: MetierPage }) {
         </div>
       </section>
 
-      <section className="py-12 px-6 bg-chunk-pink border-t border-ink/5">
+      <section className="py-12 px-5 sm:px-8 border-t border-ink/8 bg-surface">
         <div className="max-w-5xl mx-auto">
-          <p className="text-sm font-extrabold uppercase tracking-wider text-pink mb-4">
+          <p className="text-[11px] font-extrabold uppercase tracking-[0.16em] text-ink/35 mb-4">
             Métiers du même cocon
           </p>
           <ul className="flex flex-wrap gap-2">
@@ -250,7 +228,7 @@ export function MetierTemplate({ data }: { data: MetierPage }) {
               <li key={m.slug}>
                 <Link
                   href={metierPath(m.slug)}
-                  className="inline-block px-3 py-1.5 text-sm font-semibold rounded-full border border-ink/15 bg-surface hover:bg-lime transition-colors"
+                  className="inline-block px-3 py-1.5 text-sm font-semibold rounded-[var(--rounded-large)] bg-ink/5 text-ink hover:bg-ink/10 transition-colors"
                 >
                   {m.label}
                 </Link>

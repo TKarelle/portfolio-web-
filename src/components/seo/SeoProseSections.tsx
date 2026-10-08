@@ -16,10 +16,10 @@ export function SeoProseSections({
       {sections.map((section, i) => (
         <section
           key={section.h2}
-          className={`${className} ${i % 2 === 1 ? "bg-chunk-lime/30" : ""}`}
+          className={`${className} ${i % 2 === 1 ? "bg-surface" : ""}`}
         >
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight leading-tight mb-5">
+            <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight leading-tight mb-5 text-ink">
               {section.h2}
             </h2>
             {section.body.split("\n\n").map((para) => (

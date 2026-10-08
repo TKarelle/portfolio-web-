@@ -1,59 +1,82 @@
 import { cn } from "@/lib/utils";
-import type { ElementType } from "react";
+import type { ElementType, ReactNode } from "react";
 
-/** Longueur max du surlignage (comme sur la landing : 2–5 mots courts). */
-const MAX_HIGHLIGHT_LEN = 28;
-
-export function SectionHead({
-  children,
-  highlight,
-  stroke = "lime",
-  className,
-  align = "center",
-  as: Tag = "h2",
-}: {
-  /** Titre complet (string recommandée pour le surlignage) */
-  children: string;
-  /** Phrase courte surlignée (ex. « sans gérer la technique ») */
-  highlight: string;
-  stroke?: "lime" | "pink" | "violet";
+type SectionHeadProps = {
+  children: ReactNode;
+  /** Petit label au-dessus du titre (optionnel) */
+  eyebrow?: string;
   className?: string;
   align?: "left" | "center";
   as?: Extract<ElementType, "h1" | "h2" | "h3">;
+  /** Échelle typo premium */
+  size?: "md" | "lg" | "xl";
+  /** @deprecated */
+  highlight?: string;
+  /** @deprecated */
+  stroke?: "lime" | "pink" | "violet";
+};
+
+const sizeClass = {
+  md: "text-[clamp(1.75rem,3.8vw,2.35rem)]",
+  lg: "text-[clamp(2.1rem,5vw,3.15rem)]",
+  xl: "text-[clamp(2.45rem,6.5vw,4.25rem)]",
+} as const;
+
+/**
+ * Mot important en Instrument Serif italic — contraste premium dans les titres Jakarta.
+ */
+export function TitleEm({
+  children,
+  className,
+}: {
+  children: ReactNode;
+  className?: string;
 }) {
-  const markClass =
-    stroke === "pink"
-      ? "mark mark-pink"
-      : stroke === "violet"
-        ? "mark mark-violet"
-        : "mark mark-lime";
-
-  const safe =
-    highlight.length > 0 && highlight.length <= MAX_HIGHLIGHT_LEN
-      ? highlight
-      : "";
-  const idx = safe ? children.indexOf(safe) : -1;
-
-  const content =
-    idx === -1 ? (
-      <>{children}</>
-    ) : (
-      <>
-        {children.slice(0, idx)}
-        <span className={markClass}>{safe}</span>
-        {children.slice(idx + safe.length)}
-      </>
-    );
-
   return (
-    <Tag
+    <em className={cn("title-em", className)}>
+      {children}
+    </em>
+  );
+}
+
+/**
+ * Titre premium — Jakarta extrabold + TitleEm (serif italic) pour les accents.
+ */
+export function SectionHead({
+  children,
+  eyebrow,
+  className,
+  align = "center",
+  as: Tag = "h2",
+  size = "lg",
+}: SectionHeadProps) {
+  return (
+    <div
       className={cn(
-        "text-3xl md:text-4xl font-extrabold tracking-tight leading-tight",
+        "section-head",
         align === "center" && "text-center",
-        className,
+        align === "left" && "text-left",
       )}
     >
-      {content}
-    </Tag>
+      {eyebrow ? (
+        <p
+          className={cn(
+            "mb-3 sm:mb-4 text-[11px] sm:text-xs font-extrabold uppercase tracking-[0.22em] text-ink/35",
+            align === "center" && "mx-auto",
+          )}
+        >
+          {eyebrow}
+        </p>
+      ) : null}
+      <Tag
+        className={cn(
+          "section-head__title m-0 font-extrabold text-ink tracking-[-0.035em] leading-[1.08] text-balance",
+          sizeClass[size],
+          className,
+        )}
+      >
+        {children}
+      </Tag>
+    </div>
   );
 }

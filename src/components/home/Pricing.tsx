@@ -1,133 +1,123 @@
 import { pricingPlans } from "@/data/pricing";
 import { Button } from "@/components/ui/Button";
-import { SectionHead } from "@/components/ui/SectionHead";
 import { DeliveryDisclaimer } from "@/components/ui/DeliveryNote";
 import {
   PricingGuarantees,
   PricingIncluded,
 } from "@/components/home/PricingPromises";
-import { MOTION } from "@/lib/motion";
+import { ScrollBoldText } from "@/components/home/ScrollBoldText";
+import { SoftBlurBand } from "@/components/ui/SoftBlurBand";
+import { SurfaceCard } from "@/components/ui/SurfaceCard";
 import { CTA } from "@/data/copy";
 
-const waveClass = ["float-wave", "float-wave-slow", "float-wave-alt"] as const;
+const PRICING_HEADLINE = [
+  "VOTRE SITE.",
+  "VOTRE RYTHME.",
+  "VOTRE VISIBILITÉ.",
+] as const;
 
-/** Tarifs — Server Component (Sem.2). Motion via CSS view-timeline, pas d’hydratation. */
+/** Tarifs — SoftBlurBand + SurfaceCard (shell partagé). */
 export function Pricing({
-  title = "Choisissez votre modèle",
-  highlight = "modèle",
+  title: _title,
+  highlight: _highlight,
 }: {
   title?: string;
   highlight?: string;
 } = {}) {
   return (
-    <section className="scroll-mt-28 py-14 md:py-20 px-6 bg-bg" id="modeles">
-      <div className="max-w-5xl mx-auto">
-        <div className="reveal">
-          <PricingIncluded />
-        </div>
+    <section className="scroll-mt-28 bg-bg" id="modeles">
+      <div className="reveal pt-14 md:pt-20">
+        <PricingIncluded />
+      </div>
 
-        <div className="reveal text-center mb-10 md:mb-12">
-          <SectionHead stroke="pink" highlight={highlight}>
-            {title}
-          </SectionHead>
-        </div>
+      <SoftBlurBand contentClassName="px-5 sm:px-8 flex justify-center">
+        <ScrollBoldText
+          paragraphs={PRICING_HEADLINE}
+          className="text-center max-w-3xl"
+        />
+      </SoftBlurBand>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6 md:items-stretch">
-          {pricingPlans.map((plan, i) => (
-            <div
-              key={plan.id}
-              className={`h-full bubble-stagger ${plan.highlight ? "md:-translate-y-3" : ""}`}
-              style={{ animationDelay: `${i * MOTION.stagger}s` }}
-            >
-              <div
-                className={`h-full ${waveClass[i % waveClass.length]}`}
-                style={{
-                  animationDelay: `${i * MOTION.stagger + MOTION.duration * 0.85}s`,
-                }}
-              >
-                <div
-                  className={`card card-hover p-7 md:p-8 flex flex-col relative h-full ${
-                    plan.highlight
-                      ? "!bg-violet !text-white !shadow-[6px_6px_0_#d4ff00] !border-lime"
-                      : "bg-surface"
-                  }`}
-                >
-                  {plan.badge ? (
-                    <span className="absolute -top-3 left-1/2 -translate-x-1/2 z-10 bg-lime !text-ink text-xs font-bold px-4 py-1 rounded-full border-2 border-ink whitespace-nowrap">
-                      {plan.badge}
-                    </span>
-                  ) : null}
+      <div className="w-full max-w-6xl mx-auto px-5 sm:px-8 md:px-10 pt-10 sm:pt-14 md:pt-16 pb-8 sm:pb-10 space-y-6 sm:space-y-8 md:space-y-10">
+        {pricingPlans.map((plan) => (
+          <SurfaceCard
+            key={plan.id}
+            as="article"
+            padded={false}
+            highlight={plan.highlight}
+            className="px-6 py-8 sm:px-8 sm:py-9 md:px-10 md:py-10 lg:px-12 lg:py-11"
+          >
+            <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,15rem)_minmax(0,1fr)] xl:grid-cols-[minmax(0,16.5rem)_minmax(0,1fr)] gap-8 lg:gap-10 xl:gap-14 items-start">
+              <header className="lg:max-w-[16.5rem]">
+                <p className="text-[11px] sm:text-xs font-extrabold uppercase tracking-[0.22em] text-ink">
+                  {plan.tier}
+                </p>
+                <p className="mt-1.5 text-[11px] sm:text-xs font-bold uppercase tracking-[0.18em] text-muted">
+                  {plan.name}
+                </p>
 
-                  <p
-                    className={`text-sm font-bold uppercase tracking-wider ${
-                      plan.highlight ? "text-lime" : "text-pink"
-                    }`}
-                  >
-                    {plan.name}
-                  </p>
+                <div className="mt-5 flex items-end gap-1">
+                  <span className="text-4xl sm:text-5xl font-extrabold tracking-tight text-ink leading-none">
+                    {plan.price}&nbsp;€
+                  </span>
+                  <span className="pb-1 text-xs font-bold uppercase tracking-[0.12em] text-muted">
+                    /mois
+                  </span>
+                </div>
 
-                  <div className="mt-4 mb-6">
-                    <p className="flex items-baseline gap-1.5 flex-wrap">
-                      <span
-                        className={`text-5xl font-extrabold tracking-tight ${
-                          plan.highlight ? "text-white" : ""
-                        }`}
-                      >
-                        {plan.price}
-                      </span>
-                      <span
-                        className={`text-lg font-semibold ${
-                          plan.highlight ? "text-white/60" : "text-muted"
-                        }`}
-                      >
-                        {plan.period}
-                      </span>
-                    </p>
-                  </div>
+                <div className="mt-5 h-px w-12 bg-ink/15" aria-hidden />
 
-                  <p
-                    className={`text-xs font-bold mb-6 ${
-                      plan.highlight ? "text-lime" : "text-violet"
-                    }`}
-                  >
-                    Livraison : {plan.delivery}
-                  </p>
+                <p className="mt-5 text-base sm:text-lg font-semibold text-ink leading-snug text-pretty">
+                  {plan.tagline}
+                </p>
 
-                  <ul
-                    className={`space-y-3 mb-8 flex-1 text-sm font-medium ${
-                      plan.highlight ? "text-white/85" : "text-ink/80"
-                    }`}
-                  >
-                    {plan.features.map((f) => (
-                      <li key={f} className="flex items-start gap-2">
-                        <span
-                          className={plan.highlight ? "text-lime" : "text-pink"}
-                        >
-                          ✦
-                        </span>
-                        {f}
-                      </li>
-                    ))}
-                  </ul>
-
+                <div className="mt-7">
                   <Button
                     href="/contact"
                     variant={plan.highlight ? "primary" : "dark"}
-                    className={`w-full mt-auto ${plan.highlight ? "!text-ink" : ""}`}
+                    className="w-full sm:w-auto"
+                    size="md"
                   >
                     {plan.highlight ? CTA.plan : CTA.planDiscuss}
                   </Button>
                 </div>
+              </header>
+
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-8 lg:gap-10 xl:gap-12 min-w-0">
+                {plan.groups.map((group) => (
+                  <div key={group.label} className="min-w-0">
+                    <p className="text-[10px] sm:text-[11px] font-extrabold uppercase tracking-[0.18em] text-ink/50 mb-3.5">
+                      {group.label}
+                    </p>
+                    <ul className="space-y-2.5">
+                      {group.items.map((item) => (
+                        <li
+                          key={item}
+                          className="flex items-start gap-2.5 text-[0.85rem] sm:text-[0.9rem] font-medium text-muted leading-relaxed"
+                        >
+                          <span
+                            className="text-ink/25 shrink-0 mt-0.5"
+                            aria-hidden
+                          >
+                            ✦
+                          </span>
+                          <span className="min-w-0">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
               </div>
             </div>
-          ))}
-        </div>
+          </SurfaceCard>
+        ))}
+      </div>
 
-        <DeliveryDisclaimer className="reveal mt-8 text-center max-w-lg mx-auto" />
+      <div className="max-w-6xl mx-auto px-5 sm:px-8 md:px-10 pt-10 sm:pt-12">
+        <DeliveryDisclaimer className="reveal text-center max-w-lg mx-auto mb-4" />
+      </div>
 
-        <div className="reveal">
-          <PricingGuarantees />
-        </div>
+      <div className="reveal pb-14 md:pb-20">
+        <PricingGuarantees />
       </div>
     </section>
   );

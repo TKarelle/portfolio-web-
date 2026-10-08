@@ -6,10 +6,12 @@ import { cn } from "@/lib/utils";
 interface ButtonProps {
   href?: string;
   children: React.ReactNode;
-  variant?: "primary" | "secondary" | "outline" | "dark";
+  variant?: "primary" | "secondary" | "outline" | "dark" | "violet";
   size?: "sm" | "md" | "lg";
   className?: string;
-  onClick?: (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void;
+  onClick?: (
+    e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>,
+  ) => void;
   type?: "button" | "submit";
 }
 
@@ -32,7 +34,7 @@ export function Button({
   type = "button",
 }: ButtonProps) {
   const base =
-    "inline-flex items-center justify-center gap-2 font-bold rounded-full transition-all duration-300 hover:scale-[1.03] active:scale-[0.97] min-h-11 touch-manipulation text-center leading-snug";
+    "inline-flex items-center justify-center gap-2 font-bold rounded-[var(--rounded-large)] transition-all duration-300 hover:scale-[1.03] active:scale-[0.97] min-h-11 touch-manipulation text-center leading-snug";
 
   const variants = {
     primary:
@@ -42,6 +44,8 @@ export function Button({
     outline:
       "bg-surface text-ink border-2 border-ink/10 hover:border-violet hover:bg-violet/5",
     dark: "bg-ink text-white hover:bg-ink/90",
+    violet:
+      "bg-violet-bg text-violet hover:bg-violet-soft/35 border border-violet/15",
   };
 
   const sizes = {

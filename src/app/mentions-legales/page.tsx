@@ -43,7 +43,7 @@ export default function MentionsLegalesPage() {
               Email :{" "}
               <a
                 href={`mailto:${CONTACT_EMAIL}`}
-                className="text-violet font-bold hover:underline"
+                className="text-ink font-bold underline underline-offset-4 decoration-ink/25 hover:decoration-ink"
               >
                 {CONTACT_EMAIL}
               </a>
@@ -60,7 +60,7 @@ export default function MentionsLegalesPage() {
               440 N Barranca Ave #4133, Covina, CA 91723, États-Unis. Contact :{" "}
               <a
                 href="https://vercel.com/contact"
-                className="text-violet font-bold hover:underline"
+                className="text-ink font-bold underline underline-offset-4 decoration-ink/25 hover:decoration-ink"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -100,7 +100,7 @@ export default function MentionsLegalesPage() {
                 La prise de rendez-vous est gérée par Calendly (
                 <a
                   href={CALENDLY_URL}
-                  className="text-violet font-bold hover:underline"
+                  className="text-ink font-bold underline underline-offset-4 decoration-ink/25 hover:decoration-ink"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -116,7 +116,7 @@ export default function MentionsLegalesPage() {
               de suppression :{" "}
               <a
                 href={`mailto:${CONTACT_EMAIL}`}
-                className="text-violet font-bold hover:underline"
+                className="text-ink font-bold underline underline-offset-4 decoration-ink/25 hover:decoration-ink"
               >
                 {CONTACT_EMAIL}
               </a>
@@ -125,7 +125,10 @@ export default function MentionsLegalesPage() {
           </section>
 
           <p>
-            <Link href="/contact" className="font-bold text-pink hover:underline">
+            <Link
+              href="/contact"
+              className="font-bold text-ink underline underline-offset-4 decoration-ink/25 hover:decoration-ink"
+            >
               Retour au contact
             </Link>
           </p>

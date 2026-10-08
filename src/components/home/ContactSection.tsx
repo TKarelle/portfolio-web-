@@ -1,89 +1,74 @@
 import { CalendlyButton } from "@/components/ui/CalendlyButton";
-import { SectionHead } from "@/components/ui/SectionHead";
+import { Button } from "@/components/ui/Button";
+import { EditorialSteps } from "@/components/ui/EditorialSteps";
+import { SectionHead, TitleEm } from "@/components/ui/SectionHead";
+import { SoftBlurBand } from "@/components/ui/SoftBlurBand";
 import { CTA } from "@/data/copy";
 import { CONTACT_EMAIL, HAS_CALENDLY } from "@/data/site";
 
-/** Contact home — Server Component (Sem.2). Calendly = îlot client. */
+/** Contact — SoftBlurBand + EditorialSteps (même langage que le process). */
 export function ContactSection({
   headingAs = "h2",
 }: {
-  /** Sur /contact, passer "h1" pour le titre principal de page. */
   headingAs?: "h1" | "h2";
 } = {}) {
   return (
     <section
-      className="scroll-mt-28 py-16 md:py-28 px-4 sm:px-6 bg-chunk-pink pb-[max(4rem,env(safe-area-inset-bottom))]"
+      className="scroll-mt-28 relative z-10 w-full pb-[env(safe-area-inset-bottom)]"
       id="contact"
     >
-      <div className="max-w-5xl mx-auto">
-        <div className="reveal relative rounded-[1.75rem] md:rounded-blob overflow-hidden bg-ink text-white p-5 sm:p-8 md:p-12 lg:p-14 border-[3px] border-ink shadow-[6px_6px_0_#ff1f71] md:shadow-[8px_8px_0_#ff1f71]">
-          <div
-            className="absolute top-0 right-0 w-56 sm:w-72 h-56 sm:h-72 bg-pink/40 rounded-full blur-3xl pointer-events-none"
-            aria-hidden="true"
-          />
+      <SoftBlurBand contentClassName="w-full max-w-5xl mx-auto px-5 sm:px-8 md:px-10">
+        <div className="reveal text-center max-w-3xl mx-auto mb-14 sm:mb-16 md:mb-20">
+          <SectionHead as={headingAs} size="xl">
+            Parlons de votre <TitleEm>pratique</TitleEm>.
+          </SectionHead>
+        </div>
 
-          <div className="relative z-10">
-            <div className="max-w-2xl mb-7 md:mb-10">
-              <SectionHead
-                as={headingAs}
-                align="left"
-                stroke="lime"
-                highlight="votre pratique"
-                className="mb-4 !text-white !text-[1.65rem] sm:!text-3xl md:!text-4xl"
-              >
-                {"Parlez-moi de votre pratique : réponse sous 24 h."}
-              </SectionHead>
-              <p className="text-white/60 text-sm md:text-base font-medium leading-relaxed">
-                Deux façons simples de me joindre. Choisissez celle qui vous
-                convient.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5 sm:gap-4 md:gap-5">
-              <div className="rounded-[1.35rem] sm:rounded-[1.5rem] border-2 border-lime bg-white text-ink p-5 sm:p-6 md:p-7 flex flex-col">
-                <p className="text-[11px] font-extrabold uppercase tracking-[0.14em] text-violet mb-2">
-                  Option 1
-                </p>
-                <h3 className="text-lg sm:text-xl font-extrabold tracking-tight leading-snug mb-2">
-                  Faire le point en 30 minutes
-                </h3>
-                <p className="text-sm text-muted font-medium leading-relaxed mb-5 sm:mb-6 flex-1">
-                  Appel découverte gratuit. Vous choisissez l’horaire dans mon
-                  agenda. Sans engagement.
-                </p>
-                {HAS_CALENDLY ? (
-                  <CalendlyButton size="lg" className="w-full px-4">
-                    {CTA.discovery}
-                  </CalendlyButton>
+        <div className="reveal">
+          <EditorialSteps
+            items={[
+              {
+                step: "01",
+                title: "Faire le point",
+                paragraphs: [
+                  "30 minutes pour parler de votre activité, de votre site et de ce que vous aimeriez faire évoluer.",
+                  "Appel découverte gratuit, sans engagement. Vous choisissez directement votre créneau dans mon agenda.",
+                ],
+                action: HAS_CALENDLY ? (
+                  <CalendlyButton size="lg">{CTA.discovery}</CalendlyButton>
                 ) : (
                   <p className="text-sm font-bold text-muted">
                     Agenda bientôt disponible.
                   </p>
-                )}
-              </div>
-
-              <div className="rounded-[1.35rem] sm:rounded-[1.5rem] border-2 border-white/20 bg-white/5 text-white p-5 sm:p-6 md:p-7 flex flex-col">
-                <p className="text-[11px] font-extrabold uppercase tracking-[0.14em] text-lime mb-2">
-                  Option 2
-                </p>
-                <h3 className="text-lg sm:text-xl font-extrabold tracking-tight leading-snug mb-2">
-                  Envoyer un mail
-                </h3>
-                <p className="text-sm text-white/60 font-medium leading-relaxed mb-5 sm:mb-6 flex-1">
-                  Vous voulez plus de détails par écrit&nbsp;? Je vous réponds
-                  sous 24&nbsp;h.
-                </p>
-                <a
-                  href={`mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent("Demande de détails : site web")}`}
-                  className="inline-flex items-center justify-center w-full min-h-12 font-bold rounded-full px-4 sm:px-7 py-3.5 text-[0.95rem] sm:text-base text-center leading-snug bg-surface text-ink border-2 border-ink hover:bg-lime transition-colors touch-manipulation"
-                >
-                  {CTA.mail}
-                </a>
-              </div>
-            </div>
-          </div>
+                ),
+              },
+              {
+                step: "02",
+                title: "M’écrire",
+                paragraphs: [
+                  "Vous préférez prendre le temps de poser vos idées ? Envoyez-moi un mail.",
+                  "Je vous réponds personnellement sous 24 h.",
+                ],
+                action: (
+                  <Button
+                    href={`mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent("Demande de détails : site web")}`}
+                    variant="dark"
+                    size="lg"
+                  >
+                    {CTA.mail}
+                  </Button>
+                ),
+              },
+            ]}
+          />
         </div>
-      </div>
+
+        <p className="reveal mt-16 sm:mt-20 md:mt-24 text-center max-w-2xl mx-auto text-lg sm:text-xl md:text-2xl font-extrabold text-ink tracking-tight leading-snug text-balance">
+          Votre expertise est déjà là.
+          <br />
+          Parlons de la façon de la faire vivre en ligne.
+        </p>
+      </SoftBlurBand>
     </section>
   );
 }
