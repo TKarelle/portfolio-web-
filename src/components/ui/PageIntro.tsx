@@ -73,7 +73,7 @@ export function PageIntro({
   const altFallback = typeof title === "string" ? title : "Kopio";
 
   return (
-    <section className="relative overflow-hidden pt-36 md:pt-40 pb-14 md:pb-20 px-5 sm:px-8">
+    <section className="relative overflow-hidden pt-36 md:pt-40 pb-14 md:pb-20 page-x">
       <div
         className="absolute inset-0 z-0 pointer-events-none"
         aria-hidden
@@ -87,7 +87,7 @@ export function PageIntro({
         }}
       />
 
-      <div className="relative z-10 max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+      <div className="relative z-10 w-full grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
         <div>
           <Breadcrumbs items={breadcrumbs} />
 

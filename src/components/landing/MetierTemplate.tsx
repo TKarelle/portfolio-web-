@@ -3,7 +3,6 @@ import type { MetierPage } from "@/data/metiers";
 import { metiers, metierPath } from "@/data/metiers";
 import { besoinPath } from "@/data/besoins";
 import { caseStudies } from "@/data/caseStudies";
-import { Pricing } from "@/components/home/Pricing";
 import { FAQ } from "@/components/home/FAQ";
 import { Button } from "@/components/ui/Button";
 import { SectionHead, TitleEm } from "@/components/ui/SectionHead";
@@ -17,6 +16,7 @@ import { resolveMetierSiblings } from "@/lib/cluster-mesh";
 import { metierAnchor } from "@/lib/black-ink";
 import { IgDecisionMatrix } from "@/components/seo/IgDecisionMatrix";
 import { BlackInkBridge } from "@/components/seo/BlackInkBridge";
+import { FutureVitrineCta } from "@/components/landing/FutureVitrineCta";
 
 const THERAPIE_VS_SOPHRO: readonly (readonly [string, string, string])[] = [
   [
@@ -36,6 +36,30 @@ const THERAPIE_VS_SOPHRO: readonly (readonly [string, string, string])[] = [
   ],
   ["Prochain pas typique", "Premier contact prudent", "Réservation de séance"],
 ];
+
+function metierDateLabel(iso?: string): string | undefined {
+  if (!iso) return undefined;
+  const d = new Date(`${iso}T12:00:00`);
+  if (Number.isNaN(d.getTime())) return undefined;
+  const label = d.toLocaleDateString("fr-FR", {
+    month: "long",
+    year: "numeric",
+  });
+  return label.charAt(0).toUpperCase() + label.slice(1);
+}
+
+function withWhyHighlight(title: string, highlight?: string) {
+  if (!highlight) return title;
+  const idx = title.indexOf(highlight);
+  if (idx === -1) return title;
+  return (
+    <>
+      {title.slice(0, idx)}
+      <TitleEm>{highlight}</TitleEm>
+      {title.slice(idx + highlight.length)}
+    </>
+  );
+}
 
 export function MetierTemplate({ data }: { data: MetierPage }) {
   const study = data.caseStudyId
@@ -59,6 +83,9 @@ export function MetierTemplate({ data }: { data: MetierPage }) {
     data.caseStudyHeading ??
     (study ? `Exemple concret : ${study.title}` : "Exemple concret");
 
+  const heroEyebrow =
+    metierDateLabel(data.updatedAt) ?? data.eyebrow ?? undefined;
+
   return (
     <>
       <FaqJsonLd items={data.faqs} />
@@ -75,28 +102,31 @@ export function MetierTemplate({ data }: { data: MetierPage }) {
           { label: data.label, href: metierPath(data.slug) },
         ]}
         title={data.h1}
+        highlight={data.h1Highlight}
+        eyebrow={heroEyebrow}
         intro={data.intro}
         image={data.image}
         imageAlt={data.imageAlt}
         geoSummary={data.tldr}
-        proof={study?.title}
+        proof={data.factChips ? undefined : study?.title}
         delivery="Sous 21 jours"
+        factChips={data.factChips}
       />
 
       <SeoProseSections sections={data.sections} />
 
       {(data.slug === "therapeute" || data.slug === "sophrologue") && (
-        <section className="py-16 md:py-20 px-5 sm:px-8 bg-bg">
-          <div className="max-w-3xl mx-auto">
-            <SectionHead size="xl" align="left" className="mb-3 !max-w-none">
+        <section className="py-16 md:py-20 page-x bg-bg">
+          <div className="w-full max-w-3xl mx-auto text-center">
+            <SectionHead size="xl" className="mb-3 !max-w-none">
               {data.slug === "therapeute" ? (
                 <>
-                  Thérapeute ou sophrologue : quelle page te{" "}
+                  Thérapeute ou sophrologue : quelle page vous{" "}
                   <TitleEm>correspond</TitleEm>&nbsp;?
                 </>
               ) : (
                 <>
-                  Sophrologue ou thérapeute : quelle page te{" "}
+                  Sophrologue ou thérapeute : quelle page vous{" "}
                   <TitleEm>correspond</TitleEm>&nbsp;?
                 </>
               )}
@@ -114,15 +144,11 @@ export function MetierTemplate({ data }: { data: MetierPage }) {
         </section>
       )}
 
-      <section className="py-16 md:py-20 px-5 sm:px-8 bg-bg">
-        <div className="max-w-5xl mx-auto">
-          <div className="reveal max-w-3xl mb-10">
-            <SectionHead
-              align="left"
-              size="xl"
-              eyebrow={`Pour ${data.metierPlural}`}
-            >
-              {data.whyTitle}
+      <section className="py-16 md:py-20 page-x bg-bg">
+        <div className="w-full">
+          <div className="reveal mb-10 md:mb-12 text-center max-w-3xl mx-auto">
+            <SectionHead size="xl">
+              {withWhyHighlight(data.whyTitle, data.whyHighlight)}
             </SectionHead>
           </div>
           <div className="reveal">
@@ -131,11 +157,9 @@ export function MetierTemplate({ data }: { data: MetierPage }) {
         </div>
       </section>
 
-      <Pricing title={data.includedTitle} highlight="inclus" />
-
       {study && (
-        <section className="py-16 md:py-20 px-5 sm:px-8 bg-surface">
-          <div className="max-w-5xl mx-auto">
+        <section className="py-16 md:py-20 page-x bg-surface">
+          <div className="w-full">
             <div className="reveal mb-10 md:mb-12 text-center">
               <SectionHead size="xl">{caseHeading}</SectionHead>
             </div>
@@ -204,14 +228,10 @@ export function MetierTemplate({ data }: { data: MetierPage }) {
         }
       />
 
-      <section className="py-16 md:py-20 px-5 sm:px-8 bg-bg">
-        <div className="max-w-3xl mx-auto text-center">
-          <p className="text-lg md:text-xl font-medium text-ink leading-relaxed mb-8">
-            {data.closing}
-          </p>
-          <Button href="/contact" size="lg">
-            {data.ctaLabel}
-          </Button>
+      <FutureVitrineCta />
+
+      <section className="py-12 page-x border-t border-ink/8 bg-surface">
+        <div className="w-full">
           <BlackInkBridge
             variant="metier"
             keyword={data.keyword}
@@ -228,12 +248,7 @@ export function MetierTemplate({ data }: { data: MetierPage }) {
               anchor: metierAnchor(m.metier),
             }))}
           />
-        </div>
-      </section>
-
-      <section className="py-12 px-5 sm:px-8 border-t border-ink/8 bg-surface">
-        <div className="max-w-5xl mx-auto">
-          <p className="text-[11px] font-extrabold uppercase tracking-[0.16em] text-ink/35 mb-4">
+          <p className="text-[11px] font-extrabold uppercase tracking-[0.16em] text-ink/35 mb-4 mt-10">
             Métiers du même cocon
           </p>
           <ul className="flex flex-wrap gap-2">

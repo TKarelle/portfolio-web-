@@ -1,20 +1,32 @@
 import Link from "next/link";
 import type { ComparatifPageData } from "@/data/comparatifs";
 import { comparatifPath, comparatifs } from "@/data/comparatifs";
-import { Button } from "@/components/ui/Button";
-import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 import { FaqJsonLd, ServiceJsonLd } from "@/components/seo/JsonLd";
 import { FAQ } from "@/components/home/FAQ";
 import { ComparisonTable } from "@/components/home/ComparisonTable";
 import { SeoProseSections } from "@/components/seo/SeoProseSections";
-import { HeroFacts } from "@/components/ui/HeroFacts";
+import { LandingHero } from "@/components/ui/LandingHero";
 import { SectionHead, TitleEm } from "@/components/ui/SectionHead";
-import { MediaCard } from "@/components/ui/MediaCard";
+import { ResponsiveDataTable } from "@/components/ui/ResponsiveDataTable";
 import { BRAND_NAME } from "@/data/site";
 import { BlackInkBridge } from "@/components/seo/BlackInkBridge";
+import { FutureVitrineCta } from "@/components/landing/FutureVitrineCta";
+
+function comparatifDateLabel(iso?: string): string | undefined {
+  if (!iso) return undefined;
+  const d = new Date(`${iso}T12:00:00`);
+  if (Number.isNaN(d.getTime())) return undefined;
+  const label = d.toLocaleDateString("fr-FR", {
+    month: "long",
+    year: "numeric",
+  });
+  return label.charAt(0).toUpperCase() + label.slice(1);
+}
 
 export function ComparatifTemplate({ data }: { data: ComparatifPageData }) {
   const siblings = comparatifs.filter((c) => c.slug !== data.slug);
+  const heroEyebrow =
+    comparatifDateLabel(data.updatedAt) ?? data.eyebrow ?? undefined;
 
   return (
     <>
@@ -25,63 +37,64 @@ export function ComparatifTemplate({ data }: { data: ComparatifPageData }) {
         url={comparatifPath(data.slug)}
       />
 
-      <section className="relative overflow-hidden pt-36 md:pt-40 pb-14 px-5 sm:px-8">
-        <div
-          className="absolute inset-0 z-0 pointer-events-none"
-          aria-hidden
-          style={{
-            background: `
-              radial-gradient(ellipse 65% 50% at 0% 20%, rgba(255, 31, 113, 0.12) 0%, transparent 55%),
-              radial-gradient(ellipse 50% 40% at 100% 10%, rgba(124, 58, 237, 0.1) 0%, transparent 50%),
-              var(--bg)
-            `,
-          }}
-        />
-        <div className="relative z-10 max-w-4xl mx-auto">
-          <Breadcrumbs
-            items={[
-              { label: "Accueil", href: "/" },
-              { label: data.keyword, href: comparatifPath(data.slug) },
-            ]}
-          />
-
-          <div className="mt-10">
-            <SectionHead as="h1" size="xl" align="left" className="!max-w-none">
-              {data.h1}
-            </SectionHead>
-          </div>
-          <HeroFacts geoSummary={data.tldr} />
-          <p className="mt-4 text-base font-extrabold text-ink leading-snug">
+      <LandingHero
+        breadcrumbs={[
+          { label: "Accueil", href: "/" },
+          { label: data.keyword, href: comparatifPath(data.slug) },
+        ]}
+        title={data.h1}
+        highlight={data.h1Highlight}
+        eyebrow={heroEyebrow}
+        intro={data.intro}
+        image={data.image}
+        imageAlt={data.imageAlt}
+        geoSummary={data.tldr}
+        delivery="Sous 21 jours"
+        factChips={data.factChips}
+        footer={
+          <p className="mt-4 text-base font-extrabold text-ink leading-snug max-w-xl">
             {data.verdict}
           </p>
-          <p className="mt-4 text-lg text-muted font-medium leading-relaxed">
-            {data.intro}
-          </p>
-        </div>
-      </section>
+        }
+      />
 
       <ComparisonTable
         title={
           <>
-            {BRAND_NAME} face à <TitleEm>Wix, WordPress & agences</TitleEm>
+            {BRAND_NAME} face à <TitleEm>{data.otherName}</TitleEm>
           </>
         }
       />
+
+      <section className="py-12 md:py-16 page-x bg-bg">
+        <div className="w-full max-w-4xl mx-auto">
+          <SectionHead size="md" align="left" className="mb-6">
+            Grille <TitleEm>{data.keyword}</TitleEm>
+          </SectionHead>
+          <ResponsiveDataTable
+            headers={["Critère", BRAND_NAME, data.otherName]}
+            rows={data.rows.map((row) => [row.label, row.kopio, row.other])}
+          />
+        </div>
+      </section>
 
       <SeoProseSections
         sections={data.sections.map(({ h2, body }) => ({ h2, body }))}
       />
 
-      <section className="py-16 md:py-20 px-5 sm:px-8 bg-bg">
-        <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-10 md:gap-14">
+      <section className="py-16 md:py-20 page-x bg-bg">
+        <div className="w-full max-w-4xl mx-auto grid md:grid-cols-2 gap-10 md:gap-14">
           <div>
             <SectionHead size="md" align="left" className="mb-4">
               Ce que {data.otherName} fait <TitleEm>bien</TitleEm>
             </SectionHead>
             <ul className="space-y-2">
               {data.otherFairPoints.map((p) => (
-                <li key={p} className="flex gap-2 text-sm font-medium text-muted leading-relaxed">
-                  <span className="text-ink/30 shrink-0">—</span> {p}
+                <li
+                  key={p}
+                  className="flex gap-2 text-sm font-medium text-muted leading-relaxed"
+                >
+                  <span className="text-ink/30 shrink-0">·</span> {p}
                 </li>
               ))}
             </ul>
@@ -92,7 +105,10 @@ export function ComparatifTemplate({ data }: { data: ComparatifPageData }) {
             </SectionHead>
             <ul className="space-y-2">
               {data.kopioStrengths.map((p) => (
-                <li key={p} className="flex gap-2 text-sm font-medium text-ink/80 leading-relaxed">
+                <li
+                  key={p}
+                  className="flex gap-2 text-sm font-medium text-ink/80 leading-relaxed"
+                >
                   <span className="text-ink/30 shrink-0">✦</span> {p}
                 </li>
               ))}
@@ -100,19 +116,6 @@ export function ComparatifTemplate({ data }: { data: ComparatifPageData }) {
           </div>
         </div>
       </section>
-
-      {data.image ? (
-        <section className="py-12 px-5 sm:px-8 bg-surface">
-          <div className="max-w-3xl mx-auto">
-            <MediaCard
-              src={data.image}
-              alt={data.imageAlt}
-              aspect="21/9"
-              sizes="800px"
-            />
-          </div>
-        </section>
-      ) : null}
 
       <FAQ
         items={data.faqs}
@@ -123,14 +126,13 @@ export function ComparatifTemplate({ data }: { data: ComparatifPageData }) {
         }
       />
 
-      <section className="py-16 px-6 bg-bg">
-        <div className="max-w-3xl mx-auto text-center mb-10">
-          <p className="text-lg md:text-xl font-medium text-ink leading-relaxed mb-8">
+      <FutureVitrineCta />
+
+      <section className="py-12 page-x border-t border-ink/8 bg-surface">
+        <div className="w-full">
+          <p className="text-lg md:text-xl font-medium text-ink leading-relaxed mb-8 max-w-3xl">
             {data.closing}
           </p>
-          <Button href="/contact" size="lg">
-            {data.ctaLabel}
-          </Button>
           <BlackInkBridge
             variant="comparatif"
             keyword={data.keyword}
@@ -139,9 +141,7 @@ export function ComparatifTemplate({ data }: { data: ComparatifPageData }) {
               anchor: c.keyword,
             }))}
           />
-        </div>
-        <div className="max-w-4xl mx-auto">
-          <p className="text-[11px] font-extrabold uppercase tracking-[0.16em] text-ink/35 mb-3">
+          <p className="text-[11px] font-extrabold uppercase tracking-[0.16em] text-ink/35 mb-3 mt-10">
             Autres comparatifs
           </p>
           <ul className="flex flex-wrap gap-2">

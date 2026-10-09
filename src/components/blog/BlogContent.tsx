@@ -1,7 +1,13 @@
 import Link from "next/link";
 import { Fragment, type ReactNode } from "react";
 import { QuizLeadMagnet } from "@/components/home/QuizLeadMagnet";
-import { pickShortHighlight } from "@/lib/highlight";
+import { MediaCard, MediaCardCaption } from "@/components/ui/MediaCard";
+import { ResponsiveDataTable } from "@/components/ui/ResponsiveDataTable";
+import { slugifyHeading } from "@/lib/slugify-heading";
+
+/** {{media|src|alt|title|text}} — même MediaCard que l'accueil. */
+const MEDIA_RE =
+  /^\{\{media\|([^|]+)\|([^|]+)\|([^|]*)\|([^}]*)\}\}$/;
 
 function ProofCheck() {
   return (
@@ -177,8 +183,8 @@ function StepCard({
           aria-hidden
         />
       ) : null}
-      <article className="relative flex gap-4 sm:gap-5 rounded-[var(--rounded-large)] border-2 border-ink bg-surface p-5 sm:p-6 shadow-[3px_3px_0_#111]">
-        <span className="relative z-10 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-ink text-lime text-xs sm:text-sm font-extrabold flex items-center justify-center shrink-0">
+      <article className="relative flex gap-4 sm:gap-5 rounded-[var(--rounded-large)] border border-ink/10 bg-white p-5 sm:p-6 shadow-[0_14px_44px_rgba(17,17,17,0.07)]">
+        <span className="relative z-10 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-ink/5 text-ink text-xs sm:text-sm font-extrabold flex items-center justify-center shrink-0 tabular-nums">
           {n}
         </span>
         <div className="min-w-0 flex-1">
@@ -213,20 +219,27 @@ function StepList({ steps }: { steps: { n: string; title: string; body: string }
   );
 }
 
-function Heading({ title }: { title: string }) {
-  const highlight = pickShortHighlight(title);
-  const idx = title.lastIndexOf(highlight);
-  const before = idx >= 0 ? title.slice(0, idx) : title;
-  const after = idx >= 0 ? title.slice(idx + highlight.length) : "";
-
+function SectionHeading({
+  title,
+  id,
+  index,
+}: {
+  title: string;
+  id: string;
+  index: number;
+}) {
   return (
-    <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight leading-tight mt-12 mb-5">
-      {before}
-      {idx >= 0 ? (
-        <span className="mark mark-lime">{highlight}</span>
-      ) : null}
-      {after}
-    </h2>
+    <header className="mb-6 text-center">
+      <p className="text-[11px] font-extrabold uppercase tracking-[0.2em] text-ink/30 mb-3">
+        {String(index).padStart(2, "0")}
+      </p>
+      <h2
+        id={id}
+        className="scroll-mt-28 text-[clamp(1.5rem,3.2vw,2rem)] font-extrabold tracking-[-0.03em] leading-[1.15] text-ink text-balance"
+      >
+        {title}
+      </h2>
+    </header>
   );
 }
 
@@ -255,42 +268,11 @@ function PipeTable({ block }: { block: string }) {
   const rows = lines.slice(2).map(parsePipeRow);
 
   return (
-    <div className="my-8 overflow-x-auto not-prose rounded-2xl border-2 border-ink shadow-[4px_4px_0_#111]">
-      <table className="w-full min-w-[36rem] border-collapse text-left">
-        <thead>
-          <tr className="bg-ink text-white">
-            {headers.map((h) => (
-              <th
-                key={h}
-                scope="col"
-                className="px-3 py-3 text-xs sm:text-sm font-extrabold border-r border-white/15 last:border-r-0 align-bottom"
-              >
-                {renderInline(h)}
-              </th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {rows.map((cells, i) => (
-            <tr
-              key={`r-${i}`}
-              className={i % 2 === 0 ? "bg-surface" : "bg-bg"}
-            >
-              {cells.map((cell, j) => (
-                <td
-                  key={`c-${i}-${j}`}
-                  className={`px-3 py-3 text-xs sm:text-sm font-medium text-ink/85 border-t border-ink/10 border-r border-ink/10 last:border-r-0 align-top leading-snug ${
-                    j === 0 ? "font-extrabold text-ink" : ""
-                  }`}
-                >
-                  {renderInline(cell)}
-                </td>
-              ))}
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+    <ResponsiveDataTable
+      headers={headers}
+      rows={rows}
+      renderCell={(text) => <>{renderInline(text)}</>}
+    />
   );
 }
 
@@ -321,39 +303,74 @@ function segmentBlocks(blocks: string[]): Segment[] {
   return out;
 }
 
-function renderBlock(block: string, key: string) {
+function renderBodyBlock(
+  block: string,
+  key: string,
+  paraIndex: number,
+) {
   if (block.trim() === "{{quiz}}") {
-    return <QuizLeadMagnet key={key} variant="inline" id="quiz-article" />;
+    return (
+      <div key={key} className="my-8 text-left">
+        <QuizLeadMagnet variant="inline" id="quiz-article" />
+      </div>
+    );
   }
 
-  if (block.startsWith("## ")) {
-    return <Heading key={key} title={block.replace("## ", "")} />;
+  const media = block.trim().match(MEDIA_RE);
+  if (media) {
+    const [, src, alt, title, text] = media;
+    return (
+      <div key={key} className="my-8 text-left max-w-2xl mx-auto">
+        <MediaCard
+          src={src.trim()}
+          alt={alt.trim()}
+          aspect="16/10"
+          sizes="(max-width: 768px) 100vw, 720px"
+        >
+          <MediaCardCaption
+            title={title.trim() || "Search Console"}
+            text={text.trim()}
+          />
+        </MediaCard>
+      </div>
+    );
   }
 
   if (block.startsWith("> ")) {
+    const callout = block.replace(/^>\s?/, "").trim();
+    if (/^Vérifié le\b/i.test(callout)) return null;
+
     return (
       <aside
         key={key}
-        className="my-6 rounded-2xl border-2 border-ink bg-lime/40 px-5 py-4 text-ink font-medium leading-relaxed shadow-[3px_3px_0_0_#0a0a0a]"
+        className="my-6 text-left rounded-[var(--rounded-large)] border border-ink/10 bg-lime/25 px-5 py-4 text-ink font-medium leading-relaxed shadow-[0_8px_24px_rgba(17,17,17,0.04)]"
       >
-        {renderInline(block.replace(/^>\s?/, ""))}
+        {renderInline(callout)}
       </aside>
     );
   }
 
   if (isPipeTable(block)) {
-    return <PipeTable key={key} block={block} />;
+    return (
+      <div key={key} className="text-left">
+        <PipeTable block={block} />
+      </div>
+    );
   }
 
   if (isChecklistBlock(block)) {
-    return <Checklist key={key} block={block} />;
+    return (
+      <div key={key} className="text-left">
+        <Checklist block={block} />
+      </div>
+    );
   }
 
   if (/^[-•*]\s+/.test(block.trim()) && !block.includes("\n")) {
     return (
       <p
         key={key}
-        className="flex items-start gap-3 text-ink/85 font-medium leading-relaxed my-3"
+        className="flex items-start gap-3 text-left text-ink/85 font-medium leading-relaxed my-3"
       >
         <ProofCheck />
         <span className="min-w-0 pt-0.5">
@@ -364,22 +381,115 @@ function renderBlock(block: string, key: string) {
   }
 
   return (
-    <p key={key} className="text-ink/80 leading-[1.75] font-medium mb-5">
+    <p
+      key={key}
+      className={`text-muted font-medium leading-[1.75] mb-5 last:mb-0 mx-auto max-w-2xl ${
+        paraIndex === 0
+          ? "text-base md:text-[1.05rem] text-ink/75"
+          : "text-[0.95rem] md:text-base"
+      }`}
+    >
       {renderInlineBlock(block)}
     </p>
   );
 }
 
-export function BlogContent({ blocks }: { blocks: string[] }) {
+function buildHeadingIdMap(blocks: string[]): Map<string, string> {
+  const seen = new Map<string, number>();
+  const map = new Map<string, string>();
+  for (const block of blocks) {
+    if (!block.startsWith("## ")) continue;
+    const label = block.slice(3).trim();
+    let id = slugifyHeading(label);
+    const n = seen.get(id) ?? 0;
+    seen.set(id, n + 1);
+    if (n > 0) id = `${id}-${n + 1}`;
+    map.set(label, id);
+  }
+  return map;
+}
+
+type ProseSection = {
+  title?: string;
+  id?: string;
+  body: Segment[];
+};
+
+/** Découpe l'article en sections H2 — même rythme visuel que SeoProseSections. */
+function groupIntoProseSections(blocks: string[]): ProseSection[] {
   const segments = segmentBlocks(blocks);
+  const sections: ProseSection[] = [{ body: [] }];
+
+  for (const seg of segments) {
+    if (seg.type === "block" && seg.value.startsWith("## ")) {
+      sections.push({
+        title: seg.value.slice(3).trim(),
+        body: [],
+      });
+      continue;
+    }
+    sections[sections.length - 1].body.push(seg);
+  }
+
+  return sections.filter((s) => s.title || s.body.length > 0);
+}
+
+export function BlogContent({ blocks }: { blocks: string[] }) {
+  const headingIds = buildHeadingIdMap(blocks);
+  const sections = groupIntoProseSections(blocks);
+  let sectionNumber = 0;
 
   return (
-    <div className="blog-prose max-w-none">
-      {segments.map((seg, i) => {
-        if (seg.type === "steps") {
-          return <StepList key={`steps-${i}`} steps={seg.steps} />;
-        }
-        return renderBlock(seg.value, `b-${i}`);
+    <div className="blog-prose">
+      {sections.map((section, si) => {
+        const isLead = !section.title;
+        const n = isLead ? 0 : ++sectionNumber;
+        const id = section.title
+          ? (headingIds.get(section.title) ?? slugifyHeading(section.title))
+          : undefined;
+        let paraIndex = 0;
+
+        return (
+          <section
+            key={section.title ?? `lead-${si}`}
+            className={`page-x ${
+              isLead ? "pt-4 pb-10 md:pb-12" : "py-14 md:py-20"
+            } ${!isLead && n % 2 === 0 ? "bg-surface" : "bg-bg"}`}
+          >
+            <div className="w-full max-w-3xl mx-auto text-center">
+              {section.title && id ? (
+                <SectionHeading title={section.title} id={id} index={n} />
+              ) : null}
+              {section.body.map((seg, bi) => {
+                if (seg.type === "steps") {
+                  return (
+                    <div key={`steps-${si}-${bi}`} className="text-left">
+                      <StepList steps={seg.steps} />
+                    </div>
+                  );
+                }
+                const node = renderBodyBlock(
+                  seg.value,
+                  `b-${si}-${bi}`,
+                  paraIndex,
+                );
+                if (
+                  node &&
+                  !seg.value.startsWith(">") &&
+                  !seg.value.startsWith("## ") &&
+                  !isPipeTable(seg.value) &&
+                  !isChecklistBlock(seg.value) &&
+                  !/^[-•*]\s+/.test(seg.value.trim()) &&
+                  seg.value.trim() !== "{{quiz}}" &&
+                  !MEDIA_RE.test(seg.value.trim())
+                ) {
+                  paraIndex += 1;
+                }
+                return node;
+              })}
+            </div>
+          </section>
+        );
       })}
     </div>
   );

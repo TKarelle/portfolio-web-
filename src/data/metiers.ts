@@ -19,6 +19,12 @@ export interface MetierPage {
  /** lastmod QDF (Sem.8) — bump à chaque réinjection de données */
  updatedAt?: string;
  h1: string;
+ /** Mot ou expression accentuée dans le H1 (TitleEm) */
+ h1Highlight?: string;
+ /** Label éditorial au-dessus du H1 (sinon date updatedAt) */
+ eyebrow?: string;
+ /** Mot accentué dans whyTitle (TitleEm, DA home) */
+ whyHighlight?: string;
  tldr: string;
  intro: string;
  douleur: string;
@@ -37,6 +43,8 @@ export interface MetierPage {
  faqs: MetierFaq[];
  image: string;
  imageAlt: string;
+ /** Chips hero éditoriales (sans prix si fourni) */
+ factChips?: string[];
 }
 
 export const METIER_BASE = "/site-web-pour";
@@ -47,1271 +55,1172 @@ export function metierPath(slug: string): string {
 
 export const metiers: MetierPage[] = [
  {
- slug: "coach",
- label: "Coach",
- keyword: "site web pour coach",
- metier: "coach",
- metierPlural: "coachs",
- title: "Site web pour coach : Abonnement mensuel dès 89€/mois",
- metaDescription:
- "Site web pour coach en France : offre claire, preuves, prise de contact. Abonnement Kopio dès 89 €/mois, livré en 21 jours, sans compétences techniques. Mise à jour octobre 2026.",
- updatedAt: "2026-10-07",
- h1: "Le site qui donne à ton activité de coach la crédibilité qu'elle mérite",
- tldr:
- "Je crée ton site web pour coach en abonnement mensuel : design personnalisé, hébergement inclus, mises à jour par email. Dès 89 €/mois (grille octobre 2026 : 89 / 139 / 179 €), en ligne en 21 jours. Pensé pour les coachs femmes en France qui veulent une page d'offre claire à envoyer après un appel ou un networking.",
- intro:
- "Tes prospectes te googlaient avant de réserver un appel. Un site clair explique ton accompagnement, montre ta méthode et rend le prochain pas évident, sans que tu gères la technique.",
- douleur:
- "Bio Instagram trop courte, LinkedIn trop corporate, et aucune page d'offre à envoyer après un networking.",
- whyTitle:
- "Pourquoi une coach a besoin d'un site différent d'un site générique ?",
- whyPoints: [
- {
- t: "Tu vends de la confiance",
- d: "Une landing générique ne raconte ni ta méthode ni pour qui tu travailles.",
- },
- {
- t: "L'offre se lit en 10 secondes",
- d: "Positionnement, format et parcours doivent être limpides dès l'arrivée.",
- },
- {
- t: "Un seul prochain pas",
- d: "Appel découverte, formulaire ou réservation : une action claire sur mobile.",
- },
- {
- t: "Zéro outil à apprendre",
- d: "Tu te concentres sur tes clientes ; je gère design, technique et mises à jour.",
- },
- ],
- sections: [
- {
- h2: "Pourquoi Instagram ne suffit pas pour convertir tes prospectes ?",
- body: "Instagram montre ton quotidien ; il ne remplace pas une page d'offre stable. L'algorithme décide qui voit tes posts, alors qu'une URL reste partageable après un networking, un podcast ou un message LinkedIn. En 2025, une coach à Lyon m'a confié qu'elle envoyait encore un PDF de 8 pages : les prospectes abandonnaient avant la fin. Sur ton site, méthode, formats et preuves tiennent en une lecture scannable. Tu gardes Instagram pour nourrir la relation ; le site porte la décision.",
- },
- {
- h2: "Que doit contenir un site web pour coach pour être crédible ?",
- body: "Un site crédible pour coach pose trois blocs : pour qui tu travailles, comment tu accompagnes, et ce qui se passe après le premier contact. Le mécanisme est simple : la lectrice cherche un cadre, pas un slogan. J'organise ton one-page ou tes pages autour du positionnement, d'une preuve concrète (témoignage, résultat chiffré, parcours) et d'un appel à l'action unique. Concrètement, tu peux envoyer le lien après un DM et la prospecte comprend l'offre sans te relancer trois fois. Le reste (blog, ressources) vient ensuite si tu en as besoin.\n\nLe détail compte pour la lectrice pressée : titres scannables, preuves placées au bon endroit, un seul prochain pas visible sur mobile. Tu gagnes des conversations déjà cadrées. Le site ne remplace pas ton expertise ; il la rend lisible avant le premier échange et réduit les allers-retours inutiles.",
- },
- {
- h2: "Combien coûte un site web pour coach chez Kopio ?",
- body: "Pour une coach qui démarre ou clarifie une offre unique, Dès 89 €/mois (24 mois), 139 €/mois (12 mois) ou 179 €/mois (6 mois) : jusqu'à 5 pages, réservation avancée et atelier rédaction. Ce qui change selon la durée : le SEO et le suivi analytics. Besoin précis reste sur devis quand tu as une plateforme membre ou un parcours atypique. Tu choisis selon la complexité de ton offre, pas selon une grille marketing.\n\nLe devis précise le périmètre avant ton engagement. Tu sais ce qui est inclus (design, hébergement, mises à jour) et ce qui reste hors scope. Si ton offre grossit plus tard, je te propose le passage de formule sans tout reconstruire. Tu paies pour une présence maintenue, pas pour un fichier livré puis abandonné.",
- },
- {
- h2: "Est-ce que je peux attendre d'avoir « assez » de contenus avant de lancer mon site ?",
- body: "Attendre le texte parfait freine souvent plus que le manque de contenu. Une coach a rarement un livre blanc prêt ; elle a une méthode, des clientes et des preuves orales. Je pars de ce que tu as déjà : notes d'appel découverte, posts qui marchent, témoignages reçus en message. En pratique, tu valides un brief court ; je structure les blocs, et tu complètes les manques en cours de route. Le site sort en 21 jours dès 89 €/mois si les contenus essentiels arrivent à temps. Tu itères ensuite par email, sans apprendre un CMS.\n\nConcrètement, tu avances avec ce que tu as déjà sous la main. Je priorise la clarté de l'offre et le prochain pas pour la visiteuse. Les enrichissements (galerie, preuves, pages secondaires) arrivent ensuite par email, au rythme de ton activité. Tu n'as pas besoin d'un dossier parfait pour être joignable et crédible.",
- },
- {
- h2: "Comment ton site travaille avec LinkedIn et Instagram ?",
- body: "Le site n'entre pas en concurrence avec tes réseaux : il les ancre. LinkedIn et Instagram génèrent de la visibilité ; ton URL convertit cette attention en lecture d'offre et en prise de contact. Le maillage est concret : bio Instagram, signature mail, post carrousel et fiche LinkedIn pointent vers la même page. Une coach qui postait trois fois par semaine sans lien clair voyait des likes, peu d'appels. Dès que le lien du site apparaît partout, les demandes se concentrent. Tu mesures ce qui arrive via le formulaire, pas via un vague sentiment d'engagement.",
- },
- {
- h2: "Que se passe-t-il après la mise en ligne ?",
- body: "La livraison n'est pas un point final. Tu m'écris pour une correction de tarif, un nouveau témoignage ou un changement de photo : je mets à jour sous 24 à 72 h. Le mécanisme évite les soirs passés dans un builder. En 2024-2025, la plupart des coachs que j'accompagne ajustent leur offre deux à trois fois dans l'année ; le site suit sans refonte complète. Tu restes concentrée sur tes sessions. Si ton activité évolue vers plusieurs programmes, je te propose le passage à 139 €/mois sans tout recommencer.\n\nCe rythme de maintenance colle au quotidien d'une indépendante : peu de temps, besoin de réactivité, zéro formation outil. Tu restes dans ton métier pendant que le site reste à jour. Si un chantier plus large apparaît (nouvelle offre, refonte de parcours), je le traite dans un échange dédié avant de toucher à la structure.",
- },
- ],
- includedTitle: "Ce qui est inclus dans un site Kopio pour coach",
- priceTitle: "Combien coûte un site pour une coach ?",
- recommendedPlanId: "launch",
- relatedBesoinSlug: "site-vitrine-independante",
- relatedBesoinLabel: "site vitrine d'indépendante",
- closing:
- "Si tu veux une page d'offre claire à envoyer dès demain, écris-moi : je regarde avec toi ton positionnement de coach. Réponse sous 48 h ouvrées.",
- ctaLabel: "Parler de mon site coach",
- faqs: [
- {
- question: "LinkedIn ou Instagram ne suffisent-ils pas pour une coach ?",
- answer:
- "Ils aident à te faire connaître. Ton site centralise l'offre, les preuves et le contact hors algorithme. Tu l'envoies à une prospecte sérieuse sans dépendre d'un post qui disparaît en 48 h. En pratique, tu gardes tes canaux d'acquisition et tu pointes vers une URL stable. C'est ce lien que tu envoies après un premier échange sérieux.",
- },
- {
- question: "Combien coûte un site web pour coach ?",
- answer:
- "Trois durées, un même socle (jusqu'à 5 pages, réservation avancée, atelier rédaction) : 89 €/mois (24 mois), 139 €/mois (12 mois) ou 179 €/mois (6 mois). Le SEO et le suivi analytics s'adaptent à la durée. Le devis écrit le périmètre et les délais.",
- },
- {
- question: "Combien de temps pour être en ligne ?",
- answer:
- "21 jours, après validation du devis et réception des contenus essentiels. Les retards viennent surtout des textes manquants, pas de la technique. Le devis écrit le périmètre (pages, réservation, délais). Tu compares ensuite avec ton budget mensuel réel, sans surprise de maintenance cachée.",
- },
- {
- question: "Est-ce que je pourrai modifier mon site ensuite ?",
- answer:
- "Oui. Tu m'envoies un email avec la modification : je mets à jour sous 24 à 72 h. Tu n'as aucun outil à apprendre ni accès admin à gérer. En pratique, tu gardes tes canaux d'acquisition et tu pointes vers une URL stable. C'est ce lien que tu envoies après un premier échange sérieux.",
- },
- ],
- image: "/image/independant.jpg",
- imageAlt: "Coach indépendante : exemple de site web professionnel",
- },
- {
- slug: "praticienne-bien-etre",
- label: "Praticienne bien-être",
- keyword: "site web pour praticienne bien-être",
- metier: "praticienne bien-être",
- metierPlural: "praticiennes bien-être",
- title: "Site web pour praticienne bien-être : dès 89€/mois",
- metaDescription:
- "Site web pour praticienne bien-être : identité forte, offre claire, réservation. Exemple client PULSE. Abonnement Kopio dès 89 €/mois.",
- h1: "Le site qui donne à ton activité de praticienne bien-être la crédibilité qu'elle mérite",
- tldr:
- "Je conçois des sites web pour praticiennes bien-être en abonnement mensuel : identité visuelle affirmée, parcours de réservation clair, loin du template wellness générique. Exemple : PULSE (Camille R.). Dès 89 €/mois ; hébergement et mises à jour inclus.",
- intro:
- "Le bien-être en ligne regorge de sites qui se ressemblent. Tu as besoin d'une présence qui te ressemble vraiment, et qui conduit à une réservation sans friction.",
- douleur:
- "Trop de vitrines « spa pastel » : ton expertise ne ressort pas, les clientes hésitent à réserver un premier créneau.",
- whyTitle:
- "Pourquoi une praticienne bien-être a besoin d'un site différent d'un site générique ?",
- whyPoints: [
- {
- t: "L'ambiance compte autant que l'offre",
- d: "Typo, couleurs et photos doivent coller à ta pratique, pas à un template wellness.",
- },
- {
- t: "Réservation sans friction",
- d: "Créneaux, confirmation et contact : le parcours vaut autant que le design.",
- },
- {
- t: "Positionnement lisible",
- d: "Pour qui tu travailles, ta méthode, ce que tu refuses : tout doit être dit.",
- },
- {
- t: "Déléguer plutôt que bricoler",
- d: "Entre les séances, tu as besoin d'une alliée qui gère le site pour toi.",
- },
- ],
- sections: [
- {
- h2: "Pourquoi tant de sites bien-être se ressemblent-ils ?",
- body: "Le secteur recycle les mêmes codes pastel et les mêmes formules vagues. Une cliente qui compare trois praticiennes ne retient rien si tout paraît interchangeable. Le mécanisme est éditorial autant que visuel : tu nommes pour qui tu travailles, ce que tu fais concrètement en séance, et ce qui te différencie. Pour PULSE, j'ai écarté le look « spa classique » au profit d'une typo bold et d'un parcours de réservation net. Résultat : l'identité porte autant que la liste de soins. Ton site doit donner une impression de cabinet, pas de catalogue générique.\n\nLe détail compte pour la lectrice pressée : titres scannables, preuves placées au bon endroit, un seul prochain pas visible sur mobile. Tu gagnes des conversations déjà cadrées. Le site ne remplace pas ton expertise ; il la rend lisible avant le premier échange et réduit les allers-retours inutiles.",
- },
- {
- h2: "Comment intégrer la réservation sans alourdir ton quotidien ?",
- body: "Les DM Instagram créent des allers-retours, des oublis et des créneaux mal notés. Un parcours de réservation sur le site centralise la demande : la cliente choisit, tu confirmes, le fil de messages se calme. Dès 89 €/mois, le chemin vers le contact est clair ; agenda et confirmation automatique sont inclus. En pratique, une praticienne qui gérait tout en stories passe moins de temps à répondre « tu as un créneau jeudi ? ». Tu gardes la main sur tes disponibilités. Le site devient l'entrée principale, Instagram reste le canal de découverte.\n\nLe détail compte pour la lectrice pressée : titres scannables, preuves placées au bon endroit, un seul prochain pas visible sur mobile. Tu gagnes des conversations déjà cadrées. Le site ne remplace pas ton expertise ; il la rend lisible avant le premier échange et réduit les allers-retours inutiles.",
- },
- {
- h2: "Combien coûte un site pour une praticienne bien-être ?",
- body: "Dès 89 €/mois (24 mois), 139 €/mois (12 mois) ou 179 €/mois (6 mois) : jusqu'à 5 pages, réservation avancée et atelier rédaction. Ce qui change selon la durée : le SEO et le suivi analytics. Besoin précis couvre un parcours très spécifique sur devis. Pour PULSE, le modèle 12 mois a servi l'identité et la conversion ; pour une installation récente, 89 €/mois pose déjà une base solide. Tu paies un abonnement avec maintenance, pas un site abandonné après livraison.\n\nLe devis précise le périmètre avant ton engagement. Tu sais ce qui est inclus (design, hébergement, mises à jour) et ce qui reste hors scope. Si ton offre grossit plus tard, je te propose le passage de formule sans tout reconstruire. Tu paies pour une présence maintenue, pas pour un fichier livré puis abandonné.",
- },
- {
- h2: "Faut-il attendre d'avoir un local parfait avant de lancer son site ?",
- body: "Beaucoup de praticiennes reportent le site jusqu'à la déco du cabinet ou la photo « idéale ». Or les clientes cherchent d'abord le cadre de la pratique et un moyen de réserver. Je travaille avec les visuels disponibles et une direction artistique claire ; j'enrichis la galerie ensuite. En 2025, une praticienne en installation progressive a mis en ligne son offre en 21 jours, puis a ajouté photos et nouveaux soins au fil des mois. Le site suit l'activité. Attendre l'esthétique parfaite laisse tes concurrentes répondre aux recherches locales avant toi.\n\nConcrètement, tu avances avec ce que tu as déjà sous la main. Je priorise la clarté de l'offre et le prochain pas pour la visiteuse. Les enrichissements (galerie, preuves, pages secondaires) arrivent ensuite par email, au rythme de ton activité. Tu n'as pas besoin d'un dossier parfait pour être joignable et crédible.",
- },
- {
- h2: "Comment ton site et Instagram se complètent-ils ?",
- body: "Instagram montre l'ambiance du cabinet et le quotidien des séances ; le site porte l'offre, les tarifs et la réservation. Le maillage est simple : chaque bio, chaque highlight et chaque post « comment réserver » renvoie vers la même URL. Une cliente qui découvre ton compte le soir peut lire le cadre le lendemain sans scroller dix stories. Tu évites de répéter les mêmes infos en DM. Concrètement, Instagram attire ; le site convertit et t'appartient. Quand l'algorithme change, ton adresse reste stable pour Google et pour le bouche-à-oreille.",
- },
- {
- h2: "Que change un site clairement positionné pour tes réservations ?",
- body: "Un positionnement flou attire des demandes hors cible : mauvais format, mauvaises attentes, annulations. Un site qui dit pour qui tu travailles filtre avant le premier message. Sur PULSE, le parcours de réservation et le ton du site ont clarifié l'expérience attendue. En pratique, tu reçois moins de « c'est quoi exactement ? » et plus de créneaux confirmés. Tu gagnes du temps entre deux clientes. Le design n'est pas décoratif : il porte le message et la conversion.\n\nLe détail compte pour la lectrice pressée : titres scannables, preuves placées au bon endroit, un seul prochain pas visible sur mobile. Tu gagnes des conversations déjà cadrées. Le site ne remplace pas ton expertise ; il la rend lisible avant le premier échange et réduit les allers-retours inutiles.",
- },
- ],
- includedTitle:
- "Ce qui est inclus dans un site Kopio pour praticienne bien-être",
- priceTitle: "Combien coûte un site pour une praticienne bien-être ?",
- caseStudyId: "pulse",
- caseStudyHeading: "Exemple concret : PULSE",
- recommendedPlanId: "launch",
- relatedBesoinSlug: "site-avec-reservation-en-ligne",
- relatedBesoinLabel: "site avec réservation en ligne",
- closing:
- "Si tu veux un site à la hauteur de ta pratique, loin du template wellness, écris-moi : je regarde avec toi ton offre et ton parcours de réservation.",
- ctaLabel: "Parler de mon site bien-être",
- faqs: [
- {
- question: "Instagram ne suffit-il pas pour une praticienne bien-être ?",
- answer:
- "Instagram montre le quotidien. Le site centralise offre, méthode et réservation, et t'appartient vraiment. Tu restes trouvable quand le feed change ou que ta cliente cherche ton nom sur Google. En pratique, tu gardes tes canaux d'acquisition et tu pointes vers une URL stable. C'est ce lien que tu envoies après un premier échange sérieux.",
- },
- {
- question: "Combien coûte un site pour praticienne bien-être ?",
- answer:
- "Trois durées, un même socle (jusqu'à 5 pages, réservation avancée, atelier rédaction) : 179 €/mois sur 6 mois, 139 €/mois sur 12 mois, 89 €/mois sur 24 mois. Ce qui change surtout : le SEO et le suivi analytics selon la durée. Le devis écrit le périmètre et les délais. Tu compares ensuite avec ton budget mensuel réel, sans surprise de maintenance cachée.",
- },
- {
- question: "Est-ce que tu gères la prise de rendez-vous ?",
- answer:
- "Oui. Le parcours de contact est clair dès 89 €/mois ; agenda et confirmation automatique sont inclus. On choisit le niveau selon ton volume de demandes. Tu restes concentrée sur ton métier pendant que je gère la technique et les mises à jour. Si ton besoin dépasse le modèle, je te le dis clairement avant le devis.",
- },
- {
- question: "Quel est le délai de livraison ?",
- answer:
- "21 jours, après validation du devis. Les contenus (textes, photos) déterminent surtout le rythme réel. Un kickoff court cadre les contenus attendus. Plus tes textes et visuels arrivent tôt, plus la date de mise en ligne reste réaliste.",
- },
- ],
- image: "/image/pulse.jpg",
- imageAlt: "PULSE : site web pour consultante en bien-être",
- },
- {
- slug: "consultante",
- label: "Consultante",
- keyword: "site web pour consultante",
- metier: "consultante",
- metierPlural: "consultantes",
- title: "Site web pour consultante : Abonnement mensuel dès 89€/mois",
- metaDescription:
- "Site web pour consultante indépendante : offre claire, preuves, contact. Abonnement mensuel Kopio dès 89 €/mois, livré en 21 jours. Grille octobre 2026.",
- updatedAt: "2026-10-07",
- h1: "Le site qui donne à ton activité de consultante la crédibilité qu'elle mérite",
- tldr:
- "Je crée ton site web pour consultante en abonnement mensuel : positionnement net, preuves, prise de contact professionnelle. Dès 89 €/mois (89 / 139 / 179 selon engagement, octobre 2026). Pour consultantes en France qui veulent un site pro sans gérer la technique ni dépendre uniquement de LinkedIn.",
- intro:
- "Tes clientes B2B ou B2C te jugent en quelques secondes. Un site propre montre ton expertise, tes résultats et comment travailler avec toi.",
- douleur:
- "LinkedIn actif, mais aucune page d'offre détaillée à envoyer après un premier échange sérieux.",
- whyTitle:
- "Pourquoi une consultante a besoin d'un site différent d'un site générique ?",
- whyPoints: [
- {
- t: "Expertise scannable",
- d: "Pour qui, problème résolu, méthode, livrables : structure nette, pas brochure floue.",
- },
- {
- t: "Preuves avant slogans",
- d: "Cas clients, résultats et témoignages placés là où la décision se joue.",
- },
- {
- t: "Contact professionnel",
- d: "Formulaire, calendrier ou email selon ton process commercial.",
- },
- {
- t: "Ton temps se facture",
- d: "Je gère le site ; tu gardes ton énergie pour les missions.",
- },
- ],
- sections: [
- {
- h2: "Pourquoi LinkedIn ne remplace pas un site pour consultante ?",
- body: "LinkedIn génère de la visibilité et des conversations. Il ne te donne pas une page d'offre contrôlée, hors fil d'actualité, que tu envoies après un premier call. Le mécanisme est simple : la décideuse veut un lien à transmettre en interne, pas un screenshot de post. En 2025, une consultante RH à Nantes m'a dit qu'elle perdait des suites faute de page « comment travailler ensemble ». Son site a centralisé méthode, livrables et contact. LinkedIn reste le filet ; le site porte la conversion et le référentiel de ton expertise.",
- },
- {
- h2: "Comment structurer l'offre d'une consultante sur un site ?",
- body: "Une consultante vend un problème résolu, pas une liste de compétences. Je structure la page autour du public, du diagnostic, de la méthode et des preuves. Le lecteur scanne ; il doit comprendre en moins d'une minute s'il est au bon endroit. Sur le projet PULSE, le positionnement net et le parcours clair ont remplacé une présence trop générique. Pour toi, cela veut dire une offre lisible, des cas ou résultats visibles, et un seul appel à l'action. Tu évites le site « à propos de moi » qui ne dit pas ce que tu livres.\n\nLe détail compte pour la lectrice pressée : titres scannables, preuves placées au bon endroit, un seul prochain pas visible sur mobile. Tu gagnes des conversations déjà cadrées. Le site ne remplace pas ton expertise ; il la rend lisible avant le premier échange et réduit les allers-retours inutiles.",
- },
- {
- h2: "Combien coûte un site web pour consultante ?",
- body: "Dès 89 €/mois (24 mois), 139 €/mois (12 mois) ou 179 €/mois (6 mois) : jusqu'à 5 pages, réservation avancée et atelier rédaction. Ce qui change selon la durée : le SEO et le suivi analytics. Besoin précis traite les parcours atypiques (espace client, tunnel long) sur devis. La plupart des consultantes démarrent dès 89 €/mois puis passent à 139 €/mois quand le catalogue d'offres s'étoffe. Tu investis dans une présence stable, pas dans un outil que tu dois administrer chaque semaine.\n\nLe devis précise le périmètre avant ton engagement. Tu sais ce qui est inclus (design, hébergement, mises à jour) et ce qui reste hors scope. Si ton offre grossit plus tard, je te propose le passage de formule sans tout reconstruire. Tu paies pour une présence maintenue, pas pour un fichier livré puis abandonné.",
- },
- {
- h2: "Et si mon positionnement évolue encore ?",
- body: "Les consultantes affinent souvent leur niche après six à douze mois. Ce n'est pas une raison de rester sans site. Je construis une structure éditoriale souple : blocs d'offre que je reformule par email sans tout reconstruire. En pratique, tu changes un titre, un public cible ou un livrable ; je mets à jour sous 24 à 72 h. Une consultante marketing a ainsi recentré son message deux fois en un an sans refonte. Le site suit ton positionnement. Tu n'attends pas la « version définitive » de ton expertise pour être joignable.\n\nConcrètement, tu avances avec ce que tu as déjà sous la main. Je priorise la clarté de l'offre et le prochain pas pour la visiteuse. Les enrichissements (galerie, preuves, pages secondaires) arrivent ensuite par email, au rythme de ton activité. Tu n'as pas besoin d'un dossier parfait pour être joignable et crédible.",
- },
- {
- h2: "Comment relier ton site à LinkedIn et à ton emailing ?",
- body: "Le maillage rend ton expertise cohérente partout. Signature mail, featured LinkedIn, newsletter et PDF de proposition pointent vers la même URL. Une prospecte qui te découvre sur un post retrouve les preuves sur le site le soir même. Tu évites les versions contradictoires de ton offre. Concrètement, chaque canal amène du trafic ; le site porte le détail et le formulaire. Quand LinkedIn change son algorithme, ton adresse reste la référence que tu contrôles.",
- },
- {
- h2: "Que gagnes-tu concrètement avec une page d'offre claire ?",
- body: "Une page claire réduit les appels de qualification floue. La cliente arrive déjà alignée sur le problème que tu traites et sur le format de mission. J'observe plus de demandes écrites structurées (contexte, délai, budget approximatif) quand le formulaire et l'offre sont explicites. Tu prépares mieux le premier entretien. Le site ne remplace pas ton expertise commerciale ; il filtre et accélère. Tu factures ton temps de conseil, pas celui passé à réexpliquer les bases.\n\nLe détail compte pour la lectrice pressée : titres scannables, preuves placées au bon endroit, un seul prochain pas visible sur mobile. Tu gagnes des conversations déjà cadrées. Le site ne remplace pas ton expertise ; il la rend lisible avant le premier échange et réduit les allers-retours inutiles.",
- },
- ],
- includedTitle: "Ce qui est inclus dans un site Kopio pour consultante",
- priceTitle: "Combien coûte un site pour une consultante ?",
- recommendedPlanId: "launch",
- relatedBesoinSlug: "site-vitrine-independante",
- relatedBesoinLabel: "site vitrine d'indépendante",
- closing:
- "Si tu veux une page d'offre digne de tes missions, écris-moi : je clarifie avec toi ton positionnement et le parcours de contact.",
- ctaLabel: "Parler de mon site consultante",
- faqs: [
- {
- question: "Un site est-il utile si j'ai déjà LinkedIn ?",
- answer:
- "LinkedIn génère de la visibilité. Le site convertit : offre détaillée, preuves et contact hors algorithme. Tu l'envoies après un premier échange comme référence stable. En pratique, tu gardes tes canaux d'acquisition et tu pointes vers une URL stable. C'est ce lien que tu envoies après un premier échange sérieux.",
- },
- {
- question: "Combien coûte un site web pour consultante ?",
- answer:
- "Trois durées, un même socle (jusqu'à 5 pages, réservation avancée, atelier rédaction) : 179 €/mois sur 6 mois, 139 €/mois sur 12 mois, 89 €/mois sur 24 mois. Ce qui change surtout : le SEO et le suivi analytics selon la durée. Le devis écrit le périmètre et les délais. Tu compares ensuite avec ton budget mensuel réel, sans surprise de maintenance cachée.",
- },
- {
- question: "Puis-je présenter plusieurs offres ?",
- answer:
- "Oui. One-page structurée dès 89 €/mois, ou jusqu'à cinq pages sur 12 mois. On priorise la clarté : mieux vaut deux offres nettes que six floues. Tu restes concentrée sur ton métier pendant que je gère la technique et les mises à jour. Si ton besoin dépasse le modèle, je te le dis clairement avant le devis.",
- },
- {
- question: "Quel est le délai ?",
- answer:
- "21 jours après validation du devis. Les textes et preuves clients restent le facteur le plus déterminant. Un kickoff court cadre les contenus attendus. Plus tes textes et visuels arrivent tôt, plus la date de mise en ligne reste réaliste.",
- },
- ],
- image: "/image/pulse.jpg",
- imageAlt: "Consultante indépendante : site web professionnel Kopio",
- },
- {
- slug: "assistante-virtuelle",
- label: "Assistante virtuelle",
- keyword: "site internet assistante virtuelle",
- metier: "assistante virtuelle",
- metierPlural: "assistantes virtuelles",
- title:
- "Site internet assistante virtuelle : Abonnement dès 89€/mois",
- metaDescription:
- "Site internet assistante virtuelle : packages clairs, preuves, contact pro. Créer un site pour assistante indépendante dès 89 €/mois avec Kopio. Octobre 2026.",
- updatedAt: "2026-10-07",
- h1: "Le site qui donne à ton activité d'assistante virtuelle la crédibilité qu'elle mérite",
- tldr:
- "Je crée ton site internet assistante virtuelle en abonnement mensuel : packages lisibles, preuves, prise de contact professionnelle. Dès 89 €/mois, en ligne en 21 jours. Pensé pour les entrepreneuses assistantes indépendantes en France qui veulent convertir hors LinkedIn et Facebook.",
- intro:
- "Tes clientes TPE et B2B te jugent en quelques secondes. Un site pour assistante indépendante clarifie tes forfaits, ton cadre de travail et le prochain pas, sans que tu gères la technique.",
- douleur:
- "Packages de services flous, crédibilité fragile face aux clientes B2B ou TPE, et une acquisition qui dépend uniquement de LinkedIn ou Facebook.",
- whyTitle:
- "Pourquoi une assistante virtuelle a besoin d'un site différent d'un site générique ?",
- whyPoints: [
- {
- t: "Packages scannables",
- d: "Forfaits, livrables, modalités : structure nette, pas liste de tâches floue.",
- },
- {
- t: "Crédibilité B2B / TPE",
- d: "Preuves et cadre de collaboration placés là où la décision se joue.",
- },
- {
- t: "Contact professionnel",
- d: "Formulaire, calendrier ou email selon ton process commercial.",
- },
- {
- t: "Ton temps se facture",
- d: "Je gère le site ; tu gardes ton énergie pour les missions clientes.",
- },
- ],
- sections: [
- {
- h2: "Mes clientes me trouvent déjà sur LinkedIn ou Facebook : à quoi sert un site ?",
- body: "LinkedIn et Facebook génèrent des conversations. Ils ne te donnent pas une page d'offre contrôlée, hors fil d'actualité, que tu envoies après un premier call. Le mécanisme est simple : la décideuse veut un lien à transmettre en interne, pas un screenshot de post. En 2025, une assistante virtuelle à Lyon m'a dit qu'elle perdait des suites faute de page « comment travailler ensemble ». Son site a centralisé packages, modalités et contact. LinkedIn reste le filet ; le site porte la conversion et le référentiel de ton expertise. Tu gardes tes canaux d'acquisition ; tu leur donnes une adresse stable que tu contrôles hors algorithme.",
- },
- {
- h2: "Comment présenter tes packages d'assistante sans noyer la lectrice ?",
- body: "Une assistante virtuelle vend un cadre de collaboration, pas une liste de tâches. Je structure la page autour du public, des packages, du déroulé d'onboarding et des preuves. Le lecteur scanne ; il doit comprendre en moins d'une minute s'il est au bon endroit. En 2024, une AV spécialisée e-commerce a remplacé trois tarifs flous par deux forfaits nommés avec livrables visibles. Pour toi, cela veut dire une offre lisible, des cas ou retours clients placés au bon endroit, et un seul appel à l'action. Tu évites le site « à propos de moi » qui ne dit pas ce que tu livres.\n\nLe détail compte pour la lectrice pressée : titres scannables, preuves placées au bon endroit, un seul prochain pas visible sur mobile. Tu gagnes des conversations déjà cadrées. Le site ne remplace pas ton expertise ; il la rend lisible avant le premier échange et réduit les allers-retours inutiles.",
- },
- {
- h2: "Combien coûte un site internet pour assistante virtuelle ?",
- body: "Dès 89 €/mois (24 mois), 139 €/mois (12 mois) ou 179 €/mois (6 mois) : jusqu'à 5 pages, réservation avancée et atelier rédaction. Ce qui change selon la durée : le SEO et le suivi analytics. Besoin précis traite les parcours atypiques (espace client, tunnel long) sur devis. La plupart des assistantes démarrent dès 89 €/mois puis passent à 139 €/mois quand le catalogue de forfaits s'étoffe. Tu investis dans une présence stable, pas dans un outil que tu dois administrer chaque semaine.\n\nLe devis précise le périmètre avant ton engagement. Tu sais ce qui est inclus (design, hébergement, mises à jour) et ce qui reste hors scope. Si ton offre grossit plus tard, je te propose le passage de formule sans tout reconstruire. Tu paies pour une présence maintenue, pas pour un fichier livré puis abandonné.",
- },
- {
- h2: "Et si mes forfaits évoluent encore dans six mois ?",
- body: "Les assistantes affinent souvent leurs packages après six à douze mois. Ce n'est pas une raison de rester sans site. Je construis une structure éditoriale souple : blocs d'offre que je reformule par email sans tout reconstruire. En pratique, tu changes un titre, un public cible ou un livrable ; je mets à jour sous 24 à 72 h. Une AV admin a ainsi recentré son message deux fois en 2025 sans refonte. Le site suit ton positionnement. Tu n'attends pas la « version définitive » de ton catalogue pour être joignable.\n\nConcrètement, tu avances avec ce que tu as déjà sous la main. Je priorise la clarté de l'offre et le prochain pas pour la visiteuse. Les enrichissements (galerie, preuves, pages secondaires) arrivent ensuite par email, au rythme de ton activité. Tu n'as pas besoin d'un dossier parfait pour être joignable et crédible.",
- },
- {
- h2: "Comment relier ton site à LinkedIn, Facebook et ta signature mail ?",
- body: "Le maillage rend ton expertise cohérente partout. Signature mail, featured LinkedIn, bio Facebook et PDF de proposition pointent vers la même URL. Une prospecte qui te découvre sur un post retrouve les preuves sur le site le soir même. Tu évites les versions contradictoires de ton offre. Concrètement, chaque canal amène du trafic ; le site porte le détail et le formulaire. Quand LinkedIn change son algorithme, ton adresse reste la référence que tu contrôles. Créer un site pour assistante indépendante, c'est aussi donner une maison commune à tous tes points de contact.",
- },
- {
- h2: "Que gagnes-tu concrètement avec une page d'offre claire ?",
- body: "Une page claire réduit les appels de qualification floue. La cliente arrive déjà alignée sur le forfait et le format de collaboration. J'observe plus de demandes écrites structurées (contexte, volume, délai) quand le formulaire et l'offre sont explicites. Tu prépares mieux le premier entretien. Le site ne remplace pas ton expertise commerciale ; il filtre et accélère. Tu factures ton temps d'assistance, pas celui passé à réexpliquer les bases de tes packages.\n\nLe détail compte pour la lectrice pressée : titres scannables, preuves placées au bon endroit, un seul prochain pas visible sur mobile. Tu gagnes des conversations déjà cadrées. Le site ne remplace pas ton expertise ; il la rend lisible avant le premier échange et réduit les allers-retours inutiles.",
- },
- ],
- includedTitle:
- "Ce qui est inclus dans un site Kopio pour assistante virtuelle",
- priceTitle: "Combien coûte un site pour une assistante virtuelle ?",
- recommendedPlanId: "launch",
- relatedBesoinSlug: "site-vitrine-independante",
- relatedBesoinLabel: "site vitrine d'indépendante",
- closing:
- "Si tu veux une page d'offre digne de tes missions d'assistante, écris-moi : je clarifie avec toi tes packages et le parcours de contact.",
- ctaLabel: "Parler de mon site assistante virtuelle",
- faqs: [
- {
- question:
- "Un site est-il utile si mes clientes me trouvent déjà sur LinkedIn ou Facebook ?",
- answer:
- "LinkedIn et Facebook génèrent de la visibilité. Le site convertit : packages détaillés, preuves et contact hors algorithme. Tu l'envoies après un premier échange comme référence stable. En pratique, tu gardes tes canaux d'acquisition et tu pointes vers une URL stable. C'est ce lien que tu envoies après un premier échange sérieux.",
- },
- {
- question: "Combien coûte un site internet pour assistante virtuelle ?",
- answer:
- "Trois durées, un même socle (jusqu'à 5 pages, réservation avancée, atelier rédaction) : 179 €/mois sur 6 mois, 139 €/mois sur 12 mois, 89 €/mois sur 24 mois. Ce qui change surtout : le SEO et le suivi analytics selon la durée. Le devis écrit le périmètre et les délais. Tu compares ensuite avec ton budget mensuel réel, sans surprise de maintenance cachée.",
- },
- {
- question: "Puis-je présenter plusieurs packages de services ?",
- answer:
- "Oui. One-page structurée dès 89 €/mois, ou jusqu'à cinq pages sur 12 mois. Je priorise la clarté : mieux vaut trois forfaits nets que dix flous. Tu restes concentrée sur ton métier pendant que je gère la technique et les mises à jour. Si ton besoin dépasse le modèle, je te le dis clairement avant le devis.",
- },
- {
- question: "Quel est le délai de livraison ?",
- answer:
- "21 jours après validation du devis. Les textes et preuves clientes restent le facteur le plus déterminant. Un kickoff court cadre les contenus attendus. Plus tes textes et visuels arrivent tôt, plus la date de mise en ligne reste réaliste.",
- },
- ],
- image: "/image/independant.jpg",
- imageAlt:
- "Assistante virtuelle indépendante : site web professionnel Kopio",
- },
- {
- slug: "therapeute",
- label: "Thérapeute",
- keyword: "site web pour thérapeute",
- metier: "thérapeute",
- metierPlural: "thérapeutes",
- title: "Site web pour thérapeute : dès 89€/mois",
- metaDescription:
- "Site web pour thérapeute et hypnothérapeute : cadre clair, éthique, prise de contact. Abonnement mensuel Kopio dès 89 €/mois. Mise à jour octobre 2026.",
- updatedAt: "2026-10-07",
- h1: "Le site qui donne à ton activité de thérapeute la crédibilité qu'elle mérite",
- tldr:
- "Site web pour thérapeute ou hypnothérapeute : je pose ton cadre clinique (public, approches, limites), sans promesse de résultat ni ton commercial. Dès 89 €/mois (grille oct. 2026), livraison 21 jours. Objectif : des premiers messages déjà cadrés, pas une landing « venteuse ».",
- intro:
- "Tes patientes cherchent quelqu'un de sérieux et rassurant. Le site explique la pratique thérapeutique et le premier contact, distinct d'une page sophrologie (stress, sommeil, exercices).",
- douleur:
- "Présence limitée à Doctolib ou pages trop « venteuses » qui ne collent pas à ton éthique professionnelle.",
- whyTitle:
- "Pourquoi une thérapeute a besoin d'un site différent d'un site générique ?",
- whyPoints: [
- {
- t: "Le ton compte autant que le design",
- d: "Rassurer sans promettre de miracle : un site thérapeutique n'est pas une landing e-commerce.",
- },
- {
- t: "Cadre explicite",
- d: "Public, modalités, durée, tarifs ou fourchettes : la clarté crée la confiance.",
- },
- {
- t: "Discrétion et sobriété",
- d: "Formulaire simple, infos légales, pas de gadgets inutiles.",
- },
- {
- t: "Tu es déjà saturée",
- d: "Pas de bricolage technique : tu valides, je livre et je maintiens.",
- },
- ],
- sections: [
- {
- h2: "Doctolib remplace-t-il vraiment un site pour thérapeute ?",
- body: "Doctolib aide à la prise de rendez-vous et à la visibilité locale. Il ne raconte pas ta pratique, tes limites ni le déroulé d'une première séance. Une patiente hésitante lit souvent plusieurs profils avant d'écrire ; un site pose le cadre avec ton ton. En 2025, une hypnothérapeute à Bordeaux m'a dit que les demandes via son site arrivaient déjà « cadrées » : public, motif, disponibilité. Doctolib reste un canal. Le site est ta vitrine éthique, que tu contrôles hors de la logique d'annuaire.",
- },
- {
- h2: "Comment parler de ta pratique sans promettre de résultats ?",
- body: "Le marketing agressif casse la confiance dans les métiers d'accompagnement thérapeutique. J'écris et je structure autour du cadre : pour qui tu reçois, comment se déroule une séance, quelles approches tu utilises, sans garantie de guérison. Le mécanisme rassure parce qu'il est précis. Une hypnothérapeute a ainsi clarifié ce qu'elle traitait et ce qu'elle orientait ailleurs ; les premiers messages sont devenus plus adaptés. Tu restes alignée avec ton éthique. Le site filtre autant qu'il attire.\n\nPour une thérapeute, je reste sur ton langage clinique et tes limites professionnelles. La page sophrologue traite un autre intent (exercices, stress, distinction coaching). La page naturopathe un troisième (bilans, hygiène de vie). Une URL = un métier.",
- },
- {
- h2: "Combien coûte un site pour une thérapeute ?",
- body: "Dès 89 €/mois (24 mois), 139 €/mois (12 mois) ou 179 €/mois (6 mois) : jusqu'à 5 pages, réservation avancée et atelier rédaction. Ce qui change selon la durée : le SEO et le suivi analytics. Besoin précis intervient sur devis pour des besoins très spécifiques. Beaucoup de thérapeutes commencent dès 89 €/mois puis passent à 139 €/mois quand le volume de demandes augmente. Tu paies un abonnement avec mises à jour, adapté à un rythme de cabinet, pas à une logique de croissance agressive.\n\nLe devis précise le périmètre avant ton engagement. Tu sais ce qui est inclus (design, hébergement, mises à jour) et ce qui reste hors scope. Si ton offre grossit plus tard, je te propose le passage de formule sans tout reconstruire. Tu paies pour une présence maintenue, pas pour un fichier livré puis abandonné.",
- },
- {
- h2: "Un site peut-il rester discret et conforme à mon éthique ?",
- body: "Oui, et c'est souvent la condition pour que tu te sentes à l'aise de le partager. Je pars de ton brief professionnel : ton, limites, mentions légales, absence de promesses. Pas de pop-ups agressifs ni de formulations vendeuses. En pratique, le design reste sobre, le formulaire est simple, les informations utiles sont accessibles. Une thérapeute a validé chaque phrase sensible avant mise en ligne en 2024. Tu gardes la main sur le message. Le site reflète ton cabinet, pas une landing de conversion forcée.\n\nConcrètement, tu avances avec ce que tu as déjà sous la main. Je priorise la clarté du cadre et le prochain pas pour la visiteuse. Les enrichissements (pages approches, FAQ, preuves) arrivent ensuite par email, au rythme de ton activité. Tu n'as pas besoin d'un dossier parfait pour être joignable et crédible.",
- },
- {
- h2: "Comment articuler site, Doctolib et Instagram ?",
- body: "Chaque canal a un rôle. Instagram humanise ; Doctolib facilite le créneau ; le site explique la pratique en profondeur. Le maillage consiste à renvoyer bio, fiche et signature vers la même URL de cadre. Une patiente qui te découvre sur Instagram lit le déroulé de séance sur le site avant de réserver. Tu réduis les questions répétitives en message. Concrètement, tu n'abandonnes aucun outil : tu leur donnes une maison commune. Quand une plateforme change ses règles, ton site reste ta référence.",
- },
- {
- h2: "Que se passe-t-il quand tu modifies tes tarifs ou tes modalités ?",
- body: "Les cabinets ajustent horaires, tarifs et formats (présentiel, visio) plusieurs fois par an. Tu m'envoies la modification par email ; je mets à jour sous 24 à 72 h. Tu n'ouvres pas un back-office entre deux patientes. En 2024, plusieurs thérapeutes ont basculé une partie de leur activité en visio : le site a suivi en quelques échanges. Tu restes concentrée sur les séances. La maintenance fait partie de l'abonnement, ce n'est pas une option oubliée après la livraison.\n\nCe rythme de maintenance colle au quotidien d'une indépendante : peu de temps, besoin de réactivité, zéro formation outil. Tu restes dans ton métier pendant que le site reste à jour. Si un chantier plus large apparaît (nouvelle offre, refonte de parcours), je le traite dans un échange dédié avant de toucher à la structure.",
- },
- ],
- includedTitle: "Ce qui est inclus dans un site Kopio pour thérapeute",
- priceTitle: "Combien coûte un site pour une thérapeute ?",
- recommendedPlanId: "launch",
- relatedBesoinSlug: "site-avec-reservation-en-ligne",
- relatedBesoinLabel: "site avec réservation en ligne",
- closing:
- "Si tu veux un site aligné avec ton cadre thérapeutique, écris-moi : je pars de ta pratique et de ton parcours de contact.",
- ctaLabel: "Parler de mon site thérapeute",
- faqs: [
- {
- question: "Doctolib remplace-t-il un site ?",
- answer:
- "Doctolib aide à la prise de rendez-vous. Un site explique ta pratique et te différencie : c'est ta vitrine, pas un annuaire. Les deux se complètent quand le lien du site apparaît sur ta fiche. En pratique, tu gardes tes canaux d'acquisition et tu pointes vers une URL stable. C'est ce lien que tu envoies après un premier échange sérieux.",
- },
- {
- question: "Combien coûte un site pour thérapeute ?",
- answer:
- "Trois durées, un même socle (jusqu'à 5 pages, réservation avancée, atelier rédaction) : 179 €/mois sur 6 mois, 139 €/mois sur 12 mois, 89 €/mois sur 24 mois. Ce qui change surtout : le SEO et le suivi analytics selon la durée. Le devis écrit le périmètre et les délais. Tu compares ensuite avec ton budget mensuel réel, sans surprise de maintenance cachée.",
- },
- {
- question: "Le site peut-il rester discret et éthique ?",
- answer:
- "Oui. J'évite le marketing agressif. Le brief part de ton cadre professionnel, de tes limites et du ton que tu assumeras devant tes patientes. Si tu es sophrologue ou naturopathe, j'ai des pages dédiées à ces pratiques ; pour une thérapeute, je reste sur ton langage d'accompagnement. Tu valides chaque formulation sensible avant mise en ligne.",
- },
- {
- question: "Quel est le délai de livraison ?",
- answer:
- "21 jours après validation du devis. Les textes sensibles se valident ensemble avant la mise en ligne. Un kickoff court cadre les contenus attendus. Plus tes textes et visuels arrivent tôt, plus la date de mise en ligne reste réaliste.",
- },
- ],
- image: "/image/yoga.jpg",
- imageAlt: "Thérapeute indépendante : site web rassurant et professionnel",
- },
- {
- slug: "sophrologue",
- label: "Sophrologue",
- keyword: "site web pour sophrologue",
- metier: "sophrologue",
- metierPlural: "sophrologues",
- title:
- "Création site internet sophrologue : Abonnement dès 89€/mois",
- metaDescription:
- "Création site internet sophrologue : cadre de séance clair, sérieux, réservation. Prix site web sophrologie transparent dès 89 €/mois avec Kopio. Octobre 2026.",
- updatedAt: "2026-10-07",
- h1: "Le site qui donne à ton activité de sophrologue la crédibilité qu'elle mérite",
- tldr:
- "Création de site internet pour sophrologue : déroulé de séance, exercices, distinction nette avec le coaching, réservation sobre. Dès 89 €/mois (89 / 139 / 179, oct. 2026). Intent différent d'une page thérapeute : ici on parle stress, sommeil, respiration, pas cadre clinique.",
- intro:
- "Les personnes qui te consultent cherchent un cadre sérieux, pas un discours vendeur. Ton site explique la sophrologie et le prochain pas, avec ton ton de praticienne du corps et du mental.",
- douleur:
- "Cadre de séance peu clair en ligne, confusion fréquente avec le coaching, besoin de sérieux sans marketing agressif.",
- whyTitle:
- "Pourquoi une sophrologue a besoin d'un site différent d'un site générique ?",
- whyPoints: [
- {
- t: "Cadre avant slogans",
- d: "Public, déroulé, modalités : la clarté crée la confiance.",
- },
- {
- t: "Distinction nette",
- d: "Sophrologie ≠ coaching : le site pose les limites sans jargon inutile.",
- },
- {
- t: "Réservation sobre",
- d: "Un prochain pas simple, sans pop-ups ni pression commerciale.",
- },
- {
- t: "Tu es déjà saturée",
- d: "Pas de bricolage technique : tu valides, je livre et je maintiens.",
- },
- ],
- sections: [
- {
- h2: "Pourquoi une sophrologue a besoin d'une page dédiée, pas d'une page « thérapeute » générique ?",
- body: "Les recherches « site web sophrologue » et « site web thérapeute » ne portent pas le même intent. La visiteuse sophrologie cherche souvent stress, sommeil, préparation d'examen ou gestion des émotions via des exercices. La visiteuse thérapie cherche un cadre d'accompagnement plus clinique. Si tu colles le même texte sur les deux URLs, Google et les IA mélangent les signaux. Je rédige ta page autour de la sophrologie : vocabulaire de séance, formats individuels ou groupe, distinction coaching. La page thérapeute reste sur son intent. Tu gagnes en clarté pour la lectrice et en Information Gain pour l'index.",
- },
- {
- h2: "Comment expliquer la sophrologie sans la confondre avec le coaching ?",
- body: "La confusion avec le coaching affaiblit la crédibilité perçue. J'écris autour du cadre : pour qui tu reçois, comment se déroule une séance, ce que la sophrologie est et n'est pas, sans promesse de performance. En 2024, une sophrologue a clarifié sur sa page la distinction avec un accompagnement « résultats business » ; les premiers messages sont devenus plus adaptés. Tu restes alignée avec ton éthique. Le site filtre autant qu'il attire.\n\nLe détail compte pour la lectrice pressée : titres scannables, déroulé de séance, un seul prochain pas sur mobile. Tu gagnes des conversations déjà cadrées. Le site ne remplace pas ton expertise ; il la rend lisible avant le premier échange.",
- },
- {
- h2: "Quel est le prix d'un site web sophrologie chez Kopio ?",
- body: "Dès 89 €/mois (24 mois), 139 €/mois (12 mois) ou 179 €/mois (6 mois) : jusqu'à 5 pages, réservation avancée et atelier rédaction. Ce qui change selon la durée : le SEO et le suivi analytics. Le prix d'un site web sophrologie suit cette grille ; tu choisis selon la complexité réelle (atelier collectif, plusieurs lieux, etc.).\n\nLe devis précise le périmètre avant ton engagement. Tu sais ce qui est inclus (design, hébergement, mises à jour) et ce qui reste hors scope. Si tu ajoutes plus tard des ateliers ou une page ressources, je l'intègre par email sans tout reconstruire.",
- },
- {
- h2: "Comment montrer exercices et formats sans transformer le site en cours en ligne ?",
- body: "Beaucoup de sophrologues veulent rassurer sans livrer toute la méthode gratuitement. Le mécanisme : une page explique le déroulé type, les publics, les formats (individuel, duo, entreprise), et renvoie vers la réservation. Tu ne publies pas vingt protocoles. Tu montres assez pour que la visiteuse comprenne ce qui l'attend. En 2025, une sophrologue à Lyon a gardé les exercices détaillés pour la séance ; le site ne portait que le cadre. Tu restes experte en salle. Le site ouvre la porte, il ne remplace pas la pratique.",
- },
- {
- h2: "Comment articuler Instagram, agenda et site pour une sophrologue ?",
- body: "Instagram humanise (voix, face, extraits de séance). L'agenda (Doctolib ou autre) prend le créneau. Le site porte le cadre long : sophrologie vs coaching, formats, tarifs ou fourchettes. Le maillage : bio et signature pointent vers la même URL. Une personne qui te découvre en reel lit le déroulé sur le site avant de réserver. Tu réduis les DM répétitifs. Quand une plateforme change ses règles, ton site reste ta référence stable.",
- },
- {
- h2: "Que faire quand tu lances un atelier collectif ou un format entreprise ?",
- body: "Les sophrologues ajoutent souvent ateliers, interventions en entreprise ou cycles sur quelques semaines. Tu m'envoies le nouveau format par email ; je mets à jour pages et formulaires sous 24 à 72 h. Tu n'ouvres pas un éditeur entre deux groupes. En 2024, plusieurs praticiennes ont ajouté une page « entreprises » sans reconstruire tout le site. Tu restes sur tes séances. La maintenance fait partie de l'abonnement.\n\nSi le chantier dépasse une simple page (espace membres, replay), on passe en échange dédié avant de toucher à la structure. Tu gardes le contrôle du périmètre.",
- },
- ],
- includedTitle: "Ce qui est inclus dans un site Kopio pour sophrologue",
- priceTitle: "Combien coûte un site pour une sophrologue ?",
- recommendedPlanId: "pro",
- relatedBesoinSlug: "site-avec-reservation-en-ligne",
- relatedBesoinLabel: "site avec réservation en ligne",
- closing:
- "Si tu veux un site aligné avec ton cadre de sophrologie, écris-moi : je pars de ta pratique et de ton parcours de réservation.",
- ctaLabel: "Parler de mon site sophrologue",
- faqs: [
- {
- question: "Doctolib remplace-t-il un site pour sophrologue ?",
- answer:
- "Doctolib aide à la prise de rendez-vous. Un site explique ta pratique et te différencie : c'est ta vitrine, pas un annuaire. Les deux se complètent quand le lien du site apparaît sur ta fiche. En pratique, tu gardes tes canaux d'acquisition et tu pointes vers une URL stable.",
- },
- {
- question: "Quel est le prix d'un site web sophrologie ?",
- answer:
- "Trois durées, un même socle (jusqu'à 5 pages, réservation avancée, atelier rédaction) : 179 €/mois sur 6 mois, 139 €/mois sur 12 mois, 89 €/mois sur 24 mois. Ce qui change surtout : le SEO et le suivi analytics selon la durée. Le devis écrit le périmètre et les délais. Tu compares ensuite avec ton budget mensuel réel, sans surprise de maintenance cachée.",
- },
- {
- question:
- "Le site peut-il rester discret et éviter la confusion avec le coaching ?",
- answer:
- "Oui. J'évite le marketing agressif. Le brief part de ton cadre professionnel, de tes limites et du ton que tu assumeras. La distinction sophrologie / coaching se pose en formulations précises, validées avec toi avant mise en ligne. Tu gardes la main sur chaque phrase sensible.",
- },
- {
- question: "Quel est le délai de livraison ?",
- answer:
- "21 jours après validation du devis. Les textes sensibles se valident ensemble avant la mise en ligne. Un kickoff court cadre les contenus attendus. Plus tes textes et visuels arrivent tôt, plus la date de mise en ligne reste réaliste.",
- },
- ],
- image: "/image/pulse.jpg",
- imageAlt: "Sophrologue indépendante : site web sobre et professionnel",
- },
- {
- slug: "naturopathe",
- label: "Naturopathe",
- keyword: "site web naturopathe",
- metier: "naturopathe",
- metierPlural: "naturopathes",
- title: "Site web naturopathe : Abonnement dès 89€/mois",
- metaDescription:
- "Site web naturopathe : cadre éthique, bilans et suivi clairs, sans promesse de guérison. Tarif création site naturopathie dès 89 €/mois avec Kopio.",
- h1: "Le site qui donne à ton activité de naturopathe la crédibilité qu'elle mérite",
- tldr:
- "Je crée ton site web naturopathe en abonnement mensuel : cadre éthique, explication des bilans et du suivi, distinction claire avec la médecine conventionnelle, sans promesse de guérison. Dès 89 €/mois selon engagement (6, 12 ou 24 mois). Pour entrepreneuses naturopathes en France qui veulent communiquer avec sérieux.",
- intro:
- "Les personnes qui te consultent cherchent un cadre clair et éthique. Ton site explique ta pratique, le déroulé d'un bilan et le prochain pas, sans marketing agressif ni formulation à risque.",
- douleur:
- "Cadre éthique difficile à poser en ligne, peur de trop communiquer, besoin d'expliquer bilans et suivi sans promettre de guérison.",
- whyTitle:
- "Pourquoi une naturopathe a besoin d'un site différent d'un site générique ?",
- whyPoints: [
- {
- t: "Éthique d'abord",
- d: "Formulations précises, pas de promesse de guérison, limites explicites.",
- },
- {
- t: "Bilans et suivi lisibles",
- d: "Déroulé, modalités, public : la clarté crée la confiance.",
- },
- {
- t: "Complémentaire, pas substitut",
- d: "Le site distingue ta pratique des médecines conventionnelles sans confusion.",
- },
- {
- t: "Tu es déjà saturée",
- d: "Pas de bricolage technique : tu valides, je livre et je maintiens.",
- },
- ],
- sections: [
- {
- h2: "Puis-je communiquer en ligne sans me mettre en risque juridique ?",
- body: "La peur de trop communiquer est fréquente chez les naturopathes. Un site bien cadré réduit ce risque au lieu de l'augmenter : formulations validées, absence de promesses thérapeutiques, mentions claires sur le rôle complémentaire de ta pratique. Le mécanisme est simple : chaque phrase sensible passe par ton brief et ta validation avant mise en ligne. En 2025, une naturopathe à Lyon a relancé sa vitrine après avoir figé six mois sur la peur du juridique ; les demandes sont revenues cadrées. Tu communiques avec prudence. Le site porte un message que tu assumeras devant une consultante comme devant un regard critique.",
- },
- {
- h2: "Comment expliquer bilans et suivi sans promettre de guérison ?",
- body: "Le marketing agressif casse la confiance et expose. J'écris et je structure autour du cadre : pour qui tu reçois, comment se déroule un bilan, ce qu'est le suivi, ce que tu n'es pas. Le mécanisme rassure parce qu'il est précis. En 2024, une naturopathe a clarifié sur son site la distinction avec un discours médical ; les premiers messages sont devenus plus adaptés. Tu restes alignée avec ton éthique. Le site filtre autant qu'il attire.\n\nLe détail compte pour la lectrice pressée : titres scannables, informations de cadre placées au bon endroit, un seul prochain pas visible sur mobile. Tu gagnes des conversations déjà cadrées. Le site ne remplace pas ton expertise ; il la rend lisible avant le premier échange.",
- },
- {
- h2: "Quel est le tarif de création d'un site naturopathie chez Kopio ?",
- body: "Dès 89 €/mois (24 mois), 139 €/mois (12 mois) ou 179 €/mois (6 mois) : jusqu'à 5 pages, réservation avancée et atelier rédaction. Ce qui change selon la durée : le SEO et le suivi analytics. Besoin précis intervient sur devis pour des besoins très spécifiques. Le tarif création site naturopathie suit cette grille transparente ; tu choisis selon la complexité réelle.\n\nLe devis précise le périmètre avant ton engagement. Tu sais ce qui est inclus (design, hébergement, mises à jour) et ce qui reste hors scope. Si ton offre grossit plus tard, je te propose le passage de formule sans tout reconstruire. Tu paies pour une présence maintenue, pas pour un fichier livré puis abandonné.",
- },
- {
- h2: "Comment distinguer naturopathie et médecines conventionnelles sur le site ?",
- body: "La confusion affaiblit la crédibilité et expose. Je pose la distinction en langage clair : rôle complémentaire, limites, orientation vers un professionnel de santé quand c'est pertinent. Pas de formulation ambiguë qui laisserait croire à un substitut médical. En pratique, une naturopathe a validé chaque phrase de cadrage avant mise en ligne en 2025. Tu gardes la main sur le message. Le site reflète ton cabinet et ton éthique, pas une landing de conversion forcée.\n\nConcrètement, tu avances avec ce que tu as déjà sous la main. Je priorise la clarté du cadre et le prochain pas pour la visiteuse. Les enrichissements (pages approches, FAQ, preuves) arrivent ensuite par email, au rythme de ton activité. Tu n'as pas besoin d'un dossier parfait pour être joignable et crédible.",
- },
- {
- h2: "Comment articuler site, annuaires et réseaux pour une naturopathe ?",
- body: "Chaque canal a un rôle. Les annuaires et Instagram génèrent de la découverte ; le site explique la pratique en profondeur. Le maillage consiste à renvoyer bio, fiche et signature vers la même URL de cadre. Une consultante qui te découvre sur un annuaire lit le déroulé du bilan sur le site avant d'écrire. Tu réduis les questions répétitives en message. Concrètement, tu n'abandonnes aucun outil : tu leur donnes une maison commune. Quand une plateforme change ses règles, ton site reste ta référence.",
- },
- {
- h2: "Que se passe-t-il quand tu modifies tarifs, formats ou zone d'exercice ?",
- body: "Les cabinets ajustent horaires, tarifs et formats (présentiel, visio, ateliers) plusieurs fois par an. Tu m'envoies la modification par email ; je mets à jour sous 24 à 72 h. Tu n'ouvres pas un back-office entre deux consultantes. En 2024, plusieurs naturopathes ont ajouté un format suivi en visio : le site a suivi en quelques échanges. Tu restes concentrée sur les bilans. La maintenance fait partie de l'abonnement, ce n'est pas une option oubliée après la livraison.\n\nCe rythme de maintenance colle au quotidien d'une indépendante : peu de temps, besoin de réactivité, zéro formation outil. Tu restes dans ton métier pendant que le site reste à jour. Si un chantier plus large apparaît (nouvelle offre, refonte de parcours), je le traite dans un échange dédié avant de toucher à la structure.",
- },
- ],
- includedTitle: "Ce qui est inclus dans un site Kopio pour naturopathe",
- priceTitle: "Combien coûte un site pour une naturopathe ?",
- recommendedPlanId: "pro",
- relatedBesoinSlug: "site-avec-reservation-en-ligne",
- relatedBesoinLabel: "site avec réservation en ligne",
- closing:
- "Si tu veux un site aligné avec ton cadre de naturopathie, écris-moi : je pars de ta pratique, de tes limites et de ton parcours de contact.",
- ctaLabel: "Parler de mon site naturopathe",
- faqs: [
- {
- question:
- "Puis-je communiquer sans me mettre en risque juridique ?",
- answer:
- "Oui, avec un brief précis et des formulations validées. J'évite les promesses de guérison et les ambiguïtés sur le rôle de ta pratique. Chaque phrase sensible passe par toi avant mise en ligne. Tu gardes la main sur le message.",
- },
- {
- question: "Quel est le tarif de création d'un site naturopathie ?",
- answer:
- "Trois durées, un même socle (jusqu'à 5 pages, réservation avancée, atelier rédaction) : 179 €/mois sur 6 mois, 139 €/mois sur 12 mois, 89 €/mois sur 24 mois. Ce qui change surtout : le SEO et le suivi analytics selon la durée. Le devis écrit le périmètre et les délais. Tu compares ensuite avec ton budget mensuel réel, sans surprise de maintenance cachée.",
- },
- {
- question: "Le site peut-il rester éthique et discret ?",
- answer:
- "Oui. J'évite le marketing agressif. Le brief part de ton cadre professionnel, de tes limites et du ton que tu assumeras devant tes consultantes. Tu valides chaque formulation sensible avant mise en ligne. Le site reflète ton cabinet, pas une landing vendeuse.",
- },
- {
- question: "Quel est le délai de livraison ?",
- answer:
- "21 jours après validation du devis. Les textes sensibles se valident ensemble avant la mise en ligne. Un kickoff court cadre les contenus attendus. Plus tes textes et visuels arrivent tôt, plus la date de mise en ligne reste réaliste.",
- },
- ],
- image: "/image/pulse.jpg",
- imageAlt: "Naturopathe indépendante : site web éthique et professionnel",
- },
- {
- slug: "formatrice",
- label: "Formatrice",
- keyword: "site web pour formatrice",
- metier: "formatrice",
- metierPlural: "formatrices",
- title: "Site web pour formatrice : Abonnement mensuel dès 89€/mois",
- metaDescription:
- "Site web pour formatrice et professeure indépendante : programmes, inscriptions, crédibilité. Kopio dès 89 €/mois.",
- h1: "Le site qui donne à ton activité de formatrice la crédibilité qu'elle mérite",
- tldr:
- "Je crée ton site web pour formatrice en abonnement : programmes clairs, preuves pédagogiques, inscription simplifiée. Dès 89 €/mois selon engagement (6, 12 ou 24 mois). Sans compétences techniques de ton côté.",
- intro:
- "Que tu formes en présentiel ou en ligne, ton site doit clarifier pour qui c'est, ce que les participantes repartent avec, et comment s'inscrire.",
- douleur:
- "Programmes éparpillés entre PDF, Instagram et un formulaire peu rassurant pour s'inscrire.",
- whyTitle:
- "Pourquoi une formatrice a besoin d'un site différent d'un site générique ?",
- whyPoints: [
- {
- t: "Les programmes ont besoin d'espace",
- d: "Objectifs, format, prérequis, tarifs : une structure claire vaut mieux qu'un long post.",
- },
- {
- t: "Crédibilité pédagogique visible",
- d: "Parcours, certifications et retours d'apprenantes dès l'arrivée.",
- },
- {
- t: "Inscription simple",
- d: "Formulaire ou réservation : une friction en moins pour la participante.",
- },
- {
- t: "Tu prépares déjà tes sessions",
- d: "Pas le temps d'apprendre un outil web : je m'en charge.",
- },
- ],
- sections: [
- {
- h2: "Pourquoi un PDF et Instagram ne suffisent pas pour vendre une formation ?",
- body: "Un PDF se perd dans les boîtes mail ; Instagram ne garde pas une fiche programme stable. La participante veut un lieu unique pour lire objectifs, prérequis, dates et modalités d'inscription. Le site centralise ces infos et te donne une URL à coller dans une proposition entreprise ou un email. En 2025, une formatrice soft skills à Lille passait encore par un Google Form : les inscriptions hésitaient sur le sérieux du parcours. Après mise en ligne d'une page programme claire, les questions de cadrage ont diminué. Tu vends un cadre pédagogique, pas un post éphémère.",
- },
- {
- h2: "Comment présenter plusieurs programmes sans noyer la lectrice ?",
- body: "Trop de formations listées sans hiérarchie créent la confusion. Je structure par intention : pour qui, quel résultat, quel format, quel prochain pas. Dès 89 €/mois tu as jusqu'à 5 pages : une offre phare très claire suffit souvent ; tu n'es pas obligée de tout remplir. Une formatrice digital a priorisé un programme signature puis a ajouté deux modules en second niveau. La lectrice sait où cliquer. Tu évites le catalogue fourre-tout. Le site guide ; il ne dump pas tout ton catalogue d'un coup.\n\nLe détail compte pour la lectrice pressée : titres scannables, preuves placées au bon endroit, un seul prochain pas visible sur mobile. Tu gagnes des conversations déjà cadrées. Le site ne remplace pas ton expertise ; il la rend lisible avant le premier échange et réduit les allers-retours inutiles.",
- },
- {
- h2: "Combien coûte un site pour une formatrice ?",
- body: "Dès 89 €/mois (24 mois), 139 €/mois (12 mois) ou 179 €/mois (6 mois) : jusqu'à 5 pages, réservation avancée, atelier rédaction. Le SEO et le suivi analytics s'adaptent à la durée. Besoin précis couvre boutique de formations, paiement en ligne ou espace membre sur devis. La maintenance par email suit les changements de dates et de tarifs sans que tu touches au code.\n\nLe devis précise le périmètre avant ton engagement. Tu sais ce qui est inclus (design, hébergement, mises à jour) et ce qui reste hors scope. Si ton offre grossit plus tard, je te propose le passage de formule sans tout reconstruire. Tu paies pour une présence maintenue, pas pour un fichier livré puis abandonné.",
- },
- {
- h2: "Faut-il un LMS avant d'avoir un site vitrine ?",
- body: "Beaucoup de formatrices croient devoir construire une plateforme complète avant d'être visibles. Or la première priorité est souvent la crédibilité et l'inscription, pas le player de cours. Je commence par la vitrine et le parcours d'inscription ; l'espace membre arrive en Besoin précis si le besoin est réel. En pratique, une formatrice a lancé ses sessions présentiel dès 139 €/mois, puis a ajouté un parcours en ligne six mois plus tard. Tu évites un outil lourd trop tôt. Le site vitrine finance et valide la demande avant l'usine technique.\n\nLe détail compte pour la lectrice pressée : titres scannables, preuves placées au bon endroit, un seul prochain pas visible sur mobile. Tu gagnes des conversations déjà cadrées. Le site ne remplace pas ton expertise ; il la rend lisible avant le premier échange et réduit les allers-retours inutiles.",
- },
- {
- h2: "Comment ton site relie LinkedIn, email et catalogues OPCO ?",
- body: "Le maillage rend ton offre cohérente auprès des participantes et des financeurs. LinkedIn, signature mail, fiche programme et supports PDF pointent vers la même URL à jour. Une responsable formation qui te découvre sur LinkedIn retrouve dates et objectifs sur le site sans te relancer. Tu réduis les versions obsolètes de ton catalogue. Concrètement, tu mets à jour une fois ; je répercute sur le site. Les canaux d'acquisition restent les tiens ; le site est la source de vérité.",
- },
- {
- h2: "Que se passe-t-il quand tu ajoutes une session ou changes un tarif ?",
- body: "Les catalogues bougent : nouvelles dates, report, tarif early bird. Tu m'écris ; je mets à jour sous 24 à 72 h. Tu ne bloques pas une soirée sur un CMS après une journée de facilitation. En 2024, une formatrice a modifié trois sessions en deux mois via de simples emails. Le site reste aligné avec la réalité du planning. Tu te concentres sur le contenu pédagogique. La réactivité fait partie de l'abonnement Kopio.\n\nCe rythme de maintenance colle au quotidien d'une indépendante : peu de temps, besoin de réactivité, zéro formation outil. Tu restes dans ton métier pendant que le site reste à jour. Si un chantier plus large apparaît (nouvelle offre, refonte de parcours), je le traite dans un échange dédié avant de toucher à la structure.",
- },
- ],
- includedTitle: "Ce qui est inclus dans un site Kopio pour formatrice",
- priceTitle: "Combien coûte un site pour une formatrice ?",
- recommendedPlanId: "pro",
- relatedBesoinSlug: "creer-son-site-sans-competences-techniques",
- relatedBesoinLabel: "créer son site sans compétences techniques",
- closing:
- "Si tu veux un site qui présente clairement tes programmes et simplifie l'inscription, écris-moi : je regarde avec toi ton catalogue et le parcours adapté.",
- ctaLabel: "Parler de mon site formatrice",
- faqs: [
- {
- question: "Puis-je vendre des formations en ligne ?",
- answer:
- "Oui. Parcours d'inscription dès 139 €/mois, ou boutique / espace membre en formule Besoin précis sur devis. On part de ton volume réel, pas d'une plateforme surdimensionnée. Tu restes concentrée sur ton métier pendant que je gère la technique et les mises à jour. Si ton besoin dépasse le modèle, je te le dis clairement avant le devis.",
- },
- {
- question: "Combien coûte un site pour formatrice ?",
- answer:
- "Trois durées, un même socle (jusqu'à 5 pages, réservation avancée, atelier rédaction) : 89 €/mois (24 mois), 139 €/mois (12 mois) ou 179 €/mois (6 mois). Les parcours e-learning complets passent en Besoin précis. Le devis écrit le périmètre et les délais.",
- },
- {
- question: "Quel est le délai ?",
- answer:
- "21 jours après validation du devis. Les descriptifs de programmes déterminent surtout le rythme. Un kickoff court cadre les contenus attendus. Plus tes textes et visuels arrivent tôt, plus la date de mise en ligne reste réaliste.",
- },
- {
- question: "Puis-je mettre à jour mon catalogue ?",
- answer:
- "Oui. Tu m'écris avec les nouvelles dates ou tarifs ; je mets à jour sous 24 à 72 h. Pas besoin d'apprendre un back-office. Tu décris le changement en quelques lignes ou avec un fichier joint. Je m'occupe du reste, sans te demander d'apprendre un back-office.",
- },
- ],
- image: "/image/independant.jpg",
- imageAlt: "Formatrice indépendante : site web pour présenter ses programmes",
- },
- {
- slug: "creatrice",
- label: "Créatrice",
- keyword: "site web pour créatrice",
- metier: "créatrice",
- metierPlural: "créatrices",
- title: "Site web pour créatrice : dès 89€/mois",
- metaDescription:
- "Site web pour créatrice et marque artisanale. Exemple : Madeleine Fragrance. Abonnement mensuel Kopio dès 89 €/mois.",
- h1: "Le site qui donne à ton activité de créatrice la crédibilité qu'elle mérite",
- tldr:
- "Je crée le site web pour créatrice qui raconte ton univers et convertit (vitrine ou précommande). Exemple live : Madeleine Fragrance. Dès 89 €/mois selon engagement (6, 12 ou 24 mois). Boutique complète en Besoin précis sur devis.",
- intro:
- "Ton Instagram est soigné, mais une marque a besoin d'une maison. Un site pose l'univers, le process et l'acte d'achat ou de précommande.",
- douleur:
- "Feed Instagram fort, mais aucune vitrine stable pour les précommandes, la presse ou les collabs.",
- whyTitle:
- "Pourquoi une créatrice a besoin d'un site différent d'un site générique ?",
- whyPoints: [
- {
- t: "L'univers est le produit",
- d: "Typo, rythme et photos prolongent la marque, pas un template shop générique.",
- },
- {
- t: "Le process rassure",
- d: "Sur-mesure, délais et matériaux expliqués clairement pour convertir.",
- },
- {
- t: "Une URL stable",
- d: "Pour la presse, les collabs, Google et l'email : hors algorithme Instagram.",
- },
- {
- t: "Tu es déjà en production",
- d: "Je gère le digital pendant que tu crées.",
- },
- ],
- sections: [
- {
- h2: "Pourquoi Instagram ne suffit pas pour une marque créative ?",
- body: "Instagram montre le travail en cours ; il ne remplace pas une vitrine que tu contrôles. L'algorithme cache les posts, les liens en bio sont limités, et la presse demande une URL stable. Le site porte l'univers, le process et la précommande sans dépendre d'un feed. Pour Madeleine Fragrance, j'ai conçu un site élégant qui raconte la marque et convertit en précommande. Tu gardes Instagram pour l'attraction. Le site devient la maison de la marque, partageable avec une journaliste ou une partenaire.",
- },
- {
- h2: "Comment raconter le sur-mesure sans noyer la cliente ?",
- body: "Le sur-mesure intimide si les étapes restent floues. Je structure le process : brief, création, délais, livraison, ce qui est inclus. La cliente comprend où elle met les pieds avant d'écrire. Sur Madeleine Fragrance, le déroulé du parfum sur-mesure clarifie l'expérience autant que les visuels. En pratique, tu reçois des demandes plus précises (occasion, préférences, délai). Tu passes moins de temps à réexpliquer les bases en DM. Le site vend la méthode autant que le produit.\n\nLe détail compte pour la lectrice pressée : titres scannables, preuves placées au bon endroit, un seul prochain pas visible sur mobile. Tu gagnes des conversations déjà cadrées. Le site ne remplace pas ton expertise ; il la rend lisible avant le premier échange et réduit les allers-retours inutiles.",
- },
- {
- h2: "Combien coûte un site pour une créatrice ?",
- body: "Dès 89 €/mois (24 mois), 139 €/mois (12 mois) ou 179 €/mois (6 mois) : jusqu'à 5 pages, réservation avancée et atelier rédaction. Ce qui change selon la durée : le SEO et le suivi analytics. La boutique complète (panier, paiement, stocks) passe en Besoin précis sur devis. Madeleine Fragrance illustre une vitrine de marque qui convertit sans usine e-commerce lourde dès le jour un. Tu choisis selon ton stade : raconter et précommander d'abord, industrialiser la vente ensuite.\n\nLe devis précise le périmètre avant ton engagement. Tu sais ce qui est inclus (design, hébergement, mises à jour) et ce qui reste hors scope. Si ton offre grossit plus tard, je te propose le passage de formule sans tout reconstruire. Tu paies pour une présence maintenue, pas pour un fichier livré puis abandonné.",
- },
- {
- h2: "Faut-il une boutique Shopify avant d'avoir un site de marque ?",
- body: "Pas toujours. Beaucoup de créatrices n'ont pas encore le volume pour absorber commissions, gestion de stock et logistique d'une boutique complète. Une vitrine avec précommande ou demande de devis valide la demande et pose l'univers. En 2025, plusieurs marques artisanales que j'accompagne vendent encore sur rendez-vous ou en drops dès 139 €/mois. Tu évites un outil trop lourd trop tôt. Quand le volume est là, Besoin précis ajoute panier et paiement sans perdre l'identité construite.\n\nConcrètement, tu valides d'abord que ton univers et ton process convertissent. Ensuite seulement tu industrialises le panier. Je t'aide à choisir le moment : trop tôt coûte cher en outils ; trop tard laisse des ventes en DM.",
- },
- {
- h2: "Comment ton site travaille avec Instagram, la presse et les marketplaces ?",
- body: "Le maillage place ton site au centre. Bio Instagram, dossier de presse, emails collab et fiches marketplace renvoient vers la même URL de marque. Une journaliste trouve l'histoire et les visuels sans fouiller tes stories. Tu contrôles le récit. Concrètement, Instagram et les plateformes restent des canaux ; le site est la source officielle. Quand une marketplace change ses règles, ta marque garde une adresse à toi.",
- },
- {
- h2: "Que se passe-t-il quand tu lances une nouvelle collection ?",
- body: "Les créatrices vivent au rythme des drops et des séries limitées. Tu m'envoies textes et visuels ; je mets à jour la vitrine sous 24 à 72 h. Tu ne reconstruis pas une boutique entière à chaque lancement. En pratique, Madeleine Fragrance et d'autres marques font évoluer pages et précommandes au fil des saisons. Tu restes en atelier. Le site suit la collection, l'abonnement absorbe ces itérations.\n\nCe rythme de maintenance colle au quotidien d'une indépendante : peu de temps, besoin de réactivité, zéro formation outil. Tu restes dans ton métier pendant que le site reste à jour. Si un chantier plus large apparaît (nouvelle offre, refonte de parcours), je le traite dans un échange dédié avant de toucher à la structure.",
- },
- {
- h2: "Comment accompagner le site d'une femme qui crée son entreprise ?",
- body: "Créer une marque, c'est déjà un métier. Ajouter la technique web en parallèle freine souvent le lancement. L'accompagnement Kopio pose une vitrine claire pendant que tu construis l'offre, le stock ou les premiers collabs. En 2025, plusieurs créatrices que j'ai suivies ont mis en ligne une page marque avant d'ouvrir une boutique complète ; elles ont validé la demande sans empiler les outils. Tu restes sur la création. Je porte design, structure, hébergement et mises à jour. Le site devient le point stable de ton entreprise naissante, pas un second chantier.",
- },
- ],
- includedTitle: "Ce qui est inclus dans un site Kopio pour créatrice",
- priceTitle: "Combien coûte un site pour une créatrice ?",
- caseStudyId: "madeleine-fragrance",
- caseStudyHeading: "Exemple concret : Madeleine Fragrance",
- recommendedPlanId: "pro",
- relatedBesoinSlug: "boutique-en-ligne-petite-entreprise",
- relatedBesoinLabel: "boutique en ligne",
- closing:
- "Si tu veux une vitrine à la hauteur de ton univers, écris-moi : je regarde avec toi le stade de ta marque et le bon niveau entre vitrine et boutique.",
- ctaLabel: "Parler de mon site créatrice",
- faqs: [
- {
- question: "Puis-je ouvrir une boutique en ligne ?",
- answer:
- "Vitrine et précommandes sur 12 mois ou sur un premier niveau d'abonnement. Boutique complète (panier, paiement) en formule Besoin précis sur devis, quand le volume le justifie. Tu restes concentrée sur ton métier pendant que je gère la technique et les mises à jour. Si ton besoin dépasse le modèle, je te le dis clairement avant le devis.",
- },
- {
- question: "Combien coûte un site pour créatrice ?",
- answer:
- "Trois durées, un même socle (jusqu'à 5 pages, réservation, atelier rédaction) : 89, 139 ou 179 €/mois. L'e-commerce complet se chiffre sur devis en Besoin précis. Le devis écrit le périmètre et les délais.",
- },
- {
- question: "As-tu un exemple de site pour créatrice ?",
- answer:
- "Oui : Madeleine Fragrance, marque de parfum sur-mesure, site live avec précommandes. Il illustre une vitrine de marque forte sans template shop générique. En pratique, tu gardes tes canaux d'acquisition et tu pointes vers une URL stable. C'est ce lien que tu envoies après un premier échange sérieux.",
- },
- {
- question: "Quel est le délai ?",
- answer:
- "21 jours pour tous les modèles. Une boutique complète demande un planning plus long, défini dans le devis Besoin précis. Un kickoff court cadre les contenus attendus. Plus tes textes et visuels arrivent tôt, plus la date de mise en ligne reste réaliste.",
- },
- ],
- image: "/image/madeleine.jpg",
- imageAlt: "Madeleine Fragrance : site web pour créatrice de parfum",
- },
- {
- slug: "estheticienne",
- label: "Esthéticienne",
- keyword: "site web pour esthéticienne",
- metier: "esthéticienne",
- metierPlural: "esthéticiennes",
- title:
- "Site web pour esthéticienne : Abonnement mensuel dès 89€/mois",
- metaDescription:
- "Site web pour esthéticienne et prothésiste ongulaire : soins, galerie, réservation. Exemple Coiffure Luna. Kopio dès 89 €/mois.",
- h1: "Le site qui donne à ton activité d'esthéticienne la crédibilité qu'elle mérite",
- tldr:
- "Je crée ton site web pour esthéticienne ou prothésiste ongulaire : prestations lisibles, galerie, réservation. Abonnement dès 89 €/mois selon engagement (6, 12 ou 24 mois). Pensé mobile-first, avec l'exemple Coiffure Luna pour la prise de rendez-vous locale.",
- intro:
- "Tes clientes comparent les instituts en ligne avant de réserver. Photos, soins et créneaux : tout doit être clair sur téléphone.",
- douleur:
- "Instagram actif, mais horaires, tarifs et prise de rendez-vous introuvables hors de l'application.",
- whyTitle:
- "Pourquoi une esthéticienne a besoin d'un site différent d'un site générique ?",
- whyPoints: [
- {
- t: "La galerie convainc",
- d: "Avant/après et ambiance : preuves visuelles avant le premier message.",
- },
- {
- t: "Catalogue de soins lisible",
- d: "Durées, prix, pour qui : scannables en trente secondes.",
- },
- {
- t: "Réservation mobile critique",
- d: "La majorité de tes clientes cherchent depuis leur téléphone.",
- },
- {
- t: "Entre deux clientes",
- d: "Mises à jour par email : tu restes concentrée sur les soins.",
- },
- ],
- sections: [
- {
- h2: "Pourquoi Instagram ne remplace pas un site pour ton institut ?",
- body: "Instagram montre ton savoir-faire ; il ne te rend pas facile à trouver sur Google ni à réserver hors DM. Les clientes cherchent horaires, tarifs et créneaux depuis leur téléphone, souvent le soir. Un site centralise le catalogue et la réservation. Pour Coiffure Luna, le site a rendu les rendez-vous accessibles autrement que par téléphone seul, avec une présence locale plus claire. Tu gardes Instagram pour l'inspiration. Le site porte la conversion et le référencement de proximité.",
- },
- {
- h2: "Comment présenter soins et tarifs sans perdre la cliente ?",
- body: "Un catalogue flou multiplie les messages « tu fais aussi… ? » et « c'est combien ? ». Je structure prestations, durées et prix de façon scannable sur mobile. La cliente choisit avant d'écrire. En pratique, une esthéticienne qui listait tout en story a réduit les allers-retours dès que la grille de soins est devenue lisible sur le site. Tu prépares mieux la cabine. Le design sert la lecture, pas la décoration seule.\n\nCe rythme de maintenance colle au quotidien d'une indépendante : peu de temps, besoin de réactivité, zéro formation outil. Tu restes dans ton métier pendant que le site reste à jour. Si un chantier plus large apparaît (nouvelle offre, refonte de parcours), je le traite dans un échange dédié avant de toucher à la structure.",
- },
- {
- h2: "Combien coûte un site pour une esthéticienne ?",
- body: "Dès 89 €/mois (24 mois), 139 €/mois (12 mois) ou 179 €/mois (6 mois) : jusqu'à 5 pages, réservation avancée, atelier rédaction. SEO et analytics selon la durée. Besoin précis couvre des besoins très spécifiques sur devis. Coiffure Luna illustre l'enjeu local et la prise de rendez-vous. Tu investis dans un parcours qui travaille pendant que tu es en soin. L'abonnement inclut les mises à jour de grille tarifaire par email.\n\nLe devis précise le périmètre avant ton engagement. Tu sais ce qui est inclus (design, hébergement, mises à jour) et ce qui reste hors scope. Si ton offre grossit plus tard, je te propose le passage de formule sans tout reconstruire. Tu paies pour une présence maintenue, pas pour un fichier livré puis abandonné.",
- },
- {
- h2: "Et si je n'ai pas encore assez de photos avant/après ?",
- body: "Beaucoup d'esthéticiennes reportent le site faute de shoot parfait. Or tu peux démarrer avec les meilleures photos disponibles et une direction claire, puis enrichir la galerie. Je priorise la lisibilité des soins et la réservation ; la galerie grandit ensuite. En 2025, une prothésiste ongulaire a mis en ligne sa grille et son parcours RDV en 21 jours, puis a ajouté des séries chaque mois. Tu n'attends pas le portfolio idéal. Le site commence à travailler dès qu'une cliente peut comprendre et réserver.\n\nConcrètement, tu avances avec ce que tu as déjà sous la main. Je priorise la clarté de l'offre et le prochain pas pour la visiteuse. Les enrichissements (galerie, preuves, pages secondaires) arrivent ensuite par email, au rythme de ton activité. Tu n'as pas besoin d'un dossier parfait pour être joignable et crédible.",
- },
- {
- h2: "Comment relier site, Instagram et Google Business ?",
- body: "Le maillage local décide souvent qui obtient le rendez-vous. Bio Instagram, fiche Google et stories « réservation » pointent vers la même URL. Une cliente qui te trouve sur Maps lit tes soins sur le site sans te téléphoner aux heures de rush. Tu réduis les appels de simple information. Concrètement, Instagram inspire, Google te trouve, le site convertit. Quand tu changes un tarif, une seule mise à jour sur le site suffit si les liens sont bons.",
- },
- {
- h2: "Que change une réservation en ligne pour ton planning ?",
- body: "Les DM et le téléphone saturent vite entre deux clientes. Un parcours de réservation sur le site déplace une partie des demandes en asynchrone. La confirmation automatique limite les oublis. Sur des activités proches de Coiffure Luna, le gain se voit dans la réduction des allers-retours. Tu gardes la main sur les créneaux. Le site ne remplace pas ton accueil ; il absorbe la charge administrative répétitive.\n\nLe détail compte pour la lectrice pressée : titres scannables, preuves placées au bon endroit, un seul prochain pas visible sur mobile. Tu gagnes des conversations déjà cadrées. Le site ne remplace pas ton expertise ; il la rend lisible avant le premier échange et réduit les allers-retours inutiles.",
- },
- ],
- includedTitle: "Ce qui est inclus dans un site Kopio pour esthéticienne",
- priceTitle: "Combien coûte un site pour une esthéticienne ?",
- caseStudyId: "coiffure-luna",
- caseStudyHeading: "Exemple concret : Coiffure Luna",
- recommendedPlanId: "pro",
- relatedBesoinSlug: "site-avec-reservation-en-ligne",
- relatedBesoinLabel: "site avec réservation en ligne",
- closing:
- "Si tu veux un site mobile clair avec soins et réservation, écris-moi : je regarde avec toi ta grille et le niveau d'agenda adapté à ton institut.",
- ctaLabel: "Parler de mon site esthéticienne",
- faqs: [
- {
- question: "Instagram suffit-il pour un institut ?",
- answer:
- "Non pour être trouvée sur Google et centraliser tarifs plus réservation. Instagram complète le site ; il ne le remplace pas. Les deux se renforcent quand la bio pointe vers ton URL. En pratique, tu gardes tes canaux d'acquisition et tu pointes vers une URL stable. C'est ce lien que tu envoies après un premier échange sérieux.",
- },
- {
- question: "Combien coûte un site pour esthéticienne ?",
- answer:
- "Trois durées, un même socle (jusqu'à 5 pages, réservation avancée, atelier rédaction) : 89 €/mois (24 mois), 139 €/mois (12 mois) ou 179 €/mois (6 mois). Le SEO et le suivi analytics s'adaptent à la durée. Le devis écrit le périmètre et les délais.",
- },
- {
- question: "Est-ce adapté aussi aux prothésistes ongulaires ?",
- answer:
- "Oui. Même logique : galerie, prestations lisibles, prise de rendez-vous. On adapte le ton et les visuels à ton positionnement. Tu restes concentrée sur ton métier pendant que je gère la technique et les mises à jour. Si ton besoin dépasse le modèle, je te le dis clairement avant le devis.",
- },
- {
- question: "Quel est le délai ?",
- answer:
- "21 jours après validation du devis. La grille de soins et les photos déterminent surtout le rythme. Un kickoff court cadre les contenus attendus. Plus tes textes et visuels arrivent tôt, plus la date de mise en ligne reste réaliste.",
- },
- ],
- image: "/image/coiffure.jpg",
- imageAlt: "Esthéticienne indépendante : site vitrine avec réservation",
- },
- {
- slug: "photographe",
- label: "Photographe",
- keyword: "site web pour photographe",
- metier: "photographe",
- metierPlural: "photographes",
- title: "Site web pour photographe : dès 89€/mois",
- metaDescription:
- "Site web pour photographe : portfolio, formules, contact. Exemple Photographe Iris. Abonnement mensuel Kopio dès 89 €/mois.",
- h1: "Le site qui donne à ton activité de photographe la crédibilité qu'elle mérite",
- tldr:
- "Je crée ton site web pour photographe en abonnement : portfolio qui met en valeur ton œil, formules claires, demande de devis. Dès 89 €/mois selon engagement (6, 12 ou 24 mois). Exemple : Photographe Iris, avec formulaire qualifiant.",
- intro:
- "Ton travail est visuel, ton site doit l'être aussi, sans ralentir et sans noyer la demande de contact.",
- douleur:
- "Behance ou Instagram seuls : pas de formules claires, peu de SEO local, pas de parcours devis structuré.",
- whyTitle:
- "Pourquoi une photographe a besoin d'un site différent d'un site générique ?",
- whyPoints: [
- {
- t: "Le portfolio est le produit",
- d: "Galerie filtrable, chargement rapide, mises en avant : pas une grille lourde.",
- },
- {
- t: "Formules lisibles",
- d: "Mariage, brand, famille : la cliente sait ce qu'elle réserve.",
- },
- {
- t: "Demandes qualifiées",
- d: "Formulaire qui filtre budget, date et type de shooting.",
- },
- {
- t: "Tu es sur le terrain",
- d: "Je livre et je maintiens pendant que tu shoots.",
- },
- ],
- sections: [
- {
- h2: "Pourquoi Instagram ou Behance ne remplacent pas un portfolio ?",
- body: "Instagram expose ton œil au gré de l'algorithme ; Behance parle surtout aux pairs. Une cliente mariage ou brand veut une URL stable, des formules et un moyen de demander un devis. Le site concentre séries, offres et contact. Pour Photographe Iris, j'ai posé une galerie filtrable, des témoignages et un formulaire qualifiant. Tu présentes ton travail dans le cadre que tu choisis. Les réseaux restent des vitrines d'acquisition ; le portfolio convertit.",
- },
- {
- h2: "Comment éviter qu'une galerie trop lourde fasse fuir la cliente ?",
- body: "Une grille massive ralentit le mobile et noie le prochain pas. Je hiérarchise : séries fortes en premier, filtres utiles, compression soignée, appel à l'action visible. La cliente comprend ton style en quelques écrans, puis demande un devis. En pratique, Iris et d'autres portfolios que je livre privilégient la lecture éditoriale plutôt que le dump de 200 photos. Tu montres ton niveau sans saturer. Le contact reste accessible dès le premier passage.\n\nLe détail compte pour la lectrice pressée : titres scannables, preuves placées au bon endroit, un seul prochain pas visible sur mobile. Tu gagnes des conversations déjà cadrées. Le site ne remplace pas ton expertise ; il la rend lisible avant le premier échange et réduit les allers-retours inutiles.",
- },
- {
- h2: "Combien coûte un site pour une photographe ?",
- body: "Dès 89 €/mois (24 mois), 139 €/mois (12 mois) ou 179 €/mois (6 mois) : jusqu'à 5 pages, réservation avancée, atelier rédaction. SEO et analytics selon la durée. Besoin précis intervient pour des besoins atypiques (espace client, livraison de galeries privées) sur devis. Photographe Iris illustre un portfolio clair et des demandes mieux cadrées. Tu paies pour une vitrine qui charge vite et que je mets à jour quand tu ajoutes une série.\n\nLe devis précise le périmètre avant ton engagement. Tu sais ce qui est inclus (design, hébergement, mises à jour) et ce qui reste hors scope. Si ton offre grossit plus tard, je te propose le passage de formule sans tout reconstruire. Tu paies pour une présence maintenue, pas pour un fichier livré puis abandonné.",
- },
- {
- h2: "Est-ce trop tôt si je n'ai que deux ou trois séries fortes ?",
- body: "Attendre d'avoir « assez » d'images retarde souvent des demandes déjà possibles. Un site peut mettre en avant tes meilleures séries et clarifier tes formules actuelles. Je construis une structure qui accueille de nouvelles galeries ensuite. En 2025, une photographe brand à Lyon a lancé avec trois séries et un formulaire ; elle a ajouté des projets chaque trimestre par email. Tu n'attends pas le portfolio exhaustif. Le site évolue avec tes shootings.\n\nConcrètement, tu avances avec ce que tu as déjà sous la main. Je priorise la clarté de l'offre et le prochain pas pour la visiteuse. Les enrichissements (galerie, preuves, pages secondaires) arrivent ensuite par email, au rythme de ton activité. Tu n'as pas besoin d'un dossier parfait pour être joignable et crédible.",
- },
- {
- h2: "Comment ton site relie Instagram, Pinterest et ton emailing ?",
- body: "Le maillage ramène chaque découverte vers ton portfolio. Bio Instagram, épingles Pinterest, signature mail et devis PDF pointent vers la même URL. Une cliente qui te découvre sur un reel retrouve le style et les formules sur le site le soir même. Tu évites les liens morts ou les Drive désordonnés. Concrètement, les plateformes apportent le trafic ; le site porte la décision. Quand un réseau baisse ta portée, ton adresse reste la référence.",
- },
- {
- h2: "Que change un formulaire de devis qualifiant ?",
- body: "Les messages « c'est combien ? » sans date ni style gaspillent ton temps de réponse. Un formulaire qui demande type de shooting, date, lieu et budget approximatif filtre dès l'entrée. Sur Photographe Iris, ce cadrage clarifie les demandes avant le premier appel. Tu prépares un devis plus juste. Le site ne vend pas à ta place ; il qualifie. Tu réserves ton énergie aux projets alignés.\n\nLe détail compte pour la lectrice pressée : titres scannables, preuves placées au bon endroit, un seul prochain pas visible sur mobile. Tu gagnes des conversations déjà cadrées. Le site ne remplace pas ton expertise ; il la rend lisible avant le premier échange et réduit les allers-retours inutiles.",
- },
- ],
- includedTitle: "Ce qui est inclus dans un site Kopio pour photographe",
- priceTitle: "Combien coûte un site pour une photographe ?",
- caseStudyId: "photographe-iris",
- caseStudyHeading: "Exemple concret : Photographe Iris",
- recommendedPlanId: "pro",
- relatedBesoinSlug: "site-vitrine-independante",
- relatedBesoinLabel: "site vitrine d'indépendante",
- closing:
- "Si tu veux un portfolio clair qui génère des devis mieux cadrés, écris-moi : je regarde avec toi tes séries et tes formules.",
- ctaLabel: "Parler de mon site photographe",
- faqs: [
- {
- question: "Instagram remplace-t-il un portfolio ?",
- answer:
- "Non. L'algorithme cache ton travail. Un site est stable, partageable et mieux indexé. Instagram reste un canal de découverte ; le portfolio porte formules et devis. En pratique, tu gardes tes canaux d'acquisition et tu pointes vers une URL stable. C'est ce lien que tu envoies après un premier échange sérieux.",
- },
- {
- question: "Combien coûte un site pour photographe ?",
- answer:
- "Trois durées, un même socle (jusqu'à 5 pages, réservation, atelier rédaction) : 89, 139 ou 179 €/mois. SEO et analytics selon la durée. Le devis écrit le périmètre et les délais.",
- },
- {
- question: "Quel est le délai ?",
- answer:
- "21 jours après validation du devis. La sélection et l'export des photos influencent le rythme réel. Un kickoff court cadre les contenus attendus. Plus tes textes et visuels arrivent tôt, plus la date de mise en ligne reste réaliste.",
- },
- {
- question: "Puis-je ajouter des séries plus tard ?",
- answer:
- "Oui. Tu m'envoies la nouvelle série ; je mets à jour sous 24 à 72 h. La structure du site est prévue pour grandir avec ton travail. Tu décris le changement en quelques lignes ou avec un fichier joint. Je m'occupe du reste, sans te demander d'apprendre un back-office.",
- },
- ],
- image: "/image/photographe.jpg",
- imageAlt: "Photographe indépendante : portfolio web professionnel",
- },
- {
- slug: "architecte-interieur",
- label: "Architecte d'intérieur",
- keyword: "site web pour architecte d'intérieur",
- metier: "architecte d'intérieur",
- metierPlural: "architectes d'intérieur",
- title:
- "Site web pour architecte d'intérieur : dès 89€/mois",
- metaDescription:
- "Site web pour architecte d'intérieur : galerie projets, devis. Exemple Sophie Bluel. Abonnement Kopio dès 89 €/mois.",
- h1: "Le site qui donne à ton activité d'architecte d'intérieur la crédibilité qu'elle mérite",
- tldr:
- "Je crée le site web pour architecte d'intérieur qui met en avant tes projets et génère des demandes de devis. Exemple : Sophie Bluel, avec hausse des demandes projet. Dès 89 €/mois selon engagement (6, 12 ou 24 mois), avec galerie multi-pages filtrable.",
- intro:
- "Tes projets méritent mieux qu'un PDF envoyé à la hâte. Une galerie éditoriale et un contact simple changent le volume et la qualité des demandes.",
- douleur:
- "Portfolio trop générique : les projets ne ressortent pas, les clients hésitent à écrire pour un devis.",
- whyTitle:
- "Pourquoi une architecte d'intérieur a besoin d'un site différent d'un site générique ?",
- whyPoints: [
- {
- t: "Chaque projet doit respirer",
- d: "Galerie filtrable, légendes, avant/après : lecture éditoriale, pas catalogue plat.",
- },
- {
- t: "Le process rassure",
- d: "Étapes, délais et collaboration explicites avant le premier appel.",
- },
- {
- t: "Le devis commence en ligne",
- d: "Formulaire qualifiant (surface, type, ville) pour de meilleures demandes.",
- },
- {
- t: "Tu es sur les chantiers",
- d: "Je maintiens le site pendant que tu es en rendez-vous.",
- },
- ],
- sections: [
- {
- h2: "Pourquoi un PDF de projets ne suffit plus ?",
- body: "Un PDF se perd, se compresse mal sur mobile et ne se met pas à jour facilement. Un site éditorial montre chaque projet avec le rythme et les légendes qu'il mérite. Le client potentiel comprend ton style avant d'écrire. Pour Sophie Bluel, une galerie filtrable et un contact simple ont clairement augmenté les demandes projet. Tu partages une URL, pas une pièce jointe fragile. Le portfolio devient un outil commercial permanent.",
- },
- {
- h2: "Comment rassurer un client sur un budget d'aménagement ?",
- body: "Les gros budgets demandent un cadre avant le premier appel. Je rends visibles les étapes de collaboration, le type de missions et ce que le formulaire doit collecter (surface, type de bien, ville). Le client arrive déjà informé. Sur Sophie Bluel, le parcours de contact a réduit les messages trop vagues. Tu qualifies mieux. Le site ne remplace pas l'entretien ; il prépare un échange sérieux.\n\nLe détail compte pour la lectrice pressée : titres scannables, preuves placées au bon endroit, un seul prochain pas visible sur mobile. Tu gagnes des conversations déjà cadrées. Le site ne remplace pas ton expertise ; il la rend lisible avant le premier échange et réduit les allers-retours inutiles.",
- },
- {
- h2: "Combien coûte un site pour une architecte d'intérieur ?",
- body: "Dès 89 €/mois (24 mois), 139 €/mois (12 mois) ou 179 €/mois (6 mois) : jusqu'à 5 pages, réservation avancée, atelier rédaction. Le SEO et le suivi analytics s'adaptent à la durée. Besoin précis couvre des besoins très spécifiques sur devis. Sophie Bluel illustre ce niveau 12 mois avec une nette hausse des demandes. Tu investis dans une vitrine qui travaille pendant les chantiers. Les nouveaux projets s'ajoutent par email sans refonte.\n\nLe devis précise le périmètre avant ton engagement. Tu sais ce qui est inclus (design, hébergement, mises à jour) et ce qui reste hors scope. Si ton offre grossit plus tard, je te propose le passage de formule sans tout reconstruire. Tu paies pour une présence maintenue, pas pour un fichier livré puis abandonné.",
- },
- {
- h2: "Faut-il attendre d'avoir dix projets photographiés ?",
- body: "Attendre le portfolio « parfait » retarde des demandes déjà possibles. Je mets en avant tes projets les mieux documentés et je clarifie ton process. La structure accueille de nouvelles études de cas ensuite. En 2025, une architecte d'intérieur à Lyon a lancé avec quatre projets forts, puis a enrichi la galerie après chaque livraison. Tu n'attends pas une rétrospective complète. Le site grandit avec ton agence.\n\nConcrètement, tu avances avec ce que tu as déjà sous la main. Je priorise la clarté de l'offre et le prochain pas pour la visiteuse. Les enrichissements (galerie, preuves, pages secondaires) arrivent ensuite par email, au rythme de ton activité. Tu n'as pas besoin d'un dossier parfait pour être joignable et crédible.",
- },
- {
- h2: "Comment ton site relie Instagram, Houzz et ton réseau pro ?",
- body: "Le maillage place ton portfolio au centre. Bio Instagram, profils spécialisés, signature mail et présentations PDF pointent vers la même URL. Un maître d'ouvrage qui te découvre sur Instagram retrouve le détail des projets sur le site. Tu contrôles la narration. Concrètement, les plateformes apportent la découverte ; le site porte la preuve et le devis. Quand un annuaire change ses règles, ton adresse reste stable.",
- },
- {
- h2: "Que se passe-t-il quand tu livres un nouveau projet ?",
- body: "Chaque chantier terminé enrichit ta preuve sociale. Tu m'envoies photos, légendes et éventuellement avant/après ; je mets à jour la galerie sous 24 à 72 h. Tu ne reconstruis pas le site à chaque livraison. Sophie Bluel et d'autres portfolios évoluent ainsi au fil des années. Tu restes sur le terrain. L'abonnement absorbe ces ajouts comme une maintenance normale.\n\nCe rythme de maintenance colle au quotidien d'une indépendante : peu de temps, besoin de réactivité, zéro formation outil. Tu restes dans ton métier pendant que le site reste à jour. Si un chantier plus large apparaît (nouvelle offre, refonte de parcours), je le traite dans un échange dédié avant de toucher à la structure.",
- },
- ],
- includedTitle:
- "Ce qui est inclus dans un site Kopio pour architecte d'intérieur",
- priceTitle: "Combien coûte un site pour une architecte d'intérieur ?",
- caseStudyId: "pulse",
- caseStudyHeading: "Exemple concret : PULSE",
- recommendedPlanId: "pro",
- relatedBesoinSlug: "refonte-site-internet-entrepreneure",
- relatedBesoinLabel: "refonte de site",
- closing:
- "Si tu veux un portfolio éditorial qui génère des demandes projet plus nettes, écris-moi : je regarde avec toi ta sélection de projets et ton process.",
- ctaLabel: "Parler de mon site architecte d'intérieur",
- faqs: [
- {
- question: "Combien coûte un site pour architecte d'intérieur ?",
- answer:
- "Trois durées, un même socle (jusqu'à 5 pages, réservation, atelier rédaction) : 89, 139 ou 179 €/mois. Les besoins très spécifiques passent en Besoin précis sur devis. Le devis écrit le périmètre et les délais.",
- },
- {
- question: "As-tu un exemple ?",
- answer:
- "Oui : des vitrines avec galerie et contact clair, pensées pour des demandes déjà cadrées. Tu restes concentrée sur ton métier pendant que je gère la technique et les mises à jour.",
- },
- {
- question: "Quel est le délai ?",
- answer:
- "21 jours après validation du devis. La sélection des projets et des visuels influence le rythme. Un kickoff court cadre les contenus attendus. Plus tes textes et visuels arrivent tôt, plus la date de mise en ligne reste réaliste.",
- },
- {
- question: "Puis-je ajouter des projets au fil de l'eau ?",
- answer:
- "Oui. Par email : mise à jour sous 24 à 72 h. La galerie est conçue pour s'enrichir sans refonte à chaque chantier. Tu décris le changement en quelques lignes ou avec un fichier joint. Je m'occupe du reste, sans te demander d'apprendre un back-office.",
- },
- ],
- image: "/image/independant.jpg",
- imageAlt: "Site web pour architecte d'intérieur",
- },
- {
- slug: "wedding-planner",
- label: "Wedding planner",
- keyword: "site web pour wedding planner",
- metier: "wedding planner",
- metierPlural: "wedding planners",
- title:
- "Site web pour wedding planner : Abonnement mensuel dès 89€/mois",
- metaDescription:
- "Site web pour wedding planner : univers, formules, demande de devis. Kopio dès 89 €/mois selon engagement (6, 12 ou 24 mois).",
- h1: "Le site qui donne à ton activité de wedding planner la crédibilité qu'elle mérite",
- tldr:
- "Je crée ton site web pour wedding planner : ton style, tes mariages, un parcours vers l'appel découverte. Abonnement dès 89 €/mois selon engagement (6, 12 ou 24 mois). Pensé pour convertir les couples qui comparent plusieurs organisatrices.",
- intro:
- "Les couples comparent plusieurs wedding planners. Ton site doit faire sentir ton univers et rendre la prise de contact évidente.",
- douleur:
- "Beau feed Instagram, mais aucune page formules et process pour les couples encore indécis.",
- whyTitle:
- "Pourquoi une wedding planner a besoin d'un site différent d'un site générique ?",
- whyPoints: [
- {
- t: "L'émotion se design",
- d: "Couleurs, photos, rythme : le site prolonge l'expérience que tu vends.",
- },
- {
- t: "Les formules clarifient le budget",
- d: "Day-of, partiel, full planning : le couple sait où il se situe.",
- },
- {
- t: "Le calendrier se remplit tôt",
- d: "Demande de devis avec date et lieu : tu qualifies avant l'appel.",
- },
- {
- t: "En pleine saison, zéro temps web",
- d: "Je gère le site toute l'année pendant que tu es sur les mariages.",
- },
- ],
- sections: [
- {
- h2: "Pourquoi Instagram ne suffit pas pour signer un couple ?",
- body: "Instagram inspire ; il ne détaille pas formules, process et disponibilités. Les couples comparent plusieurs organisatrices et veulent une page à relire à deux. Le site porte ton univers, tes niveaux d'accompagnement et le formulaire de devis. En 2025, une wedding planner à Aix-en-Provence recevait surtout des DM incomplets ; après mise en ligne des formules, les demandes précisaient date et lieu. Tu gardes Instagram pour l'émotion. Le site porte la décision et le SEO autour de ton positionnement.",
- },
- {
- h2: "Comment présenter day-of, partiel et full planning sans confondre ?",
- body: "Des intitulés flous créent des appels hors budget. Je structure chaque formule : inclus, limites, pour quel type de mariage, prochain pas. Le couple se situe avant l'appel découverte. En pratique, une page formules claire réduit les échanges « en fait on voulait juste le jour J ». Tu prépares mieux le premier rendez-vous. Le site aligne attentes et offre. Le modèle 12 mois donne l'espace pour détailler sans écraser la page d'accueil.\n\nLe détail compte pour la lectrice pressée : titres scannables, preuves placées au bon endroit, un seul prochain pas visible sur mobile. Tu gagnes des conversations déjà cadrées. Le site ne remplace pas ton expertise ; il la rend lisible avant le premier échange et réduit les allers-retours inutiles.",
- },
- {
- h2: "Combien coûte un site pour une wedding planner ?",
- body: "Dès 89 €/mois (24 mois), 139 €/mois (12 mois) ou 179 €/mois (6 mois) : jusqu'à 5 pages, réservation avancée, atelier rédaction. Le SEO et le suivi analytics s'adaptent à la durée. Besoin précis couvre des besoins très spécifiques sur devis. Tu choisis selon la richesse de ton catalogue et la saisonnalité de ton acquisition. L'abonnement inclut les mises à jour de portfolio après chaque saison. Tu ne reconstruis pas le site chaque année.\n\nLe devis précise le périmètre avant ton engagement. Tu sais ce qui est inclus (design, hébergement, mises à jour) et ce qui reste hors scope. Si ton offre grossit plus tard, je te propose le passage de formule sans tout reconstruire. Tu paies pour une présence maintenue, pas pour un fichier livré puis abandonné.",
- },
- {
- h2: "Est-ce utile si mon agenda est déjà plein pour cette année ?",
- body: "Oui, parce que les couples réservent souvent 12 à 18 mois à l'avance. Un site à jour capture les demandes pour l'année suivante pendant que tu es en pleine saison. Je peux indiquer clairement tes disponibilités ou la liste d'attente. En 2024, une organisatrice a rempli une partie de N+1 via des demandes entrées hors saison Instagram. Tu ne refuses pas la visibilité ; tu la cadres. Le site travaille quand tu es sur un lieu de réception.\n\nConcrètement, tu avances avec ce que tu as déjà sous la main. Je priorise la clarté de l'offre et le prochain pas pour la visiteuse. Les enrichissements (galerie, preuves, pages secondaires) arrivent ensuite par email, au rythme de ton activité. Tu n'as pas besoin d'un dossier parfait pour être joignable et crédible.",
- },
- {
- h2: "Comment ton site relie Instagram, Pinterest et les annuaires mariage ?",
- body: "Le maillage évite les versions contradictoires de ton offre. Bio Instagram, épingles Pinterest, fiches annuaires et signature mail renvoient vers la même URL. Un couple qui te découvre sur un annuaire lit ton process sur le site sans dépendre d'un chat. Tu contrôles le récit. Concrètement, les plateformes apportent la découverte ; le site convertit. Quand un annuaire modifie ses tarifs ou sa visibilité, ta maison reste en ligne.",
- },
- {
- h2: "Que se passe-t-il après la saison des mariages ?",
- body: "Tu ajoutes les plus beaux reportages, tu ajustes les formules, tu ouvres les dates N+1. Tu m'envoies les éléments ; je mets à jour sous 24 à 72 h. Tu ne te formes pas à un CMS en octobre après six mois intensifs. En pratique, le site se rafraîchit chaque intersaison sans chantier technique de ton côté. Tu prépares la saison suivante. La maintenance suit le rythme réel du métier de wedding planner.\n\nCe rythme de maintenance colle au quotidien d'une indépendante : peu de temps, besoin de réactivité, zéro formation outil. Tu restes dans ton métier pendant que le site reste à jour. Si un chantier plus large apparaît (nouvelle offre, refonte de parcours), je le traite dans un échange dédié avant de toucher à la structure.",
- },
- ],
- includedTitle: "Ce qui est inclus dans un site Kopio pour wedding planner",
- priceTitle: "Combien coûte un site pour une wedding planner ?",
- recommendedPlanId: "pro",
- relatedBesoinSlug: "site-vitrine-independante",
- relatedBesoinLabel: "site vitrine d'indépendante",
- closing:
- "Si tu veux un site qui fait sentir ton univers et clarifie tes formules pour les couples, écris-moi : je pars de ton positionnement et de ton agenda.",
- ctaLabel: "Parler de mon site wedding planner",
- faqs: [
- {
- question: "Instagram suffit-il pour une wedding planner ?",
- answer:
- "Il inspire. Le site convertit : formules, process, contact, et reste trouvable sur Google. Les deux se complètent quand chaque bio et chaque fiche pointent vers ton URL. En pratique, tu gardes tes canaux d'acquisition et tu pointes vers une URL stable. C'est ce lien que tu envoies après un premier échange sérieux.",
- },
- {
- question: "Combien coûte un site pour wedding planner ?",
- answer:
- "Trois durées, un même socle (jusqu'à 5 pages, réservation avancée, atelier rédaction) : 89 €/mois (24 mois), 139 €/mois (12 mois) ou 179 €/mois (6 mois). Le SEO et le suivi analytics s'adaptent à la durée. Le devis écrit le périmètre et les délais.",
- },
- {
- question: "Quel est le délai ?",
- answer:
- "21 jours après validation du devis. Les textes de formules et la sélection photo influencent le rythme. Un kickoff court cadre les contenus attendus. Plus tes textes et visuels arrivent tôt, plus la date de mise en ligne reste réaliste.",
- },
- {
- question: "Puis-je ajouter des mariages récents ?",
- answer:
- "Oui. Mises à jour par email sous 24 à 72 h, typiquement en intersaison. Le portfolio grandit sans que tu touches à la technique. Tu décris le changement en quelques lignes ou avec un fichier joint. Je m'occupe du reste, sans te demander d'apprendre un back-office.",
- },
- ],
- image: "/image/independant.jpg",
- imageAlt: "Wedding planner : site web pour convertir les couples",
- },
+  slug: "coach",
+  label: "Coach",
+  keyword: "site web pour coach",
+  metier: "coach",
+  metierPlural: "coachs",
+  title: "Site web pour coach : présence claire et crédible",
+  metaDescription: "Site web pour coach : traduire votre expertise en une présence en ligne claire. Positionnement, méthode, Google et réseaux.",
+  updatedAt: "2026-10-09",
+  h1: "Une présence claire pour votre coaching",
+  h1Highlight: "présence claire",
+  factChips: [
+   "Création de site",
+   "Positionnement",
+   "Visibilité"
+  ],
+  tldr: "Un site professionnel pour coach ne se limite pas à présenter votre activité. Il donne à votre expertise un espace pour être comprise et inspire confiance lorsque vous n'êtes pas là pour en parler.",
+  intro: "Vous avez construit votre pratique au fil des rencontres, des expériences et des personnes que vous avez accompagnées. Vous avez une méthode, une sensibilité, une façon bien à vous de travailler. Mais lorsqu'une personne découvre votre nom sur Google, après une recommandation ou au détour d'une conversation, que comprend-elle réellement de votre travail ?",
+  douleur: "Le décalage entre la valeur réelle de votre accompagnement et ce qu'une visiteuse comprend en ligne.",
+  whyTitle: "Ce qu'une présence en ligne sérieuse change pour une coach",
+  whyHighlight: "sérieuse",
+  whyPoints: [
+   {
+    t: "Votre méthode devient lisible",
+    d: "Pour qui vous travaillez, comment vous accompagnez, ce qui se passe ensuite : le cadre, pas le slogan."
+   },
+   {
+    t: "La confiance se forme avant l'appel",
+    d: "Parcours, preuves et prochain pas visibles : la visiteuse arrive déjà cadrée."
+   },
+   {
+    t: "Google et les recommandations aboutissent quelque part",
+    d: "Une URL stable porte ce que Instagram et LinkedIn ne peuvent tenir seuls."
+   },
+   {
+    t: "Votre site évolue avec votre pratique",
+    d: "Tarifs, témoignages, nouvelles offres : la présence reste alignée sans tout recommencer."
+   }
+  ],
+  sections: [
+   {
+    h2: "Pourquoi Instagram ne suffit pas pour une coach ?",
+    body: "Instagram montre votre quotidien ; il ne remplace pas une page d'offre stable. L'algorithme décide qui voit vos publications, alors qu'une URL reste partageable après un networking, un podcast ou un message LinkedIn.\n\nSur votre site, méthode, formats et preuves tiennent en une lecture claire. Vous gardez Instagram pour nourrir la relation ; le site porte la décision de la personne qui veut aller plus loin."
+   },
+   {
+    h2: "Que doit contenir un site web pour coach pour être crédible ?",
+    body: "Un site crédible pour coach pose trois blocs : pour qui vous travaillez, comment vous accompagnez, et ce qui se passe après le premier contact. La lectrice cherche un cadre, pas un slogan.\n\nJe structure votre présence autour du positionnement, d'une preuve concrète et d'un seul prochain pas. Vous pouvez envoyer le lien après un message : la prospecte comprend l'offre sans vous relancer trois fois. Le site ne remplace pas votre expertise ; il la rend lisible avant le premier échange."
+   },
+   {
+    h2: "Faut-il attendre d'avoir assez de contenus avant de lancer son site ?",
+    body: "Attendre le texte parfait freine souvent plus que le manque de contenu. Une coach a rarement un dossier parfait ; elle a une méthode, des clientes et des preuves orales.\n\nJe pars de ce que vous avez déjà : notes d'appel, publications qui résonnent, témoignages reçus. On structure les blocs essentiels, vous complétez ensuite. Vous n'avez pas besoin de la version idéale pour être joignable et crédible."
+   },
+   {
+    h2: "Comment votre site travaille avec LinkedIn et Instagram ?",
+    body: "Le site n'entre pas en concurrence avec vos réseaux : il les ancre. LinkedIn et Instagram génèrent de la visibilité ; votre URL porte la lecture d'offre et la prise de contact.\n\nBio Instagram, signature mail et profil LinkedIn pointent vers la même page. Dès que le lien apparaît partout, les demandes se concentrent. Vous mesurez ce qui arrive via le formulaire, pas via un vague sentiment d'engagement."
+   },
+   {
+    h2: "Que se passe-t-il après la mise en ligne ?",
+    body: "La livraison n'est pas un point final. Vous m'écrivez pour un tarif, un témoignage ou une photo : je mets à jour sous 24 à 72 h. Vous restez concentrée sur vos sessions.\n\nLes formules et délais sont sur la page tarifs. Ici, l'essentiel est une présence conçue pour évoluer avec votre pratique, pas un fichier livré puis abandonné."
+   }
+  ],
+  includedTitle: "Ce qui est inclus dans un site Kopio pour coach",
+  priceTitle: "Les formules pour une coach",
+  recommendedPlanId: "launch",
+  relatedBesoinSlug: "site-vitrine-independante",
+  relatedBesoinLabel: "site vitrine d'indépendante",
+  closing: "Si vous souhaitez clarifier la façon dont votre expertise de coach apparaît en ligne, écrivez-moi. Réponse sous 48 h ouvrées.",
+  ctaLabel: "En discuter avec Karelle",
+  faqs: [
+   {
+    question: "LinkedIn ou Instagram suffisent-ils pour une coach ?",
+    answer: "Ils aident à vous faire connaître. Votre site centralise l'offre, les preuves et le contact hors algorithme. C'est l'adresse que vous envoyez après une recommandation ou un premier échange."
+   },
+   {
+    question: "Faut-il tout avoir clarifié avant de créer son site ?",
+    answer: "Non. On part de ce que vous expliquez déjà à l'oral, on structure le positionnement et le prochain pas, puis on affine."
+   },
+   {
+    question: "Combien coûte un site web pour coach ?",
+    answer: "Trois durées, un même socle (jusqu'à 5 pages, réservation, atelier rédaction) : 89 €/mois sur 24 mois, 139 €/mois sur 12 mois, 179 €/mois sur 6 mois. Le détail et la propriété du site sont sur la page tarifs."
+   },
+   {
+    question: "Pourrez-vous faire évoluer le site ensuite ?",
+    answer: "Oui. Vous m'envoyez la modification par email ; je mets à jour sous 24 à 72 h. Aucun outil à apprendre. Les évolutions plus larges se discutent avant de toucher à la structure."
+   }
+  ],
+  image: "/image/independant.jpg",
+  imageAlt: "Présence en ligne professionnelle pour coach indépendante"
+ },
+ {
+  slug: "praticienne-bien-etre",
+  label: "Praticienne bien-être",
+  keyword: "site web pour praticienne bien-être",
+  metier: "praticienne bien-être",
+  metierPlural: "praticiennes bien-être",
+  title: "Site web pour praticienne bien-être : présence claire et crédible",
+  metaDescription: "Site web pour praticienne bien-être : identité, offre et réservation claires. Une présence qui vous distingue des vitrines wellness génériques.",
+  updatedAt: "2026-10-09",
+  h1: "Le site qui clarifie votre pratique bien-être",
+  h1Highlight: "clarifie votre pratique",
+  factChips: [
+   "Création de site",
+   "Positionnement",
+   "Visibilité"
+  ],
+  tldr: "Un site pour praticienne bien-être ne se limite pas à une esthétique agréable. Il pose votre identité, votre offre et un parcours de réservation compréhensible.",
+  intro: "Vous avez construit une pratique de bien-être au fil des séances et des personnes que vous accueillez. Mais lorsqu'une cliente découvre votre nom après une recommandation, que voit-elle : votre façon d'accompagner, ou une vitrine interchangeable ?",
+  douleur: "Trop de vitrines qui se ressemblent : votre expertise ne ressort pas, les clientes hésitent à réserver un premier créneau.",
+  whyTitle: "Pourquoi une praticienne bien-être a besoin d'un site qui lui ressemble",
+  whyHighlight: "lui ressemble",
+  whyPoints: [
+   {
+    t: "L'ambiance compte autant que l'offre",
+    d: "Typographie, couleurs et photos collent à votre pratique, pas à un modèle wellness générique."
+   },
+   {
+    t: "Réservation sans détour",
+    d: "Créneaux, confirmation et contact : le parcours vaut autant que le design."
+   },
+   {
+    t: "Positionnement lisible",
+    d: "Pour qui vous travaillez, votre méthode, ce que vous ne proposez pas."
+   },
+   {
+    t: "Déléguer plutôt que bricoler",
+    d: "Entre les séances, une alliée gère le site pour vous."
+   }
+  ],
+  sections: [
+   {
+    h2: "Pourquoi tant de sites bien-être se ressemblent-ils ?",
+    body: "Le secteur recycle souvent les mêmes codes et les mêmes formules vagues. Une cliente qui compare trois praticiennes ne retient rien si tout paraît interchangeable.\n\nLe levier est éditorial autant que visuel : vous nommez pour qui vous travaillez, ce que vous faites concrètement en séance, et ce qui vous différencie. Votre site doit donner une impression de cabinet, pas de catalogue générique."
+   },
+   {
+    h2: "Comment intégrer la réservation sans alourdir votre quotidien ?",
+    body: "Les messages Instagram créent des allers-retours et des créneaux mal notés. Un parcours de réservation sur le site centralise la demande : la cliente choisit, vous confirmez, le fil de messages se calme.\n\nEn pratique, vous passez moins de temps à répondre « avez-vous un créneau jeudi ? ». Instagram reste le canal de découverte ; le site devient l'entrée principale."
+   },
+   {
+    h2: "Faut-il attendre d'avoir un local parfait avant de lancer son site ?",
+    body: "Beaucoup de praticiennes reportent le site jusqu'à la déco idéale ou la photo parfaite. Or les clientes cherchent d'abord le cadre de la pratique et un moyen de réserver.\n\nJe travaille avec les visuels disponibles et une direction claire ; la galerie s'enrichit ensuite. Attendre l'esthétique parfaite laisse d'autres répondre aux recherches locales avant vous."
+   },
+   {
+    h2: "Comment votre site et Instagram se complètent-ils ?",
+    body: "Instagram montre l'ambiance du cabinet ; le site porte l'offre, les tarifs et la réservation. Chaque bio et chaque publication « comment réserver » renvoient vers la même URL.\n\nUne cliente qui découvre votre compte le soir peut lire le cadre le lendemain sans faire défiler dix stories. Instagram attire ; le site porte la décision et vous appartient."
+   },
+   {
+    h2: "Que change un site clairement positionné pour vos réservations ?",
+    body: "Un positionnement flou attire des demandes hors cible : mauvais format, mauvaises attentes. Un site qui dit pour qui vous travaillez filtre avant le premier message.\n\nEn pratique, vous recevez moins de « c'est quoi exactement ? » et plus de créneaux déjà cadrés. Le design n'est pas décoratif : il porte le message."
+   }
+  ],
+  includedTitle: "Ce qui est inclus dans un site Kopio pour praticienne bien-être",
+  priceTitle: "Les formules pour une praticienne bien-être",
+  caseStudyId: "pulse",
+  caseStudyHeading: "Exemple concret : PULSE",
+  recommendedPlanId: "launch",
+  relatedBesoinSlug: "site-avec-reservation-en-ligne",
+  relatedBesoinLabel: "site avec réservation en ligne",
+  closing: "Si vous voulez un site à la hauteur de votre pratique, loin du modèle wellness générique, écrivez-moi.",
+  ctaLabel: "En discuter avec Karelle",
+  faqs: [
+   {
+    question: "Instagram suffit-il pour une praticienne bien-être ?",
+    answer: "Il montre le quotidien. Le site centralise offre, méthode et réservation, et vous appartient. C'est l'adresse stable hors du fil."
+   },
+   {
+    question: "Gérez-vous la prise de rendez-vous ?",
+    answer: "Oui. Le parcours de contact est clair ; agenda et confirmation peuvent être inclus selon le besoin. Vous restez concentrée sur votre métier."
+   },
+   {
+    question: "Combien coûte un site web pour praticienne bien-être ?",
+    answer: "Trois durées, un même socle (jusqu'à 5 pages, réservation, atelier rédaction) : 89 €/mois sur 24 mois, 139 €/mois sur 12 mois, 179 €/mois sur 6 mois. Le détail et la propriété du site sont sur la page tarifs."
+   },
+   {
+    question: "Pourrez-vous faire évoluer le site ensuite ?",
+    answer: "Oui. Vous m'envoyez la modification par email ; je mets à jour sous 24 à 72 h. Aucun outil à apprendre. Les évolutions plus larges se discutent avant de toucher à la structure."
+   }
+  ],
+  image: "/image/pulse.jpg",
+  imageAlt: "PULSE : présence en ligne pour praticienne bien-être"
+ },
+ {
+  slug: "consultante",
+  label: "Consultante",
+  keyword: "site web pour consultante",
+  metier: "consultante",
+  metierPlural: "consultantes",
+  title: "Site web pour consultante : présence claire et crédible",
+  metaDescription: "Site web pour consultante indépendante : offre claire, preuves, contact professionnel. Une page à transmettre après un premier échange.",
+  updatedAt: "2026-10-09",
+  h1: "Une page d'offre digne de vos missions",
+  h1Highlight: "page d'offre",
+  factChips: [
+   "Création de site",
+   "Positionnement",
+   "Visibilité"
+  ],
+  tldr: "Un site pour consultante porte votre offre, vos preuves et un contact professionnel. Une référence stable hors du fil LinkedIn.",
+  intro: "Vous avez construit une expertise de conseil au fil des missions. Mais lorsqu'une décideuse découvre votre nom après un échange LinkedIn, que peut-elle transmettre en interne : une page d'offre claire, ou un profil difficile à partager ?",
+  douleur: "LinkedIn actif, mais aucune page d'offre détaillée à envoyer après un premier échange sérieux.",
+  whyTitle: "Pourquoi une consultante a besoin d'une page d'offre dédiée",
+  whyHighlight: "page d'offre",
+  whyPoints: [
+   {
+    t: "Expertise scannable",
+    d: "Pour qui, problème résolu, méthode, livrables : structure nette."
+   },
+   {
+    t: "Preuves avant slogans",
+    d: "Cas, résultats ou retours placés là où la décision se joue."
+   },
+   {
+    t: "Contact professionnel",
+    d: "Formulaire, calendrier ou email selon votre process."
+   },
+   {
+    t: "Votre temps se facture",
+    d: "Je gère le site ; vous gardez votre énergie pour les missions."
+   }
+  ],
+  sections: [
+   {
+    h2: "Pourquoi LinkedIn ne remplace pas un site pour consultante ?",
+    body: "LinkedIn génère de la visibilité et des conversations. Il ne vous donne pas une page d'offre contrôlée, hors fil d'actualité, que vous envoyez après un premier appel.\n\nLa décideuse veut un lien à transmettre en interne, pas une capture d'écran. LinkedIn reste le filet ; le site porte la référence de votre expertise."
+   },
+   {
+    h2: "Comment structurer l'offre d'une consultante sur un site ?",
+    body: "Une consultante vend un problème résolu, pas une liste de compétences. Je structure la page autour du public, du diagnostic, de la méthode et des preuves.\n\nLe lecteur doit comprendre en moins d'une minute s'il est au bon endroit. Cela veut dire une offre lisible, des résultats visibles, et un seul prochain pas. Vous évitez le site « à propos de moi » qui ne dit pas ce que vous livrez."
+   },
+   {
+    h2: "Et si votre positionnement évolue encore ?",
+    body: "Les consultantes affinent souvent leur niche après six à douze mois. Ce n'est pas une raison de rester sans site.\n\nJe construis une structure souple : blocs d'offre que je reformule par email sans tout reconstruire. Vous n'attendez pas la version définitive de votre expertise pour être joignable."
+   },
+   {
+    h2: "Comment relier votre site à LinkedIn et à votre emailing ?",
+    body: "Signature mail, mise en avant LinkedIn, newsletter et proposition PDF pointent vers la même URL. Une prospecte qui vous découvre sur une publication retrouve les preuves sur le site le soir même.\n\nChaque canal amène ; le site porte le détail et le formulaire. Quand LinkedIn change son algorithme, votre adresse reste la référence que vous contrôlez."
+   },
+   {
+    h2: "Que change concrètement une page d'offre claire ?",
+    body: "Une page claire réduit les appels de qualification floue. La cliente arrive déjà alignée sur le problème que vous traitez et sur le format de mission.\n\nVous préparez mieux le premier entretien. Le site ne remplace pas votre expertise commerciale ; il filtre et accélère. Vous facturez votre temps de conseil, pas celui passé à réexpliquer les bases."
+   }
+  ],
+  includedTitle: "Ce qui est inclus dans un site Kopio pour consultante",
+  priceTitle: "Les formules pour une consultante",
+  recommendedPlanId: "launch",
+  relatedBesoinSlug: "site-vitrine-independante",
+  relatedBesoinLabel: "site vitrine d'indépendante",
+  closing: "Si vous voulez une page d'offre digne de vos missions, écrivez-moi : je clarifie avec vous votre positionnement et le parcours de contact.",
+  ctaLabel: "En discuter avec Karelle",
+  faqs: [
+   {
+    question: "Un site est-il utile si j'ai déjà LinkedIn ?",
+    answer: "LinkedIn génère de la visibilité. Le site convertit : offre détaillée, preuves et contact hors algorithme. Vous l'envoyez après un premier échange comme référence stable."
+   },
+   {
+    question: "Puis-je présenter plusieurs offres ?",
+    answer: "Oui. Mieux vaut deux offres nettes que six floues. On priorise la clarté selon votre catalogue réel."
+   },
+   {
+    question: "Combien coûte un site web pour consultante ?",
+    answer: "Trois durées, un même socle (jusqu'à 5 pages, réservation, atelier rédaction) : 89 €/mois sur 24 mois, 139 €/mois sur 12 mois, 179 €/mois sur 6 mois. Le détail et la propriété du site sont sur la page tarifs."
+   },
+   {
+    question: "Pourrez-vous faire évoluer le site ensuite ?",
+    answer: "Oui. Vous m'envoyez la modification par email ; je mets à jour sous 24 à 72 h. Aucun outil à apprendre. Les évolutions plus larges se discutent avant de toucher à la structure."
+   }
+  ],
+  image: "/image/pulse.jpg",
+  imageAlt: "Présence en ligne professionnelle pour consultante"
+ },
+ {
+  slug: "assistante-virtuelle",
+  label: "Assistante virtuelle",
+  keyword: "site internet assistante virtuelle",
+  metier: "assistante virtuelle",
+  metierPlural: "assistantes virtuelles",
+  title: "Site internet assistante virtuelle : présence claire et crédible",
+  metaDescription: "Site internet pour assistante virtuelle : packages clairs, preuves, contact pro. Une page à envoyer hors LinkedIn et Facebook.",
+  updatedAt: "2026-10-09",
+  h1: "Des packages lisibles, hors du fil LinkedIn",
+  h1Highlight: "packages lisibles",
+  factChips: [
+   "Création de site",
+   "Positionnement",
+   "Visibilité"
+  ],
+  tldr: "Un site pour assistante virtuelle clarifie vos forfaits, votre cadre de collaboration et le prochain pas, hors algorithme.",
+  intro: "Vous avez construit une activité d'assistance au fil des missions. Mais lorsqu'une TPE découvre votre nom après LinkedIn ou Facebook, que comprend-elle de vos packages et de la façon de travailler avec vous ?",
+  douleur: "Packages flous, crédibilité fragile face aux clientes B2B ou TPE, acquisition trop dépendante des réseaux.",
+  whyTitle: "Pourquoi une assistante virtuelle a besoin d'une page packages claire",
+  whyHighlight: "packages claire",
+  whyPoints: [
+   {
+    t: "Packages scannables",
+    d: "Forfaits, livrables, modalités : structure nette."
+   },
+   {
+    t: "Crédibilité B2B / TPE",
+    d: "Preuves et cadre de collaboration au bon endroit."
+   },
+   {
+    t: "Contact professionnel",
+    d: "Formulaire, calendrier ou email selon votre process."
+   },
+   {
+    t: "Votre temps se facture",
+    d: "Je gère le site ; vous gardez l'énergie pour les missions."
+   }
+  ],
+  sections: [
+   {
+    h2: "Mes clientes me trouvent déjà sur LinkedIn ou Facebook : à quoi sert un site ?",
+    body: "LinkedIn et Facebook génèrent des conversations. Ils ne vous donnent pas une page d'offre contrôlée, hors fil, que vous envoyez après un premier appel.\n\nLa décideuse veut un lien à transmettre, pas une capture de publication. Les réseaux restent le filet ; le site porte la conversion et le référentiel de vos packages."
+   },
+   {
+    h2: "Comment présenter vos packages d'assistante sans noyer la lectrice ?",
+    body: "Une assistante virtuelle vend un cadre de collaboration, pas une liste de tâches. Je structure la page autour du public, des packages, de l'onboarding et des preuves.\n\nMieux vaut trois forfaits nommés avec livrables visibles que dix intitulés flous. Un seul prochain pas. Vous évitez le site « à propos de moi » qui ne dit pas ce que vous livrez."
+   },
+   {
+    h2: "Et si vos forfaits évoluent encore dans six mois ?",
+    body: "Les packages s'affinent souvent après quelques mois. Ce n'est pas une raison de rester sans site.\n\nJe construis une structure souple : blocs d'offre que je reformule par email. Vous n'attendez pas le catalogue définitif pour être joignable."
+   },
+   {
+    h2: "Comment relier votre site à LinkedIn, Facebook et votre signature mail ?",
+    body: "Signature mail, mise en avant LinkedIn, bio Facebook et proposition PDF pointent vers la même URL. Une prospecte retrouve les preuves sur le site le soir même.\n\nCréer un site pour assistante indépendante, c'est aussi donner une maison commune à tous vos points de contact."
+   },
+   {
+    h2: "Que change concrètement une page packages lisible ?",
+    body: "Une page claire réduit les appels de qualification floue. La cliente arrive déjà alignée sur le forfait et le format de collaboration.\n\nVous préparez mieux le premier entretien. Vous facturez votre temps d'assistance, pas celui passé à réexpliquer les bases de vos packages."
+   }
+  ],
+  includedTitle: "Ce qui est inclus dans un site Kopio pour assistante virtuelle",
+  priceTitle: "Les formules pour une assistante virtuelle",
+  recommendedPlanId: "launch",
+  relatedBesoinSlug: "site-vitrine-independante",
+  relatedBesoinLabel: "site vitrine d'indépendante",
+  closing: "Si vous voulez une page digne de vos missions d'assistante, écrivez-moi : je clarifie avec vous vos packages et le parcours de contact.",
+  ctaLabel: "En discuter avec Karelle",
+  faqs: [
+   {
+    question: "Un site est-il utile si mes clientes me trouvent déjà sur LinkedIn ?",
+    answer: "Les réseaux génèrent de la visibilité. Le site porte packages, preuves et contact hors algorithme. C'est la référence stable après un premier échange."
+   },
+   {
+    question: "Puis-je présenter plusieurs packages ?",
+    answer: "Oui. Je priorise la clarté : mieux vaut trois forfaits nets que dix flous."
+   },
+   {
+    question: "Combien coûte un site web pour assistante virtuelle ?",
+    answer: "Trois durées, un même socle (jusqu'à 5 pages, réservation, atelier rédaction) : 89 €/mois sur 24 mois, 139 €/mois sur 12 mois, 179 €/mois sur 6 mois. Le détail et la propriété du site sont sur la page tarifs."
+   },
+   {
+    question: "Pourrez-vous faire évoluer le site ensuite ?",
+    answer: "Oui. Vous m'envoyez la modification par email ; je mets à jour sous 24 à 72 h. Aucun outil à apprendre. Les évolutions plus larges se discutent avant de toucher à la structure."
+   }
+  ],
+  image: "/image/independant.jpg",
+  imageAlt: "Présence en ligne pour assistante virtuelle indépendante"
+ },
+ {
+  slug: "therapeute",
+  label: "Thérapeute",
+  keyword: "site web pour thérapeute",
+  metier: "thérapeute",
+  metierPlural: "thérapeutes",
+  title: "Site web pour thérapeute : cadre clair et crédible",
+  metaDescription: "Site web pour thérapeute : cadre clinique, éthique, prise de contact. Distinct d'une page sophrologie. Présence sobre et rassurante.",
+  updatedAt: "2026-10-09",
+  h1: "Une présence sobre pour votre cabinet",
+  h1Highlight: "présence sobre",
+  factChips: [
+   "Création de site",
+   "Positionnement",
+   "Visibilité"
+  ],
+  tldr: "Un site pour thérapeute pose votre cadre (public, approches, limites), sans promesse de résultat ni ton commercial.",
+  intro: "Vous avez construit une pratique d'accompagnement au fil des séances et d'un cadre éthique précis. Mais lorsqu'une personne découvre votre nom après une recommandation ou sur un annuaire, que comprend-elle réellement de votre travail ?",
+  douleur: "Présence limitée à Doctolib, ou pages trop commerciales qui ne collent pas à votre éthique.",
+  whyTitle: "Pourquoi une thérapeute a besoin d'un site aligné avec son éthique",
+  whyHighlight: "éthique",
+  whyPoints: [
+   {
+    t: "Le ton compte autant que le design",
+    d: "Rassurer sans promettre de miracle : un site de cabinet, pas une page de vente."
+   },
+   {
+    t: "Cadre explicite",
+    d: "Public, modalités, approches, limites : la clarté crée la confiance."
+   },
+   {
+    t: "Discrétion et sobriété",
+    d: "Formulaire simple, infos utiles, pas de gadgets."
+   },
+   {
+    t: "Vous êtes déjà saturée",
+    d: "Pas de bricolage technique : vous validez, je livre et je maintiens."
+   }
+  ],
+  sections: [
+   {
+    h2: "Doctolib remplace-t-il vraiment un site pour thérapeute ?",
+    body: "Doctolib aide à la prise de rendez-vous et à la visibilité locale. Il ne raconte pas votre pratique, vos limites ni le déroulé d'une première séance.\n\nUne personne hésitante lit souvent plusieurs profils avant d'écrire ; un site pose le cadre avec votre ton. Doctolib reste un canal. Le site est votre vitrine éthique, hors logique d'annuaire."
+   },
+   {
+    h2: "Comment parler de votre pratique sans promettre de résultats ?",
+    body: "Le marketing agressif casse la confiance dans les métiers d'accompagnement. J'écris autour du cadre : pour qui vous recevez, comment se déroule une séance, quelles approches vous utilisez, sans garantie de guérison.\n\nPour une thérapeute, je reste sur votre langage professionnel. La page sophrologue traite un autre intent ; la page naturopathe un troisième. Une URL = un métier."
+   },
+   {
+    h2: "Un site peut-il rester discret et conforme à votre éthique ?",
+    body: "Oui, et c'est souvent la condition pour que vous vous sentiez à l'aise de le partager. Je pars de votre brief : ton, limites, mentions, absence de promesses.\n\nPas de formulations vendeuses. Vous validez chaque phrase sensible avant mise en ligne. Le site reflète votre cabinet."
+   },
+   {
+    h2: "Comment articuler site, Doctolib et Instagram ?",
+    body: "Instagram humanise ; Doctolib facilite le créneau ; le site explique la pratique en profondeur. Bio, fiche et signature renvoient vers la même URL de cadre.\n\nUne personne qui vous découvre sur Instagram lit le déroulé de séance sur le site avant de réserver. Vous réduisez les questions répétitives en message."
+   },
+   {
+    h2: "Que se passe-t-il quand vous modifiez tarifs ou modalités ?",
+    body: "Les cabinets ajustent horaires, tarifs et formats plusieurs fois par an. Vous m'envoyez la modification ; je mets à jour sous 24 à 72 h.\n\nVous n'ouvrez pas un outil entre deux séances. Les formules Kopio sont sur la page tarifs ; ici, l'essentiel est une présence qui suit le rythme réel du cabinet."
+   }
+  ],
+  includedTitle: "Ce qui est inclus dans un site Kopio pour thérapeute",
+  priceTitle: "Les formules pour une thérapeute",
+  recommendedPlanId: "launch",
+  relatedBesoinSlug: "site-avec-reservation-en-ligne",
+  relatedBesoinLabel: "site avec réservation en ligne",
+  closing: "Si vous voulez un site aligné avec votre cadre thérapeutique, écrivez-moi : je pars de votre pratique et de votre parcours de contact.",
+  ctaLabel: "En discuter avec Karelle",
+  faqs: [
+   {
+    question: "Doctolib remplace-t-il un site ?",
+    answer: "Doctolib aide à la prise de rendez-vous. Un site explique votre pratique et vous différencie. Les deux se complètent lorsque le lien du site apparaît sur votre fiche."
+   },
+   {
+    question: "Le site peut-il rester discret et éthique ?",
+    answer: "Oui. J'évite le marketing agressif. Le brief part de votre cadre professionnel et du ton que vous assumerez devant vos patientes."
+   },
+   {
+    question: "Combien coûte un site web pour thérapeute ?",
+    answer: "Trois durées, un même socle (jusqu'à 5 pages, réservation, atelier rédaction) : 89 €/mois sur 24 mois, 139 €/mois sur 12 mois, 179 €/mois sur 6 mois. Le détail et la propriété du site sont sur la page tarifs."
+   },
+   {
+    question: "Pourrez-vous faire évoluer le site ensuite ?",
+    answer: "Oui. Vous m'envoyez la modification par email ; je mets à jour sous 24 à 72 h. Aucun outil à apprendre. Les évolutions plus larges se discutent avant de toucher à la structure."
+   }
+  ],
+  image: "/image/yoga.jpg",
+  imageAlt: "Présence en ligne sobre pour thérapeute"
+ },
+ {
+  slug: "sophrologue",
+  label: "Sophrologue",
+  keyword: "site web pour sophrologue",
+  metier: "sophrologue",
+  metierPlural: "sophrologues",
+  title: "Site web pour sophrologue : cadre clair et crédible",
+  metaDescription: "Création de site pour sophrologue : déroulé de séance, distinction avec le coaching, réservation sobre. Intent distinct d'une page thérapeute.",
+  updatedAt: "2026-10-09",
+  h1: "Une page dédiée à votre accompagnement",
+  h1Highlight: "page dédiée",
+  factChips: [
+   "Création de site",
+   "Positionnement",
+   "Visibilité"
+  ],
+  tldr: "Un site pour sophrologue explique le déroulé de séance, distingue la pratique du coaching, et rend le prochain pas clair.",
+  intro: "Vous avez construit une pratique de sophrologie au fil des séances. Mais lorsqu'une personne cherche du soutien pour le stress ou le sommeil, que comprend-elle de votre cadre, distinct d'une thérapie ou d'un coaching ?",
+  douleur: "Cadre de séance peu clair en ligne, confusion fréquente avec le coaching, besoin de sérieux sans marketing agressif.",
+  whyTitle: "Pourquoi une sophrologue a besoin d'une page dédiée",
+  whyHighlight: "page dédiée",
+  whyPoints: [
+   {
+    t: "Votre pratique devient lisible",
+    d: "Déroulé, exercices, public : un cadre clair."
+   },
+   {
+    t: "La distinction compte",
+    d: "Sophrologie ≠ coaching : les limites sont posées."
+   },
+   {
+    t: "Réservation sobre",
+    d: "Un prochain pas simple, sans discours vendeur."
+   },
+   {
+    t: "Présence qui évolue",
+    d: "Ateliers et formats collectifs ajoutés au fil de l'eau."
+   }
+  ],
+  sections: [
+   {
+    h2: "Pourquoi une sophrologue a besoin d'une page dédiée, pas d'une page thérapeute générique ?",
+    body: "L'intention de recherche n'est pas la même. Ici, on parle stress, sommeil, respiration, déroulé de séance — pas cadre clinique thérapeutique.\n\nColler le même discours sur deux métiers proches crée de la confusion pour la lectrice et pour Google. Une URL dédiée protège votre positionnement."
+   },
+   {
+    h2: "Comment expliquer la sophrologie sans la confondre avec le coaching ?",
+    body: "La confusion est fréquente. Je structure le site autour de ce que vous faites concrètement en séance, pour qui, et ce que vous n'accompagnez pas.\n\nDes exemples d'exercices ou de formats aident sans transformer le site en cours en ligne. La clarté rassure davantage que les promesses."
+   },
+   {
+    h2: "Comment montrer exercices et formats sans transformer le site en cours en ligne ?",
+    body: "L'objectif n'est pas de tout enseigner gratuitement. C'est de faire comprendre le type de travail, le rythme des séances et le prochain pas.\n\nQuelques illustrations précises suffisent. Le reste se vit en séance. Le site ouvre la porte ; il ne remplace pas votre accompagnement."
+   },
+   {
+    h2: "Comment articuler Instagram, agenda et site pour une sophrologue ?",
+    body: "Instagram humanise. L'agenda facilite le créneau. Le site porte le cadre de la sophrologie.\n\nBio et publications renvoient vers la même URL. Une personne qui vous découvre le soir peut lire le déroulé avant de réserver."
+   },
+   {
+    h2: "Que faire quand vous lancez un atelier collectif ou un format entreprise ?",
+    body: "Les formats évoluent. Vous m'envoyez les éléments ; je mets à jour sous 24 à 72 h.\n\nVous n'avez pas à reconstruire le site à chaque nouveauté. Les formules Kopio sont sur la page tarifs ; ici, l'essentiel est une présence qui suit votre pratique."
+   }
+  ],
+  includedTitle: "Ce qui est inclus dans un site Kopio pour sophrologue",
+  priceTitle: "Les formules pour une sophrologue",
+  recommendedPlanId: "pro",
+  relatedBesoinSlug: "site-avec-reservation-en-ligne",
+  relatedBesoinLabel: "site avec réservation en ligne",
+  closing: "Si vous voulez un site qui pose clairement votre pratique de sophrologie, écrivez-moi.",
+  ctaLabel: "En discuter avec Karelle",
+  faqs: [
+   {
+    question: "En quoi un site sophrologue diffère-t-il d'une page coach ou thérapeute ?",
+    answer: "L'intention de recherche n'est pas la même. Ici : stress, sommeil, respiration, déroulé. Une URL dédiée évite un discours générique."
+   },
+   {
+    question: "Faut-il tout expliquer en ligne ?",
+    answer: "Non. Assez pour comprendre le cadre et oser le premier contact. Le travail se poursuit en séance."
+   },
+   {
+    question: "Combien coûte un site web pour sophrologue ?",
+    answer: "Trois durées, un même socle (jusqu'à 5 pages, réservation, atelier rédaction) : 89 €/mois sur 24 mois, 139 €/mois sur 12 mois, 179 €/mois sur 6 mois. Le détail et la propriété du site sont sur la page tarifs."
+   },
+   {
+    question: "Pourrez-vous faire évoluer le site ensuite ?",
+    answer: "Oui. Vous m'envoyez la modification par email ; je mets à jour sous 24 à 72 h. Aucun outil à apprendre. Les évolutions plus larges se discutent avant de toucher à la structure."
+   }
+  ],
+  image: "/image/pulse.jpg",
+  imageAlt: "Présence en ligne pour sophrologue"
+ },
+ {
+  slug: "naturopathe",
+  label: "Naturopathe",
+  keyword: "site web pour naturopathe",
+  metier: "naturopathe",
+  metierPlural: "naturopathes",
+  title: "Site web pour naturopathe : présence claire et responsable",
+  metaDescription: "Site web pour naturopathe : bilans, suivi, cadre responsable. Distinction nette avec d'autres approches. Présence claire et crédible.",
+  updatedAt: "2026-10-09",
+  h1: "Un site qui porte vos bilans et votre cadre",
+  h1Highlight: "vos bilans",
+  factChips: [
+   "Création de site",
+   "Positionnement",
+   "Visibilité"
+  ],
+  tldr: "Un site pour naturopathe clarifie bilans, suivi et limites, avec un ton responsable et un prochain pas lisible.",
+  intro: "Vous avez construit une pratique de naturopathie au fil des bilans et des accompagnements. Mais lorsqu'une personne cherche une approche d'hygiène de vie, que comprend-elle de votre cadre et de vos limites ?",
+  douleur: "Message flou entre bien-être générique et pratique structurée, difficile à distinguer en ligne.",
+  whyTitle: "Pourquoi une naturopathe a besoin d'un cadre clairement posé en ligne",
+  whyHighlight: "clairement posé",
+  whyPoints: [
+   {
+    t: "Votre approche devient lisible",
+    d: "Bilans, suivi, public : un cadre clair."
+   },
+   {
+    t: "Les limites rassurent",
+    d: "Ce que vous accompagnez, et ce que vous orientez ailleurs."
+   },
+   {
+    t: "Ton responsable",
+    d: "Pas de promesses excessives ; de la précision."
+   },
+   {
+    t: "Présence qui évolue",
+    d: "Ateliers et formats ajoutés au fil de l'eau."
+   }
+  ],
+  sections: [
+   {
+    h2: "Puis-je communiquer en ligne sans me mettre en risque ?",
+    body: "Oui, à condition de rester précise et responsable. Le site explique votre cadre, vos modalités et vos limites, sans promesses excessives.\n\nJe m'appuie sur votre brief professionnel. Vous validez les formulations sensibles. La clarté protège autant qu'elle rassure."
+   },
+   {
+    h2: "Comment expliquer bilans et suivi sans promettre de guérison ?",
+    body: "Je structure autour du déroulé : premier échange, bilan, suivi, ce qui est attendu de part et d'autre.\n\nLa personne comprend le type d'accompagnement avant d'écrire. Vous filtrez les attentes irréalistes. Le site ouvre un dialogue honnête."
+   },
+   {
+    h2: "Comment distinguer naturopathie et médecines conventionnelles sur le site ?",
+    body: "La distinction évite la confusion et les malentendus. Vous expliquez votre place dans le parcours de la personne, sans opposition caricaturale.\n\nUne URL dédiée (distincte d'une page thérapeute ou sophrologue) protège aussi l'intent de recherche."
+   },
+   {
+    h2: "Comment articuler site, annuaires et réseaux pour une naturopathe ?",
+    body: "Les annuaires et Instagram ouvrent des portes. Le site porte le cadre complet et le contact.\n\nChaque fiche et chaque bio renvoient vers la même URL. Quand un annuaire change, votre référence reste stable."
+   },
+   {
+    h2: "Que se passe-t-il quand vous modifiez tarifs, formats ou zone d'exercice ?",
+    body: "Vous m'envoyez la modification ; je mets à jour sous 24 à 72 h. Vous restez concentrée sur vos consultations.\n\nLes formules Kopio sont sur la page tarifs. Ici, l'essentiel est une présence alignée dans la durée."
+   }
+  ],
+  includedTitle: "Ce qui est inclus dans un site Kopio pour naturopathe",
+  priceTitle: "Les formules pour une naturopathe",
+  recommendedPlanId: "pro",
+  relatedBesoinSlug: "site-avec-reservation-en-ligne",
+  relatedBesoinLabel: "site avec réservation en ligne",
+  closing: "Si vous voulez un site qui pose clairement votre pratique de naturopathie, écrivez-moi.",
+  ctaLabel: "En discuter avec Karelle",
+  faqs: [
+   {
+    question: "En quoi un site naturopathe diffère-t-il d'autres pages bien-être ?",
+    answer: "L'intent porte sur bilans, hygiène de vie et cadre de suivi. Une URL dédiée évite un discours générique collé à d'autres métiers."
+   },
+   {
+    question: "Comment rester responsable dans les textes ?",
+    answer: "On part de votre cadre professionnel, on évite les promesses excessives, vous validez chaque formulation sensible."
+   },
+   {
+    question: "Combien coûte un site web pour naturopathe ?",
+    answer: "Trois durées, un même socle (jusqu'à 5 pages, réservation, atelier rédaction) : 89 €/mois sur 24 mois, 139 €/mois sur 12 mois, 179 €/mois sur 6 mois. Le détail et la propriété du site sont sur la page tarifs."
+   },
+   {
+    question: "Pourrez-vous faire évoluer le site ensuite ?",
+    answer: "Oui. Vous m'envoyez la modification par email ; je mets à jour sous 24 à 72 h. Aucun outil à apprendre. Les évolutions plus larges se discutent avant de toucher à la structure."
+   }
+  ],
+  image: "/image/pulse.jpg",
+  imageAlt: "Présence en ligne pour naturopathe"
+ },
+ {
+  slug: "formatrice",
+  label: "Formatrice",
+  keyword: "site web pour formatrice",
+  metier: "formatrice",
+  metierPlural: "formatrices",
+  title: "Site web pour formatrice : programmes clairs et crédibles",
+  metaDescription: "Site web pour formatrice : présenter programmes, formats et contact. Une vitrine stable hors LinkedIn et PDF.",
+  updatedAt: "2026-10-09",
+  h1: "Rendre vos formations compréhensibles en ligne",
+  h1Highlight: "compréhensibles en ligne",
+  factChips: [
+   "Création de site",
+   "Positionnement",
+   "Visibilité"
+  ],
+  tldr: "Un site pour formatrice rend vos programmes lisibles, partageables et joignables — hors fil LinkedIn et pièces jointes fragiles.",
+  intro: "Vous avez construit une activité de formation au fil des programmes. Mais lorsqu'une structure découvre votre nom, que peut-elle transmettre : un catalogue clair, ou un PDF difficile à lire sur mobile ?",
+  douleur: "Programmes difficiles à lire en ligne, demandes floues, dépendance aux réseaux ou au bouche-à-oreille seul.",
+  whyTitle: "Pourquoi une formatrice a besoin d'une vitrine de programmes",
+  whyHighlight: "vitrine de programmes",
+  whyPoints: [
+   {
+    t: "Programmes lisibles",
+    d: "Public, objectifs, formats : une structure nette."
+   },
+   {
+    t: "Preuve avant slogan",
+    d: "Parcours et retours visibles."
+   },
+   {
+    t: "URL stable",
+    d: "Pour LinkedIn, email et catalogues."
+   },
+   {
+    t: "Catalogue vivant",
+    d: "Sessions et tarifs mis à jour sans tout reconstruire."
+   }
+  ],
+  sections: [
+   {
+    h2: "Pourquoi un PDF et Instagram ne suffisent pas pour vendre une formation ?",
+    body: "Un PDF se perd et se lit mal sur téléphone. Instagram inspire mais ne détaille pas objectifs, formats et modalités.\n\nLe site porte le catalogue que l'on peut transmettre en interne. Vous contrôlez le récit hors algorithme et hors pièce jointe fragile."
+   },
+   {
+    h2: "Comment présenter plusieurs programmes sans noyer la lectrice ?",
+    body: "Trop d'intitulés flous créent des demandes hors cible. Je structure chaque programme : pour qui, objectifs, format, prochain pas.\n\nMieux vaut trois offres nettes que dix pages confuses. La lectrice se situe avant de vous écrire."
+   },
+   {
+    h2: "Faut-il une plateforme de formation avant d'avoir un site vitrine ?",
+    body: "Pas toujours. Beaucoup de formatrices ont d'abord besoin d'une vitrine claire pour générer des demandes, avant d'industrialiser le parcours pédagogique en ligne.\n\nOn pose la présence et le contact ; les outils plus lourds viennent quand le volume le justifie."
+   },
+   {
+    h2: "Comment votre site relie LinkedIn, email et catalogues OPCO ?",
+    body: "Signature mail, LinkedIn et documents de proposition pointent vers la même URL. Une décideuse retrouve le détail des programmes sans version contradictoire.\n\nLes canaux apportent la découverte ; le site porte la référence."
+   },
+   {
+    h2: "Que se passe-t-il quand vous ajoutez une session ou changez un tarif ?",
+    body: "Vous m'envoyez les éléments ; je mets à jour sous 24 à 72 h. Vous ne vous formez pas à un outil entre deux sessions.\n\nLes formules Kopio sont sur la page tarifs. Ici, l'essentiel est une vitrine qui suit votre catalogue."
+   }
+  ],
+  includedTitle: "Ce qui est inclus dans un site Kopio pour formatrice",
+  priceTitle: "Les formules pour une formatrice",
+  recommendedPlanId: "pro",
+  relatedBesoinSlug: "creer-son-site-sans-competences-techniques",
+  relatedBesoinLabel: "créer son site sans compétences techniques",
+  closing: "Si vous voulez une vitrine claire pour vos programmes, écrivez-moi.",
+  ctaLabel: "En discuter avec Karelle",
+  faqs: [
+   {
+    question: "LinkedIn suffit-il pour une formatrice ?",
+    answer: "Il génère de la visibilité. Le site porte programmes, preuves et contact hors fil. C'est la référence à transmettre."
+   },
+   {
+    question: "Faut-il une plateforme e-learning dès le départ ?",
+    answer: "Pas forcément. Une vitrine claire peut suffire pour démarrer ; on industrialise ensuite si besoin."
+   },
+   {
+    question: "Combien coûte un site web pour formatrice ?",
+    answer: "Trois durées, un même socle (jusqu'à 5 pages, réservation, atelier rédaction) : 89 €/mois sur 24 mois, 139 €/mois sur 12 mois, 179 €/mois sur 6 mois. Le détail et la propriété du site sont sur la page tarifs."
+   },
+   {
+    question: "Pourrez-vous faire évoluer le site ensuite ?",
+    answer: "Oui. Vous m'envoyez la modification par email ; je mets à jour sous 24 à 72 h. Aucun outil à apprendre. Les évolutions plus larges se discutent avant de toucher à la structure."
+   }
+  ],
+  image: "/image/independant.jpg",
+  imageAlt: "Présence en ligne pour formatrice indépendante"
+ },
+ {
+  slug: "creatrice",
+  label: "Créatrice",
+  keyword: "site web pour créatrice",
+  metier: "créatrice",
+  metierPlural: "créatrices",
+  title: "Site web pour créatrice : univers de marque clair",
+  metaDescription: "Site web pour créatrice et marque artisanale : univers, process, précommande. Exemple Madeleine Fragrance.",
+  updatedAt: "2026-10-09",
+  h1: "Un site à la hauteur de votre univers",
+  h1Highlight: "votre univers",
+  factChips: [
+   "Création de site",
+   "Positionnement",
+   "Visibilité"
+  ],
+  tldr: "Un site pour créatrice pose l'univers de votre marque, le process et l'acte de commande — hors algorithme Instagram.",
+  intro: "Vous avez construit une marque au fil des pièces et d'un univers bien à vous. Mais lorsqu'une personne découvre votre nom après Instagram, que comprend-elle de votre process, de vos délais et de la façon de commander ?",
+  douleur: "Feed Instagram fort, mais aucune vitrine stable pour précommandes, presse ou collabs.",
+  whyTitle: "Pourquoi une créatrice a besoin d'une maison de marque",
+  whyHighlight: "maison de marque",
+  whyPoints: [
+   {
+    t: "L'univers est le produit",
+    d: "Typographie et photos prolongent la marque hors du fil."
+   },
+   {
+    t: "Le process rassure",
+    d: "Sur-mesure, délais et matières expliqués clairement."
+   },
+   {
+    t: "Une URL stable",
+    d: "Pour presse, collabs et Google."
+   },
+   {
+    t: "Vous êtes déjà en production",
+    d: "Je gère le digital pendant que vous créez."
+   }
+  ],
+  sections: [
+   {
+    h2: "Pourquoi Instagram ne suffit pas pour une marque créative ?",
+    body: "Instagram montre le travail en cours ; il ne remplace pas une vitrine que vous contrôlez. L'algorithme cache les publications ; la presse demande une URL stable.\n\nLe site porte l'univers, le process et la précommande. Instagram reste l'attraction ; le site devient la maison de la marque."
+   },
+   {
+    h2: "Comment raconter le sur-mesure sans noyer la cliente ?",
+    body: "Le sur-mesure intimide si les étapes restent floues. Je structure le process : brief, création, délais, livraison, ce qui est inclus.\n\nLa cliente comprend où elle met les pieds avant d'écrire. Vous recevez des demandes plus précises et passez moins de temps à réexpliquer les bases en messages."
+   },
+   {
+    h2: "Faut-il une boutique complète avant d'avoir un site de marque ?",
+    body: "Pas toujours. Beaucoup de créatrices n'ont pas encore le volume pour absorber une boutique lourde. Une vitrine avec précommande ou demande de devis valide la demande et pose l'univers.\n\nQuand le volume est là, on peut enrichir le parcours sans perdre l'identité construite."
+   },
+   {
+    h2: "Comment votre site travaille avec Instagram, la presse et les marketplaces ?",
+    body: "Bio Instagram, dossier de presse et fiches marketplace renvoient vers la même URL de marque. Une journaliste trouve l'histoire sans fouiller vos stories.\n\nLes plateformes restent des canaux ; le site est la source officielle."
+   },
+   {
+    h2: "Que se passe-t-il quand vous lancez une nouvelle collection ?",
+    body: "Vous m'envoyez textes et visuels ; je mets à jour sous 24 à 72 h. Vous ne reconstruisez pas une boutique entière à chaque lancement.\n\nLes formules sont sur la page tarifs. Ici, l'essentiel est une maison de marque qui suit vos drops."
+   }
+  ],
+  includedTitle: "Ce qui est inclus dans un site Kopio pour créatrice",
+  priceTitle: "Les formules pour une créatrice",
+  caseStudyId: "madeleine-fragrance",
+  caseStudyHeading: "Exemple concret : Madeleine Fragrance",
+  recommendedPlanId: "pro",
+  relatedBesoinSlug: "boutique-en-ligne-petite-entreprise",
+  relatedBesoinLabel: "boutique en ligne",
+  closing: "Si vous voulez une vitrine à la hauteur de votre univers, écrivez-moi.",
+  ctaLabel: "En discuter avec Karelle",
+  faqs: [
+   {
+    question: "Puis-je ouvrir une boutique en ligne ?",
+    answer: "Vitrine et précommandes d'abord. Boutique complète (panier, paiement) sur devis quand le volume le justifie."
+   },
+   {
+    question: "Avez-vous un exemple de site pour créatrice ?",
+    answer: "Oui : Madeleine Fragrance, une vitrine de marque pensée pour raconter l'univers et convertir en précommande."
+   },
+   {
+    question: "Combien coûte un site web pour créatrice ?",
+    answer: "Trois durées, un même socle (jusqu'à 5 pages, réservation, atelier rédaction) : 89 €/mois sur 24 mois, 139 €/mois sur 12 mois, 179 €/mois sur 6 mois. Le détail et la propriété du site sont sur la page tarifs."
+   },
+   {
+    question: "Pourrez-vous faire évoluer le site ensuite ?",
+    answer: "Oui. Vous m'envoyez la modification par email ; je mets à jour sous 24 à 72 h. Aucun outil à apprendre. Les évolutions plus larges se discutent avant de toucher à la structure."
+   }
+  ],
+  image: "/image/madeleine.jpg",
+  imageAlt: "Madeleine Fragrance : vitrine de marque créatrice"
+ },
+ {
+  slug: "estheticienne",
+  label: "Esthéticienne",
+  keyword: "site web pour esthéticienne",
+  metier: "esthéticienne",
+  metierPlural: "esthéticiennes",
+  title: "Site web pour esthéticienne : carte de soins claire",
+  metaDescription: "Site web pour esthéticienne / institut : soins, tarifs, réservation. Une présence locale claire hors Instagram.",
+  updatedAt: "2026-10-09",
+  h1: "Votre institut, lisible avant le premier rendez-vous",
+  h1Highlight: "lisible",
+  factChips: [
+   "Création de site",
+   "Positionnement",
+   "Visibilité"
+  ],
+  tldr: "Un site pour esthéticienne rend votre carte de soins lisible et la réservation simple — hors fil Instagram.",
+  intro: "Vous avez construit un institut ou une pratique esthétique au fil des soins. Mais lorsqu'une cliente cherche un soin près de chez elle, que comprend-elle de votre carte et de la façon de réserver ?",
+  douleur: "Carte de soins difficile à lire en ligne, réservation confuse, dépendance aux réseaux.",
+  whyTitle: "Pourquoi une esthéticienne a besoin d'une carte de soins claire en ligne",
+  whyHighlight: "carte de soins",
+  whyPoints: [
+   {
+    t: "Carte lisible",
+    d: "Soins, durées, pour qui : une structure nette."
+   },
+   {
+    t: "Réservation claire",
+    d: "Prochain pas visible sans allers-retours."
+   },
+   {
+    t: "Présence locale",
+    d: "Google et Instagram aboutissent sur une URL stable."
+   },
+   {
+    t: "Carte vivante",
+    d: "Nouveaux soins ajoutés sans tout recommencer."
+   }
+  ],
+  sections: [
+   {
+    h2: "Pourquoi Instagram ne remplace pas un site pour votre institut ?",
+    body: "Instagram montre l'ambiance ; il ne remplace pas une carte de soins stable ni un parcours de réservation clair.\n\nLes publications disparaissent. Une URL reste trouvable et partageable. Instagram attire ; le site porte l'offre et le rendez-vous."
+   },
+   {
+    h2: "Comment présenter soins et tarifs sans perdre la cliente ?",
+    body: "Une carte trop longue ou trop vague crée de l'hésitation. Je structure par familles de soins, durées et prochain pas.\n\nLa cliente se situe avant d'écrire. Vous réduisez les messages « vous faites aussi… ? »."
+   },
+   {
+    h2: "Et si vous n'avez pas encore assez de photos avant / après ?",
+    body: "Ce n'est pas un frein pour démarrer. On part de vos meilleurs visuels et d'une carte claire ; la galerie s'enrichit ensuite.\n\nAttendre le portfolio parfait retarde la réservation utile dès maintenant."
+   },
+   {
+    h2: "Comment relier site, Instagram et Google Business ?",
+    body: "Bio Instagram et fiche Google pointent vers la même URL. Une cliente qui vous cherche localement retrouve soins et réservation sans friction.\n\nChaque canal a un rôle ; le site est la référence de l'institut."
+   },
+   {
+    h2: "Que change une réservation en ligne pour votre planning ?",
+    body: "Moins d'allers-retours, moins d'oublis, des demandes déjà cadrées. Vous gardez la main sur vos disponibilités.\n\nLes formules Kopio sont sur la page tarifs. Ici, l'essentiel est un parcours pensé pour votre quotidien d'institut."
+   }
+  ],
+  includedTitle: "Ce qui est inclus dans un site Kopio pour esthéticienne",
+  priceTitle: "Les formules pour une esthéticienne",
+  caseStudyId: "coiffure-luna",
+  caseStudyHeading: "Exemple concret : Luna",
+  recommendedPlanId: "pro",
+  relatedBesoinSlug: "site-avec-reservation-en-ligne",
+  relatedBesoinLabel: "site avec réservation en ligne",
+  closing: "Si vous voulez une carte de soins claire et une réservation simple, écrivez-moi.",
+  ctaLabel: "En discuter avec Karelle",
+  faqs: [
+   {
+    question: "Instagram suffit-il pour une esthéticienne ?",
+    answer: "Il montre le quotidien. Le site porte la carte de soins et la réservation hors fil."
+   },
+   {
+    question: "Faut-il beaucoup de photos avant / après ?",
+    answer: "Non pour démarrer. On priorise une carte claire ; la galerie s'enrichit ensuite."
+   },
+   {
+    question: "Combien coûte un site web pour esthéticienne ?",
+    answer: "Trois durées, un même socle (jusqu'à 5 pages, réservation, atelier rédaction) : 89 €/mois sur 24 mois, 139 €/mois sur 12 mois, 179 €/mois sur 6 mois. Le détail et la propriété du site sont sur la page tarifs."
+   },
+   {
+    question: "Pourrez-vous faire évoluer le site ensuite ?",
+    answer: "Oui. Vous m'envoyez la modification par email ; je mets à jour sous 24 à 72 h. Aucun outil à apprendre. Les évolutions plus larges se discutent avant de toucher à la structure."
+   }
+  ],
+  image: "/image/coiffure.jpg",
+  imageAlt: "Présence en ligne pour esthéticienne / institut"
+ },
+ {
+  slug: "photographe",
+  label: "Photographe",
+  keyword: "site web pour photographe",
+  metier: "photographe",
+  metierPlural: "photographes",
+  title: "Site web pour photographe : portfolio clair et crédible",
+  metaDescription: "Site web pour photographe : portfolio stable, formules, devis. Hors Instagram et Behance.",
+  updatedAt: "2026-10-09",
+  h1: "Un portfolio qui laisse parler vos images",
+  h1Highlight: "vos images",
+  factChips: [
+   "Création de site",
+   "Positionnement",
+   "Visibilité"
+  ],
+  tldr: "Un site pour photographe porte votre portfolio, vos formules et un devis clair — hors algorithme Instagram.",
+  intro: "Vous avez construit une pratique photographique au fil des séries. Mais lorsqu'une personne découvre votre nom après Instagram, que comprend-elle de vos formules et de la façon de demander un devis ?",
+  douleur: "Travail fort sur Instagram, mais portfolio instable et formules difficiles à lire hors du fil.",
+  whyTitle: "Pourquoi une photographe a besoin d'un portfolio qui lui appartient",
+  whyHighlight: "lui appartient",
+  whyPoints: [
+   {
+    t: "Portfolio maison",
+    d: "Séries lisibles, hors algorithme."
+   },
+   {
+    t: "Formules claires",
+    d: "Ce qui est inclus, pour quel type de projet."
+   },
+   {
+    t: "URL stable",
+    d: "Pour devis, presse et recommandations."
+   },
+   {
+    t: "Séries vivantes",
+    d: "Nouveaux travaux ajoutés sans tout reconstruire."
+   }
+  ],
+  sections: [
+   {
+    h2: "Pourquoi Instagram ou Behance ne remplacent pas un portfolio ?",
+    body: "L'algorithme cache votre travail. Behance et Instagram restent des canaux de découverte ; ils ne remplacent pas une maison que vous contrôlez.\n\nLe site porte formules et devis. Vous partagez une URL stable, pas un fil qui disparaît."
+   },
+   {
+    h2: "Comment éviter qu'une galerie trop lourde fasse fuir la cliente ?",
+    body: "Trop d'images, trop lentes, trop peu de contexte. Je priorise des séries fortes, un rythme de lecture et un prochain pas clair.\n\nMieux vaut moins de photos bien présentées qu'une galerie qui fatigue."
+   },
+   {
+    h2: "Est-ce trop tôt si vous n'avez que deux ou trois séries fortes ?",
+    body: "Non. On part de vos meilleures séries et de formules lisibles ; le portfolio s'enrichit ensuite.\n\nAttendre l'archive complète retarde les devis utiles dès maintenant."
+   },
+   {
+    h2: "Comment votre site relie Instagram, Pinterest et votre emailing ?",
+    body: "Bio, épingles et signature mail pointent vers la même URL. Une prospecte retrouve le portfolio officiel sans version contradictoire.\n\nLes plateformes apportent la découverte ; le site porte la preuve et le devis."
+   },
+   {
+    h2: "Que change un formulaire de devis qualifiant ?",
+    body: "Vous recevez des demandes déjà cadrées : type de projet, date, budget approximatif. Vous préparez mieux le premier échange.\n\nLes formules Kopio sont sur la page tarifs. Ici, l'essentiel est un portfolio pensé pour convertir sans vous épuiser."
+   }
+  ],
+  includedTitle: "Ce qui est inclus dans un site Kopio pour photographe",
+  priceTitle: "Les formules pour une photographe",
+  caseStudyId: "photographe-iris",
+  caseStudyHeading: "Exemple concret : Iris",
+  recommendedPlanId: "pro",
+  relatedBesoinSlug: "site-vitrine-independante",
+  relatedBesoinLabel: "site vitrine d'indépendante",
+  closing: "Si vous voulez un portfolio clair qui génère des devis plus nets, écrivez-moi.",
+  ctaLabel: "En discuter avec Karelle",
+  faqs: [
+   {
+    question: "Instagram remplace-t-il un portfolio ?",
+    answer: "Non. L'algorithme cache votre travail. Un site est stable et partageable. Instagram reste un canal de découverte."
+   },
+   {
+    question: "Puis-je ajouter des séries plus tard ?",
+    answer: "Oui. Vous m'envoyez la nouvelle série ; je mets à jour sous 24 à 72 h."
+   },
+   {
+    question: "Combien coûte un site web pour photographe ?",
+    answer: "Trois durées, un même socle (jusqu'à 5 pages, réservation, atelier rédaction) : 89 €/mois sur 24 mois, 139 €/mois sur 12 mois, 179 €/mois sur 6 mois. Le détail et la propriété du site sont sur la page tarifs."
+   },
+   {
+    question: "Pourrez-vous faire évoluer le site ensuite ?",
+    answer: "Oui. Vous m'envoyez la modification par email ; je mets à jour sous 24 à 72 h. Aucun outil à apprendre. Les évolutions plus larges se discutent avant de toucher à la structure."
+   }
+  ],
+  image: "/image/photographe.jpg",
+  imageAlt: "Portfolio web pour photographe indépendante"
+ },
+ {
+  slug: "architecte-interieur",
+  label: "Architecte d'intérieur",
+  keyword: "site web pour architecte d'intérieur",
+  metier: "architecte d'intérieur",
+  metierPlural: "architectes d'intérieur",
+  title: "Site web pour architecte d'intérieur : portfolio éditorial",
+  metaDescription: "Site web pour architecte d'intérieur : galerie projets, process, devis. Une vitrine éditoriale pour des demandes plus nettes.",
+  updatedAt: "2026-10-09",
+  h1: "Présenter vos projets sans noyer le client",
+  h1Highlight: "vos projets",
+  factChips: [
+   "Création de site",
+   "Positionnement",
+   "Visibilité"
+  ],
+  tldr: "Un site pour architecte d'intérieur met vos projets en valeur et prépare des demandes de devis déjà cadrées.",
+  intro: "Vous avez construit une pratique d'architecture d'intérieur au fil des projets. Mais lorsqu'un maître d'ouvrage découvre votre nom, que comprend-il de votre style, de votre process et de la façon de demander un devis ?",
+  douleur: "Portfolio trop générique ou PDF fragile : les projets ne ressortent pas, les demandes restent vagues.",
+  whyTitle: "Pourquoi une architecte d'intérieur a besoin d'un portfolio éditorial",
+  whyHighlight: "portfolio éditorial",
+  whyPoints: [
+   {
+    t: "Chaque projet peut respirer",
+    d: "Galerie claire, légendes, lecture éditoriale."
+   },
+   {
+    t: "Le process rassure",
+    d: "Étapes et collaboration explicites avant l'appel."
+   },
+   {
+    t: "Le devis commence en ligne",
+    d: "Formulaire qualifiant : surface, type, ville."
+   },
+   {
+    t: "Vous êtes sur les chantiers",
+    d: "Je maintiens le site pendant vos rendez-vous."
+   }
+  ],
+  sections: [
+   {
+    h2: "Pourquoi un PDF de projets ne suffit plus ?",
+    body: "Un PDF se perd, se compresse mal sur mobile et se met à jour difficilement. Un site éditorial montre chaque projet avec le rythme qu'il mérite.\n\nLe client potentiel comprend votre style avant d'écrire. Vous partagez une URL, pas une pièce jointe fragile."
+   },
+   {
+    h2: "Comment rassurer un client sur un budget d'aménagement ?",
+    body: "Les budgets demandent un cadre avant le premier appel. Je rends visibles les étapes de collaboration et ce que le formulaire doit collecter.\n\nLe client arrive déjà informé. Vous qualifiez mieux. Le site prépare un échange sérieux."
+   },
+   {
+    h2: "Faut-il attendre d'avoir dix projets photographiés ?",
+    body: "Attendre le portfolio parfait retarde des demandes déjà possibles. Je mets en avant vos projets les mieux documentés et je clarifie votre process.\n\nLa structure accueille de nouvelles études de cas ensuite. Le site grandit avec votre agence."
+   },
+   {
+    h2: "Comment votre site relie Instagram, Houzz et votre réseau pro ?",
+    body: "Bio Instagram, profils spécialisés et signature mail pointent vers la même URL. Un maître d'ouvrage retrouve le détail des projets sur le site.\n\nLes plateformes apportent la découverte ; le site porte la preuve et le devis."
+   },
+   {
+    h2: "Que se passe-t-il quand vous livrez un nouveau projet ?",
+    body: "Vous m'envoyez photos et légendes ; je mets à jour la galerie sous 24 à 72 h. Vous ne reconstruisez pas le site à chaque livraison.\n\nLes formules sont sur la page tarifs. Ici, l'essentiel est un portfolio qui suit vos chantiers."
+   }
+  ],
+  includedTitle: "Ce qui est inclus dans un site Kopio pour architecte d'intérieur",
+  priceTitle: "Les formules pour une architecte d'intérieur",
+  caseStudyId: "pulse",
+  caseStudyHeading: "Exemple concret : PULSE",
+  recommendedPlanId: "pro",
+  relatedBesoinSlug: "refonte-site-internet-entrepreneure",
+  relatedBesoinLabel: "refonte de site",
+  closing: "Si vous voulez un portfolio éditorial qui génère des demandes plus nettes, écrivez-moi.",
+  ctaLabel: "En discuter avec Karelle",
+  faqs: [
+   {
+    question: "Un PDF de projets suffit-il ?",
+    answer: "Un PDF se perd et se lit mal sur mobile. Un site montre vos projets avec le rythme qu'ils méritent, en une URL partageable."
+   },
+   {
+    question: "Puis-je ajouter des projets au fil de l'eau ?",
+    answer: "Oui. Par email : mise à jour sous 24 à 72 h, sans refonte à chaque chantier."
+   },
+   {
+    question: "Combien coûte un site web pour architecte d'intérieur ?",
+    answer: "Trois durées, un même socle (jusqu'à 5 pages, réservation, atelier rédaction) : 89 €/mois sur 24 mois, 139 €/mois sur 12 mois, 179 €/mois sur 6 mois. Le détail et la propriété du site sont sur la page tarifs."
+   },
+   {
+    question: "Pourrez-vous faire évoluer le site ensuite ?",
+    answer: "Oui. Vous m'envoyez la modification par email ; je mets à jour sous 24 à 72 h. Aucun outil à apprendre. Les évolutions plus larges se discutent avant de toucher à la structure."
+   }
+  ],
+  image: "/image/independant.jpg",
+  imageAlt: "Présence en ligne pour architecte d'intérieur"
+ },
+ {
+  slug: "wedding-planner",
+  label: "Wedding planner",
+  keyword: "site web pour wedding planner",
+  metier: "wedding planner",
+  metierPlural: "wedding planners",
+  title: "Site web pour wedding planner : univers et formules clairs",
+  metaDescription: "Site web pour wedding planner : univers, formules day-of / partiel / full, devis. Pour des couples qui comparent.",
+  updatedAt: "2026-10-09",
+  h1: "Des formules mariage claires pour les couples",
+  h1Highlight: "formules mariage",
+  factChips: [
+   "Création de site",
+   "Positionnement",
+   "Visibilité"
+  ],
+  tldr: "Un site pour wedding planner fait sentir votre univers, clarifie vos formules et rend la prise de contact évidente.",
+  intro: "Vous avez construit une activité d'organisation de mariages au fil des couples. Mais lorsqu'un couple découvre votre nom après Instagram ou un annuaire, que comprend-il de vos formules et de la façon de vous écrire ?",
+  douleur: "Beau feed Instagram, mais formules et process peu clairs pour des couples qui comparent.",
+  whyTitle: "Pourquoi une wedding planner a besoin d'un site qui clarifie les formules",
+  whyHighlight: "clarifie les formules",
+  whyPoints: [
+   {
+    t: "L'émotion se design",
+    d: "Le site prolonge l'expérience que vous vendez."
+   },
+   {
+    t: "Les formules clarifient",
+    d: "Day-of, partiel, full planning : le couple se situe."
+   },
+   {
+    t: "Le calendrier se remplit tôt",
+    d: "Devis avec date et lieu : vous qualifiez avant l'appel."
+   },
+   {
+    t: "En saison, zéro temps web",
+    d: "Je gère le site pendant que vous êtes sur les mariages."
+   }
+  ],
+  sections: [
+   {
+    h2: "Pourquoi Instagram ne suffit pas pour signer un couple ?",
+    body: "Instagram inspire ; il ne détaille pas formules, process et disponibilités. Les couples comparent plusieurs organisatrices et veulent une page à relire à deux.\n\nLe site porte votre univers, vos niveaux d'accompagnement et le formulaire de devis. Instagram reste l'émotion ; le site porte la décision."
+   },
+   {
+    h2: "Comment présenter day-of, partiel et full planning sans confondre ?",
+    body: "Des intitulés flous créent des appels hors budget. Je structure chaque formule : inclus, limites, pour quel type de mariage, prochain pas.\n\nLe couple se situe avant l'appel découverte. Vous préparez mieux le premier rendez-vous."
+   },
+   {
+    h2: "Est-ce utile si votre agenda est déjà plein pour cette année ?",
+    body: "Oui, parce que les couples réservent souvent 12 à 18 mois à l'avance. Un site à jour capture les demandes pour la suite pendant que vous êtes en pleine saison.\n\nOn peut indiquer clairement disponibilités ou liste d'attente. Le site travaille quand vous êtes sur un lieu de réception."
+   },
+   {
+    h2: "Comment votre site relie Instagram, Pinterest et les annuaires mariage ?",
+    body: "Bio Instagram, épingles Pinterest et fiches annuaires pointent vers la même URL. Un couple qui vous découvre sur un annuaire lit votre process sur le site.\n\nLes plateformes apportent la découverte ; le site porte la décision."
+   },
+   {
+    h2: "Que se passe-t-il après la saison des mariages ?",
+    body: "Vous ajoutez les plus beaux reportages, vous ajustez les formules, vous ouvrez les dates suivantes. Vous m'envoyez les éléments ; je mets à jour sous 24 à 72 h.\n\nVous ne vous formez pas à un outil après six mois intensifs. Les formules Kopio sont sur la page tarifs ; ici, l'essentiel est un site qui suit le rythme du métier."
+   }
+  ],
+  includedTitle: "Ce qui est inclus dans un site Kopio pour wedding planner",
+  priceTitle: "Les formules pour une wedding planner",
+  recommendedPlanId: "pro",
+  relatedBesoinSlug: "site-vitrine-independante",
+  relatedBesoinLabel: "site vitrine d'indépendante",
+  closing: "Si vous voulez un site qui fait sentir votre univers et clarifie vos formules, écrivez-moi.",
+  ctaLabel: "En discuter avec Karelle",
+  faqs: [
+   {
+    question: "Instagram suffit-il pour une wedding planner ?",
+    answer: "Il inspire. Le site convertit : formules, process, contact, et reste trouvable sur Google."
+   },
+   {
+    question: "Puis-je ajouter des mariages récents ?",
+    answer: "Oui. Mises à jour par email sous 24 à 72 h, typiquement en intersaison."
+   },
+   {
+    question: "Combien coûte un site web pour wedding planner ?",
+    answer: "Trois durées, un même socle (jusqu'à 5 pages, réservation, atelier rédaction) : 89 €/mois sur 24 mois, 139 €/mois sur 12 mois, 179 €/mois sur 6 mois. Le détail et la propriété du site sont sur la page tarifs."
+   },
+   {
+    question: "Pourrez-vous faire évoluer le site ensuite ?",
+    answer: "Oui. Vous m'envoyez la modification par email ; je mets à jour sous 24 à 72 h. Aucun outil à apprendre. Les évolutions plus larges se discutent avant de toucher à la structure."
+   }
+  ],
+  image: "/image/independant.jpg",
+  imageAlt: "Présence en ligne pour wedding planner"
+ }
 ];
 
 export function getMetier(slug: string): MetierPage | undefined {

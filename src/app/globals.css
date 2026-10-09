@@ -82,6 +82,16 @@ html {
   text-size-adjust: 100%;
 }
 
+/**
+ * Gouttières horizontales site-wide (= section « Votre projet, entre de bonnes mains »).
+ * Contenu en pleine largeur + padding progressif, sans max-w-5xl qui laisse de grands vides.
+ */
+@layer components {
+  .page-x {
+    @apply px-6 sm:px-10 md:px-14 lg:px-20 xl:px-28;
+  }
+}
+
 @media (max-width: 767px) {
   html {
     /* Évite un décalage bizarre sur Safari iOS */

@@ -9,12 +9,16 @@ type LandingHeroProps = {
   title: ReactNode;
   /** Accent auto si title string */
   highlight?: string;
+  /** Label éditorial au-dessus du H1 */
+  eyebrow?: string;
   intro: string;
   image: string;
   imageAlt: string;
   geoSummary?: string;
   proof?: string;
   delivery?: string;
+  /** Remplace les chips commerciales par défaut (prix, délai…) */
+  factChips?: string[];
   footer?: ReactNode;
 };
 
@@ -38,19 +42,21 @@ export function LandingHero({
   breadcrumbs,
   title,
   highlight,
+  eyebrow,
   intro,
   image,
   imageAlt,
   geoSummary,
   proof,
   delivery,
+  factChips,
   footer,
 }: LandingHeroProps) {
   const heading =
     typeof title === "string" ? withAccent(title, highlight) : title;
 
   return (
-    <section className="relative overflow-hidden pt-36 md:pt-40 pb-14 md:pb-20 px-5 sm:px-8">
+    <section className="relative overflow-hidden pt-36 md:pt-40 pb-14 md:pb-20 page-x">
       <div
         className="absolute inset-0 z-0 pointer-events-none"
         aria-hidden
@@ -64,28 +70,35 @@ export function LandingHero({
         }}
       />
 
-      <div className="relative z-10 max-w-5xl mx-auto">
+      <div className="relative z-10 w-full">
         <Breadcrumbs items={breadcrumbs} />
 
         <div className="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
           <div>
-            <SectionHead as="h1" size="xl" align="left" className="!max-w-none">
+            <SectionHead
+              as="h1"
+              size="lg"
+              align="left"
+              eyebrow={eyebrow}
+              className="!max-w-none"
+            >
               {heading}
             </SectionHead>
 
-            {geoSummary ? (
-              <div className="mt-5">
+            <p className="mt-6 text-base md:text-lg text-ink/80 font-medium leading-relaxed max-w-xl">
+              {intro}
+            </p>
+
+            {geoSummary || factChips ? (
+              <div className="mt-6">
                 <HeroFacts
                   geoSummary={geoSummary}
                   proof={proof}
                   delivery={delivery}
+                  chips={factChips}
                 />
               </div>
             ) : null}
-
-            <p className="mt-5 text-base md:text-lg text-muted font-medium leading-relaxed">
-              {intro}
-            </p>
             {footer}
           </div>
 

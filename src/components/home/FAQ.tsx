@@ -33,7 +33,7 @@ export function FAQ({
 
   return (
     <section
-      className="relative z-10 py-20 sm:py-24 md:py-28 lg:py-32 px-5 sm:px-8 md:px-10 bg-bg"
+      className="relative z-10 py-20 sm:py-24 md:py-28 lg:py-32 page-x bg-bg"
       id="faq"
     >
       <div className="w-full max-w-3xl mx-auto">

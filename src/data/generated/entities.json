@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-07T12:35:08.971Z",
+  "generatedAt": "2026-10-09T15:30:42.165Z",
   "base": "https://www.kopio.eu",
   "axioms": [
     {
@@ -119,161 +119,168 @@
       "slug": "coach",
       "url": "https://www.kopio.eu/site-web-pour/coach",
       "keyword": "site web pour coach",
-      "tldr": "Je crée ton site web pour coach en abonnement mensuel : design personnalisé, hébergement inclus, mises à jour par email. Dès 89 €/mois (grille octobre 2026 : 89 / 139 / 179 €), en ligne en 21 jours. Pensé pour les coachs femmes en France qui veulent une page d'offre claire à envoyer après un appel ou un networking."
+      "tldr": "Un site professionnel pour coach ne se limite pas à présenter votre activité. Il donne à votre expertise un espace pour être comprise et inspire confiance lorsque vous n'êtes pas là pour en parler."
     },
     {
       "type": "metier",
       "slug": "praticienne-bien-etre",
       "url": "https://www.kopio.eu/site-web-pour/praticienne-bien-etre",
       "keyword": "site web pour praticienne bien-être",
-      "tldr": "Je conçois des sites web pour praticiennes bien-être en abonnement mensuel : identité visuelle affirmée, parcours de réservation clair, loin du template wellness générique. Exemple : PULSE (Camille R.). Dès 89 €/mois ; hébergement et mises à jour inclus."
+      "tldr": "Un site pour praticienne bien-être ne se limite pas à une esthétique agréable. Il pose votre identité, votre offre et un parcours de réservation compréhensible."
     },
     {
       "type": "metier",
       "slug": "consultante",
       "url": "https://www.kopio.eu/site-web-pour/consultante",
       "keyword": "site web pour consultante",
-      "tldr": "Je crée ton site web pour consultante en abonnement mensuel : positionnement net, preuves, prise de contact professionnelle. Dès 89 €/mois (89 / 139 / 179 selon engagement, octobre 2026). Pour consultantes en France qui veulent un site pro sans gérer la technique ni dépendre uniquement de LinkedIn."
+      "tldr": "Un site pour consultante porte votre offre, vos preuves et un contact professionnel. Une référence stable hors du fil LinkedIn."
     },
     {
       "type": "metier",
       "slug": "assistante-virtuelle",
       "url": "https://www.kopio.eu/site-web-pour/assistante-virtuelle",
       "keyword": "site internet assistante virtuelle",
-      "tldr": "Je crée ton site internet assistante virtuelle en abonnement mensuel : packages lisibles, preuves, prise de contact professionnelle. Dès 89 €/mois, en ligne en 21 jours. Pensé pour les entrepreneuses assistantes indépendantes en France qui veulent convertir hors LinkedIn et Facebook."
+      "tldr": "Un site pour assistante virtuelle clarifie vos forfaits, votre cadre de collaboration et le prochain pas, hors algorithme."
     },
     {
       "type": "metier",
       "slug": "therapeute",
       "url": "https://www.kopio.eu/site-web-pour/therapeute",
       "keyword": "site web pour thérapeute",
-      "tldr": "Site web pour thérapeute ou hypnothérapeute : je pose ton cadre clinique (public, approches, limites), sans promesse de résultat ni ton commercial. Dès 89 €/mois (grille oct. 2026), livraison 21 jours. Objectif : des premiers messages déjà cadrés, pas une landing « venteuse »."
+      "tldr": "Un site pour thérapeute pose votre cadre (public, approches, limites), sans promesse de résultat ni ton commercial."
     },
     {
       "type": "metier",
       "slug": "sophrologue",
       "url": "https://www.kopio.eu/site-web-pour/sophrologue",
       "keyword": "site web pour sophrologue",
-      "tldr": "Création de site internet pour sophrologue : déroulé de séance, exercices, distinction nette avec le coaching, réservation sobre. Dès 89 €/mois (89 / 139 / 179, oct. 2026). Intent différent d'une page thérapeute : ici on parle stress, sommeil, respiration, pas cadre clinique."
+      "tldr": "Un site pour sophrologue explique le déroulé de séance, distingue la pratique du coaching, et rend le prochain pas clair."
     },
     {
       "type": "metier",
       "slug": "naturopathe",
       "url": "https://www.kopio.eu/site-web-pour/naturopathe",
-      "keyword": "site web naturopathe",
-      "tldr": "Je crée ton site web naturopathe en abonnement mensuel : cadre éthique, explication des bilans et du suivi, distinction claire avec la médecine conventionnelle, sans promesse de guérison. Dès 89 €/mois selon engagement (6, 12 ou 24 mois). Pour entrepreneuses naturopathes en France qui veulent communiquer avec sérieux."
+      "keyword": "site web pour naturopathe",
+      "tldr": "Un site pour naturopathe clarifie bilans, suivi et limites, avec un ton responsable et un prochain pas lisible."
     },
     {
       "type": "metier",
       "slug": "formatrice",
       "url": "https://www.kopio.eu/site-web-pour/formatrice",
       "keyword": "site web pour formatrice",
-      "tldr": "Je crée ton site web pour formatrice en abonnement : programmes clairs, preuves pédagogiques, inscription simplifiée. Dès 89 €/mois selon engagement (6, 12 ou 24 mois). Sans compétences techniques de ton côté."
+      "tldr": "Un site pour formatrice rend vos programmes lisibles, partageables et joignables — hors fil LinkedIn et pièces jointes fragiles."
     },
     {
       "type": "metier",
       "slug": "creatrice",
       "url": "https://www.kopio.eu/site-web-pour/creatrice",
       "keyword": "site web pour créatrice",
-      "tldr": "Je crée le site web pour créatrice qui raconte ton univers et convertit (vitrine ou précommande). Exemple live : Madeleine Fragrance. Dès 89 €/mois selon engagement (6, 12 ou 24 mois). Boutique complète en Besoin précis sur devis."
+      "tldr": "Un site pour créatrice pose l'univers de votre marque, le process et l'acte de commande — hors algorithme Instagram."
     },
     {
       "type": "metier",
       "slug": "estheticienne",
       "url": "https://www.kopio.eu/site-web-pour/estheticienne",
       "keyword": "site web pour esthéticienne",
-      "tldr": "Je crée ton site web pour esthéticienne ou prothésiste ongulaire : prestations lisibles, galerie, réservation. Abonnement dès 89 €/mois selon engagement (6, 12 ou 24 mois). Pensé mobile-first, avec l'exemple Coiffure Luna pour la prise de rendez-vous locale."
+      "tldr": "Un site pour esthéticienne rend votre carte de soins lisible et la réservation simple — hors fil Instagram."
     },
     {
       "type": "metier",
       "slug": "photographe",
       "url": "https://www.kopio.eu/site-web-pour/photographe",
       "keyword": "site web pour photographe",
-      "tldr": "Je crée ton site web pour photographe en abonnement : portfolio qui met en valeur ton œil, formules claires, demande de devis. Dès 89 €/mois selon engagement (6, 12 ou 24 mois). Exemple : Photographe Iris, avec formulaire qualifiant."
+      "tldr": "Un site pour photographe porte votre portfolio, vos formules et un devis clair — hors algorithme Instagram."
     },
     {
       "type": "metier",
       "slug": "architecte-interieur",
       "url": "https://www.kopio.eu/site-web-pour/architecte-interieur",
       "keyword": "site web pour architecte d'intérieur",
-      "tldr": "Je crée le site web pour architecte d'intérieur qui met en avant tes projets et génère des demandes de devis. Exemple : Sophie Bluel, avec hausse des demandes projet. Dès 89 €/mois selon engagement (6, 12 ou 24 mois), avec galerie multi-pages filtrable."
+      "tldr": "Un site pour architecte d'intérieur met vos projets en valeur et prépare des demandes de devis déjà cadrées."
     },
     {
       "type": "metier",
       "slug": "wedding-planner",
       "url": "https://www.kopio.eu/site-web-pour/wedding-planner",
       "keyword": "site web pour wedding planner",
-      "tldr": "Je crée ton site web pour wedding planner : ton style, tes mariages, un parcours vers l'appel découverte. Abonnement dès 89 €/mois selon engagement (6, 12 ou 24 mois). Pensé pour convertir les couples qui comparent plusieurs organisatrices."
+      "tldr": "Un site pour wedding planner fait sentir votre univers, clarifie vos formules et rend la prise de contact évidente."
     },
     {
       "type": "besoin",
       "slug": "creer-son-site-sans-competences-techniques",
       "url": "https://www.kopio.eu/besoin/creer-son-site-sans-competences-techniques",
       "keyword": "créer son site sans compétences techniques",
-      "tldr": "Tu peux créer ton site sans compétences techniques avec Kopio : tu racontes ton activité, je livre le design, l'hébergement et les mises à jour. Dès 89 €/mois, en ligne en 21 jours. Tu n'ouvres ni éditeur ni tableau de bord."
+      "tldr": "Vous pouvez avoir un site professionnel sans ouvrir d'éditeur. Vous racontez votre activité ; je livre le design, l'hébergement et les mises à jour. Votre énergie reste sur vos clientes."
     },
     {
       "type": "besoin",
       "slug": "site-vitrine-independante",
       "url": "https://www.kopio.eu/besoin/site-vitrine-independante",
       "keyword": "site vitrine indépendante",
-      "tldr": "Kopio livre ton site vitrine d'indépendante en 21 jours : pages claires, offre lisible, contact évident. Dès 89 €/mois, hébergement inclus. Tu n'as pas besoin d'un chantier de six mois pour être crédible en ligne."
+      "tldr": "Un site vitrine d'indépendante centralise votre offre, vos preuves et le prochain pas. Instagram attire ; la vitrine donne une adresse stable à envoyer après un premier contact."
     },
     {
       "type": "besoin",
       "slug": "site-avec-reservation-en-ligne",
       "url": "https://www.kopio.eu/besoin/site-avec-reservation-en-ligne",
       "keyword": "site avec réservation en ligne",
-      "tldr": "Kopio intègre la réservation en ligne à ton site : créneaux visibles, confirmation, moins d'échanges en messages. Modèle 12 mois dès 139 €/mois, livré en 21 jours. Pensé pour coachs, thérapeutes et praticiennes qui veulent un parcours sur leur marque, pas seulement un lien Calendly isolé."
+      "tldr": "La réservation en ligne sur votre site lie l'offre et le créneau au même endroit. Moins d'échanges en messages, confirmation claire, parcours aligné à votre marque."
     },
     {
       "type": "besoin",
       "slug": "boutique-en-ligne-petite-entreprise",
       "url": "https://www.kopio.eu/besoin/boutique-en-ligne-petite-entreprise",
       "keyword": "boutique en ligne petite entreprise",
-      "tldr": "Kopio conçoit des boutiques en ligne pour petites entreprises et créatrices : catalogue, panier, paiement, sur devis clair. Formule Besoin précis. Tu gardes ta marque et ton fichier clientes, sans te perdre dans une usine Shopify seule si tu n'as pas le temps de la configurer."
+      "tldr": "Kopio conçoit des boutiques pour petites entreprises et créatrices : catalogue, panier, paiement, sur devis clair. Vous gardez votre marque et votre fichier clientes, sans porter toute la configuration seule."
     },
     {
       "type": "besoin",
       "slug": "refonte-site-internet-entrepreneure",
       "url": "https://www.kopio.eu/besoin/refonte-site-internet-entrepreneure",
       "keyword": "refonte site internet femme entrepreneuse",
-      "tldr": "Refonte de site pour entrepreneuse : Kopio clarifie ton offre, met à jour le design et le parcours, et renforce les bases SEO. Modèle 12 mois dès 139 €/mois, livraison en 21 jours. Ton activité a évolué ; le site peut la montrer avec plus de précision."
+      "tldr": "Une refonte clarifie votre offre, met à jour le design et le parcours, et renforce les bases SEO. Votre activité a évolué ; le site peut la montrer avec plus de précision."
     },
     {
       "type": "besoin",
       "slug": "site-web-femme-qui-se-lance",
       "url": "https://www.kopio.eu/besoin/site-web-femme-qui-se-lance",
       "keyword": "création site web femmes qui se lancent",
-      "tldr": "Kopio crée le site web des femmes qui se lancent : design personnalisé, hébergement inclus, mises à jour par email. Dès 89 €/mois dès 89 €/mois, livraison en 21 jours. Tu poses ton activité ; je porte la technique."
+      "tldr": "Quand vous vous lancez, un site clair dit qui vous aidez et comment vous contacter. Design personnalisé, hébergement inclus, mises à jour par email. Vous posez l'activité ; je porte la technique."
     },
     {
       "type": "besoin",
       "slug": "site-web-maman-freelance",
       "url": "https://www.kopio.eu/besoin/site-web-maman-freelance",
       "keyword": "webdesigner pour maman freelance",
-      "tldr": "Kopio est la webdesigner / studio en abonnement pour mamans freelances : site personnalisé, hébergement inclus, modifications par email sous 24 à 72 h. Dès 89 €/mois. Tu factures ton métier ; je gère le site."
+      "tldr": "Pour une maman freelance, un site utile travaille sans demander des soirées d'éditeur. Design personnalisé, hébergement inclus, modifications par email sous 24 à 72 h. Vous facturez votre métier ; je gère le site."
     },
     {
       "type": "comparatif",
       "slug": "kopio-vs-wix",
       "url": "https://www.kopio.eu/comparatif/kopio-vs-wix",
       "keyword": "Kopio vs Wix",
-      "tldr": "Wix gagne si tu veux construire et modifier ton site toi-même, avec un éditeur mature et un App Market large. Kopio gagne si tu veux un site pro tenu pour toi : design personnalisé, hébergement, mises à jour par email, dès 89 €/mois. Verdict : contrôle total = Wix ; déléguer sans second job = Kopio."
+      "tldr": "Wix gagne si vous voulez construire et modifier votre site vous-même, avec un éditeur mature et un marché d'apps large. Kopio gagne si vous voulez un site pro tenu pour vous : design personnalisé, hébergement, mises à jour par email. Verdict : contrôle total = Wix ; déléguer sans second métier = Kopio."
     },
     {
       "type": "comparatif",
       "slug": "kopio-vs-agence-web",
       "url": "https://www.kopio.eu/comparatif/kopio-vs-agence-web",
       "keyword": "Kopio vs agence web",
-      "tldr": "Une agence web est justifiée sur les projets complexes, multi-équipes ou à budget marketing large (souvent 2 000 à 8 000 € et plus). Kopio est adapté aux entrepreneuses qui veulent une vitrine ou un site de service clair dès 89 €/mois, livré en 21 jours, avec une seule interlocutrice. Verdict : agence pour périmètre large ; Kopio pour un site efficace sans usine à gaz."
+      "tldr": "Une agence web est justifiée sur les projets complexes, multi-équipes ou à budget marketing large (souvent 2 000 à 8 000 € et plus). Kopio est adapté aux entrepreneuses qui veulent une vitrine ou un site de service clair, livré en 21 jours, avec une seule interlocutrice. Verdict : agence pour périmètre large ; Kopio pour un site efficace sans usine à gaz."
     },
     {
       "type": "comparatif",
       "slug": "combien-coute-site-internet-entrepreneure-2026",
       "url": "https://www.kopio.eu/comparatif/combien-coute-site-internet-entrepreneure-2026",
       "keyword": "combien coûte site internet entrepreneuse 2026",
-      "tldr": "Panorama 2026 des budgets site pour entrepreneuse : autonomie, freelance, agence, abonnement. Fourchettes, inclus, pièges. Kopio dès 89 €/mois (24 mois). Cette page compare les modèles de coût ; l'article « site vitrine » détaille le format vitrine seul."
+      "tldr": "Panorama 2026 des budgets site pour entrepreneuse : autonomie, freelance, agence, abonnement. Fourchettes, inclus, pièges. Cette page compare les modèles de coût ; l'article « site vitrine » sur le blog détaille le format vitrine seul."
+    },
+    {
+      "type": "blog",
+      "slug": "search-console-apercus-ia-citations-2026",
+      "url": "https://www.kopio.eu/blog/search-console-apercus-ia-citations-2026",
+      "title": "Search Console 2026 : savoir si l'IA Google vous cite",
+      "tldr": "Comment savoir si l'IA Google vous cite : ouvrir le rapport Performances IA générative dans Search Console, lire impressions et pages, et corriger l'absence de votre nom dans les Aperçus IA."
     },
     {
       "type": "blog",
@@ -300,15 +307,15 @@
       "type": "blog",
       "slug": "creer-son-site-maman-entrepreneuse",
       "url": "https://www.kopio.eu/blog/creer-son-site-maman-entrepreneuse",
-      "title": "Créer son site quand on est maman entrepreneuse : guide réaliste",
-      "tldr": "Temps limité, charge mentale, besoin d'une URL crédible : comment poser un site pro sans y passer tes soirées, avec des repères concrets 2026."
+      "title": "Créer son site quand vous êtes maman entrepreneuse : guide réaliste",
+      "tldr": "Temps limité, charge mentale, besoin d'une URL crédible : comment poser un site pro sans y passer vos soirées, avec des repères concrets 2026."
     },
     {
       "type": "blog",
       "slug": "reconversion-professionnelle-site-web-2026",
       "url": "https://www.kopio.eu/blog/reconversion-professionnelle-site-web-2026",
-      "title": "Reconversion professionnelle 2026 : pourquoi ton site web est le premier levier",
-      "tldr": "30 % des Français envisagent une reconversion en 2026. Si tu te lances comme coach, thérapeute ou consultante, ton site est ta première preuve de sérieux."
+      "title": "Reconversion professionnelle 2026 : pourquoi votre site web est le premier levier",
+      "tldr": "30 % des Français envisagent une reconversion en 2026. Si vous vous lancez comme coach, thérapeute ou consultante, votre site est votre première preuve de sérieux."
     },
     {
       "type": "blog",
@@ -322,41 +329,41 @@
       "slug": "erreurs-a-eviter-site-independante",
       "url": "https://www.kopio.eu/blog/erreurs-a-eviter-site-independante",
       "title": "7 erreurs à éviter sur le site d’une indépendante",
-      "tldr": "Textes flous, bouton de contact invisible, site qui ne te ressemble pas… Les erreurs qui font fuir tes prospectes, et comment les corriger concrètement."
+      "tldr": "Textes flous, bouton de contact invisible, site qui ne vous ressemble pas… Les erreurs qui font fuir vos prospectes, et comment les corriger concrètement."
     },
     {
       "type": "blog",
       "slug": "abonnement-ou-paiement-unique-site-web",
       "url": "https://www.kopio.eu/blog/abonnement-ou-paiement-unique-site-web",
       "title": "Abonnement site web : quelle durée choisir ?",
-      "tldr": "Abonnement mensuel ou solde unique : avantages, pièges, et comment choisir quand tu es entrepreneuse."
+      "tldr": "Abonnement mensuel ou solde unique : avantages, pièges, et comment choisir quand vous êtes entrepreneuse."
     },
     {
       "type": "blog",
       "slug": "photos-de-marque-sans-budget-shooting",
       "url": "https://www.kopio.eu/blog/photos-de-marque-sans-budget-shooting",
       "title": "Photos de marque sans budget shooting : le guide réaliste",
-      "tldr": "Pas de budget photographe ? Comment obtenir des visuels crédibles pour ton site d’entrepreneuse, sans shoot à 1 500 €."
+      "tldr": "Pas de budget photographe ? Comment obtenir des visuels crédibles pour votre site d’entrepreneuse, sans shoot à 1 500 €."
     },
     {
       "type": "blog",
       "slug": "combien-coute-site-vitrine-2026",
       "url": "https://www.kopio.eu/blog/combien-coute-site-vitrine-2026",
       "title": "Combien coûte un site vitrine en 2026 ? Les vrais prix",
-      "tldr": "Prix d’un site vitrine (format pages + contact) en 2026 : ce que tu paies vraiment en autonomie, freelance, agence ou abonnement. Distinct du panorama budgétaire entrepreneuse."
+      "tldr": "Prix d’un site vitrine (format pages + contact) en 2026 : ce que vous payez vraiment en autonomie, freelance, agence ou abonnement. Distinct du panorama budgétaire entrepreneuse."
     },
     {
       "type": "blog",
       "slug": "5-raisons-avoir-site-web-maintenant",
       "url": "https://www.kopio.eu/blog/5-raisons-avoir-site-web-maintenant",
-      "title": "5 raisons de ne pas attendre pour avoir ton site web",
-      "tldr": "Tu repousses encore ? Cinq arguments concrets pour les entrepreneuses qui reportent leur site."
+      "title": "5 raisons de ne pas attendre pour avoir votre site web",
+      "tldr": "Vous repoussez encore ? Cinq arguments concrets pour les entrepreneuses qui reportent leur site."
     },
     {
       "type": "blog",
       "slug": "ia-creation-site-web-pieges",
       "url": "https://www.kopio.eu/blog/ia-creation-site-web-pieges",
-      "title": "Créer son site avec l’IA : les 5 pièges que personne ne te dit",
+      "title": "Créer son site avec l’IA : les 5 pièges que personne ne vous dit",
       "tldr": "L’IA promet des sites en quelques clics. Pourquoi un accompagnement humain reste souvent plus adapté pour une entrepreneuse."
     }
   ]

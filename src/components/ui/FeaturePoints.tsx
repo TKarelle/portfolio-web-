@@ -52,7 +52,7 @@ export function FeaturePoints({
       className={cn(
         "w-full",
         glass
-          ? "px-6 sm:px-10 md:px-14 lg:px-20 xl:px-28 pt-24 pb-24 sm:pt-28 sm:pb-28 md:pt-36 md:pb-36 lg:pt-44 lg:pb-44"
+          ? "page-x pt-24 pb-24 sm:pt-28 sm:pb-28 md:pt-36 md:pb-36 lg:pt-44 lg:pb-44"
           : "py-4",
       )}
     >

@@ -4,7 +4,7 @@ import { BlogCard, blogPostToCard } from "@/components/blog/BlogCard";
 import { PageIntro } from "@/components/ui/PageIntro";
 import { TitleEm } from "@/components/ui/SectionHead";
 import { ValueBanner } from "@/components/ui/ValueBanner";
-import { ContactSection } from "@/components/home/ContactSection";
+import { FutureVitrineCta } from "@/components/landing/FutureVitrineCta";
 import { buildPageMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = buildPageMetadata({
@@ -26,11 +26,12 @@ export default function BlogPage() {
         ]}
         title={
           <>
-            Conseils concrets pour ton{" "}
-            <TitleEm>site web</TitleEm>.
+            Votre{" "}<TitleEm>expertise</TitleEm>, 
+            <br/>sous{" "}
+            <TitleEm>un nouveau regard.</TitleEm>
           </>
         }
-        description="Prix, délais, Google, pièges à éviter… Des articles utiles pour les professionnelles de l'accompagnement qui veulent avancer sans se perdre."
+        description="Des idées pour faire évoluer votre présence en ligne, mieux comprendre le référencement et rendre votre expertise visible sur Google et les IA."
         video="/image/sitewebvideo.mp4"
         videoPoster="/image/sophie.jpg"
         videoLabel="Aperçu du site Sophie Bluel, architecte d'intérieur"
@@ -39,8 +40,8 @@ export default function BlogPage() {
       />
       <ValueBanner />
 
-      <section className="py-16 sm:py-20 md:py-24 px-5 sm:px-8 bg-bg">
-        <div className="max-w-5xl mx-auto">
+      <section className="py-16 sm:py-20 md:py-24 page-x bg-bg">
+        <div className="w-full max-w-5xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
             <BlogCard {...blogPostToCard(featured)} featured />
             {rest.map((post) => (
@@ -50,7 +51,7 @@ export default function BlogPage() {
         </div>
       </section>
 
-      <ContactSection />
+      <FutureVitrineCta />
     </>
   );
 }

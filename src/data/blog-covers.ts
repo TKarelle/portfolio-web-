@@ -18,6 +18,7 @@ export const BLOG_COVER_BY_SLUG: Record<string, string> = {
   "5-raisons-avoir-site-web-maintenant": `${BASE}/blog-site-maintenant.jpg`,
   "ia-creation-site-web-pieges": `${BASE}/blog-ia-pieges.jpg`,
   "optimiser-seo-google-ia-debutant": `${BASE}/blog-seo.jpg`,
+  "search-console-apercus-ia-citations-2026": `${BASE}/blog-search.png`,
 };
 
 /** Alt contextuels par slug (description visuelle + sujet de l’article). */
@@ -46,6 +47,8 @@ export const BLOG_COVER_ALT_BY_SLUG: Record<string, string> = {
     "Création de site web assistée par IA : pièges à éviter pour une indépendante",
   "optimiser-seo-google-ia-debutant":
     "Référencement Google et moteurs d’IA : guide SEO pour coachs et thérapeutes",
+  "search-console-apercus-ia-citations-2026":
+    "Search Console et suivi des citations dans les Aperçus IA Google (2026)",
 };
 
 const FALLBACK = `${BASE}/blog-seo.jpg`;

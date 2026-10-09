@@ -1,19 +1,32 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import { blogPosts, getBlogPost, getRelatedPosts } from "@/data/blog";
 import { BlogContent } from "@/components/blog/BlogContent";
 import { BlogAuthor } from "@/components/blog/BlogAuthor";
 import { BlogCard, blogPostToCard } from "@/components/blog/BlogCard";
-import { ContactSection } from "@/components/home/ContactSection";
-import { MediaCard } from "@/components/ui/MediaCard";
 import { SectionHead, TitleEm } from "@/components/ui/SectionHead";
 import { FAQ } from "@/components/home/FAQ";
 import { ArticleJsonLd, FaqJsonLd, HowToJsonLd } from "@/components/seo/JsonLd";
+import { ArticleSommaire } from "@/components/seo/ArticleSommaire";
+import { FutureVitrineCta } from "@/components/landing/FutureVitrineCta";
+import { LandingHero } from "@/components/ui/LandingHero";
+import { extractHeadingsFromBlocks } from "@/lib/slugify-heading";
+import { pickShortHighlight } from "@/lib/highlight";
 import { buildPageMetadata } from "@/lib/metadata";
 
 interface BlogPostPageProps {
   params: Promise<{ slug: string }>;
+}
+
+function articleDateLabel(iso: string): string {
+  const d = new Date(`${iso}T12:00:00`);
+  if (Number.isNaN(d.getTime())) return iso;
+  const label = d.toLocaleDateString("fr-FR", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
+  return label.charAt(0).toUpperCase() + label.slice(1);
 }
 
 export async function generateStaticParams() {
@@ -45,6 +58,9 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   if (!post) notFound();
 
   const related = getRelatedPosts(slug, 2);
+  const headings = extractHeadingsFromBlocks(post.content);
+  const modified = post.updatedAt ?? post.date;
+  const highlight = pickShortHighlight(post.title);
 
   return (
     <>
@@ -67,59 +83,29 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         />
       ) : null}
 
-      <article className="relative z-10 pt-32 sm:pt-36 md:pt-40 pb-16 px-5 sm:px-8 bg-bg">
-        <div className="max-w-3xl mx-auto">
-          <Link
-            href="/blog"
-            className="inline-flex items-center gap-1 text-sm font-bold text-muted hover:text-ink transition-colors mb-8"
-          >
-            ← Retour au blog
-          </Link>
+      <LandingHero
+        breadcrumbs={[
+          { label: "Accueil", href: "/" },
+          { label: "Blog", href: "/blog" },
+          { label: post.category, href: `/blog/${post.slug}` },
+        ]}
+        title={post.title}
+        highlight={highlight}
+        eyebrow={articleDateLabel(modified)}
+        intro={post.excerpt}
+        image={post.image}
+        imageAlt={post.imageAlt}
+        factChips={["Création de site", "Positionnement", "Visibilité"]}
+        footer={<BlogAuthor />}
+      />
 
-          <p className="text-[11px] font-extrabold uppercase tracking-[0.16em] text-ink/35 mb-4">
-            {post.category}
-            <span className="font-medium normal-case tracking-normal text-muted">
-              {" "}
-              ·{" "}
-              <time dateTime={post.updatedAt ?? post.date}>
-                {new Date(post.updatedAt ?? post.date).toLocaleDateString(
-                  "fr-FR",
-                  {
-                    day: "numeric",
-                    month: "long",
-                    year: "numeric",
-                  },
-                )}
-              </time>
-              {" · "}
-              {post.readTime} de lecture
-            </span>
-          </p>
-
-          <SectionHead as="h1" size="xl" align="left" className="!max-w-none">
-            {post.title}
-          </SectionHead>
-
-          <p className="mt-5 text-lg text-muted font-medium leading-relaxed">
-            {post.excerpt}
-          </p>
-
-          <div className="mt-8">
-            <BlogAuthor />
-          </div>
-
-          <div className="my-10">
-            <MediaCard
-              src={post.image}
-              alt={post.imageAlt}
-              aspect="16/10"
-              sizes="(max-width: 768px) 100vw, 720px"
-            />
-          </div>
-
-          <BlogContent blocks={post.content} />
+      <section className="relative page-x pt-10 md:pt-12 pb-6 md:pb-8 bg-bg">
+        <div className="w-full max-w-3xl mx-auto">
+          <ArticleSommaire headings={headings} />
         </div>
-      </article>
+      </section>
+
+      <BlogContent blocks={post.content} />
 
       {post.faqs && post.faqs.length > 0 ? (
         <FAQ
@@ -132,12 +118,12 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         />
       ) : null}
 
-      <ContactSection />
+      <FutureVitrineCta />
 
       {related.length > 0 && (
-        <section className="py-16 sm:py-20 px-5 sm:px-8 bg-bg border-t border-ink/8">
-          <div className="max-w-5xl mx-auto">
-            <div className="mb-10 text-center">
+        <section className="py-16 sm:py-20 page-x bg-surface border-t border-ink/8">
+          <div className="w-full max-w-5xl mx-auto">
+            <div className="mb-10 md:mb-12 text-center">
               <SectionHead size="xl">
                 À lire <TitleEm>aussi</TitleEm>
               </SectionHead>
