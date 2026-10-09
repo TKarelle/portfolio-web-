@@ -40,9 +40,22 @@ export const siteVideos: readonly SiteVideo[] = [
       "Démo du site livré pour PULSE, consultante en bien-être : offre claire, preuves et prise de contact simplifiée.",
     uploadDate: "2025-09-25T10:00:00+02:00",
     durationSeconds: 29,
-    pagePaths: ["/", "/projets"],
+    pagePaths: ["/"],
     category: "Consultante en bien-être",
     shortTitle: "PULSE",
+  },
+  {
+    id: "sophie-delmas",
+    contentPath: "/image/videosophie.mp4",
+    thumbnailPath: "/image/sophie-poster.jpg",
+    name: "Aperçu site web Sophie Delmas, sophrologue",
+    description:
+      "Démo du site livré pour Sophie Delmas, sophrologue : offre claire, preuves et prise de contact simplifiée.",
+    uploadDate: "2026-10-09T12:00:00+02:00",
+    durationSeconds: 48,
+    pagePaths: ["/", "/projets"],
+    category: "Sophrologue",
+    shortTitle: "Sophie Delmas",
   },
 ] as const;
 

@@ -12,8 +12,21 @@ export type Project = {
   url?: string;
 };
 
-/** Portfolio (Sophie Bluel retirée des mises en avant) */
+/** Portfolio */
 export const projects: Project[] = [
+  {
+    id: "sophie-delmas",
+    title: "Sophie Delmas",
+    category: "Sophrologue",
+    description:
+      "Site vitrine pour une sophrologue : textes clairs, réservation en ligne, pensé pour rassurer dès la première visite.",
+    image: "/image/sophie-poster.jpg",
+    imageAlt:
+      "Site web Sophie Delmas livré pour une sophrologue : vitrine claire et réservation",
+    color: "bg-rose-light",
+    tags: ["Site vitrine", "Sophrologie", "Réservation"],
+    result: "Réservation en ligne dès la mise en ligne",
+  },
   {
     id: "pulse",
     title: "PULSE",

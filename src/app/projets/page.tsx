@@ -12,7 +12,7 @@ export const metadata: Metadata = buildPageMetadata({
   description:
     "Études de cas Kopio : avant / livrable / résultat concret pour professionnelles de l’accompagnement.",
   path: "/projets",
-  ogVideo: "/image/videopulse.mp4",
+  ogVideo: "/image/videosophie.mp4",
 });
 
 export default function ProjetsPage() {
@@ -32,9 +32,9 @@ export default function ProjetsPage() {
           </>
         }
         description="Sophrologue, consultante, créatrice… Avant, livrable, résultat vérifiable. Ce que ça change, concrètement."
-        video="/image/videopulse.mp4"
-        videoPoster="/image/videopulse-poster.jpg"
-        videoLabel="Aperçu d’un site livré : PULSE"
+        video="/image/videosophie.mp4"
+        videoPoster="/image/sophie-poster.jpg"
+        videoLabel="Aperçu d’un site livré : Sophie Delmas"
         badge="Preuves concrètes"
         secondaryHref="/tarifs"
       />

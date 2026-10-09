@@ -1,17 +1,17 @@
 /**
  * Témoignages : structure contexte → friction résolue → résultat sobre → permission.
- * Pas de superlatifs. Métier précis. Sophie Bluel retirée.
+ * Pas de superlatifs. Métier précis.
  */
 export const testimonials = [
   {
     id: 1,
-    name: "Marion",
-    fullName: "Marion D.",
+    name: "Sophie",
+    fullName: "Sophie Delmas",
     role: "Sophrologue",
     city: "Lyon",
     date: "2025",
     project: "Site vitrine + contact",
-    image: "/image/yoga.jpg",
+    image: "/image/sophie-delmas.png",
     text: "J’avais un site Wix que je n’osais plus envoyer : les tarifs n’étaient pas à jour et je ne savais pas le modifier moi-même. Karelle a repris mes textes avec moi en une heure, et le site est en ligne depuis. J’ai mis le lien sur ma carte, dans ma signature. Deux clientes m’ont dit « votre site m’a rassurée ». Je n’avais jamais entendu ça avant.",
     rating: 5,
   },

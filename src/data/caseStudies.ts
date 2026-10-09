@@ -21,17 +21,16 @@ export type CaseStudy = {
 
 /**
  * 3 études de cas homepage / /projets.
- * Priorité PDF : psycho / naturo / sophro en premier.
- * Sophie Bluel retirée.
+ * Priorité PDF : sophro / consultante / créatrice.
  */
 export const featuredCaseStudies: CaseStudy[] = [
   {
-    id: "marion-sophrologie",
-    firstName: "Marion",
+    id: "sophie-delmas",
+    firstName: "Sophie",
     metier: "Sophrologue",
     city: "Lyon",
-    photo: "/image/yoga.jpg",
-    capture: "/image/sitewebvideo-poster.jpg",
+    photo: "/image/sophie-delmas.png",
+    capture: "/image/sophie-poster.jpg",
     before:
       "Site Wix daté, tarifs obsolètes, réservations uniquement par téléphone et messages Instagram.",
     result:
@@ -45,7 +44,7 @@ export const featuredCaseStudies: CaseStudy[] = [
     metier: "Consultante en bien-être",
     city: "France",
     photo: "/image/pulse.jpg",
-    capture: "/image/videopulse-poster.jpg",
+    capture: "/image/pulse.jpg",
     before:
       "Présence en ligne trop générique, difficile d’expliquer l’offre, prise de contact confuse.",
     result:
@@ -68,25 +67,25 @@ export const featuredCaseStudies: CaseStudy[] = [
   },
 ];
 
-/** Compat landings métiers (hors Sophie Bluel) */
-export const caseStudies = projects
-  .filter((p) => p.id !== "sophie-bluel")
-  .map((p) => ({
-    id: p.id,
-    title: p.title,
-    category: p.category,
-    image: p.image,
-    imageAlt: p.imageAlt,
-    context: p.description.split(".")[0] + ".",
-    problem: getProblem(p.id),
-    solution: getSolution(p.id),
-    result: p.result,
-    tags: p.tags,
-    url: p.url,
-  }));
+/** Compat landings métiers */
+export const caseStudies = projects.map((p) => ({
+  id: p.id,
+  title: p.title,
+  category: p.category,
+  image: p.image,
+  imageAlt: p.imageAlt,
+  context: p.description.split(".")[0] + ".",
+  problem: getProblem(p.id),
+  solution: getSolution(p.id),
+  result: p.result,
+  tags: p.tags,
+  url: p.url,
+}));
 
 function getProblem(id: string): string {
   const problems: Record<string, string> = {
+    "sophie-delmas":
+      "Site difficile à assumer : tarifs obsolètes, réservations uniquement par téléphone et Instagram.",
     pulse:
       "Son activité manquait d’une présence en ligne à sa hauteur : trop générique, pas assez claire pour ses clientes.",
     "madeleine-fragrance":
@@ -106,6 +105,8 @@ function getProblem(id: string): string {
 
 function getSolution(id: string): string {
   const solutions: Record<string, string> = {
+    "sophie-delmas":
+      "Un site clair avec réservation en ligne, textes repris ensemble, pensé pour rassurer dès la première visite.",
     pulse:
       "Un one-page moderne : typo claire, parcours de réservation simple, loin du template bien-être générique.",
     "madeleine-fragrance":
