@@ -45,8 +45,8 @@ export const includedInAll = [
   {
     title: "Des contenus qui parlent de vous",
     text: "Je vous aide à transformer votre expertise en mots clairs, utiles et convaincants, sans vous demander de devenir rédactrice.",
-    image: "/image/writing-desk.jpg",
-    imageAlt: "Aide à la rédaction de contenus experts",
+    image: "/image/sophie-delmas.png",
+    imageAlt: "Sophie Delmas — contenus qui parlent de vous",
   },
   {
     title: "Tout fonctionne, partout",

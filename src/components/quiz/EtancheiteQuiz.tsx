@@ -46,7 +46,10 @@ async function submitLead(
 ): Promise<{ ok: true } | { ok: false; message: string }> {
   const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY?.trim();
   if (!accessKey) {
-    return { ok: false, message: "Configuration email manquante. Réessayez plus tard." };
+    return {
+      ok: false,
+      message: "Configuration email manquante. Réessayez plus tard.",
+    };
   }
 
   const formData = new FormData();
@@ -70,7 +73,10 @@ async function submitLead(
     message?: string;
   };
   if (!w3.ok || !w3Data.success) {
-    return { ok: false, message: w3Data.message ?? "Envoi impossible. Réessayez." };
+    return {
+      ok: false,
+      message: w3Data.message ?? "Envoi impossible. Réessayez.",
+    };
   }
 
   void fetch("/api/quiz-leads", {
@@ -450,8 +456,8 @@ function ResultsPanel({
           </span>
         </p>
         <p className="mt-1 text-sm font-semibold text-muted">
-          {result.points}&nbsp;/&nbsp;{result.maxPoints} points · perte estimée ~
-          {result.leakRate}&nbsp;%
+          {result.points}&nbsp;/&nbsp;{result.maxPoints} points · perte estimée
+          ~{result.leakRate}&nbsp;%
         </p>
 
         <dl className="mt-5 grid gap-3 sm:grid-cols-3">
@@ -612,11 +618,7 @@ function QuizBody({ gate }: { gate: GateState }) {
 
 /** Hero 2 colonnes + email inline + quiz après unlock. */
 export function EtancheiteQuiz() {
-  const storedGate = useSyncExternalStore(
-    subscribeGate,
-    readGate,
-    () => null,
-  );
+  const storedGate = useSyncExternalStore(subscribeGate, readGate, () => null);
   const [unlockedGate, setUnlockedGate] = useState<GateState | null>(null);
   const gate = unlockedGate ?? storedGate;
 
@@ -650,9 +652,13 @@ export function EtancheiteQuiz() {
             </p>
 
             <div className="mt-4">
-              <SectionHead as="h1" size="xl" align="left" className="!max-w-none">
-                Que disent Google et ChatGPT{" "}
-                <TitleEm>de toi</TitleEm>&nbsp;?
+              <SectionHead
+                as="h1"
+                size="xl"
+                align="left"
+                className="!max-w-none"
+              >
+                Que disent Google et ChatGPT <TitleEm>de toi</TitleEm>&nbsp;?
               </SectionHead>
             </div>
 

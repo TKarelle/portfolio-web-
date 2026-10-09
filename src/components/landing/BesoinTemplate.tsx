@@ -64,7 +64,10 @@ export function BesoinTemplate({ data }: { data: BesoinPageData }) {
             </SectionHead>
             <ul className="space-y-3">
               {data.problems.map((p) => (
-                <li key={p} className="flex gap-2 text-sm font-medium text-muted leading-relaxed">
+                <li
+                  key={p}
+                  className="flex gap-2 text-sm font-medium text-muted leading-relaxed"
+                >
                   <span className="text-ink/30 shrink-0">—</span> {p}
                 </li>
               ))}
@@ -76,7 +79,10 @@ export function BesoinTemplate({ data }: { data: BesoinPageData }) {
             </SectionHead>
             <ul className="space-y-3">
               {data.solutions.map((s) => (
-                <li key={s} className="flex gap-2 text-sm font-medium text-ink/80 leading-relaxed">
+                <li
+                  key={s}
+                  className="flex gap-2 text-sm font-medium text-ink/80 leading-relaxed"
+                >
                   <span className="text-ink/30 shrink-0">✦</span> {s}
                 </li>
               ))}

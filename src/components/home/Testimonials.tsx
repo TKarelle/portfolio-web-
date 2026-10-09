@@ -130,8 +130,7 @@ export function Testimonials() {
       <SoftBlurBand contentClassName="w-full max-w-4xl mx-auto px-5 sm:px-8 md:px-10">
         <div className="reveal text-center max-w-3xl mx-auto mb-12 sm:mb-14 md:mb-16">
           <SectionHead size="xl">
-            Des retours concrets, ancrés dans le{" "}
-            <TitleEm>réel</TitleEm>
+            Des retours concrets, ancrés dans le <TitleEm>réel</TitleEm>
           </SectionHead>
         </div>
 

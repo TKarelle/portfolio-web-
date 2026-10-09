@@ -650,12 +650,11 @@ select {
   border: 1px solid rgba(255, 255, 255, 0.6);
 }
 
-/* Bande FeaturePoints — blanc flouté full-bleed */
+/* Legacy — glass FeaturePoints utilise SoftBlurBand (pas backdrop-filter :
+   cassé sur Android Chrome au-dessus d’un hero sticky). */
 .feature-band,
 .constat-glass {
-  background: rgba(255, 255, 255, 0.72);
-  backdrop-filter: blur(28px) saturate(160%);
-  -webkit-backdrop-filter: blur(28px) saturate(160%);
+  background: #fff;
   border-top: 1px solid rgba(255, 255, 255, 0.85);
   box-shadow: 0 -12px 40px rgba(17, 17, 17, 0.06);
 }
@@ -815,9 +814,9 @@ select {
 }
 
 /*
- * Carrousel inclus :
- * - 1ʳᵉ card centrée (espace gauche = (100vw − card) / 2)
- * - flush à droite, ~1,5 card visible
+ * Carrousel inclus / demos :
+ * - Mobile : cards larges (~88vw), léger inset gauche, peek du suivant
+ * - Desktop : 1ʳᵉ card centrée, ~1,5 card visible
  *
  * IMPORTANT : padding-left seul NE SUFFIT PAS.
  * Avec scroll-snap, Chrome scrolle pour coller la 1ʳᵉ card au bord
@@ -825,14 +824,21 @@ select {
  * Il faut scroll-padding-left + spacer non-snappé + reset scrollLeft=0.
  */
 .included-carousel__track {
-  --included-gap: clamp(0.85rem, 1.4vw, 1.25rem);
-  --included-card-w: calc(50vw - var(--included-gap));
-  --included-pl: calc((100vw - var(--included-card-w)) / 2);
+  --included-gap: clamp(0.75rem, 1.4vw, 1.25rem);
+  --included-card-w: calc(88vw - 0.25rem);
+  --included-pl: 0.75rem;
   gap: var(--included-gap);
   padding-left: 0;
   padding-right: 0;
   scroll-padding-left: var(--included-pl);
   scroll-padding-right: 0;
+}
+
+@media (min-width: 768px) {
+  .included-carousel__track {
+    --included-card-w: calc(50vw - var(--included-gap));
+    --included-pl: calc((100vw - var(--included-card-w)) / 2);
+  }
 }
 
 .included-carousel__spacer {

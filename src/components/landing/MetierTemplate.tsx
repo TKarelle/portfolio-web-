@@ -19,9 +19,21 @@ import { IgDecisionMatrix } from "@/components/seo/IgDecisionMatrix";
 import { BlackInkBridge } from "@/components/seo/BlackInkBridge";
 
 const THERAPIE_VS_SOPHRO: readonly (readonly [string, string, string])[] = [
-  ["Intention de la visiteuse", "Cadre thérapeutique, motif de consultation", "Stress, sommeil, préparation mentale"],
-  ["Risque de confusion", "Guérison / promesse médicale", "Coaching de performance"],
-  ["Preuve utile sur le site", "Approches, limites, déroulé de séance", "Exercices, formats individuels / groupe"],
+  [
+    "Intention de la visiteuse",
+    "Cadre thérapeutique, motif de consultation",
+    "Stress, sommeil, préparation mentale",
+  ],
+  [
+    "Risque de confusion",
+    "Guérison / promesse médicale",
+    "Coaching de performance",
+  ],
+  [
+    "Preuve utile sur le site",
+    "Approches, limites, déroulé de séance",
+    "Exercices, formats individuels / groupe",
+  ],
   ["Prochain pas typique", "Premier contact prudent", "Réservation de séance"],
 ];
 
@@ -105,7 +117,11 @@ export function MetierTemplate({ data }: { data: MetierPage }) {
       <section className="py-16 md:py-20 px-5 sm:px-8 bg-bg">
         <div className="max-w-5xl mx-auto">
           <div className="reveal max-w-3xl mb-10">
-            <SectionHead align="left" size="xl" eyebrow={`Pour ${data.metierPlural}`}>
+            <SectionHead
+              align="left"
+              size="xl"
+              eyebrow={`Pour ${data.metierPlural}`}
+            >
               {data.whyTitle}
             </SectionHead>
           </div>
@@ -121,9 +137,7 @@ export function MetierTemplate({ data }: { data: MetierPage }) {
         <section className="py-16 md:py-20 px-5 sm:px-8 bg-surface">
           <div className="max-w-5xl mx-auto">
             <div className="reveal mb-10 md:mb-12 text-center">
-              <SectionHead size="xl">
-                {caseHeading}
-              </SectionHead>
+              <SectionHead size="xl">{caseHeading}</SectionHead>
             </div>
 
             <article className="reveal grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
@@ -205,8 +219,7 @@ export function MetierTemplate({ data }: { data: MetierPage }) {
               data.relatedBesoinSlug
                 ? {
                     href: besoinPath(data.relatedBesoinSlug),
-                    anchor:
-                      data.relatedBesoinLabel ?? "un besoin proche",
+                    anchor: data.relatedBesoinLabel ?? "un besoin proche",
                   }
                 : undefined
             }
