@@ -31,7 +31,7 @@ export default function ProjetsPage() {
             Des résultats <TitleEm>concrets</TitleEm>.
           </>
         }
-        description="Sophrologue, consultante, créatrice… Avant, livrable, résultat vérifiable. Ce que ça change, concrètement."
+        description="Coach, consultante, créatrice… Avant, livrable, résultat vérifiable. Ce que ça change, concrètement."
         video="/image/videosophie.mp4"
         videoPoster="/image/sophie-poster.jpg"
         videoLabel="Aperçu d’un site livré : Sophie Delmas"

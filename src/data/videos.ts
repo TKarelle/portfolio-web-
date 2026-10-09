@@ -48,13 +48,13 @@ export const siteVideos: readonly SiteVideo[] = [
     id: "sophie-delmas",
     contentPath: "/image/videosophie.mp4",
     thumbnailPath: "/image/sophie-poster.jpg",
-    name: "Aperçu site web Sophie Delmas, sophrologue",
+    name: "Aperçu site web Sophie Delmas, coach",
     description:
-      "Démo du site livré pour Sophie Delmas, sophrologue : offre claire, preuves et prise de contact simplifiée.",
+      "Démo du site livré pour Sophie Delmas, coach : offre claire, preuves et prise de contact simplifiée.",
     uploadDate: "2026-10-09T12:00:00+02:00",
     durationSeconds: 48,
     pagePaths: ["/", "/projets"],
-    category: "Sophrologue",
+    category: "Coach",
     shortTitle: "Sophie Delmas",
   },
 ] as const;

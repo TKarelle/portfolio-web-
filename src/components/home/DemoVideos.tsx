@@ -14,7 +14,7 @@ const cards = [
     id: "sophie",
     title: "Sophie Delmas",
     image: "/image/mockupsophie.png",
-    imageAlt: "Mockup site Sophie Delmas",
+    imageAlt: "Mockup site Sophie Delmas, coach",
   },
   {
     id: "pulse",

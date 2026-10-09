@@ -17,15 +17,15 @@ export const projects: Project[] = [
   {
     id: "sophie-delmas",
     title: "Sophie Delmas",
-    category: "Sophrologue",
+    category: "Coach",
     description:
-      "Site vitrine pour une sophrologue : textes clairs, réservation en ligne, pensé pour rassurer dès la première visite.",
+      "Site vitrine pour une coach : accompagnement des personnes et des équipes, neurosciences, parcours de contact clair.",
     image: "/image/sophie-poster.jpg",
     imageAlt:
-      "Site web Sophie Delmas livré pour une sophrologue : vitrine claire et réservation",
+      "Site web Sophie Delmas livré pour une coach : vitrine claire et prise de contact",
     color: "bg-rose-light",
-    tags: ["Site vitrine", "Sophrologie", "Réservation"],
-    result: "Réservation en ligne dès la mise en ligne",
+    tags: ["Site vitrine", "Coaching", "Contact"],
+    result: "Parcours de contact clair dès la mise en ligne",
   },
   {
     id: "pulse",

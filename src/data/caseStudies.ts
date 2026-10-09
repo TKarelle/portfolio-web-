@@ -27,9 +27,9 @@ export const featuredCaseStudies: CaseStudy[] = [
   {
     id: "sophie-delmas",
     firstName: "Sophie",
-    metier: "Sophrologue",
-    city: "Lyon",
-    photo: "/image/sophie-delmas.png",
+    metier: "Coach",
+    city: "France",
+    photo: "/image/sophiepp.jpeg",
     capture: "/image/sophie-poster.jpg",
     before:
       "Site Wix daté, tarifs obsolètes, réservations uniquement par téléphone et messages Instagram.",
@@ -43,7 +43,7 @@ export const featuredCaseStudies: CaseStudy[] = [
     firstName: "Camille",
     metier: "Consultante en bien-être",
     city: "France",
-    photo: "/image/pulse.jpg",
+    photo: "/image/pulsepp.png",
     capture: "/image/pulse.jpg",
     before:
       "Présence en ligne trop générique, difficile d’expliquer l’offre, prise de contact confuse.",
@@ -57,7 +57,7 @@ export const featuredCaseStudies: CaseStudy[] = [
     firstName: "Madeleine",
     metier: "Créatrice de parfum sur-mesure",
     city: "Londres",
-    photo: "/image/madeleine.jpg",
+    photo: "/image/madeleinepp.jpg",
     capture: "/image/madeleine.jpg",
     before:
       "Marque sans vitrine digitale à la hauteur de l’univers ; précommandes difficiles à ouvrir proprement.",
@@ -85,7 +85,7 @@ export const caseStudies = projects.map((p) => ({
 function getProblem(id: string): string {
   const problems: Record<string, string> = {
     "sophie-delmas":
-      "Site difficile à assumer : tarifs obsolètes, réservations uniquement par téléphone et Instagram.",
+      "Présence en ligne difficile à assumer : offre floue, prise de contact confuse, peu alignée avec son accompagnement.",
     pulse:
       "Son activité manquait d’une présence en ligne à sa hauteur : trop générique, pas assez claire pour ses clientes.",
     "madeleine-fragrance":
@@ -106,7 +106,7 @@ function getProblem(id: string): string {
 function getSolution(id: string): string {
   const solutions: Record<string, string> = {
     "sophie-delmas":
-      "Un site clair avec réservation en ligne, textes repris ensemble, pensé pour rassurer dès la première visite.",
+      "Un site clair qui pose son accompagnement (neurosciences, sens, décisions), avec un parcours de contact simple.",
     pulse:
       "Un one-page moderne : typo claire, parcours de réservation simple, loin du template bien-être générique.",
     "madeleine-fragrance":
