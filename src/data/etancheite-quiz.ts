@@ -42,28 +42,35 @@ export type QuizResult = {
 };
 
 export const QUIZ_META = {
-  /** Accroche principale = H1 / SEO / barre promo desktop */
-  headline: "Que disent Google et ChatGPT de toi ?",
+  /** Accroche principale = H1 / barre promo desktop */
+  headline: "Que disent Google et ChatGPT de vous ?",
   /** Libellé court (mobile promo, eyebrow produit). Charte : Test des 10 Secondes. */
   title: "Le Test des 10 Secondes",
-  eyebrow: "Test gratuit · 2 min",
+  /** Title SERP / OG — jamais « grille d'étanchéité » en UI */
+  seoTitle:
+    "Test des 10 Secondes : ce que Google et ChatGPT disent de vous",
+  eyebrow: "Test des 10 Secondes · Gratuit · 2 min",
   subtitle:
-    "Quand on tape ton nom sur Google, ou qu'on demande à ChatGPT qui tu es : que voit-on ? 10 points pour vérifier ce que ton site dit vraiment de toi.",
+    "Quand on tape votre nom sur Google, ou qu'on demande à ChatGPT qui vous êtes : que voit-on ? 10 points pour vérifier ce que votre site dit vraiment de vous.",
+  /** Meta description SERP */
+  seoDescription:
+    "Vérifiez en 2 minutes ce que Google et ChatGPT montrent de votre activité. Score clair sur 10 points, sans rien installer. Le Test des 10 Secondes par Kopio.",
   duration: "2 minutes",
   bullets: [
-    "Google + ChatGPT + ton site",
+    "Google + ChatGPT + votre site",
     "Rien à installer",
     "Aucun accès demandé",
   ],
-  introTitle: "Ce que Google et ChatGPT montrent de toi",
+  introTitle: "Ce que Google et ChatGPT montrent de vous",
   introBody:
-    "Une future cliente tape ton nom sur Google, ou demande à ChatGPT une recommandation dans ton métier. Si ton site n'apparaît pas, ou s'il ne dit pas clairement qui tu es en 10 secondes, elle choisit quelqu'un d'autre. Tu ne le sauras jamais.",
+    "Une future cliente tape votre nom sur Google, ou demande à ChatGPT une recommandation dans votre métier. Si votre site n'apparaît pas, ou s'il ne dit pas clairement qui vous êtes en 10 secondes, elle choisit quelqu'un d'autre. Vous ne le saurez jamais.",
   introClose:
-    "Ce test regarde 10 signaux visibles : trouvabilité, clarté, preuves, contact. Tu obtiens un score, puis une estimation de ce que ça peut coûter si ton site ne te représente plus.",
+    "Ce test regarde 10 signaux visibles : trouvabilité, clarté, preuves, contact. Vous obtenez un score, puis une estimation de ce que ça peut coûter si votre site ne vous représente plus.",
   disclaimer:
-    "Les pourcentages par point sont des hypothèses de calcul Kopio, présentées en fourchette. Le résultat est un ordre de grandeur issu de tes chiffres, pas une statistique du secteur. Le coût en heures vient de ta propre réponse et n'entre pas dans l'estimation en euros.",
+    "Les pourcentages par point sont des hypothèses de calcul Kopio, présentées en fourchette. Le résultat est un ordre de grandeur issu de vos chiffres, pas une statistique du secteur. Le coût en heures vient de votre propre réponse et n'entre pas dans l'estimation en euros.",
+  /** Slug historique (OK charte) — naming client = Test des 10 Secondes */
   path: "/grille-etancheite",
-  promoLabel: "Test gratuit · 2 min",
+  promoLabel: "Test des 10 Secondes · 2 min",
   promoCta: "Faire le test",
   ctaLabel: "Lancer mon test",
   trustLine: "Gratuit · Rien à installer · Aucun accès demandé",
@@ -72,33 +79,33 @@ export const QUIZ_META = {
 export const QUIZ_STEPS = [
   {
     n: "01",
-    title: "Tu laisses ton prénom et ton email",
+    title: "Vous laissez votre prénom et votre email",
     body: "Directement dans le hero. Rien à installer, aucun accès à donner.",
   },
   {
     n: "02",
-    title: "Tu vérifies ce que Google, ChatGPT et ton site disent",
-    body: "Trouvabilité sous ton nom, clarté en 10 secondes, preuves, contact : des faits, pas des impressions.",
+    title: "Vous vérifiez ce que Google, ChatGPT et votre site disent",
+    body: "Trouvabilité sous votre nom, clarté en 10 secondes, preuves, contact : des faits, pas des impressions.",
   },
   {
     n: "03",
-    title: "Tu vois si ça te représente encore",
-    body: "Score, puis estimation de ce que ça peut coûter si ton site ne te représente plus.",
+    title: "Vous voyez si ça vous représente encore",
+    body: "Score, puis estimation de ce que ça peut coûter si votre site ne vous représente plus.",
   },
 ] as const;
 
 export const QUIZ_SIGNALS = [
   {
-    title: "Google ne montre pas ton site",
-    body: "On tape ton nom : des profils tiers apparaissent avant toi. La recommandation s'arrête là.",
+    title: "Google ne montre pas votre site",
+    body: "On tape votre nom : des profils tiers apparaissent avant vous. La recommandation s'arrête là.",
   },
   {
-    title: "ChatGPT ne te cite pas",
-    body: "On demande une coach ou thérapeute dans ta ville : ton nom n'existe pas dans la réponse.",
+    title: "ChatGPT ne vous cite pas",
+    body: "On demande une coach ou thérapeute dans votre ville : votre nom n'existe pas dans la réponse.",
   },
   {
-    title: "Ton site parle mal de toi en 10 secondes",
-    body: "On ne comprend pas ce que tu fais, ni pour qui. La visiteuse repart.",
+    title: "Votre site parle mal de vous en 10 secondes",
+    body: "On ne comprend pas ce que vous faites, ni pour qui. La visiteuse repart.",
   },
   {
     title: "Preuves et prix absents",
@@ -110,17 +117,17 @@ export const QUIZ_FAQS = [
   {
     question: "Ce test est-il vraiment gratuit ?",
     answer:
-      "Oui. Tu lances le test sans carte bancaire. Je te demande seulement ton prénom et ton email pour débloquer les 10 points et te recontacter si tu le souhaites.",
+      "Oui. Vous lancez le test sans carte bancaire. Je vous demande seulement votre prénom et votre email pour débloquer les 10 points et vous recontacter si vous le souhaitez.",
   },
   {
     question: "Faut-il un accès à mon site ?",
     answer:
-      "Non. Tu fais les tests toi-même, comme une visiteuse. Rien à installer, aucun mot de passe.",
+      "Non. Vous faites les tests vous-même, comme une visiteuse. Rien à installer, aucun mot de passe.",
   },
   {
     question: "C'est une note donnée par Google ?",
     answer:
-      "Non. C'est un score Kopio fondé sur 10 points de contrôle factuels et tes propres chiffres. Personne, à part Google, ne connaît sa note interne.",
+      "Non. C'est un score Kopio fondé sur 10 points de contrôle factuels et vos propres chiffres. Personne, à part Google, ne connaît sa note interne.",
   },
   {
     question: "À qui s'adresse ce test ?",
@@ -130,12 +137,12 @@ export const QUIZ_FAQS = [
   {
     question: "Combien de temps ça prend ?",
     answer:
-      "Environ 2 minutes pour répondre, plus le temps de vérifier chaque point sur ton site (souvent 30 secondes par test).",
+      "Environ 2 minutes pour répondre, plus le temps de vérifier chaque point sur votre site (souvent 30 secondes par test).",
   },
   {
     question: "Que faire après le résultat ?",
     answer:
-      "Tu gardes le diagnostic. Si tu veux que je corrige ce qui freine encore, les formules Kopio démarrent à 89 €/mois : hébergement et évolutions inclus.",
+      "Vous gardez le diagnostic. Si vous voulez que je corrige ce qui freine encore, les formules Kopio démarrent à 89 €/mois : hébergement et évolutions inclus.",
   },
 ] as const;
 

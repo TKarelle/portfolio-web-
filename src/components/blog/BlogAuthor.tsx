@@ -1,7 +1,13 @@
 import Image from "next/image";
-import { FOUNDER_NAME, FOUNDER_PHOTO, FOUNDER_PHOTO_ALT } from "@/data/site";
+import {
+  FOUNDER_NAME,
+  FOUNDER_PHOTO,
+  FOUNDER_PHOTO_ALT,
+  FOUNDER_ROLE,
+  FOUNDER_TAGLINE,
+} from "@/data/site";
 
-/** Byline fondatrice — même DA soft que QuoteBand / Testimonials (home). */
+/** Byline fondatrice — signature unique (site.ts). */
 export function BlogAuthor() {
   return (
     <div className="mt-8 flex items-center gap-4">
@@ -16,10 +22,11 @@ export function BlogAuthor() {
       </div>
       <div>
         <p className="text-sm sm:text-base font-extrabold text-ink leading-tight">
-          {FOUNDER_NAME}
+          {FOUNDER_NAME}{" "}
+          <span className="font-medium text-muted">| {FOUNDER_ROLE}</span>
         </p>
         <p className="mt-0.5 text-xs sm:text-sm text-muted font-medium leading-snug">
-          Développeuse web · présence en ligne pour entrepreneuses
+          {FOUNDER_TAGLINE}
         </p>
       </div>
     </div>

@@ -40,6 +40,133 @@ function withCover(post: BlogPost): ResolvedBlogPost {
 
 export const blogPosts: BlogPost[] = [
  {
+ slug: "sageo-seo-geo-visibilite-2026",
+ title: "SEO + GEO = SAGEO : être trouvé, puis cité en 2026",
+ metaTitle:
+ "SAGEO 2026 : pourquoi SEO et GEO doivent travailler ensemble",
+ excerpt:
+ "La recherche générative ne supprime pas le SEO : elle le prolonge. Le SEO vous fait trouver ; la GEO vous fait retenir ; le SAGEO traverse tout le parcours jusqu’à la citation.",
+ date: "2026-10-10",
+ updatedAt: "2026-10-10",
+ readTime: "14 min",
+ category: "Guide",
+ howTo: {
+ name: "Appliquer le SAGEO à une page d’experte",
+ description:
+ "Six actions pour rendre un contenu récupérable, re-classable et citable par les moteurs de recherche génératifs.",
+ steps: [
+ {
+ name: "Remonter l’expertise dans la structure",
+ text: "Placez domaine, public et méthode dans le title, la méta-description, les H2 et le balisage Schema.",
+ },
+ {
+ name: "Répondre tôt et sans détour",
+ text: "Donnez l’affirmation centrale dans les premières lignes, avant le développement.",
+ },
+ {
+ name: "Rendre chaque idée autonome",
+ text: "Nommez le sujet, associez un fait ou un exemple, évitez les phrases qui ne tiennent que grâce au paragraphe précédent.",
+ },
+ {
+ name: "Ajouter de la preuve, pas du remplissage",
+ text: "Remplacez les généralités par des observations, méthodes ou chiffres vérifiables.",
+ },
+ {
+ name: "Préserver le vocabulaire de l’audience",
+ text: "Gardez les mots que votre public tape réellement ; n’échangez pas le lexique courant contre du jargon rare.",
+ },
+ {
+ name: "Adapter la stratégie au type de page",
+ text: "Un guide, une page métier ou une comparaison n’appellent pas la même densité structurelle qu’une fiche produit.",
+ },
+ ],
+ },
+ faqs: [
+ {
+ question: "Le SAGEO remplace-t-il le SEO ?",
+ answer:
+ "Non. Le SAGEO (Search-Augmented Generative Engine Optimization) oblige SEO et GEO à travailler ensemble. Sans récupération et classement, une page n’atteint jamais le générateur. Sans corps clair, elle n’est pas citée.",
+ },
+ {
+ question: "Quelle est la différence entre SEO, GEO et SAGEO ?",
+ answer:
+ "Le SEO vise la visibilité dans les résultats classiques. La GEO vise la citation dans une réponse générée. Le SAGEO couvre le parcours complet : indexation, récupération, re-classement, puis citation.",
+ },
+ {
+ question: "Pourquoi optimiser seulement le texte du corps ne suffit plus ?",
+ answer:
+ "Dans SAGEO Arena, optimiser uniquement le corps peut baisser la récupération. Les champs structurels (titre, méta, H1–H6, Schema) aident d’abord la page à entrer dans le top transmis à l’IA. Le corps sert ensuite à obtenir la citation.",
+ },
+ {
+ question: "Où placer les entités clés pour être trouvée par une IA ?",
+ answer:
+ "Dans le title, la méta-description, les intertitres et le JSON-LD : métier, public, méthode, lieu si utile, chiffres réels. Puis gardez un corps précis que l’IA peut extraire sans inventer.",
+ },
+ {
+ question: "Comment savoir si Google m’expose déjà dans les Aperçus IA ?",
+ answer:
+ "Ouvrez Search Console > Performances > IA générative, puis lisez impressions et pages. Le détail pas à pas est dans mon guide Search Console 2026 sur les citations IA.",
+ },
+ ],
+ content: [
+ "La recherche générative ne supprime pas le SEO. Elle le prolonge. Le SEO reste indispensable pour être ==trouvée==. La GEO devient nécessaire pour être ==retenue==. Le SAGEO, lui, consiste à concevoir un contenu capable de traverser tout le parcours : être indexé, récupéré, re-classé, puis cité.",
+ "La bonne stratégie n’est donc ni « optimiser pour Google » ni « optimiser pour ChatGPT ». Elle consiste à produire des pages dont la structure est explicite, dont le propos est immédiatement compréhensible, et dont les passages clés sont assez précis pour devenir des sources naturelles dans une réponse générée. À l’ère des réponses synthétisées, la visibilité ne se joue plus seulement sur une position. Elle se joue dans la capacité d’un contenu à devenir une **preuve**.",
+ "Je suis Karelle, créatrice de sites chez Kopio. J’aide les professionnelles de l’accompagnement à convaincre leurs visiteurs et à rester visibles sur Google et les IA. Cet article s’appuie sur le papier [SAGEO Arena: A Realistic Environment for Evaluating Search-Augmented Generative Engine Optimization](https://arxiv.org/abs/2602.12187) (KDD 2026), un banc d’essai qui évalue l’optimisation pour les moteurs génératifs augmentés par la recherche.",
+ "## SEO et GEO : deux optimisations, deux angles morts",
+ "Le **SEO** (Search Engine Optimization) vise la visibilité dans les résultats classiques. Il s’appuie sur des signaux connus : titres, méta-descriptions, structure des en-têtes, maillage interne, données structurées, qualité du contenu et autorité du domaine.",
+ "La **GEO** (Generative Engine Optimization) s’intéresse à l’étape suivante : comment faire en sorte qu’un modèle retienne et cite votre contenu lorsqu’il construit une réponse ?",
+ "Le problème, c’est que beaucoup de stratégies traitent ces deux dimensions comme si elles étaient séparées. Or, dans un moteur génératif, elles se complètent.",
+ "Une page peut être bien indexée et bien positionnée sans jamais être reprise dans une réponse IA si son contenu n’est pas assez direct, étayé ou extractible. À l’inverse, un texte réécrit seulement pour séduire un LLM (plus fluide, plus « expert », plus riche en statistiques) peut perdre sa correspondance avec les requêtes réelles et disparaître dès la récupération.",
+ "Autrement dit : un contenu que le moteur ne retrouve pas ne sera jamais lu par le générateur. C’est exactement la directive que j’applique sur Kopio : le GEO ne remplace pas le SEO. Pour le détail opérationnel de ma méthode, voir aussi [Optimiser son référencement pour Google et les IA](/blog/optimiser-seo-google-ia-debutant).",
+ "## Comment une IA de recherche choisit vos contenus",
+ "[SAGEO Arena](https://arxiv.org/pdf/2602.12187) n’est pas un simple article théorique. C’est un environnement d’évaluation qui reproduit une chaîne complète : récupération, re-classement, puis génération avec citations. Le corpus dépasse 171 000 documents web, issus de 2 700 requêtes sur neuf domaines, tout en conservant les informations structurelles des pages (titre, méta, H1–H6, Schema / JSON-LD).",
+ "Pour comprendre le SAGEO, il faut cesser d’imaginer un LLM qui lirait tout le web. En pratique, un moteur génératif suit généralement trois temps.",
+ "## La récupération : être pré-sélectionnée",
+ "D’abord, le moteur doit trouver les contenus susceptibles de répondre à la demande. C’est la récupération : rapprocher les mots de la requête et ceux de votre page. Dans [SAGEO Arena](https://arxiv.org/pdf/2602.12187), la référence de récupération est BM25, une technique classique qui récompense la correspondance lexicale. Si votre champ lexical est trop décalé, votre page n’est pas jugée pertinente : elle n’atteint jamais les étapes suivantes, donc jamais la citation.",
+ "D’où l’importance des éléments structurels : title, méta-description, titres H1 à H6 et balisage Schema / JSON-LD. Ils résument le sujet, mettent en avant les mots que votre public utilise vraiment, et aident le moteur à comprendre vite de quoi parle la page.",
+ "> Mot de Karelle : pour être citée par une IA, il faut d’abord être trouvée. Et pour être trouvée, il faut parler le langage de ceux qui vous cherchent.",
+ "## Le re-classement : rester dans le top 10",
+ "Ensuite vient le re-classement : évaluer plus finement quel contenu répond le mieux. Les pages récupérées ne sont pas toutes envoyées au générateur. Dans [l’étude](https://arxiv.org/pdf/2602.12187), seuls les **dix meilleurs** contenus après cette étape alimentent la réponse. Une page qui passe de la 10ᵉ à la 11ᵉ place n’est plus « un peu moins bien classée » : elle disparaît du contexte disponible.",
+ "> Mot de Karelle : pour passer cette étape, votre contenu doit être clair, ciblé et directement utile. Ajouter du texte pour faire plus « complet » ne sert à rien si la réponse principale est noyée.",
+ "## La génération : être citée",
+ "Enfin, le moteur rédige sa réponse en s’appuyant sur des affirmations concrètes, des chiffres vérifiables, une définition, une comparaison ou une réponse directe à une question fréquente. [L’étude](https://arxiv.org/pdf/2602.12187) montre que la **majorité des citations proviennent du corps du texte**, pas des métadonnées.",
+ "Cette logique rejoint les consignes de Google : produire beaucoup de pages générées par IA sans valeur réelle pour les utilisateurs peut relever de l’abus de contenu à grande échelle. Google privilégie les contenus utiles, fiables, originaux et pensés d’abord pour les humains, qu’ils soient rédigés à la main, avec l’aide de l’IA ou par automatisation. Voir [Using generative AI content](https://developers.google.com/search/docs/fundamentals/using-gen-ai-content?hl=fr).",
+ "> Mot de Karelle : vos balises sont la porte d’entrée. C’est la qualité du texte qui donne une raison de vous citer. Un contenu généré en masse, sans expertise ni vérification, a peu de chances de franchir ce cap.",
+ "| Étape | Ce que le moteur fait | Ce que votre page doit porter | Risque si raté |\n| --- | --- | --- | --- |\n| **Récupération** | Pré-sélection des pages candidates | Title, méta, H1–H6, Schema, mots de votre public | Jamais transmis au générateur |\n| **Re-classement** | Top 10 envoyé à la génération | Clarté, réponse directe, cohérence thématique | Sortir du contexte = invisibilité totale |\n| **Génération** | Réponse synthétisée + citations | Corps précis, affirmations autonomes, preuves | Trouvée, mais jamais citée |",
+ "Une stratégie SAGEO efficace ne consiste pas à ajouter partout des mots-clés, des statistiques ou des reformulations. Elle consiste à adapter chaque élément à sa fonction : la structure pour être trouvée, le corps pour être comprise, retenue et citée.",
+ "## Ce que montre SAGEO Arena (et ce que j’en retiens)",
+ "Les résultats publiés dans [SAGEO Arena](https://arxiv.org/pdf/2602.12187) confirment une ligne directive simple.",
+ "- **Optimiser seulement le corps** est souvent inefficace : cela peut faire baisser la visibilité à la récupération et au re-classement\n- **Les champs structurels aident fortement** la récupération (ordre de grandeur publié : +22 % de présence dans le top 20, +2,72 positions en moyenne)\n- **Le texte du corps reste essentiel** pour la citation\n- **Le re-classement est un goulot** : une place de moins peut tout faire sortir\n- **L’approche « tout-en-un » n’est pas la meilleure** : empiler toutes les techniques d’un coup peut dégrader la récupération\n- **Le domaine compte** : en e-commerce, les stratégies testées réduisent souvent la probabilité de citation (pages déjà très structurées, requêtes conversationnelles)",
+ "La méthode mise en avant, StageAware SAGEO, adapte l’optimisation à chaque étape du pipeline. C’est la même logique que j’ai écrite dans la charte Kopio : structure d’abord, réponse en tête, corps pour la citation, lexique de votre audience, pas d’empilement aveugle.",
+ "Pour mesurer ensuite si Google vous expose déjà dans les expériences IA, lisez [Search Console 2026 : savoir si l’IA Google vous cite](/blog/search-console-apercus-ia-citations-2026).",
+ "## SAGEO en pratique : rendre vos contenus citables",
+ "Pour une coach, une thérapeute, une consultante ou une experte de l’accompagnement, le SAGEO n’est pas une technique à coller à côté du SEO. C’est une façon de repenser vos pages à partir d’une question simple : quelles informations doivent être trouvées, comprises et reprises par une IA ?",
+ "Votre notoriété attire l’attention. La clarté de votre message permet à une IA de vous citer. Voici les six actions que je retiens de l’étude, adaptées à votre métier. Les détails et exemples concrets se débloquent juste en dessous.",
+ "- **Structure** : faire remonter expertise, public et méthode dans title, méta, H2 et Schema\n- **Réponse tôt** : affirmation centrale dès les premières lignes\n- **Idées autonomes** : chaque passage compréhensible hors contexte\n- **Preuve utile** : faits et observations vérifiables, pas du remplissage\n- **Lexique audience** : les mots que votre public tape vraiment\n- **Adaptation** : guide, page métier ou comparaison ≠ fiche produit",
+ "{{email-gate|sageo-pratique}}",
+ "Étape 1 : Faites remonter votre expertise dans la structure. Votre title, votre méta-description, vos intertitres et votre balisage Schema doivent porter ce qui définit votre positionnement : domaine, public, méthode, thèmes, résultats documentés.",
+ "Par exemple, au lieu d’un titre vague comme « Mon accompagnement pour les femmes entrepreneures », préférez : « Accompagnement en prise de parole pour femmes dirigeantes : développer une communication d’autorité ».",
+ "De même, une méta-description ne doit pas être générique. Elle dit clairement pour qui vous intervenez et ce que la page apporte : « Coach en prise de parole, j’accompagne les femmes dirigeantes, autrices et conférencières à prendre la parole avec impact en public, en média et en réunion. »",
+ "Étape 2 : Répondez tôt, clairement et sans détour. Les premières lignes ont désormais une fonction stratégique. Elles donnent la réponse principale, posent le cadre ou formulent l’affirmation centrale avant les développements.",
+ "Si vous écrivez sur la prise de parole, évitez « La prise de parole est un enjeu important dans le monde professionnel. » Allez au cœur : « La peur de parler en public ne se dissipe pas avec le temps : elle diminue lorsque l’on travaille la structure du message, la respiration et la présence. » Cela ne sacrifie pas la profondeur. Cela évite les introductions qui retardent l’utile.",
+ "Étape 3 : Rendez chaque idée autonome. Un passage cité par une IA est souvent extrait de son contexte. Il doit pouvoir être compris seul.",
+ "- Nommez explicitement le sujet plutôt que d’abuser des pronoms\n- Associez chaque affirmation à un fait, un chiffre, une source ou un exemple\n- Évitez les transitions qui ne tiennent que grâce au paragraphe précédent\n- Structurez vos explications en blocs cohérents",
+ "Au lieu de « Elle permet de gagner en confiance et de mieux gérer son stress », écrivez : « La préparation à la prise de parole permet de réduire le stress en donnant un cadre clair au discours, à la respiration et à la gestion du temps. » La deuxième formulation peut être reprise seule.",
+ "Étape 4 : Ajoutez de la preuve, pas du remplissage. Expériences, méthodes, observations de terrain, chiffres, témoignages et exemples concrets rendent votre contenu plus citable. À condition d’être utiles et vérifiables.",
+ "Au lieu de « Beaucoup de femmes dirigeantes manquent de confiance en elles », vous pouvez écrire : « Dans mon accompagnement, je constate régulièrement que les femmes dirigeantes ne manquent pas de compétences, mais d’un cadre pour formuler leur légitimité et structurer leur message. » L’objectif n’est pas d’alourdir. C’est de remplacer le vague par du précis.",
+ "Étape 5 : Préservez le vocabulaire de votre audience. Si votre public recherche « peur de parler en public », « coaching prise de parole » ou « prendre la parole en réunion », votre page doit employer ces expressions.",
+ "Le SAGEO ne consiste pas à écrire pour une machine. Il consiste à écrire clairement pour des humains, tout en rendant cette clarté lisible par les systèmes qui organisent l’information. Si vous êtes coach en leadership, ne parlez pas seulement de « développement des capacités relationnelles ». Utilisez aussi « prendre confiance en soi », « affirmer son leadership », « gérer une équipe », « communiquer avec impact ».",
+ "Étape 6 : Adaptez la stratégie à votre type de page. Tous les contenus ne réagissent pas de la même façon. Dans [SAGEO Arena](https://arxiv.org/pdf/2602.12187), le e-commerce est le seul domaine où toutes les stratégies testées réduisent la probabilité de citation : pages déjà très structurées, requêtes d’achat souvent conversationnelles.",
+ "Pour une experte de l’accompagnement, un article de fond, une page métier, une présentation de méthode ou un guide pratique n’appellent pas la même densité. Gardez la structure explicite, mais ne forcez pas un format produit sur un contenu de conseil.",
+ "{{/email-gate}}",
+ "## À retenir",
+ "Votre notoriété attire l’attention. C’est la clarté de votre message qui permet à une IA de vous citer. Écrivez comme vous parlez à vos clients. Structurez vos idées comme des réponses autonomes. Faites remonter votre expertise là où les moteurs peuvent la repérer.",
+ "Le message central reste simple : **le GEO ne remplace pas le SEO**. Métadonnées et données structurées servent surtout à faire entrer la page dans le pipeline. Le corps du texte sert surtout à obtenir la citation.",
+ "{{quiz}}",
+ "Si vous voulez faire le point sur la lisibilité de votre site pour Google et les IA, [écrivez-moi](/contact) : je regarde avec vous la structure, les réponses en tête de page, et ce qui peut encore bloquer une citation.",
+ ],
+ },
+ {
  slug: "search-console-apercus-ia-citations-2026",
  title:
  "Search Console 2026 : savoir si l'IA Google vous cite",

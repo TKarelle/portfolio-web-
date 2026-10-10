@@ -1,8 +1,8 @@
-/** CTAs unifiés, vouvoiement, framing service (pas e-commerce) */
+/** CTAs unifiés, vouvoiement, framing service (pas de prix dans le bouton) */
 export const CTA = {
-  primary: "Voir le détail à 89 €/mois",
+  primary: "Faire le point ensemble",
   secondary: "Découvrir mes réalisations",
-  plan: "Commencer avec ce modèle",
+  plan: "Choisir cette formule",
   planDiscuss: "En discuter avec Karelle",
   nav: "En parler avec Karelle",
   book: "Faire le point en 30 minutes",
@@ -11,6 +11,6 @@ export const CTA = {
   practice: "Parlons de votre pratique",
   start: "Commencer mon site",
   conditions: "Voir les conditions détaillées",
-  sticky: "89 €/mois tout compris · En parler avec Karelle",
+  sticky: "En parler avec Karelle",
   faqExit: "Poser ma dernière question",
 } as const;

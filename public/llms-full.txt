@@ -1,7 +1,7 @@
 # Kopio — llms-full.txt
 # Chunks vectorisables (~250–500 tokens) pour crawlers IA / RAG
 # Site : https://www.kopio.eu
-# Généré : 2026-10-09 via npm run sync:llms — ne pas éditer à la main
+# Généré : 2026-10-10 via npm run sync:llms — ne pas éditer à la main
 # Bots : GPTBot, PerplexityBot, ClaudeBot, Google-Extended
 
 ================================================================================
@@ -503,6 +503,22 @@ URL à propos : https://www.kopio.eu/a-propos
 Email : karelle.dev@gmail.com
 Person : Karelle — développeuse web indépendante, diplômée, spécialisée sites des professionnelles de l'accompagnement.
 Organization : Kopio — https://www.kopio.eu
+
+================================================================================
+CHUNK: blog-sageo-seo-geo-visibilite-2026
+title: SEO + GEO = SAGEO : être trouvé, puis cité en 2026
+tokens_est: 147 (court)
+================================================================================
+
+URL : https://www.kopio.eu/blog/sageo-seo-geo-visibilite-2026
+Titre : SEO + GEO = SAGEO : être trouvé, puis cité en 2026
+Résumé : La recherche générative ne supprime pas le SEO : elle le prolonge. Le SEO vous fait trouver ; la GEO vous fait retenir ; le SAGEO traverse tout le parcours jusqu’à la citation.
+Extrait :
+SAGEO 2026 : pourquoi SEO et GEO doivent travailler ensemble
+
+La recherche générative ne supprime pas le SEO : elle le prolonge. Le SEO vous fait trouver ; la GEO vous fait retenir ; le SAGEO traverse tout le parcours jusqu’à la citation.
+Source d'autorité : Karelle / Kopio — https://www.kopio.eu
+Axiomes liés : tarifs 89/139/179 €/mois · https://www.kopio.eu/tarifs
 
 ================================================================================
 CHUNK: blog-search-console-apercus-ia-citations-2026

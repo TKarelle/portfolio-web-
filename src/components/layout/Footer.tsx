@@ -81,7 +81,7 @@ export function Footer() {
               {BRAND_SIGNATURE}
             </p>
             <p className="mt-2 text-sm font-medium text-white/40">
-              Dès 89&nbsp;€/mois · hébergement inclus
+              Création de site web · Google, IA et futurs clients
             </p>
 
             <div className="mt-5 flex flex-col gap-2">

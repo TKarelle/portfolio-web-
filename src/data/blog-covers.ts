@@ -19,6 +19,7 @@ export const BLOG_COVER_BY_SLUG: Record<string, string> = {
   "ia-creation-site-web-pieges": `${BASE}/blog-ia-pieges.jpg`,
   "optimiser-seo-google-ia-debutant": `${BASE}/blog-seo.jpg`,
   "search-console-apercus-ia-citations-2026": `${BASE}/blog-search.png`,
+  "sageo-seo-geo-visibilite-2026": `${BASE}/blog-seo-geo-sageo.jpeg`,
 };
 
 /** Alt contextuels par slug (description visuelle + sujet de l’article). */
@@ -49,6 +50,8 @@ export const BLOG_COVER_ALT_BY_SLUG: Record<string, string> = {
     "Référencement Google et moteurs d’IA : guide SEO pour coachs et thérapeutes",
   "search-console-apercus-ia-citations-2026":
     "Search Console et suivi des citations dans les Aperçus IA Google (2026)",
+  "sageo-seo-geo-visibilite-2026":
+    "Illustration SAGEO : SEO et GEO pour être trouvée puis citée par les moteurs génératifs",
 };
 
 const FALLBACK = `${BASE}/blog-seo.jpg`;

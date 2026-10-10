@@ -10,9 +10,10 @@ import {
   BRAND_LOGO_IMAGE,
   BRAND_NAME,
   CONTACT_EMAIL,
-  FOUNDER_DIPLOMA,
   FOUNDER_NAME,
   FOUNDER_PHOTO,
+  FOUNDER_ROLE,
+  FOUNDER_TAGLINE,
   SITE_META_DESCRIPTION,
 } from "@/data/site";
 import {
@@ -92,8 +93,8 @@ export function OrganizationJsonLd() {
             "@type": "Person",
             "@id": `${base}/#person`,
             name: FOUNDER_NAME,
-            jobTitle: "Développeuse web indépendante",
-            description: `${FOUNDER_DIPLOMA}, spécialisée dans les sites des professionnelles de l'accompagnement`,
+            jobTitle: FOUNDER_ROLE,
+            description: FOUNDER_TAGLINE,
             image: `${base}${FOUNDER_PHOTO}`,
             email: CONTACT_EMAIL,
             worksFor: { "@id": `${base}/#business` },

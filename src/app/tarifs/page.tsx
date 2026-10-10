@@ -36,9 +36,9 @@ export default function TarifsPage() {
         video="/image/sitewebvideo.mp4"
         videoPoster="/image/sitewebvideo-poster.jpg"
         videoLabel="Aperçu d’un site livré"
-        badge="Dès 89 €/mois"
+        badge="Formules d’accompagnement"
         secondaryHref="#modeles"
-        secondaryLabel="Voir les modèles"
+        secondaryLabel="Voir les formules"
       />
       <ValueBanner />
       <Pricing />

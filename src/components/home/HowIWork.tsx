@@ -1,5 +1,10 @@
 import Image from "next/image";
-import { FOUNDER_NAME, FOUNDER_PHOTO, FOUNDER_PHOTO_ALT } from "@/data/site";
+import {
+  FOUNDER_NAME,
+  FOUNDER_PHOTO,
+  FOUNDER_PHOTO_ALT,
+  FOUNDER_TAGLINE,
+} from "@/data/site";
 import { ScrollBoldText } from "@/components/home/ScrollBoldText";
 import { SoftBlurBand } from "@/components/ui/SoftBlurBand";
 import { SectionCta } from "@/components/ui/SectionCta";
@@ -9,7 +14,7 @@ const ABOUT_COPY = [
   "Un site n’est jamais simplement un site.",
   "Vous avez construit votre expertise. Comment la faire ressentir en quelques secondes sur Google ?",
   "C’est là que j’interviens.",
-  `Je suis ${FOUNDER_NAME}, développeuse web. Je transforme votre expertise en une présence claire, personnelle et rassurante.`,
+  `Je suis ${FOUNDER_NAME}. ${FOUNDER_TAGLINE}`,
   "Votre expertise est déjà là. Mon rôle : lui donner la place qu’elle mérite.",
 ] as const;
 

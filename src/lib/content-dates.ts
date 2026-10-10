@@ -12,8 +12,8 @@ export const CLUSTER_LASTMOD = {
   landings: "2026-10-07",
   /** Mentions légales */
   legal: "2026-09-30",
-  /** Lead magnet grille */
-  grille: "2026-09-30",
+  /** Lead magnet Test des 10 Secondes (/grille-etancheite) */
+  grille: "2026-10-10",
 } as const;
 
 /**

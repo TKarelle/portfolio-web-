@@ -44,7 +44,7 @@ export function QuizLeadMagnet({
           {QUIZ_META.headline}
         </p>
         <p className="mt-1.5 text-xs font-medium text-white/45 leading-snug">
-          10 points pour voir ce que Google et ChatGPT disent vraiment de toi.
+          10 points pour voir ce que Google et ChatGPT disent vraiment de vous.
         </p>
         <Link
           href={QUIZ_META.path}
@@ -68,11 +68,11 @@ export function QuizLeadMagnet({
             id={`${id}-title`}
             className="text-xl sm:text-2xl font-extrabold tracking-tight text-ink leading-tight"
           >
-            Ton site te représente-t-il <TitleEm>encore</TitleEm>&nbsp;?
+            Votre site vous représente-t-il <TitleEm>encore</TitleEm>&nbsp;?
           </h3>
           <p className="mt-3 text-sm font-medium text-muted leading-relaxed">
-            10 questions simples pour voir ce qui bloque encore sur ton site.
-            Deux minutes, ton propre site, tes propres chiffres.
+            10 questions simples pour voir ce qui bloque encore sur votre site.
+            Deux minutes, votre propre site, vos propres chiffres.
           </p>
           <div className="mt-5">
             <Button href={QUIZ_META.path} size="lg">
@@ -100,7 +100,7 @@ export function QuizLeadMagnet({
             id={`${id}-title`}
             className="text-2xl sm:text-3xl font-extrabold tracking-tight text-ink leading-tight"
           >
-            Que disent Google et ChatGPT <TitleEm>de toi</TitleEm>&nbsp;?
+            Que disent Google et ChatGPT <TitleEm>de vous</TitleEm>&nbsp;?
           </h2>
           <p className="mt-3 text-sm sm:text-base font-medium text-muted leading-relaxed max-w-xl">
             {QUIZ_META.subtitle}

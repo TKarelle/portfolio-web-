@@ -21,7 +21,7 @@ const linkClass = "text-violet font-bold hover:underline underline-offset-2";
 
 /**
  * Sem.10 — Black Ink : paragraphe de maillage contextuel.
- * Co-occurrence keyword + 89 €/mois + Karelle dans ~40–60 tokens.
+ * Co-occurrence keyword + Karelle + action (sans prix dans le CTA éditorial).
  * Densité : 3–5 liens, phrases naturelles, zéro liste d’ancres.
  */
 export function BlackInkBridge({
@@ -36,10 +36,10 @@ export function BlackInkBridge({
     <p className="mt-6 text-sm md:text-base text-muted font-medium leading-relaxed max-w-2xl mx-auto text-left sm:text-center">
       {variant === "metier" && (
         <>
-          Karelle construit ton {keyword} dès 89&nbsp;€/mois (hébergement et
-          mises à jour inclus). Pour caler la durée d&apos;engagement, vois la{" "}
+          Karelle construit votre {keyword} pour qu&apos;il parle à Google, aux
+          IA et à vos futurs clients. Pour caler la formule, voyez les{" "}
           <Link href="/tarifs" className={linkClass}>
-            grille tarifaire Kopio
+            tarifs Kopio
           </Link>
           {relatedBesoin && (
             <>
@@ -75,11 +75,11 @@ export function BlackInkBridge({
 
       {variant === "besoin" && (
         <>
-          Sur ce besoin ({keyword}), Karelle livre dès 89&nbsp;€/mois avec la{" "}
+          Sur ce besoin ({keyword}), Karelle livre une présence claire avec la{" "}
           <Link href="/tarifs" className={linkClass}>
-            même grille Kopio
+            même offre Kopio
           </Link>
-          . Tu peux aussi revenir à l&apos;{" "}
+          . Vous pouvez aussi revenir à l&apos;{" "}
           <Link href="/" className={linkClass}>
             offre site pour professionnelles de l&apos;accompagnement
           </Link>
@@ -108,9 +108,9 @@ export function BlackInkBridge({
       {variant === "comparatif" && (
         <>
           Après ce comparatif ({keyword}), la décision se joue souvent sur le
-          prix et le suivi : dès 89&nbsp;€/mois chez{" "}
+          suivi et la clarté de l&apos;offre : voir les{" "}
           <Link href="/tarifs" className={linkClass}>
-            les tarifs Kopio
+            tarifs Kopio
           </Link>
           , tenus par Karelle. Revoir l&apos;{" "}
           <Link href="/" className={linkClass}>

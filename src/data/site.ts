@@ -1,8 +1,14 @@
 export const FOUNDER_NAME = "Karelle";
 export const FOUNDER_PHOTO = "/image/pp.jpg";
-/** Alt accessible / SEO : nom + rôle (E-E-A-T) */
-export const FOUNDER_PHOTO_ALT =
-  "Karelle, développeuse web indépendante spécialisée dans les sites des professionnelles de l'accompagnement";
+/** Rôle court (byline) — source de vérité partout */
+export const FOUNDER_ROLE = "Visibilité digitale";
+/** Phrase signature Karelle — blog, à propos, home, schema */
+export const FOUNDER_TAGLINE =
+  "Je crée des sites web qui parlent le langage de Google, des IA et de vos futurs clients.";
+/** Affichage « Karelle | Visibilité digitale » */
+export const FOUNDER_BYLINE = `${FOUNDER_NAME} | ${FOUNDER_ROLE}`;
+/** Alt accessible / SEO : nom + signature (E-E-A-T) */
+export const FOUNDER_PHOTO_ALT = `${FOUNDER_NAME}, ${FOUNDER_ROLE}. ${FOUNDER_TAGLINE}`;
 export const FOUNDER_DIPLOMA = "Diplômée en développement web";
 export const FOUNDER_EXPERIENCE = "2 ans d’expérience";
 export const BRAND_NAME = "Kopio";

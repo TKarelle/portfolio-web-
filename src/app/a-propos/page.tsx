@@ -7,32 +7,38 @@ import { ValueBanner } from "@/components/ui/ValueBanner";
 import { ContactSection } from "@/components/home/ContactSection";
 import { ProfilePageJsonLd } from "@/components/seo/JsonLd";
 import { CTA } from "@/data/copy";
-import { FOUNDER_NAME, FOUNDER_PHOTO, FOUNDER_PHOTO_ALT } from "@/data/site";
+import {
+  FOUNDER_BYLINE,
+  FOUNDER_NAME,
+  FOUNDER_PHOTO,
+  FOUNDER_PHOTO_ALT,
+  FOUNDER_ROLE,
+  FOUNDER_TAGLINE,
+} from "@/data/site";
 import { buildPageMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "À propos : développeuse web pour l'accompagnement",
-  description:
-    "Karelle, développeuse web indépendante. Sites pour professionnelles de l'accompagnement dès 89 €/mois, hébergement et évolutions inclus.",
+  title: `À propos : ${FOUNDER_BYLINE}`,
+  description: FOUNDER_TAGLINE,
   path: "/a-propos",
 });
 
 const values = [
   {
     title: "Transparence",
-    text: "Je t'explique les choses clairement, et pas de frais cachés. Tu sais toujours où on en est.",
+    text: "Je vous explique les choix clairement. Vous savez toujours où en est votre site, sans jargon inutile.",
   },
   {
     title: "Simplicité",
-    text: "Je rends le web accessible à celles qui n'y connaissent rien.",
+    text: "Vous n’avez pas à devenir technique. Je porte la structure, vous gardez le message et les décisions utiles.",
   },
   {
-    title: "Qualité",
-    text: "Chaque site est soigné, rapide et pensé pour convertir.",
+    title: "Clarté",
+    text: "Chaque page doit aider Google, les IA et vos futurs clients à comprendre qui vous êtes, vite et sans détour.",
   },
   {
     title: "Proximité",
-    text: "Un seul interlocuteur. Pas une agence impersonnelle.",
+    text: "Une seule interlocutrice : moi. Pas une agence anonyme, pas un ticket support sans visage.",
   },
 ];
 
@@ -45,22 +51,23 @@ export default function AboutPage() {
           { label: "Accueil", href: "/" },
           { label: "À propos", href: "/a-propos" },
         ]}
-        title={`Je suis ${FOUNDER_NAME}. Ton alliée pour ton site.`}
-        highlight="Ton alliée"
-        description="Développeuse web indépendante. j'aide les professionnelles de l'accompagnement à avoir un site clair : sans prise de tête, sans attendre 3 mois."
+        title={FOUNDER_BYLINE}
+        highlight={FOUNDER_ROLE}
+        description={FOUNDER_TAGLINE}
         image={FOUNDER_PHOTO}
         imageAlt={FOUNDER_PHOTO_ALT}
-        badge="Dès 89 €/mois"
+        badge="Création de site web"
         secondaryHref="/tarifs"
+        secondaryLabel="Voir les formules"
       />
       <ValueBanner />
 
-      <section className="py-14 md:py-20 px-6 bg-bg">
+      <section className="py-14 md:py-20 page-x bg-bg">
         <div className="max-w-5xl mx-auto">
-          <p className="max-w-3xl mx-auto text-center text-lg sm:text-xl md:text-2xl font-extrabold leading-snug text-ink mb-12 md:mb-14">
-            Mon métier, c&apos;est de concevoir des architectures web invisibles,
-            fluides et ultra-rapides, pour que la technique s&apos;efface
-            totalement au profit de votre message.
+          <p className="max-w-3xl mx-auto text-center text-lg sm:text-xl md:text-2xl font-extrabold leading-snug text-ink tracking-tight mb-12 md:mb-14">
+            Mon métier : concevoir des sites dont la technique s&apos;efface, pour
+            que votre message soit trouvé, compris, puis retenu par Google, les
+            IA et vos futurs clients.
           </p>
 
           <div className="max-w-3xl mx-auto mb-14 md:mb-16">
@@ -76,17 +83,19 @@ export default function AboutPage() {
                   professionnelles de l&apos;accompagnement
                 </strong>{" "}
                 : coachs, thérapeutes, sophrologues, consultantes, assistantes
-                virtuelles, naturopathes, créatrices. Sites en abonnement dès{" "}
-                89&nbsp;€/mois — conception, hébergement et évolutions inclus.
+                virtuelles, naturopathes, créatrices, et aux dirigeantes qui
+                portent une expertise singulière, en indépendante ou en société.
               </p>
               <p>
-                Ce n&apos;est plus une offre pour artisans du bâtiment, plombiers
-                ou entreprises de travaux. Les anciennes pages sur ces métiers
-                redirigent vers la niche actuelle : l&apos;entité indexée est{" "}
-                <strong className="text-ink">
-                  Karelle / Kopio — sites pour l&apos;accompagnement
-                </strong>
-                , pas le BTP.
+                Ce que je construis avec vous, ce n&apos;est pas une vitrine
+                générique. C&apos;est une présence claire : un site qui parle le
+                langage de ceux qui vous cherchent, assez structuré pour être
+                trouvé, assez précis pour être cité.
+              </p>
+              <p>
+                Je suis {FOUNDER_NAME}. Derrière Kopio, il n&apos;y a pas une
+                équipe : il y a une interlocutrice, diplômée en développement
+                web, qui suit votre site dans la durée.
               </p>
             </div>
           </div>

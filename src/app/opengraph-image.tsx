@@ -164,7 +164,7 @@ export default async function OpenGraphImage() {
                   border: "3px solid #0a0a0a",
                 }}
               >
-                Dès 89 €/mois
+                Visibilité digitale
               </div>
               <div
                 style={{

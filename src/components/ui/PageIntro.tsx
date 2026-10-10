@@ -61,7 +61,7 @@ export function PageIntro({
   video,
   videoPoster = "/image/sitewebvideo-poster.jpg",
   videoLabel = "Aperçu du projet",
-  badge = "Dès 89 €/mois",
+  badge = "Création de site web",
   primaryHref = "/contact",
   primaryLabel = CTA.primary,
   secondaryHref,

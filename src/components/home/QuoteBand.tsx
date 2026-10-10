@@ -3,6 +3,8 @@ import {
   FOUNDER_NAME,
   FOUNDER_PHOTO,
   FOUNDER_PHOTO_ALT,
+  FOUNDER_ROLE,
+  FOUNDER_TAGLINE,
 } from "@/data/site";
 import { SectionHead, TitleEm } from "@/components/ui/SectionHead";
 
@@ -46,9 +48,12 @@ export function QuoteBand() {
           </div>
 
           <div className="text-center sm:text-left max-w-lg">
-            <p className="text-sm sm:text-base font-medium text-muted leading-snug">
-              <span className="font-extrabold text-ink">{FOUNDER_NAME}</span>
-              {FOUNDER_PHOTO_ALT.replace(/^Karelle/i, "")}
+            <p className="text-sm sm:text-base font-extrabold text-ink leading-snug">
+              {FOUNDER_NAME}{" "}
+              <span className="font-medium text-muted">| {FOUNDER_ROLE}</span>
+            </p>
+            <p className="mt-1.5 text-sm font-medium text-muted leading-snug">
+              {FOUNDER_TAGLINE}
             </p>
           </div>
         </div>

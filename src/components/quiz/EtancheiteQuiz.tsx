@@ -108,7 +108,7 @@ export function HeroEmailGate({
     const trimmedName = name.trim();
     const trimmedEmail = email.trim().toLowerCase();
     if (trimmedName.length < 2) {
-      setError("Indique ton prénom.");
+      setError("Indiquez votre prénom.");
       return;
     }
     if (!trimmedEmail.includes("@") || trimmedEmail.length < 5) {
@@ -624,7 +624,7 @@ export function EtancheiteQuiz() {
 
   return (
     <>
-      <section className="relative overflow-hidden pt-36 md:pt-40 pb-14 md:pb-20 px-5 sm:px-8">
+      <section className="relative overflow-hidden pt-36 md:pt-40 pb-14 md:pb-20 page-x">
         <div
           className="absolute inset-0 z-0 pointer-events-none"
           aria-hidden
@@ -638,12 +638,12 @@ export function EtancheiteQuiz() {
           }}
         />
 
-        <div className="relative z-10 max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+        <div className="relative z-10 w-full grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
           <div>
             <Breadcrumbs
               items={[
                 { label: "Accueil", href: "/" },
-                { label: "Test gratuit", href: QUIZ_META.path },
+                { label: QUIZ_META.title, href: QUIZ_META.path },
               ]}
             />
 
@@ -658,7 +658,7 @@ export function EtancheiteQuiz() {
                 align="left"
                 className="!max-w-none"
               >
-                Que disent Google et ChatGPT <TitleEm>de toi</TitleEm>&nbsp;?
+                Que disent Google et ChatGPT <TitleEm>de vous</TitleEm>&nbsp;?
               </SectionHead>
             </div>
 
@@ -697,9 +697,9 @@ export function EtancheiteQuiz() {
       {gate ? (
         <section
           id="quiz"
-          className="scroll-mt-28 py-14 md:py-20 px-5 sm:px-8 bg-surface"
+          className="scroll-mt-28 py-14 md:py-20 page-x bg-surface"
         >
-          <div className="max-w-3xl mx-auto">
+          <div className="w-full max-w-3xl mx-auto">
             <QuizBody gate={gate} />
           </div>
         </section>

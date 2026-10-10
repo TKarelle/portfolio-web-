@@ -1,34 +1,22 @@
 import Link from "next/link";
 import { Fragment, type ReactNode } from "react";
+import { ArticleEmailGate } from "@/components/blog/ArticleEmailGate";
+import {
+  MotDeKarelle,
+  parseMotDeKarelle,
+} from "@/components/blog/MotDeKarelle";
 import { QuizLeadMagnet } from "@/components/home/QuizLeadMagnet";
 import { MediaCard, MediaCardCaption } from "@/components/ui/MediaCard";
 import { ResponsiveDataTable } from "@/components/ui/ResponsiveDataTable";
 import { slugifyHeading } from "@/lib/slugify-heading";
 
+/** {{email-gate|id}} … {{/email-gate}} — soft gate (contenu HTML conservé). */
+const GATE_OPEN_RE = /^\{\{email-gate\|([^}|]+)\}\}$/;
+const GATE_CLOSE_RE = /^\{\{\/email-gate\}\}$/;
+
 /** {{media|src|alt|title|text}} — même MediaCard que l'accueil. */
 const MEDIA_RE =
   /^\{\{media\|([^|]+)\|([^|]+)\|([^|]*)\|([^}]*)\}\}$/;
-
-function ProofCheck() {
-  return (
-    <span className="proof-check shrink-0 mt-0.5" aria-hidden="true">
-      <svg
-        viewBox="0 0 16 16"
-        fill="none"
-        className="w-3 h-3"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M3.5 8.2 6.4 11l6.1-7"
-          stroke="currentColor"
-          strokeWidth="2.2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg>
-    </span>
-  );
-}
 
 /**
  * Inline : **gras**, ==surlignage lime==, [lien](/url)
@@ -123,22 +111,54 @@ function isChecklistBlock(block: string): boolean {
   );
 }
 
-function Checklist({ block }: { block: string }) {
+/** Titre gras + reste, sinon toute la ligne en corps. */
+function splitInsightItem(raw: string): { title: string; body: string } {
+  const m = raw.match(/^\*\*(.+?)\*\*\s*:?\s*([\s\S]*)$/);
+  if (m) {
+    return { title: m[1].trim(), body: m[2].trim() };
+  }
+  const colon = raw.indexOf(" : ");
+  if (colon > 0 && colon < 80) {
+    return {
+      title: raw.slice(0, colon).trim(),
+      body: raw.slice(colon + 3).trim(),
+    };
+  }
+  return { title: "", body: raw };
+}
+
+/**
+ * Liste premium (style Apple) : filet fin, titre + corps, zéro coche.
+ * Remplace définitivement l’ancien checklist à coches.
+ */
+function InsightList({ block }: { block: string }) {
   const items = block
     .split("\n")
     .map((l) => l.trim())
     .filter(Boolean)
-    .map((l) => l.replace(/^[-•*]\s+/, ""));
+    .map((l) => l.replace(/^[-•*]\s+/, ""))
+    .map(splitInsightItem);
 
   return (
-    <ul className="my-6 space-y-3 not-prose">
-      {items.map((item) => (
-        <li
-          key={item.slice(0, 48)}
-          className="flex items-start gap-3 text-ink/85 font-medium leading-relaxed"
-        >
-          <ProofCheck />
-          <span className="min-w-0 pt-0.5">{renderInline(item)}</span>
+    <ul className="my-10 sm:my-12 not-prose list-none border-y border-ink/8 divide-y divide-ink/8 text-left">
+      {items.map((item, i) => (
+        <li key={`${item.title || item.body.slice(0, 32)}-${i}`} className="py-5 sm:py-6">
+          {item.title ? (
+            <>
+              <p className="text-[0.95rem] sm:text-base md:text-lg font-semibold text-ink tracking-tight leading-snug">
+                {item.title}
+              </p>
+              {item.body ? (
+                <p className="mt-1.5 sm:mt-2 text-sm sm:text-[0.95rem] font-medium text-muted leading-relaxed">
+                  {renderInline(item.body)}
+                </p>
+              ) : null}
+            </>
+          ) : (
+            <p className="text-[0.95rem] sm:text-base font-medium text-ink/85 leading-relaxed">
+              {renderInline(item.body)}
+            </p>
+          )}
         </li>
       ))}
     </ul>
@@ -340,6 +360,13 @@ function renderBodyBlock(
     const callout = block.replace(/^>\s?/, "").trim();
     if (/^Vérifié le\b/i.test(callout)) return null;
 
+    const mot = parseMotDeKarelle(callout);
+    if (mot) {
+      return (
+        <MotDeKarelle key={key}>{renderInline(mot)}</MotDeKarelle>
+      );
+    }
+
     return (
       <aside
         key={key}
@@ -361,7 +388,7 @@ function renderBodyBlock(
   if (isChecklistBlock(block)) {
     return (
       <div key={key} className="text-left">
-        <Checklist block={block} />
+        <InsightList block={block} />
       </div>
     );
   }
@@ -370,12 +397,9 @@ function renderBodyBlock(
     return (
       <p
         key={key}
-        className="flex items-start gap-3 text-left text-ink/85 font-medium leading-relaxed my-3"
+        className="text-left text-[0.95rem] sm:text-base text-ink/85 font-medium leading-relaxed my-4 pl-0"
       >
-        <ProofCheck />
-        <span className="min-w-0 pt-0.5">
-          {renderInline(block.trim().replace(/^[-•*]\s+/, ""))}
-        </span>
+        {renderInline(block.trim().replace(/^[-•*]\s+/, ""))}
       </p>
     );
   }
@@ -434,63 +458,165 @@ function groupIntoProseSections(blocks: string[]): ProseSection[] {
   return sections.filter((s) => s.title || s.body.length > 0);
 }
 
+type ContentChunk =
+  | { kind: "free"; blocks: string[] }
+  | { kind: "gated"; gateId: string; blocks: string[] };
+
+function splitGateChunks(blocks: string[]): ContentChunk[] {
+  const chunks: ContentChunk[] = [];
+  let buf: string[] = [];
+  let gateId: string | null = null;
+
+  const flush = () => {
+    if (!buf.length) return;
+    if (gateId) {
+      chunks.push({ kind: "gated", gateId, blocks: buf });
+    } else {
+      chunks.push({ kind: "free", blocks: buf });
+    }
+    buf = [];
+  };
+
+  for (const block of blocks) {
+    const trimmed = block.trim();
+    const open = trimmed.match(GATE_OPEN_RE);
+    if (open) {
+      flush();
+      gateId = open[1].trim();
+      continue;
+    }
+    if (GATE_CLOSE_RE.test(trimmed)) {
+      flush();
+      gateId = null;
+      continue;
+    }
+    buf.push(block);
+  }
+  flush();
+  return chunks;
+}
+
+function renderSectionBody(
+  section: ProseSection,
+  keyPrefix: string,
+  si: number,
+) {
+  let paraIndex = 0;
+  return section.body.map((seg, bi) => {
+    if (seg.type === "steps") {
+      return (
+        <div key={`steps-${keyPrefix}-${si}-${bi}`} className="text-left">
+          <StepList steps={seg.steps} />
+        </div>
+      );
+    }
+    const node = renderBodyBlock(
+      seg.value,
+      `b-${keyPrefix}-${si}-${bi}`,
+      paraIndex,
+    );
+    if (
+      node &&
+      !seg.value.startsWith(">") &&
+      !seg.value.startsWith("## ") &&
+      !isPipeTable(seg.value) &&
+      !isChecklistBlock(seg.value) &&
+      !/^[-•*]\s+/.test(seg.value.trim()) &&
+      seg.value.trim() !== "{{quiz}}" &&
+      !MEDIA_RE.test(seg.value.trim())
+    ) {
+      paraIndex += 1;
+    }
+    return node;
+  });
+}
+
+function renderProseSections(
+  blocks: string[],
+  headingIds: Map<string, string>,
+  sectionNumberStart: number,
+  keyPrefix: string,
+  compact = false,
+): { nodes: ReactNode[]; nextSectionNumber: number } {
+  const sections = groupIntoProseSections(blocks);
+  let sectionNumber = sectionNumberStart;
+  const nodes: ReactNode[] = [];
+
+  sections.forEach((section, si) => {
+    const isLead = !section.title;
+    const n = isLead ? 0 : ++sectionNumber;
+    const id = section.title
+      ? (headingIds.get(section.title) ?? slugifyHeading(section.title))
+      : undefined;
+    const body = renderSectionBody(section, keyPrefix, si);
+
+    if (compact) {
+      nodes.push(
+        <div
+          key={`${keyPrefix}-${section.title ?? `lead-${si}`}`}
+          className="w-full text-center"
+        >
+          {section.title && id ? (
+            <SectionHeading title={section.title} id={id} index={n || 1} />
+          ) : null}
+          {body}
+        </div>,
+      );
+      return;
+    }
+
+    nodes.push(
+      <section
+        key={`${keyPrefix}-${section.title ?? `lead-${si}`}`}
+        className={`page-x ${
+          isLead ? "pt-4 pb-10 md:pb-12" : "py-14 md:py-20"
+        } ${!isLead && n % 2 === 0 ? "bg-surface" : "bg-bg"}`}
+      >
+        <div className="w-full max-w-3xl mx-auto text-center">
+          {section.title && id ? (
+            <SectionHeading title={section.title} id={id} index={n} />
+          ) : null}
+          {body}
+        </div>
+      </section>,
+    );
+  });
+
+  return { nodes, nextSectionNumber: sectionNumber };
+}
+
 export function BlogContent({ blocks }: { blocks: string[] }) {
   const headingIds = buildHeadingIdMap(blocks);
-  const sections = groupIntoProseSections(blocks);
+  const chunks = splitGateChunks(blocks);
   let sectionNumber = 0;
+  const output: ReactNode[] = [];
 
-  return (
-    <div className="blog-prose">
-      {sections.map((section, si) => {
-        const isLead = !section.title;
-        const n = isLead ? 0 : ++sectionNumber;
-        const id = section.title
-          ? (headingIds.get(section.title) ?? slugifyHeading(section.title))
-          : undefined;
-        let paraIndex = 0;
+  chunks.forEach((chunk, ci) => {
+    const gated = chunk.kind === "gated";
+    const { nodes, nextSectionNumber } = renderProseSections(
+      chunk.blocks,
+      headingIds,
+      sectionNumber,
+      `c${ci}`,
+      gated,
+    );
+    sectionNumber = nextSectionNumber;
 
-        return (
-          <section
-            key={section.title ?? `lead-${si}`}
-            className={`page-x ${
-              isLead ? "pt-4 pb-10 md:pb-12" : "py-14 md:py-20"
-            } ${!isLead && n % 2 === 0 ? "bg-surface" : "bg-bg"}`}
-          >
-            <div className="w-full max-w-3xl mx-auto text-center">
-              {section.title && id ? (
-                <SectionHeading title={section.title} id={id} index={n} />
-              ) : null}
-              {section.body.map((seg, bi) => {
-                if (seg.type === "steps") {
-                  return (
-                    <div key={`steps-${si}-${bi}`} className="text-left">
-                      <StepList steps={seg.steps} />
-                    </div>
-                  );
-                }
-                const node = renderBodyBlock(
-                  seg.value,
-                  `b-${si}-${bi}`,
-                  paraIndex,
-                );
-                if (
-                  node &&
-                  !seg.value.startsWith(">") &&
-                  !seg.value.startsWith("## ") &&
-                  !isPipeTable(seg.value) &&
-                  !isChecklistBlock(seg.value) &&
-                  !/^[-•*]\s+/.test(seg.value.trim()) &&
-                  seg.value.trim() !== "{{quiz}}" &&
-                  !MEDIA_RE.test(seg.value.trim())
-                ) {
-                  paraIndex += 1;
-                }
-                return node;
-              })}
-            </div>
-          </section>
-        );
-      })}
-    </div>
-  );
+    if (gated) {
+      output.push(
+        <section
+          key={`gate-wrap-${chunk.gateId}-${ci}`}
+          className="page-x py-10 md:py-14 bg-bg"
+        >
+          <div className="w-full max-w-3xl mx-auto">
+            <ArticleEmailGate gateId={chunk.gateId}>{nodes}</ArticleEmailGate>
+          </div>
+        </section>,
+      );
+    } else {
+      output.push(...nodes);
+    }
+  });
+
+  return <div className="blog-prose">{output}</div>;
 }

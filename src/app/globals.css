@@ -548,27 +548,6 @@ select {
   text-wrap: pretty;
 }
 
-.proof-check {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 1.35rem;
-  height: 1.35rem;
-  flex-shrink: 0;
-  background: var(--surface);
-  color: var(--ink);
-  border: 1.5px solid var(--ink);
-  border-radius: var(--rounded-large);
-  box-shadow: 3px 3px 0 0 var(--lime);
-}
-
-@media (min-width: 640px) {
-  .proof-check {
-    width: 1.5rem;
-    height: 1.5rem;
-  }
-}
-
 @keyframes hero-fade-up {
   from {
     opacity: 0;
