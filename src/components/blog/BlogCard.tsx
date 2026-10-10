@@ -39,8 +39,8 @@ export function BlogCard({
     <MediaCard
       src={image}
       alt={imageAlt ?? title}
-      aspect={featured ? "16/9" : "16/10"}
-      sizes={featured ? "(max-width: 768px) 100vw, 900px" : "(max-width: 768px) 100vw, 420px"}
+      aspect="16/10"
+      sizes="(max-width: 768px) 100vw, 420px"
       className="h-full group"
     >
       <p className="text-[11px] font-extrabold uppercase tracking-[0.16em] text-ink/35">
@@ -72,10 +72,7 @@ export function BlogCard({
     </MediaCard>
   );
 
-  const className = cn(
-    "block h-full min-w-0",
-    featured && "md:col-span-2",
-  );
+  const className = "block h-full min-w-0";
 
   if (external) {
     return (

@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useMemo, useState, useSyncExternalStore } from "react";
+import { FormEvent, useEffect, useMemo, useState } from "react";
 import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 import { Button } from "@/components/ui/Button";
 import { SectionHead, TitleEm } from "@/components/ui/SectionHead";
@@ -23,7 +23,6 @@ const STORAGE_KEY = "kopio-etancheite-gate";
 export type GateState = { name: string; email: string };
 
 function readGate(): GateState | null {
-  if (typeof window === "undefined") return null;
   try {
     const raw = sessionStorage.getItem(STORAGE_KEY);
     if (!raw) return null;
@@ -33,11 +32,6 @@ function readGate(): GateState | null {
     /* ignore */
   }
   return null;
-}
-
-function subscribeGate(onStoreChange: () => void) {
-  window.addEventListener("storage", onStoreChange);
-  return () => window.removeEventListener("storage", onStoreChange);
 }
 
 async function submitLead(
@@ -618,9 +612,11 @@ function QuizBody({ gate }: { gate: GateState }) {
 
 /** Hero 2 colonnes + email inline + quiz après unlock. */
 export function EtancheiteQuiz() {
-  const storedGate = useSyncExternalStore(subscribeGate, readGate, () => null);
-  const [unlockedGate, setUnlockedGate] = useState<GateState | null>(null);
-  const gate = unlockedGate ?? storedGate;
+  const [gate, setGate] = useState<GateState | null>(null);
+
+  useEffect(() => {
+    setGate(readGate());
+  }, []);
 
   return (
     <>
@@ -685,7 +681,7 @@ export function EtancheiteQuiz() {
                   </a>
                 </div>
               ) : (
-                <HeroEmailGate onUnlocked={setUnlockedGate} />
+                <HeroEmailGate onUnlocked={setGate} />
               )}
             </div>
           </div>

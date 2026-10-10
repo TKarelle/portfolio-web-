@@ -13,6 +13,7 @@ import { LandingHero } from "@/components/ui/LandingHero";
 import { extractHeadingsFromBlocks } from "@/lib/slugify-heading";
 import { pickShortHighlight } from "@/lib/highlight";
 import { buildPageMetadata } from "@/lib/metadata";
+import { CTA } from "@/data/copy";
 
 interface BlogPostPageProps {
   params: Promise<{ slug: string }>;
@@ -115,6 +116,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               Questions <TitleEm>fréquentes</TitleEm>
             </>
           }
+          contactHref="/contact"
+          contactLabel={CTA.primary}
         />
       ) : null}
 

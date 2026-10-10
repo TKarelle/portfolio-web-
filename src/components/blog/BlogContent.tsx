@@ -1,5 +1,10 @@
 import Link from "next/link";
 import { Fragment, type ReactNode } from "react";
+import {
+  ArticleInlineCta,
+  injectArticleJourney,
+  parseArticleCta,
+} from "@/components/blog/ArticleInlineCta";
 import { ArticleEmailGate } from "@/components/blog/ArticleEmailGate";
 import {
   MotDeKarelle,
@@ -336,6 +341,11 @@ function renderBodyBlock(
     );
   }
 
+  const ctaVariant = parseArticleCta(block);
+  if (ctaVariant) {
+    return <ArticleInlineCta key={key} variant={ctaVariant} />;
+  }
+
   const media = block.trim().match(MEDIA_RE);
   if (media) {
     const [, src, alt, title, text] = media;
@@ -523,6 +533,7 @@ function renderSectionBody(
       !isChecklistBlock(seg.value) &&
       !/^[-•*]\s+/.test(seg.value.trim()) &&
       seg.value.trim() !== "{{quiz}}" &&
+      parseArticleCta(seg.value) == null &&
       !MEDIA_RE.test(seg.value.trim())
     ) {
       paraIndex += 1;
@@ -586,8 +597,9 @@ function renderProseSections(
 }
 
 export function BlogContent({ blocks }: { blocks: string[] }) {
-  const headingIds = buildHeadingIdMap(blocks);
-  const chunks = splitGateChunks(blocks);
+  const journeyBlocks = injectArticleJourney(blocks);
+  const headingIds = buildHeadingIdMap(journeyBlocks);
+  const chunks = splitGateChunks(journeyBlocks);
   let sectionNumber = 0;
   const output: ReactNode[] = [];
 
