@@ -115,7 +115,7 @@ export function DemoVideos() {
         </div>
 
         <div className="reveal px-5 sm:px-6">
-          <SectionCta href="/projets">{CTA.secondary}</SectionCta>
+          <SectionCta href="/sageo">{CTA.secondary}</SectionCta>
         </div>
       </div>
     </section>

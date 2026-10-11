@@ -10,7 +10,7 @@ import { CTA } from "@/data/copy";
 import { HERO_MOCKUPS } from "@/data/hero-mockups";
 
 const HERO = {
-  lede: "Un site professionnel pensé pour convaincre vos visiteurs et vous rendre visible sur Google et les IA.",
+  lede: "Le N°1 de la création de sites conçus avec la méthode SAGEO, pour captiver vos visiteurs, dominer Google et devenir la référence citée par l’IA.",
 } as const;
 
 /**
@@ -40,17 +40,11 @@ export function Hero() {
               <Button href="#modeles" size="lg">
                 {CTA.primary}
               </Button>
-              <Button href="#demos" variant="outline" size="lg">
+              <Button href="/sageo" variant="outline" size="lg">
                 {CTA.secondary}
               </Button>
             </div>
 
-            <Link
-              href="/sageo"
-              className="text-sm font-extrabold text-ink/55 hover:text-ink underline-offset-4 hover:underline transition-colors"
-            >
-              Découvrir la méthode SAGEO
-            </Link>
           </div>
         </div>
 

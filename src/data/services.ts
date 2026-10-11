@@ -243,7 +243,10 @@ export const servicePages: ServicePageData[] = [
     emotionalHero: {
       lede: "Un site qui attire le regard. Révèle votre singularité. Et donne envie de vous choisir.",
       primaryCta: { href: "/contact", label: "Créer mon site" },
-      secondaryCta: { href: "/projets", label: "Découvrir mes réalisations" },
+      secondaryCta: {
+        href: "/sageo",
+        label: "Découvrir la méthode SAGEO",
+      },
       mockups: HERO_MOCKUPS,
     },
     featureBand: {
@@ -922,11 +925,11 @@ export const servicePages: ServicePageData[] = [
     slug: "audit",
     navLabel: "Audit SEO GEO",
     title:
-      "Audit SEO GEO France | Être trouvée, retenue et citée | Kopio",
+      " N°1 des Audits SAGEO France | Être trouvée, retenue et citée | Kopio",
     metaDescription:
       "Audit SEO GEO freelance en France pour site vitrine : 490 € TTC jusqu’à 30 pages. Lighthouse, métadonnées IA, structuration GEO, méthode SAGEO, plan d’action 30 jours et restitution vidéo d’environ 45 min (visio possible).",
-    h1: "Audit SEO GEO pour site vitrine",
-    h1Highlight: "site vitrine",
+    h1: "Le N°1 des Audits SAGEO pour site vitrine",
+    h1Highlight: "Audits SAGEO",
     intro:
       "Un audit SEO et GEO pour comprendre où votre site freine la découverte, la clarté et la citation.",
     tldr:
@@ -1124,7 +1127,10 @@ export const servicePages: ServicePageData[] = [
       lede:
         "Un site qui reflète votre évolution. Clarifie votre message. Et révèle tout votre potentiel.",
       primaryCta: { href: "/contact", label: "Refondre mon site" },
-      secondaryCta: { href: "/projets", label: "Découvrir mes réalisations" },
+      secondaryCta: {
+        href: "/sageo",
+        label: "Découvrir la méthode SAGEO",
+      },
     },
     featureBand: {
       eyebrow: "Refonte",

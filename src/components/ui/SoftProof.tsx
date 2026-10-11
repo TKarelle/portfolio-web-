@@ -11,10 +11,6 @@ export function SoftProof({ className }: { className?: string }) {
       )}
     >
       <GoogleReviewBadge variant="soft" />
-      <span className="text-ink/20" aria-hidden>
-        ·
-      </span>
-      <span>+30 projets livrés</span>
     </div>
   );
 }

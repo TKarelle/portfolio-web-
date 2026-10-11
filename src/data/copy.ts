@@ -1,7 +1,7 @@
 /** CTAs unifiés, vouvoiement, framing service (pas de prix dans le bouton) */
 export const CTA = {
   primary: "Faire le point ensemble",
-  secondary: "Découvrir mes réalisations",
+  secondary: "Découvrir la méthode SAGEO",
   plan: "Choisir cette formule",
   planDiscuss: "En discuter avec Karelle",
   nav: "En parler avec Karelle",
