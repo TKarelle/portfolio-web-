@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-11T12:53:37.689Z",
+  "generatedAt": "2026-10-11T20:19:04.531Z",
   "base": "https://www.kopio.eu",
   "axioms": [
     {
@@ -146,8 +146,8 @@
       "type": "service",
       "slug": "audit",
       "url": "https://www.kopio.eu/audit",
-      "title": "Audit SEO GEO France | Être trouvée, retenue et citée | Kopio",
-      "tldr": "Audit SEO GEO freelance en France pour site vitrine : 490 € TTC. Je mesure Lighthouse, je structure les métadonnées pour Google et les IA (SEO), je prépare le contenu pour la citation (GEO), puis je synthétise en méthode SAGEO avec un plan d’action sur 30 jours et une vidéo d’environ 45 min. Visio possible."
+      "title": " N°1 des Audits SAGEO France | Être trouvée, retenue et citée | Kopio",
+      "tldr": "Faites de votre site une référence incontournable. L'audit SAGEO de Kopio combine la restructuration de vos métadonnées pour Google (SEO), l'optimisation de votre contenu pour les citations ChatGPT et Gemini (GEO), ainsi qu'un plan d'action sur 30 jours accompagné d'une vidéo personnalisée de 45 minutes."
     },
     {
       "type": "service",
@@ -316,6 +316,13 @@
       "url": "https://www.kopio.eu/comparatif/combien-coute-site-internet-entrepreneure-2026",
       "keyword": "combien coûte site internet entrepreneuse 2026",
       "tldr": "Panorama 2026 des budgets site pour entrepreneuse : autonomie, freelance, agence, abonnement. Fourchettes, inclus, pièges. Cette page compare les modèles de coût ; l'article « site vitrine » sur le blog détaille le format vitrine seul."
+    },
+    {
+      "type": "blog",
+      "slug": "comment-chatgpt-cherche-sur-le-web",
+      "url": "https://www.kopio.eu/blog/comment-chatgpt-cherche-sur-le-web",
+      "title": "Comment ChatGPT cherche sur le Web : la méthode pour être citée par l’IA",
+      "tldr": "ChatGPT cherche sur le Web via des sous-requêtes, récupère des pages, puis synthétise une réponse avec sources. Pour être citée, alignez SEO et GEO sur ce qu’il cherche vraiment."
     },
     {
       "type": "blog",

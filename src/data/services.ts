@@ -831,7 +831,7 @@ export const servicePages: ServicePageData[] = [
         },
       ],
       outro:
-        "Pour aller plus loin : [article SEO + GEO = SAGEO](/blog/sageo-seo-geo-visibilite-2026). Étapes séparées : [SEO](/seo) · [GEO](/geo).",
+        "Pour aller plus loin : [article SEO + GEO = SAGEO](/blog/sageo-seo-geo-visibilite-2026) · [Comment ChatGPT cherche sur le Web](/blog/comment-chatgpt-cherche-sur-le-web). Étapes séparées : [SEO](/seo) · [GEO](/geo).",
     },
     sections: [
       {

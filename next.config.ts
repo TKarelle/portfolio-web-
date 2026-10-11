@@ -111,6 +111,11 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
+        source: "/blog/ingenierie-inverse-sageo-chatgpt-json",
+        destination: "/blog/comment-chatgpt-cherche-sur-le-web",
+        permanent: true,
+      },
+      {
         source: "/site-internet-coach-consultant",
         destination: "/site-web-pour/coach",
         permanent: true,

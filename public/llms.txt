@@ -56,6 +56,7 @@
 
 ## Blog
 
+- [Comment ChatGPT cherche sur le Web : la méthode pour être citée par l’IA](https://www.kopio.eu/blog/comment-chatgpt-cherche-sur-le-web)
 - [SEO + GEO = SAGEO : être trouvé, puis cité en 2026](https://www.kopio.eu/blog/sageo-seo-geo-visibilite-2026)
 - [Search Console 2026 : savoir si l'IA Google vous cite](https://www.kopio.eu/blog/search-console-apercus-ia-citations-2026)
 - [Optimiser son référencement pour Google et les IA : le guide des débutantes en 2026](https://www.kopio.eu/blog/optimiser-seo-google-ia-debutant)
