@@ -8,7 +8,7 @@ import { FutureVitrineCta } from "@/components/landing/FutureVitrineCta";
 import { buildPageMetadata } from "@/lib/metadata";
 
 const blogTitle =
-  "Blog SEO IA et SAGEO | Conseils pour être trouvée | Kopio";
+  "Blog SEO, GEO et SAGEO | Les clés pour attirer vos futurs clients | Kopio";
 const blogDescription =
   "Conseils et stratégies pour améliorer la visibilité de votre site sur Google, dans les réponses IA et auprès de vos prospects.";
 
@@ -33,7 +33,7 @@ export default function BlogPage() {
         ]}
         title={
           <>
-            Stratégies SEO, IA et{" "}
+            Stratégies SEO, GEO et{" "}
             <TitleEm>SAGEO</TitleEm> pour développer votre visibilité
           </>
         }
