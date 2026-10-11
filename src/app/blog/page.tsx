@@ -7,12 +7,18 @@ import { ValueBanner } from "@/components/ui/ValueBanner";
 import { FutureVitrineCta } from "@/components/landing/FutureVitrineCta";
 import { buildPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = buildPageMetadata({
-  title: "Blog : conseils web pour professionnelles de l'accompagnement",
-  description:
-    "Guides pour créer votre site vitrine en abonnement : prix, délais, Instagram vs site, pièges à éviter. Pour coachs, thérapeutes et consultantes.",
-  path: "/blog",
-});
+const blogTitle = "Blog SEO, IA & SAGEO | Kopio";
+const blogDescription =
+  "Conseils et stratégies pour améliorer la visibilité de votre site sur Google, dans les réponses IA et auprès de vos prospects.";
+
+export const metadata: Metadata = {
+  ...buildPageMetadata({
+    title: blogTitle,
+    description: blogDescription,
+    path: "/blog",
+  }),
+  title: { absolute: blogTitle },
+};
 
 export default function BlogPage() {
   const [featured, ...rest] = getBlogPosts();
@@ -26,15 +32,15 @@ export default function BlogPage() {
         ]}
         title={
           <>
-            Votre{" "}<TitleEm>expertise</TitleEm>, 
-            <br/>sous{" "}
-            <TitleEm>un nouveau regard.</TitleEm>
+            Stratégies SEO, IA et{" "}
+            <TitleEm>SAGEO</TitleEm> pour développer votre visibilité
           </>
         }
-        description="Des idées pour faire évoluer votre présence en ligne, mieux comprendre le référencement et rendre votre expertise visible sur Google et les IA."
+        description="Conseils et stratégies pour améliorer la visibilité de votre site sur Google, dans les réponses IA et auprès de vos prospects."
         video="/image/sitewebvideo.mp4"
         videoPoster="/image/sophie.jpg"
         videoLabel="Aperçu du site Sophie Bluel, architecte d'intérieur"
+        videoByline="Sophie Bluel"
         badge="Guides pratiques"
         secondaryHref="/tarifs"
       />

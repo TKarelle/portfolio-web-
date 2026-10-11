@@ -9,6 +9,8 @@ import { QUIZ_META } from "@/data/etancheite-quiz";
 type QuizLeadMagnetProps = {
   variant?: "section" | "footer" | "inline";
   id?: string;
+  /** Fond de section (alternance bg / surface) */
+  className?: string;
 };
 
 function QuizIcon({ className = "w-4 h-4" }: { className?: string }) {
@@ -33,6 +35,7 @@ function QuizIcon({ className = "w-4 h-4" }: { className?: string }) {
 export function QuizLeadMagnet({
   variant = "section",
   id = "grille",
+  className = "bg-bg",
 }: QuizLeadMagnetProps) {
   if (variant === "footer") {
     return (
@@ -88,7 +91,7 @@ export function QuizLeadMagnet({
   return (
     <section
       id={id}
-      className="scroll-mt-28 py-16 md:py-20 px-5 sm:px-8 bg-bg"
+      className={`scroll-mt-28 py-16 md:py-20 px-5 sm:px-8 ${className}`}
       aria-labelledby={`${id}-title`}
     >
       <div className="max-w-3xl mx-auto">

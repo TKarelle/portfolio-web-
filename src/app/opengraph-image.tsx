@@ -129,7 +129,7 @@ export default async function OpenGraphImage() {
                 letterSpacing: -1,
               }}
             >
-              Votre site professionnel, sans la charge mentale.
+              Site clair pour être trouvée sur Google, les IA et par vos clients.
             </div>
 
             <div

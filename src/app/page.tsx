@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     description: SITE_META_DESCRIPTION,
     path: "/",
   }),
-  title: { absolute: `${SITE_META_TITLE} | ${BRAND_NAME}` },
+  title: { absolute: `${BRAND_NAME} | ${SITE_META_TITLE}` },
 };
 
 export default function HomePage() {

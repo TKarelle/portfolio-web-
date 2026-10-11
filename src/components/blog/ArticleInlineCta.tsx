@@ -25,8 +25,8 @@ const COPY: Record<
   /** Considération → conversation humaine */
   bridge: {
     eyebrow: "Travailler ensemble",
-    title: "Envie que votre présence en ligne soit claire et tenue ?",
-    body: "Je crée des sites web qui parlent le langage de Google, des IA et de vos futurs clients. On regarde votre situation, sans jargon et sans pression.",
+    title: "Envie d’une présence en ligne claire, qui vous ressemble ?",
+    body: "Je crée des sites pensés pour vos futurs clients et pour ceux qui vous cherchent. Écrivez-moi : je regarde votre situation avec vous, simplement et sans pression.",
     primary: { href: "/contact", label: CTA.primary },
     secondary: { href: "/tarifs", label: "Voir les formules" },
   },

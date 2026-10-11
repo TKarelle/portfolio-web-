@@ -17,7 +17,7 @@ export const BLOG_COVER_BY_SLUG: Record<string, string> = {
   "combien-coute-site-vitrine-2026": `${BASE}/blog-prix-vitrine.jpg`,
   "5-raisons-avoir-site-web-maintenant": `${BASE}/blog-site-maintenant.jpg`,
   "ia-creation-site-web-pieges": `${BASE}/blog-ia-pieges.jpg`,
-  "optimiser-seo-google-ia-debutant": `${BASE}/blog-seo.jpg`,
+  "optimiser-seo-google-ia-debutant": `/image/card-cover/seo.jpeg`,
   "search-console-apercus-ia-citations-2026": `${BASE}/blog-search.png`,
   "sageo-seo-geo-visibilite-2026": `${BASE}/blog-seo-geo-sageo.jpeg`,
 };
@@ -47,7 +47,7 @@ export const BLOG_COVER_ALT_BY_SLUG: Record<string, string> = {
   "ia-creation-site-web-pieges":
     "Création de site web assistée par IA : pièges à éviter pour une indépendante",
   "optimiser-seo-google-ia-debutant":
-    "Référencement Google et moteurs d’IA : guide SEO pour coachs et thérapeutes",
+    "Résultats Google pour « coach professionnelle Toulouse » : site de coach en première position avec URL, extrait et aperçu de page",
   "search-console-apercus-ia-citations-2026":
     "Search Console et suivi des citations dans les Aperçus IA Google (2026)",
   "sageo-seo-geo-visibilite-2026":

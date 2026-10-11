@@ -8,20 +8,25 @@ import { ContactSection } from "@/components/home/ContactSection";
 import { ProfilePageJsonLd } from "@/components/seo/JsonLd";
 import { CTA } from "@/data/copy";
 import {
-  FOUNDER_BYLINE,
   FOUNDER_NAME,
   FOUNDER_PHOTO,
   FOUNDER_PHOTO_ALT,
-  FOUNDER_ROLE,
   FOUNDER_TAGLINE,
 } from "@/data/site";
 import { buildPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = buildPageMetadata({
-  title: `À propos : ${FOUNDER_BYLINE}`,
-  description: FOUNDER_TAGLINE,
-  path: "/a-propos",
-});
+const aboutTitle = "Kopio | Création de sites web, SEO et visibilité IA";
+const aboutDescription =
+  "Karelle accompagne les entrepreneurs dans la création de sites web optimisés pour Google, les IA et la génération de prospects.";
+
+export const metadata: Metadata = {
+  ...buildPageMetadata({
+    title: aboutTitle,
+    description: aboutDescription,
+    path: "/a-propos",
+  }),
+  title: { absolute: aboutTitle },
+};
 
 const values = [
   {
@@ -51,8 +56,8 @@ export default function AboutPage() {
           { label: "Accueil", href: "/" },
           { label: "À propos", href: "/a-propos" },
         ]}
-        title={FOUNDER_BYLINE}
-        highlight={FOUNDER_ROLE}
+        title="Karelle, votre partenaire pour une visibilité digitale qui génère des prospects"
+        highlight="visibilité digitale"
         description={FOUNDER_TAGLINE}
         image={FOUNDER_PHOTO}
         imageAlt={FOUNDER_PHOTO_ALT}

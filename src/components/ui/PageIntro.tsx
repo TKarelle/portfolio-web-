@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import { Button } from "@/components/ui/Button";
 import { Breadcrumbs, type Crumb } from "@/components/seo/Breadcrumbs";
 import { AutoPlayVideo } from "@/components/ui/AutoPlayVideo";
+import { ProjectByline } from "@/components/ui/ProjectByline";
 import { SectionHead, TitleEm } from "@/components/ui/SectionHead";
 import { CTA } from "@/data/copy";
 
@@ -18,6 +19,8 @@ type PageIntroProps = {
   video?: string;
   videoPoster?: string;
   videoLabel?: string;
+  /** Crédit sous la vidéo (ex. Sophie Delmas by Kopio PRO) */
+  videoByline?: string;
   badge?: string;
   primaryHref?: string;
   primaryLabel?: string;
@@ -61,6 +64,7 @@ export function PageIntro({
   video,
   videoPoster = "/image/sitewebvideo-poster.jpg",
   videoLabel = "Aperçu du projet",
+  videoByline,
   badge = "Création de site web",
   primaryHref = "/contact",
   primaryLabel = CTA.primary,
@@ -119,27 +123,34 @@ export function PageIntro({
           </div>
         </div>
 
-        <div
-          className={`relative ${mediaAspect} w-full max-w-md mx-auto lg:max-w-none overflow-hidden rounded-[var(--rounded-large)] bg-ink/5`}
-        >
-          {video ? (
-            <AutoPlayVideo
-              src={video}
-              poster={videoPoster}
-              title={videoLabel}
-              aria-label={videoLabel}
-              className="absolute inset-0 h-full w-full object-cover object-top rounded-[var(--rounded-large)]"
-            />
-          ) : image ? (
-            <Image
-              src={image}
-              alt={imageAlt ?? altFallback}
-              fill
-              priority
-              className="object-cover rounded-[var(--rounded-large)]"
-              sizes="(max-width: 1024px) 90vw, 480px"
-              quality={75}
-            />
+        <div className="w-full max-w-md mx-auto lg:max-w-none min-w-0">
+          <div
+            className={`relative ${mediaAspect} w-full overflow-hidden rounded-[var(--rounded-large)] bg-ink/5`}
+          >
+            {video ? (
+              <AutoPlayVideo
+                src={video}
+                poster={videoPoster}
+                title={videoLabel}
+                aria-label={videoLabel}
+                className="absolute inset-0 h-full w-full object-cover object-top rounded-[var(--rounded-large)]"
+              />
+            ) : image ? (
+              <Image
+                src={image}
+                alt={imageAlt ?? altFallback}
+                fill
+                priority
+                className="object-cover rounded-[var(--rounded-large)]"
+                sizes="(max-width: 1024px) 90vw, 480px"
+                quality={75}
+              />
+            ) : null}
+          </div>
+          {video && videoByline ? (
+            <div className="mt-4 min-w-0">
+              <ProjectByline name={videoByline} />
+            </div>
           ) : null}
         </div>
       </div>

@@ -1,13 +1,12 @@
 "use client";
 
-import Image from "next/image";
 import { useCallback, useEffect, useRef } from "react";
 import { SectionHead, TitleEm } from "@/components/ui/SectionHead";
 import { MediaCard } from "@/components/ui/MediaCard";
+import { ProjectByline } from "@/components/ui/ProjectByline";
 import { SectionCta } from "@/components/ui/SectionCta";
 import { SoftNavButton } from "@/components/ui/SoftNavButton";
 import { CTA } from "@/data/copy";
-import { BRAND_NAME, FOUNDER_PHOTO } from "@/data/site";
 
 const cards = [
   {
@@ -95,27 +94,7 @@ export function DemoVideos() {
                   aspect="590/442"
                   sizes="(max-width: 768px) 70vw, 50vw"
                 >
-                  <p className="flex flex-wrap items-center gap-x-1.5 gap-y-1 text-[0.95rem] sm:text-base leading-none text-left">
-                    <span className="font-extrabold text-ink tracking-tight">
-                      {card.title}
-                    </span>
-                    <span className="font-medium text-muted">by</span>
-                    <span className="inline-flex items-center gap-1.5">
-                      <Image
-                        src={FOUNDER_PHOTO}
-                        alt=""
-                        width={22}
-                        height={22}
-                        className="w-[22px] h-[22px] rounded-full object-cover shrink-0"
-                      />
-                      <span className="font-extrabold text-ink underline underline-offset-2 decoration-ink/80">
-                        {BRAND_NAME}
-                      </span>
-                    </span>
-                    <span className="text-[11px] font-bold uppercase tracking-[0.08em] text-muted/70">
-                      PRO
-                    </span>
-                  </p>
+                  <ProjectByline name={card.title} />
                 </MediaCard>
               </li>
             ))}

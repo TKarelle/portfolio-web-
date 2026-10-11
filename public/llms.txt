@@ -7,13 +7,18 @@
 
 ## Pages principales
 
-- [Accueil](https://www.kopio.eu/) : Site pour professionnelles de l'accompagnement ; dès 89 €/mois
+- [Accueil](https://www.kopio.eu/) : Création de sites web, SEO, IA & prospects — marque Kopio
+- [Création de site web](https://www.kopio.eu/creation-de-site-web) : Sites sur mesure pour entrepreneurs et entreprises
+- [SEO](https://www.kopio.eu/seo) : Visibilité Google, audit, structure, mots-clés
+- [GEO / IA](https://www.kopio.eu/geo) : Être cité par ChatGPT, Perplexity, Copilot, Aperçus IA
+- [SAGEO](https://www.kopio.eu/sageo) : Méthode Kopio SEO + GEO (trouvé puis cité)
+- [Refonte de site](https://www.kopio.eu/refonte-de-site-web) : Moderniser image, SEO, vitesse, clarté
 - [Tarifs](https://www.kopio.eu/tarifs) : 6 mois 179 €/mois, 12 mois 139 €/mois, 24 mois 89 €/mois ; Besoin précis sur devis
 - [Projets](https://www.kopio.eu/projets) : Portfolio
 - [FAQ](https://www.kopio.eu/faq) : Questions fréquentes
 - [À propos](https://www.kopio.eu/a-propos) : Karelle, développeuse web derrière Kopio
 - [Contact](https://www.kopio.eu/contact) : Devis / appel
-- [Blog](https://www.kopio.eu/blog) : Guides prix, reconversion, présence en ligne
+- [Blog](https://www.kopio.eu/blog) : SEO, IA & SAGEO
 - [Entités machine](https://www.kopio.eu/entities.json) : Graphe d'entités + axiomes (RAG)
 
 ## Sites web par métier

@@ -14,7 +14,7 @@ export function SoftProof({ className }: { className?: string }) {
       <span className="text-ink/20" aria-hidden>
         ·
       </span>
-      <span>+20 projets livrés</span>
+      <span>+30 projets livrés</span>
     </div>
   );
 }

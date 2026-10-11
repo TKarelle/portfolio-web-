@@ -40,7 +40,7 @@ export const siteVideos: readonly SiteVideo[] = [
       "Démo du site livré pour PULSE, consultante en bien-être : offre claire, preuves et prise de contact simplifiée.",
     uploadDate: "2025-09-25T10:00:00+02:00",
     durationSeconds: 29,
-    pagePaths: ["/"],
+    pagePaths: ["/", "/services"],
     category: "Consultante en bien-être",
     shortTitle: "PULSE",
   },

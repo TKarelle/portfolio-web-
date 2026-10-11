@@ -7,7 +7,7 @@ import { SITE_CONTENT_UPDATED } from "@/data/site";
  */
 export const CLUSTER_LASTMOD = {
   /** Accueil, tarifs, contact, FAQ, process — Sem.8 QDF */
-  core: "2026-10-07",
+  core: "2026-10-10",
   /** /site-web-pour/*, /besoin/*, /comparatif/* — Sem.8 QDF */
   landings: "2026-10-07",
   /** Mentions légales */
@@ -26,6 +26,11 @@ export const QDF_MONEY_PATHS = [
   "/contact",
   "/faq",
   "/blog",
+  "/creation-de-site-web",
+  "/seo",
+  "/geo",
+  "/sageo",
+  "/refonte-de-site-web",
   "/site-web-pour/coach",
   "/site-web-pour/therapeute",
   "/site-web-pour/sophrologue",

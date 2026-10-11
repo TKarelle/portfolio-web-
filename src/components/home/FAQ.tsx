@@ -20,6 +20,7 @@ export function FAQ({
   showRoiDisclaimer = false,
   contactHref = "#contact",
   contactLabel = "Poser ma dernière question",
+  className = "bg-bg",
 }: {
   items?: readonly FaqEntry[];
   title?: ReactNode;
@@ -28,12 +29,14 @@ export function FAQ({
   showRoiDisclaimer?: boolean;
   contactHref?: string;
   contactLabel?: string;
+  /** Fond (alternance bg / surface) */
+  className?: string;
 } = {}) {
   const source = items ?? defaultFaqItems;
 
   return (
     <section
-      className="relative z-10 py-20 sm:py-24 md:py-28 lg:py-32 page-x bg-bg"
+      className={`relative z-10 py-20 sm:py-24 md:py-28 lg:py-32 page-x ${className}`}
       id="faq"
     >
       <div className="w-full max-w-3xl mx-auto">

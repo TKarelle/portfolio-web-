@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/Button";
@@ -9,19 +9,30 @@ import { cn } from "@/lib/utils";
 import { BRAND_LOGO } from "@/data/site";
 import { CTA } from "@/data/copy";
 import { QUIZ_META } from "@/data/etancheite-quiz";
+import { NAV_SERVICE_LINKS } from "@/data/topic-clusters";
 
 const links = [
   { href: "/tarifs", label: "Tarifs" },
   { href: "/projets", label: "Projets" },
-  { href: "/faq", label: "Questions" },
   { href: "/blog", label: "Blog" },
 ];
 
+function linkActive(pathname: string, href: string) {
+  return pathname === href || pathname.startsWith(`${href}/`);
+}
+
 export function Navbar() {
   const [open, setOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [scrollbarW, setScrollbarW] = useState(0);
   const pathname = usePathname();
+  const servicesRef = useRef<HTMLLIElement>(null);
+
+  const servicesActive =
+    linkActive(pathname, "/services") ||
+    NAV_SERVICE_LINKS.some((l) => linkActive(pathname, l.href));
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -30,7 +41,11 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  useEffect(() => setOpen(false), [pathname]);
+  useEffect(() => {
+    setOpen(false);
+    setServicesOpen(false);
+    setMobileServicesOpen(false);
+  }, [pathname]);
 
   useEffect(() => {
     if (!open) {
@@ -49,6 +64,24 @@ export function Navbar() {
       document.body.style.paddingRight = "";
     };
   }, [open]);
+
+  useEffect(() => {
+    if (!servicesOpen) return;
+    const onPointer = (e: MouseEvent) => {
+      if (!servicesRef.current?.contains(e.target as Node)) {
+        setServicesOpen(false);
+      }
+    };
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setServicesOpen(false);
+    };
+    document.addEventListener("mousedown", onPointer);
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.removeEventListener("mousedown", onPointer);
+      document.removeEventListener("keydown", onKey);
+    };
+  }, [servicesOpen]);
 
   const showPromo = pathname !== QUIZ_META.path;
 
@@ -88,7 +121,7 @@ export function Navbar() {
         <nav
           aria-label="Navigation principale"
           className={cn(
-            "w-full overflow-hidden border transition-[background-color,box-shadow] duration-300 ease-out",
+            "w-full overflow-visible border transition-[background-color,box-shadow] duration-300 ease-out",
             "rounded-[var(--rounded-large)]",
             scrolled || open
               ? "glass-nav shadow-lg shadow-violet/5 border-ink/10"
@@ -113,17 +146,118 @@ export function Navbar() {
               <span className="text-pink">.</span>
             </Link>
 
-            <ul className="hidden md:flex items-center gap-1">
-              {links.map((l) => (
-                <li key={l.href}>
+            <ul className="hidden md:flex items-center gap-0.5">
+              <li ref={servicesRef} className="relative">
+                <div
+                  className={cn(
+                    "inline-flex items-center rounded-[var(--rounded-large)] transition-colors",
+                    servicesActive || servicesOpen
+                      ? "text-ink bg-white/70"
+                      : "text-muted hover:text-ink hover:bg-white/60",
+                  )}
+                >
                   <Link
-                    href={l.href}
-                    className="px-4 py-2 text-sm font-semibold text-muted hover:text-ink rounded-[var(--rounded-large)] hover:bg-white/60 transition-colors"
+                    href="/services"
+                    className="pl-4 pr-1.5 py-2 text-sm font-semibold"
                   >
-                    {l.label}
+                    Services
                   </Link>
-                </li>
-              ))}
+                  <button
+                    type="button"
+                    className="pr-3 pl-1 py-2"
+                    aria-expanded={servicesOpen}
+                    aria-haspopup="true"
+                    aria-label="Ouvrir le menu Services"
+                    onClick={() => setServicesOpen((v) => !v)}
+                  >
+                    <svg
+                      className={cn(
+                        "w-3.5 h-3.5 opacity-60 transition-transform duration-200",
+                        servicesOpen && "rotate-180",
+                      )}
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                      aria-hidden
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M5.23 7.21a.75.75 0 011.06.02L10 11.17l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                  </button>
+                </div>
+
+                <div
+                  className={cn(
+                    "absolute left-0 top-full z-50 pt-2 transition-[opacity,transform] duration-200 ease-out",
+                    servicesOpen
+                      ? "opacity-100 translate-y-0 pointer-events-auto"
+                      : "opacity-0 -translate-y-1 pointer-events-none",
+                  )}
+                >
+                  <ul
+                    className="min-w-[13.5rem] rounded-[var(--rounded-large)] border border-ink/10 bg-white/95 backdrop-blur-md shadow-lg shadow-ink/10 py-1.5"
+                    role="menu"
+                    aria-label="Services"
+                  >
+                    <li role="none">
+                      <Link
+                        href="/services"
+                        role="menuitem"
+                        className={cn(
+                          "block px-4 py-2.5 text-sm font-semibold transition-colors",
+                          linkActive(pathname, "/services")
+                            ? "text-ink bg-violet/8"
+                            : "text-muted hover:text-ink hover:bg-ink/[0.04]",
+                        )}
+                        onClick={() => setServicesOpen(false)}
+                      >
+                        Vue d’ensemble
+                      </Link>
+                    </li>
+                    {NAV_SERVICE_LINKS.map((l) => {
+                      const active = linkActive(pathname, l.href);
+                      return (
+                        <li key={l.href} role="none">
+                          <Link
+                            href={l.href}
+                            role="menuitem"
+                            className={cn(
+                              "block px-4 py-2.5 text-sm font-semibold transition-colors",
+                              active
+                                ? "text-ink bg-violet/8"
+                                : "text-muted hover:text-ink hover:bg-ink/[0.04]",
+                            )}
+                            onClick={() => setServicesOpen(false)}
+                          >
+                            {l.label}
+                          </Link>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
+              </li>
+
+              {links.map((l) => {
+                const active = linkActive(pathname, l.href);
+                return (
+                  <li key={l.href}>
+                    <Link
+                      href={l.href}
+                      className={cn(
+                        "px-4 py-2 text-sm font-semibold rounded-[var(--rounded-large)] transition-colors",
+                        active
+                          ? "text-ink bg-white/70"
+                          : "text-muted hover:text-ink hover:bg-white/60",
+                      )}
+                    >
+                      {l.label}
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
 
             <div className="hidden md:block">
@@ -168,6 +302,7 @@ export function Navbar() {
             className={cn(
               "md:hidden grid transition-[grid-template-rows] duration-350 ease-[cubic-bezier(0.22,1,0.36,1)]",
               open ? "grid-rows-[1fr]" : "grid-rows-[0fr]",
+              open ? "overflow-visible" : "overflow-hidden",
             )}
             style={{ transitionDuration: "350ms" }}
             inert={open ? undefined : true}
@@ -176,18 +311,101 @@ export function Navbar() {
             <div className="min-h-0 overflow-hidden">
               <div className="border-t border-ink/10 px-3 pb-3 pt-2">
                 <ul className="flex flex-col">
-                  {links.map((l) => (
-                    <li key={l.href}>
+                  <li>
+                    <div className="flex items-center gap-1">
                       <Link
-                        href={l.href}
+                        href="/services"
                         tabIndex={open ? undefined : -1}
                         onClick={() => setOpen(false)}
-                        className="block px-4 py-3.5 min-h-11 text-base font-semibold text-muted hover:text-ink rounded-xl hover:bg-white/70 transition-colors touch-manipulation"
+                        className={cn(
+                          "flex-1 px-4 py-3.5 min-h-11 text-base font-semibold rounded-xl transition-colors touch-manipulation",
+                          servicesActive
+                            ? "text-ink bg-white/70"
+                            : "text-muted hover:text-ink hover:bg-white/70",
+                        )}
                       >
-                        {l.label}
+                        Services
                       </Link>
-                    </li>
-                  ))}
+                      <button
+                        type="button"
+                        tabIndex={open ? undefined : -1}
+                        className="shrink-0 w-11 h-11 rounded-xl text-muted hover:bg-white/70 touch-manipulation"
+                        aria-expanded={mobileServicesOpen}
+                        aria-label="Ouvrir les services"
+                        onClick={() => setMobileServicesOpen((v) => !v)}
+                      >
+                        <svg
+                          className={cn(
+                            "mx-auto w-4 h-4 opacity-50 transition-transform duration-200",
+                            mobileServicesOpen && "rotate-180",
+                          )}
+                          viewBox="0 0 20 20"
+                          fill="currentColor"
+                          aria-hidden
+                        >
+                          <path
+                            fillRule="evenodd"
+                            d="M5.23 7.21a.75.75 0 011.06.02L10 11.17l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                            clipRule="evenodd"
+                          />
+                        </svg>
+                      </button>
+                    </div>
+                    <div
+                      className={cn(
+                        "grid transition-[grid-template-rows] duration-300 ease-out",
+                        mobileServicesOpen
+                          ? "grid-rows-[1fr]"
+                          : "grid-rows-[0fr]",
+                      )}
+                    >
+                      <ul className="min-h-0 overflow-hidden pl-2">
+                        {NAV_SERVICE_LINKS.map((l) => {
+                          const active = linkActive(pathname, l.href);
+                          return (
+                            <li key={l.href}>
+                              <Link
+                                href={l.href}
+                                tabIndex={
+                                  open && mobileServicesOpen ? undefined : -1
+                                }
+                                onClick={() => setOpen(false)}
+                                className={cn(
+                                  "block px-4 py-3 min-h-11 text-[0.95rem] font-semibold rounded-xl transition-colors touch-manipulation",
+                                  active
+                                    ? "text-ink bg-violet/8"
+                                    : "text-muted hover:text-ink hover:bg-white/70",
+                                )}
+                              >
+                                {l.label}
+                              </Link>
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    </div>
+                  </li>
+
+                  {links.map((l) => {
+                    const active = linkActive(pathname, l.href);
+                    return (
+                      <li key={l.href}>
+                        <Link
+                          href={l.href}
+                          tabIndex={open ? undefined : -1}
+                          onClick={() => setOpen(false)}
+                          className={cn(
+                            "block px-4 py-3.5 min-h-11 text-base font-semibold rounded-xl transition-colors touch-manipulation",
+                            active
+                              ? "text-ink bg-white/70"
+                              : "text-muted hover:text-ink hover:bg-white/70",
+                          )}
+                        >
+                          {l.label}
+                        </Link>
+                      </li>
+                    );
+                  })}
                 </ul>
                 <div className="mt-1 px-1 pb-1">
                   <Button

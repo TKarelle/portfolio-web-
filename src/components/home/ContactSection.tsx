@@ -20,7 +20,8 @@ export function ContactSection({
       <SoftBlurBand contentClassName="w-full max-w-5xl mx-auto px-5 sm:px-8 md:px-10">
         <div className="reveal text-center max-w-3xl mx-auto mb-14 sm:mb-16 md:mb-20">
           <SectionHead as={headingAs} size="xl">
-            Parlons de votre <TitleEm>pratique</TitleEm>.
+            Parlons de votre projet de{" "}
+            <TitleEm>site web</TitleEm>
           </SectionHead>
         </div>
 
@@ -66,7 +67,7 @@ export function ContactSection({
         <p className="reveal mt-16 sm:mt-20 md:mt-24 text-center max-w-2xl mx-auto text-lg sm:text-xl md:text-2xl font-extrabold text-ink tracking-tight leading-snug text-balance">
           Votre expertise est déjà là.
           <br />
-          Parlons de la façon de la faire vivre en ligne.
+          Parlons de comment la faire vivre en ligne.
         </p>
       </SoftBlurBand>
     </section>

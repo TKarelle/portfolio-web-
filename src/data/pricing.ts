@@ -112,7 +112,7 @@ export const pricingPlans = [
       {
         label: "Votre visibilité",
         items: [
-          "Structure SEO optimisée",
+          "Bases SEO",
           "Indexation Google",
           "Configuration Search Console",
         ],
@@ -124,7 +124,7 @@ export const pricingPlans = [
     ],
     features: [
       ...SHARED_PLAN_FEATURES,
-      "SEO : lancement et indexation (sans suivi long terme)",
+      "Visibilité : bases SEO (structure, indexation)",
       "Bilan analytics unique après mise en ligne",
     ],
     persona: {
@@ -157,10 +157,10 @@ export const pricingPlans = [
       {
         label: "Votre visibilité",
         items: [
-          "Structure SEO optimisée",
+          "SEO et GEO renforcés",
           "Optimisation Google Business Profile",
           "Travail des mots-clés locaux",
-          "Ajustements SEO pendant 12 mois",
+          "Ajustements SEO et GEO pendant 12 mois",
         ],
       },
       {
@@ -173,7 +173,7 @@ export const pricingPlans = [
     ],
     features: [
       ...SHARED_PLAN_FEATURES,
-      "SEO local : fiche Google Business + mots-clés de zone, suivi sur l’année",
+      "SEO et GEO renforcés : fiche Google Business, mots-clés de zone, suivi sur l’année",
       "Suivi analytics trimestriel (4 bilans)",
     ],
     persona: {
@@ -206,8 +206,8 @@ export const pricingPlans = [
       {
         label: "Votre visibilité",
         items: [
-          "Optimisation SEO continue",
-          "Consolidation du référencement local",
+          "Approche SAGEO approfondie",
+          "Optimisation SEO et GEO continue",
           "Optimisation régulière des contenus",
           "Travail de visibilité sur Google et les IA",
         ],
@@ -223,7 +223,7 @@ export const pricingPlans = [
     ],
     features: [
       ...SHARED_PLAN_FEATURES,
-      "SEO long terme : consolidation locale + ajustements contenus sur 2 ans",
+      "Approche SAGEO approfondie : SEO, GEO et contenus suivis sur 2 ans",
       "Suivi analytics bimestriel + bilans d’évolution",
     ],
     persona: {

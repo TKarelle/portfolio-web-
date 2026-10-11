@@ -18,11 +18,15 @@ export const BRAND_LOGO_IMAGE = "/image/logo-kopio.png";
 export const BRAND_SIGNATURE = "Votre présence en ligne, déléguée.";
 export const CONTACT_EMAIL = "karelle.dev@gmail.com";
 
-/** SEO défaut — niche professionnelles de l'accompagnement */
+/**
+ * SEO défaut SERP / OG — lexique de la lectrice (requêtes réelles).
+ * Titles SERP : marque Kopio. Karelle = signature / contenu (je), pas le suffixe title.
+ * Pas de prix dans title/description (prix = /tarifs).
+ */
 export const SITE_META_TITLE =
-  "Site web pour professionnelles de l'accompagnement dès 89€/mois";
+  "Création de sites web, SEO, IA & prospects";
 export const SITE_META_DESCRIPTION =
-  "Votre site professionnel, sans la charge mentale. Dès 89 €/mois : conception, maintenance et évolution pour coachs, thérapeutes et consultantes. Vous validez, on gère tout.";
+  "Création de sites web optimisés pour Google, l’IA et vos prospects. SEO, GEO et visibilité digitale pour entrepreneuses, indépendantes et entreprises.";
 
 export const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.kopio.eu";
@@ -31,7 +35,7 @@ export const SITE_URL =
  * Fallback lastmod (sitemap). Préférer CLUSTER_LASTMOD dans content-dates.ts.
  * Bump lors d’une refonte éditoriale globale.
  */
-export const SITE_CONTENT_UPDATED = "2026-10-07";
+export const SITE_CONTENT_UPDATED = "2026-10-10";
 
 /** Lien Calendly (couleurs natives Calendly) */
 export const CALENDLY_URL =

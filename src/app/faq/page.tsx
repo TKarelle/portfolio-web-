@@ -7,9 +7,9 @@ import { ValueBanner } from "@/components/ui/ValueBanner";
 import { buildPageMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "FAQ site web accompagnement : prix dès 89€/mois",
+  title: "FAQ création de site web pour l'accompagnement",
   description:
-    "Dès 89 €/mois : prix, délai 21 jours, Instagram vs site, mises à jour, propriété du domaine. Réponses claires pour professionnelles de l'accompagnement.",
+    "Prix, délai 21 jours, Instagram vs site, mises à jour, propriété du domaine. Réponses claires pour coachs, thérapeutes et professionnelles de l'accompagnement.",
   path: "/faq",
 });
 

@@ -2,12 +2,18 @@ import type { Metadata } from "next";
 import { ContactSection } from "@/components/home/ContactSection";
 import { buildPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = buildPageMetadata({
-  title: "Contact : Faisons de ton site un vrai allié commercial",
-  description:
-    "Réservez un créneau de 15 min ou envoyez un mail pour plus de détails. Sans engagement. Pour professionnelles de l'accompagnement.",
-  path: "/contact",
-});
+const contactTitle = "Contact | Kopio — Création de site web & SEO";
+const contactDescription =
+  "Contactez Karelle pour votre projet de site web, refonte, SEO ou stratégie de visibilité sur Google et les IA.";
+
+export const metadata: Metadata = {
+  ...buildPageMetadata({
+    title: contactTitle,
+    description: contactDescription,
+    path: "/contact",
+  }),
+  title: { absolute: contactTitle },
+};
 
 export default function ContactPage() {
   return (

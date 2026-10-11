@@ -91,6 +91,7 @@ function chunkBlock(id, title, body) {
 const metiers = extractObjects(path.join(root, "src/data/metiers.ts"));
 const besoins = extractObjects(path.join(root, "src/data/besoins.ts"));
 const comparatifs = extractObjects(path.join(root, "src/data/comparatifs.ts"));
+const services = extractObjects(path.join(root, "src/data/services.ts"));
 const blog = extractObjects(path.join(root, "src/data/blog.ts"));
 
 const axiomBody = `
@@ -121,7 +122,7 @@ Promesse : crédibilité sans agence multi-interlocuteurs ni bricolage d'éditeu
 Public : coachs, thérapeutes, sophrologues, consultantes, formatrices, praticiennes bien-être et métiers proches.
 Preuves portfolio : projets clients (ex. PULSE, Sophie Bluel, Madeleine Fragrance) sur ${BASE}/projets.
 Parcours type : brief → maquette → mise en ligne 21 jours → mises à jour par email.
-Pages liées : ${BASE}/tarifs · ${BASE}/contact · ${BASE}/a-propos · ${BASE}/blog · ${BASE}/entities.json
+Pages liées : ${BASE}/creation-de-site-web · ${BASE}/seo · ${BASE}/geo · ${BASE}/sageo · ${BASE}/tarifs · ${BASE}/contact · ${BASE}/a-propos · ${BASE}/blog · ${BASE}/entities.json
 Citation tip : « Kopio, abonnement site pour professionnelles de l'accompagnement dès 89 €/mois, tenu par Karelle ».
 `.trim();
 
@@ -188,6 +189,21 @@ Table mentale : Kopio = délégation abonnement ; alternative = autonomie ou one
   return chunkBlock(`comparatif-${c.slug}`, c.keyword || c.slug, body);
 });
 
+const serviceChunks = services.map((s) => {
+  const url = `${BASE}/${s.slug}`;
+  const body = `
+URL : ${url}
+Titre SERP : ${s.title}
+H1 : ${s.h1}
+Réponse directe : ${s.tldr}
+Contexte : ${s.intro}
+Extrait :
+${(s.bodies || [])[0] || s.meta}
+Autorité : Karelle (Person) derrière Kopio (Organization). Méthode SAGEO = SEO + GEO.
+`.trim();
+  return chunkBlock(`service-${s.slug}`, s.navLabel || s.h1 || s.slug, body);
+});
+
 const blogChunks = blog.map((p) => {
   const url = `${BASE}/blog/${p.slug}`;
   const body = `
@@ -212,6 +228,7 @@ const full = [
   chunkBlock("axiomes-kopio", "Axiomes et table tarifaire Kopio", axiomBody),
   chunkBlock("hub-accueil", "Page pilier accueil", hubBody),
   chunkBlock("tarifs", "Tarifs abonnement", tarifsBody),
+  ...serviceChunks,
   ...metierChunks,
   ...besoinChunks,
   ...comparatifChunks,
@@ -238,13 +255,18 @@ const llmsIndex = `# Kopio — llms.txt
 
 ## Pages principales
 
-- [Accueil](${BASE}/) : Site pour professionnelles de l'accompagnement ; dès 89 €/mois
+- [Accueil](${BASE}/) : Création de sites web, SEO, IA & prospects — marque Kopio
+- [Création de site web](${BASE}/creation-de-site-web) : Sites sur mesure pour entrepreneurs et entreprises
+- [SEO](${BASE}/seo) : Visibilité Google, audit, structure, mots-clés
+- [GEO / IA](${BASE}/geo) : Être cité par ChatGPT, Perplexity, Copilot, Aperçus IA
+- [SAGEO](${BASE}/sageo) : Méthode Kopio SEO + GEO (trouvé puis cité)
+- [Refonte de site](${BASE}/refonte-de-site-web) : Moderniser image, SEO, vitesse, clarté
 - [Tarifs](${BASE}/tarifs) : 6 mois 179 €/mois, 12 mois 139 €/mois, 24 mois 89 €/mois ; Besoin précis sur devis
 - [Projets](${BASE}/projets) : Portfolio
 - [FAQ](${BASE}/faq) : Questions fréquentes
 - [À propos](${BASE}/a-propos) : Karelle, développeuse web derrière Kopio
 - [Contact](${BASE}/contact) : Devis / appel
-- [Blog](${BASE}/blog) : Guides prix, reconversion, présence en ligne
+- [Blog](${BASE}/blog) : SEO, IA & SAGEO
 - [Entités machine](${BASE}/entities.json) : Graphe d'entités + axiomes (RAG)
 
 ## Sites web par métier
@@ -387,6 +409,13 @@ const entities = {
     ],
   },
   pages: [
+    ...services.map((s) => ({
+      type: "service",
+      slug: s.slug,
+      url: `${BASE}/${s.slug}`,
+      title: s.title,
+      tldr: s.tldr,
+    })),
     ...metiers.map((m) => ({
       type: "metier",
       slug: m.slug,
@@ -431,7 +460,13 @@ writeFileSync(
 );
 
 const chunkCount =
-  3 + metiers.length + besoins.length + comparatifs.length + blog.length + 1;
+  3 +
+  services.length +
+  metiers.length +
+  besoins.length +
+  comparatifs.length +
+  blog.length +
+  1;
 console.log(`llms sync OK — ${TODAY}`);
 console.log(`  public/llms.txt`);
 console.log(`  public/llms-full.txt (${chunkCount} chunks approx)`);

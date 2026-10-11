@@ -1,3 +1,5 @@
+import { InlineProse } from "@/components/seo/InlineProse";
+
 type SeoSection = {
   h2: string;
   body: string;
@@ -6,17 +8,28 @@ type SeoSection = {
 /** Sections H2 en prose éditoriale, centrées (charte métier). */
 export function SeoProseSections({
   sections,
-  className = "py-14 md:py-20 page-x bg-bg",
+  /** Première section : bg-bg ou bg-surface, puis alternance */
+  startTone = "bg",
 }: {
   sections: SeoSection[];
-  className?: string;
+  startTone?: "bg" | "surface";
 }) {
   return (
     <>
-      {sections.map((section, i) => (
+      {sections.map((section, i) => {
+        const even = i % 2 === 0;
+        const tone =
+          startTone === "bg"
+            ? even
+              ? "bg-bg"
+              : "bg-surface"
+            : even
+              ? "bg-surface"
+              : "bg-bg";
+        return (
         <section
           key={section.h2}
-          className={`${className} ${i % 2 === 1 ? "bg-surface" : ""}`}
+          className={`py-14 md:py-20 page-x ${tone}`}
         >
           <div className="w-full max-w-3xl mx-auto text-center">
             <p className="text-[11px] font-extrabold uppercase tracking-[0.2em] text-ink/30 mb-3">
@@ -34,12 +47,13 @@ export function SeoProseSections({
                     : "text-[0.95rem] md:text-base"
                 }`}
               >
-                {para}
+                <InlineProse text={para} />
               </p>
             ))}
           </div>
         </section>
-      ))}
+        );
+      })}
     </>
   );
 }

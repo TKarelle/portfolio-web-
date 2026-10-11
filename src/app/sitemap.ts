@@ -3,6 +3,7 @@ import { blogPosts } from "@/data/blog";
 import { besoins, besoinPath } from "@/data/besoins";
 import { comparatifs, comparatifPath } from "@/data/comparatifs";
 import { metiers, metierPath } from "@/data/metiers";
+import { servicePages, servicePath } from "@/data/services";
 import {
   blogPostLastmod,
   CLUSTER_LASTMOD,
@@ -21,6 +22,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const staticPages: MetadataRoute.Sitemap = [
     { url: base, lastModified: core, changeFrequency: "weekly", priority: 1 },
+    {
+      url: `${base}/services`,
+      lastModified: core,
+      changeFrequency: "monthly",
+      priority: 0.96,
+    },
     {
       url: `${base}/tarifs`,
       lastModified: core,
@@ -71,6 +78,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
+  const serviceHubPages = servicePages.map((s) => ({
+    url: `${base}${servicePath(s.slug)}`,
+    lastModified: core,
+    changeFrequency: "monthly" as const,
+    priority: 0.92,
+  }));
+
   const metierPages = metiers.map((m) => ({
     url: `${base}${metierPath(m.slug)}`,
     lastModified: toLastmod(m.updatedAt, CLUSTER_LASTMOD.landings),
@@ -101,6 +115,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     ...staticPages,
+    ...serviceHubPages,
     ...metierPages,
     ...besoinPages,
     ...comparatifPages,

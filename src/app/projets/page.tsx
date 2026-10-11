@@ -35,6 +35,7 @@ export default function ProjetsPage() {
         video="/image/videosophie.mp4"
         videoPoster="/image/sophie-poster.jpg"
         videoLabel="Aperçu d’un site livré : Sophie Delmas"
+        videoByline="Sophie Delmas"
         badge="Preuves concrètes"
         secondaryHref="/tarifs"
       />

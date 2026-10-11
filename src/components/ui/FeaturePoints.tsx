@@ -13,7 +13,7 @@ export type FeaturePointItem = {
 };
 
 type FeaturePointsProps = {
-  title: ReactNode;
+  title?: ReactNode;
   items: readonly FeaturePointItem[];
   eyebrow?: string;
   ariaLabel?: string;
@@ -26,6 +26,8 @@ type FeaturePointsProps = {
   cta?: boolean | ReactNode;
   /** Médias / contenu sous le titre (ex. maquette) */
   afterTitle?: ReactNode;
+  /** Grille (défaut 4, ex. hubs SEO/GEO/SAGEO à 3 points) */
+  columns?: 3 | 4;
   /** @deprecated */
   highlight?: string;
   /** @deprecated */
@@ -46,7 +48,13 @@ export function FeaturePoints({
   className,
   cta = false,
   afterTitle,
+  columns = 4,
 }: FeaturePointsProps) {
+  const gridCols =
+    columns === 3
+      ? "grid-cols-1 sm:grid-cols-3 lg:grid-cols-3"
+      : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-4";
+
   const inner = (
     <div
       className={cn(
@@ -56,11 +64,13 @@ export function FeaturePoints({
           : "py-4",
       )}
     >
-      <div className="reveal max-w-3xl mx-auto mb-10 sm:mb-12 md:mb-14">
-        <SectionHead size="xl" eyebrow={eyebrow}>
-          {title}
-        </SectionHead>
-      </div>
+      {title || eyebrow ? (
+        <div className="reveal max-w-3xl mx-auto mb-10 sm:mb-12 md:mb-14">
+          <SectionHead size="xl" eyebrow={eyebrow}>
+            {title}
+          </SectionHead>
+        </div>
+      ) : null}
 
       {afterTitle ? (
         <div className="reveal mb-16 sm:mb-20 md:mb-24 max-w-4xl mx-auto">
@@ -69,7 +79,10 @@ export function FeaturePoints({
       ) : null}
 
       <ul
-        className="feature-points w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 sm:gap-10 lg:gap-8 xl:gap-12"
+        className={cn(
+          "feature-points w-full grid gap-12 sm:gap-10 lg:gap-8 xl:gap-12",
+          gridCols,
+        )}
         aria-label={ariaLabel}
       >
         {items.map((item) => (

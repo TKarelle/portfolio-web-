@@ -49,11 +49,19 @@ export const FOOTER_BESOIN_SLUGS = [
   "refonte-site-internet-entrepreneure",
 ] as const;
 
+/** Liens Services (navbar + menu). */
+export const NAV_SERVICE_LINKS = [
+  { href: "/creation-de-site-web", label: "Création de site" },
+  { href: "/refonte-de-site-web", label: "Refonte" },
+  { href: "/seo", label: "SEO" },
+  { href: "/geo", label: "GEO / IA" },
+  { href: "/sageo", label: "SAGEO" },
+] as const;
+
 /** Hubs footer (colonne « Le site ») — pas de mentions-legales en nav principale. */
 export const FOOTER_HUB_LINKS = [
+  { href: "/services", label: "Services" },
   { href: "/tarifs", label: "Tarifs" },
-  { href: "/projets", label: "Projets" },
-  { href: "/faq", label: "Questions" },
   { href: "/blog", label: "Blog" },
   { href: "/a-propos", label: "À propos" },
   { href: "/contact", label: "Contact" },
