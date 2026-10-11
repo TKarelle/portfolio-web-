@@ -459,6 +459,7 @@ export function ServiceTemplate({ data }: { data: ServicePageData }) {
         name={data.title.replace(/\s*\|\s*Kopio\s*$/i, "").trim() || data.h1}
         description={data.metaDescription}
         url={servicePath(data.slug)}
+        price={data.offerPrice}
       />
       {data.definedTerm ? (
         <DefinedTermTechArticleJsonLd

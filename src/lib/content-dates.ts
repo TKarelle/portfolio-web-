@@ -27,6 +27,7 @@ export const QDF_MONEY_PATHS = [
   "/faq",
   "/blog",
   "/creation-de-site-web",
+  "/audit",
   "/seo",
   "/geo",
   "/sageo",

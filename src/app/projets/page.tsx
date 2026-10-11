@@ -8,7 +8,7 @@ import { VideoJsonLd } from "@/components/seo/JsonLd";
 import { buildPageMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Projets et réalisations",
+  title: "Projets et réalisations | Sites web pour entrepreneuses",
   description:
     "Études de cas Kopio : avant / livrable / résultat concret pour professionnelles de l’accompagnement.",
   path: "/projets",

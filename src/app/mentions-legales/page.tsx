@@ -12,7 +12,7 @@ import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 import { buildPageMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Mentions légales",
+  title: "Mentions légales | Informations légales du site",
   description: `Mentions légales et informations de contact du site ${BRAND_NAME}.`,
   path: "/mentions-legales",
 });

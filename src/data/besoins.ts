@@ -44,7 +44,7 @@ export const besoins: BesoinPageData[] = [
   {
     slug: "creer-son-site-sans-competences-techniques",
     label: "Créer son site sans tech",
-    title: "Créer son site sans compétences techniques : présence claire",
+    title: "Créer son site sans compétences techniques | Présence claire",
     metaDescription:
       "Créer son site sans compétences techniques : vous validez le fond, je livre design, hébergement et mises à jour. Présence claire sans second métier.",
     keyword: "créer son site sans compétences techniques",
@@ -94,7 +94,7 @@ export const besoins: BesoinPageData[] = [
   {
     slug: "site-vitrine-independante",
     label: "Site vitrine indépendante",
-    title: "Site vitrine pour indépendante : offre claire et joignable",
+    title: "Site vitrine pour indépendante | Offre claire et joignable",
     metaDescription:
       "Site vitrine pour indépendante : offre lisible, preuves, contact. Une URL stable hors Instagram et LinkedIn, tenue par Kopio.",
     keyword: "site vitrine indépendante",
@@ -144,7 +144,7 @@ export const besoins: BesoinPageData[] = [
   {
     slug: "site-avec-reservation-en-ligne",
     label: "Réservation en ligne",
-    title: "Site avec réservation en ligne : agenda sur votre marque",
+    title: "Site avec réservation en ligne | Agenda sur votre marque",
     metaDescription:
       "Site avec réservation en ligne pour coachs, thérapeutes, esthéticiennes. Créneaux, confirmation, moins d'échanges en messages.",
     keyword: "site avec réservation en ligne",
@@ -194,7 +194,7 @@ export const besoins: BesoinPageData[] = [
   {
     slug: "boutique-en-ligne-petite-entreprise",
     label: "Boutique en ligne",
-    title: "Boutique en ligne petite entreprise : catalogue et paiement",
+    title: "Boutique en ligne petite entreprise | Catalogue et paiement",
     metaDescription:
       "Boutique en ligne pour petite entreprise et créatrices : catalogue, panier, paiement. Formule Besoin précis Kopio sur devis.",
     keyword: "boutique en ligne petite entreprise",
@@ -244,7 +244,7 @@ export const besoins: BesoinPageData[] = [
   {
     slug: "refonte-site-internet-entrepreneure",
     label: "Refonte de site",
-    title: "Refonte site internet entrepreneuse : aligner offre et parcours",
+    title: "Refonte site internet entrepreneuse | Aligner offre et parcours",
     metaDescription:
       "Refonte site internet pour entrepreneuse : offre clarifiée, parcours à jour, bases SEO. Votre activité a évolué ; le site peut la montrer avec précision.",
     keyword: "refonte site internet femme entrepreneuse",
@@ -298,7 +298,8 @@ export const besoins: BesoinPageData[] = [
   {
     slug: "site-web-femme-qui-se-lance",
     label: "Femme qui se lance",
-    title: "Création site web pour femmes qui se lancent",
+    title:
+      "Création site web pour femmes qui se lancent | Clarté et premier contact",
     metaDescription:
       "Création de site web pour femmes qui se lancent : vitrine claire, sans compétences techniques. Vous posez l'activité ; je porte la technique.",
     keyword: "création site web femmes qui se lancent",
@@ -348,7 +349,7 @@ export const besoins: BesoinPageData[] = [
   {
     slug: "site-web-maman-freelance",
     label: "Maman freelance",
-    title: "Webdesigner pour maman freelance : site tenu pour vous",
+    title: "Webdesigner pour maman freelance | Site tenu pour vous",
     metaDescription:
       "Webdesigner pour maman freelance : site clair, mises à jour par email, sans soirées sur un éditeur. Une interlocutrice, un abonnement Kopio.",
     keyword: "webdesigner pour maman freelance",

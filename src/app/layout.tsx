@@ -46,7 +46,7 @@ const defaultMeta = buildPageMetadata({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: `${BRAND_NAME} | ${SITE_META_TITLE}`,
+    default: `${SITE_META_TITLE} | ${BRAND_NAME}`,
     template: `%s | ${BRAND_NAME}`,
   },
   description: defaultMeta.description,

@@ -7,7 +7,8 @@ import { ValueBanner } from "@/components/ui/ValueBanner";
 import { FutureVitrineCta } from "@/components/landing/FutureVitrineCta";
 import { buildPageMetadata } from "@/lib/metadata";
 
-const blogTitle = "Blog SEO, IA & SAGEO | Kopio";
+const blogTitle =
+  "Blog SEO IA et SAGEO | Conseils pour être trouvée | Kopio";
 const blogDescription =
   "Conseils et stratégies pour améliorer la visibilité de votre site sur Google, dans les réponses IA et auprès de vos prospects.";
 

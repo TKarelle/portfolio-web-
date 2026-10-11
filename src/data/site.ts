@@ -15,7 +15,9 @@ export const BRAND_NAME = "Kopio";
 export const BRAND_LOGO = "kopio";
 /** Logo carré PNG pour JSON-LD / rich results (min. 112×112). */
 export const BRAND_LOGO_IMAGE = "/image/logo-kopio.png";
-export const BRAND_SIGNATURE = "Votre présence en ligne, déléguée.";
+/** Slogan marque Kopio (footer, OG). */
+export const BRAND_SIGNATURE =
+  "Être trouvée, retenue et citée par Google, les IA et vos prospects.";
 export const CONTACT_EMAIL = "karelle.dev@gmail.com";
 
 /**
@@ -24,7 +26,7 @@ export const CONTACT_EMAIL = "karelle.dev@gmail.com";
  * Pas de prix dans title/description (prix = /tarifs).
  */
 export const SITE_META_TITLE =
-  "Création de sites web, SEO, IA & prospects";
+  "Création de sites web SEO et GEO | Être trouvée, retenue et citée";
 export const SITE_META_DESCRIPTION =
   "Création de sites web optimisés pour Google, l’IA et vos prospects. SEO, GEO et visibilité digitale pour entrepreneuses, indépendantes et entreprises.";
 

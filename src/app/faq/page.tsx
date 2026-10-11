@@ -7,7 +7,7 @@ import { ValueBanner } from "@/components/ui/ValueBanner";
 import { buildPageMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "FAQ création de site web pour l'accompagnement",
+  title: "FAQ création de site web | Réponses claires pour démarrer",
   description:
     "Prix, délai 21 jours, Instagram vs site, mises à jour, propriété du domaine. Réponses claires pour coachs, thérapeutes et professionnelles de l'accompagnement.",
   path: "/faq",

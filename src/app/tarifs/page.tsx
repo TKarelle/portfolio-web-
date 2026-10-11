@@ -8,7 +8,7 @@ import { ServiceJsonLd } from "@/components/seo/JsonLd";
 import { buildPageMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Tarifs site web : 89, 139 ou 179 €/mois selon engagement",
+  title: "Tarifs site web | Formules claires selon engagement",
   description:
     "Grille octobre 2026 : 89 €/mois (24 mois), 139 €/mois (12 mois) ou 179 €/mois (6 mois). Présence en ligne déléguée, livraison 21 jours, propriété en fin d'engagement.",
   path: "/tarifs",

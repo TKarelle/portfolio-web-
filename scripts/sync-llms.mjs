@@ -260,6 +260,7 @@ const llmsIndex = `# Kopio — llms.txt
 - [SEO](${BASE}/seo) : Visibilité Google, audit, structure, mots-clés
 - [GEO / IA](${BASE}/geo) : Être cité par ChatGPT, Perplexity, Copilot, Aperçus IA
 - [SAGEO](${BASE}/sageo) : Méthode Kopio SEO + GEO (trouvé puis cité)
+- [Audit SEO GEO](${BASE}/audit) : Audit freelance France 490 € TTC, plan 30 jours, vidéo 45 min
 - [Refonte de site](${BASE}/refonte-de-site-web) : Moderniser image, SEO, vitesse, clarté
 - [Tarifs](${BASE}/tarifs) : 6 mois 179 €/mois, 12 mois 139 €/mois, 24 mois 89 €/mois ; Besoin précis sur devis
 - [Projets](${BASE}/projets) : Portfolio

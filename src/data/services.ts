@@ -203,6 +203,8 @@ export type ServicePageData = {
     name: string;
     description: string;
   };
+  /** Prix Offer Schema.org (ex. audit 490) */
+  offerPrice?: string;
   /**
    * Hero émotionnel type accueil (création) : phrase percutante + marquee maquettes.
    * Remplace LandingHero quand présent.
@@ -226,7 +228,8 @@ export const servicePages: ServicePageData[] = [
   {
     slug: "creation-de-site-web",
     navLabel: "Création de site web",
-    title: "Création de site web professionnel | Kopio",
+    title:
+      "Création de site web professionnel | Design SEO et visibilité | Kopio",
     metaDescription:
       "Création de sites web sur mesure pour entrepreneuses, indépendantes et entreprises : design, SEO, rapidité et visibilité sur Google et les IA.",
     h1: "Votre expertise mérite d’être remarquée",
@@ -328,7 +331,7 @@ export const servicePages: ServicePageData[] = [
     },
     sections: [
       {
-        h2: "Création, SEO et IA : la même base",
+        h2: "Création, SEO et GEO : la même base",
         layout: "photoScroll",
         image: FOUNDER_PHOTO,
         imageAlt: FOUNDER_PHOTO_ALT,
@@ -361,7 +364,7 @@ export const servicePages: ServicePageData[] = [
   {
     slug: "seo",
     navLabel: "SEO",
-    title: "SEO pour site web : être visible sur Google | Kopio",
+    title: "SEO pour site web | Être visible sur Google | Kopio",
     metaDescription:
       "Optimisez la visibilité de votre site sur Google : audit SEO, structure, contenu, balises, données structurées et stratégie de mots-clés.",
     h1: "Soyez là où vos clients vous cherchent",
@@ -525,7 +528,7 @@ export const servicePages: ServicePageData[] = [
   {
     slug: "geo",
     navLabel: "GEO / IA",
-    title: "GEO : être cité par les IA | Kopio",
+    title: "GEO | Être cité par les IA | Kopio",
     metaDescription:
       "GEO : optimisez votre site pour être trouvé, retenu et cité par ChatGPT, Perplexity, Copilot et les Aperçus IA Google.",
     h1: "Votre expertise mérite d’être citée",
@@ -709,7 +712,8 @@ export const servicePages: ServicePageData[] = [
   {
     slug: "sageo",
     navLabel: "SAGEO",
-    title: "Méthode SAGEO Kopio : SEO, GEO et AEO pour entreprises en France | Kopio",
+    title:
+      "Méthode SAGEO, SEO + GEO + AEO | Être trouvée, retenue et citée | Kopio",
     metaDescription:
       "Méthode SAGEO Kopio, par Karelle : SEO, GEO et AEO pour le référencement IA en France. Être trouvée, comprise, citée. Alternative à l’agence multi-interlocuteurs.",
     h1: "Méthode SAGEO : SEO, GEO et référencement IA",
@@ -854,7 +858,7 @@ export const servicePages: ServicePageData[] = [
         {
           title: "Vous avez déjà un site ?",
           body: "Un diagnostic identifie ce qui bloque la découverte ou la clarté, avant une refonte ou un renforcement ciblé.",
-          cta: { href: "/contact", label: "Demander un audit" },
+          cta: { href: "/audit", label: "Voir l’audit SEO GEO" },
         },
         {
           title: "Un premier regard en deux minutes",
@@ -915,9 +919,191 @@ export const servicePages: ServicePageData[] = [
     ],
   },
   {
+    slug: "audit",
+    navLabel: "Audit SEO GEO",
+    title:
+      "Audit SEO GEO France | Être trouvée, retenue et citée | Kopio",
+    metaDescription:
+      "Audit SEO GEO freelance en France pour site vitrine : 490 € TTC. Lighthouse, métadonnées IA, structuration GEO, méthode SAGEO, plan d’action 30 jours et restitution vidéo d’environ 45 min (visio possible).",
+    h1: "Audit SEO GEO pour site vitrine",
+    h1Highlight: "site vitrine",
+    intro:
+      "Un audit SEO et GEO pour comprendre où votre site freine la découverte, la clarté et la citation.",
+    tldr:
+      "Audit SEO GEO freelance en France pour site vitrine : 490 € TTC. Je mesure Lighthouse, je structure les métadonnées pour Google et les IA (SEO), je prépare le contenu pour la citation (GEO), puis je synthétise en méthode SAGEO avec un plan d’action sur 30 jours et une vidéo d’environ 45 min. Visio possible.",
+    image: "/image/card-cover/seo.jpeg",
+    imageAlt:
+      "Audit SEO GEO Kopio : analyse de visibilité Google et IA pour site vitrine",
+    offerPrice: "490",
+    emotionalHero: {
+      lede:
+        "Être trouvée, retenue, citée. Un diagnostic clair pour prioriser ce qui compte vraiment.",
+      primaryCta: {
+        href: "/contact",
+        label: "Réserver mon audit",
+      },
+      secondaryCta: {
+        href: "/sageo",
+        label: "Découvrir la méthode SAGEO",
+      },
+    },
+    featureBand: {
+      eyebrow: "Audit",
+      title: "Trois questions, une méthode",
+      titleHighlight: "méthode",
+      items: [
+        {
+          id: "trouvee",
+          title: "Êtes-vous trouvée ?",
+          text: "Lighthouse et SEO : technique, titres, métadonnées, accessibilité pour Google et les IA.",
+          icon: "search",
+        },
+        {
+          id: "retenue",
+          title: "Êtes-vous retenue ?",
+          text: "Clarté du message, intention de page, réponse utile dès les premières lignes.",
+          icon: "badge",
+        },
+        {
+          id: "citee",
+          title: "Êtes-vous citée ?",
+          text: "GEO et SAGEO : contenu extractible, preuves, structure pour les réponses IA.",
+          icon: "spark",
+        },
+      ],
+      cta: {
+        href: "/contact",
+        label: "Réserver mon audit",
+      },
+    },
+    contentOrder: ["featureBand", "stages", "sections", "pillars"],
+    stages: {
+      h2: "Ce que contient l’audit à 490 € TTC",
+      h2Highlight: "490 € TTC",
+      layout: "carousel",
+      items: [
+        {
+          step: "01",
+          title: "Lighthouse et socle technique",
+          body: "Performance, accessibilité, bonnes pratiques et SEO de base sur vos pages clés.\n\nJe repère ce qui ralentit le crawl, bloque l’indexation ou affaiblit la première impression mobile.\n\nLivrable : un état des lieux technique priorisé, sans jargon inutile.",
+          image: "/image/card-cover/expertise.jpeg",
+          imageAlt:
+            "Analyse technique de site : performance, accessibilité et bases SEO",
+        },
+        {
+          step: "02",
+          title: "Structuration SEO pour Google et les IA",
+          body: "Titles, méta-descriptions, H1–H2, Schema et entités métier.\n\nL’objectif : faire remonter votre expertise dans les champs que les moteurs lisent en premier, avec le lexique de votre audience.\n\nLivrable : recommandations concrètes page par page pour la récupération.",
+          image: "/image/card-cover/seo.jpeg",
+          imageAlt:
+            "Structuration des titres et métadonnées pour le référencement",
+        },
+        {
+          step: "03",
+          title: "Structuration GEO pour la citation",
+          body: "Réponses en tête de page, blocs autonomes, preuves utiles, clarté thématique.\n\nJe regarde ce qu’une IA peut reprendre sans inventer, et ce qui reste trop vague pour être cité.\n\nLivrable : axes d’écriture et de structure pour être retenue puis citée.",
+          image: "/image/card-cover/site-cite.jpeg",
+          imageAlt:
+            "Page structurée pour être citée dans une réponse d’assistant IA",
+        },
+        {
+          step: "04",
+          title: "Synthèse SAGEO et plan 30 jours",
+          body: "Je relie technique, SEO et GEO dans la méthode SAGEO : trouvée, retenue, citée.\n\nVous repartez avec un plan d’action sur 30 jours, ordonné par impact, plus une vidéo d’environ 45 minutes qui explique l’audit. La restitution peut se faire en visio.\n\nLivrable : feuille de route actionnable, pas un rapport de 80 pages.",
+          image: "/image/card-cover/clarte-geo.jpeg",
+          imageAlt:
+            "Plan d’action clair pour améliorer la visibilité Google et IA",
+        },
+      ],
+    },
+    sections: [
+      {
+        h2: "Pourquoi un audit SEO GEO en 2026 ?",
+        body: "Un site vitrine peut être joli et silencieux. Google ne le trouve pas assez. Une IA ne le retient pas. Les visiteurs ne comprennent pas assez vite.\n\nL’audit Kopio ne vend pas une promesse de classement. Il montre où vous perdez la découverte, la clarté ou la citation, puis quoi faire en premier pendant 30 jours.\n\nTarif freelance en France : **490 € TTC**, pour un site vitrine. Au-delà d’un périmètre simple, on cadre ensemble avant de démarrer.",
+      },
+      {
+        h2: "Les points clés SAGEO de votre restitution",
+        body: "- **Trouvée** : Lighthouse, indexation, titles, méta, structure Hn, Schema, lexique réel de vos clientes.\n\n- **Retenue** : intention de chaque page, réponse utile en tête, cohérence du message.\n\n- **Citée** : formulations autonomes, preuves, exemples, blocs que ChatGPT ou Perplexity peuvent reprendre.\n\n- **Priorisée** : plan 30 jours avec l’ordre des actions (pas tout en même temps).\n\n- **Expliquée** : vidéo d’environ 45 min, ou restitution en visio si vous préférez échanger en direct.\n\nLa méthode détaillée est sur [SAGEO](/sageo). Les étapes séparées : [SEO](/seo) · [GEO](/geo).",
+      },
+      {
+        h2: "Ce que je change après l’audit",
+        layout: "photoScroll",
+        image: FOUNDER_PHOTO,
+        imageAlt: FOUNDER_PHOTO_ALT,
+        body: "L’audit peut rester un diagnostic. Il peut aussi ouvrir une suite : création, refonte, ou accompagnement SEO et GEO.\n\nJe vous dis clairement ce que vous pouvez faire seule, ce qui mérite mon intervention, et ce qui n’est pas prioritaire pour l’instant.",
+      },
+    ],
+    pillars: {
+      h2: "Après l’audit, trois suites possibles",
+      items: [
+        {
+          title: "Vous appliquez le plan",
+          body: "Le plan 30 jours et la vidéo suffisent pour avancer sur les actions les plus accessibles.",
+          cta: { href: "/contact", label: "Réserver mon audit" },
+        },
+        {
+          title: "Vous déléguez la suite",
+          body: "Création, refonte ou renforcement SEO GEO selon ce que l’audit a priorisé.",
+          cta: { href: "/services", label: "Voir les services" },
+        },
+        {
+          title: "Vous testez d’abord en 2 minutes",
+          body: "Le Test des 10 Secondes donne un premier signal avant un audit complet.",
+          cta: { href: "/grille-etancheite", label: "Faire le quiz" },
+        },
+      ],
+    },
+    motDeKarelle:
+      "Un bon audit ne noie pas. Il ordonne. Technique, SEO, GEO, puis SAGEO : ce qui vous fait trouver, retenir, citer, dans cet ordre.",
+    cta: {
+      title: "Prête pour un diagnostic clair ?",
+      titleHighlight: "clair",
+      lead:
+        "Audit SEO GEO pour site vitrine : 490 € TTC, plan 30 jours, vidéo d’environ 45 min. Visio possible.",
+      closing: "",
+      primaryLabel: "Réserver mon audit",
+      primaryHref: "/contact",
+      secondaryLabel: "Découvrir la méthode SAGEO",
+      secondaryHref: "/sageo",
+    },
+    faqs: [
+      {
+        question: "Combien coûte un audit SEO GEO chez Kopio ?",
+        answer:
+          "490 € TTC pour un site vitrine en France. Le tarif inclut Lighthouse, la structuration SEO des métadonnées, la lecture GEO, la synthèse SAGEO, un plan d’action sur 30 jours et une vidéo d’environ 45 minutes. Visio possible pour la restitution.",
+      },
+      {
+        question: "Quels sont les livrables de l’audit ?",
+        answer:
+          "Un état des lieux technique (Lighthouse), des recommandations SEO (titles, méta, structure, Schema), des axes GEO pour la citation, une synthèse SAGEO (trouvée, retenue, citée), un plan 30 jours priorisé, et une restitution vidéo d’environ 45 min ou en visio.",
+      },
+      {
+        question: "L’audit convient-il à un site vitrine d’indépendante ?",
+        answer:
+          "Oui. L’offre à 490 € TTC est calibrée pour un site vitrine. Si votre site est plus large (catalogue, boutique, multi-langues), on cadre le périmètre avant de démarrer.",
+      },
+      {
+        question: "Quelle différence entre cet audit et le Test des 10 Secondes ?",
+        answer:
+          "Le Test des 10 Secondes donne un premier signal en deux minutes. L’audit SEO GEO est un diagnostic complet avec livrables, plan 30 jours et restitution vidéo.",
+      },
+      {
+        question: "L’audit garantit-il d’être citée par ChatGPT ?",
+        answer:
+          "Non. Aucun audit sérieux ne peut garantir une citation. L’objectif est d’identifier ce qui bloque la découverte, la clarté et la citation, puis de prioriser les actions utiles.",
+      },
+      {
+        question: "Puis-je faire la restitution en visio ?",
+        answer:
+          "Oui. La restitution dure environ 45 minutes en vidéo enregistrée, ou en visio si vous préférez poser vos questions en direct.",
+      },
+    ],
+  },
+  {
     slug: "refonte-de-site-web",
     navLabel: "Refonte de site",
-    title: "Refonte de site web : une nouvelle dimension pour votre site | Kopio",
+    title:
+      "Refonte de site web | Une nouvelle dimension pour votre site | Kopio",
     metaDescription:
       "Refonte de site web : design, structure, SEO et visibilité. Un site plus clair, plus actuel, pensé pour vos clients, Google et les IA.",
     h1: "Votre site mérite une nouvelle dimension",
@@ -1019,7 +1205,7 @@ export const servicePages: ServicePageData[] = [
     },
     sections: [
       {
-        h2: "Refonte, SEO et IA : une nouvelle base pour votre visibilité",
+        h2: "Refonte, SEO et GEO : une nouvelle base pour votre visibilité",
         layout: "photoScroll",
         image: FOUNDER_PHOTO,
         imageAlt: FOUNDER_PHOTO_ALT,

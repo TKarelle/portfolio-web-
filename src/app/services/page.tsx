@@ -7,13 +7,19 @@ import { ValueBanner } from "@/components/ui/ValueBanner";
 import { VideoJsonLd } from "@/components/seo/JsonLd";
 import { buildPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = buildPageMetadata({
-  title: "Services : création, refonte, SEO et GEO | Kopio",
-  description:
-    "Choisissez votre point de départ : créer un site, refondre votre présence, renforcer votre SEO ou développer votre visibilité dans les IA.",
-  path: "/services",
-  ogVideo: "/image/videopulse.mp4",
-});
+const servicesTitle =
+  "Services | Création, refonte, audit, SEO GEO et SAGEO | Kopio";
+
+export const metadata: Metadata = {
+  ...buildPageMetadata({
+    title: servicesTitle,
+    description:
+      "Choisissez votre point de départ : créer un site, refondre, auditer SEO GEO, renforcer votre SEO ou votre visibilité dans les IA.",
+    path: "/services",
+    ogVideo: "/image/videopulse.mp4",
+  }),
+  title: { absolute: servicesTitle },
+};
 
 const choices = [
   {
@@ -27,6 +33,12 @@ const choices = [
     need: "Mon site ne me représente plus",
     service: "Refonte",
     text: "Structure, design et contenus actualisés pour retrouver ce qui vous distingue.",
+  },
+  {
+    href: "/audit",
+    need: "Je veux un diagnostic clair avant d’investir",
+    service: "Audit SEO GEO",
+    text: "Lighthouse, SEO, GEO, synthèse SAGEO, plan 30 jours et vidéo : 490 € TTC.",
   },
   {
     href: "/seo",
@@ -56,7 +68,7 @@ export default function ServicesPage() {
             Par où <TitleEm>commencer</TitleEm>&nbsp;?
           </>
         }
-        description="Création, refonte, SEO ou GEO : quatre chemins selon où vous en êtes. Choisissez celui qui correspond à votre situation."
+        description="Création, refonte, audit, SEO ou GEO : choisissez le chemin qui correspond à votre situation."
         video="/image/videopulse.mp4"
         videoPoster="/image/videopulse-poster.jpg"
         videoLabel="Aperçu d’un site livré : PULSE"
@@ -72,7 +84,7 @@ export default function ServicesPage() {
         <div className="w-full max-w-3xl mx-auto">
           <div className="text-center mb-10 md:mb-12">
             <SectionHead size="xl">
-              Quatre points de <TitleEm>départ</TitleEm>
+              Par où <TitleEm>partir</TitleEm>
             </SectionHead>
           </div>
 

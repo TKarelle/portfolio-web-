@@ -43,7 +43,7 @@ const UPDATED = "2026-10-09";
 export const comparatifs: ComparatifPageData[] = [
   {
     slug: "kopio-vs-wix",
-    title: "Kopio vs Wix (2026) : que choisir pour une entrepreneuse ?",
+    title: "Kopio vs Wix 2026 | Que choisir pour une entrepreneuse",
     metaDescription:
       "Kopio vs Wix : comparatif honnête pour femmes entrepreneuses. Quand Wix gagne, quand Kopio gagne. Verdict clair en 2026.",
     keyword: "Kopio vs Wix",
@@ -161,7 +161,7 @@ Une entrepreneuse qui compte 20 à 40 heures pour monter un site correct en auto
   },
   {
     slug: "kopio-vs-agence-web",
-    title: "Kopio vs agence web : comparatif pour entrepreneuses (2026)",
+    title: "Kopio vs agence web | Comparatif pour entrepreneuses",
     metaDescription:
       "Kopio vs agence web : prix, délais, relation. Comparatif honnête pour entrepreneuses entre abonnement mensuel et agence.",
     keyword: "Kopio vs agence web",
@@ -270,7 +270,7 @@ Kopio remplace une agence quand le brief réel est : « j'ai besoin d'un site pr
   },
   {
     slug: "combien-coute-site-internet-entrepreneure-2026",
-    title: "Combien coûte un site internet pour entrepreneuse en 2026 ?",
+    title: "Coût site internet entrepreneuse | Budgets et modèles 2026",
     metaDescription:
       "Prix d'un site internet pour entrepreneuse en 2026 : autonomie, freelance, abonnement, agence. Fourchettes réelles et ce qui est inclus.",
     keyword: "combien coûte site internet entrepreneuse 2026",

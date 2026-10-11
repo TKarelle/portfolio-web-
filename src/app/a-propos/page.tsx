@@ -15,7 +15,8 @@ import {
 } from "@/data/site";
 import { buildPageMetadata } from "@/lib/metadata";
 
-const aboutTitle = "Kopio | Création de sites web, SEO et visibilité IA";
+const aboutTitle =
+  "À propos | Sites web SEO et visibilité IA | Kopio";
 const aboutDescription =
   "Karelle accompagne les entrepreneurs dans la création de sites web optimisés pour Google, les IA et la génération de prospects.";
 

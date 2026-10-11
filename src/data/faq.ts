@@ -92,4 +92,9 @@ export const faqItems = [
     answer:
       "La méthode SAGEO est la méthode Kopio, par Karelle, pour le référencement IA. Elle relie SEO, GEO et AEO pour qu’une page soit trouvée, retenue puis citée. [Découvrir la méthode SAGEO](/sageo).",
   },
+  {
+    question: "Combien coûte un audit SEO GEO chez Kopio ?",
+    answer:
+      "490 € TTC pour un site vitrine en France. Lighthouse, SEO, GEO, synthèse SAGEO, plan 30 jours et vidéo d’environ 45 min (visio possible). [Voir l’audit SEO GEO](/audit).",
+  },
 ] as const;

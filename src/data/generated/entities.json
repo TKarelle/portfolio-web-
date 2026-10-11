@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-11T10:23:13.040Z",
+  "generatedAt": "2026-10-11T12:53:37.689Z",
   "base": "https://www.kopio.eu",
   "axioms": [
     {
@@ -118,35 +118,42 @@
       "type": "service",
       "slug": "creation-de-site-web",
       "url": "https://www.kopio.eu/creation-de-site-web",
-      "title": "Création de site web professionnel | Kopio",
+      "title": "Création de site web professionnel | Design SEO et visibilité | Kopio",
       "tldr": "Je conçois un site autour de votre activité : design personnalisé, jusqu’à cinq pages, bases SEO, mobile, hébergement et suivi selon la formule. Vous gardez le message. Je porte la technique."
     },
     {
       "type": "service",
       "slug": "seo",
       "url": "https://www.kopio.eu/seo",
-      "title": "SEO pour site web : être visible sur Google | Kopio",
+      "title": "SEO pour site web | Être visible sur Google | Kopio",
       "tldr": "Le référencement naturel rend votre site présent sur Google lorsque des personnes cherchent votre expertise. Je travaille les recherches pertinentes, la structure, les contenus, les titres et la technique pour que les bonnes personnes découvrent votre approche et puissent vous écrire."
     },
     {
       "type": "service",
       "slug": "geo",
       "url": "https://www.kopio.eu/geo",
-      "title": "GEO : être cité par les IA | Kopio",
+      "title": "GEO | Être cité par les IA | Kopio",
       "tldr": "La GEO (Generative Engine Optimization) améliore les chances que vos contenus soient compris, sélectionnés et cités par les assistants et moteurs qui génèrent des réponses avec l’IA. Elle prolonge le SEO : d’abord être trouvée, puis retenue, puis citée."
     },
     {
       "type": "service",
       "slug": "sageo",
       "url": "https://www.kopio.eu/sageo",
-      "title": "Méthode SAGEO Kopio : SEO, GEO et AEO pour entreprises en France | Kopio",
+      "title": "Méthode SAGEO SEO GEO AEO | Être trouvée, retenue et citée | Kopio",
       "tldr": "La méthode SAGEO est la méthode Kopio, par Karelle, pour le référencement IA en France. Elle relie SEO, GEO et AEO pour qu’une page soit trouvée, retenue puis citée par Google et les moteurs IA (ChatGPT, Gemini, Perplexity)."
+    },
+    {
+      "type": "service",
+      "slug": "audit",
+      "url": "https://www.kopio.eu/audit",
+      "title": "Audit SEO GEO France | Être trouvée, retenue et citée | Kopio",
+      "tldr": "Audit SEO GEO freelance en France pour site vitrine : 490 € TTC. Je mesure Lighthouse, je structure les métadonnées pour Google et les IA (SEO), je prépare le contenu pour la citation (GEO), puis je synthétise en méthode SAGEO avec un plan d’action sur 30 jours et une vidéo d’environ 45 min. Visio possible."
     },
     {
       "type": "service",
       "slug": "refonte-de-site-web",
       "url": "https://www.kopio.eu/refonte-de-site-web",
-      "title": "Refonte de site web : une nouvelle dimension pour votre site | Kopio",
+      "title": "Refonte de site web | Une nouvelle dimension pour votre site | Kopio",
       "tldr": "Je repense la structure, les contenus et le design de votre site pour qu’il reflète votre activité actuelle, clarifie votre message et développe votre visibilité sur Google et auprès de vos futurs clients."
     },
     {

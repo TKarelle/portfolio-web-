@@ -21,6 +21,7 @@ const PRIMARY_PREFIXES = [
   "/comparatif/",
   "/blog/",
   "/creation-de-site-web",
+  "/audit",
   "/seo",
   "/geo",
   "/sageo",

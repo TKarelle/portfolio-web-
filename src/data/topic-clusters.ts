@@ -53,6 +53,7 @@ export const FOOTER_BESOIN_SLUGS = [
 export const NAV_SERVICE_LINKS = [
   { href: "/creation-de-site-web", label: "Création de site" },
   { href: "/refonte-de-site-web", label: "Refonte" },
+  { href: "/audit", label: "Audit SEO GEO" },
   { href: "/seo", label: "SEO" },
   { href: "/geo", label: "GEO / IA" },
   { href: "/sageo", label: "SAGEO" },

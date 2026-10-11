@@ -42,8 +42,7 @@ export const blogPosts: BlogPost[] = [
  {
  slug: "sageo-seo-geo-visibilite-2026",
  title: "SEO + GEO = SAGEO : être trouvé, puis cité en 2026",
- metaTitle:
- "SAGEO 2026 : pourquoi SEO et GEO doivent travailler ensemble",
+ metaTitle: "SAGEO SEO et GEO | Être trouvé puis cité en 2026",
  excerpt:
  "La recherche générative ne supprime pas le SEO : elle le prolonge. Le SEO vous fait trouver ; la GEO vous fait retenir ; le SAGEO traverse tout le parcours jusqu’à la citation.",
  date: "2026-10-10",
@@ -171,7 +170,7 @@ export const blogPosts: BlogPost[] = [
  title:
  "Search Console 2026 : savoir si l'IA Google vous cite",
  metaTitle:
- "Rapport Search Console IA générative 2026 : impressions, Aperçus IA et citations",
+ "Search Console IA générative 2026 | Impressions Aperçus IA et citations",
  excerpt:
  "Comment savoir si l'IA Google vous cite : ouvrir le rapport Performances IA générative dans Search Console, lire impressions et pages, et corriger l'absence de votre nom dans les Aperçus IA.",
  date: "2026-10-09",
@@ -276,7 +275,7 @@ export const blogPosts: BlogPost[] = [
  title:
  "Optimiser son référencement pour Google et les IA : le guide des débutantes en 2026",
  metaTitle:
- "SEO pour débutant : être trouvée sur Google ET citée par les IA (2026)",
+ "SEO pour débutant | Être trouvée sur Google et citée par les IA",
  excerpt:
  "Référencer son site sur Google et apparaître dans ChatGPT et Perplexity : les 6 fondamentaux accessibles sans compétences techniques, expliqués pour les coachs et thérapeutes.",
  date: "2026-10-05",
@@ -373,6 +372,7 @@ export const blogPosts: BlogPost[] = [
  slug: "page-non-indexee-google-guide-debutant",
  title:
  "Ma page n’est pas indexée par Google : comprendre pourquoi et comment la débloquer",
+ metaTitle: "Page non indexée Google | Comprendre et débloquer",
  excerpt:
  "Guide débutant : pourquoi Google refuse d’indexer une page, comment lire Search Console, et quelles corrections concrètes faire avant de redemander une indexation.",
  date: "2026-10-02",
@@ -444,6 +444,7 @@ export const blogPosts: BlogPost[] = [
  slug: "indexation-google-bloquee-rejets-crawl",
  title:
  "Indexation Google bloquée : anatomie des rejets de crawl et protocoles de résolution",
+ metaTitle: "Indexation Google bloquée | Rejets de crawl et corrections",
  excerpt:
  "Crawlability, renderability, indexability : pourquoi Google refuse d’indexer une URL, comment lire Search Console, et quoi corriger concrètement.",
  date: "2026-10-02",
@@ -510,6 +511,7 @@ export const blogPosts: BlogPost[] = [
  slug: "creer-son-site-maman-entrepreneuse",
  title:
  "Créer son site quand vous êtes maman entrepreneuse : guide réaliste",
+ metaTitle: "Site maman entrepreneuse | Guide réaliste sans soirées perdues",
  excerpt:
  "Temps limité, charge mentale, besoin d'une URL crédible : comment poser un site pro sans y passer vos soirées, avec des repères concrets 2026.",
  date: "2026-09-28",
@@ -545,6 +547,8 @@ export const blogPosts: BlogPost[] = [
  slug: "reconversion-professionnelle-site-web-2026",
  title:
  "Reconversion professionnelle 2026 : pourquoi votre site web est le premier levier",
+ metaTitle:
+ "Reconversion professionnelle site web | Premier levier de crédibilité",
  excerpt:
  "30 % des Français envisagent une reconversion en 2026. Si vous vous lancez comme coach, thérapeute ou consultante, votre site est votre première preuve de sérieux.",
  date: "2026-09-25",
@@ -587,7 +591,7 @@ export const blogPosts: BlogPost[] = [
  slug: "combien-coute-site-web-coach-france-2026",
  title:
  "Site internet pour coach : combien ça coûte vraiment, et comment choisir en 2026",
- metaTitle: "Site internet pour coach : le vrai coût et comment choisir (2026)",
+ metaTitle: "Site internet pour coach | Coût réel et comment choisir",
  excerpt:
  "Création, maintenance, refonte : le coût réel d'un site pour coach sur 3 ans, comparé. Données issues de 30+ sites livrés. Guide mis à jour le 6 octobre 2026.",
  date: "2026-09-22",
@@ -663,6 +667,7 @@ export const blogPosts: BlogPost[] = [
  {
  slug: "erreurs-a-eviter-site-independante",
  title: "7 erreurs à éviter sur le site d’une indépendante",
+ metaTitle: "Erreurs site indépendante | 7 pièges à éviter",
  excerpt:
  "Textes flous, bouton de contact invisible, site qui ne vous ressemble pas… Les erreurs qui font fuir vos prospectes, et comment les corriger concrètement.",
  date: "2026-09-18",
@@ -708,6 +713,7 @@ export const blogPosts: BlogPost[] = [
  {
  slug: "abonnement-ou-paiement-unique-site-web",
  title: "Abonnement site web : quelle durée choisir ?",
+ metaTitle: "Abonnement site web | Quelle durée choisir",
  excerpt:
  "Abonnement mensuel ou solde unique : avantages, pièges, et comment choisir quand vous êtes entrepreneuse.",
  date: "2026-09-12",
@@ -752,6 +758,7 @@ export const blogPosts: BlogPost[] = [
  {
  slug: "photos-de-marque-sans-budget-shooting",
  title: "Photos de marque sans budget shooting : le guide réaliste",
+ metaTitle: "Photos de marque sans shooting | Guide réaliste",
  excerpt:
  "Pas de budget photographe ? Comment obtenir des visuels crédibles pour votre site d’entrepreneuse, sans shoot à 1 500 €.",
  date: "2026-09-05",
@@ -798,6 +805,7 @@ export const blogPosts: BlogPost[] = [
  {
  slug: "combien-coute-site-vitrine-2026",
  title: "Combien coûte un site vitrine en 2026 ? Les vrais prix",
+ metaTitle: "Prix site vitrine 2026 | Fourchettes réelles",
  excerpt:
  "Prix d’un site vitrine (format pages + contact) en 2026 : ce que vous payez vraiment en autonomie, freelance, agence ou abonnement. Distinct du panorama budgétaire entrepreneuse.",
  date: "2026-06-20",
@@ -845,6 +853,7 @@ export const blogPosts: BlogPost[] = [
  {
  slug: "5-raisons-avoir-site-web-maintenant",
  title: "5 raisons de ne pas attendre pour avoir votre site web",
+ metaTitle: "Avoir un site web maintenant | Cinq raisons concrètes",
  excerpt:
  "Vous repoussez encore ? Cinq arguments concrets pour les entrepreneuses qui reportent leur site.",
  date: "2026-06-12",
@@ -889,6 +898,7 @@ export const blogPosts: BlogPost[] = [
  {
  slug: "ia-creation-site-web-pieges",
  title: "Créer son site avec l’IA : les 5 pièges que personne ne vous dit",
+ metaTitle: "Créer son site avec l’IA | 5 pièges à connaître",
  excerpt:
  "L’IA promet des sites en quelques clics. Pourquoi un accompagnement humain reste souvent plus adapté pour une entrepreneuse.",
  date: "2026-06-08",

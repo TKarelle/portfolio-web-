@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { ContactSection } from "@/components/home/ContactSection";
 import { buildPageMetadata } from "@/lib/metadata";
 
-const contactTitle = "Contact | Kopio — Création de site web & SEO";
+const contactTitle =
+  "Contact | Échangez sur votre projet | Kopio";
 const contactDescription =
   "Contactez Karelle pour votre projet de site web, refonte, SEO ou stratégie de visibilité sur Google et les IA.";
 

@@ -48,7 +48,7 @@ export const QUIZ_META = {
   title: "Le Test des 10 Secondes",
   /** Title SERP / OG — jamais « grille d'étanchéité » en UI */
   seoTitle:
-    "Test des 10 Secondes : ce que Google et ChatGPT disent de vous",
+    "Test des 10 Secondes | Ce que Google et ChatGPT disent de vous",
   eyebrow: "Test des 10 Secondes · Gratuit · 2 min",
   subtitle:
     "Quand on tape votre nom sur Google, ou qu'on demande à ChatGPT qui vous êtes : que voit-on ? 10 points pour vérifier ce que votre site dit vraiment de vous.",
