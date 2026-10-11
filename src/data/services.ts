@@ -184,7 +184,25 @@ export type ServicePageData = {
     secondaryHref?: string;
   };
   /** Ordre des blocs (défaut : pillars → sections → stages) */
-  contentOrder?: ("pillars" | "sections" | "stages" | "featureBand")[];
+  contentOrder?: (
+    | "pillars"
+    | "sections"
+    | "stages"
+    | "featureBand"
+    | "compareTable"
+  )[];
+  /** Tableau comparatif extractible (ex. SEO vs GEO vs SAGEO) */
+  compareTable?: {
+    h2: string;
+    h2Highlight?: string | readonly string[];
+    columns: readonly string[];
+    rows: readonly { criterion: string; cells: readonly string[] }[];
+  };
+  /** Schema DefinedTerm + TechArticle (concept propriétaire) */
+  definedTerm?: {
+    name: string;
+    description: string;
+  };
   /**
    * Hero émotionnel type accueil (création) : phrase percutante + marquee maquettes.
    * Remplace LandingHero quand présent.
@@ -451,7 +469,7 @@ export const servicePages: ServicePageData[] = [
         },
       ],
       outro:
-        "Le SEO pose les fondations. Le GEO et la méthode SAGEO prolongent ce travail pour développer votre visibilité dans les réponses générées par les IA.",
+        "Le SEO pose les fondations. Le [GEO](/geo) et la [méthode SAGEO](/sageo) prolongent ce travail pour le référencement IA.",
     },
     motDeKarelle:
       "Pour être citée par une IA, il faut d’abord être trouvée. Le SEO pose cette première étape : parler le langage de celles et ceux qui vous cherchent, avec une page claire dès les premières lignes.",
@@ -495,7 +513,7 @@ export const servicePages: ServicePageData[] = [
         question:
           "Le SEO aide-t-il aussi à être visible dans ChatGPT et les autres IA ?",
         answer:
-          "Le SEO constitue une base importante : votre site doit être accessible et son contenu compréhensible. Une bonne position sur Google ne garantit pas une citation dans les réponses d’une intelligence artificielle.\n\nChez Kopio, le GEO et la méthode SAGEO prolongent ce travail pour développer votre visibilité dans ces nouveaux environnements de recherche. L’article SAGEO et la page méthode détaillent la suite.",
+          "Le SEO constitue une base importante : votre site doit être accessible et son contenu compréhensible. Une bonne position sur Google ne garantit pas une citation dans les réponses d’une intelligence artificielle.\n\nChez Kopio, le GEO et la méthode SAGEO (SEO + GEO + AEO) prolongent ce travail pour le référencement IA. Voir la page SAGEO et l’article dédié.",
       },
       {
         question: "Comment mesurer les résultats du SEO ?",
@@ -627,7 +645,7 @@ export const servicePages: ServicePageData[] = [
         },
       ],
       outro:
-        "La méthode SAGEO organise ce travail dans une stratégie globale, du référencement classique à la visibilité dans les environnements de recherche génératifs.",
+        "La [méthode SAGEO](/sageo) organise ce travail : SEO, GEO et AEO pour le référencement IA, du Google classique à la citation.",
     },
     motDeKarelle:
       "Votre expertise ne se résume pas à une liste de mots-clés. Elle repose sur vos connaissances, votre expérience et votre capacité à apporter un éclairage utile. La GEO rend cette clarté lisible pour les systèmes qui citent des sources.",
@@ -684,27 +702,33 @@ export const servicePages: ServicePageData[] = [
       {
         question: "Qu’est-ce que la méthode SAGEO chez Kopio ?",
         answer:
-          "Chez Kopio, SAGEO désigne une approche qui articule référencement naturel et visibilité dans les environnements de recherche génératifs. Elle vise à construire une présence cohérente : rendre votre site accessible, clarifier votre expertise et développer des contenus utiles aux personnes qui vous recherchent comme aux systèmes qui explorent ces contenus. Elle ne garantit ni classement ni citation.",
+          "Chez Kopio, SAGEO désigne une approche qui articule SEO, GEO et AEO pour le référencement IA des entreprises et indépendantes en France. Elle vise une présence cohérente : site accessible, expertise claire, contenus utiles aux personnes et aux systèmes qui explorent le web. Elle ne garantit ni classement ni citation. Le détail est sur la page SAGEO.",
       },
     ],
   },
   {
     slug: "sageo",
     navLabel: "SAGEO",
-    title: "SAGEO : votre expertise, de la recherche à la citation | Kopio",
+    title: "Méthode SAGEO Kopio : SEO, GEO et AEO pour entreprises en France | Kopio",
     metaDescription:
-      "SAGEO : SEO et GEO ensemble. Une approche Kopio adaptée à chaque étape, pour que votre expertise soit découverte, comprise et utile sur Google comme dans les réponses IA.",
-    h1: "De la recherche à la recommandation",
-    h1Highlight: "recommandation",
+      "Méthode SAGEO Kopio, par Karelle : SEO, GEO et AEO pour le référencement IA en France. Être trouvée, comprise, citée. Alternative à l’agence multi-interlocuteurs.",
+    h1: "Méthode SAGEO : SEO, GEO et référencement IA",
+    h1Highlight: "référencement IA",
     intro:
-      "Votre site ne doit pas seulement être trouvé. Il doit aussi être compris, retenu et pouvoir être cité.",
+      "Kopio accompagne les entreprises et indépendantes en France sur le SAGEO : SEO, GEO et AEO pour le référencement IA.",
     tldr:
-      "Le SAGEO relie référencement naturel et visibilité dans les moteurs génératifs. Chez Kopio, j’adapte le travail à chaque étape du parcours : être trouvée, comprise, puis utile comme source.",
+      "La méthode SAGEO est la méthode Kopio, par Karelle, pour le référencement IA en France. Elle relie SEO, GEO et AEO pour qu’une page soit trouvée, retenue puis citée par Google et les moteurs IA (ChatGPT, Gemini, Perplexity).",
     image: "/image/blog-covers/blog-seo-geo-sageo.jpeg",
-    imageAlt: "Méthode SAGEO : SEO et GEO pour la visibilité digitale",
+    imageAlt:
+      "Méthode SAGEO Kopio : SEO, GEO et AEO pour le référencement IA en France",
+    definedTerm: {
+      name: "Méthode SAGEO",
+      description:
+        "La méthode SAGEO (Search-Augmented Generative Engine Optimization) est la méthode Kopio, par Karelle, pour le référencement IA en France. Elle articule SEO, GEO et AEO afin qu’une page soit récupérée, re-classée puis citée.",
+    },
     emotionalHero: {
       lede:
-        "Votre site ne doit pas seulement être trouvé. Il doit aussi être compris, retenu et pouvoir être cité.",
+        "SEO, GEO et AEO réunis. Pour que votre expertise soit trouvée sur Google, puis citée dans les réponses IA.",
       primaryCta: {
         href: "/contact",
         label: "Faire le point ensemble",
@@ -718,19 +742,19 @@ export const servicePages: ServicePageData[] = [
         {
           id: "trouvee",
           title: "Soyez trouvée.",
-          text: "Construisez les bases nécessaires pour être découverte.",
+          text: "SEO et structure : les bases pour être découverte sur Google et récupérée par les IA.",
           icon: "search",
         },
         {
           id: "retenue",
           title: "Soyez retenue.",
-          text: "Rendez votre expertise claire, précise et pertinente.",
+          text: "AEO et clarté : une réponse utile dès les premières lignes.",
           icon: "badge",
         },
         {
           id: "citee",
           title: "Soyez citée.",
-          text: "Préparez vos contenus à contribuer aux réponses des moteurs génératifs.",
+          text: "GEO : des contenus précis que les moteurs génératifs peuvent reprendre.",
           icon: "spark",
         },
       ],
@@ -739,9 +763,38 @@ export const servicePages: ServicePageData[] = [
         label: "Faire le point ensemble",
       },
     },
-    contentOrder: ["featureBand", "stages", "sections", "pillars"],
+    contentOrder: [
+      "featureBand",
+      "compareTable",
+      "sections",
+      "stages",
+      "pillars",
+    ],
+    compareTable: {
+      h2: "SEO, GEO et méthode SAGEO : ce qui change",
+      h2Highlight: "méthode SAGEO",
+      columns: ["SEO classique", "GEO (IA)", "SAGEO (Kopio)"],
+      rows: [
+        {
+          criterion: "Cible",
+          cells: [
+            "Algorithme Google",
+            "Moteurs IA (ChatGPT, Gemini)",
+            "Clients + Google + IA",
+          ],
+        },
+        {
+          criterion: "Format",
+          cells: [
+            "Mots-clés & Backlinks",
+            "Citations & Neutralité",
+            "Structure citable & Notoriété",
+          ],
+        },
+      ],
+    },
     lead:
-      "Vos futurs clients ne passent pas tous par le même chemin pour vous trouver. Certains recherchent directement un professionnel sur Google. D’autres posent une question à une intelligence artificielle et découvrent des sources au fil de sa réponse.\n\nVotre site doit pouvoir exister dans ces différents parcours. C’est l’ambition du SAGEO : penser ensemble le référencement naturel et la visibilité dans les moteurs de recherche génératifs, pour que votre expertise ait davantage de possibilités d’être découverte.",
+      "Vos futurs clients ne passent pas tous par le même chemin. Certains cherchent sur Google. D’autres posent une question à ChatGPT, Perplexity ou un Aperçu IA et découvrent des sources dans la réponse.\n\nLe SAGEO (Search-Augmented Generative Engine Optimization) relie référencement naturel et référencement IA : être indexée, récupérée, re-classée, puis citée. Chez Kopio, j’applique cette méthode pour les entreprises et indépendantes en France — sans usine à gaz d’agence.",
     stages: {
       h2: "Une stratégie pensée pour chaque étape",
       h2Highlight: "chaque étape",
@@ -749,41 +802,59 @@ export const servicePages: ServicePageData[] = [
       items: [
         {
           step: "01",
-          title: "Être trouvée",
-          body: "Avant de pouvoir être sélectionnée, votre page doit pouvoir être découverte.\n\nJe travaille sa structure, ses titres, son accessibilité et les éléments qui aident les moteurs de recherche à comprendre son sujet. Je veille également à employer les termes que vos futurs clients utilisent réellement.\n\nCe que cela apporte : des fondations conçues pour relier votre expertise aux recherches pertinentes.",
+          title: "Récupération — être trouvée",
+          body: "Avant d’être citée, votre page doit entrer dans le top des candidats.\n\nJe travaille title, méta, H1–H6, Schema et le lexique que vos clients (et les IA) utilisent vraiment — SEO + fondations AEO.\n\nCe que cela apporte : des fondations pour le référencement Google et le référencement IA.",
           image: "/image/card-cover/seo.jpeg",
           imageAlt:
             "Résultats Google pour « coach professionnelle Toulouse » : site de coach en première position avec URL, extrait et aperçu de page",
         },
         {
           step: "02",
-          title: "Être comprise et retenue",
-          body: "Une fois votre page découverte, son contenu doit répondre clairement au besoin exprimé.\n\nJe travaille la précision du propos, la cohérence des informations et l’organisation des contenus. Chaque page possède une intention identifiable et apporte une réponse suffisamment claire pour être comprise sans devoir reconstituer votre message à partir de plusieurs paragraphes.\n\nCe que cela apporte : une expertise plus facile à comprendre, sans sacrifier votre personnalité à des formulations génériques.",
+          title: "Re-classement — rester dans le top",
+          body: "Seuls les meilleurs contenus alimentent la réponse générée.\n\nJe clarifie l’intention de chaque page, la réponse en tête et la cohérence thématique pour que votre expertise ne soit pas noyée.\n\nCe que cela apporte : une page utile, ciblée, difficile à écarter du contexte.",
           image: "/image/card-cover/site-compris.jpeg",
           imageAlt:
             "Visualisation d’un réseau de pages reliées à un hub central, illustrant un contenu structuré et compréhensible pour les systèmes qui explorent le web",
         },
         {
           step: "03",
-          title: "Devenir une source pertinente",
-          body: "Une réponse générée par une IA peut s’appuyer sur différentes sources. Pour que votre contenu puisse être retenu ou cité, il doit apporter quelque chose d’utile à la question posée.\n\nJe privilégie les explications précises, les idées développées de façon autonome, les exemples pertinents et les informations vérifiables. L’objectif n’est pas de fabriquer des phrases pour les robots, mais de rendre la valeur de votre expertise explicite.\n\nCe que cela apporte : un contenu qui peut contribuer à une réponse, plutôt qu’une page qui se contente de répéter des mots-clés.",
+          title: "Génération — être citée",
+          body: "La majorité des citations vient du corps du texte.\n\nJe privilégie affirmations autonomes, preuves vérifiables et exemples précis — le cœur du GEO — sans phrases écrites « pour les robots ».\n\nCe que cela apporte : un contenu qui peut contribuer à une réponse IA, pas seulement à une position SERP.",
           image: "/image/card-cover/site-cite.jpeg",
           imageAlt:
             "Échange type assistant IA : une question sur une coach, une réponse qui cite Sophie Durant avec lien et aperçu de son site",
         },
       ],
+      outro:
+        "Détail de l’étude et des six actions : [article SEO + GEO = SAGEO](/blog/sageo-seo-geo-visibilite-2026). Étapes séparées : [SEO](/seo) · [GEO](/geo).",
     },
     sections: [
+      {
+        h2: "Qu’est-ce que la méthode SAGEO ?",
+        body: "La **méthode SAGEO** (Search-Augmented Generative Engine Optimization) est la **méthode Kopio**, par **Karelle**, pour le référencement IA.\n\nElle relie SEO, GEO et AEO derrière un parcours réel : récupération, re-classement, puis citation. L’objectif : qu’une page soit trouvée par Google, comprise par vos clients, et utile aux moteurs IA (ChatGPT, Gemini, Perplexity, Aperçus IA) lorsqu’ils synthétisent une réponse.\n\nC’est une façon d’écrire et de structurer vos pages pour qu’elles puissent traverser tout le pipeline.",
+      },
+      {
+        h2: "3 conditions pour être cité par les IA en 2026",
+        body: "- **Une structure récupérable** : title, méta, H1–H6 et Schema portent votre expertise, votre public et les mots réellement cherchés.\n\n- **Une réponse en tête de page** : l’affirmation centrale apparaît dans les premières lignes, extractible hors contexte.\n\n- **Un corps précis et autonome** : faits, exemples et formulations que l’IA peut citer sans inventer ni reformuler à vide.\n\nSans la première condition, la page n’atteint pas le générateur. Sans les deux suivantes, elle peut être vue sans jamais être citée.",
+      },
+      {
+        h2: "SEO, AEO, GEO : ce que le SAGEO relie",
+        body: "**SEO** (Search Engine Optimization) : être découverte dans les résultats naturels.\n\n**AEO** (Answer Engine Optimization) : fournir une réponse claire et extractible dès le haut de page, pour les moteurs de réponses.\n\n**GEO** (Generative Engine Optimization) : améliorer les chances d’être retenue et citée dans une réponse générée.\n\n**SAGEO** : articuler ces leviers derrière le parcours réel — récupération, re-classement, génération — plutôt que d’empiler des techniques au hasard.\n\nChez Kopio, cette méthode sert le référencement IA des entreprises et indépendantes en France. [Lire l’article SEO + GEO = SAGEO](/blog/sageo-seo-geo-visibilite-2026).",
+      },
+      {
+        h2: "Pour qui ? Entreprises et indépendantes en France",
+        body: "Le SAGEO Kopio s’adresse aux entreprises, TPE et indépendantes en France qui veulent une présence claire sur Google et dans les réponses IA — sans devoir piloter une agence multi-interlocuteurs.\n\nVous cherchez un prestataire qui parle SEO, GEO, AEO et référencement IA avec une méthode concrète page par page : c’est le rôle de cette offre. Je reste une interlocutrice unique ; le comparatif [Kopio vs agence web](/comparatif/kopio-vs-agence-web) précise quand l’agence reste pertinente.",
+      },
+      {
+        h2: "Six actions pour des pages citables",
+        body: "1. **Structure** : faire remonter expertise, public et méthode dans title, méta, H2 et Schema.\n\n2. **Réponse tôt** : affirmation centrale dès les premières lignes.\n\n3. **Idées autonomes** : chaque passage compréhensible hors contexte.\n\n4. **Preuve utile** : faits et observations vérifiables, pas du remplissage.\n\n5. **Lexique audience** : les mots que votre public (et ChatGPT) tape vraiment.\n\n6. **Adaptation** : un guide, une page métier ou une comparaison n’appellent pas la même densité qu’une fiche produit.\n\nLe détail illustré est dans [l’article SAGEO](/blog/sageo-seo-geo-visibilite-2026).",
+      },
       {
         h2: "Ce que je change sur vos pages",
         layout: "photoScroll",
         image: FOUNDER_PHOTO,
         imageAlt: FOUNDER_PHOTO_ALT,
-        body: "Je n’applique pas la même grille à toutes vos pages. Une page de présentation doit inspirer confiance. Un guide doit répondre à une question. Une page comparative doit clarifier un choix.\n\nJ’adapte le travail à l’étape visée, à l’intention de recherche et au rôle de chaque page, en m’appuyant notamment sur la recherche SAGEO Arena.",
-      },
-      {
-        h2: "Le SEO, le GEO et le SAGEO : quelle différence ?",
-        body: "**Le SEO** : être découverte dans les résultats de recherche.\n\n**Le GEO** : améliorer les chances que votre contenu soit utilisé ou cité par les IA.\n\n**Le SAGEO** : articuler les optimisations autour des différentes étapes du parcours qui mène de la recherche à la citation.\n\nChez Kopio, cette approche relie les trois enjeux dans une même stratégie, en tenant compte du rôle de chaque page.\n\n[Voir l’article SEO + GEO = SAGEO](/blog/sageo-seo-geo-visibilite-2026)",
+        body: "Je n’applique pas la même grille à toutes vos pages. Une page de présentation doit inspirer confiance. Un guide doit répondre à une question. Une page comparative doit clarifier un choix.\n\nJ’adapte le travail à l’étape visée (récupération, re-classement ou citation), à l’intention de recherche et au rôle de chaque page, en m’appuyant sur SAGEO Arena et sur votre lexique métier.",
       },
     ],
     pillars: {
@@ -791,39 +862,49 @@ export const servicePages: ServicePageData[] = [
       items: [
         {
           title: "Vous créez votre site ?",
-          body: "Je construis sa structure en tenant compte de votre expertise, de vos objectifs et des enjeux de visibilité dès le départ.",
-          cta: { href: "/contact", label: "Discuter avec Karelle" },
+          body: "Je construis sa structure en tenant compte de votre expertise, du SEO et du référencement IA dès le départ.",
+          cta: { href: "/creation-de-site-web", label: "Création de site" },
         },
         {
           title: "Vous avez déjà un site ?",
-          body: "Un diagnostic SEO et GEO identifie les points à améliorer et aide à prioriser les actions pertinentes avant d’envisager une refonte.",
+          body: "Un diagnostic SEO, GEO et AEO identifie les points à prioriser avant une refonte ou un renforcement ciblé.",
           cta: { href: "/contact", label: "Demander un audit" },
         },
         {
           title: "Un premier regard en deux minutes",
-          body: "Le Test des 10 Secondes vous donne un premier regard sur votre présence en ligne. Nous pourrons ensuite examiner les possibilités adaptées à votre activité.",
+          body: "Le Test des 10 Secondes vous donne un premier regard sur votre présence en ligne pour Google et les IA.",
           cta: { href: "/grille-etancheite", label: "Faire le quiz" },
         },
       ],
     },
     motDeKarelle:
-      "Ma signature : traduire la recherche en décisions concrètes pour chaque page de votre site. Plus crédible, et plus utile à votre activité.",
+      "Ma signature : traduire le SAGEO en décisions concrètes pour chaque page. Pas une promesse de citation — une méthode pour le référencement IA, en France, avec une seule interlocutrice.",
     cta: {
       title: "Votre expertise mérite d’être découverte et comprise",
       titleHighlight: "découverte",
       lead:
-        "Je vous accompagne dans la construction d’une présence en ligne qui reflète votre approche et prépare votre site aux évolutions de la recherche.",
+        "Je vous accompagne sur le SAGEO — SEO, GEO et AEO — pour une présence utile sur Google et dans les réponses IA, adaptée aux entreprises et indépendantes en France.",
       closing: "",
       primaryLabel: "Faire le point ensemble",
       primaryHref: "/contact",
-      secondaryLabel: "Découvrir l’approche SAGEO",
+      secondaryLabel: "Lire l’article SAGEO",
       secondaryHref: "/blog/sageo-seo-geo-visibilite-2026",
     },
     faqs: [
       {
-        question: "SAGEO, GEO et SEO : quelle différence ?",
+        question: "Qu’est-ce que la méthode SAGEO chez Kopio ?",
         answer:
-          "Le SEO travaille la visibilité dans les résultats naturels. Le GEO s’intéresse à la sélection et à la citation dans les réponses générées par l’IA. Le SAGEO envisage l’ensemble du parcours : de la découverte d’une page jusqu’à son éventuelle utilisation dans une réponse.",
+          "La méthode SAGEO est la méthode Kopio, par Karelle, pour le référencement IA en France. Elle relie SEO, GEO et AEO pour qu’une page soit trouvée, retenue puis citée.",
+      },
+      {
+        question: "SAGEO, SEO, GEO et AEO : quelle différence ?",
+        answer:
+          "Le SEO travaille la visibilité dans les résultats naturels. L’AEO vise des réponses claires et extractibles pour les moteurs de réponses. Le GEO s’intéresse à la sélection et à la citation dans les réponses générées par l’IA. Le SAGEO articule l’ensemble du parcours : récupération, re-classement, puis citation.",
+      },
+      {
+        question: "Kopio est-il une agence SAGEO en France ?",
+        answer:
+          "Kopio n’est pas une agence multi-équipes : c’est un accompagnement mené par Karelle pour entreprises et indépendantes en France. La méthode SAGEO (SEO, GEO, AEO / référencement IA) y est appliquée page par page. Pour un projet multi-équipes ou très large, une agence reste parfois plus adaptée ; le comparatif Kopio vs agence web détaille le bon cadre.",
       },
       {
         question: "Le SAGEO garantit-il d’être citée par une IA ?",
@@ -838,7 +919,7 @@ export const servicePages: ServicePageData[] = [
       {
         question: "Où lire l’étude et l’article SAGEO ?",
         answer:
-          "L’article de blog « SEO + GEO = SAGEO » résume SAGEO Arena et la grille pratique. Les pages SEO et GEO détaillent chacune une étape du parcours.",
+          "L’article de blog « SEO + GEO = SAGEO » résume SAGEO Arena et la grille pratique. Les pages SEO et GEO détaillent chacune une étape du parcours. La présente page SAGEO pose l’offre et le lexique pour le référencement IA en France.",
       },
     ],
   },

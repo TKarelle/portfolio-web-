@@ -1,3 +1,4 @@
+import { InlineProse } from "@/components/seo/InlineProse";
 import { cn } from "@/lib/utils";
 
 export type FaqAccordionItem = {
@@ -51,7 +52,7 @@ export function FaqAccordion({
           </summary>
           <div className="pb-5 sm:pb-6 -mt-1 pr-12 sm:pr-14">
             <p className="text-sm sm:text-[0.95rem] font-medium text-muted leading-relaxed">
-              {item.answer}
+              <InlineProse text={item.answer} />
             </p>
           </div>
         </details>

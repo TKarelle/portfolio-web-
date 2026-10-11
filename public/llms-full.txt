@@ -1,7 +1,7 @@
 # Kopio — llms-full.txt
 # Chunks vectorisables (~250–500 tokens) pour crawlers IA / RAG
 # Site : https://www.kopio.eu
-# Généré : 2026-10-10 via npm run sync:llms — ne pas éditer à la main
+# Généré : 2026-10-11 via npm run sync:llms — ne pas éditer à la main
 # Bots : GPTBot, PerplexityBot, ClaudeBot, Google-Extended
 
 ================================================================================
@@ -65,77 +65,77 @@ Domaine au nom de la cliente dès le jour 1. Mises à jour par email sous 24 à 
 
 ================================================================================
 CHUNK: service-creation-de-site-web
-title: Création de sites web pensés pour transformer vos visiteurs en prospects
-tokens_est: 200
+title: Votre expertise mérite d’être remarquée
+tokens_est: 125 (court)
 ================================================================================
 
 URL : https://www.kopio.eu/creation-de-site-web
-Titre SERP : Création de site web professionnel | Karelle
-H1 : Création de sites web pensés pour transformer vos visiteurs en prospects
-Réponse directe : Je conçois et je tiens votre site : structure, textes cadrés, bases SEO, mobile. Vous gardez le message. Je porte la technique.
-Contexte : Un site clair, rapide et structuré pour que votre expertise soit comprise en quelques secondes, trouvée sur Google, et utile à vos futurs clients.
+Titre SERP : Création de site web professionnel | Kopio
+H1 : Votre expertise mérite d’être remarquée
+Réponse directe : Je conçois un site autour de votre activité : design personnalisé, jusqu’à cinq pages, bases SEO, mobile, hébergement et suivi selon la formule. Vous gardez le message. Je porte la technique.
+Contexte : Un site qui attire le regard. Révèle votre singularité. Et donne envie de vous choisir.
 Extrait :
-Vos prospects cherchent une preuve avant de vous écrire. Instagram attire l’attention. Le site porte la décision : qui vous aidez, comment vous travaillez, quel prochain pas.\n\nSans page claire, la recommandation s’arrête souvent au nom. Avec une présence structurée, Google et les IA ont quelque chose de solide à montrer, et vos futurs clients comprennent vite si vous êtes la bonne personne.
+Un univers visuel qui vous ressemble, jusque dans les détails.
 Autorité : Karelle (Person) derrière Kopio (Organization). Méthode SAGEO = SEO + GEO.
 
 ================================================================================
 CHUNK: service-seo
-title: SEO : rendre votre site visible sur Google et attirer les bons prospects
-tokens_est: 189 (court)
+title: Soyez là où vos clients vous cherchent
+tokens_est: 169 (court)
 ================================================================================
 
 URL : https://www.kopio.eu/seo
-Titre SERP : SEO pour site web : être visible sur Google | Karelle
-H1 : SEO : rendre votre site visible sur Google et attirer les bons prospects
-Réponse directe : Structure, titres, contenu extractible, données structurées et maillage. Objectif : être trouvée sur les requêtes qui comptent pour votre activité.
-Contexte : Le référencement utile, c’est parler le langage de celles et ceux qui vous cherchent : métier, ville, problème réel. Pas du jargon rare.
+Titre SERP : SEO pour site web : être visible sur Google | Kopio
+H1 : Soyez là où vos clients vous cherchent
+Réponse directe : Le référencement naturel rend votre site présent sur Google lorsque des personnes cherchent votre expertise. Je travaille les recherches pertinentes, la structure, les contenus, les titres et la technique pour que les bonnes personnes découvrent votre approche et puissent vous écrire.
+Contexte : Faites de Google une nouvelle porte d’entrée vers votre activité.
 Extrait :
-Google classe des pages qui répondent clairement à une intention. Votre page d’offre doit dire pour qui vous travaillez, quel problème vous traitez, et que faire ensuite.\n\nJe travaille d’abord la récupération : title, méta, H1–H2, Schema. Ensuite le corps, pour que la page reste utile à lire et à citer.
+Votre visibilité ne dépend plus uniquement des personnes qui vous connaissent déjà ou des publications que vous partagez. Votre site peut aussi vous faire découvrir à travers les recherches liées à votre expertise.
 Autorité : Karelle (Person) derrière Kopio (Organization). Méthode SAGEO = SEO + GEO.
 
 ================================================================================
 CHUNK: service-geo
-title: GEO : rendre votre expertise visible et citable par les IA
-tokens_est: 183 (court)
+title: Votre expertise mérite d’être citée
+tokens_est: 138 (court)
 ================================================================================
 
 URL : https://www.kopio.eu/geo
-Titre SERP : GEO : être cité par les IA | Karelle
-H1 : GEO : rendre votre expertise visible et citable par les IA
-Réponse directe : Réponse en tête, idées autonomes, preuves utiles, structure explicite. Pour que ChatGPT, Perplexity ou les Aperçus IA puissent vous créditer.
-Contexte : La GEO (Generative Engine Optimization) s’intéresse à l’étape où une IA retient et cite votre contenu. Elle complète le SEO, elle ne le remplace pas.
+Titre SERP : GEO : être cité par les IA | Kopio
+H1 : Votre expertise mérite d’être citée
+Réponse directe : La GEO (Generative Engine Optimization) améliore les chances que vos contenus soient compris, sélectionnés et cités par les assistants et moteurs qui génèrent des réponses avec l’IA. Elle prolonge le SEO : d’abord être trouvée, puis retenue, puis citée.
+Contexte : Donnez aux intelligences artificielles des contenus qu’elles peuvent comprendre, utiliser et citer.
 Extrait :
-Le SEO vise la place dans les résultats classiques. La GEO vise la citation dans une réponse générée.\n\nUne page bien classée mais vague n’est pas reprise. Un texte « expert » qui n’utilise plus les mots de vos prospects disparaît dès la récupération. Les deux doivent travailler ensemble.
+Vos pages répondent directement aux questions auxquelles votre expertise peut apporter un éclairage.
 Autorité : Karelle (Person) derrière Kopio (Organization). Méthode SAGEO = SEO + GEO.
 
 ================================================================================
 CHUNK: service-sageo
-title: SAGEO : être trouvé sur Google, puis cité par les IA
-tokens_est: 207
+title: Méthode SAGEO : SEO, GEO et référencement IA
+tokens_est: 202
 ================================================================================
 
 URL : https://www.kopio.eu/sageo
-Titre SERP : SAGEO : la méthode Kopio pour être visible sur Google et cité par les IA
-H1 : SAGEO : être trouvé sur Google, puis cité par les IA
-Réponse directe : StageAware : structure d’abord (récupération), lexique de votre audience (re-classement), corps précis (citation). Jamais tout empiler d’un coup.
-Contexte : Le SEO vous fait trouver. Le SAGEO vous fait citer. Une approche complète pour transformer votre site en source d’expertise que Google comprend, que les IA retiennent et que vos prospects trouvent.
+Titre SERP : Méthode SAGEO Kopio : SEO, GEO et AEO pour entreprises en France | Kopio
+H1 : Méthode SAGEO : SEO, GEO et référencement IA
+Réponse directe : La méthode SAGEO est la méthode Kopio, par Karelle, pour le référencement IA en France. Elle relie SEO, GEO et AEO pour qu’une page soit trouvée, retenue puis citée par Google et les moteurs IA (ChatGPT, Gemini, Perplexity).
+Contexte : Kopio accompagne les entreprises et indépendantes en France sur le SAGEO : SEO, GEO et AEO pour le référencement IA.
 Extrait :
-SAGEO signifie Search-Augmented Generative Engine Optimization : optimiser une page pour qu’elle soit visible, retenue et citée dans les réponses des moteurs génératifs augmentés par la recherche (Copilot, Perplexity, Aperçus IA, ChatGPT avec recherche).\n\nKopio applique cette méthode sur vos sites. Je suis Karelle : je traduis l’étude et la pratique en pages concrètes pour l’accompagnement.
+Avant d’être citée, votre page doit entrer dans le top des candidats.\n\nJe travaille title, méta, H1–H6, Schema et le lexique que vos clients (et les IA) utilisent vraiment — SEO + fondations AEO.\n\nCe que cela apporte : des fondations pour le référencement Google et le référencement IA.
 Autorité : Karelle (Person) derrière Kopio (Organization). Méthode SAGEO = SEO + GEO.
 
 ================================================================================
 CHUNK: service-refonte-de-site-web
-title: Refonte de site web : transformez votre site en outil de prospection
-tokens_est: 186 (court)
+title: Votre site mérite une nouvelle dimension
+tokens_est: 134 (court)
 ================================================================================
 
 URL : https://www.kopio.eu/refonte-de-site-web
-Titre SERP : Refonte de site web : moderniser et optimiser votre site | Karelle
-H1 : Refonte de site web : transformez votre site en outil de prospection
-Réponse directe : Même URL ou migration propre, design actualisé, SEO consolidé, réponses claires en tête de page. Objectif : oser renvoyer votre lien.
-Contexte : Quand votre activité a changé plus vite que votre site, la refonte réécrit structure, textes et parcours pour coller à ce que vous vendez aujourd’hui.
+Titre SERP : Refonte de site web : une nouvelle dimension pour votre site | Kopio
+H1 : Votre site mérite une nouvelle dimension
+Réponse directe : Je repense la structure, les contenus et le design de votre site pour qu’il reflète votre activité actuelle, clarifie votre message et développe votre visibilité sur Google et auprès de vos futurs clients.
+Contexte : Un site qui reflète votre évolution. Clarifie votre message. Et révèle tout votre potentiel.
 Extrait :
-Vous n’envoyez plus votre URL après un networking. L’offre a changé. Le design date. Le mobile est pénible. Google peinait déjà à indexer proprement.\n\nLa refonte n’est pas une peinture. C’est recentrer le message, la structure et la technique pour que le site travaille à nouveau.
+Un univers visuel en accord avec votre activité actuelle.
 Autorité : Karelle (Person) derrière Kopio (Organization). Méthode SAGEO = SEO + GEO.
 
 ================================================================================

@@ -262,7 +262,7 @@ Kopio remplace une agence quand le brief réel est : « j'ai besoin d'un site pr
       },
     ],
     closing:
-      "Si votre projet est large et multi-équipes, parlez à une agence. Si vous voulez un site d'entrepreneuse clair, tenu, sans usine à gaz, écrivez-moi : je vous dirai si Kopio est le bon cadre.",
+      "Si votre projet est large et multi-équipes, parlez à une agence. Si vous voulez un site d'entrepreneuse clair, tenu, avec SEO, GEO et méthode SAGEO pour le référencement IA — sans usine à gaz — écrivez-moi : je vous dirai si Kopio est le bon cadre. Voir aussi la page SAGEO.",
     ctaLabel: "Faire le point ensemble",
     image: "/image/independant.jpg",
     imageAlt: "Comparatif Kopio vs agence web",

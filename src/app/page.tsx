@@ -9,7 +9,6 @@ import { ProcessSimple } from "@/components/home/ProcessSimple";
 import { Testimonials } from "@/components/home/Testimonials";
 import { FAQ } from "@/components/home/FAQ";
 import { ContactSection } from "@/components/home/ContactSection";
-import { StickyCta } from "@/components/home/StickyCta";
 import { FaqJsonLd, OffersJsonLd, VideoJsonLd } from "@/components/seo/JsonLd";
 import { buildPageMetadata } from "@/lib/metadata";
 import { BRAND_NAME, SITE_META_DESCRIPTION, SITE_META_TITLE } from "@/data/site";
@@ -41,7 +40,6 @@ export default function HomePage() {
       <Testimonials />
       <FAQ />
       <ContactSection />
-      <StickyCta />
     </>
   );
 }

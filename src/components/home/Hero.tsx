@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { SoftProof } from "@/components/ui/SoftProof";
 import { MeshGrainBackground } from "@/components/ui/MeshGrainBackground";
@@ -43,6 +44,13 @@ export function Hero() {
                 {CTA.secondary}
               </Button>
             </div>
+
+            <Link
+              href="/sageo"
+              className="text-sm font-extrabold text-ink/55 hover:text-ink underline-offset-4 hover:underline transition-colors"
+            >
+              Découvrir la méthode SAGEO
+            </Link>
           </div>
         </div>
 

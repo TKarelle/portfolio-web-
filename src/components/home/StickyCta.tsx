@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/Button";
 import { CTA } from "@/data/copy";
 
@@ -9,16 +10,27 @@ const CLEARANCE_VAR = "--sticky-cta-clearance";
 const BAR_CORE_PX = 72;
 
 /**
- * CTA sticky mobile — Safari & Chrome :
+ * CTA sticky mobile — site-wide (layout).
+ * Safari & Chrome :
  * - `env(safe-area-inset-bottom)` : home indicator
  * - `visualViewport` : barre d’URL / toolbar qui monte ou descend
  * - `--sticky-cta-clearance` : exposé pour remonter le contenu au-dessus du barreau
  */
 export function StickyCta() {
+  const pathname = usePathname();
   const [visible, setVisible] = useState(false);
   const [vvBottom, setVvBottom] = useState(0);
 
+  const onContactPage = pathname === "/contact";
+  const href = pathname === "/" ? "#contact" : "/contact";
+
   useEffect(() => {
+    if (onContactPage) {
+      setVisible(false);
+      document.documentElement.style.setProperty(CLEARANCE_VAR, "0px");
+      return;
+    }
+
     const readVvBottom = () => {
       const vv = window.visualViewport;
       if (!vv) return 0;
@@ -65,9 +77,9 @@ export function StickyCta() {
       vv?.removeEventListener("scroll", sync);
       document.documentElement.style.removeProperty(CLEARANCE_VAR);
     };
-  }, []);
+  }, [onContactPage, pathname]);
 
-  if (!visible) return null;
+  if (!visible || onContactPage) return null;
 
   return (
     <div
@@ -81,7 +93,7 @@ export function StickyCta() {
         }}
       >
         <Button
-          href="#contact"
+          href={href}
           size="md"
           className="w-full !min-h-[52px] !rounded-2xl text-sm shadow-[0_4px_0_0_#a8c400]"
         >

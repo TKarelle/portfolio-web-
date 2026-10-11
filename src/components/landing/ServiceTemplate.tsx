@@ -15,9 +15,14 @@ import { PhotoScrollStory } from "@/components/ui/PhotoScrollStory";
 import { SectionCta } from "@/components/ui/SectionCta";
 import { SectionHead, TitleEm } from "@/components/ui/SectionHead";
 import { EditorialSteps } from "@/components/ui/EditorialSteps";
-import { FaqJsonLd, ServiceJsonLd } from "@/components/seo/JsonLd";
+import {
+  DefinedTermTechArticleJsonLd,
+  FaqJsonLd,
+  ServiceJsonLd,
+} from "@/components/seo/JsonLd";
 import { InlineProse } from "@/components/seo/InlineProse";
 import { SeoProseSections } from "@/components/seo/SeoProseSections";
+import { ServiceCompareTable } from "@/components/landing/ServiceCompareTable";
 import { CTA } from "@/data/copy";
 import { buildPageMetadata } from "@/lib/metadata";
 import { emphasizeTitle } from "@/lib/title-emphasis";
@@ -34,7 +39,12 @@ export function serviceMetadata(data: ServicePageData): Metadata {
   };
 }
 
-type ContentBlock = "pillars" | "sections" | "stages" | "featureBand";
+type ContentBlock =
+  | "pillars"
+  | "sections"
+  | "stages"
+  | "featureBand"
+  | "compareTable";
 type SectionTone = "bg" | "surface";
 
 const DEFAULT_ORDER: ContentBlock[] = [
@@ -162,7 +172,7 @@ function StagesBlock({
         {data.stages.outro ? (
           <div className={`page-x pb-14 md:pb-20 -mt-4 md:-mt-6 ${bgClass}`}>
             <p className="text-center text-base md:text-[1.05rem] font-medium text-ink/75 leading-[1.75] max-w-2xl mx-auto">
-              {data.stages.outro}
+              <InlineProse text={data.stages.outro} />
             </p>
           </div>
         ) : null}
@@ -200,7 +210,7 @@ function StagesBlock({
         />
         {data.stages.outro ? (
           <p className="mt-12 md:mt-14 text-center text-base md:text-[1.05rem] font-medium text-ink/75 leading-[1.75] max-w-2xl mx-auto">
-            {data.stages.outro}
+            <InlineProse text={data.stages.outro} />
           </p>
         ) : null}
       </div>
@@ -378,6 +388,16 @@ function ServiceBody({ data }: { data: ServicePageData }) {
           );
         }
 
+        if (block === "compareTable" && data.compareTable) {
+          return (
+            <ServiceCompareTable
+              key={block}
+              data={data.compareTable}
+              className={toneClass(takeTone(toneRef))}
+            />
+          );
+        }
+
         return null;
       })}
 
@@ -436,10 +456,19 @@ export function ServiceTemplate({ data }: { data: ServicePageData }) {
   return (
     <>
       <ServiceJsonLd
-        name={data.h1}
+        name={data.title.replace(/\s*\|\s*Kopio\s*$/i, "").trim() || data.h1}
         description={data.metaDescription}
         url={servicePath(data.slug)}
       />
+      {data.definedTerm ? (
+        <DefinedTermTechArticleJsonLd
+          termName={data.definedTerm.name}
+          termDescription={data.definedTerm.description}
+          headline={data.h1}
+          description={data.metaDescription}
+          url={servicePath(data.slug)}
+        />
+      ) : null}
       {data.faqs && data.faqs.length > 0 ? (
         <FaqJsonLd items={data.faqs} />
       ) : null}
@@ -451,6 +480,7 @@ export function ServiceTemplate({ data }: { data: ServicePageData }) {
             title={data.h1}
             highlight={data.h1Highlight}
             lede={data.emotionalHero.lede}
+            directAnswer={data.tldr}
             stack={data.emotionalHero.stack}
             primaryCta={data.emotionalHero.primaryCta}
             secondaryCta={data.emotionalHero.secondaryCta}

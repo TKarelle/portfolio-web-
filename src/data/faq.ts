@@ -85,6 +85,11 @@ export const faqItems = [
     question:
       "Pourquoi choisir Kopio plutôt qu’une agence web ou Wix / WordPress ?",
     answer:
-      "Dès 89 €/mois, vous avez un site pro sans tout gérer seule et sans devis d’agence à plusieurs milliers d’euros. Prix affichés, maquette validée avant mise en ligne, mises à jour par email, hébergement inclus. Une seule interlocutrice, pas un ticket support anonyme. Kopio n’est pas une agence : c’est votre présence en ligne, déléguée.",
+      "Dès 89 €/mois, vous avez un site pro sans tout gérer seule et sans devis d’agence à plusieurs milliers d’euros. Prix affichés, maquette validée avant mise en ligne, mises à jour par email, hébergement inclus. Une seule interlocutrice, pas un ticket support anonyme. Kopio n’est pas une agence : c’est votre présence en ligne, déléguée. Pour le référencement IA (SEO, GEO, AEO), [Découvrir la méthode SAGEO](/sageo).",
+  },
+  {
+    question: "Qu’est-ce que la méthode SAGEO chez Kopio ?",
+    answer:
+      "La méthode SAGEO est la méthode Kopio, par Karelle, pour le référencement IA en France. Elle relie SEO, GEO et AEO pour qu’une page soit trouvée, retenue puis citée. [Découvrir la méthode SAGEO](/sageo).",
   },
 ] as const;

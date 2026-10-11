@@ -13,6 +13,8 @@ export type CreationEmotionalHeroProps = {
   highlight?: string;
   /** H2 / lede sous le H1 */
   lede: string;
+  /** Réponse directe extractible sous le H1 (sans label TL;DR) */
+  directAnswer?: string;
   stack?: readonly string[];
   primaryCta: { href: string; label: string };
   secondaryCta?: { href: string; label: string };
@@ -42,12 +44,14 @@ export function CreationEmotionalHero({
   title,
   highlight,
   lede,
+  directAnswer,
   stack = [],
   primaryCta,
   secondaryCta,
   mockups,
 }: CreationEmotionalHeroProps) {
   const hasMarquee = Boolean(mockups && mockups.length > 0);
+  const answer = directAnswer?.trim();
 
   return (
     <section className="sticky top-0 z-0 min-h-[100svh] flex flex-col">
@@ -62,6 +66,15 @@ export function CreationEmotionalHero({
             <SectionHead as="h1" size="xl" className="!max-w-none">
               {withAccent(title, highlight)}
             </SectionHead>
+
+            {answer ? (
+              <p
+                className="mx-auto m-0 max-w-2xl text-sm md:text-base font-medium text-muted leading-relaxed text-pretty"
+                data-direct-answer
+              >
+                {answer}
+              </p>
+            ) : null}
 
             <p className="hero-lede mx-auto m-0 max-w-2xl">{lede}</p>
 

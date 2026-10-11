@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-10T12:53:07.958Z",
+  "generatedAt": "2026-10-11T10:10:21.118Z",
   "base": "https://www.kopio.eu",
   "axioms": [
     {
@@ -118,36 +118,36 @@
       "type": "service",
       "slug": "creation-de-site-web",
       "url": "https://www.kopio.eu/creation-de-site-web",
-      "title": "Création de site web professionnel | Karelle",
-      "tldr": "Je conçois et je tiens votre site : structure, textes cadrés, bases SEO, mobile. Vous gardez le message. Je porte la technique."
+      "title": "Création de site web professionnel | Kopio",
+      "tldr": "Je conçois un site autour de votre activité : design personnalisé, jusqu’à cinq pages, bases SEO, mobile, hébergement et suivi selon la formule. Vous gardez le message. Je porte la technique."
     },
     {
       "type": "service",
       "slug": "seo",
       "url": "https://www.kopio.eu/seo",
-      "title": "SEO pour site web : être visible sur Google | Karelle",
-      "tldr": "Structure, titres, contenu extractible, données structurées et maillage. Objectif : être trouvée sur les requêtes qui comptent pour votre activité."
+      "title": "SEO pour site web : être visible sur Google | Kopio",
+      "tldr": "Le référencement naturel rend votre site présent sur Google lorsque des personnes cherchent votre expertise. Je travaille les recherches pertinentes, la structure, les contenus, les titres et la technique pour que les bonnes personnes découvrent votre approche et puissent vous écrire."
     },
     {
       "type": "service",
       "slug": "geo",
       "url": "https://www.kopio.eu/geo",
-      "title": "GEO : être cité par les IA | Karelle",
-      "tldr": "Réponse en tête, idées autonomes, preuves utiles, structure explicite. Pour que ChatGPT, Perplexity ou les Aperçus IA puissent vous créditer."
+      "title": "GEO : être cité par les IA | Kopio",
+      "tldr": "La GEO (Generative Engine Optimization) améliore les chances que vos contenus soient compris, sélectionnés et cités par les assistants et moteurs qui génèrent des réponses avec l’IA. Elle prolonge le SEO : d’abord être trouvée, puis retenue, puis citée."
     },
     {
       "type": "service",
       "slug": "sageo",
       "url": "https://www.kopio.eu/sageo",
-      "title": "SAGEO : la méthode Kopio pour être visible sur Google et cité par les IA",
-      "tldr": "StageAware : structure d’abord (récupération), lexique de votre audience (re-classement), corps précis (citation). Jamais tout empiler d’un coup."
+      "title": "Méthode SAGEO Kopio : SEO, GEO et AEO pour entreprises en France | Kopio",
+      "tldr": "La méthode SAGEO est la méthode Kopio, par Karelle, pour le référencement IA en France. Elle relie SEO, GEO et AEO pour qu’une page soit trouvée, retenue puis citée par Google et les moteurs IA (ChatGPT, Gemini, Perplexity)."
     },
     {
       "type": "service",
       "slug": "refonte-de-site-web",
       "url": "https://www.kopio.eu/refonte-de-site-web",
-      "title": "Refonte de site web : moderniser et optimiser votre site | Karelle",
-      "tldr": "Même URL ou migration propre, design actualisé, SEO consolidé, réponses claires en tête de page. Objectif : oser renvoyer votre lien."
+      "title": "Refonte de site web : une nouvelle dimension pour votre site | Kopio",
+      "tldr": "Je repense la structure, les contenus et le design de votre site pour qu’il reflète votre activité actuelle, clarifie votre message et développe votre visibilité sur Google et auprès de vos futurs clients."
     },
     {
       "type": "metier",

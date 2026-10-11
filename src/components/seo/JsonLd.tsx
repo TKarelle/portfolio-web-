@@ -348,3 +348,61 @@ export function ServiceJsonLd({
     />
   );
 }
+
+/** DefinedTerm + TechArticle : concept propriétaire (ex. méthode SAGEO). */
+export function DefinedTermTechArticleJsonLd({
+  termName,
+  termDescription,
+  headline,
+  description,
+  url,
+  datePublished,
+  dateModified,
+}: {
+  termName: string;
+  termDescription: string;
+  headline: string;
+  description: string;
+  url: string;
+  datePublished?: string;
+  dateModified?: string;
+}) {
+  const base = getBaseUrl();
+  const path = url.startsWith("http") ? url : `${base}${url}`;
+  const termId = `${path}#definedterm`;
+
+  return (
+    <JsonLd
+      data={{
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "DefinedTerm",
+            "@id": termId,
+            name: termName,
+            description: termDescription,
+            inDefinedTermSet: {
+              "@type": "DefinedTermSet",
+              name: "Méthode Kopio",
+              url: `${base}/sageo`,
+            },
+          },
+          {
+            "@type": "TechArticle",
+            "@id": `${path}#techarticle`,
+            headline,
+            description,
+            url: path,
+            mainEntityOfPage: path,
+            inLanguage: "fr-FR",
+            about: { "@id": termId },
+            author: { "@id": `${base}/#person` },
+            publisher: { "@id": `${base}/#organization` },
+            ...(datePublished ? { datePublished } : {}),
+            ...(dateModified ? { dateModified } : {}),
+          },
+        ],
+      }}
+    />
+  );
+}

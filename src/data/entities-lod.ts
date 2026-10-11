@@ -30,6 +30,15 @@ export const KNOWS_ABOUT = [
   },
   {
     "@type": "Thing" as const,
+    name: "Intelligence artificielle",
+    sameAs: "https://www.wikidata.org/wiki/Q11660",
+  },
+  {
+    "@type": "Thing" as const,
+    name: "SAGEO",
+  },
+  {
+    "@type": "Thing" as const,
     name: "Coaching",
     sameAs: "https://www.wikidata.org/wiki/Q1103203",
   },

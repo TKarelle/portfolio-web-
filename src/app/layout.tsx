@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Instrument_Serif, Plus_Jakarta_Sans } from "next/font/google";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { StickyCta } from "@/components/home/StickyCta";
 import { OrganizationJsonLd, WebSiteJsonLd } from "@/components/seo/JsonLd";
 import { GoogleAnalytics } from "@/components/seo/GoogleAnalytics";
 import { DeferredAnalytics } from "@/components/seo/DeferredAnalytics";
@@ -88,6 +89,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
+        <StickyCta />
         {/* Insights script only exists on Vercel — skip locally to avoid Lighthouse 404 */}
         {process.env.VERCEL ? <DeferredAnalytics /> : null}
       </body>
