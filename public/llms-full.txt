@@ -111,7 +111,7 @@ Autorité : Karelle (Person) derrière Kopio (Organization). Méthode SAGEO = SE
 ================================================================================
 CHUNK: service-sageo
 title: Méthode SAGEO : SEO, GEO et référencement IA
-tokens_est: 202
+tokens_est: 190 (court)
 ================================================================================
 
 URL : https://www.kopio.eu/sageo
@@ -120,7 +120,7 @@ H1 : Méthode SAGEO : SEO, GEO et référencement IA
 Réponse directe : La méthode SAGEO est la méthode Kopio, par Karelle, pour le référencement IA en France. Elle relie SEO, GEO et AEO pour qu’une page soit trouvée, retenue puis citée par Google et les moteurs IA (ChatGPT, Gemini, Perplexity).
 Contexte : Kopio accompagne les entreprises et indépendantes en France sur le SAGEO : SEO, GEO et AEO pour le référencement IA.
 Extrait :
-Avant d’être citée, votre page doit entrer dans le top des candidats.\n\nJe travaille title, méta, H1–H6, Schema et le lexique que vos clients (et les IA) utilisent vraiment — SEO + fondations AEO.\n\nCe que cela apporte : des fondations pour le référencement Google et le référencement IA.
+Avant d’être citée, votre page doit pouvoir être découverte.\n\nJe travaille les titres, la méta, la structure et les mots que vos clients utilisent vraiment.\n\nRésultat : des fondations solides pour Google et pour les recherches menées par les IA.
 Autorité : Karelle (Person) derrière Kopio (Organization). Méthode SAGEO = SEO + GEO.
 
 ================================================================================

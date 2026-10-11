@@ -31,7 +31,7 @@ function renderBody(body: string): ReactNode[] {
   };
 
   for (const para of paras) {
-    const bullet = para.match(/^[-*]\s+(.+)$/s);
+    const bullet = para.match(/^[-*]\s+([\s\S]+)$/);
     if (bullet) {
       bullets.push(bullet[1]);
       continue;
