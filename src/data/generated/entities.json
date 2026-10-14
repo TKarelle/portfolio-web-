@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-11T20:19:04.531Z",
+  "generatedAt": "2026-10-14T10:59:11.712Z",
   "base": "https://www.kopio.eu",
   "axioms": [
     {
@@ -316,6 +316,13 @@
       "url": "https://www.kopio.eu/comparatif/combien-coute-site-internet-entrepreneure-2026",
       "keyword": "combien coûte site internet entrepreneuse 2026",
       "tldr": "Panorama 2026 des budgets site pour entrepreneuse : autonomie, freelance, agence, abonnement. Fourchettes, inclus, pièges. Cette page compare les modèles de coût ; l'article « site vitrine » sur le blog détaille le format vitrine seul."
+    },
+    {
+      "type": "blog",
+      "slug": "ia-ne-reference-pas-votre-site-toute-seule",
+      "url": "https://www.kopio.eu/blog/ia-ne-reference-pas-votre-site-toute-seule",
+      "title": "Non, l’IA ne référence pas votre site toute seule",
+      "tldr": "L’IA peut rédiger un texte. Elle ne référence pas votre site toute seule. Une consigne précise, une vérification humaine et le parcours SAGEO (trouvée, retenue, citée) restent nécessaires."
     },
     {
       "type": "blog",

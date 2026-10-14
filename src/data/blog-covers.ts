@@ -21,6 +21,7 @@ export const BLOG_COVER_BY_SLUG: Record<string, string> = {
   "search-console-apercus-ia-citations-2026": `${BASE}/blog-search.png`,
   "sageo-seo-geo-visibilite-2026": `${BASE}/blog-seo-geo-sageo.jpeg`,
   "comment-chatgpt-cherche-sur-le-web": `${BASE}/blog-ia.jpg`,
+  "ia-ne-reference-pas-votre-site-toute-seule": `${BASE}/blog-ia-pieges.jpg`,
 };
 
 /** Alt contextuels par slug (description visuelle + sujet de l’article). */
@@ -55,6 +56,8 @@ export const BLOG_COVER_ALT_BY_SLUG: Record<string, string> = {
     "Illustration SAGEO : SEO et GEO pour être trouvée puis citée par les moteurs génératifs",
   "comment-chatgpt-cherche-sur-le-web":
     "Comment ChatGPT cherche sur le Web : sous-requêtes, sources et méthode pour être citée",
+  "ia-ne-reference-pas-votre-site-toute-seule":
+    "L’IA ne référence pas un site toute seule : consigne précise, vérification et méthode SAGEO",
 };
 
 const FALLBACK = `${BASE}/blog-seo.jpg`;

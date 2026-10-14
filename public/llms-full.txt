@@ -1,7 +1,7 @@
 # Kopio — llms-full.txt
 # Chunks vectorisables (~250–500 tokens) pour crawlers IA / RAG
 # Site : https://www.kopio.eu
-# Généré : 2026-10-11 via npm run sync:llms — ne pas éditer à la main
+# Généré : 2026-10-14 via npm run sync:llms — ne pas éditer à la main
 # Bots : GPTBot, PerplexityBot, ClaudeBot, Google-Extended
 
 ================================================================================
@@ -593,6 +593,22 @@ URL à propos : https://www.kopio.eu/a-propos
 Email : karelle.dev@gmail.com
 Person : Karelle — développeuse web indépendante, diplômée, spécialisée sites des professionnelles de l'accompagnement.
 Organization : Kopio — https://www.kopio.eu
+
+================================================================================
+CHUNK: blog-ia-ne-reference-pas-votre-site-toute-seule
+title: Non, l’IA ne référence pas votre site toute seule
+tokens_est: 139 (court)
+================================================================================
+
+URL : https://www.kopio.eu/blog/ia-ne-reference-pas-votre-site-toute-seule
+Titre : Non, l’IA ne référence pas votre site toute seule
+Résumé : L’IA peut rédiger un texte. Elle ne référence pas votre site toute seule. Une consigne précise, une vérification humaine et le parcours SAGEO (trouvée, retenue, citée) restent nécessaires.
+Extrait :
+L’IA peut rédiger un texte. Elle ne référence pas votre site toute seule. Une consigne précise, une vérification humaine et le parcours SAGEO (trouvée, retenue, citée) restent nécessaires.
+
+Cinq étapes pour passer d’une consigne vague à une page vérifiée, publiée et alignée SEO puis GEO.
+Source d'autorité : Karelle / Kopio — https://www.kopio.eu
+Axiomes liés : tarifs 89/139/179 €/mois · https://www.kopio.eu/tarifs
 
 ================================================================================
 CHUNK: blog-comment-chatgpt-cherche-sur-le-web

@@ -40,6 +40,124 @@ function withCover(post: BlogPost): ResolvedBlogPost {
 
 export const blogPosts: BlogPost[] = [
  {
+ slug: "ia-ne-reference-pas-votre-site-toute-seule",
+ title: "Non, l’IA ne référence pas votre site toute seule",
+ metaTitle: "L’IA ne référence pas votre site | Consigne, vérification, SAGEO",
+ excerpt:
+ "L’IA peut rédiger un texte. Elle ne référence pas votre site toute seule. Une consigne précise, une vérification humaine et le parcours SAGEO (trouvée, retenue, citée) restent nécessaires.",
+ date: "2026-10-14",
+ updatedAt: "2026-10-14",
+ readTime: "15 min",
+ category: "Guide",
+ howTo: {
+ name: "Utiliser l’IA sans croire au référencement automatique",
+ description:
+ "Cinq étapes pour passer d’une consigne vague à une page vérifiée, publiée et alignée SEO puis GEO.",
+ steps: [
+ {
+ name: "Clarifier l’offre avant de générer",
+ text: "Notez métier, prestation, public, zone et résultat réel avant toute demande à l’IA.",
+ },
+ {
+ name: "Donner une consigne structurée",
+ text: "Fournissez le contenu réel de la page, ce que l’IA ne doit pas inventer, et le format attendu (ex. balise title).",
+ },
+ {
+ name: "Vérifier avant de publier",
+ text: "Contrôlez exactitude, absence de promesse intenable, lexique de vos clientes, puis publication réelle.",
+ },
+ {
+ name: "Assurer la récupération SEO",
+ text: "Title, Hn, indexation et clarté structurelle : la page doit pouvoir être trouvée avant d’espérer une citation.",
+ },
+ {
+ name: "Rendre le corps citable (GEO)",
+ text: "Réponse en tête, phrases autonomes, preuves vraies. Puis suivez Search Console et les réponses IA utiles.",
+ },
+ ],
+ },
+ faqs: [
+ {
+ question: "L’IA référence-t-elle automatiquement mon site ?",
+ answer:
+ "Non. Une IA générative produit du texte probable à partir de votre consigne. Elle ne remplace ni l’indexation Google, ni la clarté de votre offre, ni le suivi des résultats. Le cadre SAGEO (être trouvée, retenue, citée) reste nécessaire.",
+ },
+ {
+ question: "Pourquoi une consigne vague donne-t-elle un titre générique ?",
+ answer:
+ "Parce que le modèle estime la suite de mots la plus probable. Sans métier, offre, public ni contenu réel, il complète avec des formulations interchangeables. Une consigne structurée réduit l’ambiguïté ; elle ne remplace pas votre vérification.",
+ },
+ {
+ question: "Que dit Google sur le contenu généré par IA ?",
+ answer:
+ "Google s’intéresse à un contenu utile, fiable et pensé pour les humains. Respecter les bonnes pratiques n’assure ni l’indexation ni l’affichage dans les expériences IA. Voir le [guide Google sur le contenu génératif](https://developers.google.com/search/docs/fundamentals/using-gen-ai-content?hl=fr) et [les fonctionnalités IA de la recherche](https://developers.google.com/search/docs/appearance/ai-features).",
+ },
+ {
+ question: "ChatGPT Search garantit-il d’afficher mon site si j’autorise OAI-SearchBot ?",
+ answer:
+ "Non. OpenAI documente [OAI-SearchBot](https://platform.openai.com/docs/bots) : bloquer le robot limite l’apparition dans la recherche ChatGPT ; l’autoriser ne promet ni classement ni citation. Pour voir comment ChatGPT cherche, lisez [Comment ChatGPT cherche sur le Web](/blog/comment-chatgpt-cherche-sur-le-web).",
+ },
+ {
+ question: "Par où commencer sur une seule page ?",
+ answer:
+ "Choisissez une page porteuse. Remplissez le modèle de consigne de cet article. Relisez. Publiez. Vérifiez l’indexation dans Search Console. Pour le cadre global, voyez [SEO + GEO = SAGEO](/blog/sageo-seo-geo-visibilite-2026) ou demandez un [audit SEO GEO](/audit).",
+ },
+ ],
+ content: [
+ "**L’IA ne référence pas votre site toute seule.** Elle peut rédiger, suggérer ou reformuler. Être ==trouvée== sur Google, ==retenue== puis ==citée== dans une réponse IA suit un autre parcours : clarté de l’offre, structure SEO, corps extractible, publication réelle et suivi.",
+ "« Je pensais qu’avec l’IA, le référencement se ferait directement sans avoir à intervenir. » Cette phrase m’a été confiée par un client, il y a peu. Elle met le doigt sur une confusion : ==utiliser une IA== et ==obtenir de la visibilité== sont deux choses différentes.",
+ "L’idée est séduisante. L’IA rédige, structure, propose des formulations. Donc le référencement semblerait inclus, comme un service automatique. C’est une confusion compréhensible. Si vous la laissez en place, elle peut coûter des mois d’attente sans résultat utile.",
+ "> Mot de Karelle : l’IA accélère la rédaction. Elle ne remplace pas le parcours SAGEO : être trouvée, retenue, citée.",
+ "## Comment une IA compose votre texte",
+ "Ce point éclaire tout le reste. La documentation officielle d’OpenAI le dit clairement : le modèle analyse comment les mots apparaissent ensemble, puis ==prédit le prochain fragment le plus probable==, un pas après l’autre ([How ChatGPT and our foundation models are developed](https://help.openai.com/en/articles/7842364-how-chatgpt-and-our-foundation-models-are-developed)).",
+ "Quand vous demandez « génère le titre de ma page », le texte est découpé en ==tokens== (mot, morceau de mot, ponctuation). À chaque étape, le modèle estime la suite la plus probable selon ce qu’il a appris, votre demande et ce qui précède ([Understanding tokens](https://help.openai.com/en/articles/4936856-what-are-tokens-and-how-to-count-them)).",
+ "Conséquence directe : ==l’IA ne connaît pas votre offre==. Elle estime ce qui est probable. OpenAI illustre cela avec une phrase du type « Au lieu de tourner à gauche, elle a tourné _ » : plusieurs suites restent possibles. Le modèle reconnaît des patterns fréquents. Ce n’est pas une connaissance de votre situation.",
+ "Si vous indiquez seulement la tâche, sans métier, offre, clientèle ni contenu réel, le modèle doit ==inférer==. Il peut produire un titre fluide, sans disposer des faits nécessaires pour un titre fidèle à ce que vous faites.",
+ "## Pourquoi une consigne vague produit un résultat générique",
+ "Voici une consigne que je vois souvent : « Génère le titre de ma page. »",
+ "Proposition typique : « Un accompagnement sur mesure pour développer votre activité. »",
+ "Le problème n’est pas la fluidité. Cette phrase pourrait convenir à une coach, une consultante, une experte-comptable ou une créatrice de site. Elle n’identifie ni la prestation, ni le public, ni ce qui distingue la page.",
+ "Comparez avec une consigne structurée. Les crochets `[]` ne sont pas du code : ce sont des repères à remplacer par vos faits.",
+ "{{email-gate|ia-consigne-title}}",
+ "Exemple de consigne structurée :",
+ "Je suis [consultante en organisation]. Cette page présente [un audit d’organisation], destiné à [des indépendantes], qui cherchent à [clarifier leur organisation et prioriser leurs projets].",
+ "Voici le contenu actuel de la page : [coller le texte réel].",
+ "Mon entreprise s’appelle [nom]. Ma zone d’intervention est [zone réelle, si pertinente].",
+ "Propose trois balises title SEO, c’est-à-dire le titre qui apparaît dans les résultats Google, pas le titre visible dans la page. Chaque proposition doit décrire fidèlement cette page, dans un langage simple et direct.",
+ "N’invente aucun service, tarif, résultat ou lieu. Si une information essentielle manque, demande-la avant de proposer les titres.",
+ "Avec ce niveau de détail, une proposition plus fidèle peut ressembler à : « Audit d’organisation pour indépendantes | [Nom de votre entreprise] ». Ce n’est pas « meilleur » parce qu’il empile des mots. Il est plus ==vérifiable==.",
+ "**Deux limites à garder en tête.** Une consigne précise réduit les ambiguïtés ; elle ne les supprime pas toutes. Vous devez relire et vérifier. OpenAI le rappelle dans son guide [Prompt engineering](https://platform.openai.com/docs/guides/prompt-engineering) : les modèles bénéficient d’instructions explicites, avec la logique et les données nécessaires.",
+ "{{/email-gate}}",
+ "> Mot de Karelle : « Génère le titre de ma page » laisse le modèle deviner. Votre métier, votre offre et le texte réel lui donnent de quoi travailler juste.",
+ "## Ce que l’IA peut prendre en charge, et ce qu’elle ne remplace pas",
+ "L’IA peut être utile. Selon l’outil : rédaction ou amélioration à partir de vos informations ; suggestions de titres, de structure ou de formulations ; contrôles techniques (liens, images, vitesse) ; application de modifications si l’outil est configuré pour cela.",
+ "La distinction décisive : ==un travail exécuté ne signifie pas un travail exact, publié, vérifié ou efficace==.",
+ "Faire générer un texte ne signifie pas que votre offre a été vérifiée, que la bonne version est en ligne, ni que ses résultats sont suivis. Certains outils peuvent prendre en charge une partie de ces contrôles, à condition d’avoir les accès et la configuration adaptés. Il faut savoir ce qui est réellement inclus dans l’offre que vous avez choisie.",
+ "| Attendu | Ce que cela exige vraiment |\n| --- | --- |\n| Texte fluide | Consigne + relecture |\n| Title fidèle | Faits métier + vérification |\n| Page « référencée » | Indexation + clarté + suivi |\n| Citation IA | D’abord être trouvée, puis extractible |",
+ "Formule simple : le bouton existe peut-être. Le résultat n’est pas automatique.",
+ "## Un meilleur texte ne suffit pas à référencer une page",
+ "Même avec un titre exact, un texte clair et une structure propre, publiés, la page n’est pas « référencée » par magie. Il reste des contrôles.",
+ "| Vérification | Ce qu’elle permet de savoir |\n| --- | --- |\n| Le texte décrit-il réellement votre offre ? | Exactitude et clarté |\n| Les modifications sont-elles publiées ? | Présence effective sur le site |\n| La page peut-elle être indexée ? | Situation technique |\n| Reçoit-elle des impressions, visites ou contacts ? | Résultats observables |",
+ "Google explique que ses fonctionnalités d’IA (Aperçus IA, Mode IA) s’appuient sur ses systèmes de classement et de qualité. Pour y apparaître, une page doit être indexée et éligible à l’affichage, avec un extrait. Respecter les bonnes pratiques ==n’assure ni l’indexation ni l’affichage== ([AI features](https://developers.google.com/search/docs/appearance/ai-features), [contenu génératif](https://developers.google.com/search/docs/fundamentals/using-gen-ai-content?hl=fr)).",
+ "OpenAI documente ses robots, dont [OAI-SearchBot](https://platform.openai.com/docs/bots). Bloquer ce robot limite l’apparition dans la recherche ChatGPT. L’autoriser ne promet ni classement ni citation.",
+ "Ces sources disent la même chose : il existe des conditions d’accès. Il n’y a pas de résultat automatique. C’est exactement le fil [SEO + GEO = SAGEO](/blog/sageo-seo-geo-visibilite-2026) : le SEO pour être trouvée, le GEO pour être retenue et citée.",
+ "> Mot de Karelle : un beau paragraphe généré n’entre pas dans l’index. Une page claire, indexable et fidèle à votre offre, si.",
+ "## Vérifiez une proposition avant de la publier",
+ "Quatre questions, avant de mettre en ligne un texte généré.",
+ "**1. La proposition décrit-elle réellement votre offre ?** Relisez comme une lectrice qui ne vous connaît pas. Si ça pourrait être n’importe qui, le contexte manque.",
+ "**2. Introduit-elle une affirmation que vous ne tenez pas ?** Les modèles aiment les formulations engageantes. Gardez seulement ce que vous faites vraiment.",
+ "**3. Correspond-elle au vocabulaire de vos clientes ?** Une phrase correcte peut être éloignée des mots qu’elles tapent. Le lexique de la lectrice compte pour le re-classement.",
+ "**4. La modification est-elle publiée et suivie ?** Vérifiez la version en ligne. Puis, dans Search Console, l’indexation. Être indexée n’égale pas être bien classée, ni citée dans ChatGPT. Pour le suivi Google IA, voyez [Search Console 2026](/blog/search-console-apercus-ia-citations-2026). Pour le filtre ChatGPT, [Comment ChatGPT cherche sur le Web](/blog/comment-chatgpt-cherche-sur-le-web).",
+ "## À retenir",
+ "Vous n’avez pas à tout faire vous-même. Vous devez savoir ce qui est réellement pris en charge.",
+ "L’IA peut rédiger, suggérer, contrôler. Elle ne remplace pas la vérification que ce qu’elle produit est juste, publié et utile. Cette vérification peut être la vôtre, ou celle d’une personne à qui vous déléguez. Elle doit exister.",
+ "Pour un résultat utile : consigne structurée (métier, offre, public, contenu réel, interdits), relecture, publication, puis parcours SAGEO. Une consigne précise aide l’IA à mieux travailler votre contenu. Elle ne transforme pas une proposition de texte en résultat de référencement.",
+ "Si vous partez de zéro : une page, une seule. Remplissez le modèle à crochets. Regardez la proposition. Vérifiez qu’elle correspond à votre offre.",
+ "{{quiz}}",
+ "Vous voulez aligner une page avec cette lecture IA + méthode SAGEO ? [En parler avec Karelle](/contact), découvrir [la méthode SAGEO](/sageo) ou réserver [l’audit SEO GEO](/audit).",
+ ],
+ },
+ {
  slug: "comment-chatgpt-cherche-sur-le-web",
  title:
  "Comment ChatGPT cherche sur le Web : la méthode pour être citée par l’IA",
@@ -329,7 +447,7 @@ export const blogPosts: BlogPost[] = [
  "## À retenir",
  "Votre notoriété attire l’attention. C’est la clarté de votre message qui permet à une IA de vous citer. Écrivez comme vous parlez à vos clients. Structurez vos idées comme des réponses autonomes. Faites remonter votre expertise là où les moteurs peuvent la repérer.",
  "Le message central reste simple : **le GEO ne remplace pas le SEO**. Métadonnées et données structurées servent surtout à faire entrer la page dans le pipeline. Le corps du texte sert surtout à obtenir la citation.",
- "Pour comprendre comment ChatGPT cherche sur le Web et comment être citée, lisez [Comment ChatGPT cherche sur le Web](/blog/comment-chatgpt-cherche-sur-le-web).",
+ "Pour comprendre comment ChatGPT cherche sur le Web et comment être citée, lisez [Comment ChatGPT cherche sur le Web](/blog/comment-chatgpt-cherche-sur-le-web). Sur le mythe du référencement automatique par IA : [L’IA ne référence pas votre site toute seule](/blog/ia-ne-reference-pas-votre-site-toute-seule).",
  "{{quiz}}",
  "Si vous voulez faire le point sur la lisibilité de votre site pour Google et les IA, [écrivez-moi](/contact) : je regarde avec vous la structure, les réponses en tête de page, et ce qui peut encore bloquer une citation.",
  ],
