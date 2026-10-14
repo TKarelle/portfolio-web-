@@ -9,7 +9,12 @@ import { ProcessSimple } from "@/components/home/ProcessSimple";
 import { Testimonials } from "@/components/home/Testimonials";
 import { FAQ } from "@/components/home/FAQ";
 import { ContactSection } from "@/components/home/ContactSection";
-import { FaqJsonLd, OffersJsonLd, VideoJsonLd } from "@/components/seo/JsonLd";
+import {
+  FaqJsonLd,
+  GoogleReviewsJsonLd,
+  OffersJsonLd,
+  VideoJsonLd,
+} from "@/components/seo/JsonLd";
 import { buildPageMetadata } from "@/lib/metadata";
 import { BRAND_NAME, SITE_META_DESCRIPTION, SITE_META_TITLE } from "@/data/site";
 
@@ -26,6 +31,7 @@ export default function HomePage() {
   return (
     <>
       <FaqJsonLd />
+      <GoogleReviewsJsonLd />
       <OffersJsonLd />
       <VideoJsonLd pagePath="/" />
       <div className="relative">

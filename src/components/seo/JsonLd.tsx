@@ -16,6 +16,7 @@ import {
   FOUNDER_TAGLINE,
   SITE_META_DESCRIPTION,
 } from "@/data/site";
+import { GOOGLE_RATING, googleReviews } from "@/data/google-reviews";
 import {
   getVideosForPage,
   iso8601Duration,
@@ -32,9 +33,32 @@ function JsonLd({ data }: { data: Record<string, unknown> }) {
   );
 }
 
+/** Texte FAQ / HowTo pour Schema : sans markdown (liens, gras, surlignage). */
+function plainTextForSchema(input: string): string {
+  return input
+    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, "$1")
+    .replace(/\*\*([^*]+)\*\*/g, "$1")
+    .replace(/==([^=]+)==/g, "$1")
+    .replace(/`([^`]+)`/g, "$1")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function aggregateRatingLd() {
+  if (GOOGLE_RATING.count < 1) return undefined;
+  return {
+    "@type": "AggregateRating" as const,
+    ratingValue: GOOGLE_RATING.score,
+    bestRating: GOOGLE_RATING.bestRating,
+    worstRating: GOOGLE_RATING.worstRating,
+    reviewCount: GOOGLE_RATING.count,
+  };
+}
+
 /** @graph LOD Sem.9 — Organization ↔ Person ↔ ProfessionalService ↔ WebSite */
 export function OrganizationJsonLd() {
   const base = getBaseUrl();
+  const aggregateRating = aggregateRatingLd();
 
   return (
     <JsonLd
@@ -66,6 +90,7 @@ export function OrganizationJsonLd() {
             },
             founder: { "@id": `${base}/#person` },
             knowsAbout: [...KNOWS_ABOUT],
+            ...(aggregateRating ? { aggregateRating } : {}),
             ...(BRAND_SAME_AS.length > 0 ? { sameAs: [...BRAND_SAME_AS] } : {}),
           },
           {
@@ -87,6 +112,7 @@ export function OrganizationJsonLd() {
               "Abonnement site internet",
               "Maintenance de site web",
             ],
+            ...(aggregateRating ? { aggregateRating } : {}),
             ...(BRAND_SAME_AS.length > 0 ? { sameAs: [...BRAND_SAME_AS] } : {}),
           },
           {
@@ -111,6 +137,38 @@ export function OrganizationJsonLd() {
   );
 }
 
+/** Avis Google visibles (accueil) : Review individuels liés à #business. */
+export function GoogleReviewsJsonLd() {
+  const base = getBaseUrl();
+  if (googleReviews.length === 0) return null;
+
+  return (
+    <JsonLd
+      data={{
+        "@context": "https://schema.org",
+        "@graph": googleReviews.map((review) => ({
+          "@type": "Review",
+          author: {
+            "@type": "Person",
+            name: review.fullName,
+          },
+          reviewRating: {
+            "@type": "Rating",
+            ratingValue: review.rating,
+            bestRating: GOOGLE_RATING.bestRating,
+            worstRating: GOOGLE_RATING.worstRating,
+          },
+          reviewBody: plainTextForSchema(review.text),
+          ...(review.datePublished
+            ? { datePublished: review.datePublished }
+            : {}),
+          itemReviewed: { "@id": `${base}/#business` },
+        })),
+      }}
+    />
+  );
+}
+
 export function FaqJsonLd({
   items,
 }: {
@@ -125,10 +183,10 @@ export function FaqJsonLd({
         "@type": "FAQPage",
         mainEntity: source.map((item) => ({
           "@type": "Question",
-          name: item.question,
+          name: plainTextForSchema(item.question),
           acceptedAnswer: {
             "@type": "Answer",
-            text: item.answer,
+            text: plainTextForSchema(item.answer),
           },
         })),
       }}
@@ -179,8 +237,8 @@ export function HowToJsonLd({
         step: steps.map((step, i) => ({
           "@type": "HowToStep",
           position: i + 1,
-          name: step.name,
-          text: step.text,
+          name: plainTextForSchema(step.name),
+          text: plainTextForSchema(step.text),
         })),
       }}
     />
