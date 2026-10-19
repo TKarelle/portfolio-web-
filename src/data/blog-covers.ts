@@ -22,6 +22,7 @@ export const BLOG_COVER_BY_SLUG: Record<string, string> = {
   "sageo-seo-geo-visibilite-2026": `${BASE}/blog-seo-geo-sageo.jpeg`,
   "comment-chatgpt-cherche-sur-le-web": `${BASE}/blog-ia.jpg`,
   "ia-ne-reference-pas-votre-site-toute-seule": `${BASE}/blog-ia-pieges.jpg`,
+  "consultante-geo-coach-wordpress-chatgpt": "/image/card-cover/site-cite.jpeg",
 };
 
 /** Alt contextuels par slug (description visuelle + sujet de l’article). */
@@ -58,6 +59,8 @@ export const BLOG_COVER_ALT_BY_SLUG: Record<string, string> = {
     "Comment ChatGPT cherche sur le Web : sous-requêtes, sources et méthode pour être citée",
   "ia-ne-reference-pas-votre-site-toute-seule":
     "L’IA ne référence pas un site toute seule : consigne précise, vérification et méthode SAGEO",
+  "consultante-geo-coach-wordpress-chatgpt":
+    "Illustration : une personne cherche une coach en développement personnel, et la réponse cite un site source.",
 };
 
 const FALLBACK = `${BASE}/blog-seo.jpg`;

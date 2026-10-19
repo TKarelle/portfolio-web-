@@ -1,7 +1,7 @@
 # Kopio — llms.txt
 # Abonnement site web pour professionnelles de l'accompagnement en France
 # https://www.kopio.eu
-# Généré : 2026-10-14 via npm run sync:llms
+# Généré : 2026-10-19 via npm run sync:llms
 
 > Kopio crée et maintient le site internet des professionnelles de l'accompagnement (coachs, consultantes, thérapeutes, praticiennes…) en abonnement mensuel dès 89 €/mois. Conception, maintenance et évolution : vous validez, Karelle gère la technique.
 
@@ -56,6 +56,7 @@
 
 ## Blog
 
+- [Consultante GEO pour coach, WordPress, ChatGPT](https://www.kopio.eu/blog/consultante-geo-coach-wordpress-chatgpt)
 - [Non, l’IA ne référence pas votre site toute seule](https://www.kopio.eu/blog/ia-ne-reference-pas-votre-site-toute-seule)
 - [Comment ChatGPT cherche sur le Web : la méthode pour être citée par l’IA](https://www.kopio.eu/blog/comment-chatgpt-cherche-sur-le-web)
 - [SEO + GEO = SAGEO : être trouvé, puis cité en 2026](https://www.kopio.eu/blog/sageo-seo-geo-visibilite-2026)
