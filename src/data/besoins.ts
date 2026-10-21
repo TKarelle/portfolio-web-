@@ -112,7 +112,7 @@ export const besoins: BesoinPageData[] = [
       },
       {
         h2: "Pourquoi pas seulement une page de liens ou un profil LinkedIn ?",
-        body: "Une page de liens liste des URL ; LinkedIn raconte un parcours souvent trop corporate pour une offre de service. Ni l'un ni l'autre ne structure positionnement, preuves et prochain pas sur une même page.\n\nUne vitrine Kopio mène à une action claire, formulaire ou email. Vous gardez les réseaux pour la découverte ; le site porte l'offre stable. Ce n'est pas l'un ou l'autre : c'est la complémentarité.",
+        body: "Une page de liens liste des URL ; LinkedIn raconte un parcours souvent trop corporate pour une offre de service. Ni l'un ni l'autre ne structure positionnement, preuves et prochain pas sur une même page.\n\nUne vitrine Kopio mène à une action claire, formulaire ou email. Vous gardez les réseaux pour la découverte ; le site porte l'offre stable. Ce n'est pas l'un ou l'autre : c'est la complémentarité. Le détail du tandem est dans [LinkedIn ou site web ?](/comparatif/linkedin-ou-site-web).",
       },
       {
         h2: "Que contient une vitrine utile pour une indépendante ?",

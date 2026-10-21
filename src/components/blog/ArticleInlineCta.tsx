@@ -3,7 +3,7 @@ import { CTA } from "@/data/copy";
 import { QUIZ_META } from "@/data/etancheite-quiz";
 import { cn } from "@/lib/utils";
 
-export type ArticleCtaVariant = "mid" | "bridge";
+export type ArticleCtaVariant = "mid" | "bridge" | "audit";
 
 type ArticleInlineCtaProps = {
   variant?: ArticleCtaVariant;
@@ -12,7 +12,14 @@ type ArticleInlineCtaProps = {
 
 const COPY: Record<
   ArticleCtaVariant,
-  { eyebrow: string; title: string; body: string; primary: { href: string; label: string }; secondary?: { href: string; label: string } }
+  {
+    eyebrow: string;
+    title: string;
+    body: string;
+    note?: string;
+    primary: { href: string; label: string };
+    secondary?: { href: string; label: string };
+  }
 > = {
   /** Conscience → diagnostic gratuit (pas encore RDV) */
   mid: {
@@ -29,6 +36,14 @@ const COPY: Record<
     body: "Je crée des sites pensés pour vos futurs clients et pour ceux qui vous cherchent. Écrivez-moi : je regarde votre situation avec vous, simplement et sans pression.",
     primary: { href: "/contact", label: CTA.primary },
     secondary: { href: "/tarifs", label: "Voir les formules" },
+  },
+  /** Section offre : détail de l’audit, sans prix (le tarif vit sur /audit). */
+  audit: {
+    eyebrow: "La lecture de votre site",
+    title: "Trois réponses, avant toute décision",
+    body: "Ce qui se comprend déjà, ce qui manque, et par quoi commencer. Le détail de l’audit est sur une page dédiée.",
+    note: "Restitution d’environ 45 minutes, en vidéo ou en visio. Rien ne part sans votre validation.",
+    primary: { href: "/audit", label: "Voir le détail de l’audit" },
   },
 };
 
@@ -68,6 +83,11 @@ export function ArticleInlineCta({
           </Button>
         ) : null}
       </div>
+      {c.note ? (
+        <p className="mt-3 text-sm font-medium text-muted leading-relaxed max-w-xl">
+          {c.note}
+        </p>
+      ) : null}
     </aside>
   );
 }
@@ -78,6 +98,7 @@ export function parseArticleCta(
   const t = block.trim();
   if (t === "{{cta}}" || t === "{{cta|mid}}") return "mid";
   if (t === "{{cta|bridge}}") return "bridge";
+  if (t === "{{cta|audit}}") return "audit";
   return null;
 }
 
@@ -86,7 +107,10 @@ export function parseArticleCta(
  * sur tous les articles, sauf si un {{cta|…}} est déjà présent.
  */
 export function injectArticleJourney(blocks: string[]): string[] {
-  const hasManual = blocks.some((b) => parseArticleCta(b) != null);
+  const hasManual = blocks.some((b) => {
+    const variant = parseArticleCta(b);
+    return variant === "mid" || variant === "bridge";
+  });
   if (hasManual) return blocks;
 
   const out = [...blocks];

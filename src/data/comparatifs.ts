@@ -4,6 +4,14 @@ export interface ComparatifRow {
   other: string;
 }
 
+export interface ComparatifTrioTable {
+  /** Titre de section au-dessus du tableau */
+  sectionTitle: string;
+  sectionHighlight?: string;
+  headers: [string, string, string, string];
+  rows: [string, string, string, string][];
+}
+
 export interface ComparatifPageData {
   slug: string;
   title: string;
@@ -20,12 +28,42 @@ export interface ComparatifPageData {
   intro: string;
   otherName: string;
   otherFairPoints: string[];
+  /** Libellé colonne gauche « ce que X fait bien » (défaut : otherName) */
+  otherFairTitle?: string;
   kopioStrengths: string[];
+  /** Libellé colonne droite (défaut : Kopio) */
+  kopioStrengthsTitle?: string;
   rows: ComparatifRow[];
+  /** Table 3 colonnes + critère (remplace la grille Critère / Kopio / other) */
+  trioTable?: ComparatifTrioTable;
+  /**
+   * Si true, ComparisonTable garde le titre par défaut
+   * (Kopio face à Wix, WordPress & agences).
+   */
+  defaultOfferComparison?: boolean;
+  /**
+   * Affiche ComparisonTable juste après cette section H2
+   * (sinon en haut de page).
+   */
+  comparisonAfterSection?: string;
+  /** Masque le pont Black Ink (maillage générique). */
+  hideBlackInk?: boolean;
   sections: { h2: string; highlight: string; body: string }[];
   faqs: { question: string; answer: string }[];
+  /** Paragraphe avant le pied de page ; vide = masqué */
   closing: string;
   ctaLabel: string;
+  /** CTA FutureVitrineCta (sinon défauts du composant) */
+  futureVitrine?: {
+    titleBefore?: string;
+    titleHighlight?: string;
+    titleAfter?: string;
+    lead?: string;
+    closing?: string;
+    primaryLabel?: string;
+    secondaryLabel?: string;
+    secondaryHref?: string;
+  };
   image: string;
   imageAlt: string;
   factChips?: string[];
@@ -50,8 +88,7 @@ export const comparatifs: ComparatifPageData[] = [
     updatedAt: UPDATED,
     h1: "Wix ou Kopio : qui construit pour vous ?",
     h1Highlight: "qui construit pour vous",
-    tldr:
-      "Wix gagne si vous voulez construire et modifier votre site vous-même, avec un éditeur mature et un marché d'apps large. Kopio gagne si vous voulez un site pro tenu pour vous : design personnalisé, hébergement, mises à jour par email. Verdict : contrôle total = Wix ; déléguer sans second métier = Kopio.",
+    tldr: "Wix gagne si vous voulez construire et modifier votre site vous-même, avec un éditeur mature et un marché d'apps large. Kopio gagne si vous voulez un site pro tenu pour vous : design personnalisé, hébergement, mises à jour par email. Verdict : contrôle total = Wix ; déléguer sans second métier = Kopio.",
     verdict:
       "Choisissez Wix pour le contrôle total en autonomie ; choisissez Kopio pour un site tenu pour vous en abonnement.",
     intro:
@@ -70,14 +107,42 @@ export const comparatifs: ComparatifPageData[] = [
       "Pensé pour entrepreneuses : offre, preuves, prise de RDV",
     ],
     rows: [
-      { label: "Qui construit le site ?", kopio: "Kopio pour vous", other: "Vous-même" },
-      { label: "Prix indicatif", kopio: "Dès 89 €/mois", other: "Abo + votre temps" },
-      { label: "Délai de mise en ligne", kopio: "21 jours", other: "Variable (souvent plus long)" },
-      { label: "Modifications", kopio: "Par email 24 à 72 h", other: "Vous-même dans l'éditeur" },
-      { label: "Design", kopio: "Sur-mesure", other: "Modèle + personnalisation" },
+      {
+        label: "Qui construit le site ?",
+        kopio: "Kopio pour vous",
+        other: "Vous-même",
+      },
+      {
+        label: "Prix indicatif",
+        kopio: "Dès 89 €/mois",
+        other: "Abo + votre temps",
+      },
+      {
+        label: "Délai de mise en ligne",
+        kopio: "21 jours",
+        other: "Variable (souvent plus long)",
+      },
+      {
+        label: "Modifications",
+        kopio: "Par email 24 à 72 h",
+        other: "Vous-même dans l'éditeur",
+      },
+      {
+        label: "Design",
+        kopio: "Sur-mesure",
+        other: "Modèle + personnalisation",
+      },
       { label: "Hébergement", kopio: "Inclus", other: "Inclus dans l'abo Wix" },
-      { label: "Support", kopio: "1 personne dédiée", other: "Centre d'aide / chat" },
-      { label: "Idéal si", kopio: "Vous déléguez", other: "Vous aimez tout faire vous-même" },
+      {
+        label: "Support",
+        kopio: "1 personne dédiée",
+        other: "Centre d'aide / chat",
+      },
+      {
+        label: "Idéal si",
+        kopio: "Vous déléguez",
+        other: "Vous aimez tout faire vous-même",
+      },
     ],
     sections: [
       {
@@ -168,8 +233,7 @@ Une entrepreneuse qui compte 20 à 40 heures pour monter un site correct en auto
     updatedAt: UPDATED,
     h1: "Agence web ou Kopio : quelle échelle ?",
     h1Highlight: "quelle échelle",
-    tldr:
-      "Une agence web est justifiée sur les projets complexes, multi-équipes ou à budget marketing large (souvent 2 000 à 8 000 € et plus). Kopio est adapté aux entrepreneuses qui veulent une vitrine ou un site de service clair, livré en 21 jours, avec une seule interlocutrice. Verdict : agence pour périmètre large ; Kopio pour un site efficace sans usine à gaz.",
+    tldr: "Une agence web est justifiée sur les projets complexes, multi-équipes ou à budget marketing large (souvent 2 000 à 8 000 € et plus). Kopio est adapté aux entrepreneuses qui veulent une vitrine ou un site de service clair, livré en 21 jours, avec une seule interlocutrice. Verdict : agence pour périmètre large ; Kopio pour un site efficace sans usine à gaz.",
     verdict:
       "Agence pour projets complexes et budgets 2 000 €+ ; Kopio pour un site d'entrepreneuse rapide, clair et en abonnement.",
     intro:
@@ -188,12 +252,32 @@ Une entrepreneuse qui compte 20 à 40 heures pour monter un site correct en auto
       "Mises à jour continues incluses, pas un devis par virgule",
     ],
     rows: [
-      { label: "Budget typique", kopio: "89 à 179 €/mois", other: "2 000 à 8 000 €+" },
+      {
+        label: "Budget typique",
+        kopio: "89 à 179 €/mois",
+        other: "2 000 à 8 000 €+",
+      },
       { label: "Délai", kopio: "21 jours", other: "1 à 3 mois" },
-      { label: "Interlocuteurs", kopio: "1 personne", other: "Équipe / chef de projet" },
-      { label: "Modifications après livraison", kopio: "Incluses (email)", other: "Souvent en tickets payants" },
-      { label: "Refresh design", kopio: "Tous les 12 mois", other: "Nouveau devis fréquent" },
-      { label: "Idéal pour", kopio: "Indépendante / TPE", other: "PME / projets complexes" },
+      {
+        label: "Interlocuteurs",
+        kopio: "1 personne",
+        other: "Équipe / chef de projet",
+      },
+      {
+        label: "Modifications après livraison",
+        kopio: "Incluses (email)",
+        other: "Souvent en tickets payants",
+      },
+      {
+        label: "Refresh design",
+        kopio: "Tous les 12 mois",
+        other: "Nouveau devis fréquent",
+      },
+      {
+        label: "Idéal pour",
+        kopio: "Indépendante / TPE",
+        other: "PME / projets complexes",
+      },
     ],
     sections: [
       {
@@ -277,8 +361,7 @@ Kopio remplace une agence quand le brief réel est : « j'ai besoin d'un site pr
     updatedAt: UPDATED,
     h1: "Combien coûte un site d'entrepreneuse en 2026 ?",
     h1Highlight: "en 2026",
-    tldr:
-      "Panorama 2026 des budgets site pour entrepreneuse : autonomie, freelance, agence, abonnement. Fourchettes, inclus, pièges. Cette page compare les modèles de coût ; l'article « site vitrine » sur le blog détaille le format vitrine seul.",
+    tldr: "Panorama 2026 des budgets site pour entrepreneuse : autonomie, freelance, agence, abonnement. Fourchettes, inclus, pièges. Cette page compare les modèles de coût ; l'article « site vitrine » sur le blog détaille le format vitrine seul.",
     verdict:
       "Budget réaliste 2026 pour une entrepreneuse : dès 89 €/mois en abonnement tenu pour vous, ou 2 000 €+ en agence ; en autonomie, le « gratuit » ignore votre temps.",
     intro:
@@ -297,11 +380,31 @@ Kopio remplace une agence quand le brief réel est : « j'ai besoin d'un site pr
       "Prix affichés, pas de devis opaque pour une vitrine",
     ],
     rows: [
-      { label: "Prix d'entrée", kopio: "Dès 89 €/mois", other: "Variable selon l'option" },
-      { label: "Modèle 12 mois", kopio: "139 €/mois", other: "Souvent plus cher" },
-      { label: "Rachat anticipé", kopio: "Solde des mois restants", other: "Selon prestataire" },
-      { label: "Agence vitrine", kopio: "Pas nécessaire", other: "2 000 à 8 000 €+" },
-      { label: "Délai typique", kopio: "21 jours", other: "Variable / 1 à 3 mois" },
+      {
+        label: "Prix d'entrée",
+        kopio: "Dès 89 €/mois",
+        other: "Variable selon l'option",
+      },
+      {
+        label: "Modèle 12 mois",
+        kopio: "139 €/mois",
+        other: "Souvent plus cher",
+      },
+      {
+        label: "Rachat anticipé",
+        kopio: "Solde des mois restants",
+        other: "Selon prestataire",
+      },
+      {
+        label: "Agence vitrine",
+        kopio: "Pas nécessaire",
+        other: "2 000 à 8 000 €+",
+      },
+      {
+        label: "Délai typique",
+        kopio: "21 jours",
+        other: "Variable / 1 à 3 mois",
+      },
     ],
     sections: [
       {
@@ -381,6 +484,161 @@ Je ne dénigre pas un site existant : beaucoup d'entrepreneuses ont une base uti
     ctaLabel: "Faire le point ensemble",
     image: "/image/blog-prix.jpg",
     imageAlt: "Prix d'un site internet pour entrepreneuse en 2026",
+    factChips: [...CHIPS],
+  },
+  {
+    slug: "linkedin-ou-site-web",
+    title: "LinkedIn ou site web ? Ils travaillent mieux ensemble",
+    metaDescription:
+      "LinkedIn fait connaître votre voix ; votre site aide à comprendre pourquoi vous contacter. Ce que chacun fait mieux, et ce qu'ils font ensemble.",
+    keyword: "LinkedIn ou site web",
+    updatedAt: "2026-10-21",
+    h1: "LinkedIn ou site web ? Ils travaillent mieux ensemble",
+    h1Highlight: "mieux ensemble",
+    tldr:
+      "LinkedIn fait connaître votre voix. Votre site aide à comprendre pourquoi vous contacter. La question n'est pas de choisir : c'est de faire travailler les deux ensemble.",
+    verdict:
+      "LinkedIn pour la rencontre et la conversation ; le site pour la maison stable. Ensemble, un parcours complet de l'intérêt à la prise de contact.",
+    intro:
+      "Pourquoi choisir entre les deux, alors que chacun joue un rôle différent dans le parcours d'une future cliente ?",
+    otherName: "LinkedIn",
+    otherFairTitle: "Ce que LinkedIn fait déjà très bien",
+    otherFairPoints: [
+      "La rencontre : quelqu'un découvre votre propos, votre façon de penser, votre humeur",
+      "La conversation : commentaires, messages, échanges nés d'un post",
+      "La preuve vivante : recommandations, interactions, réseau visible et animé",
+      "Un profil qui apparaît aussi sur Google, selon les règles de la plateforme",
+    ],
+    kopioStrengthsTitle: "Ce que votre site apporte en tandem",
+    kopioStrengths: [
+      "Une maison stable : méthode, publics, modalités expliqués en profondeur",
+      "Les preuves réunies sans exposer vos clientes",
+      "La maîtrise de la présentation, de la structure et de ce qui reste",
+      "Un chemin clair vers la prise de contact, hors du fil d'actualité",
+    ],
+    rows: [],
+    defaultOfferComparison: true,
+    comparisonAfterSection: "Alors, quel site vous serait utile ?",
+    hideBlackInk: true,
+    trioTable: {
+      sectionTitle: "Deux rôles, un tandem",
+      headers: [
+        "Angle",
+        "Ce que LinkedIn fait mieux",
+        "Ce que votre site fait mieux",
+        "Ce qu'ils font ensemble",
+      ],
+      rows: [
+        [
+          "Rencontre",
+          "La voix, la conversation, la découverte",
+          "La maison stable : méthode, publics, modalités en profondeur",
+          "Le même positionnement partout, sans dérive",
+        ],
+        [
+          "Preuve",
+          "Réseau, interactions, recommandations vivantes",
+          "Preuves réunies : publications, interventions, cadre",
+          "Une image cohérente entre le flux et le fond",
+        ],
+        [
+          "Profondeur",
+          "Prises de parole au fil de l'actualité et des échanges",
+          "Pages qui répondent aux questions d'une future cliente, des moteurs et des IA",
+          "Le post ouvre la porte, la page répond aux questions",
+        ],
+        [
+          "Parcours",
+          "La découverte par votre réseau",
+          "Vous choisissez la présentation, la structure, ce qui reste",
+          "De l'intérêt à la prise de contact, dans les deux sens",
+        ],
+      ],
+    },
+    sections: [
+      {
+        h2: "Cette page ne vous dira pas de quitter LinkedIn",
+        highlight: "LinkedIn",
+        body: `Vous y avez construit quelque chose : des conversations, des recommandations, un réseau qui fonctionne. Un site n'est pas le désaveu de ces efforts. C'est leur prolongement. La question n'a jamais été « LinkedIn ou site web ». C'est : que fait chacun, et que font-ils ensemble ?
+
+Commençons par le reconnaître, parce que beaucoup d'articles sautent cette étape : LinkedIn est probablement l'endroit où votre voix fonctionne le mieux. La rencontre, la conversation, la preuve vivante. Une précision honnête : votre profil n'est pas invisible sur Google. Mais ce qui s'y affiche, et comment, obéit à des règles que vous ne choisissez pas. Ce n'est ni un défaut ni une fatalité. C'est la nature d'une plateforme. Et c'est ce qui rend la suite intéressante.`,
+      },
+      {
+        h2: "Le moment où la question se pose",
+        highlight: "question",
+        body: `Voici un scénario courant. Une personne lit un de vos posts. Le propos la touche : elle vous suit, elle s'abonne. Puis, quelques jours plus tard, elle revient, parce qu'elle a un besoin concret. Elle cherche : votre offre exacte, votre façon de travailler, ce que coûte un accompagnement, comment ça se passe, quelle est la prochaine étape.
+
+La question n'est pas de savoir si elle abandonne. La question est observable : trouve-t-elle facilement les informations nécessaires pour décider ?
+
+Sur LinkedIn, vos informations se répartissent entre le profil et les publications : une bio, des posts, des échanges. C'est parfait pour la rencontre. Un site peut organiser tout cela selon le parcours que vous souhaitez offrir à quelqu'un qui découvre, puis décide. Être découverte n'est pas encore être suffisamment comprise pour être contactée. Votre voix attire ; restent les questions que seule une page organisée peut accueillir.`,
+      },
+      {
+        h2: "Le tandem en pratique",
+        highlight: "pratique",
+        body: `Et le tandem fonctionne dans les deux sens. LinkedIn conduit vers votre page, quand un post soulève une question que seule une page peut approfondir. Votre site renvoie vers LinkedIn, quand quelqu'un veut entendre votre voix et découvrir vos échanges. L'un apporte le flux, l'autre le fond. LinkedIn offre un cadre de publication partagé ; votre site vous donne davantage de maîtrise sur la présentation et l'organisation de vos contenus.
+
+Concrètement, exemple fictif : une coach publie sur la difficulté à prendre la parole en réunion. Sa publication renvoie vers une page de son site présentant son accompagnement : pour qui, avec quel cadre, comment se déroulent les séances, comment la contacter. Depuis cette page, une personne peut aussi retrouver son profil LinkedIn pour découvrir ses prises de parole et ses échanges. Ce que ce tandem offre : la continuité, la compréhension, la confiance, et une prochaine étape visible, dans les deux sens.
+
+Une même promesse relie les deux supports ; leurs contenus ne sont pas copiés mot pour mot. LinkedIn lui-même organise cette complémentarité : vous pouvez afficher jusqu'à trois liens vers votre site directement sur votre profil ([Aide LinkedIn](https://www.linkedin.com/help/linkedin/answer/a546968)).
+
+Dernière précision, parce qu'elle évite beaucoup de déceptions : un site utile ne signifie pas un blog à alimenter en permanence. Une page approfondit un sujet ; plusieurs publications en montrent différents angles. Vous pouvez réutiliser la même expertise sans publier deux fois le même texte.`,
+      },
+      {
+        h2: "Et vous, quel site compléterait votre LinkedIn ?",
+        highlight: "votre LinkedIn",
+        body: `Ce n'est pas « un site » dans l'absolu. C'est le vôtre : celui qui répond aux questions que vos posts soulèvent.
+
+Un site utile à une experte de l'accompagnement tient en peu de choses : une page d'accueil qui dit clairement qui vous accompagnez et pour quoi ; une page qui explique votre méthode ; vos preuves, réunies sans exposer vos clientes ; un chemin évident vers la prise de contact. Le reste (le blog obligatoire, les dix pages, les fonctionnalités) se discute, et souvent se refuse.
+
+De mon côté, voici comment je travaille : une seule interlocutrice, des explications que vous pouvez comprendre, une confidentialité respectée, des décisions validées avec vous. Rien ne part sans votre accord. Et une conviction que ce site reflète : LinkedIn et votre site ne se remplacent pas. Ils se répondent.`,
+      },
+      {
+        h2: "Alors, quel site vous serait utile ?",
+        highlight: "utile",
+        body: `Vous l'aurez compris : la vraie question n'est pas « site ou pas site ». C'est « quel site, pour quelle utilisation ».
+
+Si vous comparez le mode de construction (vous-même sur un éditeur, ou délégué), le tableau ci-dessous pose le critère « qui fait le travail ». Pour une vitrine d'indépendante hors fil d'actualité, voyez aussi [site vitrine pour indépendante](/besoin/site-vitrine-independante).`,
+      },
+    ],
+    faqs: [
+      {
+        question: "J'ai déjà des clientes grâce à LinkedIn. Pourquoi un site ?",
+        answer:
+          "C'est déjà un point d'appui. Le site peut prolonger ce qui fonctionne, à condition de lui donner un usage précis. Aujourd'hui, une cliente qui vous recommande envoie un lien vers votre profil ; demain, elle peut envoyer un lien vers une page qui dit exactement ce que vous faites, pour qui, et comment. La recommandation devient plus précise. Elle travaille pour vous même quand vous ne publiez pas.",
+      },
+      {
+        question: "Je ne veux pas publier à deux endroits.",
+        answer:
+          "Vous n'avez pas à doubler votre production. Le site n'exige pas un flux constant comme LinkedIn : une page reste, un post défile. Une page peut développer votre méthode ; plusieurs publications peuvent en présenter différents angles. Vous réutilisez votre expertise sans recopier systématiquement les mêmes contenus. Une réserve honnête : un site sans blog n'est pas un site sans entretien. Vos offres et vos coordonnées doivent rester à jour, et l'entretien technique doit être prévu.",
+      },
+      {
+        question: "Je n'ai pas envie de piloter un projet technique.",
+        answer:
+          "Vous n'avez pas à devenir technicienne. Construire, régler, faire évoluer le site est un métier : le mien. Nous clarifions ensemble vos besoins, les éléments à fournir et les décisions à valider ; je vous explique les choix techniques.",
+      },
+      {
+        question: "J'ai peur de payer pour un site que je n'utiliserai pas.",
+        answer:
+          "C'est une peur saine : elle protège votre budget. La réponse honnête : un site n'est utile que s'il est défini par votre usage réel, pas par ce que font les autres. C'est la première question que je pose : à quoi ce site doit-il servir, concrètement ? Si la réponse est mince, je vous le dirai.",
+      },
+    ],
+    closing: "",
+    ctaLabel: "Discuter de mon projet",
+    futureVitrine: {
+      titleBefore: "Parlons de votre future ",
+      titleHighlight: "vitrine",
+      titleAfter: ".",
+      lead:
+        "Un site qui répond aux questions que vos posts soulèvent, pensé pour vos futures clientes.",
+      closing:
+        "LinkedIn et votre site ne se remplacent pas. Ils se répondent.",
+      primaryLabel: "Discuter de mon projet",
+      secondaryLabel: "Voir les formules",
+      secondaryHref: "/tarifs",
+    },
+    image: "/image/linkedin-vs-site-web.png",
+    imageAlt:
+      "LinkedIn et site web : tandem pour une experte de l'accompagnement",
     factChips: [...CHIPS],
   },
 ];

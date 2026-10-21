@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-21T09:30:21.059Z",
+  "generatedAt": "2026-10-21T10:15:45.165Z",
   "base": "https://www.kopio.eu",
   "axioms": [
     {
@@ -318,6 +318,13 @@
       "tldr": "Panorama 2026 des budgets site pour entrepreneuse : autonomie, freelance, agence, abonnement. Fourchettes, inclus, pièges. Cette page compare les modèles de coût ; l'article « site vitrine » sur le blog détaille le format vitrine seul."
     },
     {
+      "type": "comparatif",
+      "slug": "linkedin-ou-site-web",
+      "url": "https://www.kopio.eu/comparatif/linkedin-ou-site-web",
+      "keyword": "LinkedIn ou site web",
+      "tldr": "LinkedIn fait connaître votre voix. Votre site aide à comprendre pourquoi vous contacter. La question n'est pas de choisir : c'est de faire travailler les deux ensemble."
+    },
+    {
       "type": "blog",
       "slug": "obtenir-avis-clients-coach",
       "url": "https://www.kopio.eu/blog/obtenir-avis-clients-coach",
@@ -335,7 +342,7 @@
       "type": "blog",
       "slug": "consultante-geo-coach-wordpress-chatgpt",
       "url": "https://www.kopio.eu/blog/consultante-geo-coach-wordpress-chatgpt",
-      "title": "Consultante GEO pour coach : valoriser votre expertise, de WordPress à ChatGPT",
+      "title": "Consultante GEO pour coach : valoriser votre expertise",
       "tldr": "Une consultante GEO pour coachs : clarifier votre expertise, la rendre lisible sur votre site WordPress et compréhensible par ChatGPT."
     },
     {

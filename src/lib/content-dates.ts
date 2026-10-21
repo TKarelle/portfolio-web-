@@ -40,6 +40,7 @@ export const QDF_MONEY_PATHS = [
   "/site-web-pour/consultante",
   "/site-web-pour/assistante-virtuelle",
   "/comparatif/kopio-vs-wix",
+  "/comparatif/linkedin-ou-site-web",
   "/comparatif/combien-coute-site-internet-entrepreneure-2026",
   "/besoin/creer-son-site-sans-competences-techniques",
   "/blog/optimiser-seo-google-ia-debutant",

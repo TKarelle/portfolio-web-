@@ -38,4 +38,5 @@ export const IG_MONEY_URLS = [
   "/comparatif/combien-coute-site-internet-entrepreneure-2026",
   "/blog/combien-coute-site-vitrine-2026",
   "/comparatif/kopio-vs-wix",
+  "/comparatif/linkedin-ou-site-web",
 ] as const;

@@ -397,7 +397,8 @@ export function ServiceJsonLd({
                 "@type": "Offer",
                 price,
                 priceCurrency: "EUR",
-                url: `${base}/tarifs`,
+                /** URL de la prestation (ex. /audit), pas la grille abonnements */
+                url: path,
                 availability: "https://schema.org/InStock",
               },
             }
