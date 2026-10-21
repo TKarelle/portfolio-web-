@@ -22,7 +22,7 @@ export const BLOG_COVER_BY_SLUG: Record<string, string> = {
   "sageo-seo-geo-visibilite-2026": `${BASE}/blog-seo-geo-sageo.jpeg`,
   "comment-chatgpt-cherche-sur-le-web": `${BASE}/blog-ia.jpg`,
   "ia-ne-reference-pas-votre-site-toute-seule": `${BASE}/blog-ia-pieges.jpg`,
-  "consultante-geo-coach-wordpress-chatgpt": "/image/card-cover/site-cite.jpeg",
+  "consultante-geo-coach-wordpress-chatgpt": `${BASE}/site-web-coach.png`,
   "connaitre-sa-position-sur-chatgpt-2026": `${BASE}/connaitre-sa-position-chatgpt-article.png`,
   "obtenir-avis-clients-coach": `${BASE}/obtenir-avis-client-coach.png`,
 };
@@ -62,7 +62,7 @@ export const BLOG_COVER_ALT_BY_SLUG: Record<string, string> = {
   "ia-ne-reference-pas-votre-site-toute-seule":
     "L’IA ne référence pas un site toute seule : consigne précise, vérification et méthode SAGEO",
   "consultante-geo-coach-wordpress-chatgpt":
-    "Illustration : une personne cherche une coach en développement personnel, et la réponse cite un site source.",
+    "Site web pour coach : expertise lisible de WordPress à ChatGPT",
   "connaitre-sa-position-sur-chatgpt-2026":
     "Illustration : mesurer sa position sur ChatGPT, mention, citation et part de voix",
   "obtenir-avis-clients-coach":

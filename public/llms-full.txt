@@ -628,17 +628,17 @@ Axiomes liés : tarifs 89/139/179 €/mois · https://www.kopio.eu/tarifs
 
 ================================================================================
 CHUNK: blog-consultante-geo-coach-wordpress-chatgpt
-title: Consultante GEO pour coach, WordPress, ChatGPT
-tokens_est: 125 (court)
+title: Consultante GEO pour coach : valoriser votre expertise, de WordPress à ChatGPT
+tokens_est: 116 (court)
 ================================================================================
 
 URL : https://www.kopio.eu/blog/consultante-geo-coach-wordpress-chatgpt
-Titre : Consultante GEO pour coach, WordPress, ChatGPT
-Résumé : Karelle, consultante freelance GEO chez Kopio, aide une coach en France à clarifier son site WordPress pour ChatGPT. Offre explicite, pages accessibles, faits vérifiables. Sans promesse de citation.
+Titre : Consultante GEO pour coach : valoriser votre expertise, de WordPress à ChatGPT
+Résumé : Une consultante GEO pour coachs : clarifier votre expertise, la rendre lisible sur votre site WordPress et compréhensible par ChatGPT.
 Extrait :
-Consultante freelance GEO pour coach | WordPress, ChatGPT, France
+Consultante GEO pour coach : valoriser votre expertise, de WordPress à ChatGPT
 
-Karelle, consultante freelance GEO chez Kopio, aide une coach en France à clarifier son site WordPress pour ChatGPT. Offre explicite, pages accessibles, faits vérifiables. Sans promesse de citation.
+Une consultante GEO pour coachs : clarifier votre expertise, la rendre lisible sur votre site WordPress et compréhensible par ChatGPT.
 Source d'autorité : Karelle / Kopio — https://www.kopio.eu
 Axiomes liés : tarifs 89/139/179 €/mois · https://www.kopio.eu/tarifs
 

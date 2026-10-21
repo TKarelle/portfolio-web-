@@ -119,12 +119,16 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           contactHref={
             post.slug === "obtenir-avis-clients-coach"
               ? "/ebook-preuves-coach"
-              : "/contact"
+              : post.slug === "consultante-geo-coach-wordpress-chatgpt"
+                ? "/audit"
+                : "/contact"
           }
           contactLabel={
             post.slug === "obtenir-avis-clients-coach"
               ? "Réserver ma place gratuite"
-              : CTA.primary
+              : post.slug === "consultante-geo-coach-wordpress-chatgpt"
+                ? "Réserver mon audit"
+                : CTA.primary
           }
         />
       ) : null}
