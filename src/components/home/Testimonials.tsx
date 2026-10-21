@@ -51,6 +51,9 @@ function TestimonialSlide({
   className?: string;
 }) {
   const isGoogle = t.source === "google";
+  const meta = isGoogle
+    ? "Avis Google"
+    : [t.role, t.city].filter(Boolean).join(" · ");
 
   return (
     <figure className={cn("text-center flex flex-col items-center", className)}>
@@ -80,35 +83,14 @@ function TestimonialSlide({
 
         <div>
           <p className="font-extrabold text-ink tracking-tight">{t.fullName}</p>
-          <p className="mt-0.5 text-sm font-medium text-muted">
-            {isGoogle
-              ? "Avis Google"
-              : [t.role, t.city].filter(Boolean).join(" · ")}
-          </p>
+          {meta ? (
+            <p className="mt-0.5 text-sm font-medium text-muted">{meta}</p>
+          ) : null}
           <div className="mt-2 flex items-center justify-center gap-2">
             <StarRating rating={t.rating} size="sm" />
             <span className="text-xs font-medium text-muted/70">{t.date}</span>
           </div>
         </div>
-
-        {/* Réserve la hauteur du lien Google pour tous les slides */}
-        <p
-          className={cn(
-            "mt-1 text-sm font-semibold min-h-[1.25rem]",
-            isGoogle ? "visible" : "invisible",
-          )}
-        >
-          <a
-            href={GOOGLE_REVIEWS_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-ink/50 hover:text-pink transition-colors underline-offset-2 hover:underline"
-            tabIndex={isGoogle ? undefined : -1}
-            aria-hidden={!isGoogle}
-          >
-            Voir l&apos;avis sur Google →
-          </a>
-        </p>
       </figcaption>
     </figure>
   );
@@ -116,6 +98,7 @@ function TestimonialSlide({
 
 /**
  * Témoignages — hauteur figée (slide le plus long) pour titre / flèches stables.
+ * Un seul lien Google sous le carrousel (pas de CTA par slide).
  */
 export function Testimonials() {
   const [active, setActive] = useState(0);
@@ -135,13 +118,12 @@ export function Testimonials() {
         </div>
 
         <div className="reveal relative">
-          {/* Hauteur = slide le plus long → titre / flèches ne bougent pas */}
-          <div className="relative grid">
+          {/* Sizer : mesure la hauteur max sans afficher (pas de visibility:visible enfant) */}
+          <div className="relative grid" aria-hidden>
             {displayedTestimonials.map((t) => (
               <div
                 key={`measure-${t.id}`}
                 className="col-start-1 row-start-1 invisible pointer-events-none"
-                aria-hidden
               >
                 <TestimonialSlide t={t} />
               </div>
@@ -153,7 +135,7 @@ export function Testimonials() {
                 <div
                   key={t.id}
                   className={cn(
-                    "col-start-1 row-start-1 absolute inset-0 flex items-center justify-center transition-opacity duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]",
+                    "col-start-1 row-start-1 absolute inset-0 flex items-start justify-center transition-opacity duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]",
                     isFront
                       ? "z-10 opacity-100"
                       : "z-0 opacity-0 pointer-events-none",
@@ -169,41 +151,52 @@ export function Testimonials() {
             })}
           </div>
 
-          <div className="mt-10 sm:mt-12 flex items-center justify-center gap-4">
-            <SoftNavButton
-              direction="prev"
-              label="Témoignage précédent"
-              onClick={goPrev}
-            />
+          <div className="mt-10 sm:mt-12 flex flex-col items-center gap-6">
+            <div className="flex items-center justify-center gap-4">
+              <SoftNavButton
+                direction="prev"
+                label="Témoignage précédent"
+                onClick={goPrev}
+              />
 
-            <div
-              className="flex items-center gap-2"
-              role="tablist"
-              aria-label="Témoignages"
-            >
-              {displayedTestimonials.map((t, i) => (
-                <button
-                  key={t.id}
-                  type="button"
-                  role="tab"
-                  aria-selected={i === active}
-                  aria-label={`Témoignage ${i + 1} : ${t.fullName}`}
-                  onClick={() => setActive(i)}
-                  className={cn(
-                    "h-2 rounded-full transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] touch-manipulation",
-                    i === active
-                      ? "w-7 bg-ink"
-                      : "w-2 bg-ink/20 hover:bg-ink/40",
-                  )}
-                />
-              ))}
+              <div
+                className="flex items-center gap-2"
+                role="tablist"
+                aria-label="Témoignages"
+              >
+                {displayedTestimonials.map((t, i) => (
+                  <button
+                    key={t.id}
+                    type="button"
+                    role="tab"
+                    aria-selected={i === active}
+                    aria-label={`Témoignage ${i + 1} : ${t.fullName}`}
+                    onClick={() => setActive(i)}
+                    className={cn(
+                      "h-2 rounded-full transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] touch-manipulation",
+                      i === active
+                        ? "w-7 bg-ink"
+                        : "w-2 bg-ink/20 hover:bg-ink/40",
+                    )}
+                  />
+                ))}
+              </div>
+
+              <SoftNavButton
+                direction="next"
+                label="Témoignage suivant"
+                onClick={goNext}
+              />
             </div>
 
-            <SoftNavButton
-              direction="next"
-              label="Témoignage suivant"
-              onClick={goNext}
-            />
+            <a
+              href={GOOGLE_REVIEWS_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm font-semibold text-ink/45 hover:text-pink transition-colors underline-offset-2 hover:underline"
+            >
+              Voir les avis sur Google →
+            </a>
           </div>
 
           <p className="sr-only" aria-live="polite">

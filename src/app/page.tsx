@@ -40,7 +40,7 @@ export default function HomePage() {
       </div>
       <DemoVideos />
       <HowIWork />
-      <Pricing />
+      <Pricing showNotes={false} />
       <QuoteBand />
       <ProcessSimple />
       <Testimonials />

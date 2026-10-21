@@ -20,7 +20,7 @@ export function ContactSection({
       <SoftBlurBand contentClassName="w-full max-w-5xl mx-auto px-5 sm:px-8 md:px-10">
         <div className="reveal text-center max-w-3xl mx-auto mb-14 sm:mb-16 md:mb-20">
           <SectionHead as={headingAs} size="xl">
-            Parlons de votre projet de <TitleEm>site web</TitleEm>
+            Parlons de votre <TitleEm>site web</TitleEm>
           </SectionHead>
         </div>
 

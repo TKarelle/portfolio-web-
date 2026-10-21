@@ -21,9 +21,12 @@ const PRICING_HEADLINE = [
 export function Pricing({
   title: _title,
   highlight: _highlight,
+  /** Notes SAGEO + délai 21 j. (masquées sur l’accueil) */
+  showNotes = true,
 }: {
   title?: string;
   highlight?: string;
+  showNotes?: boolean;
 } = {}) {
   return (
     <section className="scroll-mt-28 bg-bg" id="modeles">
@@ -113,18 +116,20 @@ export function Pricing({
         ))}
       </div>
 
-      <div className="max-w-6xl mx-auto px-5 sm:px-8 md:px-10 pt-10 sm:pt-12">
-        <p className="reveal text-center text-sm sm:text-base font-medium text-muted mb-4">
-          Dès 89&nbsp;€/mois, SEO et suivi selon la durée.{" "}
-          <Link
-            href="/sageo"
-            className="font-extrabold text-ink underline-offset-4 hover:underline"
-          >
-            Découvrir la méthode SAGEO
-          </Link>
-        </p>
-        <DeliveryDisclaimer className="reveal text-center max-w-lg mx-auto mb-4" />
-      </div>
+      {showNotes ? (
+        <div className="max-w-6xl mx-auto px-5 sm:px-8 md:px-10 pt-10 sm:pt-12">
+          <p className="reveal text-center text-sm sm:text-base font-medium text-muted mb-4">
+            Dès 89&nbsp;€/mois, SEO et suivi selon la durée.{" "}
+            <Link
+              href="/sageo"
+              className="font-extrabold text-ink underline-offset-4 hover:underline"
+            >
+              Découvrir la méthode SAGEO
+            </Link>
+          </p>
+          <DeliveryDisclaimer className="reveal text-center max-w-lg mx-auto mb-4" />
+        </div>
+      ) : null}
 
       <div className="reveal pb-14 md:pb-20">
         <PricingGuarantees />
