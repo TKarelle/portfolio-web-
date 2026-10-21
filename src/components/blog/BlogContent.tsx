@@ -10,6 +10,7 @@ import {
   MotDeKarelle,
   parseMotDeKarelle,
 } from "@/components/blog/MotDeKarelle";
+import { ArticleEbookWaitlist } from "@/components/blog/ArticleEbookWaitlist";
 import { QuizLeadMagnet } from "@/components/home/QuizLeadMagnet";
 import { MediaCard, MediaCardCaption } from "@/components/ui/MediaCard";
 import { ResponsiveDataTable } from "@/components/ui/ResponsiveDataTable";
@@ -54,7 +55,8 @@ function renderInline(text: string): ReactNode[] {
     } else if (match[4] && match[5]) {
       const href = match[5];
       const label = match[4];
-      const isInternal = href.startsWith("/");
+      const isHash = href.startsWith("#");
+      const isInternal = href.startsWith("/") || isHash;
       parts.push(
         isInternal ? (
           <Link
@@ -341,6 +343,10 @@ function renderBodyBlock(
     );
   }
 
+  if (block.trim() === "{{ebook}}") {
+    return <ArticleEbookWaitlist key={key} />;
+  }
+
   const ctaVariant = parseArticleCta(block);
   if (ctaVariant) {
     return <ArticleInlineCta key={key} variant={ctaVariant} />;
@@ -533,6 +539,7 @@ function renderSectionBody(
       !isChecklistBlock(seg.value) &&
       !/^[-•*]\s+/.test(seg.value.trim()) &&
       seg.value.trim() !== "{{quiz}}" &&
+      seg.value.trim() !== "{{ebook}}" &&
       parseArticleCta(seg.value) == null &&
       !MEDIA_RE.test(seg.value.trim())
     ) {

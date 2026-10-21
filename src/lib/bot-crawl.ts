@@ -33,6 +33,7 @@ const PRIMARY_PREFIXES = [
   "/contact",
   "/a-propos",
   "/grille-etancheite",
+  "/ebook-preuves-coach",
 ] as const;
 
 export type CrawlClass = "primary" | "waste" | "other";

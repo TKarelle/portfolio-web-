@@ -116,12 +116,23 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               Questions <TitleEm>fréquentes</TitleEm>
             </>
           }
-          contactHref="/contact"
-          contactLabel={CTA.primary}
+          contactHref={
+            post.slug === "obtenir-avis-clients-coach"
+              ? "/ebook-preuves-coach"
+              : "/contact"
+          }
+          contactLabel={
+            post.slug === "obtenir-avis-clients-coach"
+              ? "Réserver ma place gratuite"
+              : CTA.primary
+          }
         />
       ) : null}
 
-      <FutureVitrineCta />
+      <FutureVitrineCta
+        secondaryLabel="Voir l’audit"
+        secondaryHref="/audit"
+      />
 
       {related.length > 0 && (
         <section className="py-16 sm:py-20 page-x bg-surface border-t border-ink/8">

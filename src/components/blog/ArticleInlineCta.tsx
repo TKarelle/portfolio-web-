@@ -94,14 +94,19 @@ export function injectArticleJourney(blocks: string[]): string[] {
     .map((b, i) => (b.startsWith("## ") ? i : -1))
     .filter((i) => i >= 0);
   const hasQuiz = out.some((b) => b.trim() === "{{quiz}}");
+  const hasEbook = out.some((b) => b.trim() === "{{ebook}}");
+  /** Ebook / quiz = cadeau de l’article : pas de CTA mid quiz ni bridge contact. */
+  const hasLeadMagnet = hasQuiz || hasEbook;
 
-  if (h2Idx.length >= 3) {
-    out.splice(h2Idx[2], 0, "{{cta|mid}}");
-  } else if (out.length >= 6) {
-    out.splice(Math.min(4, out.length), 0, "{{cta|mid}}");
+  if (!hasEbook) {
+    if (h2Idx.length >= 3) {
+      out.splice(h2Idx[2], 0, "{{cta|mid}}");
+    } else if (out.length >= 6) {
+      out.splice(Math.min(4, out.length), 0, "{{cta|mid}}");
+    }
   }
 
-  if (!hasQuiz) {
+  if (!hasLeadMagnet) {
     const h2After = out
       .map((b, i) => (b.startsWith("## ") ? i : -1))
       .filter((i) => i >= 0);

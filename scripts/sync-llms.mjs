@@ -268,6 +268,8 @@ const llmsIndex = `# Kopio — llms.txt
 - [À propos](${BASE}/a-propos) : Karelle, développeuse web derrière Kopio
 - [Contact](${BASE}/contact) : Devis / appel
 - [Blog](${BASE}/blog) : SEO, IA & SAGEO
+- [Test des 10 Secondes](${BASE}/grille-etancheite) : Ce que Google et ChatGPT disent de vous
+- [Ebook preuves coach](${BASE}/ebook-preuves-coach) : Valoriser son travail sans exposer ses clients (lead magnet)
 - [Entités machine](${BASE}/entities.json) : Graphe d'entités + axiomes (RAG)
 
 ## Sites web par métier

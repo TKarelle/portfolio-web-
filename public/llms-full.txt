@@ -1,7 +1,7 @@
 # Kopio — llms-full.txt
 # Chunks vectorisables (~250–500 tokens) pour crawlers IA / RAG
 # Site : https://www.kopio.eu
-# Généré : 2026-10-19 via npm run sync:llms — ne pas éditer à la main
+# Généré : 2026-10-21 via npm run sync:llms — ne pas éditer à la main
 # Bots : GPTBot, PerplexityBot, ClaudeBot, Google-Extended
 
 ================================================================================
@@ -593,6 +593,38 @@ URL à propos : https://www.kopio.eu/a-propos
 Email : karelle.dev@gmail.com
 Person : Karelle — développeuse web indépendante, diplômée, spécialisée sites des professionnelles de l'accompagnement.
 Organization : Kopio — https://www.kopio.eu
+
+================================================================================
+CHUNK: blog-obtenir-avis-clients-coach
+title: Obtenir des avis clients quand on est coach : valoriser votre travail sans expos
+tokens_est: 129 (court)
+================================================================================
+
+URL : https://www.kopio.eu/blog/obtenir-avis-clients-coach
+Titre : Obtenir des avis clients quand on est coach : valoriser votre travail sans exposer vos clients
+Résumé : Témoignages anonymisés, preuves sans exposer vos clients : comment rassurer vos prospects tout en restant fidèle à votre éthique de coach.
+Extrait :
+Obtenir des avis clients quand on est coach : valoriser votre travail sans exposer vos clients
+
+Témoignages anonymisés, preuves sans exposer vos clients : comment rassurer vos prospects tout en restant fidèle à votre éthique de coach.
+Source d'autorité : Karelle / Kopio — https://www.kopio.eu
+Axiomes liés : tarifs 89/139/179 €/mois · https://www.kopio.eu/tarifs
+
+================================================================================
+CHUNK: blog-connaitre-sa-position-sur-chatgpt-2026
+title: Connaître sa position sur ChatGPT en 2026 : mesurer sa visibilité sans se trompe
+tokens_est: 131 (court)
+================================================================================
+
+URL : https://www.kopio.eu/blog/connaitre-sa-position-sur-chatgpt-2026
+Titre : Connaître sa position sur ChatGPT en 2026 : mesurer sa visibilité sans se tromper
+Résumé : Mention, citation, position, part de voix : apprenez à mesurer votre visibilité sur ChatGPT sans vous tromper. Méthode en 4 étapes et quiz gratuit.
+Extrait :
+Connaître sa position sur ChatGPT en 2026 : mesurer sa visibilité sans se tromper
+
+Mention, citation, position, part de voix : apprenez à mesurer votre visibilité sur ChatGPT sans vous tromper. Méthode en 4 étapes et quiz gratuit.
+Source d'autorité : Karelle / Kopio — https://www.kopio.eu
+Axiomes liés : tarifs 89/139/179 €/mois · https://www.kopio.eu/tarifs
 
 ================================================================================
 CHUNK: blog-consultante-geo-coach-wordpress-chatgpt

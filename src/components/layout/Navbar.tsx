@@ -8,6 +8,7 @@ import { PromoBar } from "@/components/layout/PromoBar";
 import { cn } from "@/lib/utils";
 import { BRAND_LOGO } from "@/data/site";
 import { CTA } from "@/data/copy";
+import { EBOOK_META } from "@/data/ebook-coach";
 import { QUIZ_META } from "@/data/etancheite-quiz";
 import { NAV_SERVICE_LINKS } from "@/data/topic-clusters";
 
@@ -83,7 +84,8 @@ export function Navbar() {
     };
   }, [servicesOpen]);
 
-  const showPromo = pathname !== QUIZ_META.path;
+  const showPromo =
+    pathname !== QUIZ_META.path && pathname !== EBOOK_META.path;
 
   return (
     <>

@@ -18,6 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const landings = toLastmod(CLUSTER_LASTMOD.landings);
   const legal = toLastmod(CLUSTER_LASTMOD.legal);
   const grille = toLastmod(CLUSTER_LASTMOD.grille);
+  const ebook = toLastmod(CLUSTER_LASTMOD.ebook);
   const blogHub = latestBlogLastmod();
 
   const staticPages: MetadataRoute.Sitemap = [
@@ -69,6 +70,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: grille,
       changeFrequency: "monthly",
       priority: 0.85,
+    },
+    {
+      url: `${base}/ebook-preuves-coach`,
+      lastModified: ebook,
+      changeFrequency: "monthly",
+      priority: 0.88,
     },
     {
       url: `${base}/mentions-legales`,

@@ -1,7 +1,7 @@
 # Kopio — llms.txt
 # Abonnement site web pour professionnelles de l'accompagnement en France
 # https://www.kopio.eu
-# Généré : 2026-10-19 via npm run sync:llms
+# Généré : 2026-10-21 via npm run sync:llms
 
 > Kopio crée et maintient le site internet des professionnelles de l'accompagnement (coachs, consultantes, thérapeutes, praticiennes…) en abonnement mensuel dès 89 €/mois. Conception, maintenance et évolution : vous validez, Karelle gère la technique.
 
@@ -20,6 +20,8 @@
 - [À propos](https://www.kopio.eu/a-propos) : Karelle, développeuse web derrière Kopio
 - [Contact](https://www.kopio.eu/contact) : Devis / appel
 - [Blog](https://www.kopio.eu/blog) : SEO, IA & SAGEO
+- [Test des 10 Secondes](https://www.kopio.eu/grille-etancheite) : Ce que Google et ChatGPT disent de vous
+- [Ebook preuves coach](https://www.kopio.eu/ebook-preuves-coach) : Valoriser son travail sans exposer ses clients (lead magnet)
 - [Entités machine](https://www.kopio.eu/entities.json) : Graphe d'entités + axiomes (RAG)
 
 ## Sites web par métier
@@ -56,6 +58,8 @@
 
 ## Blog
 
+- [Obtenir des avis clients quand on est coach : valoriser votre travail sans exposer vos clients](https://www.kopio.eu/blog/obtenir-avis-clients-coach)
+- [Connaître sa position sur ChatGPT en 2026 : mesurer sa visibilité sans se tromper](https://www.kopio.eu/blog/connaitre-sa-position-sur-chatgpt-2026)
 - [Consultante GEO pour coach, WordPress, ChatGPT](https://www.kopio.eu/blog/consultante-geo-coach-wordpress-chatgpt)
 - [Non, l’IA ne référence pas votre site toute seule](https://www.kopio.eu/blog/ia-ne-reference-pas-votre-site-toute-seule)
 - [Comment ChatGPT cherche sur le Web : la méthode pour être citée par l’IA](https://www.kopio.eu/blog/comment-chatgpt-cherche-sur-le-web)

@@ -14,6 +14,8 @@ export const CLUSTER_LASTMOD = {
   legal: "2026-09-30",
   /** Lead magnet Test des 10 Secondes (/grille-etancheite) */
   grille: "2026-10-10",
+  /** Lead magnet ebook coachs (/ebook-preuves-coach) */
+  ebook: "2026-10-21",
 } as const;
 
 /**
