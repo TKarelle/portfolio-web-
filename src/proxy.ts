@@ -3,11 +3,13 @@ import type { NextRequest } from "next/server";
 import { classifyPath, detectBot } from "@/lib/bot-crawl";
 
 /**
- * Semaine 1 — traçage UA bots (0 €).
- * Écrit une ligne JSON sur stdout ; visible dans Vercel → Logs (plan hobby).
+ * Traçage UA bots (logs stdout uniquement).
+ * Visible dans Vercel → Logs.
  * Désactiver : BOT_CRAWL_LOG=0
+ *
+ * Ne protège aucune page : l'authentification ne passe pas par ici.
  */
-export function middleware(req: NextRequest) {
+export function proxy(req: NextRequest) {
   if (process.env.BOT_CRAWL_LOG === "0") {
     return NextResponse.next();
   }

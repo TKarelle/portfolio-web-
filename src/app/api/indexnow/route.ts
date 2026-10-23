@@ -1,3 +1,4 @@
+import { timingSafeEqual } from "node:crypto";
 import { NextRequest, NextResponse } from "next/server";
 import { submitIndexNow } from "@/lib/indexnow";
 
@@ -19,8 +20,7 @@ export async function POST(req: NextRequest) {
     );
   }
 
-  const auth = req.headers.get("authorization");
-  if (auth !== `Bearer ${secret}`) {
+  if (!bearerMatches(req.headers.get("authorization"), secret)) {
     return NextResponse.json({ error: "unauthorized" }, { status: 401 });
   }
 
@@ -42,4 +42,13 @@ export async function POST(req: NextRequest) {
     const message = err instanceof Error ? err.message : "IndexNow failed";
     return NextResponse.json({ error: message }, { status: 400 });
   }
+}
+
+function bearerMatches(header: string | null, secret: string): boolean {
+  const prefix = "Bearer ";
+  if (!header?.startsWith(prefix)) return false;
+  const token = Buffer.from(header.slice(prefix.length));
+  const expected = Buffer.from(secret);
+  if (token.length !== expected.length) return false;
+  return timingSafeEqual(token, expected);
 }

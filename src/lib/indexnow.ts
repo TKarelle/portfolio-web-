@@ -24,6 +24,21 @@ export function indexNowHost(base = getBaseUrl()): string {
   return new URL(base).host;
 }
 
+function assertOwnSiteUrl(url: string, host: string): void {
+  let parsed: URL;
+  try {
+    parsed = new URL(url);
+  } catch {
+    throw new Error("URL invalide");
+  }
+  if (parsed.protocol !== "https:" && parsed.protocol !== "http:") {
+    throw new Error("URL invalide");
+  }
+  if (parsed.host !== host) {
+    throw new Error("URL hors du site");
+  }
+}
+
 /**
  * Pousse des URLs vers IndexNow (Bing / Yandex / partenaires).
  * Gratuit — pas d’API Google Indexing (hors scope JobPosting).
@@ -40,8 +55,12 @@ export async function submitIndexNow(
   }
 
   const base = getBaseUrl();
+  const host = indexNowHost(base);
+  for (const url of unique) {
+    assertOwnSiteUrl(url, host);
+  }
   const body = {
-    host: indexNowHost(base),
+    host,
     key: INDEXNOW_KEY,
     keyLocation: indexNowKeyLocation(base),
     urlList: unique,

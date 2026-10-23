@@ -3,6 +3,8 @@
 import { FormEvent, useEffect, useMemo, useState } from "react";
 import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 import { Button } from "@/components/ui/Button";
+import { LeadPrivacyNote } from "@/components/ui/LeadPrivacyNote";
+import { LEAD_EMAIL_MAX, LEAD_NAME_MAX } from "@/lib/lead-limits";
 import { SectionHead, TitleEm } from "@/components/ui/SectionHead";
 import { SurfaceCard, surfaceCardClassName } from "@/components/ui/SurfaceCard";
 import { cn } from "@/lib/utils";
@@ -150,6 +152,7 @@ export function HeroEmailGate({
             autoComplete="given-name"
             required
             minLength={2}
+            maxLength={LEAD_NAME_MAX}
             placeholder="Prénom"
             value={name}
             onChange={(e) => setName(e.target.value)}
@@ -165,6 +168,7 @@ export function HeroEmailGate({
             autoComplete="email"
             inputMode="email"
             required
+            maxLength={LEAD_EMAIL_MAX}
             placeholder="vous@exemple.com"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -187,6 +191,7 @@ export function HeroEmailGate({
       <p className="mt-3 text-xs sm:text-sm font-medium text-ink/50">
         {QUIZ_META.trustLine}
       </p>
+      <LeadPrivacyNote />
     </div>
   );
 }

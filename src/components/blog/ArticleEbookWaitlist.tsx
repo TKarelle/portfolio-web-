@@ -6,6 +6,7 @@ import {
   type FormEvent,
 } from "react";
 import Link from "next/link";
+import { LeadPrivacyNote } from "@/components/ui/LeadPrivacyNote";
 import { SurfaceCard } from "@/components/ui/SurfaceCard";
 import { TitleEm } from "@/components/ui/SectionHead";
 import { EBOOK_META } from "@/data/ebook-coach";
@@ -15,6 +16,7 @@ import {
   writeEbookGate,
   type EbookGateState,
 } from "@/lib/ebook-lead";
+import { LEAD_EMAIL_MAX, LEAD_NAME_MAX } from "@/lib/lead-limits";
 import { cn } from "@/lib/utils";
 
 const fieldClass =
@@ -145,6 +147,7 @@ export function ArticleEbookWaitlist({
               autoComplete="given-name"
               required
               minLength={2}
+              maxLength={LEAD_NAME_MAX}
               placeholder="Votre prénom"
               value={name}
               onChange={(e) => setName(e.target.value)}
@@ -160,6 +163,7 @@ export function ArticleEbookWaitlist({
               autoComplete="email"
               inputMode="email"
               required
+              maxLength={LEAD_EMAIL_MAX}
               placeholder="Votre email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -180,6 +184,7 @@ export function ArticleEbookWaitlist({
             <p className="text-xs font-medium text-ink/45 leading-relaxed">
               {EBOOK_META.trustLine}
             </p>
+            <LeadPrivacyNote />
             <p className="text-xs font-medium text-ink/40">
               <Link
                 href={EBOOK_META.path}

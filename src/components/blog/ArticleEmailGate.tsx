@@ -6,7 +6,9 @@ import {
   type FormEvent,
   type ReactNode,
 } from "react";
+import { LeadPrivacyNote } from "@/components/ui/LeadPrivacyNote";
 import { surfaceCardClassName } from "@/components/ui/SurfaceCard";
+import { LEAD_EMAIL_MAX, LEAD_NAME_MAX } from "@/lib/lead-limits";
 import { cn } from "@/lib/utils";
 
 type GateState = { name: string; email: string };
@@ -198,6 +200,7 @@ export function ArticleEmailGate({
               autoComplete="given-name"
               required
               minLength={2}
+              maxLength={LEAD_NAME_MAX}
               placeholder="Prénom"
               value={name}
               onChange={(e) => setName(e.target.value)}
@@ -213,6 +216,7 @@ export function ArticleEmailGate({
               autoComplete="email"
               inputMode="email"
               required
+              maxLength={LEAD_EMAIL_MAX}
               placeholder="vous@exemple.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -236,6 +240,7 @@ export function ArticleEmailGate({
           <p className="mt-3 text-xs font-medium text-ink/45 leading-relaxed">
             Gratuit · Pas de spam · Contenu utile, pensé pour vous
           </p>
+          <LeadPrivacyNote />
         </div>
       </div>
     </div>

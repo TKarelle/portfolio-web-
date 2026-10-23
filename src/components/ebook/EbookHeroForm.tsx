@@ -7,7 +7,9 @@ import {
   writeEbookGate,
   type EbookGateState,
 } from "@/lib/ebook-lead";
+import { LeadPrivacyNote } from "@/components/ui/LeadPrivacyNote";
 import { surfaceCardClassName } from "@/components/ui/SurfaceCard";
+import { LEAD_EMAIL_MAX, LEAD_NAME_MAX } from "@/lib/lead-limits";
 import { cn } from "@/lib/utils";
 
 const fieldClass =
@@ -77,6 +79,7 @@ export function EbookHeroForm({ onUnlocked }: EbookHeroFormProps) {
             autoComplete="given-name"
             required
             minLength={2}
+            maxLength={LEAD_NAME_MAX}
             placeholder="Prénom"
             value={name}
             onChange={(e) => setName(e.target.value)}
@@ -92,6 +95,7 @@ export function EbookHeroForm({ onUnlocked }: EbookHeroFormProps) {
             autoComplete="email"
             inputMode="email"
             required
+            maxLength={LEAD_EMAIL_MAX}
             placeholder="vous@exemple.com"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -114,6 +118,7 @@ export function EbookHeroForm({ onUnlocked }: EbookHeroFormProps) {
       <p className="mt-3 text-xs font-medium text-ink/45 leading-relaxed">
         {EBOOK_META.trustLine}
       </p>
+      <LeadPrivacyNote />
     </div>
   );
 }

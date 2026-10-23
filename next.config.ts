@@ -1,5 +1,43 @@
 import type { NextConfig } from "next";
 
+function securityHeaders(): { key: string; value: string }[] {
+  const isProd = process.env.NODE_ENV === "production";
+  const scriptSrc = [
+    "'self'",
+    "'unsafe-inline'",
+    "https://assets.calendly.com",
+    "https://va.vercel-scripts.com",
+    "https://www.googletagmanager.com",
+    ...(isProd ? [] : ["'unsafe-eval'"]),
+  ].join(" ");
+
+  const csp = [
+    "default-src 'self'",
+    `script-src ${scriptSrc}`,
+    "style-src 'self' 'unsafe-inline' https://assets.calendly.com",
+    "img-src 'self' data: blob: https://assets.calendly.com https://calendly.com",
+    "font-src 'self' https://assets.calendly.com",
+    "connect-src 'self' https://api.web3forms.com https://va.vercel-scripts.com https://vitals.vercel-insights.com https://calendly.com https://assets.calendly.com https://www.google-analytics.com https://region1.google-analytics.com",
+    "frame-src https://calendly.com https://assets.calendly.com",
+    "frame-ancestors 'none'",
+    "base-uri 'self'",
+    "form-action 'self' https://api.web3forms.com",
+    "object-src 'none'",
+    ...(isProd ? ["upgrade-insecure-requests"] : []),
+  ].join("; ");
+
+  return [
+    { key: "Content-Security-Policy", value: csp },
+    { key: "X-Content-Type-Options", value: "nosniff" },
+    { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+    { key: "X-Frame-Options", value: "DENY" },
+    {
+      key: "Permissions-Policy",
+      value: "camera=(), microphone=(), geolocation=(), payment=()",
+    },
+  ];
+}
+
 const nextConfig: NextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
@@ -9,6 +47,10 @@ const nextConfig: NextConfig = {
   },
   async headers() {
     return [
+      {
+        source: "/(.*)",
+        headers: securityHeaders(),
+      },
       {
         source: "/image/:path*.mp4",
         headers: [

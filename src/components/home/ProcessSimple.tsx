@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/Button";
 import { SectionHead, TitleEm } from "@/components/ui/SectionHead";
-import { process } from "@/data/services";
+import { process as steps } from "@/data/services";
 import { CTA } from "@/data/copy";
 import { cn } from "@/lib/utils";
 
@@ -54,7 +54,7 @@ export function ProcessSimple() {
     };
   }, []);
 
-  const n = process.length;
+  const n = steps.length;
   // Chaque étape s’allume sur une portion du progress (avec chevauchement doux)
   const stepProgress = (i: number) => {
     const start = i / (n + 0.35);
@@ -84,7 +84,7 @@ export function ProcessSimple() {
           className="hidden md:flex items-center w-full mb-12 lg:mb-16"
           aria-hidden
         >
-          {process.map((s, i) => {
+          {steps.map((s, i) => {
             const sp = stepProgress(i);
             const lineSp = i < n - 1 ? stepProgress(i + 0.15) : 0;
             return (
@@ -135,7 +135,7 @@ export function ProcessSimple() {
             />
           </span>
 
-          {process.map((s, i) => {
+          {steps.map((s, i) => {
             const sp = stepProgress(i);
             const isActive = i === activeIndex;
             const reveal = 0.12 + sp * 0.88;

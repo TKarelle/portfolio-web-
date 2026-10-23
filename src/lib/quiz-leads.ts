@@ -111,15 +111,6 @@ export async function appendQuizLead(
     createdAt: new Date().toISOString(),
   };
 
-  console.info(
-    JSON.stringify({
-      type: "quiz_lead",
-      name: entry.name,
-      email: entry.email,
-      createdAt: entry.createdAt,
-    }),
-  );
-
   let existing: QuizLead[] = [];
   let persisted = false;
 
@@ -146,6 +137,14 @@ export async function appendQuizLead(
     console.error("[quiz-leads] file persist skipped", err);
     existing = [entry];
   }
+
+  console.info(
+    JSON.stringify({
+      type: "quiz_lead",
+      createdAt: entry.createdAt,
+      persisted,
+    }),
+  );
 
   return {
     path: filePath,
