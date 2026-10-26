@@ -590,6 +590,8 @@ Dernière précision, parce qu'elle évite beaucoup de déceptions : un site uti
 
 Un site utile à une experte de l'accompagnement tient en peu de choses : une page d'accueil qui dit clairement qui vous accompagnez et pour quoi ; une page qui explique votre méthode ; vos preuves, réunies sans exposer vos clientes ; un chemin évident vers la prise de contact. Le reste (le blog obligatoire, les dix pages, les fonctionnalités) se discute, et souvent se refuse.
 
+Si vous êtes coach, la page [création de site internet pour coach](/site-web-pour/coach) détaille ce tandem LinkedIn et site, avec un exemple de refonte et le parcours de création.
+
 De mon côté, voici comment je travaille : une seule interlocutrice, des explications que vous pouvez comprendre, une confidentialité respectée, des décisions validées avec vous. Rien ne part sans votre accord. Et une conviction que ce site reflète : LinkedIn et votre site ne se remplacent pas. Ils se répondent.`,
       },
       {

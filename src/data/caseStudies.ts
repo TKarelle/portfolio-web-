@@ -84,6 +84,8 @@ export const caseStudies = projects.map((p) => ({
 
 function getProblem(id: string): string {
   const problems: Record<string, string> = {
+    ample:
+      "Message généraliste centré sur le développement personnel : la spécialité et le public n’étaient pas immédiatement identifiables.",
     "sophie-delmas":
       "Présence en ligne difficile à assumer : offre floue, prise de contact confuse, peu alignée avec son accompagnement.",
     pulse:
@@ -105,12 +107,14 @@ function getProblem(id: string): string {
 
 function getSolution(id: string): string {
   const solutions: Record<string, string> = {
+    ample:
+      "Refonte centrée sur l’épuisement professionnel à Lyon : titre concret, public identifiable, boutons d’action explicites, identité visuelle alignée.",
     "sophie-delmas":
       "Un site clair qui pose son accompagnement (neurosciences, sens, décisions), avec un parcours de contact simple.",
     pulse:
       "Un one-page moderne : typo claire, parcours de réservation simple, loin du template bien-être générique.",
     "madeleine-fragrance":
-      "Un site élégant pour raconter la marque, présenter le process et convertir en précommande.",
+      "Un site élégant pour raconter la marque, présenter le process et ouvrir les précommandes.",
     "coiffure-luna":
       "Un site moderne, prise de rendez-vous, et plus facile à trouver près de chez elle.",
     "yoga-zen":

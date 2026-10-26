@@ -1,5 +1,6 @@
 import { MOTION } from "@/lib/motion";
 import { SurfaceCard } from "@/components/ui/SurfaceCard";
+import { InlineProse } from "@/components/seo/InlineProse";
 
 export type NumberedGainItem = {
   n: string;
@@ -36,7 +37,7 @@ export function NumberedGainCards({
               </span>
             </div>
             <p className="text-sm sm:text-[0.95rem] text-muted font-medium leading-relaxed">
-              {g.d}
+              <InlineProse text={g.d} />
             </p>
           </SurfaceCard>
         </li>

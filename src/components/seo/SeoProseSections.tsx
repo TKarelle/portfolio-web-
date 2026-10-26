@@ -31,6 +31,19 @@ function renderBody(body: string): ReactNode[] {
   };
 
   for (const para of paras) {
+    const h3 = para.match(/^###\s+(.+)$/);
+    if (h3) {
+      flushBullets();
+      nodes.push(
+        <h3
+          key={`h3-${h3[1].slice(0, 40)}`}
+          className="text-left mx-auto max-w-2xl mt-10 mb-4 first:mt-0 text-xl md:text-[1.35rem] font-extrabold tracking-tight text-ink leading-snug"
+        >
+          <InlineProse text={h3[1]} />
+        </h3>,
+      );
+      continue;
+    }
     const bullet = para.match(/^[-*]\s+([\s\S]+)$/);
     if (bullet) {
       bullets.push(bullet[1]);

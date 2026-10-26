@@ -1,7 +1,7 @@
 # Kopio — llms.txt
 # Abonnement site web pour professionnelles de l'accompagnement en France
 # https://www.kopio.eu
-# Généré : 2026-10-21 via npm run sync:llms
+# Généré : 2026-10-26 via npm run sync:llms
 
 > Kopio crée et maintient le site internet des professionnelles de l'accompagnement (coachs, consultantes, thérapeutes, praticiennes…) en abonnement mensuel dès 89 €/mois. Conception, maintenance et évolution : vous validez, Karelle gère la technique.
 
@@ -26,7 +26,7 @@
 
 ## Sites web par métier
 
-- [Site web pour Coach](https://www.kopio.eu/site-web-pour/coach) : Un site professionnel pour coach ne se limite pas à présenter votre activité. Il donne à votre exper…
+- [Site web pour Coach](https://www.kopio.eu/site-web-pour/coach) : Kopio crée des sites internet sur mesure pour les coachs professionnels qui veulent affirmer leur po…
 - [Site web pour Praticienne bien-être](https://www.kopio.eu/site-web-pour/praticienne-bien-etre) : Un site pour praticienne bien-être ne se limite pas à une esthétique agréable. Il pose votre identit…
 - [Site web pour Consultante](https://www.kopio.eu/site-web-pour/consultante) : Un site pour consultante porte votre offre, vos preuves et un contact professionnel. Une référence s…
 - [Site web pour Assistante virtuelle](https://www.kopio.eu/site-web-pour/assistante-virtuelle) : Un site pour assistante virtuelle clarifie vos forfaits, votre cadre de collaboration et le prochain…

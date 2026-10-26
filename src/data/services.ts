@@ -340,6 +340,10 @@ export const servicePages: ServicePageData[] = [
         imageAlt: FOUNDER_PHOTO_ALT,
         body: "Un beau site qui ne se trouve pas ne travaille pas pour vous. Dès la création, je pose les entités clés dans les titres et la structure, une réponse claire en tête de page, et un corps assez précis pour être cité.\n\nLe SEO vous fait trouver. Une page claire aide aussi les moteurs génératifs à vous retenir. La méthode détaillée est sur la page SAGEO.",
       },
+      {
+        h2: "Un site pensé pour votre métier",
+        body: "La création part de votre activité, pas d’un modèle générique. Pour une coach professionnelle, la page [site internet pour coach professionnel](/site-web-pour/coach) détaille positionnement, offres, LinkedIn et parcours de contact. D’autres pages métier existent selon votre pratique.",
+      },
     ],
     cta: {
       title: "Votre prochain chapitre commence en ligne",

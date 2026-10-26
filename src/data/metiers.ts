@@ -8,6 +8,32 @@ export interface MetierSection {
  body: string;
 }
 
+export interface MetierBeforeAfter {
+ heading: string;
+ intro: string;
+ before: { image: string; alt: string; caption: string; body: string };
+ after: { image: string; alt: string; caption: string; body: string };
+ improvementsTitle: string;
+ improvements: { t: string; d: string }[];
+ closing: string;
+ /** Lien optionnel vers /projets ou le site public */
+ projectHref?: string;
+ projectLabel?: string;
+}
+
+export interface MetierProcessStep {
+ title: string;
+ body: string;
+}
+
+export interface MetierServiceSchema {
+ name: string;
+ serviceType: string;
+ description: string;
+ /** Si true, n’émet pas d’Offer (le tarif vit sur /tarifs) */
+ omitPrice?: boolean;
+}
+
 export interface MetierPage {
  slug: string;
  label: string;
@@ -35,6 +61,13 @@ export interface MetierPage {
  priceTitle: string;
  caseStudyId?: string;
  caseStudyHeading?: string;
+ /** Avant / après documenté (ex. Ample) — remplace le bloc case study mono-image */
+ beforeAfter?: MetierBeforeAfter;
+ /** Parcours de création en étapes éditoriales */
+ processTitle?: string;
+ processSteps?: MetierProcessStep[];
+ /** Schema.org Service spécifique à la page */
+ serviceSchema?: MetierServiceSchema;
  recommendedPlanId: "launch" | "pro" | "sur-mesure";
  relatedBesoinSlug: string;
  relatedBesoinLabel: string;
@@ -57,91 +90,304 @@ export const metiers: MetierPage[] = [
  {
   slug: "coach",
   label: "Coach",
-  keyword: "site web pour coach",
+  keyword: "site internet pour coach",
   metier: "coach",
   metierPlural: "coachs",
-  title: "Site web pour coach | Présence claire et crédible",
-  metaDescription: "Site web pour coach : traduire votre expertise en une présence en ligne claire. Positionnement, méthode, Google et réseaux.",
-  updatedAt: "2026-10-09",
-  h1: "Une présence claire pour votre coaching",
-  h1Highlight: "présence claire",
-  factChips: [
-   "Création de site",
-   "Positionnement",
-   "Visibilité"
-  ],
-  tldr: "Un site professionnel pour coach ne se limite pas à présenter votre activité. Il donne à votre expertise un espace pour être comprise et inspire confiance lorsque vous n'êtes pas là pour en parler.",
-  intro: "Vous avez construit votre pratique au fil des rencontres, des expériences et des personnes que vous avez accompagnées. Vous avez une méthode, une sensibilité, une façon bien à vous de travailler. Mais lorsqu'une personne découvre votre nom sur Google, après une recommandation ou au détour d'une conversation, que comprend-elle réellement de votre travail ?",
-  douleur: "Le décalage entre la valeur réelle de votre accompagnement et ce qu'une visiteuse comprend en ligne.",
-  whyTitle: "Ce qu'une présence en ligne sérieuse change pour une coach",
-  whyHighlight: "sérieuse",
+  title: "Site internet pour coach : valorisez votre expertise",
+  metaDescription:
+   "Création de site internet pour coach professionnel : valorisez votre expertise, présentez vos offres et prolongez votre visibilité LinkedIn avec Kopio.",
+  updatedAt: "2026-10-26",
+  h1: "Création de site internet pour coach : valorisez votre expertise",
+  h1Highlight: "valorisez votre expertise",
+  factChips: ["Création de site", "Positionnement", "Visibilité"],
+  tldr:
+   "Kopio crée des sites internet sur mesure pour les coachs professionnels qui veulent affirmer leur positionnement, présenter leurs accompagnements et faciliter la prise de rendez-vous. Chaque site reflète l’expertise, offre une expérience claire et intègre les fondamentaux du référencement naturel.",
+  intro:
+   "Votre expertise est visible sur LinkedIn. Votre site internet doit être à la hauteur. Vous partagez vos idées, développez votre réseau et construisez votre crédibilité. Mais lorsqu’une personne découvre votre profil et souhaite travailler avec vous, comprend-elle votre méthode, vos offres et le prochain pas ?",
+  douleur:
+   "Le décalage entre une expertise déjà reconnue sur LinkedIn et un site qui ne prolonge pas encore cette crédibilité.",
+  whyTitle: "Pourquoi créer un site internet pour coach professionnel ?",
+  whyHighlight: "coach professionnel",
   whyPoints: [
    {
-    t: "Votre méthode devient lisible",
-    d: "Pour qui vous travaillez, comment vous accompagnez, ce qui se passe ensuite : le cadre, pas le slogan."
+    t: "Donner une vitrine à votre expertise",
+    d: "Sur LinkedIn, votre expertise se découvre publication après publication. Sur votre site, elle devient immédiatement compréhensible : parcours, méthode et accompagnements réunis autour de votre positionnement.",
    },
    {
-    t: "La confiance se forme avant l'appel",
-    d: "Parcours, preuves et prochain pas visibles : la visiteuse arrive déjà cadrée."
+    t: "Renforcer votre crédibilité",
+    d: "Avant de réserver, vos prospects cherchent à comprendre qui vous êtes et comment vous travaillez. Un site soigné présente expérience, approche, références pertinentes et témoignages authentiques lorsque vous en disposez.",
    },
    {
-    t: "Google et les recommandations aboutissent quelque part",
-    d: "Une URL stable porte ce que Instagram et LinkedIn ne peuvent tenir seuls."
+    t: "Présenter clairement vos offres",
+    d: "Une publication ne suffit pas toujours à expliquer un programme ou un accompagnement. Le site détaille prestations, public, objectifs, déroulement et modalités. Vous recevez des demandes déjà mieux informées.",
    },
    {
-    t: "Votre site évolue avec votre pratique",
-    d: "Tarifs, témoignages, nouvelles offres : la présence reste alignée sans tout recommencer."
-   }
+    t: "Faciliter les prises de rendez-vous",
+    d: "Un bouton visible, un formulaire clair ou une réservation : le passage de la découverte à un premier échange devient plus simple, avec moins d’étapes inutiles.",
+   },
+   {
+    t: "Une visibilité complémentaire à LinkedIn",
+    d: "LinkedIn touche votre réseau. Un site structuré pour Google peut aussi être découvert par des personnes qui cherchent un accompagnement. Vous ne dépendez plus uniquement d’une plateforme. Voir aussi [LinkedIn ou site internet : que choisir ?](/comparatif/linkedin-ou-site-web).",
+   },
   ],
   sections: [
    {
-    h2: "Pourquoi Instagram ne suffit pas pour une coach ?",
-    body: "Instagram montre votre quotidien ; il ne remplace pas une page d'offre stable. L'algorithme décide qui voit vos publications, alors qu'une URL reste partageable après un networking, un podcast ou un message LinkedIn.\n\nSur votre site, méthode, formats et preuves tiennent en une lecture claire. Vous gardez Instagram pour nourrir la relation ; le site porte la décision de la personne qui veut aller plus loin."
+    h2: "Que comprend la création d’un site web pour coach avec Kopio ?",
+    body: `Un site professionnel pour coach doit faire comprendre rapidement votre activité, votre spécialité, vos accompagnements et la manière de vous contacter.
+
+Chez Kopio, les formules peuvent comprendre la création d’un site jusqu’à cinq pages, un atelier de rédaction, un système de réservation et la prise en charge des modifications courantes, selon les prestations de votre offre. [Découvrir les formules Kopio](/tarifs).
+
+### Une page d’accueil qui affirme votre positionnement
+
+La page d’accueil présente immédiatement votre spécialité, votre public et la valeur de votre accompagnement. Elle répond aux questions essentielles : qui accompagnez-vous, dans quelles situations, et comment pouvez-vous aider ?
+
+### Une page « À propos » qui inspire confiance
+
+Votre parcours ne se résume pas à une succession de diplômes. Cette page explique votre cheminement, vos convictions, votre approche et ce qui donne du sens à votre travail.
+
+### Des pages pour présenter vos accompagnements
+
+Coaching de dirigeants, coaching professionnel, reconversion ou coaching de vie : chaque prestation s’explique avec précision. Vos visiteurs découvrent à qui s’adresse l’accompagnement, comment il se déroule, et quelle démarche entreprendre pour vous contacter.
+
+### Un système de contact ou de réservation
+
+Les personnes intéressées passent à l’action sans chercher vos coordonnées dans plusieurs publications ou profils.
+
+### Un site adapté aux mobiles
+
+Une grande partie des échanges professionnels commence sur smartphone. Textes lisibles, navigation claire, boutons faciles à utiliser.
+
+### Une structure pensée pour le référencement naturel
+
+Titres descriptifs, contenus organisés, navigation cohérente et adaptation mobile : une base utile pour la visibilité sur Google. Le référencement demande du temps et dépend aussi de la concurrence et de la pertinence des contenus.`,
    },
    {
-    h2: "Que doit contenir un site web pour coach pour être crédible ?",
-    body: "Un site crédible pour coach pose trois blocs : pour qui vous travaillez, comment vous accompagnez, et ce qui se passe après le premier contact. La lectrice cherche un cadre, pas un slogan.\n\nJe structure votre présence autour du positionnement, d'une preuve concrète et d'un seul prochain pas. Vous pouvez envoyer le lien après un message : la prospecte comprend l'offre sans vous relancer trois fois. Le site ne remplace pas votre expertise ; il la rend lisible avant le premier échange."
+    h2: "Votre site internet et LinkedIn : une présence professionnelle cohérente",
+    body: `LinkedIn et votre site remplissent des rôles complémentaires. LinkedIn vous permet de partager votre expertise et de créer des relations. Votre site structure cette expertise et présente vos accompagnements dans leur ensemble.
+
+Imaginez le parcours. Une personne lit l’une de vos publications. Votre réflexion l’intéresse. Elle consulte votre profil et souhaite en savoir davantage. Sur votre site, elle trouve une présentation claire de votre méthode, découvre l’accompagnement qui correspond à sa situation, et peut réserver un échange.
+
+Ce parcours fonctionne d’autant mieux que votre communication reste cohérente entre les deux supports. Le tandem est détaillé dans [LinkedIn ou site internet : que choisir ?](/comparatif/linkedin-ou-site-web).
+
+### Un positionnement reconnaissable
+
+Votre site reprend les éléments essentiels de votre identité : votre spécialité, votre manière de communiquer et votre univers visuel.
+
+### Des contenus organisés selon les besoins de vos prospects
+
+Vos publications LinkedIn peuvent nourrir la réflexion sur vos pages, sans être simplement copiées. Le site organise ces informations pour répondre aux questions de celles qui envisagent un accompagnement.
+
+### Des pages à partager dans votre communication
+
+Vous orientez vos contacts vers une page précise : méthode, détail d’une offre, ou réservation d’un premier rendez-vous. Votre site prolonge la crédibilité déjà construite.`,
    },
    {
-    h2: "Faut-il attendre d'avoir assez de contenus avant de lancer son site ?",
-    body: "Attendre le texte parfait freine souvent plus que le manque de contenu. Une coach a rarement un dossier parfait ; elle a une méthode, des clientes et des preuves orales.\n\nJe pars de ce que vous avez déjà : notes d'appel, publications qui résonnent, témoignages reçus. On structure les blocs essentiels, vous complétez ensuite. Vous n'avez pas besoin de la version idéale pour être joignable et crédible."
+    h2: "Un site sur mesure pour coach de vie, coach professionnel et coach en entreprise",
+    body: `Chaque activité de coaching a ses spécificités. Un site efficace reflète votre domaine d’intervention, votre public et les situations dans lesquelles vous accompagnez.
+
+### Site internet pour coach professionnel
+
+Le site présente vos accompagnements en évolution professionnelle, prise de poste, leadership ou développement des compétences. Il met en valeur votre parcours, votre méthode et le cadre de vos interventions.
+
+### Site internet pour coach de dirigeants
+
+Les décideurs recherchent une présentation précise de l’expertise, du contexte d’intervention et des modalités. Le site met en avant votre expérience et les problématiques professionnelles sur lesquelles vous intervenez.
+
+### Site internet pour coach en reconversion professionnelle
+
+Le site explique les étapes de votre accompagnement, les situations concernées et votre approche pour aider à clarifier un projet.
+
+### Site internet pour coach de vie
+
+Votre site présente vos thématiques, votre méthode, votre parcours et les modalités des séances.
+
+### Site internet pour coach d’équipe
+
+Le site distingue les accompagnements collectifs et individuels, présente les objectifs des interventions et précise les organisations concernées.
+
+Dans chaque cas, l’objectif est le même : une présentation fidèle à votre expertise, plutôt qu’un site générique qui pourrait convenir à n’importe quel professionnel. [Découvrir mes réalisations](/projets).`,
    },
    {
-    h2: "Comment votre site travaille avec LinkedIn et Instagram ?",
-    body: "Le site n'entre pas en concurrence avec vos réseaux : il les ancre. LinkedIn et Instagram génèrent de la visibilité ; votre URL porte la lecture d'offre et la prise de contact.\n\nBio Instagram, signature mail et profil LinkedIn pointent vers la même page. Dès que le lien apparaît partout, les demandes se concentrent. Vous mesurez ce qui arrive via le formulaire, pas via un vague sentiment d'engagement."
+    h2: "Comment améliorer le référencement naturel d’un site de coach ?",
+    body: `Pour améliorer sa visibilité sur Google, un site de coach présente des prestations précises, répond aux questions de ses futurs clients et dispose d’une structure accessible aux moteurs de recherche.
+
+### Des pages adaptées aux recherches de votre public
+
+Une personne qui cherche un coach de dirigeants ne formule pas les mêmes demandes qu’une personne en reconversion. Les pages présentent clairement les prestations réellement proposées et les besoins auxquels elles répondent.
+
+### Des titres et des contenus structurés
+
+Titres descriptifs, sous-titres pertinents et organisation logique : les visiteurs trouvent plus facilement les informations, et les moteurs comprennent mieux les sujets abordés.
+
+### Une navigation claire et adaptée au mobile
+
+Un site rapide, lisible et facile à parcourir améliore l’expérience. Les pages importantes restent accessibles depuis la navigation et reliées entre elles lorsque c’est pertinent.
+
+### Des réponses directes aux questions fréquentes
+
+Prestations, tarifs, réservation, déroulement : des réponses claires rendent votre site plus utile, y compris pour les systèmes de recherche qui utilisent l’intelligence artificielle.
+
+### Une visibilité qui se construit dans la durée
+
+Le référencement naturel n’offre pas de position garantie. Il dépend de la concurrence, de la qualité des contenus, de la crédibilité du site et de son évolution. Kopio intègre les fondamentaux SEO dès la conception, pour partir sur une base structurée.`,
    },
    {
-    h2: "Que se passe-t-il après la mise en ligne ?",
-    body: "La livraison n'est pas un point final. Vous m'écrivez pour un tarif, un témoignage ou une photo : je mets à jour sous 24 à 72 h. Vous restez concentrée sur vos sessions.\n\nLes formules et délais sont sur la page tarifs. Ici, l'essentiel est une présence conçue pour évoluer avec votre pratique, pas un fichier livré puis abandonné."
-   }
+    h2: "Pourquoi choisir Kopio pour créer votre site de coaching ?",
+    body: `### Parce que votre expertise passe avant le design
+
+Je commence par comprendre votre activité et votre positionnement. Le site met en valeur ce que vous faites réellement, sans vous faire entrer dans une présentation impersonnelle.
+
+### Parce que vous n’avez pas à tout rédiger seule
+
+L’atelier de rédaction aide à structurer les informations importantes et à transformer vos idées en contenus adaptés à votre site.
+
+### Parce que votre communication existante a de la valeur
+
+Votre présence LinkedIn, votre parcours et vos contenus professionnels servent de point de départ pour un site cohérent avec votre image.
+
+### Parce que votre site doit rester simple à faire évoluer
+
+Les modifications courantes prévues par votre formule sont prises en charge, pour que votre présence suive l’évolution de votre activité. [Découvrir les formules Kopio](/tarifs).
+
+### Parce que vous échangez directement avec la personne qui crée votre site
+
+Chez Kopio, j’accompagne de façon personnalisée, avec une communication claire et une compréhension réelle de votre activité. Vous restez concentrée sur votre métier. Je m’occupe de donner à votre expertise une présence web professionnelle.`,
+   },
   ],
   includedTitle: "Ce qui est inclus dans un site Kopio pour coach",
   priceTitle: "Les formules pour une coach",
+  beforeAfter: {
+   heading:
+    "Exemple de refonte d’un site internet pour coach : le projet Ample",
+   intro:
+    "Un site peut être agréable à regarder sans expliquer clairement la spécialité de la professionnelle qui l’utilise. L’exemple du site Ample montre comment une refonte rend un positionnement plus lisible et oriente mieux les visiteurs.",
+   before: {
+    image: "/image/ample-avant.jpg",
+    alt: "Ancienne page d’accueil Ample : message généraliste et bouton En savoir plus",
+    caption: "Avant la refonte",
+    body: "L’ancienne page d’accueil affichait un univers visuel centré sur la mer, avec l’accroche « Naviguer les vagues de l’infini avec intention ». Cette formulation évoquait le développement personnel, sans identifier immédiatement la spécialité. Le visiteur ne savait pas précisément à qui s’adressaient les services. Le bouton principal, « En savoir plus », restait lui aussi général.",
+   },
+   after: {
+    image: "/image/ample.png",
+    alt: "Nouvelle page d’accueil Ample : coach spécialisée en épuisement professionnel à Lyon",
+    caption: "Après la refonte",
+    body: "La nouvelle page met en avant un positionnement précis : coach spécialisée en épuisement professionnel à Lyon. Le titre aborde une situation vécue : « Arrêt maladie pour burn-out ? ». Le texte présente l’accompagnement du retour au travail. Les boutons proposent des actions explicites : faire le point sur ma situation, découvrir l’accompagnement burn-out. L’identité visuelle a été repensée pour soutenir ce positionnement.",
+   },
+   improvementsTitle: "Les cinq améliorations visibles",
+   improvements: [
+    {
+     t: "Une spécialité clairement annoncée",
+     d: "Le visiteur identifie immédiatement le domaine d’expertise de la coach.",
+    },
+    {
+     t: "Une problématique concrète",
+     d: "La page s’adresse à une situation précise plutôt qu’à une aspiration générale.",
+    },
+    {
+     t: "Un public mieux identifié",
+     d: "Les textes aident les personnes concernées à reconnaître l’accompagnement proposé.",
+    },
+    {
+     t: "Des actions compréhensibles",
+     d: "Les boutons indiquent clairement ce que le visiteur peut faire ensuite.",
+    },
+    {
+     t: "Une identité visuelle cohérente",
+     d: "Couleurs, illustrations, typographie et organisation des contenus soutiennent une présentation structurée.",
+    },
+   ],
+   closing:
+    "La refonte d’un site internet ne consiste pas uniquement à moderniser son apparence. Il faut d’abord comprendre ce que le professionnel propose, à qui il s’adresse, et ce que ses visiteurs doivent retenir. Chez Kopio, le design sert le positionnement. Pas l’inverse. Cet avant/après illustre une amélioration de la clarté du message et du parcours. Il ne constitue pas, à lui seul, une preuve d’augmentation de visibilité ou de demandes.",
+   projectHref: "/projets",
+   projectLabel: "Découvrir mes réalisations",
+  },
+  processTitle: "Comment se déroule la création de votre site internet ?",
+  processSteps: [
+   {
+    title: "Comprendre votre activité et vos objectifs",
+    body: "Nous échangeons sur votre parcours, vos offres, votre clientèle et votre communication actuelle. Nous identifions ce qui rend votre accompagnement singulier et les informations que vos futurs clients doivent comprendre.",
+   },
+   {
+    title: "Clarifier votre message avec l’atelier de rédaction",
+    body: "Publications LinkedIn, présentations, supports commerciaux : ces contenus constituent une base. L’atelier organise vos idées, clarifie votre positionnement et prépare les textes essentiels du site.",
+   },
+   {
+    title: "Concevoir un site cohérent avec votre image",
+    body: "Je travaille la structure des pages, l’identité visuelle, la lisibilité et le parcours de navigation. L’objectif : un site professionnel qui présente votre expertise sans complexité inutile.",
+   },
+   {
+    title: "Mettre en ligne et faire évoluer votre site",
+    body: "Après validation, votre site est publié et peut être partagé dans votre communication. Lorsque vos offres évoluent, les modifications prévues dans votre formule sont prises en charge.",
+   },
+  ],
+  serviceSchema: {
+   name: "Création de site internet pour coach professionnel",
+   serviceType: "Création de site internet sur mesure",
+   description:
+    "Création de sites internet pour coachs professionnels, avec accompagnement à la structuration des contenus, présentation des offres et prise de rendez-vous.",
+   omitPrice: true,
+  },
   recommendedPlanId: "launch",
   relatedBesoinSlug: "site-vitrine-independante",
-  relatedBesoinLabel: "site vitrine d'indépendante",
-  closing: "Si vous souhaitez clarifier la façon dont votre expertise de coach apparaît en ligne, écrivez-moi. Réponse sous 48 h ouvrées.",
-  ctaLabel: "En discuter avec Karelle",
+  relatedBesoinLabel: "site vitrine d’indépendante",
+  closing:
+   "Vous avez pris le temps de construire votre expérience, de développer votre réseau et de partager votre vision sur LinkedIn. Votre site internet doit prolonger ce travail : une présentation professionnelle où vos futurs clients comprennent votre valeur, découvrent vos accompagnements et vous contactent facilement.",
+  ctaLabel: "Parlons de votre future vitrine",
   faqs: [
    {
-    question: "LinkedIn ou Instagram suffisent-ils pour une coach ?",
-    answer: "Ils aident à vous faire connaître. Votre site centralise l'offre, les preuves et le contact hors algorithme. C'est l'adresse que vous envoyez après une recommandation ou un premier échange."
+    question: "Pourquoi un coach a-t-il besoin d’un site internet ?",
+    answer:
+     "Un site internet présente votre expertise, vos accompagnements et vos coordonnées dans un espace professionnel structuré. Il complète les réseaux sociaux, facilite les demandes de contact et peut contribuer à votre visibilité sur Google.",
    },
    {
-    question: "Faut-il tout avoir clarifié avant de créer son site ?",
-    answer: "Non. On part de ce que vous expliquez déjà à l'oral, on structure le positionnement et le prochain pas, puis on affine."
+    question: "Quelles pages faut-il prévoir pour un site de coaching ?",
+    answer:
+     "Les pages essentielles sont généralement l’accueil, la présentation du coach, les accompagnements et le contact. Selon les besoins, le site peut aussi proposer des témoignages, une FAQ ou un système de réservation.",
    },
    {
-    question: "Combien coûte un site web pour coach ?",
-    answer: "Trois durées, un même socle (jusqu'à 5 pages, réservation, atelier rédaction) : 89 €/mois sur 24 mois, 139 €/mois sur 12 mois, 179 €/mois sur 6 mois. Le détail et la propriété du site sont sur la page tarifs."
+    question: "Comment créer un site internet pour coach qui inspire confiance ?",
+    answer:
+     "Il faut présenter clairement sa spécialité, son parcours, sa méthode et ses offres. Une identité visuelle cohérente, des informations précises et des témoignages authentiques renforcent aussi la crédibilité.",
    },
    {
-    question: "Pourrez-vous faire évoluer le site ensuite ?",
-    answer: "Oui. Vous m'envoyez la modification par email ; je mets à jour sous 24 à 72 h. Aucun outil à apprendre. Les évolutions plus larges se discutent avant de toucher à la structure."
-   }
+    question: "Un site internet est-il utile quand on communique déjà sur LinkedIn ?",
+    answer:
+     "Oui. LinkedIn développe le réseau et partage l’expertise ; le site organise durablement les informations essentielles sur l’activité. Les deux supports fonctionnent ensemble. Voir [LinkedIn ou site internet : que choisir ?](/comparatif/linkedin-ou-site-web).",
+   },
+   {
+    question: "Peut-on intégrer Calendly à un site de coach ?",
+    answer:
+     "Oui. Calendly peut être relié grâce à un lien de réservation ou à une intégration compatible. Les visiteurs choisissent un créneau disponible pour un échange.",
+   },
+   {
+    question: "Un site internet peut-il apporter des clients à un coach ?",
+    answer:
+     "Un site peut aider à être trouvé sur Google, présenter les offres et faciliter les prises de contact. Les résultats dépendent de la visibilité du site, de la pertinence de l’offre et de la qualité du parcours proposé.",
+   },
+   {
+    question: "Combien coûte la création d’un site internet pour coach ?",
+    answer:
+     "Le prix dépend du nombre de pages, des fonctionnalités, de la personnalisation et du niveau d’accompagnement. Kopio propose plusieurs formules dont les prestations et les conditions sont détaillées sur [les tarifs](/tarifs).",
+   },
+   {
+    question: "Combien de temps faut-il pour référencer un site de coach sur Google ?",
+    answer:
+     "Il n’existe pas de délai garanti. Google doit d’abord découvrir et indexer les pages. Leur positionnement dépend ensuite de la concurrence, de la pertinence des contenus et de nombreux autres facteurs.",
+   },
+   {
+    question: "Faut-il un blog pour améliorer le SEO d’un site de coach ?",
+    answer:
+     "Non, un blog n’est pas indispensable. Des pages de services détaillées et pertinentes peuvent déjà répondre à des recherches ciblées. Un blog devient utile lorsqu’il traite des questions complémentaires réellement recherchées par les futurs clients.",
+   },
+   {
+    question: "Peut-on faire évoluer son site après sa création ?",
+    answer:
+     "Oui. Un site évolue avec de nouvelles offres, des contenus actualisés ou des modifications visuelles. Chez Kopio, les mises à jour courantes sont prises en charge selon les conditions de la formule choisie.",
+   },
   ],
-  image: "/image/independant.jpg",
-  imageAlt: "Présence en ligne professionnelle pour coach indépendante"
+  image: "/image/mockupample.png",
+  imageAlt:
+   "Création de site internet pour coach : exemple de vitrine professionnelle Kopio",
  },
  {
   slug: "praticienne-bien-etre",

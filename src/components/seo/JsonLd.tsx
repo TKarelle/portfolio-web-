@@ -372,11 +372,13 @@ export function ServiceJsonLd({
   description,
   url,
   price,
+  serviceType,
 }: {
   name: string;
   description: string;
   url: string;
   price?: string;
+  serviceType?: string;
 }) {
   const base = getBaseUrl();
   const path = url.startsWith("http") ? url : `${base}${url}`;
@@ -387,9 +389,11 @@ export function ServiceJsonLd({
         "@context": "https://schema.org",
         "@type": "Service",
         name,
+        ...(serviceType ? { serviceType } : {}),
         description,
         url: path,
-        provider: { "@id": `${base}/#business` },
+        /** Organization (LOD) — aligné Schema.org Service.provider */
+        provider: { "@id": `${base}/#organization` },
         areaServed: { "@type": "Country", name: "France" },
         ...(price
           ? {

@@ -9,7 +9,11 @@ import { SectionHead, TitleEm } from "@/components/ui/SectionHead";
 import { NumberedGainCards } from "@/components/ui/NumberedGainCards";
 import { LandingHero } from "@/components/ui/LandingHero";
 import { MediaCard } from "@/components/ui/MediaCard";
-import { FaqJsonLd, ServiceJsonLd } from "@/components/seo/JsonLd";
+import {
+  FaqJsonLd,
+  HowToJsonLd,
+  ServiceJsonLd,
+} from "@/components/seo/JsonLd";
 import { SeoProseSections } from "@/components/seo/SeoProseSections";
 import { pricingPlans } from "@/data/pricing";
 import { resolveMetierSiblings } from "@/lib/cluster-mesh";
@@ -17,6 +21,8 @@ import { metierAnchor } from "@/lib/black-ink";
 import { IgDecisionMatrix } from "@/components/seo/IgDecisionMatrix";
 import { BlackInkBridge } from "@/components/seo/BlackInkBridge";
 import { FutureVitrineCta } from "@/components/landing/FutureVitrineCta";
+import { EditorialSteps } from "@/components/ui/EditorialSteps";
+import { InlineProse } from "@/components/seo/InlineProse";
 
 const THERAPIE_VS_SOPHRO: readonly (readonly [string, string, string])[] = [
   [
@@ -86,15 +92,34 @@ export function MetierTemplate({ data }: { data: MetierPage }) {
   const heroEyebrow =
     metierDateLabel(data.updatedAt) ?? data.eyebrow ?? undefined;
 
+  const schema = data.serviceSchema;
+  const serviceName = schema?.name ?? `Site web pour ${data.metier}`;
+  const serviceDescription = schema?.description ?? data.metaDescription;
+  const servicePrice = schema?.omitPrice ? undefined : recommended.price;
+
   return (
     <>
       <FaqJsonLd items={data.faqs} />
       <ServiceJsonLd
-        name={`Site web pour ${data.metier}`}
-        description={data.metaDescription}
+        name={serviceName}
+        serviceType={schema?.serviceType}
+        description={serviceDescription}
         url={metierPath(data.slug)}
-        price={recommended.price}
+        price={servicePrice}
       />
+      {data.processSteps && data.processSteps.length > 0 ? (
+        <HowToJsonLd
+          name={
+            data.processTitle ??
+            `Comment se déroule la création d’un site pour ${data.metier}`
+          }
+          description={serviceDescription}
+          steps={data.processSteps.map((step) => ({
+            name: step.title,
+            text: step.body,
+          }))}
+        />
+      ) : null}
 
       <LandingHero
         breadcrumbs={[
@@ -113,7 +138,20 @@ export function MetierTemplate({ data }: { data: MetierPage }) {
         factChips={data.factChips}
       />
 
-      <SeoProseSections sections={data.sections} />
+      <section className="py-16 md:py-20 page-x bg-bg">
+        <div className="w-full">
+          <div className="reveal mb-10 md:mb-12 text-center max-w-3xl mx-auto">
+            <SectionHead size="xl">
+              {withWhyHighlight(data.whyTitle, data.whyHighlight)}
+            </SectionHead>
+          </div>
+          <div className="reveal">
+            <NumberedGainCards items={gainItems} ariaLabel={data.whyTitle} />
+          </div>
+        </div>
+      </section>
+
+      <SeoProseSections sections={data.sections} startTone="surface" />
 
       {(data.slug === "therapeute" || data.slug === "sophrologue") && (
         <section className="py-16 md:py-20 page-x bg-bg">
@@ -144,20 +182,67 @@ export function MetierTemplate({ data }: { data: MetierPage }) {
         </section>
       )}
 
-      <section className="py-16 md:py-20 page-x bg-bg">
-        <div className="w-full">
-          <div className="reveal mb-10 md:mb-12 text-center max-w-3xl mx-auto">
-            <SectionHead size="xl">
-              {withWhyHighlight(data.whyTitle, data.whyHighlight)}
-            </SectionHead>
-          </div>
-          <div className="reveal">
-            <NumberedGainCards items={gainItems} ariaLabel={data.whyTitle} />
-          </div>
-        </div>
-      </section>
+      {data.beforeAfter ? (
+        <section className="py-16 md:py-20 page-x bg-surface">
+          <div className="w-full max-w-5xl mx-auto">
+            <div className="reveal mb-8 md:mb-10 text-center max-w-3xl mx-auto">
+              <SectionHead size="xl">{data.beforeAfter.heading}</SectionHead>
+              <p className="mt-5 text-base md:text-lg font-medium text-muted leading-relaxed">
+                {data.beforeAfter.intro}
+              </p>
+            </div>
 
-      {study && (
+            <div className="reveal grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 items-start">
+              {[data.beforeAfter.before, data.beforeAfter.after].map((side) => (
+                <figure key={side.caption} className="min-w-0">
+                  <p className="text-[11px] font-extrabold uppercase tracking-[0.18em] text-ink/40 mb-3">
+                    {side.caption}
+                  </p>
+                  <MediaCard
+                    src={side.image}
+                    alt={side.alt}
+                    aspect="16/10"
+                    sizes="(max-width: 768px) 100vw, 45vw"
+                  />
+                  <figcaption className="mt-4 text-sm sm:text-[0.95rem] font-medium text-muted leading-relaxed">
+                    {side.body}
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+
+            <div className="reveal mt-12 md:mt-14">
+              <h3 className="text-center text-xl md:text-2xl font-extrabold tracking-tight text-ink mb-8">
+                {data.beforeAfter.improvementsTitle}
+              </h3>
+              <NumberedGainCards
+                items={data.beforeAfter.improvements.map((item, i) => ({
+                  n: String(i + 1).padStart(2, "0"),
+                  t: item.t,
+                  d: item.d,
+                }))}
+                ariaLabel={data.beforeAfter.improvementsTitle}
+              />
+            </div>
+
+            <p className="reveal mt-10 text-center mx-auto max-w-2xl text-[0.95rem] md:text-base font-medium text-muted leading-relaxed">
+              {data.beforeAfter.closing}
+            </p>
+
+            {data.beforeAfter.projectHref ? (
+              <div className="reveal mt-8 flex justify-center">
+                <Button
+                  href={data.beforeAfter.projectHref}
+                  variant="outline"
+                  size="lg"
+                >
+                  {data.beforeAfter.projectLabel ?? "Découvrir mes réalisations"}
+                </Button>
+              </div>
+            ) : null}
+          </div>
+        </section>
+      ) : study ? (
         <section className="py-16 md:py-20 page-x bg-surface">
           <div className="w-full">
             <div className="reveal mb-10 md:mb-12 text-center">
@@ -217,7 +302,29 @@ export function MetierTemplate({ data }: { data: MetierPage }) {
             </article>
           </div>
         </section>
-      )}
+      ) : null}
+
+      {data.processSteps && data.processSteps.length > 0 ? (
+        <section className="py-16 md:py-20 page-x bg-bg">
+          <div className="w-full max-w-5xl mx-auto">
+            <div className="reveal mb-10 md:mb-12 text-center max-w-3xl mx-auto">
+              <SectionHead size="xl">
+                {data.processTitle ?? "Comment se déroule la création ?"}
+              </SectionHead>
+            </div>
+            <div className="reveal">
+              <EditorialSteps
+                columns={2}
+                items={data.processSteps.map((step, i) => ({
+                  step: String(i + 1).padStart(2, "0"),
+                  title: step.title,
+                  paragraphs: [step.body],
+                }))}
+              />
+            </div>
+          </div>
+        </section>
+      ) : null}
 
       <FAQ
         items={data.faqs}
@@ -228,7 +335,22 @@ export function MetierTemplate({ data }: { data: MetierPage }) {
         }
       />
 
-      <FutureVitrineCta />
+      {data.slug === "coach" ? (
+        <FutureVitrineCta
+          title={
+            <>
+              Parlons de votre future <TitleEm>vitrine</TitleEm>
+            </>
+          }
+          lead={data.closing}
+          closing="Chez Kopio, je crée des sites internet pour les coachs qui veulent une présence web aussi professionnelle que leur expertise."
+          primaryLabel="Faire le point ensemble"
+          secondaryLabel="Découvrir les formules Kopio"
+          secondaryHref="/tarifs"
+        />
+      ) : (
+        <FutureVitrineCta />
+      )}
 
       <section className="py-12 page-x border-t border-ink/8 bg-surface">
         <div className="w-full">
@@ -263,6 +385,11 @@ export function MetierTemplate({ data }: { data: MetierPage }) {
               </li>
             ))}
           </ul>
+          {data.slug === "coach" ? (
+            <p className="mt-8 text-sm font-medium text-muted leading-relaxed max-w-2xl">
+              <InlineProse text="Vous préférez comparer les supports avant de décider ? [LinkedIn ou site internet : que choisir ?](/comparatif/linkedin-ou-site-web). Pour une vue d’ensemble de la création : [création de site web](/creation-de-site-web)." />
+            </p>
+          ) : null}
         </div>
       </section>
     </>

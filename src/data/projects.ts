@@ -15,6 +15,19 @@ export type Project = {
 /** Portfolio */
 export const projects: Project[] = [
   {
+    id: "ample",
+    title: "Ample",
+    category: "Coach",
+    description:
+      "Refonte pour une coach spécialisée en épuisement professionnel à Lyon : positionnement lisible, problématique concrète, parcours de contact explicite.",
+    image: "/image/ample.png",
+    imageAlt:
+      "Site Ample après refonte : coach spécialisée en épuisement professionnel à Lyon",
+    color: "bg-rose-light",
+    tags: ["Refonte", "Coaching", "Positionnement"],
+    result: "Spécialité, public et prochain pas immédiatement lisibles",
+  },
+  {
     id: "sophie-delmas",
     title: "Sophie Delmas",
     category: "Coach",
