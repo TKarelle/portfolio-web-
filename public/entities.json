@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-26T08:09:04.972Z",
+  "generatedAt": "2026-10-27T16:42:20.206Z",
   "base": "https://www.kopio.eu",
   "axioms": [
     {
@@ -146,8 +146,8 @@
       "type": "service",
       "slug": "audit",
       "url": "https://www.kopio.eu/audit",
-      "title": " N°1 des Audits SAGEO France | Être trouvée, retenue et citée | Kopio",
-      "tldr": "Faites de votre site une référence incontournable. L'audit SAGEO de Kopio combine la restructuration de vos métadonnées pour Google (SEO), l'optimisation de votre contenu pour les citations ChatGPT et Gemini (GEO), ainsi qu'un plan d'action sur 30 jours accompagné d'une vidéo personnalisée de 45 minutes."
+      "title": "Audit SEO GEO : visibilité Google et ChatGPT | Kopio",
+      "tldr": "L’audit SAGEO de Kopio associe le référencement naturel sur Google (SEO) à la lisibilité pour les moteurs de réponse IA (GEO). Vous repartez avec des priorités classées sur 30 jours et une restitution d’environ 45 minutes. Aucune promesse de place ni de citation automatique."
     },
     {
       "type": "service",
@@ -356,8 +356,8 @@
       "type": "blog",
       "slug": "comment-chatgpt-cherche-sur-le-web",
       "url": "https://www.kopio.eu/blog/comment-chatgpt-cherche-sur-le-web",
-      "title": "Comment ChatGPT cherche sur le Web : la méthode pour être citée par l’IA",
-      "tldr": "ChatGPT cherche sur le Web via des sous-requêtes, récupère des pages, puis synthétise une réponse avec sources. Pour être citée, alignez SEO et GEO sur ce qu’il cherche vraiment."
+      "title": "Comment ChatGPT cherche sur le Web et sélectionne ses sources",
+      "tldr": "Comment ChatGPT trouve-t-il ses sources sur le Web ? Découvrez le fonctionnement de la recherche, les sous-requêtes et un exemple concret."
     },
     {
       "type": "blog",

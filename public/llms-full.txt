@@ -1,7 +1,7 @@
 # Kopio — llms-full.txt
 # Chunks vectorisables (~250–500 tokens) pour crawlers IA / RAG
 # Site : https://www.kopio.eu
-# Généré : 2026-10-26 via npm run sync:llms — ne pas éditer à la main
+# Généré : 2026-10-27 via npm run sync:llms — ne pas éditer à la main
 # Bots : GPTBot, PerplexityBot, ClaudeBot, Google-Extended
 
 ================================================================================
@@ -125,15 +125,15 @@ Autorité : Karelle (Person) derrière Kopio (Organization). Méthode SAGEO = SE
 
 ================================================================================
 CHUNK: service-audit
-title: Le N°1 des Audits SAGEO pour site vitrine
+title: Audit SEO GEO : visibilité Google et ChatGPT
 tokens_est: 189 (court)
 ================================================================================
 
 URL : https://www.kopio.eu/audit
-Titre SERP :  N°1 des Audits SAGEO France | Être trouvée, retenue et citée | Kopio
-H1 : Le N°1 des Audits SAGEO pour site vitrine
-Réponse directe : Faites de votre site une référence incontournable. L'audit SAGEO de Kopio combine la restructuration de vos métadonnées pour Google (SEO), l'optimisation de votre contenu pour les citations ChatGPT et Gemini (GEO), ainsi qu'un plan d'action sur 30 jours accompagné d'une vidéo personnalisée de 45 minutes.
-Contexte : Un audit SEO et GEO pour comprendre où votre site freine la découverte, la clarté et la citation.
+Titre SERP : Audit SEO GEO : visibilité Google et ChatGPT | Kopio
+H1 : Audit SEO GEO : visibilité Google et ChatGPT
+Réponse directe : L’audit SAGEO de Kopio associe le référencement naturel sur Google (SEO) à la lisibilité pour les moteurs de réponse IA (GEO). Vous repartez avec des priorités classées sur 30 jours et une restitution d’environ 45 minutes. Aucune promesse de place ni de citation automatique.
+Contexte : Un audit SEO et GEO pensé pour les sites vitrines, avec une méthode claire et des actions que vous pouvez réellement appliquer.
 Extrait :
 Lighthouse, indexation, titles, méta, structure Hn, Schema, lexique réel de vos clientes.\n\nJe vérifie ce qui freine la découverte sur Google et pour les IA, puis je priorise les corrections techniques et SEO utiles.
 Autorité : Karelle (Person) derrière Kopio (Organization). Méthode SAGEO = SEO + GEO.
@@ -683,17 +683,17 @@ Axiomes liés : tarifs 89/139/179 €/mois · https://www.kopio.eu/tarifs
 
 ================================================================================
 CHUNK: blog-comment-chatgpt-cherche-sur-le-web
-title: Comment ChatGPT cherche sur le Web : la méthode pour être citée par l’IA
+title: Comment ChatGPT cherche sur le Web et sélectionne ses sources
 tokens_est: 125 (court)
 ================================================================================
 
 URL : https://www.kopio.eu/blog/comment-chatgpt-cherche-sur-le-web
-Titre : Comment ChatGPT cherche sur le Web : la méthode pour être citée par l’IA
-Résumé : ChatGPT cherche sur le Web via des sous-requêtes, récupère des pages, puis synthétise une réponse avec sources. Pour être citée, alignez SEO et GEO sur ce qu’il cherche vraiment.
+Titre : Comment ChatGPT cherche sur le Web et sélectionne ses sources
+Résumé : Comment ChatGPT trouve-t-il ses sources sur le Web ? Découvrez le fonctionnement de la recherche, les sous-requêtes et un exemple concret.
 Extrait :
-Comment ChatGPT cherche sur le Web : la méthode pour être citée par l’IA
+Comment ChatGPT trouve-t-il ses sources sur le Web ? Découvrez le fonctionnement de la recherche, les sous-requêtes et un exemple concret.
 
-Comment ChatGPT cherche sur le Web | La méthode pour être citée par l’IA
+Quatre étapes pour partir d’une question cible, observer les sous-requêtes ChatGPT, puis structurer GEO et SEO de votre page.
 Source d'autorité : Karelle / Kopio — https://www.kopio.eu
 Axiomes liés : tarifs 89/139/179 €/mois · https://www.kopio.eu/tarifs
 

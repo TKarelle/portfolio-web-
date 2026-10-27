@@ -14,9 +14,8 @@ type ResponsiveDataTableProps = {
 };
 
 /**
- * Tableau de données soft (DA home / SurfaceCard).
- * Mobile : cartes empilées (pas de scroll horizontal).
- * Desktop : table native, texte qui revient à la ligne.
+ * Une seule table dans le DOM (pas de doublon mobile / desktop pour le crawl).
+ * Sur petit écran : scroll horizontal ; sur desktop : table fixe.
  */
 export function ResponsiveDataTable({
   headers,
@@ -41,37 +40,8 @@ export function ResponsiveDataTable({
         </figcaption>
       ) : null}
 
-      {/* Mobile : cartes */}
-      <ul className="md:hidden divide-y divide-ink/8 list-none m-0 p-0">
-        {rows.map((row, ri) => (
-          <li key={`m-${ri}`} className="px-5 py-5 text-left">
-            <p className="text-base font-extrabold text-ink leading-snug tracking-tight">
-              {cell(row[0] ?? "", 0)}
-            </p>
-            <dl className="mt-4 space-y-3.5">
-              {headers.slice(1).map((header, hi) => {
-                const col = hi + 1;
-                const value = row[col];
-                if (value == null || value === "") return null;
-                return (
-                  <div key={`${ri}-${header}`}>
-                    <dt className="text-[11px] font-extrabold uppercase tracking-[0.14em] text-ink/40 mb-1">
-                      {header}
-                    </dt>
-                    <dd className="m-0 text-sm font-medium text-muted leading-relaxed">
-                      {cell(value, col)}
-                    </dd>
-                  </div>
-                );
-              })}
-            </dl>
-          </li>
-        ))}
-      </ul>
-
-      {/* Desktop : table */}
-      <div className="hidden md:block overflow-x-auto">
-        <table className="w-full text-left border-collapse table-fixed">
+      <div className="overflow-x-auto">
+        <table className="w-full min-w-[32rem] md:min-w-0 text-left border-collapse table-fixed">
           <thead>
             <tr className="bg-ink/[0.03] border-b border-ink/10">
               {headers.map((h) => (
@@ -88,12 +58,12 @@ export function ResponsiveDataTable({
           <tbody>
             {rows.map((row, ri) => (
               <tr
-                key={`d-${ri}`}
+                key={`r-${ri}`}
                 className="border-t border-ink/8 align-top hover:bg-ink/[0.02] transition-colors"
               >
                 {headers.map((_, col) => (
                   <td
-                    key={`d-${ri}-${col}`}
+                    key={`r-${ri}-${col}`}
                     className={cn(
                       "px-5 py-4 text-sm font-medium leading-relaxed break-words",
                       col === 0

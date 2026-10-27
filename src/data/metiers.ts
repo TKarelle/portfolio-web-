@@ -297,7 +297,7 @@ Chez Kopio, j’accompagne de façon personnalisée, avec une communication clai
     },
    ],
    closing:
-    "La refonte d’un site internet ne consiste pas uniquement à moderniser son apparence. Il faut d’abord comprendre ce que le professionnel propose, à qui il s’adresse, et ce que ses visiteurs doivent retenir. Chez Kopio, le design sert le positionnement. Pas l’inverse. Cet avant/après illustre une amélioration de la clarté du message et du parcours. Il ne constitue pas, à lui seul, une preuve d’augmentation de visibilité ou de demandes.",
+    "La refonte d’un site internet ne consiste pas uniquement à moderniser son apparence. Il faut d’abord comprendre ce que le professionnel propose, à qui il s’adresse, et ce que ses visiteurs doivent retenir. Chez Kopio, le design sert le positionnement. Pas l’inverse. Cet avant/après illustre une amélioration de la clarté du message et du parcours. Il ne constitue pas, à lui seul, une preuve d’augmentation de visibilité ou de demandes. Ensuite : [les formules](/tarifs), puis [un échange de 30 minutes](/contact).",
    projectHref: "/projets",
    projectLabel: "Découvrir mes réalisations",
   },

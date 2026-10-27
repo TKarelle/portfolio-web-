@@ -226,7 +226,7 @@ export function MetierTemplate({ data }: { data: MetierPage }) {
             </div>
 
             <p className="reveal mt-10 text-center mx-auto max-w-2xl text-[0.95rem] md:text-base font-medium text-muted leading-relaxed">
-              {data.beforeAfter.closing}
+              <InlineProse text={data.beforeAfter.closing} />
             </p>
 
             {data.beforeAfter.projectHref ? (

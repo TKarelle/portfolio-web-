@@ -11,6 +11,7 @@ import { PillarsCarousel } from "@/components/landing/PillarsCarousel";
 import { ServiceFeatureBand } from "@/components/landing/ServiceFeatureBand";
 import { Button } from "@/components/ui/Button";
 import { LandingHero } from "@/components/ui/LandingHero";
+import { MediaCard } from "@/components/ui/MediaCard";
 import { PhotoScrollStory } from "@/components/ui/PhotoScrollStory";
 import { SectionCta } from "@/components/ui/SectionCta";
 import { SectionHead, TitleEm } from "@/components/ui/SectionHead";
@@ -44,7 +45,8 @@ type ContentBlock =
   | "sections"
   | "stages"
   | "featureBand"
-  | "compareTable";
+  | "compareTable"
+  | "quiz";
 type SectionTone = "bg" | "surface";
 
 const DEFAULT_ORDER: ContentBlock[] = [
@@ -274,6 +276,63 @@ function ServiceSections({
       );
       continue;
     }
+    if (section.layout === "beforeAfter" && section.beforeImage && section.afterImage) {
+      flushProse();
+      const tone = takeTone(toneRef);
+      nodes.push(
+        <section
+          key={section.h2}
+          className={`py-14 md:py-20 page-x ${toneClass(tone)}`}
+        >
+          <div className="w-full max-w-5xl mx-auto">
+            <div className="text-center max-w-3xl mx-auto mb-8 md:mb-10">
+              <h2 className="text-[clamp(1.5rem,3.2vw,2rem)] font-extrabold tracking-[-0.03em] leading-[1.15] text-ink text-balance">
+                {section.h2}
+              </h2>
+              <div className="mt-5 space-y-4">
+                {section.body.split("\n\n").filter(Boolean).map((para) => (
+                  <p
+                    key={para.slice(0, 48)}
+                    className="text-muted font-medium leading-[1.75] text-[0.95rem] md:text-base"
+                  >
+                    <InlineProse text={para} />
+                  </p>
+                ))}
+              </div>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 items-start">
+              {(
+                [
+                  {
+                    image: section.beforeImage,
+                    alt: section.beforeAlt ?? "Avant",
+                    caption: section.beforeCaption ?? "Avant",
+                  },
+                  {
+                    image: section.afterImage,
+                    alt: section.afterAlt ?? "Après",
+                    caption: section.afterCaption ?? "Après",
+                  },
+                ] as const
+              ).map((side) => (
+                <figure key={side.caption} className="min-w-0">
+                  <p className="text-[11px] font-extrabold uppercase tracking-[0.18em] text-ink/40 mb-3">
+                    {side.caption}
+                  </p>
+                  <MediaCard
+                    src={side.image}
+                    alt={side.alt}
+                    aspect="16/10"
+                    sizes="(max-width: 768px) 100vw, 45vw"
+                  />
+                </figure>
+              ))}
+            </div>
+          </div>
+        </section>,
+      );
+      continue;
+    }
     proseBatch.push(section);
   }
   flushProse();
@@ -398,6 +457,16 @@ function ServiceBody({ data }: { data: ServicePageData }) {
           );
         }
 
+        if (block === "quiz") {
+          return (
+            <QuizLeadMagnet
+              key={block}
+              id={`quiz-${data.slug}`}
+              className={toneClass(takeTone(toneRef))}
+            />
+          );
+        }
+
         return null;
       })}
 
@@ -409,7 +478,9 @@ function ServiceBody({ data }: { data: ServicePageData }) {
         </section>
       ) : null}
 
-      {data.quizSection !== false && data.emotionalHero ? (
+      {data.quizSection !== false &&
+      data.emotionalHero &&
+      !(data.contentOrder ?? []).includes("quiz") ? (
         <QuizLeadMagnet
           id={`quiz-${data.slug}`}
           className={toneClass(takeTone(toneRef))}

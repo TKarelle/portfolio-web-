@@ -617,20 +617,18 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "comment-chatgpt-cherche-sur-le-web",
-    title:
-      "Comment ChatGPT cherche sur le Web : la méthode pour être citée par l’IA",
-    metaTitle:
-      "Comment ChatGPT cherche sur le Web | La méthode pour être citée par l’IA",
+    title: "Comment ChatGPT cherche sur le Web et sélectionne ses sources",
+    metaTitle: "Comment ChatGPT cherche sur le Web : étapes et sources",
     excerpt:
-      "ChatGPT cherche sur le Web via des sous-requêtes, récupère des pages, puis synthétise une réponse avec sources. Pour être citée, alignez SEO et GEO sur ce qu’il cherche vraiment.",
+      "Comment ChatGPT trouve-t-il ses sources sur le Web ? Découvrez le fonctionnement de la recherche, les sous-requêtes et un exemple concret.",
     date: "2026-10-11",
-    updatedAt: "2026-10-11",
+    updatedAt: "2026-10-27",
     readTime: "16 min",
     category: "Guide",
     howTo: {
       name: "Être citée en comprenant comment ChatGPT cherche sur le Web",
       description:
-        "Cinq étapes pour partir d’une question cible, observer les sous-requêtes ChatGPT, puis structurer GEO et SEO de votre page.",
+        "Quatre étapes pour partir d’une question cible, observer les sous-requêtes ChatGPT, puis structurer GEO et SEO de votre page.",
       steps: [
         {
           name: "Poser la question cible",
@@ -647,10 +645,6 @@ export const blogPosts: BlogPost[] = [
         {
           name: "Ajuster le SEO",
           text: "Title, Hn, Schema et maillage alignés sur les signaux observés pour la récupération.",
-        },
-        {
-          name: "Itérer",
-          text: "Reposez la question, comparez les nouvelles requêtes, affinez une page porteuse à la fois.",
         },
       ],
     },
@@ -687,20 +681,18 @@ export const blogPosts: BlogPost[] = [
       },
     ],
     content: [
-      "**ChatGPT** ne lit pas tout le Web d’un coup. Il formule des ==sous-requêtes==, récupère des pages, en retient un petit ensemble, puis synthétise une réponse avec sources. Si votre page n’entre pas dans ce premier filtre, elle a peu de chances d’être citée.",
-      "La plupart des sites sont pensés pour Google seul. On publie. On attend. On espère être citée un jour. Chez Kopio, je fais l’inverse : je regarde ==ce que ChatGPT cherche vraiment==, puis j’aligne le SEO pour être trouvée et le GEO pour être retenue et citée.",
+      "Lorsque la recherche web est activée, ChatGPT peut formuler des requêtes, consulter des résultats et utiliser des sources en ligne pour construire sa réponse.",
+      "ChatGPT ne parcourt pas systématiquement tout Internet : il recherche des informations pertinentes pour une question donnée, puis sélectionne les éléments utiles à sa réponse.",
+      "Chez Kopio, je pars de ce filtre : j’observe ==ce que ChatGPT cherche vraiment==, puis j’aligne le SEO pour être trouvée et le GEO pour être retenue et citée.",
       "> Mot de Karelle : posez la question de votre client, regardez ce que ChatGPT cherche, puis écrivez la réponse claire qu’il est venu prendre.",
       "## Le cadre SAGEO : être trouvée, retenue, citée",
-      "Avant de parler de ChatGPT, il faut rappeler comment fonctionne une recherche générative. Un moteur augmenté par l’IA ne lit pas tout le web. Il suit généralement trois étapes.",
-      "- **Récupération** : le système identifie des pages ou des passages potentiellement pertinents.\n- **Re-classement** : il sélectionne les contenus les plus pertinents parmi les candidats récupérés.\n- **Génération** : il rédige une réponse à partir des contenus retenus, puis peut les citer.",
+      "Avant de parler de ChatGPT, il faut rappeler comment fonctionne une recherche générative. Un moteur augmenté par l’IA ne lit pas tout le web. Il suit généralement trois étapes : récupération (pages candidates), re-classement (sélection), génération (réponse, éventuellement avec citations).",
       "C’est le cadre utilisé par l’étude [SAGEO Arena](https://arxiv.org/abs/2602.12187), qui évalue la visibilité d’un document à chacune de ces étapes. L’étude montre qu’une page peut être bien rédigée sans jamais être récupérée, ou être récupérée puis exclue lors du re-classement. Dans les deux cas, elle ne peut pas être citée.",
       "C’est pourquoi le SEO et le GEO ne s’opposent pas. Le SEO permet d’être ==trouvée==. Le GEO permet d’être ==retenue== et ==citée==. Le SAGEO relie les deux. Le détail est dans [SEO + GEO = SAGEO](/blog/sageo-seo-geo-visibilite-2026) et sur [la page méthode SAGEO](/sageo).",
       "## Pourquoi partir de ChatGPT ?",
       "Les outils SEO classiques indiquent ce que les internautes recherchent sur Google : mots-clés, volumes, questions fréquentes, tendances. C’est utile. Mais cela ne montre pas comment une IA construit sa réponse lorsqu’elle active la recherche web.",
-      "Lorsque ChatGPT recherche, il ne lit pas tout le web. Il formule des ==sous-requêtes==, récupère des pages candidates, en retient un petit ensemble, puis synthétise une réponse. Si votre page n’entre pas dans ce premier filtre, elle n’a pas l’occasion d’être retenue, donc encore moins d’être citée.",
-      "C’est exactement ce que montre SAGEO Arena : la récupération est la première porte d’entrée. Une page qui n’apparaît pas dans les résultats de récupération ne peut pas influencer la réponse finale.",
-      "Les outils SEO vous disent ce que les humains tapent sur Google. L’observation de ChatGPT peut vous aider à comprendre ce qu’un modèle cherche lorsqu’il doit répondre à une question précise.",
-      "> Mot de Karelle : les volumes Google mesurent la demande humaine. Les sous-requêtes ChatGPT révèlent le filtre du modèle. Les deux se complètent.",
+      "Lorsque ChatGPT recherche, il formule des ==sous-requêtes==, récupère des pages candidates, en retient un petit ensemble, puis synthétise une réponse. Si votre page n’entre pas dans ce premier filtre, elle n’a pas l’occasion d’être retenue, donc encore moins d’être citée. SAGEO Arena le confirme : la récupération est la première porte d’entrée.",
+      "Les volumes Google mesurent la demande humaine. Les sous-requêtes ChatGPT révèlent le filtre du modèle. Les deux se complètent.",
       "## Ce que j’ai observé dans le JSON de ChatGPT",
       "J’ai testé cette approche sur une question directement liée à mon activité : « Qui en France fait un audit comme ça ? »",
       "L’objectif était de comprendre comment ChatGPT recherchait un prestataire français capable de réaliser un audit de visibilité SEO et GEO.",
@@ -715,11 +707,8 @@ export const blogPosts: BlogPost[] = [
       "Dans le premier cas, ChatGPT ne cherchait pas seulement « audit SEO ». Il combinait plusieurs intentions : trouver une agence ou une freelance ; chercher en France ; chercher un audit SEO et GEO ; chercher une prestation liée à la visibilité IA ; chercher un tarif ; cibler un site vitrine.",
       "Dans le second cas, lorsqu’il avait déjà identifié Kopio, il a affiné sa recherche avec le nom de domaine (`site:kopio.eu`), le nom de la méthode (SAGEO), le mot audit et la localisation (France).",
       "ChatGPT décompose une intention en plusieurs recherches successives. Votre page doit être compréhensible à chaque étape : prestataire, méthode, preuve, page précise, documentation officielle si le sujet l’exige.",
-      "> Mot de Karelle : le JSON révèle le lexique du filtre. Votre expertise apporte les faits vrais à y répondre.",
       "## La méthode pour être citée par l’IA",
-      "Au lieu de deviner, on remonte la chaîne de décision. Ce parcours colle au pipeline SAGEO Arena (récupération, re-classement, génération) et part des sous-requêtes réellement émises par ChatGPT.",
-      "| Étape | Objectif |\n| --- | --- |\n| **1. Poser la question cible** | Identifier la question qu’un futur client pourrait poser à ChatGPT |\n| **2. Observer les sous-requêtes** | Repérer les termes, entités et intentions réellement mobilisés |\n| **3. Travailler le GEO** | Rendre la réponse claire, autonome et facile à citer |\n| **4. Ajuster le SEO** | Aligner title, Hn, Schema et structure sur ces signaux |",
-      "Les quatre étapes détaillées, avec exemples, se débloquent juste en dessous.",
+      "Au lieu de deviner, on remonte la chaîne de décision. Ce parcours colle au pipeline SAGEO Arena (récupération, re-classement, génération) et part des sous-requêtes réellement émises par ChatGPT. Quatre étapes, détaillées ci-dessous.",
       "{{email-gate|sageo-json-pratique}}",
       "**Étape 1 : poser la bonne question.**",
       "La qualité de la méthode dépend entièrement de la qualité de la question.",
@@ -780,7 +769,7 @@ export const blogPosts: BlogPost[] = [
       "Ensuite : posez cette question. Observez les sous-requêtes réellement déclenchées. Rédigez un GEO clair, précis et extractible. Ajustez le SEO pour la récupération. Itérez.",
       "Le message central rejoint le guide SAGEO : **le SEO vous fait trouver, le GEO vous fait retenir et citer**. Ici, les deux sont nourris par le parcours de recherche réel de ChatGPT sur le Web.",
       "{{quiz}}",
-      "Vous voulez concevoir ou refondre votre site pour être citée par l’IA ? [En parler avec Karelle](/contact), découvrir [la méthode SAGEO](/sageo) ou réserver [l’audit SEO GEO](/audit). Le cas d’une coach et de son site WordPress est ici : [consultante freelance GEO, WordPress et ChatGPT](/blog/consultante-geo-coach-wordpress-chatgpt).",
+      "Parcours utile si la visibilité IA vous concerne : le [Test des 10 Secondes](/grille-etancheite), puis [l’audit SEO GEO](/audit) pour une lecture page par page, et [la méthode SAGEO](/sageo) pour le cadre. Coach avec un site WordPress : [consultante GEO, WordPress et ChatGPT](/blog/consultante-geo-coach-wordpress-chatgpt).",
     ],
   },
   {
@@ -1411,7 +1400,8 @@ export const blogPosts: BlogPost[] = [
       "{{quiz}}",
       "## Que retenir sur le coût d'un site de coach ?",
       "Le coût d'un site se compare sur **3 ans**, pas à la facture initiale : environ **5 600 €** pour un site payé une fois contre **2 136 € à 4 296 €** pour un abonnement accompagné, avec un site qui reste à jour au lieu de dater. Le vrai repère n'est pas le prix du site : c'est le prix de votre heure et le poids mental du sujet.",
-      "Un site de coach n'a pas besoin d'effets inutiles. Il a besoin de clarté, de preuve, et de quelqu'un qui le fait évoluer pendant que vous accompagnez. Pour le détail métier et ce qui est inclus : [site web pour coach](/site-web-pour/coach) et [tarifs](/tarifs). [En discuter avec Karelle](/#contact) en 30 minutes.",
+      "Un site de coach n'a pas besoin d'effets inutiles. Il a besoin de clarté, de preuve, et de quelqu'un qui le fait évoluer pendant que vous accompagnez.",
+      "Parcours recommandé : lisez [site internet pour coach](/site-web-pour/coach) (avec l’exemple Ample avant/après), comparez [les formules](/tarifs), puis [faites le point ensemble](/contact).",
     ],
   },
   {

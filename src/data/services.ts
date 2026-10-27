@@ -47,10 +47,16 @@ export const process = [
 export type ServiceSection = {
   h2: string;
   body: string;
-  /** `photoScroll` = photo gauche + texte scroll-bold (accueil HowIWork) */
-  layout?: "prose" | "photoScroll";
+  /** `photoScroll` = photo gauche + texte scroll-bold ; `beforeAfter` = dual captures */
+  layout?: "prose" | "photoScroll" | "beforeAfter";
   image?: string;
   imageAlt?: string;
+  beforeImage?: string;
+  beforeAlt?: string;
+  beforeCaption?: string;
+  afterImage?: string;
+  afterAlt?: string;
+  afterCaption?: string;
 };
 
 export type ServicePillar = {
@@ -190,6 +196,7 @@ export type ServicePageData = {
     | "stages"
     | "featureBand"
     | "compareTable"
+    | "quiz"
   )[];
   /** Tableau comparatif extractible (ex. SEO vs GEO vs SAGEO) */
   compareTable?: {
@@ -928,19 +935,18 @@ export const servicePages: ServicePageData[] = [
   {
     slug: "audit",
     navLabel: "Audit SEO GEO",
-    title:
-      " N°1 des Audits SAGEO France | Être trouvée, retenue et citée | Kopio",
+    title: "Audit SEO GEO : visibilité Google et ChatGPT | Kopio",
     metaDescription:
-      "Audit SEO GEO freelance en France pour site vitrine : 490 € TTC jusqu’à 30 pages. Lighthouse, métadonnées IA, structuration GEO, méthode SAGEO, plan d’action 30 jours et restitution vidéo d’environ 45 min (visio possible).",
-    h1: "Le N°1 des Audits SAGEO pour site vitrine",
-    h1Highlight: "Audits SAGEO",
+      "Audit SEO GEO pour site vitrine : SEO Google + lecture GEO pour ChatGPT. Méthode SAGEO, plan 30 jours, restitution d’environ 45 min. 490 € TTC jusqu’à 30 pages.",
+    h1: "Audit SEO GEO : visibilité Google et ChatGPT",
+    h1Highlight: "Google et ChatGPT",
     intro:
-      "Un audit SEO et GEO pour comprendre où votre site freine la découverte, la clarté et la citation.",
+      "Un audit SEO et GEO pensé pour les sites vitrines, avec une méthode claire et des actions que vous pouvez réellement appliquer.",
     tldr:
-      "Faites de votre site une référence incontournable. L'audit SAGEO de Kopio combine la restructuration de vos métadonnées pour Google (SEO), l'optimisation de votre contenu pour les citations ChatGPT et Gemini (GEO), ainsi qu'un plan d'action sur 30 jours accompagné d'une vidéo personnalisée de 45 minutes.",
+      "L’audit SAGEO de Kopio associe le référencement naturel sur Google (SEO) à la lisibilité pour les moteurs de réponse IA (GEO). Vous repartez avec des priorités classées sur 30 jours et une restitution d’environ 45 minutes. Aucune promesse de place ni de citation automatique.",
     image: "/image/card-cover/seo.jpeg",
     imageAlt:
-      "Audit SEO GEO Kopio : analyse de visibilité Google et IA pour site vitrine",
+      "Audit SEO GEO Kopio : analyse de visibilité Google et ChatGPT pour site vitrine",
     offerPrice: "490",
     emotionalHero: {
       lede:
@@ -958,6 +964,7 @@ export const servicePages: ServicePageData[] = [
       eyebrow: "Audit",
       title: "Trois questions, une méthode",
       titleHighlight: "méthode",
+      lede: "Un audit SEO et GEO pensé pour les sites vitrines, avec une méthode claire et des actions que vous pouvez réellement appliquer.",
       items: [
         {
           id: "trouvee",
@@ -983,7 +990,7 @@ export const servicePages: ServicePageData[] = [
         label: "Réserver mon audit",
       },
     },
-    contentOrder: ["featureBand", "stages", "sections", "pillars"],
+    contentOrder: ["featureBand", "stages", "quiz", "sections", "pillars"],
     stages: {
       h2: "Ce que contient l’audit à 490 € TTC (jusqu’à 30 pages)",
       h2Highlight: "490 € TTC",
@@ -1035,8 +1042,29 @@ export const servicePages: ServicePageData[] = [
     },
     sections: [
       {
-        h2: "Pourquoi un audit SEO GEO en 2026 ?",
-        body: "Un site vitrine peut être joli et silencieux. Google ne le trouve pas assez. Une IA ne le retient pas. Les visiteurs ne comprennent pas assez vite.\n\nL’audit SAGEO Kopio vous donne une lecture experte de votre site : où vous gagnez (ou perdez) la découverte, la clarté et la citation, puis quoi faire en premier pendant 30 jours. Il s’appuie sur la méthode SAGEO, nourrie par la recherche sur le parcours récupération, reclassement et génération (dont SAGEO Arena), appliquée concrètement à vos pages.\n\nTarif freelance en France : **490 € TTC**, jusqu’à **30 pages**, pour un site vitrine. Au-delà, on cadre le périmètre ensemble avant de démarrer.",
+        h2: "Qu’est-ce qu’un audit SEO GEO ?",
+        body: "Un audit SEO GEO est une analyse de site internet qui associe les fondamentaux du référencement naturel sur Google (SEO) à l’étude des facteurs pouvant favoriser sa compréhension et son utilisation par les moteurs de réponse IA (GEO).\n\nIl examine notamment l’accessibilité des pages, les titres, les contenus, la structure des informations, les preuves de crédibilité et la clarté des réponses apportées aux visiteurs.\n\nChez Kopio, cet audit repose sur la méthode [SAGEO](/sageo) : **être trouvée, retenue et citée**.\n\nL’objectif n’est pas de promettre une première position sur Google ou une recommandation automatique par ChatGPT, mais d’identifier les améliorations à effectuer en priorité.",
+      },
+      {
+        h2: "Comment savoir si votre site peut être cité par ChatGPT ?",
+        body: "Un site ne devient pas automatiquement une source pour les IA parce qu’il contient des mots-clés ou des données structurées.\n\nPour évaluer son potentiel de visibilité, il faut notamment examiner si ses pages sont accessibles, si les prestations sont clairement expliquées et si les informations importantes peuvent être comprises sans ambiguïté.\n\nL’audit SAGEO identifie les contenus trop vagues, les informations manquantes et les problèmes de structure qui peuvent limiter cette compréhension.\n\n**Important :** analyser le potentiel de citation d’un site n’est pas la même chose que mesurer sa fréquence réelle de citation dans ChatGPT. Cette dernière nécessite des tests spécifiques, avec des questions et des conditions de mesure documentées.",
+      },
+      {
+        h2: "Exemple de résultat : le projet Ample",
+        layout: "beforeAfter",
+        beforeImage: "/image/ample-avant.jpg",
+        beforeAlt:
+          "Ancienne page Ample : message généraliste et bouton En savoir plus",
+        beforeCaption: "Avant la refonte",
+        afterImage: "/image/ample.png",
+        afterAlt:
+          "Nouvelle page Ample : coach spécialisée en épuisement professionnel à Lyon",
+        afterCaption: "Après la refonte",
+        body: "Un site peut être agréable à regarder sans expliquer clairement la spécialité de la professionnelle qui l’utilise. Sur Ample, l’ancienne accroche (« Naviguer les vagues de l’infini avec intention ») restait générale. Après diagnostic et refonte, le positionnement devient lisible : coach spécialisée en épuisement professionnel à Lyon, avec une problématique concrète et des actions explicites.\n\nCet avant/après illustre ce qu’un audit priorise : clarté du message, public identifiable, prochain pas compréhensible. Ce n’est pas, à lui seul, une preuve d’augmentation de visibilité. Voir aussi [site internet pour coach](/site-web-pour/coach) et [mes réalisations](/projets).",
+      },
+      {
+        h2: "Un audit pensé pour les sites vitrines",
+        body: "Beaucoup d’audits SEO s’adressent à des catalogues, des boutiques ou des sites multi-équipes. Ici, le cadre est différent.\n\n**Un audit SEO et GEO pensé pour les sites vitrines, avec une méthode claire et des actions que vous pouvez réellement appliquer.** Jusqu’à 30 pages, plan 30 jours, restitution d’environ 45 minutes. Tarif : **490 € TTC** pour un site vitrine en France. Au-delà, on cadre le périmètre avant de démarrer.",
       },
       {
         h2: "Ce que je change après l’audit",
