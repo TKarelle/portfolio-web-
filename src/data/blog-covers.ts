@@ -42,7 +42,7 @@ export const BLOG_COVER_ALT_BY_SLUG: Record<string, string> = {
   "erreurs-a-eviter-site-independante":
     "Indépendante corrigeant les erreurs courantes sur son site vitrine",
   "abonnement-ou-paiement-unique-site-web":
-    "Comparaison abonnement mensuel et paiement unique pour un site web",
+    "Tableau comparatif site web par abonnement : prix, propriété, maintenance et accompagnement",
   "photos-de-marque-sans-budget-shooting":
     "Photos de marque prises sans shooting pro pour un site d’entrepreneuse",
   "combien-coute-site-vitrine-2026":

@@ -10,10 +10,12 @@ export const FOUNDER_SAME_AS: readonly string[] = [
   "https://share.google/n6U3hqCZBrkWmJtln",
 ];
 
-/** Profils externes marque Kopio (fiche Google Business). */
+/** Profils externes marque Kopio (Google, LinkedIn, Facebook, Instagram). */
 export const BRAND_SAME_AS: readonly string[] = [
   "https://share.google/n6U3hqCZBrkWmJtln",
   "https://www.linkedin.com/company/kopio-eu/",
+  "https://www.facebook.com/profile.php?id=61595925302798",
+  "https://www.instagram.com/kopio_web/",
 ];
 
 /** Concepts d'autorité (Wikidata) — knowsAbout. */

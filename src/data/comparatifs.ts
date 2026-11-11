@@ -433,7 +433,7 @@ Si vous valorisez votre heure à 40 €, 30 heures valent 1 200 €, avant même
         highlight: "durée",
         body: `L'abonnement lisse la trésorerie et lie le prestataire au suivi. Vous payez chaque mois ; les mises à jour et l'hébergement restent dans le cadre. Le rachat anticipé convient si vous préférez solder les mois restants. L'abonnement reste le modèle Kopio.
 
-Chez Kopio : 89 €/mois (24 mois), 139 €/mois (12 mois) ou 179 €/mois (6 mois). Engagement 6, 12 ou 24 mois, propriétaire à la fin de l'engagement ; rachat anticipé possible. Agence et freelance facturent surtout en forfait ponctuel, puis maintenance ou tickets. L'implication : choisissez selon votre trésorerie et selon qui gère la suite. Un forfait sans maintenance vous laisse seule après la livraison.`,
+Chez Kopio : 89 €/mois (24 mois), 139 €/mois (12 mois) ou 179 €/mois (6 mois). Engagement 6, 12 ou 24 mois, propriétaire à la fin de l'engagement ; rachat anticipé possible. Agence et freelance facturent surtout en forfait ponctuel, puis maintenance ou tickets. L'implication : choisissez selon votre trésorerie et selon qui gère la suite. Un forfait sans maintenance vous laisse seule après la livraison. Pour [comprendre les différences entre abonnement et paiement unique](/blog/abonnement-ou-paiement-unique-site-web), le guide dédié détaille propriété, suivi et pièges.`,
       },
       {
         h2: "Quel budget pour une coach, thérapeute ou créatrice ?",

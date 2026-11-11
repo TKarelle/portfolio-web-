@@ -1,7 +1,7 @@
 # Kopio — llms.txt
 # Abonnement site web pour professionnelles de l'accompagnement en France
 # https://www.kopio.eu
-# Généré : 2026-10-27 via npm run sync:llms
+# Généré : 2026-11-11 via npm run sync:llms
 
 > Kopio crée et maintient le site internet des professionnelles de l'accompagnement (coachs, consultantes, thérapeutes, praticiennes…) en abonnement mensuel dès 89 €/mois. Conception, maintenance et évolution : vous validez, Karelle gère la technique.
 
@@ -73,7 +73,7 @@
 - [Reconversion professionnelle 2026 : pourquoi votre site web est le premier levier](https://www.kopio.eu/blog/reconversion-professionnelle-site-web-2026)
 - [Site internet pour coach : combien ça coûte vraiment, et comment choisir en 2026](https://www.kopio.eu/blog/combien-coute-site-web-coach-france-2026)
 - [7 erreurs à éviter sur le site d’une indépendante](https://www.kopio.eu/blog/erreurs-a-eviter-site-independante)
-- [Abonnement site web : quelle durée choisir ?](https://www.kopio.eu/blog/abonnement-ou-paiement-unique-site-web)
+- [Site web par abonnement : combien ça coûte et comment bien choisir ?](https://www.kopio.eu/blog/abonnement-ou-paiement-unique-site-web)
 - [Photos de marque sans budget shooting : le guide réaliste](https://www.kopio.eu/blog/photos-de-marque-sans-budget-shooting)
 - [Combien coûte un site vitrine en 2026 ? Les vrais prix](https://www.kopio.eu/blog/combien-coute-site-vitrine-2026)
 - [5 raisons de ne pas attendre pour avoir votre site web](https://www.kopio.eu/blog/5-raisons-avoir-site-web-maintenant)

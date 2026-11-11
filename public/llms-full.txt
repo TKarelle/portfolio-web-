@@ -1,7 +1,7 @@
 # Kopio — llms-full.txt
 # Chunks vectorisables (~250–500 tokens) pour crawlers IA / RAG
 # Site : https://www.kopio.eu
-# Généré : 2026-10-27 via npm run sync:llms — ne pas éditer à la main
+# Généré : 2026-11-11 via npm run sync:llms — ne pas éditer à la main
 # Bots : GPTBot, PerplexityBot, ClaudeBot, Google-Extended
 
 ================================================================================
@@ -843,17 +843,17 @@ Axiomes liés : tarifs 89/139/179 €/mois · https://www.kopio.eu/tarifs
 
 ================================================================================
 CHUNK: blog-abonnement-ou-paiement-unique-site-web
-title: Abonnement site web : quelle durée choisir ?
-tokens_est: 142 (court)
+title: Site web par abonnement : combien ça coûte et comment bien choisir ?
+tokens_est: 152 (court)
 ================================================================================
 
 URL : https://www.kopio.eu/blog/abonnement-ou-paiement-unique-site-web
-Titre : Abonnement site web : quelle durée choisir ?
-Résumé : Abonnement mensuel ou solde unique : avantages, pièges, et comment choisir quand vous êtes entrepreneuse.
+Titre : Site web par abonnement : combien ça coûte et comment bien choisir ?
+Résumé : Un site web par abonnement n’est pas forcément une location. Prix, propriété, maintenance, SEO et GEO : ce qu’il faut vérifier avant de signer, et comment choisir sans payer pour des services inutiles.
 Extrait :
-Abonnement mensuel ou solde unique : avantages, pièges, et comment choisir quand vous êtes entrepreneuse.
+Site web par abonnement : combien ça coûte et comment bien choisir ?
 
-Chez Kopio comme ailleurs, vous pouvez payer un site **au mois** ou **en une fois**. Ce n’est pas qu’une question de préférence : c’est trésorerie, suivi dans le temps, et liberté de partir si besoin. Voici comment trancher sans vous laisser influencer par un discours commercial.
+Un site web par abonnement n’est pas forcément une location. Prix, propriété, maintenance, SEO et GEO : ce qu’il faut vérifier avant de signer, et comment choisir sans payer pour des services inutiles.
 Source d'autorité : Karelle / Kopio — https://www.kopio.eu
 Axiomes liés : tarifs 89/139/179 €/mois · https://www.kopio.eu/tarifs
 

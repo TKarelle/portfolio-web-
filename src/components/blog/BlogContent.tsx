@@ -12,6 +12,8 @@ import {
 } from "@/components/blog/MotDeKarelle";
 import { ArticleEbookWaitlist } from "@/components/blog/ArticleEbookWaitlist";
 import { QuizLeadMagnet } from "@/components/home/QuizLeadMagnet";
+import { ComparisonTable } from "@/components/home/ComparisonTable";
+import { MarketOffersComparisonTable } from "@/components/blog/MarketOffersComparisonTable";
 import { MediaCard, MediaCardCaption } from "@/components/ui/MediaCard";
 import { ResponsiveDataTable } from "@/components/ui/ResponsiveDataTable";
 import { slugifyHeading } from "@/lib/slugify-heading";
@@ -286,6 +288,27 @@ function isPipeTable(block: string): boolean {
   return /^:?-+:?(\|:?-+:?)+$/.test(sep) || /^[-:|]+$/.test(sep);
 }
 
+function inferPipeTableCaption(
+  headers: string[],
+  rows: string[][],
+): string | undefined {
+  const joined = [...headers, ...rows.flat()].join(" | ").toLowerCase();
+  if (joined.includes("outil en autonomie") || joined.includes("création lissée")) {
+    return "Trois modèles d’abonnement site web : autonomie, création lissée et location";
+  }
+  if (joined.includes("paiement unique") && joined.includes("abonnement accompagné")) {
+    return "Comparatif paiement unique et abonnement accompagné selon trésorerie, suivi, modifications et propriété";
+  }
+  if (
+    joined.includes("maintenance") &&
+    joined.includes("seo") &&
+    joined.includes("geo")
+  ) {
+    return "Ce que distinguent maintenance, SEO et GEO dans un abonnement de site internet";
+  }
+  return undefined;
+}
+
 function PipeTable({ block }: { block: string }) {
   const lines = block
     .split("\n")
@@ -298,6 +321,7 @@ function PipeTable({ block }: { block: string }) {
     <ResponsiveDataTable
       headers={headers}
       rows={rows}
+      caption={inferPipeTableCaption(headers, rows)}
       renderCell={(text) => <>{renderInline(text)}</>}
     />
   );
@@ -345,6 +369,22 @@ function renderBodyBlock(
 
   if (block.trim() === "{{ebook}}") {
     return <ArticleEbookWaitlist key={key} />;
+  }
+
+  if (block.trim() === "{{comparison-table}}") {
+    return (
+      <div key={key} className="my-10 text-left -mx-1 sm:mx-0">
+        <ComparisonTable withSection={false} />
+      </div>
+    );
+  }
+
+  if (block.trim() === "{{market-offers-table}}") {
+    return (
+      <div key={key} className="my-10 text-left">
+        <MarketOffersComparisonTable />
+      </div>
+    );
   }
 
   const ctaVariant = parseArticleCta(block);
@@ -540,6 +580,8 @@ function renderSectionBody(
       !/^[-•*]\s+/.test(seg.value.trim()) &&
       seg.value.trim() !== "{{quiz}}" &&
       seg.value.trim() !== "{{ebook}}" &&
+      seg.value.trim() !== "{{comparison-table}}" &&
+      seg.value.trim() !== "{{market-offers-table}}" &&
       parseArticleCta(seg.value) == null &&
       !MEDIA_RE.test(seg.value.trim())
     ) {

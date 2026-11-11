@@ -1,0 +1,73 @@
+/** Comparatif anonymisé d’offres « site par abonnement » (article prix). */
+export const subscriptionMarketComparison = [
+  {
+    label: "Mensualité annoncée",
+    offerA: "49 € HT",
+    offerB: "69 €*",
+    brand: "89 € TTC",
+    offerC: "95 € HT",
+  },
+  {
+    label: "Création du site",
+    offerA: "Incluse",
+    offerB: "Incluse",
+    brand: "Incluse",
+    offerC: "Incluse",
+  },
+  {
+    label: "Hébergement et maintenance",
+    offerA: "À confirmer",
+    offerB: "Inclus",
+    brand: "Inclus",
+    offerC: "Inclus",
+  },
+  {
+    label: "Travail sur les textes",
+    offerA: "Non précisé",
+    offerB: "Modifications de contenu",
+    brand: "Atelier rédaction + réécriture",
+    offerC: "Relecture et amélioration",
+  },
+  {
+    label: "SEO à la création",
+    offerA: "Non",
+    offerB: "SEO on-page annoncé",
+    brand: "Inclus",
+    offerC: "Non",
+  },
+  {
+    label: "Optimisation SEO continue",
+    offerA: "Non",
+    offerB: "Non",
+    brand: "Incluse",
+    offerC: "Recommandations semestrielles",
+  },
+  {
+    label: "Travail GEO / recherches IA",
+    offerA: "Non",
+    offerB: "Non",
+    brand: "Inclus",
+    offerC: "Non",
+  },
+  {
+    label: "Analyse de visibilité",
+    offerA: "Non",
+    offerB: "Non",
+    brand: "Tous les 2 mois",
+    offerC: "Semestrielle",
+  },
+  {
+    label: "Actualisation du design",
+    offerA: "Non",
+    offerB: "Non",
+    brand: "Tous les 12 mois",
+    offerC: "Non",
+  },
+  {
+    label: "Engagement",
+    offerA: "À vérifier",
+    offerB: "Sans engagement",
+    brand: "24 mois",
+    offerC: "12 mois",
+  },
+] as const;

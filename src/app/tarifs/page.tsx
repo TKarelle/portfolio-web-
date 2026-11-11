@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Pricing } from "@/components/home/Pricing";
 import { ComparisonTable } from "@/components/home/ComparisonTable";
 import { ContactSection } from "@/components/home/ContactSection";
@@ -43,6 +44,18 @@ export default function TarifsPage() {
       />
       <ValueBanner />
       <Pricing />
+      <section className="page-x pb-10 md:pb-12 bg-bg">
+        <p className="mx-auto max-w-2xl text-center text-sm sm:text-base font-medium text-muted leading-relaxed">
+          Avant de choisir une durée,{" "}
+          <Link
+            href="/blog/abonnement-ou-paiement-unique-site-web"
+            className="font-bold text-pink underline underline-offset-2 hover:text-violet transition-colors"
+          >
+            comprendre les différences entre abonnement et paiement unique
+          </Link>
+          .
+        </p>
+      </section>
       <ComparisonTable />
       <ContactSection />
     </>

@@ -34,17 +34,16 @@ export function ResponsiveDataTable({
         className,
       )}
     >
-      {caption ? (
-        <figcaption className="px-5 py-3.5 border-b border-ink/8 text-[11px] font-extrabold uppercase tracking-[0.14em] text-ink/40">
-          {caption}
-        </figcaption>
-      ) : null}
-
       <div className="overflow-x-auto">
         <table className="w-full min-w-[32rem] md:min-w-0 text-left border-collapse table-fixed">
+          {caption ? (
+            <caption className="caption-top px-5 py-3.5 border-b border-ink/8 text-left text-[11px] font-extrabold uppercase tracking-[0.14em] text-ink/40">
+              {caption}
+            </caption>
+          ) : null}
           <thead>
             <tr className="bg-ink/[0.03] border-b border-ink/10">
-              {headers.map((h) => (
+              {headers.map((h, hi) => (
                 <th
                   key={h}
                   scope="col"
@@ -61,19 +60,24 @@ export function ResponsiveDataTable({
                 key={`r-${ri}`}
                 className="border-t border-ink/8 align-top hover:bg-ink/[0.02] transition-colors"
               >
-                {headers.map((_, col) => (
-                  <td
-                    key={`r-${ri}-${col}`}
-                    className={cn(
-                      "px-5 py-4 text-sm font-medium leading-relaxed break-words",
-                      col === 0
-                        ? "text-ink font-extrabold w-[26%]"
-                        : "text-muted",
-                    )}
-                  >
-                    {cell(row[col] ?? "", col)}
-                  </td>
-                ))}
+                {headers.map((_, col) =>
+                  col === 0 ? (
+                    <th
+                      key={`r-${ri}-${col}`}
+                      scope="row"
+                      className="px-5 py-4 text-sm font-extrabold leading-relaxed break-words text-ink w-[26%] text-left"
+                    >
+                      {cell(row[col] ?? "", col)}
+                    </th>
+                  ) : (
+                    <td
+                      key={`r-${ri}-${col}`}
+                      className="px-5 py-4 text-sm font-medium leading-relaxed break-words text-muted"
+                    >
+                      {cell(row[col] ?? "", col)}
+                    </td>
+                  ),
+                )}
               </tr>
             ))}
           </tbody>
