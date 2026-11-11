@@ -43,7 +43,7 @@ export function ResponsiveDataTable({
           ) : null}
           <thead>
             <tr className="bg-ink/[0.03] border-b border-ink/10">
-              {headers.map((h, hi) => (
+              {headers.map((h) => (
                 <th
                   key={h}
                   scope="col"
