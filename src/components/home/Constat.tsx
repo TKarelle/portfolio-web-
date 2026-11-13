@@ -1,5 +1,4 @@
 import { FeaturePoints } from "@/components/ui/FeaturePoints";
-import { MediaCard } from "@/components/ui/MediaCard";
 import { TitleEm } from "@/components/ui/SectionHead";
 import {
   IconBadge,
@@ -45,14 +44,6 @@ export function Constat() {
         <>
           Découvrez le pouvoir d’un site <TitleEm>qui vous ressemble</TitleEm>.
         </>
-      }
-      afterTitle={
-        <MediaCard
-          src="/image/maquettesophie.png"
-          alt="Maquette site Sophie Delmas"
-          aspect="1366/4608"
-          sizes="(max-width: 768px) 92vw, 896px"
-        />
       }
       ariaLabel="Ce que votre site vous apporte"
       items={gains}
