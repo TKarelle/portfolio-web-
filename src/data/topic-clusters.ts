@@ -49,15 +49,47 @@ export const FOOTER_BESOIN_SLUGS = [
   "refonte-site-internet-entrepreneure",
 ] as const;
 
-/** Liens Services (navbar + menu). */
-export const NAV_SERVICE_LINKS = [
-  { href: "/creation-de-site-web", label: "Création de site" },
-  { href: "/refonte-de-site-web", label: "Refonte" },
-  { href: "/audit", label: "Audit SEO GEO" },
-  { href: "/seo", label: "SEO" },
-  { href: "/geo", label: "GEO / IA" },
-  { href: "/sageo", label: "SAGEO" },
+/** Icônes menu Services (glyphs FeatureIcon). */
+export type NavServiceIcon = "home" | "sliders" | "search";
+
+/** Groupes menu Services : Site (gauche) / Visibilité (droite). */
+export const NAV_SERVICE_GROUPS = [
+  {
+    id: "site",
+    label: "Site",
+    links: [
+      {
+        href: "/creation-de-site-web",
+        label: "Création de site",
+        icon: "home" as NavServiceIcon,
+      },
+      {
+        href: "/refonte-de-site-web",
+        label: "Refonte",
+        icon: "sliders" as NavServiceIcon,
+      },
+      {
+        href: "/audit",
+        label: "Audit SEO GEO",
+        icon: "search" as NavServiceIcon,
+      },
+    ],
+  },
+  {
+    id: "visibilite",
+    label: "Visibilité",
+    links: [
+      { href: "/seo", label: "SEO" },
+      { href: "/geo", label: "GEO / IA" },
+      { href: "/sageo", label: "SAGEO" },
+    ],
+  },
 ] as const;
+
+/** Liens Services à plat (active state, maillage). */
+export const NAV_SERVICE_LINKS = NAV_SERVICE_GROUPS.flatMap((g) =>
+  g.links.map(({ href, label }) => ({ href, label })),
+);
 
 /** Hubs footer (colonne « Le site ») — pas de mentions-legales en nav principale. */
 export const FOOTER_HUB_LINKS = [

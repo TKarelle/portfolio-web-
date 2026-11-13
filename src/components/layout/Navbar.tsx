@@ -1,16 +1,34 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, type ComponentType } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/Button";
 import { PromoBar } from "@/components/layout/PromoBar";
+import {
+  IconHome,
+  IconSearch,
+  IconSliders,
+} from "@/components/ui/FeatureIcon";
 import { cn } from "@/lib/utils";
 import { BRAND_LOGO } from "@/data/site";
 import { CTA } from "@/data/copy";
 import { EBOOK_META } from "@/data/ebook-coach";
 import { QUIZ_META } from "@/data/etancheite-quiz";
-import { NAV_SERVICE_LINKS } from "@/data/topic-clusters";
+import {
+  NAV_SERVICE_GROUPS,
+  NAV_SERVICE_LINKS,
+  type NavServiceIcon,
+} from "@/data/topic-clusters";
+
+const NAV_ICONS: Record<
+  NavServiceIcon,
+  ComponentType<{ className?: string }>
+> = {
+  home: IconHome,
+  sliders: IconSliders,
+  search: IconSearch,
+};
 
 const links = [
   { href: "/tarifs", label: "Tarifs" },
@@ -198,47 +216,66 @@ export function Navbar() {
                       : "opacity-0 -translate-y-1 pointer-events-none",
                   )}
                 >
-                  <ul
-                    className="min-w-[13.5rem] rounded-[var(--rounded-large)] border border-ink/10 bg-white/95 backdrop-blur-md shadow-lg shadow-ink/10 py-1.5"
+                  <div
+                    className="grid grid-cols-2 gap-0 min-w-[22rem] rounded-[var(--rounded-large)] border border-ink/10 bg-white/95 backdrop-blur-md shadow-lg shadow-ink/10 overflow-hidden"
                     role="menu"
                     aria-label="Services"
                   >
-                    <li role="none">
-                      <Link
-                        href="/services"
-                        role="menuitem"
+                    {NAV_SERVICE_GROUPS.map((group, gi) => (
+                      <div
+                        key={group.id}
                         className={cn(
-                          "block px-4 py-2.5 text-sm font-semibold transition-colors",
-                          linkActive(pathname, "/services")
-                            ? "text-ink bg-violet/8"
-                            : "text-muted hover:text-ink hover:bg-ink/[0.04]",
+                          "p-2.5",
+                          gi === 0
+                            ? "border-r border-ink/10 bg-lime-bg/40"
+                            : "bg-violet-bg/35",
                         )}
-                        onClick={() => setServicesOpen(false)}
                       >
-                        Vue d’ensemble
-                      </Link>
-                    </li>
-                    {NAV_SERVICE_LINKS.map((l) => {
-                      const active = linkActive(pathname, l.href);
-                      return (
-                        <li key={l.href} role="none">
-                          <Link
-                            href={l.href}
-                            role="menuitem"
-                            className={cn(
-                              "block px-4 py-2.5 text-sm font-semibold transition-colors",
-                              active
-                                ? "text-ink bg-violet/8"
-                                : "text-muted hover:text-ink hover:bg-ink/[0.04]",
-                            )}
-                            onClick={() => setServicesOpen(false)}
-                          >
-                            {l.label}
-                          </Link>
-                        </li>
-                      );
-                    })}
-                  </ul>
+                        <p className="px-2.5 pt-1 pb-2 text-[0.65rem] font-extrabold uppercase tracking-[0.08em] text-ink/55">
+                          {group.label}
+                        </p>
+                        <ul className="flex flex-col gap-0.5">
+                          {group.links.map((l) => {
+                            const active = linkActive(pathname, l.href);
+                            const Icon =
+                              "icon" in l && l.icon
+                                ? NAV_ICONS[l.icon]
+                                : null;
+                            return (
+                              <li key={l.href} role="none">
+                                <Link
+                                  href={l.href}
+                                  role="menuitem"
+                                  className={cn(
+                                    "flex items-center gap-2.5 px-2.5 py-2 text-sm font-semibold rounded-[var(--rounded-large)] transition-colors",
+                                    active
+                                      ? "text-ink bg-white/90"
+                                      : "text-muted hover:text-ink hover:bg-white/70",
+                                  )}
+                                  onClick={() => setServicesOpen(false)}
+                                >
+                                  {Icon ? (
+                                    <span
+                                      className="inline-flex items-center justify-center w-7 h-7 shrink-0 rounded-full border-2 border-ink bg-ink text-lime"
+                                      aria-hidden
+                                    >
+                                      <Icon className="w-3.5 h-3.5" />
+                                    </span>
+                                  ) : (
+                                    <span
+                                      className="w-1.5 h-1.5 shrink-0 rounded-full bg-violet"
+                                      aria-hidden
+                                    />
+                                  )}
+                                  {l.label}
+                                </Link>
+                              </li>
+                            );
+                          })}
+                        </ul>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </li>
 
@@ -361,30 +398,64 @@ export function Navbar() {
                           : "grid-rows-[0fr]",
                       )}
                     >
-                      <ul className="min-h-0 overflow-hidden pl-2">
-                        {NAV_SERVICE_LINKS.map((l) => {
-                          const active = linkActive(pathname, l.href);
-                          return (
-                            <li key={l.href}>
-                              <Link
-                                href={l.href}
-                                tabIndex={
-                                  open && mobileServicesOpen ? undefined : -1
-                                }
-                                onClick={() => setOpen(false)}
-                                className={cn(
-                                  "block px-4 py-3 min-h-11 text-[0.95rem] font-semibold rounded-xl transition-colors touch-manipulation",
-                                  active
-                                    ? "text-ink bg-violet/8"
-                                    : "text-muted hover:text-ink hover:bg-white/70",
-                                )}
-                              >
-                                {l.label}
-                              </Link>
-                            </li>
-                          );
-                        })}
-                      </ul>
+                      <div className="min-h-0 overflow-hidden pl-1 pr-1 pb-1 space-y-2">
+                        {NAV_SERVICE_GROUPS.map((group, gi) => (
+                          <div
+                            key={group.id}
+                            className={cn(
+                              "rounded-[var(--rounded-large)] p-2",
+                              gi === 0 ? "bg-lime-bg/50" : "bg-violet-bg/45",
+                            )}
+                          >
+                            <p className="px-3 pt-1 pb-1.5 text-[0.65rem] font-extrabold uppercase tracking-[0.08em] text-ink/55">
+                              {group.label}
+                            </p>
+                            <ul>
+                              {group.links.map((l) => {
+                                const active = linkActive(pathname, l.href);
+                                const Icon =
+                                  "icon" in l && l.icon
+                                    ? NAV_ICONS[l.icon]
+                                    : null;
+                                return (
+                                  <li key={l.href}>
+                                    <Link
+                                      href={l.href}
+                                      tabIndex={
+                                        open && mobileServicesOpen
+                                          ? undefined
+                                          : -1
+                                      }
+                                      onClick={() => setOpen(false)}
+                                      className={cn(
+                                        "flex items-center gap-2.5 px-3 py-2.5 min-h-11 text-[0.95rem] font-semibold rounded-xl transition-colors touch-manipulation",
+                                        active
+                                          ? "text-ink bg-white/90"
+                                          : "text-muted hover:text-ink hover:bg-white/70",
+                                      )}
+                                    >
+                                      {Icon ? (
+                                        <span
+                                          className="inline-flex items-center justify-center w-7 h-7 shrink-0 rounded-full border-2 border-ink bg-ink text-lime"
+                                          aria-hidden
+                                        >
+                                          <Icon className="w-3.5 h-3.5" />
+                                        </span>
+                                      ) : (
+                                        <span
+                                          className="w-1.5 h-1.5 shrink-0 rounded-full bg-violet"
+                                          aria-hidden
+                                        />
+                                      )}
+                                      {l.label}
+                                    </Link>
+                                  </li>
+                                );
+                              })}
+                            </ul>
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   </li>
 
