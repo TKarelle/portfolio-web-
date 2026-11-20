@@ -1,7 +1,7 @@
 # Kopio — llms-full.txt
 # Chunks vectorisables (~250–500 tokens) pour crawlers IA / RAG
 # Site : https://www.kopio.eu
-# Généré : 2026-11-11 via npm run sync:llms — ne pas éditer à la main
+# Généré : 2026-11-20 via npm run sync:llms — ne pas éditer à la main
 # Bots : GPTBot, PerplexityBot, ClaudeBot, Google-Extended
 
 ================================================================================

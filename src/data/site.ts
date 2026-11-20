@@ -7,6 +7,9 @@ export const FOUNDER_TAGLINE =
   "Je crée des sites web qui parlent le langage de Google, des IA et de vos futurs clients.";
 /** Affichage « Karelle | Visibilité digitale » */
 export const FOUNDER_BYLINE = `${FOUNDER_NAME} | ${FOUNDER_ROLE}`;
+/** Profil LinkedIn (byline, sameAs) */
+export const FOUNDER_LINKEDIN =
+  "https://www.linkedin.com/in/karelle-table/";
 /** Alt accessible / SEO : nom + signature (E-E-A-T) */
 export const FOUNDER_PHOTO_ALT = `${FOUNDER_NAME}, ${FOUNDER_ROLE}. ${FOUNDER_TAGLINE}`;
 export const FOUNDER_DIPLOMA = "Diplômée en développement web";

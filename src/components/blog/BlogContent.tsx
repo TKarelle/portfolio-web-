@@ -306,6 +306,19 @@ function inferPipeTableCaption(
   ) {
     return "Ce que distinguent maintenance, SEO et GEO dans un abonnement de site internet";
   }
+  if (joined.includes("peec ai") && joined.includes("profound")) {
+    return "Comparatif de 10 outils GEO 2026 : intérêt principal, public cible et accès gratuit ou essai";
+  }
+  if (joined.includes("vous découvrez le geo") || joined.includes("otterly.ai")) {
+    return "Quel outil GEO privilégier selon votre situation : découverte, France, agence ou analyse avancée";
+  }
+  if (
+    joined.includes("marque mentionnée") &&
+    joined.includes("site cité") &&
+    joined.includes("concurrents")
+  ) {
+    return "Grille manuelle de relevé GEO : mention, citation et concurrents pour cinq questions";
+  }
   return undefined;
 }
 
@@ -430,6 +443,20 @@ function renderBodyBlock(
       >
         {renderInline(callout)}
       </aside>
+    );
+  }
+
+  if (block.startsWith("### ")) {
+    const label = block.slice(4).trim();
+    const id = slugifyHeading(label);
+    return (
+      <h3
+        key={key}
+        id={id}
+        className="text-left text-lg sm:text-xl md:text-2xl font-extrabold text-ink leading-snug tracking-tight mt-10 mb-4 scroll-mt-28"
+      >
+        {renderInline(label)}
+      </h3>
     );
   }
 
@@ -575,6 +602,7 @@ function renderSectionBody(
       node &&
       !seg.value.startsWith(">") &&
       !seg.value.startsWith("## ") &&
+      !seg.value.startsWith("### ") &&
       !isPipeTable(seg.value) &&
       !isChecklistBlock(seg.value) &&
       !/^[-•*]\s+/.test(seg.value.trim()) &&

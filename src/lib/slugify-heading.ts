@@ -3,6 +3,7 @@
  */
 export function slugifyHeading(title: string): string {
   return title
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "")
     .toLowerCase()

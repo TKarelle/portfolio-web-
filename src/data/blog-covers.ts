@@ -25,6 +25,7 @@ export const BLOG_COVER_BY_SLUG: Record<string, string> = {
   "consultante-geo-coach-wordpress-chatgpt": `${BASE}/site-web-coach.png`,
   "connaitre-sa-position-sur-chatgpt-2026": `${BASE}/connaitre-sa-position-chatgpt-article.png`,
   "obtenir-avis-clients-coach": `${BASE}/obtenir-avis-client-coach.png`,
+  "outils-geo": `${BASE}/outils-geo.png`,
 };
 
 /** Alt contextuels par slug (description visuelle + sujet de l’article). */
@@ -67,6 +68,8 @@ export const BLOG_COVER_ALT_BY_SLUG: Record<string, string> = {
     "Illustration : mesurer sa position sur ChatGPT, mention, citation et part de voix",
   "obtenir-avis-clients-coach":
     "Illustration : obtenir des avis clients quand on est coach, sans exposer ses clients",
+  "outils-geo":
+    "Comparatif de 10 outils GEO 2026 : suivre mentions et citations sur ChatGPT, Gemini et Perplexity",
 };
 
 const FALLBACK = `${BASE}/blog-seo.jpg`;

@@ -1,11 +1,13 @@
 import Image from "next/image";
 import {
+  FOUNDER_LINKEDIN,
   FOUNDER_NAME,
   FOUNDER_PHOTO,
   FOUNDER_PHOTO_ALT,
   FOUNDER_ROLE,
   FOUNDER_TAGLINE,
 } from "@/data/site";
+import { LinkedInIcon } from "@/components/ui/LinkedInIcon";
 import { SectionHead, TitleEm } from "@/components/ui/SectionHead";
 
 /** Accroche fondatrice — fond blanc, sans CTA. */
@@ -48,9 +50,20 @@ export function QuoteBand() {
           </div>
 
           <div className="text-center sm:text-left max-w-lg">
-            <p className="text-sm sm:text-base font-extrabold text-ink leading-snug">
-              {FOUNDER_NAME}{" "}
-              <span className="font-medium text-muted">| {FOUNDER_ROLE}</span>
+            <p className="text-sm sm:text-base font-extrabold text-ink leading-snug flex items-center justify-center sm:justify-start gap-2 flex-wrap">
+              <span>
+                {FOUNDER_NAME}{" "}
+                <span className="font-medium text-muted">| {FOUNDER_ROLE}</span>
+              </span>
+              <a
+                href={FOUNDER_LINKEDIN}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex text-[#0A66C2] hover:opacity-80 transition-opacity"
+                aria-label={`${FOUNDER_NAME} sur LinkedIn`}
+              >
+                <LinkedInIcon className="w-4 h-4 sm:w-[1.125rem] sm:h-[1.125rem]" />
+              </a>
             </p>
             <p className="mt-1.5 text-sm font-medium text-muted leading-snug">
               {FOUNDER_TAGLINE}

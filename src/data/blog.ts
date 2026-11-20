@@ -1,4 +1,5 @@
 import { getBlogCover, getBlogCoverAlt } from "@/data/blog-covers";
+import { outilsGeoPost } from "@/data/blog-outils-geo";
 import clusterNeighbors from "@/data/generated/cluster-neighbors.json";
 
 export interface BlogPost {
@@ -39,6 +40,7 @@ function withCover(post: BlogPost): ResolvedBlogPost {
 }
 
 export const blogPosts: BlogPost[] = [
+  outilsGeoPost,
   {
     slug: "obtenir-avis-clients-coach",
     title:
@@ -243,7 +245,7 @@ export const blogPosts: BlogPost[] = [
     ],
     content: [
       "**Vous pouvez être mentionnée par ChatGPT sans que votre site soit cité.** Vous pouvez aussi avoir votre site cité sans que votre nom apparaisse dans la réponse. Ce sont ==deux formes de visibilité différentes==. Les confondre peut vous faire croire que vous êtes visible alors que votre marque reste absente de la recommandation.",
-      "Vous êtes experte de votre sujet. Ce n’est pas ça qui est en question. C’est le test que vous avez fait (une question posée une fois, un matin, entre deux rendez-vous) qui ne mesure pas encore votre visibilité.",
+      "Vous êtes experte de votre sujet. Ce n’est pas ça qui est en question. C’est le test que vous avez fait (une question posée une fois, un matin, entre deux rendez-vous) qui ne mesure pas encore votre visibilité. Pour [comparer les outils GEO](/blog/outils-geo) qui aident à suivre mentions et citations, un guide dédié détaille dix solutions.",
       "Cet article répond à trois questions concrètes :",
       "- Comment savoir si ChatGPT recommande votre site, et si votre marque apparaît dans ses réponses ?\n- Comment distinguer une simple mention d’une citation de site, pour vérifier la visibilité de votre site sur ChatGPT sans vous tromper ?\n- Comment suivre les mentions de votre marque dans ChatGPT de façon fiable, sans conclure à partir d’une seule question ?",
       "**L’essentiel en trois phrases.** Il n’existe pas de « classement ChatGPT » unique que vous monteriez ou descendriez comme sur Google. Quatre indicateurs remplacent ce classement absent : la ==mention==, la ==citation==, la ==position== et la ==part de voix==. Une seule réponse ne prouve rien : c’est la régularité sur un sujet, observée sur plusieurs questions et plusieurs essais, qui commence à dire quelque chose.",
