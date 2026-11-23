@@ -118,7 +118,7 @@ export function ComparatifTemplate({ data }: { data: ComparatifPageData }) {
         image={data.image}
         imageAlt={data.imageAlt}
         geoSummary={data.tldr}
-        delivery="Sous 21 jours"
+        delivery="À partir de 48h"
         factChips={data.factChips}
         footer={
           <p className="mt-4 text-base font-extrabold text-ink leading-snug max-w-xl">

@@ -55,7 +55,7 @@ export function BesoinTemplate({ data }: { data: BesoinPageData }) {
         image={data.image}
         imageAlt={data.imageAlt}
         geoSummary={data.tldr}
-        delivery="Sous 21 jours"
+        delivery="À partir de 48h"
         factChips={data.factChips}
       />
 

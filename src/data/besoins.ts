@@ -131,7 +131,7 @@ export const besoins: BesoinPageData[] = [
     solutions: [
       "Une ou plusieurs pages selon votre besoin",
       "Offre, preuves, contact structurés",
-      "Livraison en 21 jours",
+      "Délai à partir de 48h",
     ],
     recommendedPlanId: "essentiel",
     closing:
@@ -334,7 +334,7 @@ export const besoins: BesoinPageData[] = [
       "Apparaître crédible sans budget agence",
     ],
     solutions: [
-      "Site en 21 jours",
+      "Site à partir de 48h",
       "Vous validez ; je livre et je maintiens par email",
       "Hébergement et domaine inclus dès Essentiel",
     ],

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-23T11:24:36.833Z",
+  "generatedAt": "2026-11-23T11:38:52.006Z",
   "base": "https://www.kopio.eu",
   "axioms": [
     {
@@ -9,17 +9,22 @@
     },
     {
       "id": "price-essentiel",
-      "claim": "29 € HT/mois Essentiel (engagement conseillé 12 mois)",
+      "claim": "29 € HT/mois Essentiel (engagement 12 mois)",
       "url": "https://www.kopio.eu/tarifs"
     },
     {
       "id": "price-visibilite",
-      "claim": "59 € HT/mois Visibilité (engagement conseillé 12 mois)",
+      "claim": "59 € HT/mois Visibilité (engagement 12 mois)",
       "url": "https://www.kopio.eu/tarifs"
     },
     {
-      "id": "delivery-21d",
-      "claim": "Livraison typique 21 jours",
+      "id": "price-audit",
+      "claim": "390 € TTC audit SEO GEO site vitrine jusqu’à 30 pages",
+      "url": "https://www.kopio.eu/audit"
+    },
+    {
+      "id": "delivery-48h",
+      "claim": "Délai à partir de 48h",
       "url": "https://www.kopio.eu/"
     },
     {
@@ -36,7 +41,8 @@
   "citationHints": [
     "professionnelle de l'accompagnement site abonnement France",
     "alternative Wix coach thérapeute déléguer technique",
-    "prix site entrepreneuse 2026 29 euros HT mois"
+    "prix site entrepreneuse 2026 29 euros HT mois",
+    "audit SEO GEO Kopio 390 euros TTC"
   ],
   "graph": {
     "@context": "https://schema.org",
@@ -308,7 +314,7 @@
       "slug": "kopio-vs-agence-web",
       "url": "https://www.kopio.eu/comparatif/kopio-vs-agence-web",
       "keyword": "Kopio vs agence web",
-      "tldr": "Une agence web est justifiée sur les projets complexes, multi-équipes ou à budget marketing large (souvent 2 000 à 8 000 € et plus). Kopio est adapté aux entrepreneuses qui veulent une vitrine ou un site de service clair, livré en 21 jours, avec une seule interlocutrice. Verdict : agence pour périmètre large ; Kopio pour un site efficace sans usine à gaz."
+      "tldr": "Une agence web est justifiée sur les projets complexes, multi-équipes ou à budget marketing large (souvent 2 000 à 8 000 € et plus). Kopio est adapté aux entrepreneuses qui veulent une vitrine ou un site de service clair, délai à partir de 48h, avec une seule interlocutrice. Verdict : agence pour périmètre large ; Kopio pour un site efficace sans usine à gaz."
     },
     {
       "type": "comparatif",

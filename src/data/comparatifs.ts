@@ -119,7 +119,7 @@ export const comparatifs: ComparatifPageData[] = [
       },
       {
         label: "Délai de mise en ligne",
-        kopio: "21 jours",
+        kopio: "À partir de 48h",
         other: "Variable (souvent plus long)",
       },
       {
@@ -185,7 +185,7 @@ Chez Kopio, le SEO de base est inclus dès Essentiel ; Visibilité renforce SEO 
         highlight: "budget",
         body: `Comparer le prix affiché de Wix au prix Kopio sans le temps, c'est comparer deux choses différentes. Wix : abonnement plateforme + apps éventuelles + votre temps de construction et de maintenance. Kopio : dès 29 € HT/mois, avec design, hébergement et mises à jour inclus selon le modèle.
 
-Une entrepreneuse qui compte 20 à 40 heures pour monter un site correct en autonomie « économise » sur l'abonnement et « dépense » en soirées. Kopio lisse ça : 29 € HT/mois (Essentiel) ou 59 € HT/mois (Visibilité), délais 21 jours, refresh annuel inclus. Ni Wix ni Kopio ne sont « meilleurs » en absolu. Ils répondent à des priorités opposées : autonomie maximale d'un côté, délégation complète de l'autre.`,
+Une entrepreneuse qui compte 20 à 40 heures pour monter un site correct en autonomie « économise » sur l'abonnement et « dépense » en soirées. Kopio lisse ça : 29 € HT/mois (Essentiel) ou 59 € HT/mois (Visibilité), délai à partir de 48h. Ni Wix ni Kopio ne sont « meilleurs » en absolu. Ils répondent à des priorités opposées : autonomie maximale d'un côté, délégation complète de l'autre.`,
       },
       {
         h2: "Pouvez-vous passer de Wix à Kopio (ou l'inverse) sans tout perdre ?",
@@ -233,7 +233,7 @@ Sur Essentiel et Visibilité, domaine personnalisé, hébergement et maintenance
     updatedAt: UPDATED,
     h1: "Agence web ou Kopio : quelle échelle ?",
     h1Highlight: "quelle échelle",
-    tldr: "Une agence web est justifiée sur les projets complexes, multi-équipes ou à budget marketing large (souvent 2 000 à 8 000 € et plus). Kopio est adapté aux entrepreneuses qui veulent une vitrine ou un site de service clair, livré en 21 jours, avec une seule interlocutrice. Verdict : agence pour périmètre large ; Kopio pour un site efficace sans usine à gaz.",
+    tldr: "Une agence web est justifiée sur les projets complexes, multi-équipes ou à budget marketing large (souvent 2 000 à 8 000 € et plus). Kopio est adapté aux entrepreneuses qui veulent une vitrine ou un site de service clair, délai à partir de 48h, avec une seule interlocutrice. Verdict : agence pour périmètre large ; Kopio pour un site efficace sans usine à gaz.",
     verdict:
       "Agence pour projets complexes et budgets 2 000 €+ ; Kopio pour un site d'entrepreneuse rapide, clair et en abonnement.",
     intro:
@@ -247,7 +247,7 @@ Sur Essentiel et Visibilité, domaine personnalisé, hébergement et maintenance
     ],
     kopioStrengths: [
       "Prix accessible dès 29 € HT/mois selon la formule",
-      "Délais courts : 21 jours",
+      "Délai : à partir de 48h",
       "Une seule interlocutrice, pas de téléphone arabe",
       "Mises à jour continues incluses, pas un devis par virgule",
     ],
@@ -257,7 +257,7 @@ Sur Essentiel et Visibilité, domaine personnalisé, hébergement et maintenance
         kopio: "29 à 59 € HT/mois",
         other: "2 000 à 8 000 €+",
       },
-      { label: "Délai", kopio: "21 jours", other: "1 à 3 mois" },
+      { label: "Délai", kopio: "À partir de 48h", other: "1 à 3 mois" },
       {
         label: "Interlocuteurs",
         kopio: "1 personne",
@@ -290,7 +290,7 @@ Concrètement, c'est pertinent si vous avez une équipe marketing, un parcours m
       {
         h2: "Quand Kopio est le bon choix face à une agence ?",
         highlight: "face à une agence",
-        body: `Kopio est le bon choix quand votre besoin réel est simple à énoncer : être crédible, claire, joignable, avec un site qui travaille sans chantier de trois mois. Le mécanisme : une seule interlocutrice (moi), un brief, une livraison en 21 jours, un abonnement qui inclut hébergement et mises à jour.
+        body: `Kopio est le bon choix quand votre besoin réel est simple à énoncer : être crédible, claire, joignable, avec un site qui travaille sans chantier de trois mois. Le mécanisme : une seule interlocutrice (moi), un brief, un délai à partir de 48h, un abonnement qui inclut hébergement et mises à jour.
 
 Beaucoup d'entrepreneuses reçoivent des devis agence à 4 000 ou 6 000 € pour une vitrine, puis découvrent que chaque modification après livraison passe en tickets. Chez Kopio, Essentiel (29 € HT/mois) ou Visibilité (59 € HT/mois) — et Découverte gratuite — couvrent le cas standard d'une indépendante. Le « Besoin précis » (boutique, outil métier) part sur devis, sans prétendre remplacer une agence sur un SI complexe. Vous choisissez Kopio pour la proximité et le périmètre adapté, pas pour battre une agence sur tous les terrains.`,
       },
@@ -306,7 +306,7 @@ Sur 12 mois à 29 € HT/mois (Essentiel), Kopio revient à un ordre de grandeur
         highlight: "délais",
         body: `Une agence sérieuse annonce souvent 1 à 3 mois : lancement, wireframes, maquettes, intégration, recette, allers-retours entre plusieurs personnes. C'est cohérent avec un process multi-métiers. Vous gagnez en formalisme ; vous perdez en vitesse et parfois en proximité.
 
-Chez Kopio, le délai annoncé est 21 jours, si les contenus arrivent à temps. Vous parlez toujours à la même personne. Pas de téléphone arabe entre commercial, chef de projet et freelance. L'implication pratique : si vous avez besoin de gouvernance et de comptes-rendus pour un comité, l'agence structure mieux ça. Si vous voulez avancer vite avec une décisionnaire claire (vous) et une exécutante claire (moi), Kopio retire de la lourdeur inutile.`,
+Chez Kopio, le délai annoncé est à partir de 48h, si les contenus arrivent à temps. Vous parlez toujours à la même personne. Pas de téléphone arabe entre commercial, chef de projet et freelance. L'implication pratique : si vous avez besoin de gouvernance et de comptes-rendus pour un comité, l'agence structure mieux ça. Si vous voulez avancer vite avec une décisionnaire claire (vous) et une exécutante claire (moi), Kopio retire de la lourdeur inutile.`,
       },
       {
         h2: "Que se passe-t-il après la mise en ligne avec une agence ou Kopio ?",
@@ -402,7 +402,7 @@ Kopio remplace une agence quand le brief réel est : « j'ai besoin d'un site pr
       },
       {
         label: "Délai typique",
-        kopio: "21 jours",
+        kopio: "À partir de 48h",
         other: "Variable / 1 à 3 mois",
       },
     ],
@@ -438,16 +438,16 @@ Chez Kopio : Découverte gratuite, Essentiel 29 € HT/mois ou Visibilité 59 �
       {
         h2: "Quel budget pour une coach, thérapeute ou créatrice ?",
         highlight: "budget",
-        body: `Pour démarrer une activité de service (coach, thérapeute, consultante, créatrice avec vitrine), dès 29 € HT/mois (Essentiel) : jusqu'à 5 pages, offre, preuves, contact, réservation, livraison sous 21 jours. Visibilité à 59 € HT/mois ajoute blog autonome et SAGEO approfondie. Vous choisissez la formule selon le périmètre, pas seulement le mensuel.
+        body: `Pour démarrer une activité de service (coach, thérapeute, consultante, créatrice avec vitrine), dès 29 € HT/mois (Essentiel) : jusqu'à 5 pages, offre, preuves, contact, réservation, délai à partir de 48h. Visibilité à 59 € HT/mois ajoute blog autonome et SAGEO approfondie. Vous choisissez la formule selon le périmètre, pas seulement le mensuel.
 
 Boutique ou outil métier : hors grille standard, sur devis (Besoin précis). Une agence à 4 000 € peut être justifiée si vous avez un parcours marketing large ou plusieurs parties prenantes. Pour une indépendante qui veut exister en ligne sans usine à gaz, le budget réaliste 2026 se situe plutôt sur l'abonnement tenu ou un freelance clair sur le périmètre. Adaptez le budget à la complexité de l'offre, pas à la peur de « paraître pas assez pro ».`,
       },
       {
         h2: "Comment Kopio se situe face à Wix, freelance et agence ?",
         highlight: "situe",
-        body: `Face à Wix / éditeurs en autonomie : Kopio est plus cher en abonnement affiché, moins cher si vous comptez votre temps, et différent en modèle (délégation vs autonomie). Face au freelance : Kopio affiche des prix fixes pour les cas standards, inclut la maintenance dans l'abonnement, et livre en 21 jours ; un bon freelance peut être excellent au forfait ponctuel, avec un suivi variable selon le contrat.
+        body: `Face à Wix / éditeurs en autonomie : Kopio est plus cher en abonnement affiché, moins cher si vous comptez votre temps, et différent en modèle (délégation vs autonomie). Face au freelance : Kopio affiche des prix fixes pour les cas standards, inclut la maintenance dans l'abonnement, et livre à partir de 48h ; un bon freelance peut être excellent au forfait ponctuel, avec un suivi variable selon le contrat.
 
-Face à l'agence : Kopio est en dessous sur le ticket d'entrée et plus serré sur le périmètre. L'agence gagne sur la complexité et la gouvernance. Le tableau de comparaison du site résume ça sans caricature : prix dès 29 € HT/mois vs abo éditeur vs 2 000 €+ ; délais 21 jours vs vous-même vs 1 à 3 mois ; mises à jour 24 à 72 h par mail vs vous-même vs tickets. Vous ne cherchez pas « le moins cher absolu ». Vous cherchez le coût aligné sur qui fait le travail après le jour J.`,
+Face à l'agence : Kopio est en dessous sur le ticket d'entrée et plus serré sur le périmètre. L'agence gagne sur la complexité et la gouvernance. Le tableau de comparaison du site résume ça sans caricature : prix dès 29 € HT/mois vs abo éditeur vs 2 000 €+ ; délai à partir de 48h vs vous-même vs 1 à 3 mois ; mises à jour 24 à 72 h par mail vs vous-même vs tickets. Vous ne cherchez pas « le moins cher absolu ». Vous cherchez le coût aligné sur qui fait le travail après le jour J.`,
       },
       {
         h2: "Quels pièges de prix éviter en 2026 ?",

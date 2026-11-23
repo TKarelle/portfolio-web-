@@ -342,21 +342,39 @@ export function OffersJsonLd() {
       data={{
         "@context": "https://schema.org",
         "@type": "ItemList",
+        name: "Formules Kopio",
         itemListElement: pricingPlans.map((plan, i) => {
+          const isFree = plan.price === "0";
           return {
             "@type": "ListItem",
             position: i + 1,
             item: {
               "@type": "Service",
-              name: `Modèle ${plan.name}`,
+              name: plan.tier,
               description: plan.description,
               provider: { "@id": `${base}/#business` },
               offers: {
                 "@type": "Offer",
+                name: plan.tier,
                 price: plan.price,
                 priceCurrency: "EUR",
                 url: `${base}/tarifs`,
                 availability: "https://schema.org/InStock",
+                ...(isFree
+                  ? {}
+                  : {
+                      priceSpecification: {
+                        "@type": "UnitPriceSpecification",
+                        price: plan.price,
+                        priceCurrency: "EUR",
+                        billingDuration: "P1M",
+                        referenceQuantity: {
+                          "@type": "QuantitativeValue",
+                          value: 1,
+                          unitCode: "MON",
+                        },
+                      },
+                    }),
               },
             },
           };

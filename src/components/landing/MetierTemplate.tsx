@@ -134,7 +134,7 @@ export function MetierTemplate({ data }: { data: MetierPage }) {
         imageAlt={data.imageAlt}
         geoSummary={data.tldr}
         proof={data.factChips ? undefined : study?.title}
-        delivery="Sous 21 jours"
+        delivery="À partir de 48h"
         factChips={data.factChips}
       />
 

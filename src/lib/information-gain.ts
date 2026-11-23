@@ -7,7 +7,7 @@
 
 export const IG_CHECKLIST = [
   "Réponse directe 0–120 mots visible (tldr / HeroFacts, sans label TL;DR)",
-  "Au moins un axiome propriétaire (prix Gratuit/29/59 HT, domaine, 21 jours, Karelle)",
+  "Au moins un axiome propriétaire (prix Gratuit/29/59 HT, domaine, 48h, Karelle)",
   "Une matrice ou tableau de décision quand l’intent est comparatif / différenciation",
   "Une preuve non générique (cas, ville, année) par page money",
   "Zéro collage de section entre métiers proches (1 intent = 1 mécanisme)",

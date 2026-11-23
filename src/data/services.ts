@@ -366,7 +366,7 @@ export const servicePages: ServicePageData[] = [
       {
         question: "Combien de temps pour créer mon site ?",
         answer:
-          "En pratique, une mise en ligne typique tient en 21 jours si les textes et photos arrivent à temps. Nous validons les étapes avant publication.",
+          "En pratique, une mise en ligne typique tient à partir de 48h si les textes et photos arrivent à temps. Nous validons les étapes avant publication.",
       },
       {
         question: "Est-ce que je dois tout gérer seule après ?",
