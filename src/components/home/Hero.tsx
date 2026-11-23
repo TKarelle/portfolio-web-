@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import { SoftProof } from "@/components/ui/SoftProof";
 import { MeshGrainBackground } from "@/components/ui/MeshGrainBackground";
@@ -8,9 +8,14 @@ import { SectionHead, TitleEm } from "@/components/ui/SectionHead";
 import { MockupMarquee } from "@/components/landing/MockupMarquee";
 import { CTA } from "@/data/copy";
 import { HERO_MOCKUPS } from "@/data/hero-mockups";
+import {
+  FOUNDER_NAME,
+  FOUNDER_PHOTO,
+  FOUNDER_PHOTO_ALT,
+} from "@/data/site";
 
 const HERO = {
-  lede: "Le N°1 de la création de sites conçus avec la méthode SAGEO, pour captiver vos visiteurs, dominer Google et devenir la référence citée par l’IA.",
+  lede: "Spécialisée dans la création de sites pour femmes coachs : une vitrine digne de votre bouche-à-oreille, qui rassure dès la première seconde et donne envie de vous écrire.",
 } as const;
 
 /**
@@ -36,15 +41,18 @@ export function Hero() {
 
             <p className="hero-lede mx-auto m-0">{HERO.lede}</p>
 
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 items-center justify-center w-full sm:w-auto">
-              <Button href="#modeles" size="lg">
-                {CTA.primary}
-              </Button>
-              <Button href="/sageo" variant="outline" size="lg">
-                {CTA.secondary}
-              </Button>
-            </div>
-
+            <Button href="/contact" size="lg" className="pl-2.5 sm:pl-3 pr-6 sm:pr-8">
+              <Image
+                src={FOUNDER_PHOTO}
+                alt={FOUNDER_PHOTO_ALT}
+                width={40}
+                height={40}
+                className="w-9 h-9 sm:w-10 sm:h-10 rounded-full object-cover shrink-0 ring-2 ring-ink/10"
+                priority
+              />
+              <span>{CTA.planDiscuss}</span>
+              <span className="sr-only"> — {FOUNDER_NAME}</span>
+            </Button>
           </div>
         </div>
 

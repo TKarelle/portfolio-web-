@@ -9,9 +9,9 @@ import { ServiceJsonLd } from "@/components/seo/JsonLd";
 import { buildPageMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Tarifs site web | Formules claires selon engagement",
+  title: "Tarifs site web | Découverte, Essentiel, Visibilité",
   description:
-    "Grille octobre 2026 : 89 €/mois (24 mois), 139 €/mois (12 mois) ou 179 €/mois (6 mois). Présence en ligne déléguée, livraison 21 jours, propriété en fin d'engagement.",
+    "Grille novembre 2026 : Découverte gratuite, Essentiel 29 € HT/mois ou Visibilité 59 € HT/mois. Site web pour professionnelles de l’accompagnement, délai à partir de 48h.",
   path: "/tarifs",
 });
 
@@ -20,9 +20,9 @@ export default function TarifsPage() {
     <>
       <ServiceJsonLd
         name="Création de site web en abonnement"
-        description="Création et maintenance de sites web pour professionnelles de l'accompagnement. Dès 89 €/mois, hébergement inclus."
+        description="Création et maintenance de sites web pour professionnelles de l'accompagnement. Gratuit ou dès 29 € HT/mois, hébergement inclus."
         url="/tarifs"
-        price="89"
+        price="29"
       />
       <PageIntro
         breadcrumbs={[

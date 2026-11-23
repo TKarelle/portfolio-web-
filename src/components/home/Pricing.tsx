@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { pricingPlans } from "@/data/pricing";
 import { Button } from "@/components/ui/Button";
 import { DeliveryDisclaimer } from "@/components/ui/DeliveryNote";
@@ -21,7 +20,7 @@ const PRICING_HEADLINE = [
 export function Pricing({
   title: _title,
   highlight: _highlight,
-  /** Notes SAGEO + délai 21 j. (masquées sur l’accueil) */
+  /** Note délai (masquée sur l’accueil) */
   showNotes = true,
 }: {
   title?: string;
@@ -52,21 +51,47 @@ export function Pricing({
           >
             <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,15rem)_minmax(0,1fr)] xl:grid-cols-[minmax(0,16.5rem)_minmax(0,1fr)] gap-8 lg:gap-10 xl:gap-14 items-start">
               <header className="lg:max-w-[16.5rem]">
-                <p className="text-[11px] sm:text-xs font-extrabold uppercase tracking-[0.22em] text-ink">
-                  {plan.tier}
-                </p>
+                <div className="flex flex-wrap items-center gap-2">
+                  <p className="text-[11px] sm:text-xs font-extrabold uppercase tracking-[0.22em] text-ink">
+                    {plan.tier}
+                  </p>
+                  {plan.badge ? (
+                    <span
+                      className={
+                        plan.badge === "Nouveau"
+                          ? "inline-flex items-center rounded-[var(--rounded-large)] bg-lime text-ink px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-[0.14em] shadow-[0_2px_0_0_#a8c400]"
+                          : "inline-flex items-center rounded-[var(--rounded-large)] border border-ink/10 bg-white/80 px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-[0.14em] text-ink/70"
+                      }
+                    >
+                      {plan.badge}
+                    </span>
+                  ) : null}
+                </div>
                 <p className="mt-1.5 text-[11px] sm:text-xs font-bold uppercase tracking-[0.18em] text-muted">
                   {plan.name}
                 </p>
 
-                <div className="mt-5 flex items-end gap-1">
-                  <span className="text-4xl sm:text-5xl font-extrabold tracking-tight text-ink leading-none">
-                    {plan.price}&nbsp;€
-                  </span>
-                  <span className="pb-1 text-xs font-bold uppercase tracking-[0.12em] text-muted">
-                    /mois
-                  </span>
+                <div className="mt-5 flex items-end gap-1.5 flex-wrap">
+                  {plan.priceNote ? (
+                    <span className="text-4xl sm:text-5xl font-extrabold tracking-tight text-ink leading-none">
+                      {plan.priceNote}
+                    </span>
+                  ) : (
+                    <>
+                      <span className="text-4xl sm:text-5xl font-extrabold tracking-tight text-ink leading-none">
+                        {plan.price}&nbsp;€
+                      </span>
+                      <span className="pb-1 text-xs font-bold uppercase tracking-[0.12em] text-muted">
+                        HT / mois
+                      </span>
+                    </>
+                  )}
                 </div>
+                {plan.priceNote ? (
+                  <p className="mt-1.5 text-xs font-bold uppercase tracking-[0.14em] text-muted">
+                    0&nbsp;€
+                  </p>
+                ) : null}
 
                 <div className="mt-5 h-px w-12 bg-ink/15" aria-hidden />
 
@@ -118,15 +143,6 @@ export function Pricing({
 
       {showNotes ? (
         <div className="max-w-6xl mx-auto px-5 sm:px-8 md:px-10 pt-10 sm:pt-12">
-          <p className="reveal text-center text-sm sm:text-base font-medium text-muted mb-4">
-            Dès 89&nbsp;€/mois, SEO et suivi selon la durée.{" "}
-            <Link
-              href="/sageo"
-              className="font-extrabold text-ink underline-offset-4 hover:underline"
-            >
-              Découvrir la méthode SAGEO
-            </Link>
-          </p>
           <DeliveryDisclaimer className="reveal text-center max-w-lg mx-auto mb-4" />
         </div>
       ) : null}

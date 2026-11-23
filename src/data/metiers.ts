@@ -68,7 +68,7 @@ export interface MetierPage {
  processSteps?: MetierProcessStep[];
  /** Schema.org Service spécifique à la page */
  serviceSchema?: MetierServiceSchema;
- recommendedPlanId: "launch" | "pro" | "sur-mesure";
+ recommendedPlanId: "decouverte" | "essentiel" | "visibilite";
  relatedBesoinSlug: string;
  relatedBesoinLabel: string;
  closing: string;
@@ -327,7 +327,7 @@ Chez Kopio, j’accompagne de façon personnalisée, avec une communication clai
     "Création de sites internet pour coachs professionnels, avec accompagnement à la structuration des contenus, présentation des offres et prise de rendez-vous.",
    omitPrice: true,
   },
-  recommendedPlanId: "launch",
+  recommendedPlanId: "essentiel",
   relatedBesoinSlug: "site-vitrine-independante",
   relatedBesoinLabel: "site vitrine d’indépendante",
   closing:
@@ -454,7 +454,7 @@ Chez Kopio, j’accompagne de façon personnalisée, avec une communication clai
   priceTitle: "Les formules pour une praticienne bien-être",
   caseStudyId: "pulse",
   caseStudyHeading: "Exemple concret : PULSE",
-  recommendedPlanId: "launch",
+  recommendedPlanId: "essentiel",
   relatedBesoinSlug: "site-avec-reservation-en-ligne",
   relatedBesoinLabel: "site avec réservation en ligne",
   closing: "Si vous voulez un site à la hauteur de votre pratique, loin du modèle wellness générique, écrivez-moi.",
@@ -470,7 +470,7 @@ Chez Kopio, j’accompagne de façon personnalisée, avec une communication clai
    },
    {
     question: "Combien coûte un site web pour praticienne bien-être ?",
-    answer: "Trois durées, un même socle (jusqu'à 5 pages, réservation, atelier rédaction) : 89 €/mois sur 24 mois, 139 €/mois sur 12 mois, 179 €/mois sur 6 mois. Le détail et la propriété du site sont sur la page tarifs."
+    answer: "Trois formules : Découverte (gratuit, une page), Essentiel (29 € HT/mois, jusqu'à 5 pages, réservation, SEO de base) et Visibilité (59 € HT/mois, blog autonome, SAGEO approfondie). Le détail est sur la page tarifs."
    },
    {
     question: "Pourrez-vous faire évoluer le site ensuite ?",
@@ -543,7 +543,7 @@ Chez Kopio, j’accompagne de façon personnalisée, avec une communication clai
   ],
   includedTitle: "Ce qui est inclus dans un site Kopio pour consultante",
   priceTitle: "Les formules pour une consultante",
-  recommendedPlanId: "launch",
+  recommendedPlanId: "essentiel",
   relatedBesoinSlug: "site-vitrine-independante",
   relatedBesoinLabel: "site vitrine d'indépendante",
   closing: "Si vous voulez une page d'offre digne de vos missions, écrivez-moi : je clarifie avec vous votre positionnement et le parcours de contact.",
@@ -559,7 +559,7 @@ Chez Kopio, j’accompagne de façon personnalisée, avec une communication clai
    },
    {
     question: "Combien coûte un site web pour consultante ?",
-    answer: "Trois durées, un même socle (jusqu'à 5 pages, réservation, atelier rédaction) : 89 €/mois sur 24 mois, 139 €/mois sur 12 mois, 179 €/mois sur 6 mois. Le détail et la propriété du site sont sur la page tarifs."
+    answer: "Trois formules : Découverte (gratuit, une page), Essentiel (29 € HT/mois, jusqu'à 5 pages, réservation, SEO de base) et Visibilité (59 € HT/mois, blog autonome, SAGEO approfondie). Le détail est sur la page tarifs."
    },
    {
     question: "Pourrez-vous faire évoluer le site ensuite ?",
@@ -632,7 +632,7 @@ Chez Kopio, j’accompagne de façon personnalisée, avec une communication clai
   ],
   includedTitle: "Ce qui est inclus dans un site Kopio pour assistante virtuelle",
   priceTitle: "Les formules pour une assistante virtuelle",
-  recommendedPlanId: "launch",
+  recommendedPlanId: "essentiel",
   relatedBesoinSlug: "site-vitrine-independante",
   relatedBesoinLabel: "site vitrine d'indépendante",
   closing: "Si vous voulez une page digne de vos missions d'assistante, écrivez-moi : je clarifie avec vous vos packages et le parcours de contact.",
@@ -648,7 +648,7 @@ Chez Kopio, j’accompagne de façon personnalisée, avec une communication clai
    },
    {
     question: "Combien coûte un site web pour assistante virtuelle ?",
-    answer: "Trois durées, un même socle (jusqu'à 5 pages, réservation, atelier rédaction) : 89 €/mois sur 24 mois, 139 €/mois sur 12 mois, 179 €/mois sur 6 mois. Le détail et la propriété du site sont sur la page tarifs."
+    answer: "Trois formules : Découverte (gratuit, une page), Essentiel (29 € HT/mois, jusqu'à 5 pages, réservation, SEO de base) et Visibilité (59 € HT/mois, blog autonome, SAGEO approfondie). Le détail est sur la page tarifs."
    },
    {
     question: "Pourrez-vous faire évoluer le site ensuite ?",
@@ -721,7 +721,7 @@ Chez Kopio, j’accompagne de façon personnalisée, avec une communication clai
   ],
   includedTitle: "Ce qui est inclus dans un site Kopio pour thérapeute",
   priceTitle: "Les formules pour une thérapeute",
-  recommendedPlanId: "launch",
+  recommendedPlanId: "essentiel",
   relatedBesoinSlug: "site-avec-reservation-en-ligne",
   relatedBesoinLabel: "site avec réservation en ligne",
   closing: "Si vous voulez un site aligné avec votre cadre thérapeutique, écrivez-moi : je pars de votre pratique et de votre parcours de contact.",
@@ -737,7 +737,7 @@ Chez Kopio, j’accompagne de façon personnalisée, avec une communication clai
    },
    {
     question: "Combien coûte un site web pour thérapeute ?",
-    answer: "Trois durées, un même socle (jusqu'à 5 pages, réservation, atelier rédaction) : 89 €/mois sur 24 mois, 139 €/mois sur 12 mois, 179 €/mois sur 6 mois. Le détail et la propriété du site sont sur la page tarifs."
+    answer: "Trois formules : Découverte (gratuit, une page), Essentiel (29 € HT/mois, jusqu'à 5 pages, réservation, SEO de base) et Visibilité (59 € HT/mois, blog autonome, SAGEO approfondie). Le détail est sur la page tarifs."
    },
    {
     question: "Pourrez-vous faire évoluer le site ensuite ?",
@@ -810,7 +810,7 @@ Chez Kopio, j’accompagne de façon personnalisée, avec une communication clai
   ],
   includedTitle: "Ce qui est inclus dans un site Kopio pour sophrologue",
   priceTitle: "Les formules pour une sophrologue",
-  recommendedPlanId: "pro",
+  recommendedPlanId: "essentiel",
   relatedBesoinSlug: "site-avec-reservation-en-ligne",
   relatedBesoinLabel: "site avec réservation en ligne",
   closing: "Si vous voulez un site qui pose clairement votre pratique de sophrologie, écrivez-moi.",
@@ -826,7 +826,7 @@ Chez Kopio, j’accompagne de façon personnalisée, avec une communication clai
    },
    {
     question: "Combien coûte un site web pour sophrologue ?",
-    answer: "Trois durées, un même socle (jusqu'à 5 pages, réservation, atelier rédaction) : 89 €/mois sur 24 mois, 139 €/mois sur 12 mois, 179 €/mois sur 6 mois. Le détail et la propriété du site sont sur la page tarifs."
+    answer: "Trois formules : Découverte (gratuit, une page), Essentiel (29 € HT/mois, jusqu'à 5 pages, réservation, SEO de base) et Visibilité (59 € HT/mois, blog autonome, SAGEO approfondie). Le détail est sur la page tarifs."
    },
    {
     question: "Pourrez-vous faire évoluer le site ensuite ?",
@@ -899,7 +899,7 @@ Chez Kopio, j’accompagne de façon personnalisée, avec une communication clai
   ],
   includedTitle: "Ce qui est inclus dans un site Kopio pour naturopathe",
   priceTitle: "Les formules pour une naturopathe",
-  recommendedPlanId: "pro",
+  recommendedPlanId: "essentiel",
   relatedBesoinSlug: "site-avec-reservation-en-ligne",
   relatedBesoinLabel: "site avec réservation en ligne",
   closing: "Si vous voulez un site qui pose clairement votre pratique de naturopathie, écrivez-moi.",
@@ -915,7 +915,7 @@ Chez Kopio, j’accompagne de façon personnalisée, avec une communication clai
    },
    {
     question: "Combien coûte un site web pour naturopathe ?",
-    answer: "Trois durées, un même socle (jusqu'à 5 pages, réservation, atelier rédaction) : 89 €/mois sur 24 mois, 139 €/mois sur 12 mois, 179 €/mois sur 6 mois. Le détail et la propriété du site sont sur la page tarifs."
+    answer: "Trois formules : Découverte (gratuit, une page), Essentiel (29 € HT/mois, jusqu'à 5 pages, réservation, SEO de base) et Visibilité (59 € HT/mois, blog autonome, SAGEO approfondie). Le détail est sur la page tarifs."
    },
    {
     question: "Pourrez-vous faire évoluer le site ensuite ?",
@@ -988,7 +988,7 @@ Chez Kopio, j’accompagne de façon personnalisée, avec une communication clai
   ],
   includedTitle: "Ce qui est inclus dans un site Kopio pour formatrice",
   priceTitle: "Les formules pour une formatrice",
-  recommendedPlanId: "pro",
+  recommendedPlanId: "essentiel",
   relatedBesoinSlug: "creer-son-site-sans-competences-techniques",
   relatedBesoinLabel: "créer son site sans compétences techniques",
   closing: "Si vous voulez une vitrine claire pour vos programmes, écrivez-moi.",
@@ -1004,7 +1004,7 @@ Chez Kopio, j’accompagne de façon personnalisée, avec une communication clai
    },
    {
     question: "Combien coûte un site web pour formatrice ?",
-    answer: "Trois durées, un même socle (jusqu'à 5 pages, réservation, atelier rédaction) : 89 €/mois sur 24 mois, 139 €/mois sur 12 mois, 179 €/mois sur 6 mois. Le détail et la propriété du site sont sur la page tarifs."
+    answer: "Trois formules : Découverte (gratuit, une page), Essentiel (29 € HT/mois, jusqu'à 5 pages, réservation, SEO de base) et Visibilité (59 € HT/mois, blog autonome, SAGEO approfondie). Le détail est sur la page tarifs."
    },
    {
     question: "Pourrez-vous faire évoluer le site ensuite ?",
@@ -1079,7 +1079,7 @@ Chez Kopio, j’accompagne de façon personnalisée, avec une communication clai
   priceTitle: "Les formules pour une créatrice",
   caseStudyId: "madeleine-fragrance",
   caseStudyHeading: "Exemple concret : Madeleine Fragrance",
-  recommendedPlanId: "pro",
+  recommendedPlanId: "essentiel",
   relatedBesoinSlug: "boutique-en-ligne-petite-entreprise",
   relatedBesoinLabel: "boutique en ligne",
   closing: "Si vous voulez une vitrine à la hauteur de votre univers, écrivez-moi.",
@@ -1095,7 +1095,7 @@ Chez Kopio, j’accompagne de façon personnalisée, avec une communication clai
    },
    {
     question: "Combien coûte un site web pour créatrice ?",
-    answer: "Trois durées, un même socle (jusqu'à 5 pages, réservation, atelier rédaction) : 89 €/mois sur 24 mois, 139 €/mois sur 12 mois, 179 €/mois sur 6 mois. Le détail et la propriété du site sont sur la page tarifs."
+    answer: "Trois formules : Découverte (gratuit, une page), Essentiel (29 € HT/mois, jusqu'à 5 pages, réservation, SEO de base) et Visibilité (59 € HT/mois, blog autonome, SAGEO approfondie). Le détail est sur la page tarifs."
    },
    {
     question: "Pourrez-vous faire évoluer le site ensuite ?",
@@ -1170,7 +1170,7 @@ Chez Kopio, j’accompagne de façon personnalisée, avec une communication clai
   priceTitle: "Les formules pour une esthéticienne",
   caseStudyId: "coiffure-luna",
   caseStudyHeading: "Exemple concret : Luna",
-  recommendedPlanId: "pro",
+  recommendedPlanId: "essentiel",
   relatedBesoinSlug: "site-avec-reservation-en-ligne",
   relatedBesoinLabel: "site avec réservation en ligne",
   closing: "Si vous voulez une carte de soins claire et une réservation simple, écrivez-moi.",
@@ -1186,7 +1186,7 @@ Chez Kopio, j’accompagne de façon personnalisée, avec une communication clai
    },
    {
     question: "Combien coûte un site web pour esthéticienne ?",
-    answer: "Trois durées, un même socle (jusqu'à 5 pages, réservation, atelier rédaction) : 89 €/mois sur 24 mois, 139 €/mois sur 12 mois, 179 €/mois sur 6 mois. Le détail et la propriété du site sont sur la page tarifs."
+    answer: "Trois formules : Découverte (gratuit, une page), Essentiel (29 € HT/mois, jusqu'à 5 pages, réservation, SEO de base) et Visibilité (59 € HT/mois, blog autonome, SAGEO approfondie). Le détail est sur la page tarifs."
    },
    {
     question: "Pourrez-vous faire évoluer le site ensuite ?",
@@ -1261,7 +1261,7 @@ Chez Kopio, j’accompagne de façon personnalisée, avec une communication clai
   priceTitle: "Les formules pour une photographe",
   caseStudyId: "photographe-iris",
   caseStudyHeading: "Exemple concret : Iris",
-  recommendedPlanId: "pro",
+  recommendedPlanId: "essentiel",
   relatedBesoinSlug: "site-vitrine-independante",
   relatedBesoinLabel: "site vitrine d'indépendante",
   closing: "Si vous voulez un portfolio clair qui génère des devis plus nets, écrivez-moi.",
@@ -1277,7 +1277,7 @@ Chez Kopio, j’accompagne de façon personnalisée, avec une communication clai
    },
    {
     question: "Combien coûte un site web pour photographe ?",
-    answer: "Trois durées, un même socle (jusqu'à 5 pages, réservation, atelier rédaction) : 89 €/mois sur 24 mois, 139 €/mois sur 12 mois, 179 €/mois sur 6 mois. Le détail et la propriété du site sont sur la page tarifs."
+    answer: "Trois formules : Découverte (gratuit, une page), Essentiel (29 € HT/mois, jusqu'à 5 pages, réservation, SEO de base) et Visibilité (59 € HT/mois, blog autonome, SAGEO approfondie). Le détail est sur la page tarifs."
    },
    {
     question: "Pourrez-vous faire évoluer le site ensuite ?",
@@ -1352,7 +1352,7 @@ Chez Kopio, j’accompagne de façon personnalisée, avec une communication clai
   priceTitle: "Les formules pour une architecte d'intérieur",
   caseStudyId: "pulse",
   caseStudyHeading: "Exemple concret : PULSE",
-  recommendedPlanId: "pro",
+  recommendedPlanId: "essentiel",
   relatedBesoinSlug: "refonte-site-internet-entrepreneure",
   relatedBesoinLabel: "refonte de site",
   closing: "Si vous voulez un portfolio éditorial qui génère des demandes plus nettes, écrivez-moi.",
@@ -1368,7 +1368,7 @@ Chez Kopio, j’accompagne de façon personnalisée, avec une communication clai
    },
    {
     question: "Combien coûte un site web pour architecte d'intérieur ?",
-    answer: "Trois durées, un même socle (jusqu'à 5 pages, réservation, atelier rédaction) : 89 €/mois sur 24 mois, 139 €/mois sur 12 mois, 179 €/mois sur 6 mois. Le détail et la propriété du site sont sur la page tarifs."
+    answer: "Trois formules : Découverte (gratuit, une page), Essentiel (29 € HT/mois, jusqu'à 5 pages, réservation, SEO de base) et Visibilité (59 € HT/mois, blog autonome, SAGEO approfondie). Le détail est sur la page tarifs."
    },
    {
     question: "Pourrez-vous faire évoluer le site ensuite ?",
@@ -1441,7 +1441,7 @@ Chez Kopio, j’accompagne de façon personnalisée, avec une communication clai
   ],
   includedTitle: "Ce qui est inclus dans un site Kopio pour wedding planner",
   priceTitle: "Les formules pour une wedding planner",
-  recommendedPlanId: "pro",
+  recommendedPlanId: "essentiel",
   relatedBesoinSlug: "site-vitrine-independante",
   relatedBesoinLabel: "site vitrine d'indépendante",
   closing: "Si vous voulez un site qui fait sentir votre univers et clarifie vos formules, écrivez-moi.",
@@ -1457,7 +1457,7 @@ Chez Kopio, j’accompagne de façon personnalisée, avec une communication clai
    },
    {
     question: "Combien coûte un site web pour wedding planner ?",
-    answer: "Trois durées, un même socle (jusqu'à 5 pages, réservation, atelier rédaction) : 89 €/mois sur 24 mois, 139 €/mois sur 12 mois, 179 €/mois sur 6 mois. Le détail et la propriété du site sont sur la page tarifs."
+    answer: "Trois formules : Découverte (gratuit, une page), Essentiel (29 € HT/mois, jusqu'à 5 pages, réservation, SEO de base) et Visibilité (59 € HT/mois, blog autonome, SAGEO approfondie). Le détail est sur la page tarifs."
    },
    {
     question: "Pourrez-vous faire évoluer le site ensuite ?",

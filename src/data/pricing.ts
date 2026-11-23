@@ -1,26 +1,27 @@
 /** Prix d’entrée affiché partout (badges, SEO, footer) */
-export const PRICE_FROM = "dès 89 €/mois";
-export const PRICE_FROM_SHORT = "89€/mois";
+export const PRICE_FROM = "dès 29 € HT/mois";
+export const PRICE_FROM_SHORT = "29€ HT/mois";
 
 /**
  * Mention légale unique pour les estimations de rentabilité.
  * Placer une * sur chaque affirmation concernée ; afficher ce texte une seule fois par page.
  */
 export const ROI_DISCLAIMER =
-  "* Estimation illustrative. Trafic, conversion et revenus sont des hypothèses. Le seuil de rentabilité dépend de votre tarif de séance, de votre taux de conversion et du volume réel de demandes. Exemple : à 90 € la séance, une cliente suivie sur l’année couvre souvent le modèle à 89 €/mois. Ce n’est pas une promesse de chiffre d’affaires.";
+  "* Estimation illustrative. Trafic, conversion et revenus sont des hypothèses. Le seuil de rentabilité dépend de votre tarif de séance, de votre taux de conversion et du volume réel de demandes. Exemple : à 90 € la séance, une cliente suivie sur l’année couvre souvent le modèle à 29 € HT/mois. Ce n’est pas une promesse de chiffre d’affaires.";
 
 export const SHARED_PLAN_FEATURES = [
-  "Jusqu’à 5 pages (accueil, à propos, offres, avis ou FAQ, contact)",
-  "Réservation avancée (agenda, créneaux, confirmation auto)",
-  "Atelier rédaction 1h + réécriture pro",
+  "Site jusqu’à 5 pages",
+  "Design personnalisé",
+  "Réservation en ligne",
+  "Hébergement et certificat SSL",
 ] as const;
 
 export const SHARED_PLAN_DESCRIPTION =
-  "Site web professionnel pour l'accompagnement : jusqu'à 5 pages, réservation, atelier rédaction, hébergement et mises à jour inclus.";
+  "Site web professionnel pour l’accompagnement : pages claires, réservation, hébergement et maintenance inclus.";
 
-export const SHARED_PLAN_DELIVERY = "21 jours";
+export const SHARED_PLAN_DELIVERY = "à partir de 48h";
 
-/** Inclus dans toutes les formules : carrousel homepage */
+/** Inclus dans toutes les formules payantes : carrousel homepage */
 export const includedInAll = [
   {
     title: "Une identité qui vous ressemble",
@@ -56,13 +57,13 @@ export const includedInAll = [
   },
   {
     title: "Et après la mise en ligne ?",
-    text: "Votre activité évolue. Votre site aussi. Vous pouvez me demander des modifications et continuer à le faire évoluer avec vous.",
+    text: "Votre activité évolue. Votre site aussi. Sur les formules Essentiel et Visibilité, maintenance technique et évolutions restent possibles.",
     image: "/image/apres-support.jpg",
     imageAlt: "Évolutions et modifications après mise en ligne",
   },
 ] as const;
 
-/** Garanties alignées sur les modèles 6 / 12 / 24 mois */
+/** Garanties alignées sur Découverte / Essentiel / Visibilité */
 export const guarantees = [
   {
     title: "Vous gardez le dernier mot.",
@@ -70,171 +71,205 @@ export const guarantees = [
   },
   {
     title: "On ajuste jusqu’à ce que ce soit juste.",
-    text: "2 cycles de modifications sont inclus. L’objectif : un site dans lequel vous vous reconnaissez vraiment, pas simplement un site « livré ».",
+    text: "Pendant la création, on peaufine ensemble. L’objectif : un site dans lequel vous vous reconnaissez vraiment, pas simplement un site « livré ».",
   },
   {
-    title: "Votre site reste votre site.",
-    text: "Le nom de domaine est à votre nom dès le premier jour. À la fin de votre engagement, le site vous appartient à 100 %. Vous pouvez également choisir de solder les mensualités restantes à tout moment pour en devenir propriétaire plus tôt.",
+    title: "Un cadre clair selon la formule.",
+    text: "Découverte : site vitrine d’une page, sans modification après livraison. Essentiel et Visibilité : nom de domaine personnalisé, hébergement, maintenance technique et support inclus.",
   },
   {
     title: "Vous savez où vous allez.",
-    text: "Le prix est annoncé dès le départ. 179 €, 139 € ou 89 €/mois selon l’accompagnement choisi. Pas d’option cachée ni de mauvaise surprise en cours de route.",
+    text: "Le prix est annoncé dès le départ. Gratuit, 29 € HT/mois ou 59 € HT/mois selon la formule. Pas d’option cachée ni de mauvaise surprise en cours de route.",
   },
 ] as const;
 
-const SITE_GROUP = {
-  label: "Votre site",
-  items: [
-    "Jusqu’à 5 pages",
-    "Design personnalisé",
-    "Réservation en ligne",
-    "Atelier rédaction 1h + réécriture professionnelle",
-  ],
-} as const;
-
 export const pricingPlans = [
   {
-    id: "sur-mesure",
-    tier: "Lancement",
-    name: "6 mois",
-    price: "179",
-    period: "€/mois",
+    id: "decouverte",
+    tier: "Découverte",
+    name: "Sans engagement",
+    price: "0",
+    period: "€",
+    priceNote: "Gratuit",
     setup: "",
     altPayment: "",
     terms: "",
     highlight: false,
-    badge: null as string | null,
-    tagline: "Poser votre présence et partir sur de bonnes bases.",
-    description: SHARED_PLAN_DESCRIPTION,
+    badge: "Nouveau",
+    tagline: "Poser une première présence en ligne, simplement.",
+    description:
+      "Site vitrine d’une page avec design prédéfini, présentation de l’activité, coordonnées et réseaux sociaux.",
     delivery: SHARED_PLAN_DELIVERY,
     groups: [
-      SITE_GROUP,
       {
-        label: "Votre visibilité",
+        label: "Votre site",
         items: [
-          "Bases SEO",
-          "Indexation Google",
-          "Configuration Search Console",
+          "Site vitrine d’une page",
+          "Design prédéfini",
+          "Présentation de l’activité",
+          "Coordonnées et réseaux sociaux",
         ],
       },
       {
-        label: "Votre suivi",
-        items: ["1 bilan analytics après mise en ligne"],
+        label: "Hébergement",
+        items: ["Hébergement inclus", "Sous-domaine .vercel.app"],
+      },
+      {
+        label: "Limites",
+        items: ["Aucune modification après livraison"],
       },
     ],
     features: [
-      ...SHARED_PLAN_FEATURES,
-      "Visibilité : bases SEO (structure, indexation)",
-      "Bilan analytics unique après mise en ligne",
+      "Site vitrine d’une page",
+      "Design prédéfini",
+      "Présentation de l’activité",
+      "Coordonnées et réseaux sociaux",
+      "Hébergement",
+      "Sous-domaine .vercel.app",
+      "Aucune modification après livraison",
     ],
     persona: {
-      label: "Engagement court",
-      labelShort: "6 mois",
-      teaser:
-        "Pour tester rapidement. La mensualité plus élevée dissuade l’engagement court.",
+      label: "Gratuit",
+      labelShort: "0 €",
+      teaser: "Pour tester une présence minimale, sans engagement.",
       headline: "Votre site professionnel,\nsans la charge mentale.",
       highlight: "sans la charge mentale",
-      body: "Kopio conçoit, maintient et fait évoluer votre présence en ligne, pour que vos clients vous trouvent, vous comprennent et réservent.",
-      cta: "Commencer avec ce modèle",
+      body: "Kopio pose une vitrine d’une page pour présenter votre activité. Idéal pour démarrer ; les évolutions passent ensuite par Essentiel ou Visibilité.",
+      cta: "Demander Découverte",
     },
   },
   {
-    id: "pro",
-    tier: "Développement",
-    name: "12 mois",
-    price: "139",
-    period: "€/mois",
+    id: "essentiel",
+    tier: "Essentiel",
+    name: "Engagement : 12 mois",
+    price: "29",
+    period: "€ HT / mois",
+    priceNote: null as string | null,
     setup: "",
     altPayment: "",
     terms: "",
     highlight: true,
-    badge: "Engagement recommandé",
-    tagline: "Faire grandir votre visibilité et vous installer sur Google.",
+    badge: "Offre principale",
+    tagline: "Votre site professionnel, prêt à convertir.",
     description: SHARED_PLAN_DESCRIPTION,
     delivery: SHARED_PLAN_DELIVERY,
     groups: [
-      SITE_GROUP,
+      {
+        label: "Votre site",
+        items: [
+          "Site jusqu’à 5 pages",
+          "Design personnalisé",
+          "Nom de domaine personnalisé inclus",
+          "Présentation des accompagnements",
+          "Formulaire de contact",
+          "Réservation en ligne",
+        ],
+      },
       {
         label: "Votre visibilité",
-        items: [
-          "SEO et GEO renforcés",
-          "Optimisation Google Business Profile",
-          "Travail des mots-clés locaux",
-          "Ajustements SEO et GEO pendant 12 mois",
-        ],
+        items: ["SEO de base", "SAGEO essentiel"],
       },
       {
         label: "Votre suivi",
         items: [
-          "4 bilans analytics",
-          "Suivi de l’évolution de votre visibilité",
+          "Hébergement et certificat SSL",
+          "Maintenance technique",
+          "Support par e-mail",
         ],
       },
     ],
     features: [
-      ...SHARED_PLAN_FEATURES,
-      "SEO et GEO renforcés : fiche Google Business, mots-clés de zone, suivi sur l’année",
-      "Suivi analytics trimestriel (4 bilans)",
+      "Site jusqu’à 5 pages",
+      "Design personnalisé",
+      "Nom de domaine personnalisé inclus",
+      "Présentation des accompagnements",
+      "Formulaire de contact",
+      "Réservation en ligne",
+      "SEO de base",
+      "SAGEO essentiel",
+      "Hébergement et certificat SSL",
+      "Maintenance technique",
+      "Support par e-mail",
     ],
     persona: {
-      label: "Offre cœur",
-      labelShort: "12 mois",
+      label: "Offre principale",
+      labelShort: "29 € HT",
       teaser:
-        "Le compromis durée / mensualité pour la majorité des professionnelles de l’accompagnement.",
+        "Le socle recommandé pour la majorité des professionnelles de l’accompagnement.",
       headline: "Votre site professionnel,\nsans la charge mentale.",
       highlight: "sans la charge mentale",
       body: "Kopio conçoit, maintient et fait évoluer votre présence en ligne, pour que vos clients vous trouvent, vous comprennent et réservent.",
-      cta: "Commencer avec ce modèle",
+      cta: "Commencer avec Essentiel",
     },
   },
   {
-    id: "launch",
-    tier: "Rayonnement",
-    name: "24 mois",
-    price: "89",
-    period: "€/mois",
+    id: "visibilite",
+    tier: "Visibilité",
+    name: "Engagement : 12 mois",
+    price: "59",
+    period: "€ HT / mois",
+    priceNote: null as string | null,
     setup: "",
     altPayment: "",
     terms: "",
     highlight: false,
-    badge: null as string | null,
-    tagline: "Construire une visibilité durable sur Google et les IA.",
-    description: SHARED_PLAN_DESCRIPTION,
+    badge: "Offre avancée",
+    tagline: "Être trouvée sur Google, les IA et votre blog.",
+    description:
+      "Site jusqu’à 5 pages avec design approfondi, pages de vente, blog autonome et SAGEO approfondie.",
     delivery: SHARED_PLAN_DELIVERY,
     groups: [
-      SITE_GROUP,
+      {
+        label: "Votre site",
+        items: [
+          "Jusqu’à 5 pages de site",
+          "Design personnalisé approfondi",
+          "Pages dédiées aux accompagnements",
+          "Pages de vente",
+          "Réservation en ligne",
+          "Blog intégré",
+          "Publication autonome des articles",
+        ],
+      },
       {
         label: "Votre visibilité",
         items: [
-          "Approche SAGEO approfondie",
-          "Optimisation SEO et GEO continue",
-          "Optimisation régulière des contenus",
-          "Travail de visibilité sur Google et les IA",
+          "SAGEO approfondie",
+          "SEO avancé et GEO",
+          "Données structurées",
         ],
       },
       {
         label: "Votre suivi",
         items: [
-          "Analyse tous les 2 mois",
-          "Ajustements selon les évolutions",
-          "Bilans d’évolution",
+          "Hébergement et maintenance technique",
+          "Support prioritaire",
         ],
       },
     ],
     features: [
-      ...SHARED_PLAN_FEATURES,
-      "Approche SAGEO approfondie : SEO, GEO et contenus suivis sur 2 ans",
-      "Suivi analytics bimestriel + bilans d’évolution",
+      "Jusqu’à 5 pages de site",
+      "Design personnalisé approfondi",
+      "Pages dédiées aux accompagnements",
+      "Pages de vente",
+      "Réservation en ligne",
+      "Blog intégré",
+      "Possibilité de publier, modifier et supprimer ses articles en autonomie",
+      "SAGEO approfondie",
+      "SEO avancé et GEO",
+      "Données structurées",
+      "Hébergement et maintenance technique",
+      "Support prioritaire",
     ],
     persona: {
-      label: "Meilleur mensuel",
-      labelShort: "24 mois",
+      label: "Offre avancée",
+      labelShort: "59 € HT",
       teaser:
-        "La mensualité la plus basse. Idéal si vous vous engagez sereinement sur la durée.",
+        "Pour développer votre contenu et votre présence sur Google et les IA.",
       headline: "Votre site professionnel,\nsans la charge mentale.",
       highlight: "sans la charge mentale",
       body: "Kopio conçoit, maintient et fait évoluer votre présence en ligne, pour que vos clients vous trouvent, vous comprennent et réservent.",
-      cta: "Commencer avec ce modèle",
+      cta: "Commencer avec Visibilité",
     },
   },
 ] as const;
@@ -245,26 +280,26 @@ export type PricingPlan = (typeof pricingPlans)[number];
 export const offerComparison = [
   {
     label: "Prix",
-    brand: "Dès 89 €/mois",
+    brand: "Gratuit ou dès 29 € HT/mois",
     diy: "Abonnement",
     agency: "2 000 €+",
   },
   {
     label: "Délai",
-    brand: "21 jours",
+    brand: "À partir de 48h",
     diy: "Vous-même",
     agency: "1–3 mois",
   },
   {
     label: "Mises à jour",
-    brand: "24–72 h par mail",
+    brand: "Incluses (Essentiel / Visibilité)",
     diy: "Vous-même",
     agency: "Tickets / délais",
   },
   {
-    label: "Refresh design",
-    brand: "Tous les 12 mois",
-    diy: "À refaire",
+    label: "Blog",
+    brand: "Visibilité (autonomie)",
+    diy: "Selon l’outil",
     agency: "Souvent payant",
   },
   {
@@ -275,7 +310,7 @@ export const offerComparison = [
   },
   {
     label: "Engagement",
-    brand: "6 / 12 / 24 mois",
+    brand: "Sans / 12 mois",
     diy: "Mensuel",
     agency: "Contrat",
   },

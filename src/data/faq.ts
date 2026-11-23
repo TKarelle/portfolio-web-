@@ -1,28 +1,28 @@
 /**
  * FAQ SEO + GEO + persuasion douce.
- * Vouvoiement. Tarifs : 179 € (6 mois) / 139 € (12 mois) / 89 € (24 mois).
+ * Vouvoiement. Tarifs : Découverte (gratuit) / Essentiel (29 € HT) / Visibilité (59 € HT).
  * Homepage et /faq affichent l’intégralité (aligné FAQPage JSON-LD).
  */
 export const faqItems = [
   {
-    question: "La grille tarifaire Kopio a-t-elle changé en octobre 2026 ?",
+    question: "Quelle est la grille tarifaire Kopio en novembre 2026 ?",
     answer:
-      "La grille en vigueur en octobre 2026 reste : 179 €/mois sur 6 mois, 139 €/mois sur 12 mois, 89 €/mois sur 24 mois. Même socle site (jusqu’à 5 pages, réservation, atelier rédaction, hébergement). Ce qui varie selon la durée : le suivi SEO et analytics. Pas de frais de mise en service. Propriété à la fin de l’engagement ou rachat anticipé.",
+      "Trois formules : Découverte (gratuit, sans engagement), Essentiel (29 € HT/mois, engagement 12 mois) et Visibilité (59 € HT/mois, engagement 12 mois). Découverte : site d’une page, design prédéfini, sous-domaine .vercel.app, aucune modification après livraison. Essentiel : jusqu’à 5 pages, design personnalisé, domaine, réservation, SEO de base, SAGEO essentiel, maintenance et support e-mail. Visibilité : design approfondi, pages de vente, blog autonome, SAGEO approfondie, SEO avancé et GEO, support prioritaire.",
   },
   {
-    question: "89 €/mois au départ : n’est-ce pas cher pour un site ?",
+    question: "29 € HT/mois : n’est-ce pas cher pour un site ?",
     answer:
-      "Comparons ce qui est comparable. Un site freelance à 3 000 €, avec maintenance (~400 €/an) et ajustements facturés au devis (~300 €/an), revient à ~5 600 € sur 3 ans, pour un site vieilli à refaire. Kopio à 89 €/mois sur 24 mois revient à 2 136 €/an de site maintenu et évolutif. Et le vrai repère n’est pas le site : c’est le tarif de votre heure. Une seule cliente qui vous suit 9 mois à une séance par mois peut couvrir l’année*.",
+      "Comparons ce qui est comparable. Un site freelance à 3 000 €, avec maintenance (~400 €/an) et ajustements facturés au devis (~300 €/an), revient à ~5 600 € sur 3 ans, pour un site vieilli à refaire. Essentiel à 29 € HT/mois inclut création, hébergement, SSL, maintenance et support. Et le vrai repère n’est pas le site : c’est le tarif de votre heure. Une seule cliente qui vous suit 9 mois à une séance par mois peut couvrir l’année*.",
   },
   {
     question: "Et si je veux partir ?",
     answer:
-      "Vous partez. Sans justification, sans frais de sortie, sans site « perdu » : à la fin de votre engagement (6, 12 ou 24 mois), le site vous appartient à 100 %. Un rachat anticipé est possible en soldant les mois restants. Notre modèle est mensuel par conviction : nous devons vous satisfaire chaque mois pour que vous restiez.",
+      "Découverte est sans engagement. Sur Essentiel et Visibilité, l’engagement est de 12 mois : les modalités de sortie et de continuité sont précisées au contrat. Notre modèle mensuel reste fondé sur la satisfaction : nous devons vous satisfaire chaque mois pour que vous restiez.",
   },
   {
     question: "J’aime gérer les choses moi-même.",
     answer:
-      "Vous gardez le contrôle total de chaque décision : rien n’est publié sans votre validation. Ce que vous ne portez plus, c’est la solitude d’exécution : hébergement, sécurité, mises à jour. L’autonomie de décision, sans la charge technique.",
+      "Vous gardez le contrôle total de chaque décision : rien n’est publié sans votre validation. Ce que vous ne portez plus, c’est la solitude d’exécution : hébergement, sécurité, mises à jour. Sur Visibilité, vous publiez aussi vos articles en autonomie. L’autonomie de décision, sans la charge technique.",
   },
   {
     question: "Mon site actuel me suffit.",
@@ -33,59 +33,59 @@ export const faqItems = [
     question:
       "Combien coûte un site web pour professionnelle de l'accompagnement avec Kopio ?",
     answer:
-      "Trois durées, un même socle (jusqu’à 5 pages, réservation avancée, atelier rédaction) : 179 €/mois sur 6 mois, 139 €/mois sur 12 mois, 89 €/mois sur 24 mois. Ce qui change surtout : le SEO et le suivi analytics selon la durée. Livraison en 21 jours. Vous validez la maquette avant la mise en ligne.",
+      "Découverte est gratuite (une page, design prédéfini). Essentiel : 29 € HT/mois. Visibilité : 59 € HT/mois. Engagement 12 mois sur les formules payantes. Délai à partir de 48h. Vous validez la maquette avant la mise en ligne.",
   },
   {
     question:
       "Quel abonnement site web convient aux professionnelles de l’accompagnement ?",
     answer:
-      "Dès 89 €/mois (engagement 24 mois), Kopio crée et maintient votre présence en ligne : design personnalisé, en ligne en 21 jours, sans WordPress ni Wix à apprendre. Une seule interlocutrice, mises à jour sous 24 à 72 h par email. Sur 12 mois (139 €) ou 6 mois (179 €), le périmètre site est le même ; le suivi SEO et analytics s’adapte à la durée.",
+      "Essentiel à 29 € HT/mois convient à la majorité : jusqu’à 5 pages, design personnalisé, domaine, réservation, SEO de base et maintenance. Visibilité à 59 € HT/mois si vous voulez un blog autonome, des pages de vente et une SAGEO approfondie. Découverte (gratuit) pour une première vitrine d’une page, sans modification après livraison.",
   },
   {
     question: "C’est quoi un abonnement site web chez Kopio ?",
     answer:
-      "Un accompagnement dès 89 €/mois qui inclut création, hébergement, nom de domaine, sécurité et maintenance. Vous obtenez un site professionnel sans apprendre WordPress ni passer par une agence. Je m’occupe du technique ; vous vous concentrez sur votre pratique.",
+      "Un accompagnement dès 29 € HT/mois qui inclut création, hébergement, nom de domaine, sécurité et maintenance (formules Essentiel et Visibilité). Vous obtenez un site professionnel sans apprendre WordPress ni passer par une agence. Je m’occupe du technique ; vous vous concentrez sur votre pratique.",
   },
   {
     question:
       "Kopio convient-il aux coachs, thérapeutes, consultantes et freelances ?",
     answer:
-      "Oui. Je m’adresse aux professionnelles de l’accompagnement qui vendent leur expertise : coachs, consultantes, thérapeutes, sophrologues, naturopathes, créatrices. Dès 89 €/mois, le site présente votre offre, rassure vos clients et facilite la prise de rendez-vous, sans que vous gériez la technique.",
+      "Oui. Je m’adresse aux professionnelles de l’accompagnement qui vendent leur expertise : coachs, consultantes, thérapeutes, sophrologues, naturopathes, créatrices. Dès 29 € HT/mois, le site présente votre offre, rassure vos clients et facilite la prise de rendez-vous, sans que vous gériez la technique.",
   },
   {
     question:
       "Quelle différence entre un abonnement site web et un site payé une seule fois ?",
     answer:
-      "Un site payé une seule fois est livré puis souvent laissé sans suivi. Un abonnement Kopio (dès 89 €/mois) inclut l’hébergement, les modifications à la demande et un refresh design chaque année. Vous gardez un site à jour sans y passer vos soirées.",
+      "Un site payé une seule fois est livré puis souvent laissé sans suivi. Essentiel et Visibilité (dès 29 € HT/mois) incluent l’hébergement, la maintenance technique et le support. Découverte livre une page sans modification après livraison. Vous gardez un site à jour sans y passer vos soirées.",
   },
   {
     question:
       "Comment avoir un site web professionnel sans compétences techniques ?",
     answer:
-      "Avec Kopio dès 89 €/mois : je crée le site, je l’héberge et je le mets à jour. Vous n’utilisez pas WordPress. Vous m’envoyez un email pour toute modification, en ligne sous 24 à 72 h. Livraison typique : 21 jours.",
+      "Avec Kopio dès 29 € HT/mois : je crée le site, je l’héberge et je le mets à jour. Vous n’utilisez pas WordPress. Vous m’envoyez un email pour toute modification. Délai : à partir de 48h. Sur Visibilité, vous pouvez aussi publier vos articles vous-même.",
   },
   {
     question: "Combien de temps pour créer un site avec Kopio ?",
     answer:
-      "21 jours à partir de la validation du projet, si les contenus sont fournis à temps. Quelle que soit la durée d’engagement choisie (6, 12 ou 24 mois).",
+      "À partir de 48h, si les contenus sont fournis à temps. Quelle que soit la formule (Découverte, Essentiel ou Visibilité).",
   },
   {
     question:
       "Qu’est-ce qui est inclus dans un abonnement site web Kopio ?",
     answer:
-      "Partout : design personnalisé, mobile, SEO de base, aide à la rédaction, RGPD, hébergement, domaine, sécurité, mises à jour par email, une seule interlocutrice. Sur chaque modèle : jusqu’à 5 pages, réservation avancée, atelier rédaction. Selon la durée : SEO et suivi analytics plus poussés sur 12 et 24 mois.",
+      "Selon la formule : Découverte (1 page, design prédéfini, hébergement .vercel.app). Essentiel (jusqu’à 5 pages, design personnalisé, domaine, contact, réservation, SEO de base, SAGEO essentiel, SSL, maintenance, support e-mail). Visibilité (design approfondi, pages de vente, blog autonome, SAGEO approfondie, SEO avancé et GEO, données structurées, support prioritaire).",
   },
   {
     question:
       "Est-ce que je reste propriétaire de mon site et de mon nom de domaine ?",
     answer:
-      "Le nom de domaine est à votre nom dès le premier jour. À la fin de votre engagement (6, 12 ou 24 mois), vous êtes propriétaire du site à 100 %. Un rachat anticipé est possible à tout moment : vous soldez alors les mois restants.",
+      "Sur Essentiel et Visibilité, le nom de domaine personnalisé est inclus. Sur Découverte, vous disposez d’un sous-domaine .vercel.app. Les modalités de propriété et de continuité sont précisées au contrat selon la formule choisie.",
   },
   {
     question:
       "Pourquoi choisir Kopio plutôt qu’une agence web ou Wix / WordPress ?",
     answer:
-      "Dès 89 €/mois, vous avez un site pro sans tout gérer seule et sans devis d’agence à plusieurs milliers d’euros. Prix affichés, maquette validée avant mise en ligne, mises à jour par email, hébergement inclus. Une seule interlocutrice, pas un ticket support anonyme. Kopio n’est pas une agence : c’est votre présence en ligne, déléguée. Pour le référencement IA (SEO, GEO, AEO), [Découvrir la méthode SAGEO](/sageo).",
+      "Dès 29 € HT/mois (ou gratuit en Découverte), vous avez un site pro sans tout gérer seule et sans devis d’agence à plusieurs milliers d’euros. Prix affichés, maquette validée avant mise en ligne, hébergement inclus. Une seule interlocutrice, pas un ticket support anonyme. Kopio n’est pas une agence : c’est votre présence en ligne, déléguée. Pour le référencement IA (SEO, GEO, AEO), [Découvrir la méthode SAGEO](/sageo).",
   },
   {
     question: "Qu’est-ce que la méthode SAGEO ?",
@@ -95,6 +95,6 @@ export const faqItems = [
   {
     question: "Combien coûte un audit SEO GEO chez Kopio ?",
     answer:
-      "490 € TTC pour un site vitrine en France. Lighthouse, SEO, GEO, synthèse SAGEO, plan 30 jours et vidéo d’environ 45 min (visio possible). [Voir l’audit SEO GEO](/audit).",
+      "390 € TTC pour un site vitrine en France. Lighthouse, SEO, GEO, synthèse SAGEO, plan 30 jours et vidéo d’environ 45 min (visio possible). [Voir l’audit SEO GEO](/audit).",
   },
 ] as const;

@@ -210,15 +210,15 @@ export type ServicePageData = {
     name: string;
     description: string;
   };
-  /** Prix Offer Schema.org (ex. audit 490) */
+  /** Prix Offer Schema.org (ex. audit 390) */
   offerPrice?: string;
   /**
    * Hero émotionnel type accueil (création) : phrase percutante + marquee maquettes.
    * Remplace LandingHero quand présent.
    */
   emotionalHero?: {
-    /** H2 sous le H1 */
-    lede: string;
+    /** H2 sous le H1 (optionnel) */
+    lede?: string;
     stack?: readonly string[];
     primaryCta: { href: string; label: string };
     secondaryCta?: { href: string; label: string };
@@ -244,7 +244,7 @@ export const servicePages: ServicePageData[] = [
     intro:
       "Un site qui attire le regard. Révèle votre singularité. Et donne envie de vous choisir.",
     tldr:
-      "Je conçois un site autour de votre activité : design personnalisé, jusqu’à cinq pages, bases SEO, mobile, hébergement et suivi selon la formule. Vous gardez le message. Je porte la technique.",
+      "Je conçois un site autour de votre activité : selon la formule, design prédéfini (Découverte) ou personnalisé (Essentiel / Visibilité), jusqu’à cinq pages, SEO dès Essentiel, hébergement et suivi. Vous gardez le message. Je porte la technique.",
     image: "/image/mockupsophie.png",
     imageAlt: "Exemple de site web professionnel créé pour une coach",
     emotionalHero: {
@@ -937,7 +937,7 @@ export const servicePages: ServicePageData[] = [
     navLabel: "Audit SEO GEO",
     title: "Audit SEO GEO : visibilité Google et ChatGPT | Kopio",
     metaDescription:
-      "Audit SEO GEO pour site vitrine : SEO Google + lecture GEO pour ChatGPT. Méthode SAGEO, plan 30 jours, restitution d’environ 45 min. 490 € TTC jusqu’à 30 pages.",
+      "Audit SEO GEO pour site vitrine : SEO Google + lecture GEO pour ChatGPT. Méthode SAGEO, plan 30 jours, restitution d’environ 45 min. 390 € TTC jusqu’à 30 pages.",
     h1: "Audit SEO GEO : visibilité Google et ChatGPT",
     h1Highlight: "Google et ChatGPT",
     intro:
@@ -947,7 +947,7 @@ export const servicePages: ServicePageData[] = [
     image: "/image/card-cover/seo.jpeg",
     imageAlt:
       "Audit SEO GEO Kopio : analyse de visibilité Google et ChatGPT pour site vitrine",
-    offerPrice: "490",
+    offerPrice: "390",
     emotionalHero: {
       lede:
         "Être trouvée, retenue, citée. Un diagnostic clair pour prioriser ce qui compte vraiment.",
@@ -992,8 +992,8 @@ export const servicePages: ServicePageData[] = [
     },
     contentOrder: ["featureBand", "stages", "quiz", "sections", "pillars"],
     stages: {
-      h2: "Ce que contient l’audit à 490 € TTC (jusqu’à 30 pages)",
-      h2Highlight: "490 € TTC",
+      h2: "Ce que contient l’audit à 390 € TTC (jusqu’à 30 pages)",
+      h2Highlight: "390 € TTC",
       layout: "carousel",
       items: [
         {
@@ -1064,7 +1064,7 @@ export const servicePages: ServicePageData[] = [
       },
       {
         h2: "Un audit pensé pour les sites vitrines",
-        body: "Beaucoup d’audits SEO s’adressent à des catalogues, des boutiques ou des sites multi-équipes. Ici, le cadre est différent.\n\n**Un audit SEO et GEO pensé pour les sites vitrines, avec une méthode claire et des actions que vous pouvez réellement appliquer.** Jusqu’à 30 pages, plan 30 jours, restitution d’environ 45 minutes. Tarif : **490 € TTC** pour un site vitrine en France. Au-delà, on cadre le périmètre avant de démarrer.",
+        body: "Beaucoup d’audits SEO s’adressent à des catalogues, des boutiques ou des sites multi-équipes. Ici, le cadre est différent.\n\n**Un audit SEO et GEO pensé pour les sites vitrines, avec une méthode claire et des actions que vous pouvez réellement appliquer.** Jusqu’à 30 pages, plan 30 jours, restitution d’environ 45 minutes. Tarif : **390 € TTC** pour un site vitrine en France. Au-delà, on cadre le périmètre avant de démarrer.",
       },
       {
         h2: "Ce que je change après l’audit",
@@ -1100,7 +1100,7 @@ export const servicePages: ServicePageData[] = [
       title: "Prête pour un diagnostic clair ?",
       titleHighlight: "clair",
       lead:
-        "Audit SEO GEO pour site vitrine : 490 € TTC jusqu’à 30 pages, plan 30 jours, vidéo d’environ 45 min. Visio possible.",
+        "Audit SEO GEO pour site vitrine : 390 € TTC jusqu’à 30 pages, plan 30 jours, vidéo d’environ 45 min. Visio possible.",
       closing: "",
       primaryLabel: "Réserver mon audit",
       primaryHref: "/contact",
@@ -1111,7 +1111,7 @@ export const servicePages: ServicePageData[] = [
       {
         question: "Combien coûte un audit SEO GEO chez Kopio ?",
         answer:
-          "490 € TTC pour un site vitrine en France, jusqu’à 30 pages. Le tarif inclut Lighthouse, la structuration SEO des métadonnées, la lecture GEO, la synthèse SAGEO, un plan d’action sur 30 jours et une vidéo d’environ 45 minutes. Visio possible pour la restitution.",
+          "390 € TTC pour un site vitrine en France, jusqu’à 30 pages. Le tarif inclut Lighthouse, la structuration SEO des métadonnées, la lecture GEO, la synthèse SAGEO, un plan d’action sur 30 jours et une vidéo d’environ 45 minutes. Visio possible pour la restitution.",
       },
       {
         question: "Quels sont les livrables de l’audit ?",
@@ -1121,7 +1121,7 @@ export const servicePages: ServicePageData[] = [
       {
         question: "L’audit convient-il à un site vitrine d’indépendante ?",
         answer:
-          "Oui. L’offre à 490 € TTC couvre un site vitrine jusqu’à 30 pages. Au-delà (catalogue, boutique, multi-langues, plus de 30 pages), on cadre le périmètre avant de démarrer.",
+          "Oui. L’offre à 390 € TTC couvre un site vitrine jusqu’à 30 pages. Au-delà (catalogue, boutique, multi-langues, plus de 30 pages), on cadre le périmètre avant de démarrer.",
       },
       {
         question: "Quelle différence entre cet audit et le Test des 10 Secondes ?",
@@ -1149,15 +1149,13 @@ export const servicePages: ServicePageData[] = [
       "Refonte de site web : design, structure, SEO et visibilité. Un site plus clair, plus actuel, pensé pour vos clients, Google et les IA.",
     h1: "Votre site mérite une nouvelle dimension",
     h1Highlight: "nouvelle dimension",
-    intro:
-      "Un site qui reflète votre évolution. Clarifie votre message. Et révèle tout votre potentiel.",
+    intro: "",
     tldr:
       "Je repense la structure, les contenus et le design de votre site pour qu’il reflète votre activité actuelle, clarifie votre message et développe votre visibilité sur Google et auprès de vos futurs clients.",
     image: "/image/mockuppulse2.png",
     imageAlt: "Refonte de site web pour une professionnelle de l’accompagnement",
     emotionalHero: {
-      lede:
-        "Un site qui reflète votre évolution. Clarifie votre message. Et révèle tout votre potentiel.",
+      lede: "",
       primaryCta: { href: "/contact", label: "Refondre mon site" },
       secondaryCta: {
         href: "/sageo",

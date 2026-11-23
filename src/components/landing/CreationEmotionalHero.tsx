@@ -11,8 +11,8 @@ export type CreationEmotionalHeroProps = {
   breadcrumbs: Crumb[];
   title: string;
   highlight?: string;
-  /** H2 / lede sous le H1 */
-  lede: string;
+  /** H2 / lede sous le H1 (optionnel) */
+  lede?: string;
   /** Réponse directe extractible sous le H1 (sans label TL;DR) */
   directAnswer?: string;
   stack?: readonly string[];
@@ -76,7 +76,9 @@ export function CreationEmotionalHero({
               </p>
             ) : null}
 
-            <p className="hero-lede mx-auto m-0 max-w-2xl">{lede}</p>
+            {lede?.trim() ? (
+              <p className="hero-lede mx-auto m-0 max-w-2xl">{lede}</p>
+            ) : null}
 
             {stack.length > 0 ? (
               <p className="mt-1 sm:mt-2 text-[clamp(1.15rem,3.2vw,1.75rem)] font-extrabold tracking-[-0.03em] leading-[1.25] text-ink text-balance">

@@ -4,7 +4,7 @@ export const subscriptionMarketComparison = [
     label: "Mensualité annoncée",
     offerA: "49 € HT",
     offerB: "69 €*",
-    brand: "89 € TTC",
+    brand: "29 € HT",
     offerC: "95 € HT",
   },
   {
@@ -67,7 +67,7 @@ export const subscriptionMarketComparison = [
     label: "Engagement",
     offerA: "À vérifier",
     offerB: "Sans engagement",
-    brand: "24 mois",
+    brand: "12 mois conseillé",
     offerC: "12 mois",
   },
 ] as const;

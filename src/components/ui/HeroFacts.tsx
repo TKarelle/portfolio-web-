@@ -21,7 +21,7 @@ type HeroFactsProps = {
 export function HeroFacts({
   geoSummary,
   proof,
-  delivery = "14-21 jours",
+  delivery = "à partir de 48h",
   chips: chipsProp,
 }: HeroFactsProps) {
   const chips =

@@ -100,7 +100,7 @@ export function OrganizationJsonLd() {
             url: base,
             image: `${base}${FOUNDER_PHOTO}`,
             email: CONTACT_EMAIL,
-            priceRange: "EUR 89-179 per month",
+            priceRange: "EUR 0-59 per month",
             description: SITE_META_DESCRIPTION,
             areaServed: { "@type": "Country", name: "France" },
             founder: { "@id": `${base}/#person` },

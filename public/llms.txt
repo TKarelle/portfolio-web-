@@ -1,9 +1,9 @@
 # Kopio — llms.txt
 # Abonnement site web pour professionnelles de l'accompagnement en France
 # https://www.kopio.eu
-# Généré : 2026-11-20 via npm run sync:llms
+# Généré : 2026-11-23 via npm run sync:llms
 
-> Kopio crée et maintient le site internet des professionnelles de l'accompagnement (coachs, consultantes, thérapeutes, praticiennes…) en abonnement mensuel dès 89 €/mois. Conception, maintenance et évolution : vous validez, Karelle gère la technique.
+> Kopio crée et maintient le site internet des professionnelles de l'accompagnement (coachs, consultantes, thérapeutes, praticiennes…) : Découverte gratuite ou dès 29 € HT/mois. Conception, maintenance et évolution : vous validez, Karelle gère la technique.
 
 ## Pages principales
 
@@ -12,9 +12,9 @@
 - [SEO](https://www.kopio.eu/seo) : Visibilité Google, audit, structure, mots-clés
 - [GEO / IA](https://www.kopio.eu/geo) : Être cité par ChatGPT, Perplexity, Copilot, Aperçus IA
 - [SAGEO](https://www.kopio.eu/sageo) : Méthode Kopio SEO + GEO (trouvé puis cité)
-- [Audit SEO GEO](https://www.kopio.eu/audit) : Audit freelance France 490 € TTC, plan 30 jours, vidéo 45 min
+- [Audit SEO GEO](https://www.kopio.eu/audit) : Audit freelance France 390 € TTC, plan 30 jours, vidéo 45 min
 - [Refonte de site](https://www.kopio.eu/refonte-de-site-web) : Moderniser image, SEO, vitesse, clarté
-- [Tarifs](https://www.kopio.eu/tarifs) : 6 mois 179 €/mois, 12 mois 139 €/mois, 24 mois 89 €/mois ; Besoin précis sur devis
+- [Tarifs](https://www.kopio.eu/tarifs) : Découverte gratuite, Essentiel 29 € HT/mois, Visibilité 59 € HT/mois
 - [Projets](https://www.kopio.eu/projets) : Portfolio
 - [FAQ](https://www.kopio.eu/faq) : Questions fréquentes
 - [À propos](https://www.kopio.eu/a-propos) : Karelle, développeuse web derrière Kopio

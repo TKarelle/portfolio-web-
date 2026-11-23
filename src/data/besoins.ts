@@ -22,7 +22,7 @@ export interface BesoinPageData {
   sections: BesoinSection[];
   problems: string[];
   solutions: string[];
-  recommendedPlanId: "launch" | "pro" | "sur-mesure";
+  recommendedPlanId: "decouverte" | "essentiel" | "visibilite";
   closing: string;
   ctaLabel: string;
   image: string;
@@ -62,15 +62,15 @@ export const besoins: BesoinPageData[] = [
       },
       {
         h2: "Comment ça se passe si vous ne touchez à rien de technique ?",
-        body: "Un appel de lancement fixe votre offre, votre cible et le ton. Je propose une structure et un design personnalisé ; vous validez avant la mise en ligne. Hébergement, domaine, SSL et bases SEO sont inclus dans l'abonnement.\n\nLes ajustements (tarif, bio, ajout d'un service) passent ensuite par un message. Pour vous, ça veut dire un site joignable sans veille technique ni courbe d'apprentissage cachée derrière le « gratuit » d'un outil en autonomie.",
+        body: "Un appel de lancement fixe votre offre, votre cible et le ton. Je propose une structure et un design personnalisé ; vous validez avant la mise en ligne. Sur Essentiel et Visibilité, hébergement, domaine, SSL et SEO de base sont inclus.\n\nLes ajustements (tarif, bio, ajout d'un service) passent ensuite par un message. Pour vous, ça veut dire un site joignable sans veille technique ni courbe d'apprentissage cachée derrière le « gratuit » d'un outil en autonomie.",
       },
       {
         h2: "Que gérez-vous encore vous-même ?",
-        body: "Vous restez responsable du contenu métier : photos, preuves, formulations d'offre. Je vous aide à les structurer si les mots bloquent. Les changements courants partent par email ; je mets à jour sous 24 à 72 h.\n\nVous ne gérez pas les extensions, les sauvegardes ni les mises à jour de sécurité. Votre énergie reste sur votre métier ; le site suit. À la fin de votre engagement (6, 12 ou 24 mois), ou en rachat anticipé en soldant les mois restants, vous êtes propriétaire du site ; le domaine est à votre nom dès le premier jour.",
+        body: "Vous restez responsable du contenu métier : photos, preuves, formulations d'offre. Je vous aide à les structurer si les mots bloquent. Les changements courants partent par email ; je mets à jour sous 24 à 72 h.\n\nVous ne gérez pas les extensions, les sauvegardes ni les mises à jour de sécurité. Votre énergie reste sur votre métier ; le site suit. Sur Essentiel et Visibilité, le nom de domaine personnalisé, l’hébergement et la maintenance sont inclus. Les modalités de continuité sont précisées au contrat.",
       },
       {
         h2: "Quelle formule si vous démarrez sans compétences techniques ?",
-        body: "Trois durées, un même socle (jusqu'à 5 pages, réservation, atelier rédaction) : 89 €/mois sur 24 mois, 139 €/mois sur 12 mois, 179 €/mois sur 6 mois. Le SEO et le suivi analytics s'adaptent à la durée.\n\nVous choisissez selon votre trésorerie et votre horizon. Le détail et la propriété du site sont sur la page tarifs. Si vous hésitez, je vous propose de partir sur 24 mois et d'ajuster après les premiers mois, une fois le site en usage réel.",
+        body: "Trois formules : Découverte (gratuit), Essentiel (29 € HT/mois) et Visibilité (59 € HT/mois). Le niveau SEO, SAGEO et le blog s'adaptent à la formule.\n\nVous choisissez selon votre trésorerie et votre horizon. Le détail et la propriété du site sont sur la page tarifs. Si vous hésitez, je vous propose de partir sur Essentiel et d'ajuster après les premiers mois, une fois le site en usage réel.",
       },
     ],
     problems: [
@@ -83,7 +83,7 @@ export const besoins: BesoinPageData[] = [
       "Design personnalisé, mobile, RGPD inclus",
       "Mises à jour par email sous 24-72 h",
     ],
-    recommendedPlanId: "launch",
+    recommendedPlanId: "essentiel",
     closing:
       "Si vous voulez un site sans apprendre un outil d'édition, écrivez-moi votre activité ; je vous dirai si le cadre Kopio colle.",
     ctaLabel: "Faire le point ensemble",
@@ -116,7 +116,7 @@ export const besoins: BesoinPageData[] = [
       },
       {
         h2: "Que contient une vitrine utile pour une indépendante ?",
-        body: "Positionnement, services, quelques preuves (avis, cas, parcours), contact. Design personnalisé, mobile, bases SEO, mentions légales et hébergement inclus. Je construis autour de votre activité et de votre manière de parler.\n\nDélai typique : 21 jours après validation si les contenus arrivent à temps. Vous préparez textes et photos ; je livre une vitrine prête à envoyer. Les mises à jour courantes passent ensuite par email sous 24 à 72 h. Vous investissez du temps sur le fond métier, pas sur l'apprentissage d'un éditeur.",
+        body: "Positionnement, services, quelques preuves (avis, cas, parcours), contact. Sur Essentiel : design personnalisé, mobile, SEO de base, domaine et hébergement inclus. Découverte pose une page en design prédéfini. Je construis autour de votre activité et de votre manière de parler.\n\nDélai : à partir de 48h si les contenus arrivent à temps. Vous préparez textes et photos ; je livre une vitrine prête à envoyer. Sur les formules payantes, la maintenance reste possible ensuite. Vous investissez du temps sur le fond métier, pas sur l'apprentissage d'un éditeur.",
       },
       {
         h2: "Quand activer la réservation plutôt qu'une vitrine simple ?",
@@ -133,7 +133,7 @@ export const besoins: BesoinPageData[] = [
       "Offre, preuves, contact structurés",
       "Livraison en 21 jours",
     ],
-    recommendedPlanId: "launch",
+    recommendedPlanId: "essentiel",
     closing:
       "Une vitrine claire vous rend joignable sans usine à gaz. Si vous voulez lancer la vôtre, dites-moi ce que vous vendez et pour qui.",
     ctaLabel: "Faire le point ensemble",
@@ -170,7 +170,7 @@ export const besoins: BesoinPageData[] = [
       },
       {
         h2: "Que se passe-t-il après la mise en ligne du parcours ?",
-        body: "Vous m'écrivez pour ajuster créneaux, textes ou offres ; je mets à jour sous 24 à 72 h. Hébergement, SSL et bases SEO restent inclus. Le délai de livraison est de 21 jours après validation, contenus fournis.\n\nVous n'entretenez pas seule un outil de réservation ni un thème qui casse après une mise à jour. Si vous voulez comparer avec une vitrine seule, regardez aussi la page besoin site vitrine indépendante : le critère reste votre volume réel de demandes.",
+        body: "Sur Essentiel et Visibilité, vous m'écrivez pour ajuster créneaux, textes ou offres ; hébergement, SSL et SEO de base restent inclus. Le délai de livraison est à partir de 48h, contenus fournis.\n\nVous n'entretenez pas seule un outil de réservation ni un thème qui casse après une mise à jour. Si vous voulez comparer avec une vitrine seule, regardez aussi la page besoin site vitrine indépendante : le critère reste votre volume réel de demandes.",
       },
     ],
     problems: [
@@ -183,7 +183,7 @@ export const besoins: BesoinPageData[] = [
       "Agenda + confirmation sur votre marque",
       "Design aligné à votre activité",
     ],
-    recommendedPlanId: "pro",
+    recommendedPlanId: "essentiel",
     closing:
       "Si vos clientes réservent déjà (ou devraient), décrivez-moi votre flux actuel ; je vous dirai si le parcours a du sens.",
     ctaLabel: "Faire le point ensemble",
@@ -233,7 +233,7 @@ export const besoins: BesoinPageData[] = [
       "Paiement en ligne et confirmations",
       "Identité visuelle alignée à votre marque",
     ],
-    recommendedPlanId: "sur-mesure",
+    recommendedPlanId: "visibilite",
     closing:
       "Si vous voulez vendre en ligne sans porter toute la technique seule, Besoin précis part d'un devis clair. Envoyez-moi votre catalogue ou votre idée de gamme.",
     ctaLabel: "Faire le point ensemble",
@@ -270,7 +270,7 @@ export const besoins: BesoinPageData[] = [
       },
       {
         h2: "Que change concrètement une refonte chez Kopio ?",
-        body: "Design à jour, hiérarchie de l'offre, parcours contact ou réservation, bases SEO, mobile fluide, conformité. Les formules 6, 12 ou 24 mois s'adaptent selon que vous voulez surtout une vitrine rafraîchie ou un parcours plus travaillé.\n\nVous acceptez de retravailler les contenus avec moi, pas seulement de coller un habillage neuf sur d'anciens textes. Les mises à jour après livraison restent par email sous 24 à 72 h. Le détail est sur la page tarifs.",
+        body: "Design à jour, hiérarchie de l'offre, parcours contact ou réservation, SEO selon la formule, mobile fluide. Découverte (sans engagement) ou Essentiel / Visibilité (engagement 12 mois) s'adaptent selon que vous voulez une vitrine simple ou un parcours plus travaillé.\n\nVous acceptez de retravailler les contenus avec moi, pas seulement de coller un habillage neuf sur d'anciens textes. Les mises à jour après livraison restent par email sous 24 à 72 h. Le détail est sur la page tarifs.",
       },
       {
         h2: "Que devient votre site actuel pendant la transition ?",
@@ -287,7 +287,7 @@ export const besoins: BesoinPageData[] = [
       "Parcours contact ou réservation repensé",
       "Bases SEO, vitesse, RGPD",
     ],
-    recommendedPlanId: "pro",
+    recommendedPlanId: "essentiel",
     closing:
       "Si votre site ne reflète plus votre expertise, envoyez-moi l'URL ; je vous réponds sur le périmètre adapté.",
     ctaLabel: "Faire le point ensemble",
@@ -321,7 +321,7 @@ export const besoins: BesoinPageData[] = [
       },
       {
         h2: "Quelle formule pour une femme qui se lance ?",
-        body: "Trois durées, un même socle (jusqu'à 5 pages, réservation, atelier rédaction) : 89 €/mois sur 24 mois, 139 €/mois sur 12 mois, 179 €/mois sur 6 mois. Ce qui change selon la durée : le SEO et le suivi analytics.\n\nDans les faits, la majorité des femmes qui se lancent commencent sur 24 mois puis évoluent. Vous lissez la trésorerie pendant les premiers mois. Le détail des inclusions est sur la page tarifs.",
+        body: "Trois formules : Découverte (gratuit), Essentiel (29 € HT/mois) et Visibilité (59 € HT/mois). Ce qui change : le design, le blog, la SAGEO et le niveau SEO / GEO.\n\nDans les faits, la majorité des femmes qui se lancent commencent sur Essentiel puis évoluent vers Visibilité si besoin. Vous lissez la trésorerie pendant les premiers mois. Le détail des inclusions est sur la page tarifs.",
       },
       {
         h2: "En quoi est-ce différent d'une page de liens ou de LinkedIn ?",
@@ -336,9 +336,9 @@ export const besoins: BesoinPageData[] = [
     solutions: [
       "Site en 21 jours",
       "Vous validez ; je livre et je maintiens par email",
-      "Hébergement, domaine, bases SEO et RGPD inclus",
+      "Hébergement et domaine inclus dès Essentiel",
     ],
-    recommendedPlanId: "launch",
+    recommendedPlanId: "essentiel",
     closing:
       "Si vous vous lancez et que vous voulez une vitrine tenue sans apprendre la technique, écrivez-moi où vous en êtes ; je vous réponds sur le périmètre.",
     ctaLabel: "Faire le point ensemble",
@@ -371,11 +371,11 @@ export const besoins: BesoinPageData[] = [
       },
       {
         h2: "Quelle formule si votre temps est déjà saturé ?",
-        body: "89 €/mois (24 mois) convient si vous avez besoin d'une vitrine claire et d'un contact. 139 €/mois (12 mois) couvre plusieurs pages, SEO local et réservation avancée si vous vendez des créneaux.\n\nLe lancement reste court : un appel, puis des validations asynchrones. Vous n'enchaînez pas six ateliers. Vous recevez des propositions, vous validez, je produis. Préparer textes et photos en amont accélère la livraison sans monopoliser vos semaines.",
+        body: "Essentiel (29 € HT/mois) convient pour une vitrine jusqu'à 5 pages avec réservation. Visibilité (59 € HT/mois) ajoute blog autonome, pages de vente et SAGEO approfondie.\n\nLe lancement reste court : un appel, puis des validations asynchrones. Vous n'enchaînez pas six ateliers. Vous recevez des propositions, vous validez, je produis. Préparer textes et photos en amont accélère la livraison sans monopoliser vos semaines.",
       },
       {
         h2: "Comment concilier site pro et emploi du temps parental ?",
-        body: "Le site ne doit pas dépendre de vos créneaux libres le soir. Les modifications passent par email ; vous n'ouvrez pas d'éditeur. Les bases SEO et le mobile sont posés dès la livraison pour que votre URL travaille aussi quand vous êtes offline.\n\nConcrètement, vous investissez dans un outil qui tourne sans vous. Les réseaux restent optionnels pour la découverte ; le site porte l'offre stable.",
+        body: "Le site ne doit pas dépendre de vos créneaux libres le soir. Les modifications passent par email ; vous n'ouvrez pas d'éditeur. Dès Essentiel, le SEO de base et le mobile sont posés dès la livraison pour que votre URL travaille aussi quand vous êtes offline.\n\nConcrètement, vous investissez dans un outil qui tourne sans vous. Les réseaux restent optionnels pour la découverte ; le site porte l'offre stable.",
       },
     ],
     problems: [
@@ -388,7 +388,7 @@ export const besoins: BesoinPageData[] = [
       "Une seule interlocutrice, pas de tickets d'agence",
       "Formule selon votre stade (détail sur tarifs)",
     ],
-    recommendedPlanId: "launch",
+    recommendedPlanId: "essentiel",
     closing:
       "Si vous êtes maman freelance et que vous voulez un site tenu sans absorber la technique, écrivez-moi. Je vous dirai quelle durée colle à votre rythme.",
     ctaLabel: "Faire le point ensemble",

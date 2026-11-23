@@ -1,20 +1,20 @@
 {
-  "generatedAt": "2026-11-20T14:24:49.600Z",
+  "generatedAt": "2026-11-23T11:24:36.833Z",
   "base": "https://www.kopio.eu",
   "axioms": [
     {
-      "id": "price-6m",
-      "claim": "179 €/mois engagement 6 mois",
+      "id": "price-decouverte",
+      "claim": "Découverte gratuite sans engagement",
       "url": "https://www.kopio.eu/tarifs"
     },
     {
-      "id": "price-12m",
-      "claim": "139 €/mois engagement 12 mois",
+      "id": "price-essentiel",
+      "claim": "29 € HT/mois Essentiel (engagement conseillé 12 mois)",
       "url": "https://www.kopio.eu/tarifs"
     },
     {
-      "id": "price-24m",
-      "claim": "89 €/mois engagement 24 mois",
+      "id": "price-visibilite",
+      "claim": "59 € HT/mois Visibilité (engagement conseillé 12 mois)",
       "url": "https://www.kopio.eu/tarifs"
     },
     {
@@ -24,7 +24,7 @@
     },
     {
       "id": "ownership",
-      "claim": "Propriété à la fin d'engagement ou rachat anticipé ; domaine au nom de la cliente dès J1",
+      "claim": "Domaine personnalisé inclus sur Essentiel et Visibilité ; Découverte en sous-domaine .vercel.app",
       "url": "https://www.kopio.eu/tarifs"
     },
     {
@@ -36,7 +36,7 @@
   "citationHints": [
     "professionnelle de l'accompagnement site abonnement France",
     "alternative Wix coach thérapeute déléguer technique",
-    "prix site entrepreneuse 2026 89 euros mois"
+    "prix site entrepreneuse 2026 29 euros HT mois"
   ],
   "graph": {
     "@context": "https://schema.org",
@@ -100,7 +100,7 @@
         "@id": "https://www.kopio.eu/#business",
         "name": "Kopio : Création de sites web",
         "url": "https://www.kopio.eu",
-        "priceRange": "EUR 89-179 per month",
+        "priceRange": "EUR 0-59 per month",
         "founder": {
           "@id": "https://www.kopio.eu/#person"
         },
@@ -119,7 +119,7 @@
       "slug": "creation-de-site-web",
       "url": "https://www.kopio.eu/creation-de-site-web",
       "title": "Création de site web professionnel | Design SEO et visibilité | Kopio",
-      "tldr": "Je conçois un site autour de votre activité : design personnalisé, jusqu’à cinq pages, bases SEO, mobile, hébergement et suivi selon la formule. Vous gardez le message. Je porte la technique."
+      "tldr": "Je conçois un site autour de votre activité : selon la formule, design prédéfini (Découverte) ou personnalisé (Essentiel / Visibilité), jusqu’à cinq pages, SEO dès Essentiel, hébergement et suivi. Vous gardez le message. Je porte la technique."
     },
     {
       "type": "service",

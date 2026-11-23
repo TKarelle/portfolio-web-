@@ -2,6 +2,8 @@
 export const CTA = {
   primary: "Faire le point ensemble",
   secondary: "Découvrir la méthode SAGEO",
+  /** Bannière / offre Découverte (jusqu’au 1er jan. 2027) */
+  freeSite: "Obtenir mon site gratuit",
   plan: "Choisir cette formule",
   planDiscuss: "En discuter avec Karelle",
   nav: "En parler avec Karelle",

@@ -38,7 +38,7 @@ const choices = [
     href: "/audit",
     need: "Je veux un diagnostic clair avant d’investir",
     service: "Audit SEO GEO",
-    text: "Lighthouse, SEO, GEO, synthèse SAGEO, plan 30 jours et vidéo : 490 € TTC.",
+    text: "Lighthouse, SEO, GEO, synthèse SAGEO, plan 30 jours et vidéo : 390 € TTC.",
   },
   {
     href: "/seo",

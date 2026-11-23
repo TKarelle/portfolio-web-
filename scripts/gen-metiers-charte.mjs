@@ -5,7 +5,7 @@
 import fs from "node:fs";
 
 const FAQ_PRICE =
-  "Trois durées, un même socle (jusqu'à 5 pages, réservation, atelier rédaction) : 89 €/mois sur 24 mois, 139 €/mois sur 12 mois, 179 €/mois sur 6 mois. Le détail et la propriété du site sont sur la page tarifs.";
+  "Trois formules : Découverte (gratuit, une page), Essentiel (29 € HT/mois, jusqu'à 5 pages, réservation, SEO de base) et Visibilité (59 € HT/mois, blog autonome, SAGEO approfondie). Le détail est sur la page tarifs.";
 
 const FAQ_EVOLVE =
   "Oui. Vous m'envoyez la modification par email ; je mets à jour sous 24 à 72 h. Aucun outil à apprendre. Les évolutions plus larges se discutent avant de toucher à la structure.";
@@ -116,7 +116,7 @@ const specs = [
       },
     ],
     closing: "Si vous souhaitez clarifier la façon dont votre expertise de coach apparaît en ligne, écrivez-moi. Réponse sous 48 h ouvrées.",
-    recommendedPlanId: "launch",
+    recommendedPlanId: "essentiel",
     relatedBesoinSlug: "site-vitrine-independante",
     relatedBesoinLabel: "site vitrine d'indépendante",
     image: "/image/independant.jpg",
@@ -182,7 +182,7 @@ const specs = [
     caseStudyId: "pulse",
     caseStudyHeading: "Exemple concret : PULSE",
     closing: "Si vous voulez un site à la hauteur de votre pratique, loin du modèle wellness générique, écrivez-moi.",
-    recommendedPlanId: "launch",
+    recommendedPlanId: "essentiel",
     relatedBesoinSlug: "site-avec-reservation-en-ligne",
     relatedBesoinLabel: "site avec réservation en ligne",
     image: "/image/pulse.jpg",
@@ -246,7 +246,7 @@ const specs = [
       },
     ],
     closing: "Si vous voulez une page d'offre digne de vos missions, écrivez-moi : je clarifie avec vous votre positionnement et le parcours de contact.",
-    recommendedPlanId: "launch",
+    recommendedPlanId: "essentiel",
     relatedBesoinSlug: "site-vitrine-independante",
     relatedBesoinLabel: "site vitrine d'indépendante",
     image: "/image/pulse.jpg",
@@ -310,7 +310,7 @@ const specs = [
       },
     ],
     closing: "Si vous voulez une page digne de vos missions d'assistante, écrivez-moi : je clarifie avec vous vos packages et le parcours de contact.",
-    recommendedPlanId: "launch",
+    recommendedPlanId: "essentiel",
     relatedBesoinSlug: "site-vitrine-independante",
     relatedBesoinLabel: "site vitrine d'indépendante",
     image: "/image/independant.jpg",
@@ -374,7 +374,7 @@ const specs = [
       },
     ],
     closing: "Si vous voulez un site aligné avec votre cadre thérapeutique, écrivez-moi : je pars de votre pratique et de votre parcours de contact.",
-    recommendedPlanId: "launch",
+    recommendedPlanId: "essentiel",
     relatedBesoinSlug: "site-avec-reservation-en-ligne",
     relatedBesoinLabel: "site avec réservation en ligne",
     image: "/image/yoga.jpg",
@@ -438,7 +438,7 @@ const specs = [
       },
     ],
     closing: "Si vous voulez un site qui pose clairement votre pratique de sophrologie, écrivez-moi.",
-    recommendedPlanId: "pro",
+    recommendedPlanId: "essentiel",
     relatedBesoinSlug: "site-avec-reservation-en-ligne",
     relatedBesoinLabel: "site avec réservation en ligne",
     image: "/image/pulse.jpg",
@@ -502,7 +502,7 @@ const specs = [
       },
     ],
     closing: "Si vous voulez un site qui pose clairement votre pratique de naturopathie, écrivez-moi.",
-    recommendedPlanId: "pro",
+    recommendedPlanId: "essentiel",
     relatedBesoinSlug: "site-avec-reservation-en-ligne",
     relatedBesoinLabel: "site avec réservation en ligne",
     image: "/image/pulse.jpg",
@@ -566,7 +566,7 @@ const specs = [
       },
     ],
     closing: "Si vous voulez une vitrine claire pour vos programmes, écrivez-moi.",
-    recommendedPlanId: "pro",
+    recommendedPlanId: "essentiel",
     relatedBesoinSlug: "creer-son-site-sans-competences-techniques",
     relatedBesoinLabel: "créer son site sans compétences techniques",
     image: "/image/independant.jpg",
@@ -632,7 +632,7 @@ const specs = [
     caseStudyId: "madeleine-fragrance",
     caseStudyHeading: "Exemple concret : Madeleine Fragrance",
     closing: "Si vous voulez une vitrine à la hauteur de votre univers, écrivez-moi.",
-    recommendedPlanId: "pro",
+    recommendedPlanId: "essentiel",
     relatedBesoinSlug: "boutique-en-ligne-petite-entreprise",
     relatedBesoinLabel: "boutique en ligne",
     image: "/image/madeleine.jpg",
@@ -698,7 +698,7 @@ const specs = [
     caseStudyId: "coiffure-luna",
     caseStudyHeading: "Exemple concret : Luna",
     closing: "Si vous voulez une carte de soins claire et une réservation simple, écrivez-moi.",
-    recommendedPlanId: "pro",
+    recommendedPlanId: "essentiel",
     relatedBesoinSlug: "site-avec-reservation-en-ligne",
     relatedBesoinLabel: "site avec réservation en ligne",
     image: "/image/coiffure.jpg",
@@ -764,7 +764,7 @@ const specs = [
     caseStudyId: "photographe-iris",
     caseStudyHeading: "Exemple concret : Iris",
     closing: "Si vous voulez un portfolio clair qui génère des devis plus nets, écrivez-moi.",
-    recommendedPlanId: "pro",
+    recommendedPlanId: "essentiel",
     relatedBesoinSlug: "site-vitrine-independante",
     relatedBesoinLabel: "site vitrine d'indépendante",
     image: "/image/photographe.jpg",
@@ -830,7 +830,7 @@ const specs = [
     caseStudyId: "pulse",
     caseStudyHeading: "Exemple concret : PULSE",
     closing: "Si vous voulez un portfolio éditorial qui génère des demandes plus nettes, écrivez-moi.",
-    recommendedPlanId: "pro",
+    recommendedPlanId: "essentiel",
     relatedBesoinSlug: "refonte-site-internet-entrepreneure",
     relatedBesoinLabel: "refonte de site",
     image: "/image/independant.jpg",
@@ -894,7 +894,7 @@ const specs = [
       },
     ],
     closing: "Si vous voulez un site qui fait sentir votre univers et clarifie vos formules, écrivez-moi.",
-    recommendedPlanId: "pro",
+    recommendedPlanId: "essentiel",
     relatedBesoinSlug: "site-vitrine-independante",
     relatedBesoinLabel: "site vitrine d'indépendante",
     image: "/image/independant.jpg",
@@ -957,7 +957,7 @@ export interface MetierPage {
  priceTitle: string;
  caseStudyId?: string;
  caseStudyHeading?: string;
- recommendedPlanId: "launch" | "pro" | "sur-mesure";
+ recommendedPlanId: "decouverte" | "essentiel" | "visibilite";
  relatedBesoinSlug: string;
  relatedBesoinLabel: string;
  closing: string;

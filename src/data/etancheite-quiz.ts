@@ -142,7 +142,7 @@ export const QUIZ_FAQS = [
   {
     question: "Que faire après le résultat ?",
     answer:
-      "Vous gardez le diagnostic. Si vous voulez que je corrige ce qui freine encore, les formules Kopio démarrent à 89 €/mois : hébergement et évolutions inclus.",
+      "Vous gardez le diagnostic. Si vous voulez que je corrige ce qui freine encore, les formules Kopio démarrent à 29 € HT/mois : hébergement et évolutions inclus.",
   },
 ] as const;
 

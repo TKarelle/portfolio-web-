@@ -37,7 +37,7 @@ export function MarketOffersComparisonTable() {
             Comparatif de quatre offres de création de site par abonnement
             (prestataires anonymisés) : mensualité, création, maintenance,
             textes, SEO, GEO, analyse de visibilité, design et engagement. La
-            colonne {BRAND_NAME} Rayonnement est mise en avant.
+            colonne {BRAND_NAME} Essentiel est mise en avant.
           </caption>
           <thead>
             <tr>
@@ -72,7 +72,7 @@ export function MarketOffersComparisonTable() {
                   <span className="text-lime leading-tight text-center">
                     {BRAND_NAME}
                     <span className="block text-[0.7rem] sm:text-xs font-bold text-white/80">
-                      Rayonnement
+                      Essentiel
                     </span>
                   </span>
                 </div>
