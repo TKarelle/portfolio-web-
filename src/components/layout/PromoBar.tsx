@@ -74,7 +74,6 @@ export function PromoBar() {
           <span className="hidden md:inline">
             Site vitrine d’une page{" "}
             <span className="font-extrabold text-lime">offert</span>
-            {" — "}posez votre présence maintenant
           </span>
           <span className="hidden sm:inline md:hidden">
             Site vitrine{" "}
