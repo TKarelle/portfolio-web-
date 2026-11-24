@@ -13,8 +13,6 @@ import {
 import { cn } from "@/lib/utils";
 import { BRAND_LOGO } from "@/data/site";
 import { CTA } from "@/data/copy";
-import { EBOOK_META } from "@/data/ebook-coach";
-import { QUIZ_META } from "@/data/etancheite-quiz";
 import {
   NAV_SERVICE_GROUPS,
   NAV_SERVICE_LINKS,
@@ -102,9 +100,6 @@ export function Navbar() {
     };
   }, [servicesOpen]);
 
-  const showPromo =
-    pathname !== QUIZ_META.path && pathname !== EBOOK_META.path;
-
   return (
     <>
       <div
@@ -119,11 +114,10 @@ export function Navbar() {
         onClick={() => setOpen(false)}
       />
 
-      {showPromo ? (
-        <div className="fixed top-0 left-0 right-0 z-50 pt-[env(safe-area-inset-top)]">
-          <PromoBar />
-        </div>
-      ) : null}
+      {/* Bannière offre — toutes les pages, au-dessus du hero sticky */}
+      <div className="fixed top-0 left-0 right-0 z-[60] pt-[env(safe-area-inset-top)]">
+        <PromoBar />
+      </div>
 
       {/*
         Comme avant la barre quiz : left-0 sans right → largeur = contenu.
@@ -131,12 +125,7 @@ export function Navbar() {
         Décalage promo uniquement via padding-top.
       */}
       <header
-        className={cn(
-          "fixed top-0 left-0 z-50 px-4 w-max max-w-[calc(100%-2rem)]",
-          showPromo
-            ? "pt-[calc(env(safe-area-inset-top)+2.25rem)]"
-            : "pt-[max(1rem,env(safe-area-inset-top))]",
-        )}
+        className="fixed top-0 left-0 z-50 px-4 w-max max-w-[calc(100%-2rem)] pt-[calc(env(safe-area-inset-top)+2rem)]"
       >
         <nav
           aria-label="Navigation principale"
